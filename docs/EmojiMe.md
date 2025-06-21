@@ -74,6 +74,7 @@ Use this emoji guide to annotate project plans, system designs, and code documen
 | 🧭🦑   | Direction / strategy |
 | 🧵🦑   | Thread / flow |
 | ➡️     | Next step |
+| 🔜     | Next step |
 | 🔙     | Previous step |
 | 🪝     | Hook / event handler |
 | 🧰     | DevOps / admin tools |

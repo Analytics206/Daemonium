@@ -1,4 +1,5 @@
-# 🧠 Daemonium Conversational Philosophy AI App — Planning Summary
+# 🧠 Daemonium 
+# Conversational Philosophy AI App — Planning Summary
 
 ## 🧠 Core Concept
 An AI-powered app that enables users to have dynamic, interactive conversations with philosophers — either individually, by theme, or in multi-perspective debates. The goal is to teach philosophy through dialogue rather than didactic explanation.
