@@ -1,0 +1,2 @@
+# Daemonium Data Schema
+
