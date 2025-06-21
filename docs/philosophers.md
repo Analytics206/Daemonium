@@ -70,67 +70,68 @@
 34. Gottlob Frege
 35. Sigmund Freud
 36. Edmund Gettier
-37. Jurgen Habermas
-38. Georg Wilhelm Friedrich Hegel
-39. Martin Heidegger
-40. Heraclitus
-41. Thomas Hobbes
-42. David Hume
-43. Edmund Husserl
-44. William James
-45. Immanuel Kant
-46. Soren Kierkegaard
-47. Saul Kripke
-48. Thomas Kuhn
-49. Gottfried Leibniz
-50. Claude Lévi-Strauss
-51. John Locke
-52. Niccolo Machiavelli
-53. Karl Marx
-54. John McDowell 
-55. John Stuart Mill
-56. Thomas More
-57. George Edward Moore
-58. Thomas Nagel
-59. Friedrich Nietzsche
-60. Robert Nozick
-61. Martha Nussbaum
-62. Parmenides
-63. Blaise Pascal
-64. Patanjali 
-65. Charles Sanders Peirce
-66. Plato
-67. Plotinus
-68. Maurice Merleau-Ponty
-69. Pythagoras
-70. Karl Popper
-71. Willard Van Orman Quine
-72. John Rawls
-73. Richard Rorty
-74. Jean-Jacques Rousseau
-75. Bertrand Russell
-76. George Santayana
-77. John-Paul Sartre
-78. Friedrich Schelling
-79. Arthur Schopenhauer
-80. Seneca the Younger
-81. Peter Singer
-82. Socrates
-83. Benedictus de Spinoza
-84. Herbert Spencer
-85. Thales of Miletus
-86. Judith Jarvis Thomson
-87. Lao Tzu
-88. Voltaire
-89. Simone Weil
-90. Cornel West
-91. Alfred North Whitehead
-92. Ludwig Wittgenstein
-93. Mary Wollstonecraft
-94. Zeno of Citium
-95. Zeno of Elea
-96. Zhuangzi
-97. Zhuang Zhou
-98. Slavoj Žižek 
+37. Johann Wolfgang von Goethe
+38. Jurgen Habermas
+39. Georg Wilhelm Friedrich Hegel
+40. Martin Heidegger
+41. Heraclitus
+42. Thomas Hobbes
+43. David Hume
+44. Edmund Husserl
+45. William James
+46. Immanuel Kant
+47. Soren Kierkegaard
+48. Saul Kripke
+49. Thomas Kuhn
+50. Gottfried Leibniz
+51. Claude Lévi-Strauss
+52. John Locke
+53. Niccolo Machiavelli
+54. Karl Marx
+55. John McDowell 
+56. John Stuart Mill
+57. Thomas More
+58. George Edward Moore
+59. Thomas Nagel
+60. Friedrich Nietzsche
+61. Robert Nozick
+62. Martha Nussbaum
+63. Parmenides
+64. Blaise Pascal
+65. Patanjali 
+66. Charles Sanders Peirce
+67. Plato
+68. Plotinus
+69. Maurice Merleau-Ponty
+70. Pythagoras
+71. Karl Popper
+72. Willard Van Orman Quine
+73. John Rawls
+74. Richard Rorty
+75. Jean-Jacques Rousseau
+76. Bertrand Russell
+77. George Santayana
+78. John-Paul Sartre
+79. Friedrich Schelling
+80. Arthur Schopenhauer
+81. Seneca the Younger
+82. Peter Singer
+83. Socrates
+84. Benedictus de Spinoza
+85. Herbert Spencer
+86. Thales of Miletus
+87. Judith Jarvis Thomson
+88. Lao Tzu
+89. Voltaire
+90. Simone Weil
+91. Cornel West
+92. Alfred North Whitehead
+93. Ludwig Wittgenstein
+94. Mary Wollstonecraft
+95. Zeno of Citium
+96. Zeno of Elea
+97. Zhuangzi
+98. Zhuang Zhou
+99. Slavoj Žižek 
 
 
