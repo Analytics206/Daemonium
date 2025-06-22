@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  # MongoDB service
+  mongodb:
+    image: mongo:latest
+    container_name: daemonium-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-ch@ng3m300}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - daemonium-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+  
+  # PostgreSQL service
+  postgresql:
+    image: postgres:latest
+    container_name: daemonium-postgresql
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ch@ng3m300}
+      POSTGRES_DB: ${POSTGRES_DB:-daemonium}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    networks:
+      - daemonium-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+  
+  # Qdrant vector database service
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: daemonium-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333" # REST API
+      - "6334:6334" # GRPC API
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks:
+      - daemonium-network
+    environment:
+      QDRANT_ALLOW_RECOVERY_MODE: "true"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+# Docker volumes for data persistence
+volumes:
+  mongodb_data:
+    name: daemonium-mongodb-data
+  postgresql_data:
+    name: daemonium-postgresql-data
+  qdrant_data:
+    name: daemonium-qdrant-data
+
+# Network configuration
+networks:
+  daemonium-network:
+    name: daemonium-network
+    driver: bridge
