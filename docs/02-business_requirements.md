@@ -27,6 +27,16 @@
 | BRD-09 | In-app philosophical dictionary powered by open-access sources                      | LRN-01                          |
 | BRD-10 | Save conversation history and log philosophical leaning development                 | UX-01 to UX-02                  |
 | BRD-11 | Local-friendly UI with possible PWA front-end for seamless user experience          | UI-01                           |
+| BRD-12 | Configurable LLM integration with support for both Ollama (local) and ChatGPT (cloud) | AI-03                           |
+| BRD-13 | Configurable TTS integration with support for both local models and ElevenLabs      | VOICE-02                        |
+| BRD-14 | Configurable ASR integration with support for both local models and OpenAI          | VOICE-03                        |
+| BRD-15 | Modern, minimalistic web UI that mimics the look and feel of ChatGPT                | UI-02                           |
+| BRD-16 | Responsive and mobile-friendly website design                                      | UI-03                           |
+| BRD-17 | Design architecture that considers future Android and iOS app development           | UI-04                           |
+| BRD-18 | Support for both text chat with text response and speech-to-text/text-to-speech    | INT-04                          |
+| BRD-19 | Feature to save philosophical learning development                                  | LRN-02                          |
+| BRD-20 | Feature to save philosophical dictionary                                           | LRN-03                          |
+| BRD-21 | Knowledge learning test/quiz functionality                                         | LRN-04                          |
 
 ## 4. Constraints
 - Must prioritize open-access and public domain sources for content
