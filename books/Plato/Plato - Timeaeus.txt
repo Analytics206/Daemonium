@@ -1,5 +1,3 @@
-
-
 Title: Timaeus
 
 Author: Plato
@@ -11,19 +9,13 @@ Release date: December 1, 1998 [eBook #1572]
 
 Language: English
 
-Credits: Sue Asscher and David Widger
-
-
-*** START OF THE PROJECT GUTENBERG EBOOK TIMAEUS ***
-
-
+*** START OF THE EBOOK TIMAEUS ***
 
       TIMAEUS
 
       by Plato
 
       Translated by Benjamin Jowett
-
 
       Contents
 
@@ -38,9 +30,6 @@ Credits: Sue Asscher and David Widger
  Section 8.
 
  TIMAEUS
-
-
-
 
       INTRODUCTION AND ANALYSIS.
 
