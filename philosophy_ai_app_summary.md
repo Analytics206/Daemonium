@@ -19,7 +19,7 @@ An AI-powered app that enables users to have dynamic, interactive conversations 
 ### 1. **Modes of Interaction**
 - **By Philosopher**: Converse with a historical thinker (e.g., Nietzsche, Plato)
 - **By Theme**: Explore topics like Free Will, Justice, Meaning of Life
-- **Two-Philosopher Dialogues**: Moderated debates between conflicting viewpoints
+- **Multi-Philosopher Dialogues**: Moderated and interact with debates between conflicting viewpoints
 
 ### 2. **Philosophical Profiles**
 Each philosopher includes:
@@ -55,6 +55,7 @@ Each philosopher includes:
 - Contradiction / Link
 
 ### 2. **Database Model**
+- **Relational DB (PostgreSQL)**: To store and query relationships among concepts, themes, and philosophers
 - **Graph DB (Neo4j)**: To store and query relationships among concepts, themes, and philosophers
 - **Vector DB (Qdrant)**: For semantic search of idea chunks and conversational grounding
 
