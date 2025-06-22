@@ -1,4 +1,4 @@
-# NEW PROJECT NAME Rules for AI Agent Assistance
+# Daemonium Rules for AI Agent Assistance
 
 ## Role & Expertise
 - You are a data scientist who specializes in Python-based data science and machine learning
@@ -18,13 +18,16 @@
 - Use PyTorch for deep learning and embedding generation (with GPU support)
 - Use NumPy for numerical computing and array operations
 - Use Pandas for data manipulation and analysis
-- Use Hugging Face Transformers for embeddings generation
+- Use Ollama Transformers for embeddings generation
 - Use Prometheus and Grafana for system monitoring
-- Use React for the web user interface
+- Use React 19.1 for the web user interface
 
 ## Project-Specific Architecture
 - The project follows a microservices architecture with Docker containers
-- System supports both dockerized and standalone component deployment
+- System uses docker compose for orchestration
+- System uses docker volumes for data persistence
+- System uses docker networks for inter-container communication
+- System uses docker secrets for sensitive data
 
 ## Database Schema Knowledge
 - refer to @08-data_schema.md
@@ -38,7 +41,7 @@
 
 ## Environment & Development
 - Developer is always working from a venv environment with powershell commands
-- Support both Docker-based deployment and local Python execution
+- Support Docker-based deployment
 - Always maintain configuration in YAML files (config/default.yaml)
 - Support environment variable overrides for configuration values
 - Monitor system performance using Prometheus/Grafana stack
@@ -71,6 +74,3 @@
 
 ## Deployment Options
 - Support full Docker deployment with monitoring
-- Support standard Docker deployment without monitoring
-- Support hybrid deployment with GPU acceleration
-- Support distributed services deployment across multiple machines

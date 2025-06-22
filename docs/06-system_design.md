@@ -28,16 +28,15 @@ Unlike the Business Requirements Document (BRD) and Product Requirements Documen
 
 | Feature | Description | Implementation Date |
 |---------|-------------|---------------------|
-| Category-Based PDF Storage | PDFs are automatically organized in subdirectories by primary arXiv category | May 3, 2025 |
-
+| Category-Based Book Storage | Books are automatically organized in subdirectories by primary arXiv category | May 3, 2025 |
 
 ### Database Integration
 
 | Feature | Description | Implementation Date |
 |---------|-------------|---------------------|
-| MongoDB Storage | Paper metadata stored in MongoDB | Initial |
-| Neo4j Graph Database | Paper relationships represented in Neo4j | Initial |
-| Qdrant Vector Database | Paper content vectorized and stored in Qdrant | Initial |
+| MongoDB Storage | Book metadata stored in MongoDB | Initial |
+| Neo4j Graph Database | Book relationships represented in Neo4j | Initial |
+| Qdrant Vector Database | Book content vectorized and stored in Qdrant | Initial |
 
 ### System Monitoring
 
@@ -83,7 +82,7 @@ The system supports both direct script execution and module-based execution patt
 - Inter-service communication via Docker network
 - Configuration mounted from host to containers
 
-### PDF Processing Flow
+### Book Processing Flow
 
 1. 
 ## Monitoring Architecture
@@ -113,7 +112,7 @@ The monitoring system follows a sidecar pattern with the following components:
 - Asynchronous processing pipeline
 - Event-driven architecture for better component decoupling
 - Improved error handling and retry mechanisms
-- Performance optimization for large-scale paper collections
+- Performance optimization for large-scale book collections
 - Automated alerts based on monitoring thresholds
 
 ---

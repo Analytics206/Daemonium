@@ -27,11 +27,7 @@ The Daemonium is built on a microservices architecture using Docker containers w
 - **Git**: Version control system
 
 ### Messaging System
-- **Apache Kafka**: Distributed event streaming platform for high-throughput, fault-tolerant messaging
-- **Confluent Platform**: Enterprise-ready distribution of Kafka
-- **Zookeeper**: Coordinates the Kafka cluster
-- **Confluent Kafka Python Client**: Python client library for producer/consumer interactions
-- **Kafka UI**: Web interface for Kafka cluster management and monitoring (provectuslabs/kafka-ui)
+- **
 
 ### Monitoring & Observability
 - **Prometheus**: Time series database for metrics collection and storage
@@ -78,7 +74,7 @@ The Daemonium is built on a microservices architecture using Docker containers w
     - Docker container: Standard deployment within main pipeline
     - External Docker: Standalone deployment on separate machine with model management
 - **Qdrant**: Vector database for similarity search
-  - Collections: paper_embeddings
+  - Collections: book_embeddings
   - Storage of metadata with vectors
   - Deployment options:
     - Docker container: Standard deployment
@@ -101,10 +97,7 @@ The Daemonium is built on a microservices architecture using Docker containers w
 - **Logging**: Standard Python logging
 
 ## API Integrations
-- **ArXiv.org API**: `http://export.arxiv.org/api/query`
-  - Categories: cs.AI, cs.LG, cs.CV, etc.
-  - Sort options: submittedDate
-  - Result limits: Configurable
+- **
 
 ## Development Tools
 - **Python Virtual Environment**: Isolated dependency management
@@ -237,33 +230,29 @@ The system supports four deployment architectures:
 ## Database Schema
 
 ### MongoDB Collections
-- **papers**: Research paper metadata
-  - id: 
-- **vector_processed_pdfs**: PDF processing tracking for Qdrant vector storage
-  - file_id: 
+- **books**: Research paper metadata
+  - 
+- **vector_processed_books**: book processing tracking for Qdrant vector storage
+  - 
 
 ### Neo4j Graph Model
 - **Nodes**:
-  - :Paper (id, title, summary, published, pdf_url)
+  - 
 - **Relationships**:
-  - (:Author)-[:AUTHORED]->(:Paper)
-  - (:Paper)-[:BELONGS_TO]->(:Category)
+  - 
 
 ### Qdrant Collections
-- **paper_embeddings** (arxiv_papers):
+- **book_embeddings** ():
   - Vector dimension: Model-dependent (768 default)
-  - Metadata: paper_id, title
-  - Distance metric: Cosine similarity
+  - 
 
-- **papers_summary**:
+- **book_embeddings** (books):
   - Vector dimension: Model-dependent (768 default)
-  - Metadata: paper_id, title, category, published date, summary_length
-  - Distance metric: Cosine similarity
-  - Source: Paper summary/abstract from MongoDB
+  - 
+  - Source: Book summary/abstract from MongoDB
   - Tracking: summary_processed_papers collection in MongoDB
 
 ## Security Considerations
-- Local-first architecture minimizes external dependencies
 - Docker isolation for service components
 - No exposed credentials in code
 - Grafana access protected by authentication
