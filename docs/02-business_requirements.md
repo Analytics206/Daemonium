@@ -35,8 +35,9 @@
 | BRD-17 | Design architecture that considers future Android and iOS app development           | UI-04                           |
 | BRD-18 | Support for both text chat with text response and speech-to-text/text-to-speech    | INT-04                          |
 | BRD-19 | Feature to save philosophical learning development                                  | LRN-02                          |
-| BRD-20 | Feature to save philosophical dictionary                                           | LRN-03                          |
 | BRD-21 | Knowledge learning test/quiz functionality                                         | LRN-04                          |
+| BRD-22 | Secure authentication system supporting Google and custom email/password login      | AUTH-01                         |
+| BRD-23 | Subscription model with tiered access levels and payment processing                  | SUB-01                          |
 
 ## 4. Constraints
 - Must prioritize open-access and public domain sources for content

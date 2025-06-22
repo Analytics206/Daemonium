@@ -48,6 +48,26 @@
 - **UI-02**: System shall implement a modern, minimalistic web UI that mimics the look and feel of ChatGPT
 - **UI-03**: System shall be responsive and mobile-friendly
 - **UI-04**: System shall be designed with architecture that considers future Android and iOS app development
+
+### 3.9 Authentication (AUTH)
+- **AUTH-01**: System shall support secure authentication using Google OAuth 2.0
+- **AUTH-02**: System shall provide email/password based authentication with secure password hashing
+- **AUTH-03**: System shall implement JWT (JSON Web Tokens) for session management
+- **AUTH-04**: System shall enforce password complexity requirements
+- **AUTH-05**: System shall provide password reset functionality via email
+- **AUTH-06**: System shall implement rate limiting on authentication endpoints
+- **AUTH-07**: System shall log all authentication attempts
+- **AUTH-08**: System shall support role-based access control (RBAC)
+
+### 3.10 Subscription Management (SUB)
+- **SUB-01**: System shall implement a tiered subscription model (e.g., Free, Premium, Enterprise)
+- **SUB-02**: System shall integrate with a payment processor (e.g., Stripe, PayPal)
+- **SUB-03**: System shall handle subscription lifecycle events (creation, renewal, cancellation)
+- **SUB-04**: System shall enforce feature access based on subscription tier
+- **SUB-05**: System shall provide subscription management in user profile
+- **SUB-06**: System shall send email notifications for subscription events (renewal, payment failure, etc.)
+- **SUB-07**: System shall support trial periods for premium features
+- **SUB-08**: System shall generate and manage invoices and receipts
 - **UI-05**: System shall support mode switching between philosopher, theme, and dialogue modes
 - **UI-06**: System shall display philosophical profiles with core beliefs, works, and style
 
@@ -65,7 +85,6 @@
 ### 3.11 Learning Tools (LRN)
 - **LRN-01**: System shall include an in-app philosophical dictionary for key terms and concepts
 - **LRN-02**: System shall provide feature to save philosophical learning development
-- **LRN-03**: System shall provide feature to save philosophical dictionary
 - **LRN-04**: System shall implement knowledge learning test/quiz functionality
 - **LRN-05**: System shall provide summaries of complex ideas during conversations
 - **LRN-06**: System shall reference related thinkers and works during discussions

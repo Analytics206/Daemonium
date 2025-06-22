@@ -55,7 +55,6 @@ This file tracks the implementation status of all PRD requirements, linking them
 | AI-04    | Construct prompts based on philosopher profiles        | BRD-01        | ❌     |                            |
 | LRN-01   | In-app philosophical dictionary                        | BRD-09        | ❌     |                            |
 | LRN-02   | Save philosophical learning development                | BRD-19        | ❌     |                            |
-| LRN-03   | Save philosophical dictionary                          | BRD-20        | ❌     |                            |
 | LRN-04   | Knowledge learning test/quiz functionality             | BRD-21        | ❌     |                            |
 | LRN-05   | Provide summaries of complex ideas                      | BRD-09        | ❌     |                            |
 | LRN-06   | Reference related thinkers and works                   | BRD-09        | ❌     |                            |
@@ -63,6 +62,22 @@ This file tracks the implementation status of all PRD requirements, linking them
 | VOICE-02 | Configurable TTS integration with local/ElevenLabs    | BRD-13        | ❌     |                            |
 | VOICE-03 | Configurable ASR integration with local/OpenAI         | BRD-14        | ❌     |                            |
 | VOICE-04 | Optional speech-to-text interaction                    | BRD-18        | ❌     |                            |
+| AUTH-01  | Support secure authentication using Google OAuth 2.0    | BRD-22        | ❌     |                            |
+| AUTH-02  | Provide email/password based authentication             | BRD-22        | ❌     |                            |
+| AUTH-03  | Implement JWT for session management                    | BRD-22        | ❌     |                            |
+| AUTH-04  | Enforce password complexity requirements               | BRD-22        | ❌     |                            |
+| AUTH-05  | Provide password reset functionality                   | BRD-22        | ❌     |                            |
+| AUTH-06  | Implement rate limiting on auth endpoints              | BRD-22        | ❌     |                            |
+| AUTH-07  | Log all authentication attempts                       | BRD-22        | ❌     |                            |
+| AUTH-08  | Support role-based access control (RBAC)              | BRD-22        | ❌     |                            |
+| SUB-01   | Implement tiered subscription model                   | BRD-23        | ❌     |                            |
+| SUB-02   | Integrate with payment processor                      | BRD-23        | ❌     |                            |
+| SUB-03   | Handle subscription lifecycle events                  | BRD-23        | ❌     |                            |
+| SUB-04   | Enforce feature access based on subscription tier    | BRD-23        | ❌     |                            |
+| SUB-05   | Provide subscription management in user profile       | BRD-23        | ❌     |                            |
+| SUB-06   | Send email notifications for subscription events     | BRD-23        | ❌     |                            |
+| SUB-07   | Support trial periods for premium features            | BRD-23        | ❌     |                            |
+| SUB-08   | Generate and manage invoices and receipts            | BRD-23        | ❌     |                            |
 | PHIL-01  | Include at least 4 philosopher profiles                | BRD-01        | ❌     |                            |
 | PHIL-02  | Support at least 4 philosophical themes                | BRD-01        | ❌     |                            |
 | PHIL-03  | Include core works, quotes, and schools                | BRD-02        | ❌     |                            |
