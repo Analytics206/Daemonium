@@ -2,6 +2,45 @@
 # 🧠 Daemonium
 ## Overview
 
+Daemonium is an AI-powered conversational platform that brings philosophy to life through interactive dialogues with historical thinkers. This innovative application enables users to explore philosophical concepts, engage in thought-provoking conversations, and gain deeper insights into the works of great philosophers.
+
+### 🎯 Core Objectives
+- **Interactive Learning**: Make philosophy accessible and engaging through AI-powered conversations
+- **Modular Design**: Support various interaction modes including individual philosophers, thematic explorations, and multi-philosopher debates
+- **Educational Depth**: Provide rich, contextual understanding of philosophical concepts
+- **Local-First Architecture**: Containerized services for reproducibility and offline development
+
+### ✨ Key Features
+- **Multiple Interaction Modes**:
+  - Converse with individual philosophers (e.g., Nietzsche, Plato, Kant)
+  - Explore philosophical themes (e.g., Free Will, Ethics, Meaning of Life)
+  - Participate in moderated debates between philosophers with conflicting viewpoints
+
+- **Rich Philosophical Context**:
+  - Detailed philosopher profiles with core beliefs and philosophical schools
+  - Thematic exploration of philosophical concepts
+  - References to original works and related thinkers
+
+- **Technical Architecture**:
+  - **Neo4j Graph Database**: For modeling relationships between philosophers, concepts, and themes
+  - **Qdrant Vector Database**: For semantic search and retrieval-augmented generation
+  - **Containerized Services**: Docker-based deployment for all components
+  - **Modular Design**: Easily extensible for future features and content
+
+- **Learning Tools**:
+  - "Pause and explain" feature for complex concepts
+  - In-app philosophical dictionary
+  - Conversation history and learning progress tracking
+  - Knowledge assessment through quizzes and tests
+
+- **Future-Ready**:
+  - Voice interaction support (planned)
+  - Mobile-responsive design
+  - User authentication and subscription management
+
+### 🚀 Getting Started
+Daemonium is designed to run locally using Docker, making it easy to set up and start exploring philosophical ideas. The system supports both local LLM models (via Ollama) and cloud-based models (like GPT-4), giving you flexibility in how you interact with the philosophical content.
+
 ## 🛠 Development Setup
 
 ### Prerequisites
