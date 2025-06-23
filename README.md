@@ -1,13 +1,12 @@
 
 # 🧠 Daemonium
 ## Overview
-A modular, fully local, open-source 
 
 ## 🚀 Key Features
 | Feature                  | Description |
 | ------------------------ |-------------|
 | 🏠 **Local-first** | Everything runs offline with no cloud dependencies on local network with multi machine support. |
-| 💾 **Data Ingestion** | Fetches non-duplicate papers from configurable categories (e.g., cs.AI) with smart date filtering. |
+| 💾 **Data Ingestion** | Import philosophical texts. |
 | 🗒 **MongoDB Storage** | Stores structured metadata, paper information, and download statuses. |
 | 💡 **Semantic Embeddings** | Creates vector embeddings using Hugging Face models, stored in Qdrant for similarity search. |
 | 🔧 **Configurable & Modular** | Centralized settings allow switching categories, models, and components. |
@@ -37,8 +36,7 @@ A modular, fully local, open-source
 
 ---
 ## 🧵 High Level Overview
- - Fetch metadata of papers from arXiv.org using arXiv Atom XML API
- - Store normalized metadata in MongoDB with pdf_url for pdf download
+ - 
 
 For more deep dive into project and status, see the `docs/` directory.
 
@@ -49,16 +47,16 @@ For more deep dive into project and status, see the `docs/` directory.
 - **Research Gap Identification**: Analyze research areas to identify unexplored topics and opportunities
 
 ### Data Science & Analysis
-- **Research Trend Analysis**: Apply time-series analysis to identify emerging and declining research topics
-- **Citation Impact Visualization**: Build network graphs to identify the most influential papers and authors
+- **Research Trend Analysis**: 
+- **Citation Impact Visualization**: 
 
 ### AI-Assisted Research
-- **Paper Summarization**: Generate concise summaries of complex research papers
-- **Research Agent**: Add specific research agents for specific use cases
+- **Paper Summarization**: 
+- **Research Agent**: 
 
 ### Education & Learning
-- **Personalized Learning Paths**: Create sequential reading lists for specific AI topics
-- **Concept Visualization**: Extract and visualize key concepts across multiple papers
+- **Personalized Learning Paths**: 
+- **Concept Visualization**: 
 ---
 # 🛠️ Setup Instructions
   ### This system runs on a single machine but recommend a multiple machine setup.*
@@ -68,7 +66,7 @@ For more deep dive into project and status, see the `docs/` directory.
 
 # ⚠️ Prerequisites
 - Git
-- Python 3.9+ (Python 3.11 recommended)
+- Python 3.11+ (Python 3.11 recommended)
 - [UV](https://github.com/astral-sh/uv) (for fast Python dependency management)
 - Docker and Docker Compose (for containerized deployment)
 
@@ -95,6 +93,7 @@ Remove-Item -Recurse -Force venv
 # Create new venv
 py -3.11 -m venv venv
 python --version
+python -m pip install -U pip
 # Run the setup script
 # ??
 
@@ -267,9 +266,9 @@ c. **Start the development server**:
 ## 7. Data Visualization and Analysis Dashboards
 
 **Key Features:**
-- **Time-based Analysis**: View paper publication trends by year, month, or day
-- **Multi-dimensional Filtering**: Filter papers by date range, specific year, and research category
-- **Dynamic Category Selection**: Choose from the top 50 research categories in your collection
+- **Time-based Analysis**: 
+- **Multi-dimensional Filtering**: 
+- **Dynamic Category Selection**: 
 
 **How to Access:**
 1. Navigate to the web UI (http://localhost:3000) when services are running
@@ -634,9 +633,9 @@ The following features are 'planned' for future development to enhance the resea
 
 ## To-Do List
 - [ ] **Short-term Tasks**
-  - [ ] Optimize PDF download with parallel processing
+  - [ ] 
 - [ ] **Medium-term Tasks**
-  - [ ] Fine-tuning pipelines for specific use cases
+  - [ ] 
 ---
 For more details about project and status, see the `docs/` directory.
 

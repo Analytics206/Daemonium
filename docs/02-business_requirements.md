@@ -39,6 +39,10 @@
 | BRD-22 | Secure authentication system supporting Google and custom email/password login      | AUTH-01                         |
 | BRD-23 | Subscription model with tiered access levels and payment processing                  | SUB-01                          |
 
+## additional features
+- UI for data curation and management
+- 
+
 ## 4. Constraints
 - Must prioritize open-access and public domain sources for content
 - System should run entirely offline in development environments

@@ -1,23 +1,39 @@
-1. Aesthetics - beauty
-2. Epistemology - knowledge
-3. Ethics - morality
-4. Feminism - gender
-5. Free Will - determinism
-6. Logic - reasoning
-7. Metaphysics - existence
-8. Nihilism - meaning
-9. Philosophy of art - beauty
-10. Philosophy of Artificial Intelligence - consciousness
-11. Philosophy of education - learning
-12. Philosophy of history - time
-13. Philosophy of language - meaning
-14. Philosophy of law - justice
-15. Philosophy of mind - consciousness
-16. Philosophy of religion - faith
-17. Philosophy of science - knowledge
-18. Philosophy of technology - progress
-19. Political philosophy - power
-20. Social philosophy - society
-21. Theory of ideas - knowledge
+# Philosophy Themes
+## Core Branches:
+- Aesthetics - beauty, art, taste
+- Epistemology - knowledge, truth, belief
+- Ethics - morality, virtue, duty
+- Logic - reasoning, argument, validity
+- Metaphysics - existence, reality, being
+- Political Philosophy - power, justice, government
+
+## Specialized Areas:
+- Philosophy of Mind - consciousness, identity, mental states
+- Philosophy of Language - meaning, reference, communication
+- Philosophy of Science - knowledge, method, explanation
+- Philosophy of Religion - faith, divine, sacred
+- Philosophy of Law - justice, rights, authority
+- Philosophy of Education - learning, pedagogy, formation
+- Philosophy of History - time, progress, causation
+- Philosophy of Technology - progress, human-machine relations
+- Philosophy of Art - beauty, creativity, interpretation
+- Philosophy of Artificial Intelligence - consciousness, intelligence, simulation
+
+## Philosophical Movements/Positions:
+- Existentialism - authenticity, freedom, anxiety
+- Phenomenology - experience, consciousness, perception
+- Pragmatism - utility, practice, consequences
+- Analytic Philosophy - clarity, analysis, language
+- Continental Philosophy - interpretation, critique, history
+- Postmodernism - deconstruction, relativism, power
+
+## Key Themes/Problems:
+- Free Will vs Determinism - choice, causation, responsibility
+- Nihilism - meaninglessness, value, purpose
+- Feminism - gender, equality, power structures
+- Environmental Philosophy - nature, sustainability, ethics
+- Bioethics - life, medicine, technology
+- Philosophy of Death - mortality, meaning, afterlife
+- Social Philosophy - society, community, relationships
 
 
