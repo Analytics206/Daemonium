@@ -1,0 +1,17 @@
+name|dob|dod|summary|content|school_id|tag_id
+Socrates|-470-01-01|-399-01-01|Greek philosopher|Socrates was a Greek philosopher...|1|1
+Plato|-428-01-01|-348-01-01|Student of Socrates|Plato was an ancient Greek philosopher...|1|1
+Aristotle|-384-06-22|-322-06-17|Student of Plato|Aristotle was an ancient Greek philosopher...|1|1
+Heraclitus|-535-05-20|-475-05-05|Greek philosopher|Heraclitus was a Greek philosopher...|1|1
+Pythagoras|-570-05-18|-495-05-26|Greek philosopher|Pythagoras was a Greek philosopher...|1|1
+Parmenides|-515-05-20|-445-05-05|Greek philosopher|Parmenides was a Greek philosopher...|1|1
+Zeno of Citium|-334-05-20|-262-05-05|Greek philosopher|Zeno of Citium was a Greek philosopher...|1|1
+Friedrich Nietzsche|1844-10-15|1900-08-25|German philosopher|Nietzsche was a German philosopher...|1|1
+Immanuel Kant|1724-04-22|1804-02-12|German philosopher|Kant was a German philosopher...|1|2
+John Rawls|1921-02-21|2002-01-24|British philosopher|Rawls was a British philosopher...|1|2
+Bertrand Russell|1872-05-18|1970-02-02|British philosopher|Russell was a British philosopher...|1|2
+Gottlob Frege|1848-11-18|1925-07-26|German philosopher|Frege was a German philosopher...|1|2
+Arthur Schopenhauer|1788-02-22|1860-09-21|German philosopher|Schopenhauer was a German philosopher...|1|2
+David Hume|1711-05-26|1776-08-25|British philosopher|Hume was a British philosopher...|1|2
+John Stuart Mill|1806-05-02|1873-08-02|British philosopher|Mill was a British philosopher...|1|2
+John Locke|1632-08-29|1704-10-28|British philosopher|Locke was a British philosopher...|1|2

@@ -10,10 +10,8 @@ venv/
 .venv/
 
 # Data
-data/
 
 # Docker
-**/data/
 **/volumes/
 
 # VS Code

@@ -1,6 +1,6 @@
 # Daemonium Data Schema
 
-## Postgres
+## Postgresql
 ### Tables
 
 #### tags
@@ -27,7 +27,6 @@
 - dob
 - dod
 - school_id
-- book_id
 - tag_id
 - created_at
 - updated_at

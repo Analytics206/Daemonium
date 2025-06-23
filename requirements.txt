@@ -1,0 +1,18 @@
+# Core Dependencies
+psycopg2-binary>=2.9.9  # PostgreSQL database adapter for Python
+python-dotenv>=1.0.0   # Environment variable management
+
+# Development Dependencies
+pytest>=7.4.0          # Testing framework
+black>=23.7.0          # Code formatter
+isort>=5.12.0          # Import sorter
+mypy>=1.4.0            # Static type checker
+pylint>=3.0.0          # Code linter
+
+# Optional: Data Processing (uncomment if needed)
+# pandas>=2.0.0        # Data manipulation and analysis
+# numpy>=1.24.0        # Numerical operations
+# python-dateutil>=2.8.2 # Date parsing and handling
+
+# Project-specific dependencies
+# Add any additional dependencies below this line

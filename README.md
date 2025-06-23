@@ -2,6 +2,117 @@
 # 🧠 Daemonium
 ## Overview
 
+## 🛠 Development Setup
+
+### Prerequisites
+- Python 3.11+
+- [UV](https://github.com/astral-sh/uv) (recommended) or pip
+- Docker and Docker Compose
+
+### Setting Up the Environment
+
+#### Option 1: Using UV (Recommended)
+
+1. Install UV (if not already installed):
+   ```bash
+   pip install uv
+   ```
+
+2. Create and activate a virtual environment:
+   ```bash
+   uv venv
+   .venv\Scripts\activate  # On Windows
+   # or
+   source .venv/bin/activate  # On Unix/macOS
+   ```
+
+3. Install dependencies:
+   ```bash
+   uv pip install -r requirements.txt  # Production
+   uv pip install -r requirements-dev.txt  # Development
+   ```
+
+#### Option 2: Using pip
+
+1. Create and activate a virtual environment:
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\activate  # On Windows
+   # or
+   source .venv/bin/activate  # On Unix/macOS
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt  # Production
+   pip install -r requirements-dev.txt  # Development
+   ```
+
+### Running the Import Script
+
+#### Prerequisites
+- Docker and Docker Compose must be running
+- Python environment with dependencies installed (see above)
+- The PostgreSQL container (`daemonium-postgresql`) should be running
+
+#### Using the Python Script (Cross-platform)
+
+1. Ensure Docker is running and the PostgreSQL container is up:
+   ```bash
+   docker-compose up -d postgresql
+   ```
+
+2. Run the import script:
+   ```bash
+   # Basic usage (uses default CSV path: data/philosophers.csv)
+   python scripts/import_philosophers.py
+   
+   # Or specify a custom CSV file
+   python scripts/import_philosophers.py path/to/your/file.csv
+   ```
+
+#### Using the Batch File (Windows)
+
+The batch file simplifies the process on Windows:
+
+```batch
+# From the project root
+scripts\import_philosophers.bat
+```
+
+Or by double-clicking the batch file in Windows Explorer.
+
+#### What the Script Does
+1. Creates a temporary table in the database
+2. Imports data from the CSV file
+3. Updates existing records or inserts new ones based on the philosopher's name
+4. Shows the number of records processed
+
+#### Expected Output
+```
+Starting import from data/philosophers.csv
+Added unique constraint on name column
+Processed 2 philosopher records
+- Socrates (ID: 1) - Updated: 2025-06-23 01:05:30.123456+00:00
+- Plato (ID: 2) - Updated: 2025-06-23 01:05:30.123456+00:00
+Import completed successfully
+```
+
+#### Troubleshooting
+- If you get connection errors, ensure the PostgreSQL container is running
+- Check that the CSV file exists at the specified path
+- Verify the CSV format matches the expected columns: `name|dob|dod|summary|content|school_id|tag_id`
+
+### Development Tools
+- Format code: `black .`
+- Sort imports: `isort .`
+- Lint code: `pylint scripts/`
+- Run tests: `pytest`
+
+---
+
+## 🚀 Key Features
+
 ## 🚀 Key Features
 | Feature                  | Description |
 | ------------------------ |-------------|

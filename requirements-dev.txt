@@ -1,0 +1,21 @@
+-r requirements.txt  # Include all production dependencies
+
+# Development Tools
+pytest>=7.4.0          # Testing framework
+black>=23.7.0          # Code formatter
+isort>=5.12.0          # Import sorter
+mypy>=1.4.0            # Static type checker
+pylint>=3.0.0          # Code linter
+pytest-cov>=4.1.0      # Test coverage
+pre-commit>=3.3.3      # Git hooks
+jupyter>=1.0.0         # Jupyter Notebook
+ipython>=8.14.0        # Enhanced Python shell
+
+# Documentation
+mkdocs>=1.5.0           # Documentation site generator
+mkdocs-material>=9.2.0  # Material theme for MkDocs
+mkdocstrings>=0.22.0    # Automatic API docs
+
+# Containerization
+docker>=6.1.3            # Docker SDK for Python
+python-on-whales>=0.65.0 # Modern Docker Python client
