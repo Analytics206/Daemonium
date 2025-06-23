@@ -4,19 +4,9 @@ Author: Friedrich Wilhelm Nietzsche
 
 Translator: Thomas Common
 
-Release date: December 1, 1999 [eBook #1998]
-                Most recently updated: April 10, 2023
-
 Language: English
 
-Credits: Sue Asscher and David Widger
-        Revised by Richard Tonsing.
-
-
-*** START OF THE PROJECT GUTENBERG EBOOK THUS SPAKE ZARATHUSTRA: A BOOK FOR ALL AND NONE ***
-
-
-
+*** START OF THE EBOOK THUS SPAKE ZARATHUSTRA: A BOOK FOR ALL AND NONE ***
 
 THUS SPAKE ZARATHUSTRA
 
@@ -28,14 +18,9 @@ By Friedrich Nietzsche
 
 Translated By Thomas Common
 
-
-
-
 CONTENTS.
 
-
      INTRODUCTION BY MRS FORSTER-NIETZSCHE.
-
 
      THUS SPAKE ZARATHUSTRA.
 
@@ -15627,7 +15612,3 @@ The above I know to be open to much criticism. I shall be grateful to
 all those who will be kind enough to show me where and how I have gone
 wrong; but I should like to point out that, as they stand, I have not
 given to these Notes by any means their final form.
-
-ANTHONY M. LUDOVICI.
-
-London, February 1909.

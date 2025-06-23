@@ -12,13 +12,7 @@ Release date: May 30, 2016 [eBook #52190]
 
 Language: English
 
-Credits: Produced by Marc D'Hooghe (Images generously made available by the Hathi Trust.)
-
-
-*** START OF THE PROJECT GUTENBERG EBOOK ECCE HOMO ***
-
-
-
+*** START OF THE EBOOK ECCE HOMO ***
 
 ECCE HOMO
 
@@ -28,11 +22,9 @@ BY
 
 FRIEDRICH NIETZSCHE
 
-
 TRANSLATED BY
 
 ANTHONY M. LUDOVICI
-
 
 POETRY RENDERED BY
 
@@ -59,11 +51,7 @@ EDINBURGH: AND LONDON
 
 1911
 
-
-
-
 CONTENTS
-
 
 TRANSLATOR'S INTRODUCTION
 AUTHOR'S PREFACE
@@ -88,11 +76,7 @@ POETRY--
     Fragments of Dionysus-Dithyrambs
 HYMN TO LIFE, COMPOSED BY F. NIETZSCHE
 
-
-
-
 TRANSLATOR'S INTRODUCTION
-
 
 _Ecce Homo_ is the last prose work that Nietzsche wrote. It is true
 that the pamphlet _Nietzsche contra Wagner_ was prepared a month
@@ -6274,9 +6258,6 @@ considers equivalent to harmlessness.--TR.]
 [Footnote 2: Alluding to the saying of the Dominican monk Tetzel,
 who sold indulgences in the time of Luther: "When money
 leaps into the box, the soul leaps from hell to heaven!"--TR.]
-
-
-
 
 HYMN TO LIFE.
 

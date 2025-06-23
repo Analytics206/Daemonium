@@ -9,12 +9,7 @@ Release date: June 9, 2012 [eBook #39955]
 
 Language: English
 
-
-
-*** START OF THE PROJECT GUTENBERG EBOOK THE DAWN OF DAY ***
-
-
-
+*** START OF THE EBOOK THE DAWN OF DAY ***
 
 
                            Friedrich Nietzsche
@@ -28,20 +23,10 @@ Language: English
 Author of “The Quintessence of Nietzsche”, “Religions and Philosophers of
                                 the East”
 
-    There are many dawns which have yet to shed their light.—RIG-VEDA.
-
-                                 New York
-
-                          The MacMillan Company
-
                                    1911
 
 
-
-
-
 CONTENTS
-
 
 Introduction.
 Author’s Preface.
@@ -52,13 +37,7 @@ Book IV.
 Book V.
 Footnotes
 
-
-
-
-
-
 INTRODUCTION.
-
 
 When Nietzsche called his book _The Dawn of Day_, he was far from giving
 it a merely fanciful title to attract the attention of that large section

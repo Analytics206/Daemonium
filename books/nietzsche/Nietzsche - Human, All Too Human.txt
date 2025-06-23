@@ -9,29 +9,8 @@ Release date: November 26, 2011 [eBook #38145]
 
 Language: English
 
-Credits: Produced by Gary Rees, Matthew Wheaton and the Online
-        Distributed Proofreading Team at https://www.pgdp.net (This
-        book was produced from scanned images of public domain
-        material from the Google Print project.)
 
-
-*** START OF THE PROJECT GUTENBERG EBOOK HUMAN, ALL TOO HUMAN: A BOOK FOR FREE SPIRITS ***
-
-
-
-
-Produced by Gary Rees, Matthew Wheaton and the Online
-Distributed Proofreading Team at https://www.pgdp.net (This
-book was produced from scanned images of public domain
-material from the Google Print project.)
-
-
-
-
-
-
-
-
+*** START OF THE EBOOK HUMAN, ALL TOO HUMAN: A BOOK FOR FREE SPIRITS ***
 
     HUMAN, ALL TOO HUMAN
 
@@ -42,19 +21,8 @@ material from the Google Print project.)
 
     TRANSLATED BY ALEXANDER HARVEY
 
-    CHICAGO
-    CHARLES H. KERR & COMPANY
-    1908
-
-
-    Copyright 1908
-    By Charles H. Kerr & Company
-
-
-
 
     CONTENTS
-
 
     AUTHOR'S PREFACE
 
@@ -63,9 +31,6 @@ material from the Google Print project.)
     HISTORY OF THE MORAL FEELINGS
 
     THE RELIGIOUS LIFE
-
-
-
 
 PREFACE.
 

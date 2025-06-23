@@ -13,46 +13,20 @@ Release date: August 23, 2016 [eBook #52881]
 
 Language: English
 
-Credits: Produced by Thierry Alberto, readbueno and the Online
-        Distributed Proofreading Team at http://www.pgdp.net
-
-
 *** START OF THE PROJECT GUTENBERG EBOOK THE JOYFUL WISDOM ("LA GAYA SCIENZA") ***
-
-------------------------------------------------------------------------
-
-
-
 
                            THE COMPLETE WORKS
                                    OF
                           FRIEDRICH NIETZSCHE
 
-        _The First Complete and Authorised English Translation_
-
                                EDITED BY
                              DR OSCAR LEVY
-
-[Illustration]
 
                                VOLUME TEN
 
                            THE JOYFUL WISDOM
 
                           ("LA GAYA SCIENZA")
-
-------------------------------------------------------------------------
-
-
-
-
-                        Of the First Edition of
-                       One Thousand Five Hundred
-                             Copies this is
-                                  No.
-
-
-
 
                          _FRIEDRICH NIETZSCHE_
 
@@ -67,15 +41,6 @@ Credits: Produced by Thierry Alberto, readbueno and the Online
 
                              THOMAS COMMON
 
-
-                        WITH POETRY RENDERED BY
-
-                              PAUL V. COHN
-
-                                  AND
-
-                             MAUDE D. PETRE
-
                     _I stay to mine house confined,
                    Nor graft my wits on alien stock;
                      And mock at every master mind
@@ -89,18 +54,6 @@ Credits: Produced by Thierry Alberto, readbueno and the Online
                           EDINBURGH: & LONDON
 
                                   1910
-
-------------------------------------------------------------------------
-
-
-
-
-                          ALL RIGHTS RESERVED
-
-               Printed at THE DARIEN PRESS, _Edinburgh_.
-
-
-
 
                                 CONTENTS
 
@@ -157,12 +110,8 @@ in making a selection, as it was intended that the edition should be
 complete. The heading, "Jest, Ruse and Revenge," of the "Prelude in
 Rhyme" is borrowed from Goethe.
 
-
-
-
                          PREFACE TO THE SECOND
                                 EDITION.
-
 
                                    1.
 
@@ -9926,33 +9875,3 @@ Footnote 15:
                         Here it is done:
                         The Woman-Soul leadeth us
                         Upward and on!"
-
-Footnote 16:
-
-  Translated by Miss M. D. Petre. Inserted by permission of the editor
-  of the _Nation_, in which it appeared on April 17, 1909.
-
-Footnote 17:
-
-  Translated by Miss M. D. Petre. Inserted by permission of the editor
-  of the _Nation_, in which it appeared on May 15, 1909.
-
-
-
-
-------------------------------------------------------------------------
-
-
-                               FOOTNOTES:
-
-
-
-
-                           Transcriber's Note
-
-The original spelling and punctuation has been retained.
-
-Variations in hyphenation and compound words have been preserved.
-
-Italicized words and phrases in the text version are presented by
-surrounding the text with underscores.
