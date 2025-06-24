@@ -14,7 +14,7 @@ Daemonium is an AI-powered conversational platform that brings philosophy to lif
 - **Multiple Interaction Modes**:
   - Converse with individual philosophers (e.g., Nietzsche, Plato, Kant)
   - Explore philosophical themes (e.g., Free Will, Ethics, Meaning of Life)
-  - Participate in moderated debates between philosophers with conflicting viewpoints
+  - Participate and moderated debates between philosophers with conflicting viewpoints
 
 - **Rich Philosophical Context**:
   - Detailed philosopher profiles with core beliefs and philosophical schools
