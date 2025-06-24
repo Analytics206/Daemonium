@@ -2,8 +2,6 @@ Title: Thus Spake Zarathustra: A Book for All and None
 
 Author: Friedrich Wilhelm Nietzsche
 
-Translator: Thomas Common
-
 Language: English
 
 *** START OF THE EBOOK THUS SPAKE ZARATHUSTRA: A BOOK FOR ALL AND NONE ***
@@ -12,9 +10,7 @@ THUS SPAKE ZARATHUSTRA
 
 A BOOK FOR ALL AND NONE
 
-
 By Friedrich Nietzsche
-
 
 Translated By Thomas Common
 

@@ -2,8 +2,6 @@ Title: Human, All Too Human: A Book for Free Spirits
 
 Author: Friedrich Wilhelm Nietzsche
 
-Translator: Alexander Harvey
-
 Release date: November 26, 2011 [eBook #38145]
                 Most recently updated: January 8, 2021
 
@@ -18,9 +16,7 @@ Language: English
 
     BY FRIEDRICH NIETZSCHE
 
-
     TRANSLATED BY ALEXANDER HARVEY
-
 
     CONTENTS
 
@@ -33,7 +29,6 @@ Language: English
     THE RELIGIOUS LIFE
 
 PREFACE.
-
 
 1
 

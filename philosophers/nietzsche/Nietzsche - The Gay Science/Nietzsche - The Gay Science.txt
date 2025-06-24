@@ -2,12 +2,6 @@ Title: The Joyful Wisdom ("La Gaya Scienza")
 
 Author: Friedrich Wilhelm Nietzsche
 
-Editor: Oscar Levy
-
-Translator: Paul V. Cohn
-        Thomas Common
-        Maude Dominica Petre
-
 Release date: August 23, 2016 [eBook #52881]
                 Most recently updated: October 23, 2024
 
@@ -46,7 +40,6 @@ Language: English
                      And mock at every master mind
                    That never at itself could mock._
 
-
                               T. N. FOULIS
 
                         13 & 15 FREDERICK STREET
@@ -56,7 +49,6 @@ Language: English
                                   1910
 
                                 CONTENTS
-
 
                                                             PAGE
 
