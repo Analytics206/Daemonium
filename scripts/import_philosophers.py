@@ -18,7 +18,7 @@ DB_CONFIG = {
     'user': 'postgres',
     'password': 'ch@ng3m300',
     'host': 'localhost',
-    'port': '5432'
+    'port': '5433'
 }
 
 def get_connection():
@@ -27,6 +27,44 @@ def get_connection():
         return psycopg2.connect(**DB_CONFIG)
     except Exception as e:
         print(f"Error connecting to database: {e}")
+        sys.exit(1)
+
+def ensure_table_exists(conn):
+    """Check if philosophers table exists and create it if it doesn't."""
+    try:
+        with conn.cursor() as cur:
+            # Check if table exists
+            cur.execute("""
+                SELECT EXISTS (
+                    SELECT FROM pg_tables
+                    WHERE schemaname = 'public'
+                    AND tablename = 'philosophers'
+                );
+            """)
+            table_exists = cur.fetchone()[0]
+            
+            if not table_exists:
+                print("Creating philosophers table...")
+                # Create the table
+                cur.execute("""
+                    CREATE TABLE philosophers (
+                        id SERIAL PRIMARY KEY,
+                        name VARCHAR(255) NOT NULL,
+                        dob VARCHAR(20),
+                        dod VARCHAR(20),
+                        summary TEXT,
+                        content TEXT,
+                        school_id INTEGER,
+                        tag_id INTEGER,
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    );
+                """)
+                conn.commit()
+                print("Table created successfully.")
+    except Exception as e:
+        print(f"Error checking or creating table: {e}")
+        conn.rollback()
         sys.exit(1)
 
 def import_philosophers(csv_path):
@@ -38,6 +76,10 @@ def import_philosophers(csv_path):
     conn = None
     try:
         conn = get_connection()
+        
+        # Ensure the table exists
+        ensure_table_exists(conn)
+        
         with conn.cursor() as cur:
             # Ensure name column has a unique constraint
             try:

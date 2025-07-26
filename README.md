@@ -121,7 +121,7 @@ Daemonium is designed to run locally using Docker, making it easy to set up and 
 2. Run the import script:
    ```bash
    # Basic usage (uses default CSV path: data/philosophers.csv)
-   python scripts/import_philosophers.py
+   python scripts/import_philosophers.py data/philosophers.csv
    
    # Or specify a custom CSV file
    python scripts/import_philosophers.py data/philosopher_schools.csv
