@@ -73,10 +73,18 @@ Daemonium is designed to run locally using Docker, making it easy to set up and 
 
 #### Option 2: Using pip
 
-1. Create and activate a virtual environment:
-   ```bash
-   python -m venv .venv
-   .venv\Scripts\activate  # On Windows
+1. ## Windows (PowerShell):
+  ```powershell
+  # if needed to rebuild .venv
+  Remove-Item -Recurse -Force .venv
+  # Run the setup script
+  python3.11 -m venv .venv
+
+  # Activate the virtual environment
+  .\.venv\Scripts\Activate.ps1
+  pip install -e .
+  python.exe -m pip install --upgrade pip
+
    # or
    source .venv/bin/activate  # On Unix/macOS
    ```
@@ -94,6 +102,15 @@ Daemonium is designed to run locally using Docker, making it easy to set up and 
 - Python environment with dependencies installed (see above)
 - The PostgreSQL container (`daemonium-postgresql`) should be running
 
+#### Start Docker Desktop
+
+  if (-not (Get-Process "Docker Desktop" -ErrorAction SilentlyContinue)) {
+      Start-Process $DockerDesktopPath
+      Write-Host "Docker Desktop is starting..."
+  } else {
+      Write-Host "Docker Desktop is already running."
+  }
+
 #### Using the Python Script (Cross-platform)
 
 1. Ensure Docker is running and the PostgreSQL container is up:
@@ -107,7 +124,9 @@ Daemonium is designed to run locally using Docker, making it easy to set up and 
    python scripts/import_philosophers.py
    
    # Or specify a custom CSV file
-   python scripts/import_philosophers.py path/to/your/file.csv
+   python scripts/import_philosophers.py data/philosopher_schools.csv
+
+    python scripts/import_schools.py data/philosopher_schools.csv
    ```
 
 #### Using the Batch File (Windows)
