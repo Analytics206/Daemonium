@@ -16,14 +16,12 @@ from bs4 import BeautifulSoup
 import argparse
 import re
 
-
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
-
 
 def setupDirectories(rootDir):
     """
@@ -35,7 +33,6 @@ def setupDirectories(rootDir):
         logger.info(f"Creating books_json directory at {booksJsonDir}")
         os.makedirs(booksJsonDir)
     return booksJsonDir
-
 
 def parseChapterContent(chapterContent):
     """
@@ -123,7 +120,6 @@ def parseChapterContent(chapterContent):
     
     return sections
 
-
 def calculatePageCount(chapters):
     """
     Calculate an estimated page count based on content
@@ -151,7 +147,6 @@ def calculatePageCount(chapters):
     page_count = max(1, round(total_words / WORDS_PER_PAGE))
     
     return page_count
-
 
 def epubToJson(epubPath, outputDir):
     """
@@ -298,7 +293,6 @@ def epubToJson(epubPath, outputDir):
         logger.error(f"Error converting {epubPath} to JSON: {e}")
         return None
 
-
 def main():
     """
     Main function to process all EPUB files in the specified directory
@@ -345,7 +339,6 @@ def main():
             logger.info("Conversion process completed")
         else:
             logger.error(f"Input directory not found: {inputDir}")
-
 
 if __name__ == "__main__":
     main()
