@@ -17,15 +17,15 @@ Friedrich Nietzsche (1844–1900) was a German philosopher and cultural critic w
 ## 6.1 The Will to Power
 ## 6.2 Perspectivism
 ## 6.3 The Eternal Recurrence of the Same
-# Bibliography
-## Primary Literature: Works by Nietzsche
+# 7. Bibliography
+## 7.1 Primary Literature: Works by Nietzsche
 - Nietzsche’s Works in German
 - Nietzsche’s Works in English
-## Secondary Literature
-## Academic Tools
-## Other Internet Resources
-## Related Entries
-## 1. Life and Works
+## 7.2 Secondary Literature
+## 7.3 Academic Tools
+## 7.4 Other Internet Resources
+## 7.5 Related Entries
+## 8. Life and Works
 Nietzsche was born on October 15, 1844, in Röcken (near Leipzig), where his father was a Lutheran minister. His father died in 1849, and the family relocated to Naumburg, where he grew up in a household comprising his mother, grandmother, two aunts, and his younger sister, Elisabeth. Nietzsche had a brilliant school and university career, culminating in May 1869 when he was called to a chair in classical philology at Basel. At age 24, he was the youngest ever appointed to that post. His teacher Friedrich Wilhelm Ritschl wrote in his letter of reference that Nietzsche was so promising that “He will simply be able to do anything he wants to do” (Kaufmann 1954: 8). Most of Nietzsche’s university work and his early publications were in philology, but he was already interested in philosophy, particularly the work of Arthur Schopenhauer and Friedrich Albert Lange. Before the opportunity at Basel arose, Nietzsche had planned to pursue a second Ph.D. in philosophy, with a project about theories of teleology in the time since Kant.
 
 When he was a student in Leipzig, Nietzsche met Richard Wagner, and after his move to Basel, he became a frequent guest in the Wagner household at Villa Tribschen in Lucerne. Nietzsche’s friendship with Wagner (and Cosima Liszt Wagner) lasted into the mid-1870s, and that friendship—together with their ultimate break—were key touchstones in his personal and professional life. His first book, The Birth of Tragedy out of the Spirit of Music (1872), was not the careful work of classical scholarship the field might have expected, but a controversial polemic combining speculations about the collapse of the tragic culture of fifth-century Athens with a proposal that Wagnerian music-drama might become the source of a renewed tragic culture for contemporary Germany. The work was generally ill-received within classical studies—and savagely reviewed by Ulrich Wilamovitz-Möllendorff, who went on to become one of the leading classicists of the generation—even though it contained some striking interpretive insights (e.g., about the role of the chorus in Greek tragedy). Following the first book, Nietzsche continued his efforts to influence the broader direction of German intellectual culture, publishing essays intended for a wide public on David Friedrich Strauss, on the “use of history for life”, on Schopenhauer, and on Wagner. These essays are known collectively as the Untimely Meditations.
