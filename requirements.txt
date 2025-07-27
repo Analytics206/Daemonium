@@ -1,6 +1,13 @@
 # Core Dependencies
 psycopg2-binary>=2.9.9  # PostgreSQL database adapter for Python
 python-dotenv>=1.0.0   # Environment variable management
+pymongo>=4.6.0         # MongoDB database adapter for Python
+PyYAML>=6.0.1          # YAML configuration file support
+
+# EPUB Processing Dependencies
+ebooklib>=0.18         # EPUB file processing
+beautifulsoup4>=4.12.0  # HTML/XML parsing
+lxml>=4.9.0             # XML processing backend for BeautifulSoup
 
 # Development Dependencies
 pytest>=7.4.0          # Testing framework
@@ -13,6 +20,9 @@ pylint>=3.0.0          # Code linter
 # pandas>=2.0.0        # Data manipulation and analysis
 # numpy>=1.24.0        # Numerical operations
 # python-dateutil>=2.8.2 # Date parsing and handling
+
+# Python Version Compatibility
+pathlib2>=2.3.7; python_version < '3.4'  # Backport of pathlib for older Python versions
 
 # Project-specific dependencies
 # Add any additional dependencies below this line

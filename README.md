@@ -82,7 +82,7 @@ Daemonium is designed to run locally using Docker, making it easy to set up and 
 
   # Activate the virtual environment
   .\.venv\Scripts\Activate.ps1
-  pip install -e .
+  pip install -r requirements.txt
   python.exe -m pip install --upgrade pip
 
    # or

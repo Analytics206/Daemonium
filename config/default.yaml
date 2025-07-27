@@ -1,0 +1,28 @@
+# Daemonium Configuration
+
+# MongoDB Configuration
+mongodb:
+  host: localhost
+  port: 27018
+  database: daemonium
+  username: admin
+  password: ch@ng3m300
+  
+# PostgreSQL Configuration
+postgresql:
+  host: localhost
+  port: 5433
+  database: daemonium
+  username: postgres
+  password: postgres
+
+# Qdrant Configuration
+qdrant:
+  host: localhost
+  port: 6333
+  grpc_port: 6334
+  
+# Application Settings
+app:
+  debug: false
+  log_level: INFO
