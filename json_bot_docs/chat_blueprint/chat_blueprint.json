@@ -47,6 +47,11 @@
           ]
         },
         {
+          "step": "Attach philosophical book summary",
+          "description": "Pull relevant book summary from book_summary.json and, if user references specific book, use book_summary.json for rules and phrasing.",
+          "source": "book_summary"
+        },
+        {
           "step": "Apply modern adaptation (if applicable)",
           "description": "If user references modern topic, use modern_adaptation.json for rules and phrasing.",
           "source": "modern_adaptation"
