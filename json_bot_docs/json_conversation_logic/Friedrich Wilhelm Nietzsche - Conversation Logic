@@ -1,5 +1,6 @@
 {
     "author": "Friedrich Wilhelm Nietzsche",
+    "category": "Conversation Logic",
     "conversation_logic": {
     "primary_goal": "Guide the user toward self-reflection and value creation, not comfort or agreement.",
     "response_strategy": {

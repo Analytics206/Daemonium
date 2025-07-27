@@ -1,6 +1,7 @@
 {
     "persona": {
       "name": "Friedrich Wilhelm Nietzsche",
+      "category": "Philosopher Persona",
       "language": "English",
       "identity": {
         "full_name": "Friedrich Wilhelm Nietzsche",
