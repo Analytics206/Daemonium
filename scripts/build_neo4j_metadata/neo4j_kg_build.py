@@ -8,17 +8,41 @@ from sentence_transformers import SentenceTransformer
 import requests
 import json
 from sklearn.metrics.pairwise import cosine_similarity
+import yaml
+from pathlib import Path
+from urllib.parse import quote_plus
 
 class KnowledgeGraphBuilder:
-    def __init__(self, mongo_uri: str, neo4j_uri: str, neo4j_user: str, neo4j_password: str,
+    def __init__(self, config_path: str = None, 
                  ollama_url: str = "http://localhost:11434", 
                  ollama_model: str = "llama3.1"):
+        # Load configuration from config/default.yaml
+        if config_path is None:
+            # Get the project root directory (go up two levels from script directory)
+            script_dir = Path(__file__).parent
+            project_root = script_dir.parent.parent
+            config_path = project_root / 'config' / 'default.yaml'
+        
+        with open(config_path, 'r') as f:
+            config = yaml.safe_load(f)
+        
+        # Build MongoDB connection string from config
+        mongo_config = config['mongodb']
+        mongo_user = quote_plus(mongo_config['username'])
+        mongo_pass = quote_plus(mongo_config['password'])
+        # Include authSource=admin for proper authentication
+        mongo_uri = f"mongodb://{mongo_user}:{mongo_pass}@{mongo_config['host']}:{mongo_config['port']}/{mongo_config['database']}?authSource=admin"
+        
         # MongoDB connection
         self.mongo_client = MongoClient(mongo_uri)
-        self.db = self.mongo_client.get_default_database()
+        self.db = self.mongo_client[mongo_config['database']]
+        
+        # Build Neo4j connection from config
+        neo4j_config = config['neo4j']
+        neo4j_uri = f"bolt://{neo4j_config['host']}:{neo4j_config['bolt_port']}"
         
         # Neo4j connection
-        self.graph = Graph(neo4j_uri, auth=(neo4j_user, neo4j_password))
+        self.graph = Graph(neo4j_uri, auth=(neo4j_config['username'], neo4j_config['password']))
         
         # Clear existing graph (optional - remove if you want to preserve data)
         self.graph.delete_all()
@@ -385,13 +409,20 @@ class KnowledgeGraphBuilder:
             print("\nEnhanced Knowledge Graph Statistics:")
             for title, query in stats_queries:
                 print(f"\n{title}:")
-                for record in self.graph.run(query):
-                    if 'NodeType' in record:
-                        print(f"  {record['NodeType']}: {record['Count']} nodes")
-                    elif 'RelType' in record:
-                        print(f"  {record['RelType']}: {record['Count']} relationships")
+                results = list(self.graph.run(query))
+                if not results:
+                    if "AI-Generated" in title:
+                        print("  AI-generated relationships: 0")
                     else:
-                        print(f"  AI-generated relationships: {record['AIRelations']}")
+                        print("  No results found")
+                else:
+                    for record in results:
+                        if 'NodeType' in record:
+                            print(f"  {record['NodeType']}: {record['Count']} nodes")
+                        elif 'RelType' in record:
+                            print(f"  {record['RelType']}: {record['Count']} relationships")
+                        elif 'AIRelations' in record:
+                            print(f"  AI-generated relationships: {record['AIRelations']}")
                 
         except Exception as e:
             self.logger.error(f"Error building knowledge graph: {e}")
@@ -399,16 +430,18 @@ class KnowledgeGraphBuilder:
 
 # Usage example
 if __name__ == "__main__":
-    # Docker container URIs
-    MONGO_URI = "mongodb://localhost:27017/your_database_name"
-    NEO4J_URI = "bolt://localhost:7687"
-    NEO4J_USER = "neo4j"
-    NEO4J_PASSWORD = "your_password"
+    # Configuration is loaded automatically from config/default.yaml
+    # You can optionally specify Ollama settings
     OLLAMA_URL = "http://localhost:11434"  # Default Ollama URL
     OLLAMA_MODEL = "llama3.1"  # or "mistral", "codellama", etc.
     
-    builder = KnowledgeGraphBuilder(
-        MONGO_URI, NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD,
-        OLLAMA_URL, OLLAMA_MODEL
-    )
-    builder.build_knowledge_graph()
+    try:
+        builder = KnowledgeGraphBuilder(
+            ollama_url=OLLAMA_URL,
+            ollama_model=OLLAMA_MODEL
+        )
+        builder.build_knowledge_graph()
+        print("\nKnowledge graph construction completed successfully!")
+    except Exception as e:
+        print(f"Error building knowledge graph: {e}")
+        raise
