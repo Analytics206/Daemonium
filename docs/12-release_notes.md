@@ -1,10 +1,50 @@
 # Daemonium
 ---
+## Version 0.2.2 (July 27, 2025)
+
+### New Features
+
+#### Complete MongoDB Data Upload Suite
+- **13 Specialized Uploader Scripts** - Comprehensive collection of MongoDB uploader scripts for all JSON data categories
+- **Chat Blueprint Uploader** - Added `upload_chat_blueprints_to_mongodb.py` for chat blueprint templates and response pipelines
+- **Conversation Logic Uploader** - Added `upload_conversation_logic_to_mongodb.py` for conversation strategies and tone selection
+- **Discussion Hook Uploader** - Added `upload_discussion_hooks_to_mongodb.py` for categorized discussion prompts
+- **Idea Summary Uploader** - Added `upload_idea_summaries_to_mongodb.py` for detailed philosophical idea analysis
+- **Modern Adaptation Uploader** - Added `upload_modern_adaptations_to_mongodb.py` for contemporary philosophical applications
+- **Persona Core Uploader** - Added `upload_persona_cores_to_mongodb.py` for philosopher persona definitions
+- **Philosopher Bio Uploader** - Added `upload_philosopher_bios_to_mongodb.py` for biographical information
+- **Philosopher Bot Uploader** - Added `upload_philosopher_bots_to_mongodb.py` for bot persona configurations
+- **Philosopher Summary Uploader** - Added `upload_philosopher_summaries_to_mongodb.py` for comprehensive philosophical overviews
+- **Philosophy Themes Uploader** - Added `upload_philosophy_themes_to_mongodb.py` for core philosophical themes and discussion frameworks
+- **Top 10 Ideas Uploader** - Added `upload_top_10_ideas_to_mongodb.py` for ranked philosophical concepts
+
+#### Universal Features Across All Uploaders
+- **Template File Filtering** - All scripts automatically skip template files (files starting with 'template')
+- **Document Merging** - Intelligent merge functionality that updates existing documents while preserving original upload timestamps
+- **Comprehensive Logging** - Detailed logging with separate log files for each uploader script
+- **Error Handling** - Robust error handling for connection failures, invalid JSON, and file system issues
+- **Statistics Reporting** - Detailed upload statistics including processed, uploaded, updated, skipped, and error counts
+- **Unique Document IDs** - Each uploader creates unique document identifiers based on content-specific fields
+- **Metadata Tracking** - Rich metadata including content metrics, upload timestamps, and source file information
+
+#### Configuration and Security
+- **YAML Configuration Integration** - All scripts use `config/default.yaml` for MongoDB connection settings
+- **URL Encoding** - Proper URL encoding of MongoDB credentials to handle special characters
+- **Authentication Support** - Support for MongoDB authentication with admin database auth source
+- **Modular Architecture** - Each uploader is self-contained with specialized document preparation logic
+
+#### Documentation
+- **Comprehensive Uploader Documentation** - Updated `README_uploaders.md` with all 13 uploader scripts, usage instructions, and troubleshooting
+- **Dependencies** - Updated requirements with `pymongo>=4.6.0` and `PyYAML>=6.0.1`
+- **Collection Mapping** - Clear documentation of which script uploads to which MongoDB collection
+
+---
+
 ## Version 0.2.1 (July 27, 2025)
 
 ### New Features
 
-#### MongoDB Data Upload Scripts
+#### MongoDB Data Upload Scripts (Initial Implementation)
 - **Aphorism Uploader** - Added `upload_aphorisms_to_mongodb.py` script to upload JSON files from `json_bot_docs/aphorisms` to MongoDB `aphorisms` collection
 - **Book Summary Uploader** - Added `upload_book_summaries_to_mongodb.py` script to upload JSON files from `json_bot_docs/book_summary` to MongoDB `book_summary` collection
 - **Template File Filtering** - Both scripts automatically skip template files (files starting with 'template')

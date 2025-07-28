@@ -60,6 +60,215 @@ python build_metadata/upload_book_summaries_to_mongodb.py
 - `philosophical_significance`: Significance description (if present)
 - `metadata`: Upload timestamps, source information, and section count
 
+### 3. Chat Blueprint Uploader (`upload_chat_blueprints_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/chat_blueprint` to the `chat_blueprint` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Creates unique document IDs based on blueprint type and category
+- Handles chat blueprint structure with prompt templates and response pipelines
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_chat_blueprints_to_mongodb.py
+```
+
+**Collection:** `chat_blueprint`
+
+### 4. Conversation Logic Uploader (`upload_conversation_logic_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/conversation_logic` to the `conversation_logic` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Creates unique document IDs based on author and category
+- Handles conversation logic structure with response strategies and tone selection
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_conversation_logic_to_mongodb.py
+```
+
+**Collection:** `conversation_logic`
+
+### 5. Discussion Hook Uploader (`upload_discussion_hooks_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/discussion_hook` to the `discussion_hook` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Creates unique document IDs based on author and category
+- Handles discussion hook structure with categorized hooks
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_discussion_hooks_to_mongodb.py
+```
+
+**Collection:** `discussion_hook`
+
+### 6. Idea Summary Uploader (`upload_idea_summaries_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/idea_summary` to the `idea_summary` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Creates unique document IDs based on author, title, and category
+- Handles idea summary structure with detailed philosophical analysis
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_idea_summaries_to_mongodb.py
+```
+
+**Collection:** `idea_summary`
+
+### 7. Modern Adaptation Uploader (`upload_modern_adaptations_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/modern_adaptation` to the `modern_adaptation` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Creates unique document IDs based on author and category
+- Handles modern adaptation structure with contemporary context and topics
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_modern_adaptations_to_mongodb.py
+```
+
+**Collection:** `modern_adaptation`
+
+### 8. Persona Core Uploader (`upload_persona_cores_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/persona_core` to the `persona_core` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Creates unique document IDs based on persona name and category
+- Handles persona core structure with identity, biography, and personality traits
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_persona_cores_to_mongodb.py
+```
+
+**Collection:** `persona_core`
+
+### 9. Philosopher Bio Uploader (`upload_philosopher_bios_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/philosopher_bio` to the `philosopher_bio` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Creates unique document IDs based on philosopher name and category
+- Handles philosopher bio structure with biographical sections and key events
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_philosopher_bios_to_mongodb.py
+```
+
+**Collection:** `philosopher_bio`
+
+### 10. Philosopher Bot Uploader (`upload_philosopher_bots_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/philosopher_bot` to the `philosopher_bot` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Creates unique document IDs based on philosopher name and category
+- Handles philosopher bot structure with persona, style, and instructions
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_philosopher_bots_to_mongodb.py
+```
+
+**Collection:** `philosopher_bot`
+
+### 11. Philosopher Summary Uploader (`upload_philosopher_summaries_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/philosopher_summary` to the `philosopher_summary` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Creates unique document IDs based on philosopher name and category
+- Handles philosopher summary structure with comprehensive biographical and philosophical content
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_philosopher_summaries_to_mongodb.py
+```
+
+**Collection:** `philosopher_summary`
+
+### 12. Philosophy Themes Uploader (`upload_philosophy_themes_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/philosophy_and_themes` to the `philosophy_themes` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Creates unique document IDs based on author and category
+- Handles philosophy themes structure with core ideas and discussion hooks
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_philosophy_themes_to_mongodb.py
+```
+
+**Collection:** `philosophy_themes`
+
+### 13. Top 10 Ideas Uploader (`upload_top_10_ideas_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/top_10_ideas` to the `top_10_ideas` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Creates unique document IDs based on author and category
+- Handles top 10 ideas structure with ranked ideas, descriptions, and key books
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_top_10_ideas_to_mongodb.py
+```
+
+**Collection:** `top_10_ideas`
+
 ## Configuration
 
 Both scripts use the configuration from `config/default.yaml`:

@@ -2,7 +2,7 @@
 """
 MongoDB Books Collection Uploader
 
-This script processes JSON files from the books_json directory and uploads them 
+This script processes JSON files from the json_bot_docs/books directory and uploads them 
 to a MongoDB 'books' collection with merge functionality.
 
 Author: Daemonium Project
@@ -128,80 +128,97 @@ class BooksUploader:
     
     def _validate_book_data(self, book_data: Dict[str, Any]) -> bool:
         """Validate book data structure for both old and new formats."""
-        required_fields = ['metadata']
-        
-        for field in required_fields:
-            if field not in book_data:
-                logger.warning(f"Missing required field: {field}")
+        try:
+            # Check if we have the basic structure
+            if not isinstance(book_data, dict):
+                logger.error("Book data is not a dictionary")
                 return False
-        
-        metadata = book_data.get('metadata', {})
-        if not isinstance(metadata, dict):
-            logger.warning("Metadata field must be a dictionary")
-            return False
-        
-        # Check for essential metadata fields
-        essential_fields = ['title', 'author']
-        for field in essential_fields:
-            if field not in metadata:
-                logger.warning(f"Missing essential metadata field: {field}")
+            
+            # Check for required top-level keys
+            required_keys = ['metadata', 'chapters']
+            for key in required_keys:
+                if key not in book_data:
+                    logger.error(f"Missing required key: {key}")
+                    return False
+            
+            # Validate metadata structure
+            metadata = book_data['metadata']
+            if not isinstance(metadata, dict):
+                logger.error("Metadata is not a dictionary")
                 return False
-        
-        # Validate chapter structure (support both old and new formats)
-        chapters = book_data.get('chapters', [])
-        if chapters and isinstance(chapters, list):
+            
+            # Check for required metadata fields (now including author)
+            required_metadata = ['title', 'author', 'language']
+            for field in required_metadata:
+                if field not in metadata:
+                    logger.error(f"Missing required metadata field: {field}")
+                    return False
+            
+            # Validate chapters structure
+            chapters = book_data['chapters']
+            if not isinstance(chapters, list):
+                logger.error("Chapters is not a list")
+                return False
+            
+            if len(chapters) == 0:
+                logger.warning("Book has no chapters")
+                return True  # Still valid, just empty
+            
+            # Validate each chapter structure
             for i, chapter in enumerate(chapters):
                 if not isinstance(chapter, dict):
-                    logger.warning(f"Chapter {i} is not a dictionary")
+                    logger.error(f"Chapter {i} is not a dictionary")
                     return False
                 
-                # Check if it's the new sectioned format or old content format
-                has_sections = 'sections' in chapter
-                has_content = 'content' in chapter
-                
-                if not has_sections and not has_content:
-                    logger.warning(f"Chapter {i} has neither 'sections' nor 'content' field")
+                if 'title' not in chapter:
+                    logger.error(f"Chapter {i} missing title")
                     return False
                 
-                # Validate sections if present
-                if has_sections:
-                    sections = chapter.get('sections', [])
-                    if not isinstance(sections, list):
-                        logger.warning(f"Chapter {i} sections must be a list")
+                if 'sections' not in chapter:
+                    logger.error(f"Chapter {i} missing sections")
+                    return False
+                
+                sections = chapter['sections']
+                if not isinstance(sections, list):
+                    logger.error(f"Chapter {i} sections is not a list")
+                    return False
+                
+                # Validate each section
+                for j, section in enumerate(sections):
+                    if not isinstance(section, dict):
+                        logger.error(f"Chapter {i}, section {j} is not a dictionary")
                         return False
                     
-                    for j, section in enumerate(sections):
-                        if not isinstance(section, dict):
-                            logger.warning(f"Chapter {i}, section {j} is not a dictionary")
-                            return False
-                        if 'title' not in section or 'content' not in section:
-                            logger.warning(f"Chapter {i}, section {j} missing title or content")
-                            return False
-                        
-                        # Validate content type - support both string (old format) and list (new format)
-                        content = section.get('content')
-                        if not isinstance(content, (str, list)):
-                            logger.warning(f"Chapter {i}, section {j} content must be string or list")
-                            return False
-                        
-                        # If content is a list, validate that all items are strings
-                        if isinstance(content, list):
-                            for k, paragraph in enumerate(content):
-                                if not isinstance(paragraph, str):
-                                    logger.warning(f"Chapter {i}, section {j}, paragraph {k} must be a string")
-                                    return False
-        
-        return True
+                    if 'title' not in section:
+                        logger.error(f"Chapter {i}, section {j} missing title")
+                        return False
+                    
+                    if 'content' not in section:
+                        logger.error(f"Chapter {i}, section {j} missing content")
+                        return False
+                    
+                    # Content can be either string (old format) or array (new format)
+                    content = section['content']
+                    if not isinstance(content, (str, list)):
+                        logger.error(f"Chapter {i}, section {j} content is neither string nor list")
+                        return False
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error validating book data: {e}")
+            return False
     
     def _create_book_id(self, book_data: Dict[str, Any]) -> str:
         """Create a unique identifier for the book."""
-        metadata = book_data.get('metadata', {})
-        title = metadata.get('title', '').strip()
-        author = metadata.get('author', '').strip()
-        
-        # Create a simple ID based on title and author
-        book_id = f"{author} - {title}".replace(' ', '_').replace('/', '_')
-        return book_id
+        metadata = book_data['metadata']
+        title = metadata.get('title', 'Unknown Title')
+        author = metadata.get('author', 'Unknown Author')
+        # Use author and title as the primary identifier, cleaned up
+        book_id = f"{author} - {title}"
+        book_id = re.sub(r'[^a-zA-Z0-9\s-]', '', book_id)
+        book_id = re.sub(r'\s+', '_', book_id.strip())
+        return book_id.lower()
     
     def upload_book(self, book_data: Dict[str, Any], filename: str) -> bool:
         """Upload a single book to MongoDB with merge functionality."""
@@ -260,7 +277,7 @@ class BooksUploader:
             logger.error(f"Error uploading book {filename}: {e}")
             return False
     
-    def process_books_directory(self, books_dir: str = "books_json") -> Dict[str, int]:
+    def process_books_directory(self, books_dir: str = "json_bot_docs/books") -> Dict[str, int]:
         """Process all JSON files in the books directory."""
         books_path = Path(books_dir)
         
@@ -321,6 +338,8 @@ class BooksUploader:
             self.collection.create_index("metadata.author")
             self.collection.create_index("metadata.language")
             self.collection.create_index("upload_timestamp")
+            # Create compound index for author-title queries
+            self.collection.create_index([("metadata.author", 1), ("metadata.title", 1)])
             
             logger.info("Successfully created indexes for books collection")
         except Exception as e:
