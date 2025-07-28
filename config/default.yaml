@@ -21,6 +21,15 @@ qdrant:
   host: localhost
   port: 6333
   grpc_port: 6334
+
+# Neo4j Configuration
+neo4j:
+  host: localhost
+  http_port: 7475
+  bolt_port: 7688
+  username: neo4j
+  password: ch@ng3m300
+  database: neo4j
   
 # Application Settings
 app:

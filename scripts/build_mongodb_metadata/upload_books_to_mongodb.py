@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 class BooksUploader:
     """Handles uploading book JSON files to MongoDB with merge functionality."""
     
-    def __init__(self, config_path: str = "config/default.yaml"):
+    def __init__(self, config_path: str):
         """Initialize the uploader with configuration."""
         self.config = self._load_config(config_path)
         self.client = None
@@ -277,7 +277,7 @@ class BooksUploader:
             logger.error(f"Error uploading book {filename}: {e}")
             return False
     
-    def process_books_directory(self, books_dir: str = "json_bot_docs/books") -> Dict[str, int]:
+    def process_books_directory(self, books_dir: str) -> Dict[str, int]:
         """Process all JSON files in the books directory."""
         books_path = Path(books_dir)
         
@@ -379,11 +379,18 @@ class BooksUploader:
 
 def main():
     """Main function to run the books uploader."""
+    # Define paths relative to the script location
+    script_dir = Path(__file__).parent
+    project_root = script_dir.parent.parent
+    
+    config_path = project_root / 'config' / 'default.yaml'
+    books_folder = project_root / 'json_bot_docs' / 'books'
+    
     logger.info("Starting MongoDB Books Uploader")
     
-    uploader = BooksUploader()
-    
     try:
+        uploader = BooksUploader(str(config_path))
+        
         # Connect to MongoDB
         if not uploader.connect_to_mongodb():
             logger.error("Failed to connect to MongoDB. Exiting.")
@@ -393,7 +400,7 @@ def main():
         uploader.create_indexes()
         
         # Process books directory
-        stats = uploader.process_books_directory()
+        stats = uploader.process_books_directory(str(books_folder))
         
         # Print results
         logger.info("=" * 50)

@@ -770,16 +770,101 @@ The Docker setup includes MongoDB, so no additional installation is needed if us
 
 - **MongoDB Compass** - A GUI for MongoDB that allows you to explore databases, collections, and documents
 - Download: [https://www.mongodb.com/products/compass](https://www.mongodb.com/products/compass)
-- Connection string: `mongodb://localhost:27017/onfig` (when connecting to the Docker container)
+- **Connection Details**:
+  - Host: `localhost`
+  - Port: `27018` (mapped from container port 27017)
+  - Username: `admin`
+  - Password: `ch@ng3m300`
+  - Database: `daemonium`
+- **Connection String**: `mongodb://admin:ch@ng3m300@localhost:27018/daemonium`
+- **Python Connection Example**:
+  ```python
+  from pymongo import MongoClient
+  
+  client = MongoClient('mongodb://admin:ch@ng3m300@localhost:27018/')
+  db = client['daemonium']
+  print(f"Connected to MongoDB: {client.server_info()['version']}")
+  ```
+
+### PostgreSQL
+
+- **pgAdmin** - A comprehensive PostgreSQL administration and development platform
+- Download: [https://www.pgadmin.org/download/](https://www.pgadmin.org/download/)
+- **Connection Details**:
+  - Host: `localhost`
+  - Port: `5433` (mapped from container port 5432)
+  - Username: `postgres`
+  - Password: `ch@ng3m300`
+  - Database: `daemonium`
+- **Connection String**: `postgresql://postgres:ch@ng3m300@localhost:5433/daemonium`
+- **Python Connection Example**:
+  ```python
+  import psycopg2
+  from sqlalchemy import create_engine
+  
+  # Using psycopg2
+  conn = psycopg2.connect(
+      host="localhost",
+      port=5433,
+      database="daemonium",
+      user="postgres",
+      password="ch@ng3m300"
+  )
+  
+  # Using SQLAlchemy
+  engine = create_engine('postgresql://postgres:ch@ng3m300@localhost:5433/daemonium')
+  print("Connected to PostgreSQL successfully")
+  ```
 
 ### Neo4j
-- **Neo4j Desktop** - A complete development environment for Neo4j projects
+- **Neo4j Browser** - Web interface for querying and visualizing graph data
+- Access at: http://localhost:7475/ (Docker container port mapping)
+- **Connection Details**:
+  - HTTP Port: `7475` (mapped from container port 7474)
+  - Bolt Port: `7688` (mapped from container port 7687)
+  - Username: `neo4j`
+  - Password: `ch@ng3m300`
+  - Database: `neo4j`
+- **Neo4j Desktop** - Complete development environment for Neo4j projects
 - Download: [https://neo4j.com/download/](https://neo4j.com/download/)
-- Or use the Neo4j Browser at: http://localhost:7474/ (default credentials: neo4j/password)
+- **Python Connection Example**:
+  ```python
+  from neo4j import GraphDatabase
+  
+  driver = GraphDatabase.driver(
+      "bolt://localhost:7688",
+      auth=("neo4j", "ch@ng3m300")
+  )
+  
+  def test_connection():
+      with driver.session() as session:
+          result = session.run("RETURN 'Hello Neo4j!' as message")
+          print(result.single()["message"])
+  
+  test_connection()
+  driver.close()
+  ```
 
 ### Qdrant
 - **Qdrant Web UI** - A built-in web interface for exploring vector collections
-- Access at: http://localhost:6333/dashboard when Qdrant is running
+- Access at: http://localhost:6343/dashboard (Docker container port mapping)
+- **Connection Details**:
+  - REST API Port: `6343` (mapped from container port 6333)
+  - GRPC API Port: `6344` (mapped from container port 6334)
+  - Host: `localhost`
+- **Python Connection Example**:
+  ```python
+  from qdrant_client import QdrantClient
+  
+  client = QdrantClient(
+      host="localhost",
+      port=6343
+  )
+  
+  # Test connection
+  collections = client.get_collections()
+  print(f"Connected to Qdrant. Collections: {collections}")
+  ```
 - Also consider **Qdrant Cloud Console** for more advanced features if you're using Qdrant Cloud
 - Check Jupyter notebooks for more advanced features
 These tools provide graphical interfaces to explore, query, and visualize the data stored in each component of the pipeline.

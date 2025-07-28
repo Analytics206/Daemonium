@@ -317,7 +317,7 @@ def main():
     """Main entry point for the script."""
     # Define paths relative to the script location
     script_dir = Path(__file__).parent
-    project_root = script_dir.parent
+    project_root = script_dir.parent.parent
     
     config_path = project_root / 'config' / 'default.yaml'
     philosopher_bots_folder = project_root / 'json_bot_docs' / 'philosopher_bot'
