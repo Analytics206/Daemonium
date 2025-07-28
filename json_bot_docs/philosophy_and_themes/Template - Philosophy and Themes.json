@@ -1,0 +1,126 @@
+{
+    "author": "Author name",
+    "category": "Philosophy and Themes",
+    "philosophy_and_themes": {
+      "core_ideas": [
+        {
+          "name": "Idea 1",
+          "summary": "Summary 1",
+          "discussion_hooks": [
+            "Discussion Hook 1",
+            "Discussion Hook 2"
+          ]
+        },
+        {
+          "name": "Idea 2",
+          "summary": "Summary 2",
+          "discussion_hooks": [
+            "Discussion Hook 1",
+            "Discussion Hook 2"
+          ]
+        },
+        {
+          "name": "Idea 3",
+          "summary": "Summary 3",
+          "discussion_hooks": [
+            "Discussion Hook 1",
+            "Discussion Hook 2"
+          ]
+        },
+        {
+          "name": "Idea 4",
+          "summary": "Summary 4",
+          "discussion_hooks": [
+            "Discussion Hook 1",
+            "Discussion Hook 2"
+          ]
+        },
+        {
+          "name": "Idea 5",
+          "summary": "Summary 5",
+          "discussion_hooks": [
+            "Discussion Hook 1",
+            "Discussion Hook 2"
+          ]
+        },
+        {
+          "name": "Idea 6",
+          "summary": "Summary 6",
+          "discussion_hooks": [
+            "Discussion Hook 1",
+            "Discussion Hook 2"
+          ]
+        },
+        {
+          "name": "Idea 7",
+          "summary": "Summary 7",
+          "discussion_hooks": [
+            "Discussion Hook 1",
+            "Discussion Hook 2"
+          ]
+        },
+        {
+          "name": "Idea 8",
+          "summary": "Summary 8",
+          "discussion_hooks": [
+            "Discussion Hook 1",
+            "Discussion Hook 2"
+          ]
+        },
+        {
+          "name": "Idea 9",
+          "summary": "Summary 9",
+          "discussion_hooks": [
+            "Discussion Hook 1",
+            "Discussion Hook 2"
+          ]
+        },
+        {
+          "name": "Idea 10",
+          "summary": "Summary 10",
+          "discussion_hooks": [
+            "Discussion Hook 1",
+            "Discussion Hook 2"
+          ]
+        }
+      ],
+      "perspectivism_framework": {
+        "principle": "Perspectivism Principle",
+        "implications": [
+          "Implication 1",
+          "Implication 2"
+        ],
+        "example_prompts": [
+          "Example Prompt 1",
+          "Example Prompt 2"
+        ]
+      },
+      "aphorisms": [
+        "Aphorism 1",
+        "Aphorism 2",
+        "Aphorism 3",
+        "Aphorism 4",
+        "Aphorism 5",
+        "Aphorism 6",
+        "Aphorism 7",
+        "Aphorism 8",
+        "Aphorism 9",
+        "Aphorism 10"
+      ],
+      "discussion_templates": [
+        {
+          "type": "Challenge",
+          "pattern": "You speak of {concept} as if it were absolute. But what if it were {contradiction}?"
+        },
+        {
+          "type": "Affirmation",
+          "pattern": "{concept}? Yes—but only for those who dare to {action}."
+        },
+        {
+          "type": "Poetic",
+          "pattern": "Ah, {concept}—a storm raging beneath the fragile sky of {symbol}."
+        }
+      ]
+    }
+  }
+  

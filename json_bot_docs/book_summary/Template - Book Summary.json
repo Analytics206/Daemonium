@@ -1,0 +1,17 @@
+{
+    "author": "Author name",
+    "category": "Book Summary",
+    "title": "Book title",
+    "publication_year": "Publication year",
+    "summary": [
+      {
+        "section": "Section 1",
+        "content": "Content 1"
+      },
+      {
+        "section": "Section 2",
+        "content": "Content 2"
+      }
+    ]
+  }
+  

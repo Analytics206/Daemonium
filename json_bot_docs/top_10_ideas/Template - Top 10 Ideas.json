@@ -1,0 +1,97 @@
+{
+    "author": "Author name",
+    "category": "Top 10 Ideas",
+    "top_ideas": [
+      {
+        "idea": "Idea 1",
+        "description": "Description 1",
+        "key_books": [
+          "Book 1",
+          "Book 2",
+          "Book 3"
+        ]
+      },
+      {
+        "idea": "Idea 2",
+        "description": "Description 2",
+        "key_books": [
+          "Book 1",
+          "Book 2",
+          "Book 3"
+        ]
+      },
+      {
+        "idea": "Idea 3",
+        "description": "Description 3",
+        "key_books": [
+          "Book 1",
+          "Book 2",
+          "Book 3"
+        ]
+      },
+      {
+        "idea": "Idea 4",
+        "description": "Description 4",
+        "key_books": [
+          "Book 1",
+          "Book 2",
+          "Book 3"
+        ]
+      },
+      {
+        "idea": "Idea 5",
+        "description": "Description 5",
+        "key_books": [
+          "Book 1",
+          "Book 2",
+          "Book 3"
+        ]
+      },
+      {
+        "idea": "Idea 6",
+        "description": "Description 6",
+        "key_books": [
+          "Book 1",
+          "Book 2",
+          "Book 3"
+        ]
+      },
+      {
+        "idea": "Idea 7",
+        "description": "Description 7",
+        "key_books": [
+          "Book 1",
+          "Book 2",
+          "Book 3"
+        ]
+      },
+      {
+        "idea": "Idea 8",
+        "description": "Description 8",
+        "key_books": [
+          "Book 1",
+          "Book 2",
+          "Book 3"
+        ]
+      },
+      {
+        "idea": "Idea 9",
+        "description": "Description 9",
+        "key_books": [
+          "Book 1",
+          "Book 2",
+          "Book 3"
+        ]
+      },
+      {
+        "idea": "Idea 10",
+        "description": "Description 10",
+        "key_books": [
+          "Book 1",
+          "Book 2",
+          "Book 3"
+        ]
+      }
+    ]
+  }
+  

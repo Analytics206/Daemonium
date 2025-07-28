@@ -1,0 +1,64 @@
+{
+    "author": "Author Name",
+    "category": "Idea Summary",
+    "title": "Idea Title",
+    "quote": "Quote",
+    "summary": [
+      {
+        "section": "Introduction",
+        "content": "Summary"
+      },
+      {
+        "section": "Idea 1",
+        "content": "Summary"
+      },
+      {
+        "section": "Idea 2",
+        "content": "Summary"
+      },
+      {
+        "section": "Idea 3",
+        "content": "Summary"
+      },
+      {
+        "section": "Idea 4",
+        "content": "Summary"
+      },
+      {
+        "section": "Idea 5",
+        "content": "Summary"
+      },
+      {
+        "section": "Idea 6",
+        "content": "Summary"
+      },
+      {
+        "section": "Idea 7",
+        "content": "Summary"
+      },
+      {
+        "section": "Idea 8",
+        "content": "Summary"
+      },
+      {
+        "section": "Idea 9",
+        "content": "Summary"
+      },
+      {
+        "section": "Idea 10",
+        "content": "Summary"
+      },
+      {
+        "section": "Conclusion",
+        "content": "Summary"
+      }
+    ],
+    "key_books": [
+      "Book 1",
+      "Book 2",
+      "Book 3",
+      "Book 4",
+      "Book 5"
+    ]
+  }
+  

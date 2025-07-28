@@ -1,0 +1,15 @@
+{
+    "author": "Author Name",
+    "category": "Aphorisms",
+    "aphorisms": {
+      "aphorism_theme_1": [
+        "aphorism_1_1",
+        "aphorism_1_2"
+      ],
+      "aphorism_theme_2": [
+        "aphorism_2_1",
+        "aphorism_2_2"
+      ]
+    }
+  }
+  
