@@ -1,5 +1,29 @@
 # Daemonium
 ---
+## Version 0.2.1 (July 27, 2025)
+
+### New Features
+
+#### MongoDB Data Upload Scripts
+- **Aphorism Uploader** - Added `upload_aphorisms_to_mongodb.py` script to upload JSON files from `json_bot_docs/aphorisms` to MongoDB `aphorisms` collection
+- **Book Summary Uploader** - Added `upload_book_summaries_to_mongodb.py` script to upload JSON files from `json_bot_docs/book_summary` to MongoDB `book_summary` collection
+- **Template File Filtering** - Both scripts automatically skip template files (files starting with 'template')
+- **Document Merging** - Intelligent merge functionality that updates existing documents while preserving original upload timestamps
+- **Comprehensive Logging** - Detailed logging with separate log files for each uploader script
+- **Error Handling** - Robust error handling for connection failures, invalid JSON, and file system issues
+- **Statistics Reporting** - Detailed upload statistics including processed, uploaded, updated, skipped, and error counts
+
+#### Configuration and Security
+- **YAML Configuration Integration** - Both scripts use `config/default.yaml` for MongoDB connection settings
+- **URL Encoding** - Proper URL encoding of MongoDB credentials to handle special characters
+- **Authentication Support** - Support for MongoDB authentication with admin database auth source
+
+#### Documentation
+- **Uploader Documentation** - Added comprehensive `README_uploaders.md` with usage instructions, troubleshooting, and development notes
+- **Dependencies** - Updated requirements with `pymongo>=4.6.0` and `PyYAML>=6.0.1`
+
+---
+
 ## Version 0.2.0 (May 3, 2025)
 
 ### Major Features
