@@ -740,27 +740,26 @@ class EnhancedKnowledgeGraphBuilder:
 
 # Usage example
 if __name__ == "__main__":
-    import sys
+    import argparse
+    
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Build enhanced Neo4j knowledge graph with multi-database support')
+    parser.add_argument('--database', '-d', type=str, help='Target Neo4j database name')
+    parser.add_argument('--ollama-url', type=str, default="http://localhost:11434", help='Ollama server URL')
+    parser.add_argument('--ollama-model', type=str, default="llama3.1:latest", help='Ollama model to use')
+    args = parser.parse_args()
     
     # Configuration is loaded automatically from config/default.yaml
-    OLLAMA_URL = "http://localhost:11434"
-    OLLAMA_MODEL = "llama3.1:latest"
-    
-    # Check for database argument
-    target_database = None
-    if len(sys.argv) > 1:
-        target_database = sys.argv[1]
-        print(f"Building knowledge graph in database: {target_database}")
-    else:
-        print("Building knowledge graph in default database")
-        print("Usage: python enhanced_neo4j_kg_build.py [database_name]")
-        print("Available databases: daemonium_primary, daemonium_comparison, daemonium_experimental")
+    # You can optionally specify Ollama settings and target database
+    OLLAMA_URL = args.ollama_url
+    OLLAMA_MODEL = args.ollama_model
+    TARGET_DATABASE = args.database
     
     try:
         builder = EnhancedKnowledgeGraphBuilder(
             ollama_url=OLLAMA_URL,
             ollama_model=OLLAMA_MODEL,
-            target_database=target_database
+            target_database=TARGET_DATABASE
         )
         builder.build_enhanced_knowledge_graph()
         print(f"\nEnhanced knowledge graph construction completed successfully in database: {builder.target_database}!")

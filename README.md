@@ -57,15 +57,30 @@ python scripts/manage_neo4j_databases.py clear daemonium-experimental
 ```bash
 # Build knowledge graph in default database
 python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
+python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py
 
 # Build knowledge graph in specific database
-python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py daemonium-primary
+python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py --database daemonium-primary
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --database daemonium-comparison
 
-python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py daemonium-comparison
 
 # Use environment variable for database selection
-NEO4J_TARGET_DATABASE=daemonium-experimental python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
+set NEO4J_TARGET_DATABASE=daemonium-experimental
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
+python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py
+
+# Additional options (both scripts support these)
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --database daemonium-primary --ollama-model llama3.2:latest
+python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py -d daemonium-comparison --ollama-url http://localhost:11434
 ```
+
+**Note:** Both knowledge graph building scripts automatically display comprehensive statistics at the end of execution, including:
+- Node types and counts
+- Relationship types and counts  
+- AI-generated relationships
+- Total nodes and relationships
+- Philosopher information (enhanced script)
+- Concept nodes (enhanced script)
 
 **Benefits:**
 - ✅ **True Data Isolation** - Complete separation between different knowledge graph versions
