@@ -288,37 +288,125 @@ class KnowledgeGraphBuilder:
     
     def create_idea_summary_nodes(self):
         """Create nodes for individual idea summaries"""
-        self.logger.info("Creating idea summary nodes...")
-        
-        idea_summaries = self.db.idea_summaries.find()
-        summary_nodes = []
-        
-        for idea_summary in idea_summaries:
-            idea_node = Node("IdeaSummary",
-                           title=idea_summary.get('title', ''),
-                           content=idea_summary.get('content', ''),
-                           source_id=str(idea_summary['_id']))
-            self.graph.create(idea_node)
-            
-            # Store for similarity analysis
-            summary_nodes.append({
-                'node': idea_node,
-                'content': idea_summary.get('content', ''),
-                'title': idea_summary.get('title', ''),
-                'type': 'IdeaSummary'
-            })
-            
-            # Extract concepts using Ollama
-            full_text = f"{idea_summary.get('title', '')} {idea_summary.get('content', '')}"
-            ollama_concepts = self.extract_concepts_with_ollama(full_text)
-            for concept in ollama_concepts:
-                concept_node = Node("Concept", name=concept, extracted_by="ollama")
-                self.graph.merge(concept_node, "Concept", "name")
+        nodes = []
+        try:
+            idea_summaries = self.db.idea_summary.find()
+            for summary in idea_summaries:
+                # Extract key information
+                idea_id = summary.get('_id', str(summary.get('idea_id', 'unknown')))
+                title = summary.get('title', 'Unknown Idea')
+                content = summary.get('content', '')
+                philosopher = summary.get('philosopher', 'Unknown')
                 
-                explains_rel = Relationship(idea_node, "EXPLAINS", concept_node)
-                self.graph.create(explains_rel)
+                # Create node
+                node = Node(
+                    "IdeaSummary",
+                    id=str(idea_id),
+                    title=title,
+                    content=content[:500],  # Limit content length
+                    philosopher=philosopher,
+                    source="idea_summaries"
+                )
+                self.graph.create(node)
+                
+                nodes.append({
+                    'node': node,
+                    'content': f"{title}: {content}",
+                    'type': 'IdeaSummary'
+                })
+                
+                self.logger.info(f"Created IdeaSummary node: {title}")
+                
+        except Exception as e:
+            self.logger.error(f"Error creating idea summary nodes: {e}")
         
-        return summary_nodes
+        return nodes
+    
+    def create_bibliography_nodes(self):
+        """Create nodes for bibliography entries"""
+        nodes = []
+        try:
+            bibliographies = self.db.bibliography.find()
+            for bib in bibliographies:
+                # Extract key information from the bibliography document
+                bib_id = str(bib.get('_id', 'unknown'))
+                
+                # Get the main bibliography data (could be nested under various keys)
+                bib_data = None
+                for key, value in bib.items():
+                    if key != '_id' and isinstance(value, dict) and 'author' in value:
+                        bib_data = value
+                        break
+                
+                if not bib_data:
+                    self.logger.warning(f"No valid bibliography data found in document {bib_id}")
+                    continue
+                
+                author = bib_data.get('author', 'Unknown Author')
+                birth_death = bib_data.get('birth_death', '')
+                description = bib_data.get('description', '')
+                background = bib_data.get('background', '')
+                works = bib_data.get('works', [])
+                
+                # Create main bibliography node
+                bib_node = Node(
+                    "Bibliography",
+                    id=bib_id,
+                    author=author,
+                    birth_death=birth_death,
+                    description=description[:500],  # Limit length
+                    background=background[:500],  # Limit length
+                    works_count=len(works),
+                    source="bibliography"
+                )
+                self.graph.create(bib_node)
+                
+                nodes.append({
+                    'node': bib_node,
+                    'content': f"{author} ({birth_death}): {description} {background}",
+                    'type': 'Bibliography'
+                })
+                
+                self.logger.info(f"Created Bibliography node: {author}")
+                
+                # Create individual work nodes and connect them to the bibliography
+                for work in works:
+                    if isinstance(work, dict):
+                        work_title = work.get('title', 'Unknown Work')
+                        work_year = work.get('year', 'Unknown')
+                        work_type = work.get('type', 'Unknown')
+                        work_summary = work.get('summary', '')
+                        original_title = work.get('original_title', '')
+                        
+                        # Create work node
+                        work_node = Node(
+                            "Work",
+                            title=work_title,
+                            original_title=original_title,
+                            year=str(work_year),
+                            type=work_type,
+                            summary=work_summary[:500],  # Limit length
+                            author=author,
+                            source="bibliography"
+                        )
+                        self.graph.create(work_node)
+                        
+                        # Create relationship between bibliography and work
+                        authored_rel = Relationship(bib_node, "AUTHORED", work_node)
+                        self.graph.create(authored_rel)
+                        
+                        nodes.append({
+                            'node': work_node,
+                            'content': f"{work_title} ({work_year}): {work_summary}",
+                            'type': 'Work'
+                        })
+                        
+                        self.logger.info(f"Created Work node: {work_title} by {author}")
+                
+        except Exception as e:
+            self.logger.error(f"Error creating bibliography nodes: {e}")
+        
+        return nodes
     
     def create_cross_references(self):
         """Create additional relationships between nodes based on shared concepts"""
@@ -390,6 +478,7 @@ class KnowledgeGraphBuilder:
             all_nodes.extend(self.create_top_ideas_nodes())
             all_nodes.extend(self.create_aphorism_nodes())
             all_nodes.extend(self.create_idea_summary_nodes())
+            all_nodes.extend(self.create_bibliography_nodes())
             
             # Create semantic relationships using AI
             self.create_semantic_relationships(all_nodes)
