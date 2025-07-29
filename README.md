@@ -22,10 +22,56 @@ Daemonium is an AI-powered conversational platform that brings philosophy to lif
   - References to original works and related thinkers
 
 - **Technical Architecture**:
-  - **Neo4j Graph Database**: For modeling relationships between philosophers, concepts, and themes
+  - **Neo4j Enterprise Edition**: Multi-database graph database for modeling relationships between philosophers, concepts, and themes
   - **Qdrant Vector Database**: For semantic search and retrieval-augmented generation
   - **Containerized Services**: Docker-based deployment for all components
   - **Modular Design**: Easily extensible for future features and content
+
+#### 🗄️ Neo4j Enterprise Edition Multi-Database Support
+
+Daemonium leverages Neo4j Enterprise Edition's multi-database capabilities to provide isolated environments for comparison and experimental work:
+
+**Available Databases:**
+- **`daemonium-primary`** - Primary knowledge graph for production data
+- **`daemonium-comparison`** - Comparison knowledge graph for A/B testing
+- **`daemonium-experimental`** - Experimental features and development
+
+**Database Management Commands:**
+
+```bash
+# Setup all configured databases
+python scripts/manage_neo4j_databases.py setup
+
+# List all databases with status
+python scripts/manage_neo4j_databases.py list
+
+# Show database statistics
+python scripts/manage_neo4j_databases.py stats daemonium-primary
+
+# Clear database content (use with caution)
+python scripts/manage_neo4j_databases.py clear daemonium-experimental
+```
+
+**Knowledge Graph Building with Database Selection:**
+
+```bash
+# Build knowledge graph in default database
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
+
+# Build knowledge graph in specific database
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py daemonium-primary
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py daemonium-comparison
+
+# Use environment variable for database selection
+NEO4J_TARGET_DATABASE=daemonium-experimental python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
+```
+
+**Benefits:**
+- ✅ **True Data Isolation** - Complete separation between different knowledge graph versions
+- ✅ **Easy A/B Testing** - Compare different data processing approaches across databases
+- ✅ **Experimental Safety** - Test new features in isolated experimental database
+- ✅ **Version Control** - Maintain multiple versions of knowledge graphs simultaneously
+- ✅ **Free for Development** - Neo4j Enterprise Edition is free for local development use
 
 - **Learning Tools**:
   - "Pause and explain" feature for complex concepts

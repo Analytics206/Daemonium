@@ -1,5 +1,75 @@
 # Daemonium
 ---
+## Version 0.2.4 (July 29, 2025)
+
+### Major Features
+
+#### Neo4j Enterprise Edition Multi-Database Support
+- **Enterprise Edition Upgrade** - Upgraded from Neo4j Community Edition to Enterprise Edition for advanced multi-database capabilities
+- **Multiple Database Architecture** - Created three separate databases for comparison and experimental work:
+  - `daemonium-primary` - Primary knowledge graph
+  - `daemonium-comparison` - Comparison knowledge graph
+  - `daemonium-experimental` - Experimental features
+- **Free Development License** - Leverages Neo4j Enterprise Edition's free development license for local use
+
+#### Database Management System
+- **Database Management Script** - Added `scripts/manage_neo4j_databases.py` for comprehensive database administration
+- **Database Utility Library** - Created `scripts/utils/neo4j_database_utils.py` for consistent database selection across all scripts
+- **Automated Database Creation** - Scripts automatically create databases if they don't exist
+- **Database Statistics and Monitoring** - Built-in tools for monitoring database health and content statistics
+
+#### Flexible Database Selection
+- **Multiple Selection Methods** - Support for database selection via:
+  - Command-line arguments: `python script.py daemonium-primary`
+  - Environment variables: `NEO4J_TARGET_DATABASE=daemonium-comparison`
+  - Script-specific mappings in configuration
+  - Default database fallback
+- **Enhanced Knowledge Graph Builder** - Updated `enhanced_neo4j_kg_build.py` to support target database selection
+- **Centralized Configuration** - All database settings managed through `config/default.yaml`
+
+### Database Management Commands
+
+#### Setup and Administration
+```bash
+# Create all configured databases
+python scripts/manage_neo4j_databases.py setup
+
+# List all databases with status
+python scripts/manage_neo4j_databases.py list
+
+# Show database statistics
+python scripts/manage_neo4j_databases.py stats daemonium-primary
+
+# Clear database content (use with caution)
+python scripts/manage_neo4j_databases.py clear daemonium-experimental
+```
+
+#### Knowledge Graph Building
+```bash
+# Build knowledge graph in default database
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
+
+# Build knowledge graph in specific database
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py daemonium-primary
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py daemonium-comparison
+
+# Use environment variable for database selection
+NEO4J_TARGET_DATABASE=daemonium-experimental python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
+```
+
+### Technical Improvements
+- **Docker Compose Updates** - Modified Neo4j service to use Enterprise Edition with proper license acceptance
+- **Configuration Schema** - Enhanced `config/default.yaml` with database definitions and script mappings
+- **Error Handling** - Robust error handling for database creation and connection failures
+- **Database Naming Compliance** - Ensured all database names comply with Neo4j naming restrictions (hyphens instead of underscores)
+
+### Benefits for Comparison Workflows
+- **True Data Isolation** - Complete separation between different knowledge graph versions
+- **Easy A/B Testing** - Compare different data processing approaches across databases
+- **Experimental Safety** - Test new features in isolated experimental database
+- **Version Control** - Maintain multiple versions of knowledge graphs simultaneously
+
+---
 ## Version 0.2.3 (July 29, 2025)
 
 ### New Features

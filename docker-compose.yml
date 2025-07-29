@@ -63,16 +63,19 @@ services:
       retries: 5
       start_period: 30s
   
-  # Neo4j graph database service
+  # Neo4j graph database service (Enterprise Edition)
   neo4j:
-    image: neo4j:latest
+    image: neo4j:enterprise
     container_name: daemonium-neo4j
     restart: unless-stopped
     environment:
       NEO4J_AUTH: ${NEO4J_AUTH:-neo4j/ch@ng3m300}
+      NEO4J_ACCEPT_LICENSE_AGREEMENT: yes
       NEO4J_dbms_memory_heap_initial__size: 512m
       NEO4J_dbms_memory_heap_max__size: 2G
       NEO4J_dbms_memory_pagecache_size: 1G
+      # Enable multi-database support
+      NEO4J_dbms_default__database: neo4j
     ports:
       - "7475:7474" # HTTP
       - "7688:7687" # Bolt

@@ -22,14 +22,26 @@ qdrant:
   port: 6333
   grpc_port: 6334
 
-# Neo4j Configuration
+# Neo4j Configuration (Enterprise Edition - Multiple Databases)
 neo4j:
   host: localhost
   http_port: 7475
   bolt_port: 7688
   username: neo4j
   password: ch@ng3m300
+  # Default database
   database: neo4j
+  # Additional databases for comparison
+  databases:
+    primary: daemonium-primary    # Primary knowledge graph
+    comparison: daemonium-comparison  # Comparison knowledge graph
+    experimental: daemonium-experimental  # Experimental features
+  
+  # Script-specific database assignments (optional)
+  script_databases:
+    enhanced_neo4j_kg_build: daemonium-primary
+    comparison_analysis: daemonium-comparison
+    experimental_features: daemonium-experimental
   
 # Application Settings
 app:
