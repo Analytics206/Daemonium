@@ -15,7 +15,7 @@ from urllib.parse import quote_plus
 class KnowledgeGraphBuilder:
     def __init__(self, config_path: str = None, 
                  ollama_url: str = "http://localhost:11434", 
-                 ollama_model: str = "llama3.1"):
+                 ollama_model: str = "llama3.1:latest"):
         # Load configuration from config/default.yaml
         if config_path is None:
             # Get the project root directory (go up two levels from script directory)
@@ -433,7 +433,7 @@ if __name__ == "__main__":
     # Configuration is loaded automatically from config/default.yaml
     # You can optionally specify Ollama settings
     OLLAMA_URL = "http://localhost:11434"  # Default Ollama URL
-    OLLAMA_MODEL = "llama3.1"  # or "mistral", "codellama", etc.
+    OLLAMA_MODEL = "llama3.1:latest"  # or "mistral:latest", "llama3.2:latest", etc.
     
     try:
         builder = KnowledgeGraphBuilder(

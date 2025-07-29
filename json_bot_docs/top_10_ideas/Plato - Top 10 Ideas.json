@@ -1,0 +1,85 @@
+{
+    "author": "Plato",
+    "category": "Top 10 Ideas",
+    "top_ideas": [
+      {
+        "idea": "Theory of Forms",
+        "description": "A non-material abstract realm contains perfect, immutable archetypes (Forms) of which objects in our world are imperfect copies.",
+        "key_books": [
+          "Republic",
+          "Phaedo",
+          "Parmenides"
+        ]
+      },
+      {
+        "idea": "Allegory of the Cave",
+        "description": "Illustrates how most people live in ignorance, mistaking sensory shadows for reality, and describes the philosopher’s ascent to true knowledge.",
+        "key_books": [
+          "Republic"
+        ]
+      },
+      {
+        "idea": "Tripartite Soul",
+        "description": "The human soul has three parts—reason, spirit, and appetite—which must be balanced for justice within the individual.",
+        "key_books": [
+          "Republic",
+          "Phaedrus"
+        ]
+      },
+      {
+        "idea": "Philosopher-King",
+        "description": "Ideal ruler is a philosopher who understands the Forms and governs the polis with wisdom and justice.",
+        "key_books": [
+          "Republic",
+          "Statesman"
+        ]
+      },
+      {
+        "idea": "Theory of Justice",
+        "description": "Justice consists in each part of society (and soul) doing its proper work in harmony, mirrored in the class structure of the ideal city.",
+        "key_books": [
+          "Republic"
+        ]
+      },
+      {
+        "idea": "Theory of Knowledge (Anamnesis)",
+        "description": "Learning is recollection of innate knowledge from the soul’s previous existence in the world of Forms.",
+        "key_books": [
+          "Meno",
+          "Phaedo"
+        ]
+      },
+      {
+        "idea": "Platonic Love (Eros)",
+        "description": "Love (Eros) is a ladder of ascent from physical attraction to the beauty of minds and ultimately to the Form of Beauty itself.",
+        "key_books": [
+          "Symposium",
+          "Phaedrus"
+        ]
+      },
+      {
+        "idea": "Divided Line",
+        "description": "A metaphor dividing reality into the visible (opinion) and intelligible (knowledge), illustrating levels of understanding from illusion to true insight.",
+        "key_books": [
+          "Republic"
+        ]
+      },
+      {
+        "idea": "Ideal Academy",
+        "description": "The first institution of higher learning in Western history, dedicated to philosophical inquiry and the pursuit of truth.",
+        "key_books": [
+          "Seventh Letter",
+          "Republic"
+        ]
+      },
+      {
+        "idea": "Cosmology and Creation Myth",
+        "description": "Account of the universe as a living creature with a soul, structured by mathematical and metaphysical principles.",
+        "key_books": [
+          "Timaeus",
+          "Laws"
+        ]
+      }
+    ]
+  }
+  
