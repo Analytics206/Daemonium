@@ -198,6 +198,83 @@ Import completed successfully
 | **Logger**                 | Tracks events, errors, and skipped entries   |
 | **Docker Compose**         | Brings it all together for local use         |
 | **Prometheus**             | Time series database for system metrics collection  |
+
+---
+
+## 📥 MongoDB Data Upload Scripts
+
+Daemonium includes a comprehensive suite of MongoDB uploader scripts for populating the database with philosophical content. All scripts are located in `scripts/build_mongodb_metadata/` and follow consistent patterns for error handling, logging, and configuration.
+
+### Available Uploaders
+
+| Script | Collection | Purpose |
+|--------|------------|----------|
+| `upload_books_to_mongodb.py` | `books` | Core philosophical texts and works |
+| `upload_book_summaries_to_mongodb.py` | `book_summaries` | Detailed summaries of philosophical works |
+| `upload_philosopher_bios_to_mongodb.py` | `philosopher_bios` | Biographical information about philosophers |
+| `upload_philosopher_summaries_to_mongodb.py` | `philosopher_summaries` | Comprehensive philosophical overviews |
+| `upload_bibliography_to_mongodb.py` | `bibliography` | Author bibliographies with works and themes |
+| `upload_aphorisms_to_mongodb.py` | `aphorisms` | Philosophical aphorisms and quotes |
+| `upload_philosophy_themes_to_mongodb.py` | `philosophy_themes` | Core philosophical themes |
+| `upload_top_10_ideas_to_mongodb.py` | `top_ten_ideas` | Ranked philosophical concepts |
+| `upload_idea_summaries_to_mongodb.py` | `idea_summaries` | Detailed analysis of philosophical ideas |
+| `upload_modern_adaptations_to_mongodb.py` | `modern_adaptations` | Contemporary applications of philosophy |
+| `upload_persona_cores_to_mongodb.py` | `persona_cores` | Philosopher persona definitions |
+| `upload_philosopher_bots_to_mongodb.py` | `philosopher_bots` | Bot persona configurations |
+| `upload_chat_blueprints_to_mongodb.py` | `chat_blueprints` | Chat templates and response patterns |
+| `upload_conversation_logic_to_mongodb.py` | `conversation_logic` | Conversation flow strategies |
+| `upload_discussion_hooks_to_mongodb.py` | `discussion_hooks` | Discussion prompts and questions |
+
+### Universal Features
+
+- **Template File Filtering**: All scripts automatically skip files starting with 'template'
+- **Document Merging**: Intelligent updates that preserve existing data while adding new content
+- **Comprehensive Logging**: Detailed logs with separate files for each uploader
+- **Error Handling**: Robust error handling for connection failures and malformed data
+- **Statistics Reporting**: Detailed upload statistics including processed, uploaded, updated, and skipped counts
+- **YAML Configuration**: Uses centralized `config/default.yaml` for database connections
+- **URL Encoding**: Proper handling of special characters in MongoDB credentials
+
+### Running Individual Uploaders
+
+```bash
+# Run a specific uploader
+python scripts/build_mongodb_metadata/upload_bibliography_to_mongodb.py
+
+# Run all uploaders in sequence
+python scripts/build_mongodb_metadata/run_all_uploaders.py
+
+# Run with options
+python scripts/build_mongodb_metadata/run_all_uploaders.py --stop-on-error
+python scripts/build_mongodb_metadata/run_all_uploaders.py --dry-run
+```
+
+### Data Sources
+
+All uploader scripts read from corresponding directories in `json_bot_docs/`:
+- `json_bot_docs/bibliography/` - Author bibliographies
+- `json_bot_docs/aphorisms/` - Philosophical aphorisms
+- `json_bot_docs/book_summaries/` - Book summaries
+- `json_bot_docs/philosopher_bios/` - Philosopher biographies
+- And more...
+
+### Prerequisites
+
+1. **MongoDB Container Running**:
+   ```bash
+   docker-compose up -d mongodb
+   ```
+
+2. **Virtual Environment Activated**:
+   ```bash
+   .venv\Scripts\activate  # Windows
+   source .venv/bin/activate  # Unix/macOS
+   ```
+
+3. **Dependencies Installed**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 | **Grafana**                | Visualization platform for system metrics dashboards |
 | **Kafka**                  | Distributed event streaming platform for messaging |
 | **Zookeeper**              | Coordinates the Kafka cluster                |

@@ -1,5 +1,37 @@
 # Daemonium
 ---
+## Version 0.2.3 (July 29, 2025)
+
+### New Features
+
+#### Bibliography Data Management
+- **Bibliography Uploader Script** - Added `upload_bibliography_to_mongodb.py` for uploading author bibliography data to MongoDB
+- **Flexible JSON Structure Support** - Script handles various root keys (e.g., `nietzsche_bibliography`, `plato_bibliography`, `author_bibliography`) for backward compatibility
+- **Enhanced Bibliography Schema** - Added support for new `background` field in bibliography JSON structure
+- **Author-Based Document IDs** - Creates unique document identifiers based on author names for consistent data management
+- **Comprehensive Field Mapping** - Extracts and maps all bibliography fields including works, chronological periods, themes, and influence data
+
+#### Master Uploader Integration
+- **Updated Script Execution Order** - Added bibliography uploader to `run_all_uploaders.py` execution sequence
+- **Strategic Positioning** - Bibliography data loads after core philosopher data but before detailed content for optimal dependency management
+
+#### Data Structure Enhancements
+- **Template Updates** - Enhanced bibliography template with new background field for richer author context
+- **Modern Adaptation Support** - Added support for modern philosophical adaptations with new JSON structure
+- **Philosopher Bio Template Refinements** - Streamlined template structure for better usability
+
+### Technical Improvements
+- **Robust Error Handling** - Enhanced error messages for missing or malformed bibliography keys
+- **Backward Compatibility** - Maintains support for existing JSON files with different naming conventions
+- **Metadata Preservation** - Stores original JSON key names for reference and debugging
+- **Clean Document IDs** - Improved ID generation with better character handling (spaces, hyphens, periods)
+
+### Configuration and Integration
+- **MongoDB Collection Management** - Uses dedicated `bibliography` collection for author bibliography data
+- **YAML Configuration Integration** - Leverages existing configuration system for database connections
+- **Logging and Statistics** - Comprehensive logging with detailed upload statistics and error reporting
+
+---
 ## Version 0.2.2 (July 27, 2025)
 
 ### New Features
