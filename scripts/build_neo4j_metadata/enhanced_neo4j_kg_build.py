@@ -42,6 +42,10 @@ class EnhancedKnowledgeGraphBuilder:
                  ollama_model: str = "llama3.1:latest",
                  target_database: str = None):
         
+        # Setup logging
+        logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger(__name__)
+        
         # Get script name for database selection
         script_name = Path(__file__).stem
         

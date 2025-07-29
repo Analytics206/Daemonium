@@ -48,7 +48,7 @@ def get_windows_voices() -> List[Dict[str, str]]:
         log_message(f"Error getting voices: {e}", "ERROR")
         return [{"name": "Default", "culture": "en-US", "gender": "NotSet"}]
 
-def speak_text_windows(text: str, voice: str = None, rate: int = 0) -> Dict[str, Any]:
+def speak_text_windows(text: str, voice: str = None, rate: int = 3) -> Dict[str, Any]:
     """Use Windows SAPI to speak text"""
     try:
         # Escape text for PowerShell
@@ -76,7 +76,7 @@ def speak_text_windows(text: str, voice: str = None, rate: int = 0) -> Dict[str,
         
         # Execute PowerShell command
         cmd = ["powershell", "-Command", " ".join(ps_command)]
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=45)
         
         if result.returncode == 0:
             return {

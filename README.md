@@ -59,7 +59,8 @@ python scripts/manage_neo4j_databases.py clear daemonium-experimental
 python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
 
 # Build knowledge graph in specific database
-python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py daemonium-primary
+python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py daemonium-primary
+
 python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py daemonium-comparison
 
 # Use environment variable for database selection

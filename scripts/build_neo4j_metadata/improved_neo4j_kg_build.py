@@ -11,14 +11,29 @@ from sklearn.metrics.pairwise import cosine_similarity
 import yaml
 from pathlib import Path
 from urllib.parse import quote_plus
+import sys
+
+# Add the utils directory to the path
+sys.path.append(str(Path(__file__).parent.parent / 'utils'))
+from neo4j_database_utils import (
+    get_neo4j_database_config,
+    get_neo4j_connection_uri,
+    get_neo4j_auth,
+    create_database_if_not_exists,
+    print_database_info
+)
 
 class ImprovedKnowledgeGraphBuilder:
     def __init__(self, config_path: str = None, 
                  ollama_url: str = "http://localhost:11434", 
-                 ollama_model: str = "llama3.1:latest"):
-        # Load configuration from config/default.yaml
+                 ollama_model: str = "llama3.1:latest",
+                 target_database: str = None):
+        
+        # Get script name for database selection
+        script_name = Path(__file__).stem
+        
+        # Load configuration with smart database selection
         if config_path is None:
-            # Get the project root directory (go up two levels from script directory)
             script_dir = Path(__file__).parent
             project_root = script_dir.parent.parent
             config_path = project_root / 'config' / 'default.yaml'
@@ -26,23 +41,37 @@ class ImprovedKnowledgeGraphBuilder:
         with open(config_path, 'r') as f:
             config = yaml.safe_load(f)
         
+        # Get Neo4j configuration with database selection
+        self.neo4j_config = get_neo4j_database_config(script_name, target_database, config_path)
+        self.target_database = self.neo4j_config['selected_database']
+        
+        # Print database selection info
+        print_database_info(self.neo4j_config)
+        
         # Build MongoDB connection string from config
         mongo_config = config['mongodb']
         mongo_user = quote_plus(mongo_config['username'])
         mongo_pass = quote_plus(mongo_config['password'])
-        # Include authSource=admin for proper authentication
         mongo_uri = f"mongodb://{mongo_user}:{mongo_pass}@{mongo_config['host']}:{mongo_config['port']}/{mongo_config['database']}?authSource=admin"
         
         # MongoDB connection
         self.mongo_client = MongoClient(mongo_uri)
         self.db = self.mongo_client[mongo_config['database']]
         
-        # Build Neo4j connection from config
-        neo4j_config = config['neo4j']
-        neo4j_uri = f"bolt://{neo4j_config['host']}:{neo4j_config['bolt_port']}"
+        # Neo4j connection using utility functions
+        neo4j_uri = get_neo4j_connection_uri(self.neo4j_config)
+        neo4j_auth = get_neo4j_auth(self.neo4j_config)
         
-        # Neo4j connection
-        self.graph = Graph(neo4j_uri, auth=(neo4j_config['username'], neo4j_config['password']))
+        # Create database if it doesn't exist
+        try:
+            create_database_if_not_exists(self.target_database, self.neo4j_config)
+        except Exception as e:
+            logging.warning(f"Could not create database (may already exist): {e}")
+        
+        # Neo4j connection to specific database
+        self.graph = Graph(neo4j_uri, auth=neo4j_auth, name=self.target_database)
+        
+        logging.info(f"Connected to Neo4j database: {self.target_database}")
         
         # Clear existing graph (optional - remove if you want to preserve data)
         self.graph.delete_all()
@@ -647,15 +676,26 @@ class ImprovedKnowledgeGraphBuilder:
 
 # Usage example
 if __name__ == "__main__":
+    import argparse
+    
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Build improved Neo4j knowledge graph with multi-database support')
+    parser.add_argument('--database', '-d', type=str, help='Target Neo4j database name')
+    parser.add_argument('--ollama-url', type=str, default="http://localhost:11434", help='Ollama server URL')
+    parser.add_argument('--ollama-model', type=str, default="llama3.1:latest", help='Ollama model to use')
+    args = parser.parse_args()
+    
     # Configuration is loaded automatically from config/default.yaml
-    # You can optionally specify Ollama settings
-    OLLAMA_URL = "http://localhost:11434"  # Default Ollama URL
-    OLLAMA_MODEL = "llama3.1:latest"  # or "mistral:latest", "llama3.2:latest", etc.
+    # You can optionally specify Ollama settings and target database
+    OLLAMA_URL = args.ollama_url
+    OLLAMA_MODEL = args.ollama_model
+    TARGET_DATABASE = args.database
     
     try:
         builder = ImprovedKnowledgeGraphBuilder(
             ollama_url=OLLAMA_URL,
-            ollama_model=OLLAMA_MODEL
+            ollama_model=OLLAMA_MODEL,
+            target_database=TARGET_DATABASE
         )
         builder.build_knowledge_graph()
         print("\nImproved knowledge graph construction completed successfully!")
