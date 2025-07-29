@@ -1,0 +1,39 @@
+{
+    "author_bibliography": {
+      "author": "Author Name",
+      "birth_death": "Birth Year - Death Year",
+      "description": "Description of the author and bibliography",
+      "works": [
+        {
+          "title": "Book Title 1",
+          "original_title": "OriginalBook Title 1",
+          "year": 1900,
+          "type": "Type of Book",
+          "summary": "Summary of Book"
+        },
+        {
+          "title": "Book Title 2",
+          "original_title": "OriginalBook Title 2",
+          "year": 1900,
+          "type": "Type of Book",
+          "summary": "Summary of Book"
+        }
+      ],
+      "chronological_periods": {
+        "period 1": {
+          "characteristics": "Characteristics of Period 1",
+          "themes": "Themes of Period 1"
+        },
+        "period 2": {
+          "characteristics": "Characteristics of Period 2",
+          "themes": "Themes of Period 2"
+        }
+      },
+      "major_themes": [
+        "Major Theme 1",
+        "Major Theme 2"
+      ],
+      "influence": "Influence of the author on other philosophers and thinkers",
+      "note": "Notes"
+    }
+  }
