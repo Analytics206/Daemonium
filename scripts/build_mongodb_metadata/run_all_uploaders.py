@@ -48,6 +48,7 @@ class MasterUploader:
             'upload_book_summaries_to_mongodb.py',           # Book summaries
             'upload_philosopher_bios_to_mongodb.py',         # Philosopher biographies
             'upload_philosopher_summaries_to_mongodb.py',    # Philosopher summaries
+            'upload_bibliography_to_mongodb.py',            # Bibliography data
             'upload_aphorisms_to_mongodb.py',               # Aphorisms
             'upload_philosophy_themes_to_mongodb.py',        # Philosophy themes
             'upload_top_10_ideas_to_mongodb.py',            # Top ideas
