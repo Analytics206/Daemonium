@@ -1,5 +1,51 @@
 # Daemonium
 ---
+## Version 0.2.5 (July 30, 2025)
+
+### Major Features
+
+#### Knowledge Graph Quality Evaluation System
+- **Comprehensive Evaluation Framework** - Added `scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py` for research-based knowledge graph quality assessment
+- **Multi-Database Comparison** - Support for comparing multiple Neo4j databases simultaneously with side-by-side analysis
+- **Research-Based Metrics** - Implemented quality dimensions based on academic research:
+  - **Structural Metrics**: Graph density, clustering coefficient, degree distribution
+  - **Completeness Metrics**: Schema coverage, property completeness, linkability
+  - **Consistency Metrics**: Temporal and semantic coherence
+  - **Chatbot-Specific Metrics**: AI enhancement ratio, content accessibility, philosophical domain coverage
+- **Multiple Report Formats** - Generate comprehensive reports in multiple formats:
+  - Terminal output with formatted statistics
+  - JSON reports for machine-readable data
+  - Text reports with detailed analysis and actionable recommendations
+  - Visual PDF reports with charts, graphs, and comparison dashboards
+- **Professional Visualizations** - Advanced charts including bar charts, pie charts, and quality dimension comparisons
+- **Organized Output Management** - All reports automatically saved to `scripts/build_neo4j_metadata/reports/` directory
+
+#### Enhanced Dependencies
+- **Visualization Libraries** - Added matplotlib, seaborn, and Pillow for advanced chart generation
+- **GPU Support** - Automatic CUDA detection for faster semantic similarity calculations
+- **Report Generation** - Professional PDF generation with multi-page layouts and statistical visualizations
+
+### Usage Examples
+```bash
+# Evaluate single database with all reports
+python scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py --databases daemonium-primary --all-reports
+
+# Compare multiple databases
+python scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py --databases daemonium-primary daemonium-comparison --compare --all-reports
+
+# Generate specific report types
+python scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py --databases daemonium-primary --text-report
+python scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py --databases daemonium-primary --visual-report
+```
+
+### Benefits
+- ✅ **Quality Assurance** - Comprehensive evaluation of knowledge graph quality for chatbot applications
+- ✅ **Actionable Insights** - Specific recommendations for improving graph structure and content
+- ✅ **Comparative Analysis** - Easy A/B testing between different knowledge graph versions
+- ✅ **Professional Reporting** - Publication-ready charts and detailed analysis reports
+- ✅ **Research-Based** - Metrics grounded in academic knowledge graph evaluation literature
+
+---
 ## Version 0.2.4 (July 29, 2025)
 
 ### Major Features

@@ -82,11 +82,39 @@ python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py -d daemonium-comp
 - Philosopher information (enhanced script)
 - Concept nodes (enhanced script)
 
+**Knowledge Graph Quality Evaluation:**
+
+```bash
+# Evaluate single database with all reports
+python scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py --databases daemonium-primary --all-reports
+
+# Compare multiple databases with comprehensive analysis
+python scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py --databases daemonium-primary daemonium-comparison --compare --all-reports
+
+# Generate specific report types
+python scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py --databases daemonium-primary --text-report
+python scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py --databases daemonium-primary --visual-report
+```
+
+**Evaluation Features:**
+- 📊 **Research-Based Metrics** - Structural, completeness, consistency, and chatbot-specific quality dimensions
+- 📈 **Multiple Report Formats** - Terminal output, JSON data, detailed text analysis, and visual PDF charts
+- 🔍 **Comparative Analysis** - Side-by-side evaluation of multiple knowledge graph databases
+- 💡 **Actionable Recommendations** - Specific suggestions for improving knowledge graph quality
+- 📁 **Organized Output** - All reports saved to `scripts/build_neo4j_metadata/reports/` directory
+
+**Quality Metrics Evaluated:**
+- **Structural**: Graph density, clustering coefficient, degree distribution
+- **Completeness**: Schema coverage, property completeness, linkability
+- **Consistency**: Temporal and semantic coherence
+- **Chatbot-Specific**: AI enhancement ratio, content accessibility, philosophical domain coverage
+
 **Benefits:**
 - ✅ **True Data Isolation** - Complete separation between different knowledge graph versions
 - ✅ **Easy A/B Testing** - Compare different data processing approaches across databases
 - ✅ **Experimental Safety** - Test new features in isolated experimental database
 - ✅ **Version Control** - Maintain multiple versions of knowledge graphs simultaneously
+- ✅ **Quality Assurance** - Comprehensive evaluation and improvement recommendations
 - ✅ **Free for Development** - Neo4j Enterprise Edition is free for local development use
 
 - **Learning Tools**:

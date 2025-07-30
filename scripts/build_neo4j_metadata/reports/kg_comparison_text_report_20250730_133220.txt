@@ -1,0 +1,208 @@
+
+================================================================================
+KNOWLEDGE GRAPH EVALUATION SUMMARY
+================================================================================
+
+Databases Evaluated: daemonium-primary, daemonium-comparison
+Evaluation Time: 2025-07-30T13:32:20.882495
+
+🏆 BEST OVERALL: daemonium-comparison (Score: 0.655)
+
+📋 RECOMMENDATIONS:
+  • For philosopher chatbot use, recommend: daemonium-comparison (overall score: 0.655)
+  • daemonium-primary: High relationship diversity (22 types)
+  • daemonium-comparison: Good content volume (1208 nodes)
+  • daemonium-comparison: High relationship diversity (17 types)
+
+📊 DETAILED COMPARISON:
+Database             Score    Nodes    Rels     Types    AI%      Density   
+--------------------------------------------------------------------------------
+daemonium-primary    0.497    966      2286     6        0.0      0.002452  
+daemonium-comparison 0.655    1208     3519     10       0.0      0.002413  
+
+
+📈 DETAILED STATISTICS FOR DAEMONIUM-PRIMARY:
+------------------------------------------------------------
+
+🔢 BASIC STATISTICS:
+  Total Nodes: 966
+  Total Relationships: 2,286
+  Node Types: 6
+  Relationship Types: 22
+
+  📋 Node Type Distribution:
+    Concept             :    688 ( 71.2%)
+    Aphorism            :    219 ( 22.7%)
+    PhilosophicalIdea   :     31 (  3.2%)
+    IdeaSummary         :     22 (  2.3%)
+    TopIdeasCollection  :      3 (  0.3%)
+    AphorismsCollection :      3 (  0.3%)
+
+  🔗 Relationship Type Distribution:
+    RELATED_VIA         :    913 ( 39.9%)
+    EXPRESSES           :    802 ( 35.1%)
+    CONTAINS_APHORISM   :    219 (  9.6%)
+    EXPLAINS            :    206 (  9.0%)
+    SUPPORTS            :     41 (  1.8%)
+    EXEMPLIFIES         :     36 (  1.6%)
+    CONTAINS_IDEA       :     31 (  1.4%)
+    CONTRASTS           :      8 (  0.3%)
+    INFLUENCES          :      7 (  0.3%)
+    SUMMARIZES          :      7 (  0.3%)
+
+  🤖 AI-Generated Relationships:
+    Semantic Analysis   :    111 (  4.9%)
+    Enhanced Semantic Analysis:      0 (  0.0%)
+    Total Ai            :    111 (  4.9%)
+
+📝 PROPERTY STATISTICS:
+  Content             :     22 (  2.3%)
+  Summary             :      0 (  0.0%)
+  Title               :     22 (  2.3%)
+  Author              :    256 ( 26.5%)
+  Birth Year          :      0 (  0.0%)
+  Nationality         :      0 (  0.0%)
+
+🔗 CONNECTIVITY STATISTICS:
+  Isolated Nodes      :      3 (  0.3%)
+  Connected Nodes     :    963 ( 99.7%)
+  Leaf Nodes          :      0 (  0.0%)
+  Hub Nodes           :      0 (  0.0%)
+
+📄 CONTENT STATISTICS:
+  Avg Content Length  :        0.0 characters
+  Max Content Length  :        0.0 characters
+  Min Content Length  :        0.0 characters
+
+⏰ TEMPORAL STATISTICS:
+  Philosophers With Birth Year: 0
+
+🏗️ STRUCTURAL METRICS:
+  Graph Density            : 0.002452
+  Average Degree           : 4.73
+  Clustering Coefficient   : 0.3218
+  Degree Centralization    : 0.0917
+  Max Degree               : 93
+  Min Degree               : 0
+  Degree Std Dev           : 7.76
+
+✅ COMPLETENESS METRICS:
+  Schema Completeness      :  28.6%
+  Philosopher Bio Completeness:   0.0%
+  Book Metadata Completeness:   0.0%
+  Idea Content Completeness:   0.0%
+  Linkability Completeness :  99.7%
+
+🎯 CONSISTENCY METRICS:
+  Temporal Consistency     : 100.0%
+  Semantic Consistency     : 100.0%
+
+
+📈 DETAILED STATISTICS FOR DAEMONIUM-COMPARISON:
+------------------------------------------------------------
+
+🔢 BASIC STATISTICS:
+  Total Nodes: 1,208
+  Total Relationships: 3,519
+  Node Types: 10
+  Relationship Types: 17
+
+  📋 Node Type Distribution:
+    Concept             :    872 ( 72.2%)
+    Aphorism            :    219 ( 18.1%)
+    PhilosophicalConcept:     36 (  3.0%)
+    AphorismCategory    :     29 (  2.4%)
+    IdeaSummary         :     22 (  1.8%)
+    PhilosophicalTheme  :     12 (  1.0%)
+    BookSummary         :      9 (  0.7%)
+    Philosopher         :      3 (  0.2%)
+    TopIdeas            :      3 (  0.2%)
+    AphorismCollection  :      3 (  0.2%)
+
+  🔗 Relationship Type Distribution:
+    SHARES_CONCEPT      :  1,487 ( 42.3%)
+    INVOLVES_CONCEPT    :  1,349 ( 38.3%)
+    CONTAINS            :    255 (  7.2%)
+    WROTE               :    228 (  6.5%)
+    INFLUENCES          :     38 (  1.1%)
+    THEORIZED           :     36 (  1.0%)
+    HAS_CATEGORY        :     29 (  0.8%)
+    DEVELOPS            :     24 (  0.7%)
+    EXPLORED            :     22 (  0.6%)
+    DEVELOPED           :     12 (  0.3%)
+
+  🤖 AI-Generated Relationships:
+    Semantic Analysis   :      0 (  0.0%)
+    Enhanced Semantic Analysis:     94 (  2.7%)
+    Total Ai            :     94 (  2.7%)
+
+📝 PROPERTY STATISTICS:
+  Content             :    289 ( 23.9%)
+  Summary             :      0 (  0.0%)
+  Title               :    117 (  9.7%)
+  Author              :    285 ( 23.6%)
+  Birth Year          :      3 (  0.2%)
+  Nationality         :      3 (  0.2%)
+
+🔗 CONNECTIVITY STATISTICS:
+  Isolated Nodes      :      0 (  0.0%)
+  Connected Nodes     :  1,208 (100.0%)
+  Leaf Nodes          :      0 (  0.0%)
+  Hub Nodes           :      0 (  0.0%)
+
+📄 CONTENT STATISTICS:
+  Avg Content Length  :      204.4 characters
+  Max Content Length  :     3171.0 characters
+  Min Content Length  :        0.0 characters
+
+⏰ TEMPORAL STATISTICS:
+  Philosophers With Birth Year: 3
+  Avg Birth Year           : 1042.7
+
+🏗️ STRUCTURAL METRICS:
+  Graph Density            : 0.002413
+  Average Degree           : 5.83
+  Clustering Coefficient   : 0.3104
+  Degree Centralization    : 0.0989
+  Max Degree               : 125
+  Min Degree               : 1
+  Degree Std Dev           : 10.82
+
+✅ COMPLETENESS METRICS:
+  Schema Completeness      :  85.7%
+  Philosopher Bio Completeness: 100.0%
+  Book Metadata Completeness: 100.0%
+  Idea Content Completeness:   0.0%
+  Linkability Completeness : 100.0%
+
+🎯 CONSISTENCY METRICS:
+  Temporal Consistency     : 100.0%
+  Semantic Consistency     : 100.0%
+
+================================================================================
+
+
+================================================================================
+DETAILED ANALYSIS AND RECOMMENDATIONS
+================================================================================
+
+📊 COMPARATIVE ANALYSIS:
+
+  • Best performing database: daemonium-comparison (Score: 0.655)
+  • Lowest performing database: daemonium-primary (Score: 0.497)
+  • Average score across all databases: 0.576
+  • Score range: 0.158
+
+🎯 CATEGORY-WISE RECOMMENDATIONS:
+
+  DAEMONIUM-PRIMARY:
+    • Low schema completeness (28.6%). Consider adding missing node types like Philosopher, PhilosophicalTheme.
+    • Found 3 isolated nodes (0.3%). Consider adding relationships to improve connectivity.
+    • Low content coverage (2.3%). Consider enriching nodes with more descriptive content.
+
+  DAEMONIUM-COMPARISON:
+    • Low content coverage (23.9%). Consider enriching nodes with more descriptive content.
+
+================================================================================
+END OF DETAILED ANALYSIS
+================================================================================

@@ -72,7 +72,12 @@ class KnowledgeGraphEvaluator:
         # Evaluation results storage
         self.evaluation_results = {}
         
+        # Setup reports directory
+        self.reports_dir = Path(__file__).parent / 'reports'
+        self.reports_dir.mkdir(exist_ok=True)
+        
         self.logger.info("Knowledge Graph Evaluator initialized")
+        self.logger.info(f"Reports will be saved to: {self.reports_dir}")
     
     def connect_to_database(self, database_name: str) -> Graph:
         """Connect to a specific Neo4j database."""
@@ -569,6 +574,10 @@ class KnowledgeGraphEvaluator:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             output_file = f"kg_evaluation_report_{timestamp}.json"
         
+        # Ensure file is saved in reports directory
+        if not Path(output_file).is_absolute():
+            output_file = self.reports_dir / output_file
+        
         try:
             with open(output_file, 'w', encoding='utf-8') as f:
                 json.dump(evaluation_data, f, indent=2, ensure_ascii=False, default=str)
@@ -583,6 +592,10 @@ class KnowledgeGraphEvaluator:
         if output_file is None:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             output_file = f"kg_evaluation_text_report_{timestamp}.txt"
+        
+        # Ensure file is saved in reports directory
+        if not Path(output_file).is_absolute():
+            output_file = self.reports_dir / output_file
         
         try:
             # Capture the formatted output to string
@@ -605,7 +618,7 @@ class KnowledgeGraphEvaluator:
                 f.write(full_report)
             
             self.logger.info(f"Text report saved to: {output_file}")
-            return output_file
+            return str(output_file)
             
         except Exception as e:
             self.logger.error(f"Error generating text report: {e}")
@@ -716,6 +729,10 @@ class KnowledgeGraphEvaluator:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             output_file = f"kg_evaluation_visual_report_{timestamp}.pdf"
         
+        # Ensure file is saved in reports directory
+        if not Path(output_file).is_absolute():
+            output_file = self.reports_dir / output_file
+        
         try:
             # Set up the plotting style
             plt.style.use('default')
@@ -730,7 +747,7 @@ class KnowledgeGraphEvaluator:
                     self._create_single_db_charts(evaluation_data, pdf)
             
             self.logger.info(f"Visual report saved to: {output_file}")
-            return output_file
+            return str(output_file)
             
         except Exception as e:
             self.logger.error(f"Error generating visual report: {e}")
@@ -923,24 +940,27 @@ class KnowledgeGraphEvaluator:
                 
                 db_scores[db_name] = scores
         
-        # Create radar chart
-        angles = np.linspace(0, 2 * np.pi, len(categories), endpoint=False).tolist()
-        angles += angles[:1]  # Complete the circle
-        
-        ax.set_theta_offset(np.pi / 2)
-        ax.set_theta_direction(-1)
-        ax.set_thetagrids(np.degrees(angles[:-1]), categories)
-        
-        colors = plt.cm.Set3(np.linspace(0, 1, len(db_scores)))
-        
-        for i, (db_name, scores) in enumerate(db_scores.items()):
-            scores += scores[:1]  # Complete the circle
-            ax.plot(angles, scores, 'o-', linewidth=2, label=db_name, color=colors[i])
-            ax.fill(angles, scores, alpha=0.25, color=colors[i])
-        
-        ax.set_ylim(0, 1)
-        ax.set_title('Quality Dimensions Comparison')
-        ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.0))
+        # Create radar chart using bar chart instead due to matplotlib compatibility
+        if db_scores:
+            # Convert to bar chart for compatibility
+            x_pos = np.arange(len(categories))
+            width = 0.8 / len(db_scores) if db_scores else 0.8
+            
+            colors = plt.cm.Set3(np.linspace(0, 1, len(db_scores)))
+            
+            for i, (db_name, scores) in enumerate(db_scores.items()):
+                offset = (i - len(db_scores)/2 + 0.5) * width
+                ax.bar(x_pos + offset, scores, width, label=db_name, color=colors[i], alpha=0.7)
+            
+            ax.set_xlabel('Quality Dimensions')
+            ax.set_ylabel('Score')
+            ax.set_title('Quality Dimensions Comparison')
+            ax.set_xticks(x_pos)
+            ax.set_xticklabels(categories)
+            ax.set_ylim(0, 1)
+            ax.legend()
+        else:
+            ax.text(0.5, 0.5, 'No data available', ha='center', va='center', transform=ax.transAxes)
     
     def _create_quality_radar(self, eval_data: Dict[str, Any], ax):
         """Create a quality radar chart for a single database."""
@@ -980,20 +1000,22 @@ class KnowledgeGraphEvaluator:
         else:
             scores.append(0)
         
-        # Create radar chart
-        angles = np.linspace(0, 2 * np.pi, len(categories), endpoint=False).tolist()
-        angles += angles[:1]
-        scores += scores[:1]
+        # Create bar chart instead of radar chart for compatibility
+        x_pos = np.arange(len(categories))
+        bars = ax.bar(x_pos, scores, color=['skyblue', 'lightgreen', 'lightcoral', 'gold'], alpha=0.7)
         
-        ax.set_theta_offset(np.pi / 2)
-        ax.set_theta_direction(-1)
-        ax.set_thetagrids(np.degrees(angles[:-1]), categories)
+        # Add value labels on bars
+        for i, (bar, score) in enumerate(zip(bars, scores)):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height + 0.01,
+                   f'{score:.2f}', ha='center', va='bottom')
         
-        ax.plot(angles, scores, 'o-', linewidth=2, color='blue')
-        ax.fill(angles, scores, alpha=0.25, color='blue')
-        
-        ax.set_ylim(0, 1)
+        ax.set_xlabel('Quality Dimensions')
+        ax.set_ylabel('Score')
         ax.set_title('Quality Dimensions')
+        ax.set_xticks(x_pos)
+        ax.set_xticklabels(categories)
+        ax.set_ylim(0, 1.1)
     
     def print_evaluation_summary(self, evaluation_data: Dict[str, Any]):
         """Print a comprehensive formatted summary of evaluation results."""
