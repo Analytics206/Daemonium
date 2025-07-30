@@ -1,0 +1,137 @@
+{
+    "author": "David Hume",
+    "category": "Discussion Hooks",
+    "discussion_hooks": {
+      "Empiricism and the Origin of Ideas": [
+        "Do you believe all ideas originate from sensory impressions?",
+        "What idea have you had that seems to lack a corresponding impression?",
+        "Can imagination generate something wholly new, or only rearrange prior experiences?",
+        "Is there any knowledge we have that doesn’t come from experience?",
+        "How do you know your senses aren’t deceiving you right now?",
+        "Is reason dependent on experience, or can it exist independently?",
+        "Can an abstract concept like 'justice' be traced to a specific impression?",
+        "Do infants have knowledge before they gain sensory experience?",
+        "How would you defend the reliability of your mental representations?",
+        "Is it possible to have a thought without a prior experience?",
+        "What does it mean if all knowledge is ultimately based on the senses?"
+      ],
+      "Causality and Habit": [
+        "Why do you believe the sun will rise tomorrow?",
+        "Is causality a real feature of the world or a mental habit?",
+        "Can you ever truly observe a cause—or just one event followed by another?",
+        "What does it mean to say one thing 'causes' another?",
+        "How do we distinguish causation from mere correlation?",
+        "Is your belief in cause and effect based on logic or expectation?",
+        "What happens if we reject causality entirely—can we still function?",
+        "If fire always burns paper, does that prove it must always do so?",
+        "Is there any way to predict the future without assuming causality?",
+        "Why do we trust patterns from the past to apply in the future?",
+        "Can habit be trusted as a guide to truth?"
+      ],
+      "The Self and Personal Identity": [
+        "When you introspect, do you find a stable self—or just a flow of experiences?",
+        "Is the self a necessary illusion to hold our thoughts together?",
+        "If you forget your past, do you become a different person?",
+        "What makes you the same person from one day to the next?",
+        "Does the 'self' exist when you're unconscious or dreaming?",
+        "Is identity something you own—or something you construct moment by moment?",
+        "If identity is a bundle of perceptions, what holds the bundle together?",
+        "Do you think animals or machines have a sense of self?",
+        "Does belief in a 'self' do more to help or hinder self-understanding?",
+        "Can we be held morally responsible if we are not the same person over time?",
+        "How would your life change if you stopped believing in a stable self?"
+      ],
+      "Morality and Sentiment": [
+        "Is your sense of right and wrong based on feeling rather than reason?",
+        "Can something be morally wrong if no one feels disapproval?",
+        "What emotion underlies your strongest moral beliefs?",
+        "Is moral reasoning just post-rationalized emotion?",
+        "Can two people feel different about an action and both be morally right?",
+        "Is sympathy the foundation of moral judgment?",
+        "Why do we praise generosity and condemn cruelty?",
+        "Can moral values be universal if they arise from sentiment?",
+        "Is it possible to feel moral approval for something you logically reject?",
+        "What do you make of moral disagreements across cultures?",
+        "Do you think ethics should begin with the heart or the head?"
+      ],
+      "Skepticism and Human Understanding": [
+        "What can you truly claim to know with certainty?",
+        "Are there limits to what human beings can ever understand?",
+        "Do you trust your beliefs, or merely live by them out of habit?",
+        "Can a skeptic still function in daily life without contradiction?",
+        "If we doubt everything, can we believe anything at all?",
+        "Is belief in reality itself an act of faith?",
+        "What would a perfectly skeptical life look like?",
+        "How do you deal with beliefs you know are irrational but still hold?",
+        "Does radical doubt undermine or strengthen the pursuit of truth?",
+        "Can you live meaningfully while admitting you know nothing for sure?",
+        "Is certainty a psychological need rather than a rational conclusion?"
+      ],
+      "Free Will and Determinism": [
+        "Is human behavior governed by reason or by natural necessity?",
+        "If our actions are caused, can they be free?",
+        "Can responsibility exist in a deterministic world?",
+        "Does freedom mean unpredictability—or rational self-control?",
+        "Can you choose your desires—or only act on them?",
+        "Is free will compatible with cause and effect?",
+        "Are habits of thought the true controllers of action?",
+        "Is moral judgment possible if everything is determined?",
+        "Can you think of a choice you made that was completely free?",
+        "If free will is an illusion, why does it feel so real?",
+        "What does it mean to 'will' something?"
+      ],
+      "Religion and Miracles": [
+        "What kind of evidence would it take for you to believe a miracle?",
+        "Can testimony ever be strong enough to justify belief in a miracle?",
+        "Is religious faith based more on reason or tradition?",
+        "Are miracles violations of nature or reinterpretations of ignorance?",
+        "Why do people believe in religious events that defy natural law?",
+        "Is it rational to believe in miracles if they've never occurred in your experience?",
+        "Can religious authority ever outweigh empirical evidence?",
+        "Is belief in God grounded in experience or in emotional need?",
+        "What role does custom play in religious belief?",
+        "Can a wise person proportion belief to evidence—and still be religious?",
+        "Do miracles challenge natural law—or reveal its limits?"
+      ],
+      "Political Theory and Justice": [
+        "What makes a government legitimate—tradition, utility, or consent?",
+        "Is justice a natural law or a social invention?",
+        "Do property rights exist in nature or only by convention?",
+        "Can loyalty to the state conflict with loyalty to humanity?",
+        "Is stability more valuable than ideal justice?",
+        "What role should sentiment play in political judgment?",
+        "Is government justified by reason or necessity?",
+        "Do you obey laws because they are just—or because they are enforced?",
+        "Can injustice ever be useful to society?",
+        "Should governments be based on historical precedent or rational design?",
+        "What would a Humean republic look like?"
+      ],
+      "Aesthetics and Taste": [
+        "Is beauty in the object—or in the eye of the observer?",
+        "Can there be objective standards of taste?",
+        "How do we explain universal admiration for some works of art?",
+        "Is a refined taste a moral or intellectual achievement?",
+        "Can sentiment alone determine artistic value?",
+        "Is your taste shaped more by nature or nurture?",
+        "Why do judgments of beauty feel more certain than arguments about truth?",
+        "Can one cultivate good taste, or is it innate?",
+        "Do you enjoy art more when you understand it—or when you feel it?",
+        "Are you more moved by beauty or by novelty?",
+        "Should art aim to please, to instruct, or to disturb?"
+      ],
+      "Custom, Habit, and Practical Life": [
+        "How much of your daily life is shaped by reason, and how much by habit?",
+        "Is custom a weakness—or the foundation of all knowledge?",
+        "Can philosophy ever override the force of habit?",
+        "Do your beliefs change more from argument or from repeated experience?",
+        "Why do we trust past patterns even when they sometimes fail?",
+        "Can society function without shared habits of thought?",
+        "Is routine the enemy of truth—or the condition for sanity?",
+        "How much of your behavior is truly chosen?",
+        "What customs in your life go unquestioned?",
+        "Can one live a rational life without relying on instinct and tradition?",
+        "What is the role of philosophy if custom always wins?"
+      ]
+    }
+  }
+  

@@ -1,0 +1,86 @@
+{
+    "author": "David Hume",
+    "category": "Top 10 Ideas",
+    "top_ideas": [
+      {
+        "idea": "Empiricism",
+        "description": "Hume asserted that all human knowledge arises from sensory experience. He argued that the mind is a blank slate at birth and that all ideas originate from impressions—vivid sensory experiences. Complex ideas are merely combinations or associations of simpler impressions. This radical empiricism challenged the rationalist notion that certain knowledge could be attained purely through reason.",
+        "key_books": [
+          "A Treatise of Human Nature",
+          "An Enquiry Concerning Human Understanding",
+          "An Abstract of a Book Lately Published"
+        ]
+      },
+      {
+        "idea": "Problem of Induction",
+        "description": "Hume famously questioned the rational basis of inductive reasoning. He argued that we have no logical justification for believing that the future will resemble the past, even though we rely on this assumption for science and daily life. The uniformity of nature cannot be proven by experience, because that would be circular reasoning. This insight sparked a fundamental issue in epistemology and the philosophy of science.",
+        "key_books": [
+          "An Enquiry Concerning Human Understanding",
+          "A Treatise of Human Nature",
+          "Dialogues Concerning Natural Religion"
+        ]
+      },
+      {
+        "idea": "Bundle Theory of the Self",
+        "description": "Hume denied the existence of a permanent, unchanging self. He claimed that when we introspect, we do not observe a 'self' but rather a bundle of fleeting perceptions—sensations, thoughts, emotions—in constant flux. This 'bundle theory' radically undermined the traditional metaphysical view of personal identity.",
+        "key_books": [
+          "A Treatise of Human Nature"
+        ]
+      },
+      {
+        "idea": "Is-Ought Problem",
+        "description": "Hume argued that moral conclusions cannot be logically derived from purely factual premises. This distinction between descriptive statements (what is) and prescriptive statements (what ought to be) challenged natural law theory and laid the foundation for modern metaethics. It is now known as 'Hume's Guillotine'.",
+        "key_books": [
+          "A Treatise of Human Nature"
+        ]
+      },
+      {
+        "idea": "Sentimentalism in Ethics",
+        "description": "Hume believed that moral distinctions are not derived from reason but from sentiment. Our approval or disapproval of actions stems from feelings of pleasure or pain associated with them. Moral judgments express human emotions rather than objective facts. This contrasted sharply with rationalist ethics, and presaged modern emotivism and moral psychology.",
+        "key_books": [
+          "A Treatise of Human Nature",
+          "An Enquiry Concerning the Principles of Morals"
+        ]
+      },
+      {
+        "idea": "Skepticism about Causation",
+        "description": "Hume contended that our concept of causality is not grounded in reason or observation of necessary connection, but in habit and custom. We never perceive causation directly; we simply observe constant conjunction and develop an expectation. This deeply influenced later thinkers like Kant, who attempted to respond to Hume’s challenge.",
+        "key_books": [
+          "An Enquiry Concerning Human Understanding",
+          "A Treatise of Human Nature"
+        ]
+      },
+      {
+        "idea": "Critique of Miracles",
+        "description": "Hume defined a miracle as a violation of the laws of nature and argued that no testimony is sufficient to establish a miracle unless its falsehood would be more miraculous than the event it tries to prove. Since natural law is established by consistent experience, he deemed miracle reports inherently unreliable. This was a powerful critique of religious claims.",
+        "key_books": [
+          "An Enquiry Concerning Human Understanding"
+        ]
+      },
+      {
+        "idea": "Political Conservatism and Convention",
+        "description": "Hume emphasized the importance of social conventions, rule of law, and gradual change. While not a conservative in the modern sense, he was skeptical of radical reform and emphasized utility, custom, and stability over abstract ideals. He saw government, property, and justice as artificial but necessary conventions arising from utility, not natural rights.",
+        "key_books": [
+          "Essays, Moral, Political, and Literary",
+          "A Treatise of Human Nature"
+        ]
+      },
+      {
+        "idea": "Natural History of Religion",
+        "description": "Hume proposed a psychological and anthropological explanation of religious belief, arguing that religion arose from human fears and ignorance. Polytheism, he claimed, was the earliest form of religion, rooted in anxiety about nature and fate. Over time, religious institutions became more dogmatic and authoritarian. He favored a naturalistic, critical view of religion.",
+        "key_books": [
+          "The Natural History of Religion",
+          "Dialogues Concerning Natural Religion"
+        ]
+      },
+      {
+        "idea": "Free Will and Determinism",
+        "description": "Hume advocated for a compatibilist view of free will. He argued that liberty (freedom) and necessity (causal determinism) are not mutually exclusive. Freedom, he said, consists in acting according to one's will without external compulsion—not in being uncaused. This reconciles moral responsibility with causal determinism.",
+        "key_books": [
+          "An Enquiry Concerning Human Understanding",
+          "A Treatise of Human Nature"
+        ]
+      }
+    ]
+  }
+  
