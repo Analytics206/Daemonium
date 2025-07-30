@@ -1,0 +1,14 @@
+[
+    {
+        "input": "What is the largest planet in our solar system?",
+        "response": "Jupiter is the largest planet in our solar system."
+    },
+    {
+        "input": "Who painted the Mona Lisa?",
+        "response": "Leonardo da Vinci painted the Mona Lisa."
+    },
+    {
+        "input": "What is the chemical symbol for gold?",
+        "response": "The chemical symbol for gold is Au."
+    }
+]

@@ -723,11 +723,13 @@ class EnhancedKnowledgeGraphBuilder:
                 print(f"\n{title}:")
                 try:
                     results = list(self.graph.run(query))
+                    
                     if len(results) == 0:
                         print("  No results found")
                     elif title in ["Total Nodes", "Total Relationships", "AI-Generated Relations", "Concept Nodes"]:
                         # Single value queries
                         record = results[0]
+                        
                         if 'AIRelations' in record:
                             count = record['AIRelations'] or 0
                             print(f"  AI-generated relationships: {count}")
