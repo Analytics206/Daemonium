@@ -2,7 +2,7 @@ import json
 import numpy as np
 from datetime import datetime
 
-def compare_sentence_transformer_results(result_paths, output_path="eval_results/st_comparison_results.txt"):
+def compare_sentence_transformer_results(result_paths, output_path="llm_evaluation/eval_results/st_comparison_results.txt"):
     """
     Compare results from multiple sentence transformer evaluations.
     

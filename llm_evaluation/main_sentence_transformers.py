@@ -10,7 +10,7 @@ def main():
     print("=" * 70)
     
     # Ensure eval_results directory exists
-    os.makedirs("eval_results", exist_ok=True)
+    os.makedirs("llm_evaluation/eval_results", exist_ok=True)
     
     # Evaluate each model
     model_results = []
@@ -18,7 +18,7 @@ def main():
         print(f"\nEvaluating Model {i+1}/{len(MODELS_TO_COMPARE)}: {model_name}")
         print("-" * 50)
         
-        output_path = f"eval_results/st_model_{i+1}_results.json"
+        output_path = f"llm_evaluation/eval_results/st_model_{i+1}_results.json"
         try:
             results = evaluate_sentence_transformer_model(model_name, output_path=output_path)
             model_results.append((model_name, output_path, results))
@@ -62,17 +62,17 @@ def main():
         # Compare top models
         compare_sentence_transformer_results(
             [path for _, _, path in successful_evaluations],
-            output_path="eval_results/st_comparison_results.txt"
+            output_path="llm_evaluation/eval_results/st_comparison_results.txt"
         )
         
-        print("✓ Comparison report saved to eval_results/st_comparison_results.txt")
+        print("✓ Comparison report saved to llm_evaluation/eval_results/st_comparison_results.txt")
         
         # Print ranking
         print(f"\nMODEL RANKING:")
         for i, (model_name, score, _) in enumerate(successful_evaluations, 1):
             print(f"{i}. {model_name} (Score: {score:.3f})")
     
-    print(f"\nEvaluation completed! Check the eval_results/ directory for detailed reports.")
+    print(f"\nEvaluation completed! Check the llm_evaluation/eval_results/ directory for detailed reports.")
 
 if __name__ == "__main__":
     main()
