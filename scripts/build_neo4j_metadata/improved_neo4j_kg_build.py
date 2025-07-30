@@ -642,6 +642,16 @@ class ImprovedKnowledgeGraphBuilder:
             
             self.logger.info("Improved knowledge graph construction completed!")
             
+            # Force commit any pending transactions
+            try:
+                self.graph.commit()
+            except:
+                pass  # May not have an active transaction
+            
+            # Add a small delay to ensure data is fully committed
+            import time
+            time.sleep(1)
+            
             # Print enhanced stats
             stats_queries = [
                 ("Node Types", "MATCH (n) RETURN labels(n)[0] as NodeType, count(n) as Count ORDER BY Count DESC"),
@@ -650,26 +660,43 @@ class ImprovedKnowledgeGraphBuilder:
                 ("Total Nodes", "MATCH (n) RETURN count(n) as TotalNodes"),
                 ("Total Relationships", "MATCH ()-[r]->() RETURN count(r) as TotalRelationships")
             ]
-            
+                
             print("\nImproved Knowledge Graph Statistics:")
             for title, query in stats_queries:
                 print(f"\n{title}:")
-                results = list(self.graph.run(query))
-                if not results:
-                    print("  No results found")
-                else:
-                    for record in results:
-                        if 'NodeType' in record:
-                            print(f"  {record['NodeType']}: {record['Count']} nodes")
-                        elif 'RelType' in record:
-                            print(f"  {record['RelType']}: {record['Count']} relationships")
-                        elif 'AIRelations' in record:
-                            print(f"  AI-generated relationships: {record['AIRelations']}")
+                try:
+                    results = list(self.graph.run(query))
+                    
+                    if len(results) == 0:
+                        print("  No results found")
+                    elif title in ["Total Nodes", "Total Relationships", "AI-Generated Relations"]:
+                        # Single value queries
+                        record = results[0]
+                        
+                        if 'AIRelations' in record:
+                            count = record['AIRelations'] or 0
+                            print(f"  AI-generated relationships: {count}")
                         elif 'TotalNodes' in record:
-                            print(f"  Total nodes: {record['TotalNodes']}")
+                            count = record['TotalNodes'] or 0
+                            print(f"  Total nodes: {count}")
                         elif 'TotalRelationships' in record:
-                            print(f"  Total relationships: {record['TotalRelationships']}")
-                
+                            count = record['TotalRelationships'] or 0
+                            print(f"  Total relationships: {count}")
+                    else:
+                        # Multi-row queries (Node Types, Relationship Types)
+                        if len(results) == 0:
+                            print("  No data found")
+                        else:
+                            for record in results:
+                                if 'NodeType' in record and record['NodeType']:
+                                    count = record['Count'] or 0
+                                    print(f"  {record['NodeType']}: {count} nodes")
+                                elif 'RelType' in record and record['RelType']:
+                                    count = record['Count'] or 0
+                                    print(f"  {record['RelType']}: {count} relationships")
+                except Exception as e:
+                    print(f"  Error executing query: {e}")
+                    
         except Exception as e:
             self.logger.error(f"Error building knowledge graph: {e}")
             raise

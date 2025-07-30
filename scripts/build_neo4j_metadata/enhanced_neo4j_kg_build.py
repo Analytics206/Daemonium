@@ -697,6 +697,16 @@ class EnhancedKnowledgeGraphBuilder:
             
             self.logger.info("Enhanced knowledge graph construction completed!")
             
+            # Force commit any pending transactions
+            try:
+                self.graph.commit()
+            except:
+                pass  # May not have an active transaction
+            
+            # Add a small delay to ensure data is fully committed
+            import time
+            time.sleep(1)
+            
             # Print comprehensive stats
             stats_queries = [
                 ("Node Types", "MATCH (n) RETURN labels(n)[0] as NodeType, count(n) as Count ORDER BY Count DESC"),
@@ -711,28 +721,44 @@ class EnhancedKnowledgeGraphBuilder:
             print("\nEnhanced Knowledge Graph Statistics:")
             for title, query in stats_queries:
                 print(f"\n{title}:")
-                results = list(self.graph.run(query))
-                if not results:
-                    print("  No results found")
-                else:
-                    for record in results:
-                        if 'NodeType' in record:
-                            print(f"  {record['NodeType']}: {record['Count']} nodes")
-                        elif 'RelType' in record:
-                            print(f"  {record['RelType']}: {record['Count']} relationships")
-                        elif 'Name' in record:
-                            birth_year = record['BirthYear'] if record['BirthYear'] else 'Unknown'
-                            nationality = record['Nationality'] if record['Nationality'] else 'Unknown'
-                            print(f"  {record['Name']} ({nationality}, {birth_year})")
-                        elif 'AIRelations' in record:
-                            print(f"  AI-generated relationships: {record['AIRelations']}")
+                try:
+                    results = list(self.graph.run(query))
+                    if len(results) == 0:
+                        print("  No results found")
+                    elif title in ["Total Nodes", "Total Relationships", "AI-Generated Relations", "Concept Nodes"]:
+                        # Single value queries
+                        record = results[0]
+                        if 'AIRelations' in record:
+                            count = record['AIRelations'] or 0
+                            print(f"  AI-generated relationships: {count}")
                         elif 'ConceptCount' in record:
-                            print(f"  Concept nodes: {record['ConceptCount']}")
+                            count = record['ConceptCount'] or 0
+                            print(f"  Concept nodes: {count}")
                         elif 'TotalNodes' in record:
-                            print(f"  Total nodes: {record['TotalNodes']}")
+                            count = record['TotalNodes'] or 0
+                            print(f"  Total nodes: {count}")
                         elif 'TotalRelationships' in record:
-                            print(f"  Total relationships: {record['TotalRelationships']}")
-                
+                            count = record['TotalRelationships'] or 0
+                            print(f"  Total relationships: {count}")
+                    else:
+                        # Multi-row queries (Node Types, Relationship Types, Philosophers)
+                        if len(results) == 0:
+                            print("  No data found")
+                        else:
+                            for record in results:
+                                if 'NodeType' in record and record['NodeType']:
+                                    count = record['Count'] or 0
+                                    print(f"  {record['NodeType']}: {count} nodes")
+                                elif 'RelType' in record and record['RelType']:
+                                    count = record['Count'] or 0
+                                    print(f"  {record['RelType']}: {count} relationships")
+                                elif 'Name' in record and record['Name']:
+                                    birth_year = record['BirthYear'] if record['BirthYear'] else 'Unknown'
+                                    nationality = record['Nationality'] if record['Nationality'] else 'Unknown'
+                                    print(f"  {record['Name']} ({nationality}, {birth_year})")
+                except Exception as e:
+                    print(f"  Error executing query: {e}")
+                    
         except Exception as e:
             self.logger.error(f"Error building enhanced knowledge graph: {e}")
             raise
