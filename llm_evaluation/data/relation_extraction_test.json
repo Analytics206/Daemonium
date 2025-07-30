@@ -1,0 +1,76 @@
+[
+    {
+        "text": "Friedrich Nietzsche wrote Beyond Good and Evil in 1886.",
+        "relations": [
+            {"subject": "Friedrich Nietzsche", "predicate": "WROTE", "object": "Beyond Good and Evil"},
+            {"subject": "Beyond Good and Evil", "predicate": "PUBLISHED_IN", "object": "1886"}
+        ]
+    },
+    {
+        "text": "The concept of will to power is central to Nietzschean philosophy.",
+        "relations": [
+            {"subject": "will to power", "predicate": "CENTRAL_TO", "object": "Nietzschean philosophy"}
+        ]
+    },
+    {
+        "text": "Nietzsche influenced existentialist philosophers like Sartre and Heidegger.",
+        "relations": [
+            {"subject": "Nietzsche", "predicate": "INFLUENCED", "object": "Sartre"},
+            {"subject": "Nietzsche", "predicate": "INFLUENCED", "object": "Heidegger"},
+            {"subject": "Sartre", "predicate": "IS_A", "object": "existentialist philosopher"},
+            {"subject": "Heidegger", "predicate": "IS_A", "object": "existentialist philosopher"}
+        ]
+    },
+    {
+        "text": "The Übermensch represents Nietzsche's ideal of human self-overcoming.",
+        "relations": [
+            {"subject": "Übermensch", "predicate": "REPRESENTS", "object": "ideal of human self-overcoming"},
+            {"subject": "ideal of human self-overcoming", "predicate": "BELONGS_TO", "object": "Nietzsche"}
+        ]
+    },
+    {
+        "text": "Eternal recurrence appears in Thus Spoke Zarathustra and The Gay Science.",
+        "relations": [
+            {"subject": "eternal recurrence", "predicate": "APPEARS_IN", "object": "Thus Spoke Zarathustra"},
+            {"subject": "eternal recurrence", "predicate": "APPEARS_IN", "object": "The Gay Science"}
+        ]
+    },
+    {
+        "text": "Master morality contrasts with slave morality in Nietzsche's genealogical method.",
+        "relations": [
+            {"subject": "master morality", "predicate": "CONTRASTS_WITH", "object": "slave morality"},
+            {"subject": "master morality", "predicate": "ANALYZED_BY", "object": "genealogical method"},
+            {"subject": "slave morality", "predicate": "ANALYZED_BY", "object": "genealogical method"},
+            {"subject": "genealogical method", "predicate": "DEVELOPED_BY", "object": "Nietzsche"}
+        ]
+    },
+    {
+        "text": "Perspectivism challenges the notion of absolute truth in epistemology.",
+        "relations": [
+            {"subject": "perspectivism", "predicate": "CHALLENGES", "object": "absolute truth"},
+            {"subject": "absolute truth", "predicate": "CONCEPT_IN", "object": "epistemology"}
+        ]
+    },
+    {
+        "text": "The Dionysian principle opposes the Apollonian principle in aesthetic theory.",
+        "relations": [
+            {"subject": "Dionysian principle", "predicate": "OPPOSES", "object": "Apollonian principle"},
+            {"subject": "Dionysian principle", "predicate": "CONCEPT_IN", "object": "aesthetic theory"},
+            {"subject": "Apollonian principle", "predicate": "CONCEPT_IN", "object": "aesthetic theory"}
+        ]
+    },
+    {
+        "text": "Amor fati embodies the Nietzschean virtue of life affirmation.",
+        "relations": [
+            {"subject": "amor fati", "predicate": "EMBODIES", "object": "life affirmation"},
+            {"subject": "life affirmation", "predicate": "IS_A", "object": "Nietzschean virtue"}
+        ]
+    },
+    {
+        "text": "Ressentiment explains the psychological basis of Christian morality according to Nietzsche.",
+        "relations": [
+            {"subject": "ressentiment", "predicate": "EXPLAINS", "object": "psychological basis of Christian morality"},
+            {"subject": "psychological basis of Christian morality", "predicate": "ACCORDING_TO", "object": "Nietzsche"}
+        ]
+    }
+]

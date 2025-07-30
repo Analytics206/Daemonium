@@ -1,0 +1,90 @@
+[
+    {
+        "concepts": [
+            "will to power",
+            "self-overcoming", 
+            "übermensch",
+            "master morality",
+            "free spirit"
+        ],
+        "expected_cluster": "nietzschean_empowerment",
+        "cluster_id": 0
+    },
+    {
+        "concepts": [
+            "eternal recurrence",
+            "amor fati",
+            "life affirmation",
+            "yes-saying",
+            "tragic wisdom"
+        ],
+        "expected_cluster": "life_affirmation",
+        "cluster_id": 1
+    },
+    {
+        "concepts": [
+            "perspectivism",
+            "interpretation",
+            "truth as interpretation",
+            "no facts only interpretations",
+            "epistemological relativism"
+        ],
+        "expected_cluster": "epistemology",
+        "cluster_id": 2
+    },
+    {
+        "concepts": [
+            "slave morality",
+            "ressentiment",
+            "Christian morality",
+            "herd mentality",
+            "moral prejudice"
+        ],
+        "expected_cluster": "moral_criticism",
+        "cluster_id": 3
+    },
+    {
+        "concepts": [
+            "dionysian",
+            "apollonian",
+            "aesthetic justification",
+            "art as metaphysics",
+            "tragic art"
+        ],
+        "expected_cluster": "aesthetic_philosophy",
+        "cluster_id": 4
+    },
+    {
+        "concepts": [
+            "genealogy of morals",
+            "philosophy with a hammer",
+            "cultural criticism",
+            "decadence",
+            "nihilism"
+        ],
+        "expected_cluster": "critical_method",
+        "cluster_id": 5
+    },
+    {
+        "concepts": [
+            "beyond good and evil",
+            "transvaluation of values",
+            "new values",
+            "value creation",
+            "moral innovation"
+        ],
+        "expected_cluster": "value_philosophy",
+        "cluster_id": 6
+    },
+    {
+        "concepts": [
+            "solitude",
+            "intellectual independence",
+            "philosophical loneliness",
+            "thinking for oneself",
+            "spiritual freedom"
+        ],
+        "expected_cluster": "intellectual_autonomy",
+        "cluster_id": 7
+    }
+]

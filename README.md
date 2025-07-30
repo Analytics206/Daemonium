@@ -109,6 +109,36 @@ python scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py --databases dae
 - **Consistency**: Temporal and semantic coherence
 - **Chatbot-Specific**: AI enhancement ratio, content accessibility, philosophical domain coverage
 
+#### 🔍 Ollama Embedding Model Evaluation
+
+Daemonium includes a comprehensive evaluation system for selecting the best Ollama embedding models for knowledge graph construction. This tool helps you choose the optimal embedding model for your philosophical content.
+
+**Quick Start:**
+```bash
+# Setup required Ollama models
+python llm_evaluation/setup_ollama_models.py
+
+# Evaluate all embedding models
+python llm_evaluation/main_sentence_transformers.py
+```
+
+**Evaluation Features:**
+- 🎯 **Specialized Metrics** - Semantic similarity, clustering quality, entity recognition, relation extraction
+- 📊 **Comprehensive Analysis** - Evaluates multiple Ollama embedding models simultaneously
+- 🏆 **Model Ranking** - Automatic ranking and recommendations for best-performing models
+- 📈 **Detailed Reports** - JSON results and comparative analysis reports
+- 🧠 **Philosophy-Focused** - Test datasets specifically designed for philosophical content
+
+**Supported Ollama Models:**
+- `nomic-embed-text` - Nomic's high-quality text embedding model
+- `mxbai-embed-large` - MixedBread AI's large embedding model
+- `all-minilm` - MiniLM embedding model
+- `snowflake-arctic-embed` - Snowflake's Arctic embedding model
+- `all-MiniLM-L6-v2` - Compact MiniLM variant
+- `llama3.1:latest` - Llama 3.1 with embedding capabilities
+
+**For detailed documentation, see:** [`llm_evaluation/README.md`](llm_evaluation/README.md)
+
 **Benefits:**
 - ✅ **True Data Isolation** - Complete separation between different knowledge graph versions
 - ✅ **Easy A/B Testing** - Compare different data processing approaches across databases

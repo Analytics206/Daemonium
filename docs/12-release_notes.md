@@ -1,5 +1,64 @@
 # Daemonium
 ---
+## Version 0.2.6 (July 30, 2025)
+
+### Major Features
+
+#### 🔍 Ollama Embedding Model Evaluation System
+- **Comprehensive Model Evaluation** - Added `llm_evaluation/` toolkit for evaluating Ollama embedding models on knowledge graph construction tasks
+- **Philosophy-Focused Test Datasets** - Created specialized test data for philosophical content evaluation:
+  - **Semantic Similarity**: 15 Nietzschean concept pairs with expected similarity scores
+  - **Entity Recognition**: 8 philosophical texts with labeled entities (PHILOSOPHER, CONCEPT, WORK)
+  - **Relation Extraction**: 10 texts with philosophical relation triplets
+  - **Clustering**: 8 concept clusters for philosophical themes
+- **Multi-Model Comparison** - Simultaneous evaluation of 6 Ollama embedding models:
+  - `nomic-embed-text` - Nomic's high-quality text embedding model
+  - `mxbai-embed-large` - MixedBread AI's large embedding model
+  - `all-minilm` - MiniLM embedding model
+  - `snowflake-arctic-embed` - Snowflake's Arctic embedding model
+  - `all-MiniLM-L6-v2` - Compact MiniLM variant
+  - `llama3.1:latest` - Llama 3.1 with embedding capabilities
+- **Specialized KG Metrics** - Research-based evaluation metrics for knowledge graph tasks:
+  - **Semantic Similarity**: Accuracy, correlation, and mean absolute error
+  - **Clustering Quality**: Silhouette score, coherence, and separation
+  - **Entity Recognition**: Entity clustering and entity-text similarity
+  - **Knowledge Graph Structure**: Relation coherence, graph density, clustering coefficient
+  - **Embedding Quality**: Pairwise similarity, variance, and norm distribution
+- **Automated Setup** - `setup_ollama_models.py` script for automatic model installation and verification
+- **Comprehensive Reporting** - JSON results and detailed comparative analysis with model rankings
+
+#### Migration from Hugging Face to Ollama
+- **Local-First Architecture** - Completely migrated from Hugging Face to Ollama for all embedding generation
+- **Consistent Infrastructure** - Uses same Ollama setup as existing knowledge graph builders
+- **Reduced Dependencies** - Eliminated heavy PyTorch and Hugging Face dependencies
+- **Better Performance** - Direct API calls to local Ollama service for faster processing
+
+### Usage Examples
+```bash
+# Setup required Ollama models
+python llm_evaluation/setup_ollama_models.py
+
+# Evaluate all embedding models
+python llm_evaluation/main_sentence_transformers.py
+
+# Evaluate single model
+python -c "from llm_evaluation.evaluation.evaluate_sentence_transformers import evaluate_sentence_transformer_model; evaluate_sentence_transformer_model('nomic-embed-text')"
+```
+
+### Benefits
+- ✅ **Model Selection** - Data-driven selection of optimal embedding models for philosophical content
+- ✅ **Quality Assurance** - Comprehensive evaluation across multiple KG construction tasks
+- ✅ **Local Control** - All processing done locally through Ollama without external dependencies
+- ✅ **Philosophy-Optimized** - Test datasets specifically designed for philosophical knowledge graphs
+- ✅ **Automated Workflow** - Simple setup and evaluation process with detailed reporting
+- ✅ **Integration Ready** - Results can be directly applied to existing Neo4j knowledge graph builders
+
+### Documentation
+- **Comprehensive Guide** - Detailed documentation in `llm_evaluation/README.md`
+- **Main README Integration** - Added embedding evaluation section to main project README
+- **Setup Instructions** - Complete installation and usage instructions for Ollama models
+
+---
 ## Version 0.2.5 (July 30, 2025)
 
 ### Major Features

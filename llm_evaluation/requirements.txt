@@ -1,7 +1,13 @@
-transformers
-datasets
-torch
-rouge-score
-nltk
-pycocoevalcap
-pyyaml
+# Ollama-based evaluation dependencies
+requests>=2.31.0       # HTTP requests for Ollama API
+rouge-score>=0.1.2     # ROUGE evaluation metric
+nltk>=3.8              # Natural Language Toolkit
+pycocoevalcap>=1.2     # Caption evaluation metrics
+pyyaml>=6.0.1          # YAML configuration
+scikit-learn>=1.3.0    # Machine learning utilities
+numpy>=1.24.0          # Numerical operations
+pandas>=2.0.0          # Data manipulation
+matplotlib>=3.7.0      # Plotting and visualization
+seaborn>=0.12.0        # Statistical visualization
+networkx>=3.1          # Graph analysis
+py2neo>=2021.2.4       # Neo4j integration

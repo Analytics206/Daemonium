@@ -1,0 +1,92 @@
+[
+    {
+        "concept_1": "will to power",
+        "concept_2": "self-overcoming",
+        "expected_similarity": 0.85,
+        "category": "nietzschean_concepts"
+    },
+    {
+        "concept_1": "eternal recurrence",
+        "concept_2": "amor fati",
+        "expected_similarity": 0.80,
+        "category": "nietzschean_concepts"
+    },
+    {
+        "concept_1": "master morality",
+        "concept_2": "slave morality",
+        "expected_similarity": 0.70,
+        "category": "moral_philosophy"
+    },
+    {
+        "concept_1": "perspectivism",
+        "concept_2": "relativism",
+        "expected_similarity": 0.75,
+        "category": "epistemology"
+    },
+    {
+        "concept_1": "übermensch",
+        "concept_2": "superman",
+        "expected_similarity": 0.95,
+        "category": "nietzschean_concepts"
+    },
+    {
+        "concept_1": "nihilism",
+        "concept_2": "existentialism",
+        "expected_similarity": 0.65,
+        "category": "philosophical_movements"
+    },
+    {
+        "concept_1": "genealogy of morals",
+        "concept_2": "moral criticism",
+        "expected_similarity": 0.80,
+        "category": "moral_philosophy"
+    },
+    {
+        "concept_1": "aesthetic justification",
+        "concept_2": "artistic creation",
+        "expected_similarity": 0.75,
+        "category": "aesthetics"
+    },
+    {
+        "concept_1": "free spirit",
+        "concept_2": "intellectual independence",
+        "expected_similarity": 0.85,
+        "category": "philosophical_ideals"
+    },
+    {
+        "concept_1": "dionysian",
+        "concept_2": "apollonian",
+        "expected_similarity": 0.60,
+        "category": "aesthetic_philosophy"
+    },
+    {
+        "concept_1": "good and evil",
+        "concept_2": "beyond good and evil",
+        "expected_similarity": 0.70,
+        "category": "moral_philosophy"
+    },
+    {
+        "concept_1": "truth",
+        "concept_2": "interpretation",
+        "expected_similarity": 0.65,
+        "category": "epistemology"
+    },
+    {
+        "concept_1": "decadence",
+        "concept_2": "cultural decline",
+        "expected_similarity": 0.90,
+        "category": "cultural_criticism"
+    },
+    {
+        "concept_1": "ressentiment",
+        "concept_2": "resentment",
+        "expected_similarity": 0.95,
+        "category": "psychological_concepts"
+    },
+    {
+        "concept_1": "philosophy with a hammer",
+        "concept_2": "critical philosophy",
+        "expected_similarity": 0.75,
+        "category": "philosophical_methods"
+    }
+]

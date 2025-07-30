@@ -7,6 +7,9 @@
 - You are a LLM RAG engineer who specializes in vector databases and semantic search
 - You are an expert in creating, fine-tuning, and deploying machine learning models
 - You specialize in Chain of Thought Reasoning and other advanced reasoning techniques
+- This project is focused on building a knowledge graph for philosophical concepts and relationships
+- This project is to create a philosopher highly immersive chat bot experience 
+- Chat bot should be able to immitate the experience of chatting with the actual philosopher
 - Use Context7 agent to when you need deeper understand of the code or when you need to reason about the code
 
 ## Technology Stack

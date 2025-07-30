@@ -1,0 +1,74 @@
+[
+    {
+        "text": "Friedrich Nietzsche developed the concept of the Übermensch in Thus Spoke Zarathustra, challenging traditional Christian morality.",
+        "entities": [
+            {"text": "Friedrich Nietzsche", "label": "PHILOSOPHER", "start": 0, "end": 19},
+            {"text": "Übermensch", "label": "CONCEPT", "start": 44, "end": 54},
+            {"text": "Thus Spoke Zarathustra", "label": "WORK", "start": 58, "end": 80},
+            {"text": "Christian morality", "label": "CONCEPT", "start": 104, "end": 122}
+        ]
+    },
+    {
+        "text": "The will to power represents Nietzsche's fundamental principle of life, contrasting with Schopenhauer's will to live.",
+        "entities": [
+            {"text": "will to power", "label": "CONCEPT", "start": 4, "end": 17},
+            {"text": "Nietzsche", "label": "PHILOSOPHER", "start": 29, "end": 38},
+            {"text": "Schopenhauer", "label": "PHILOSOPHER", "start": 90, "end": 102},
+            {"text": "will to live", "label": "CONCEPT", "start": 105, "end": 117}
+        ]
+    },
+    {
+        "text": "In Beyond Good and Evil, Nietzsche explores perspectivism and the critique of absolute truth.",
+        "entities": [
+            {"text": "Beyond Good and Evil", "label": "WORK", "start": 3, "end": 23},
+            {"text": "Nietzsche", "label": "PHILOSOPHER", "start": 25, "end": 34},
+            {"text": "perspectivism", "label": "CONCEPT", "start": 44, "end": 57},
+            {"text": "absolute truth", "label": "CONCEPT", "start": 78, "end": 92}
+        ]
+    },
+    {
+        "text": "The eternal recurrence is a central theme in Nietzsche's philosophy, first introduced in The Gay Science.",
+        "entities": [
+            {"text": "eternal recurrence", "label": "CONCEPT", "start": 4, "end": 22},
+            {"text": "Nietzsche", "label": "PHILOSOPHER", "start": 46, "end": 55},
+            {"text": "The Gay Science", "label": "WORK", "start": 90, "end": 105}
+        ]
+    },
+    {
+        "text": "Master morality and slave morality represent Nietzsche's genealogical analysis in On the Genealogy of Morals.",
+        "entities": [
+            {"text": "Master morality", "label": "CONCEPT", "start": 0, "end": 15},
+            {"text": "slave morality", "label": "CONCEPT", "start": 20, "end": 34},
+            {"text": "Nietzsche", "label": "PHILOSOPHER", "start": 46, "end": 55},
+            {"text": "genealogical analysis", "label": "CONCEPT", "start": 58, "end": 79},
+            {"text": "On the Genealogy of Morals", "label": "WORK", "start": 83, "end": 109}
+        ]
+    },
+    {
+        "text": "Amor fati, or love of fate, embodies the Nietzschean ideal of affirming life in all its aspects.",
+        "entities": [
+            {"text": "Amor fati", "label": "CONCEPT", "start": 0, "end": 9},
+            {"text": "love of fate", "label": "CONCEPT", "start": 14, "end": 26},
+            {"text": "Nietzschean", "label": "PHILOSOPHICAL_SCHOOL", "start": 42, "end": 53},
+            {"text": "affirming life", "label": "CONCEPT", "start": 63, "end": 77}
+        ]
+    },
+    {
+        "text": "The Dionysian and Apollonian principles in The Birth of Tragedy represent opposing aesthetic forces.",
+        "entities": [
+            {"text": "Dionysian", "label": "CONCEPT", "start": 4, "end": 13},
+            {"text": "Apollonian", "label": "CONCEPT", "start": 18, "end": 28},
+            {"text": "The Birth of Tragedy", "label": "WORK", "start": 43, "end": 63},
+            {"text": "aesthetic forces", "label": "CONCEPT", "start": 84, "end": 100}
+        ]
+    },
+    {
+        "text": "Ressentiment, as analyzed by Nietzsche, explains the psychological origins of slave morality.",
+        "entities": [
+            {"text": "Ressentiment", "label": "CONCEPT", "start": 0, "end": 12},
+            {"text": "Nietzsche", "label": "PHILOSOPHER", "start": 29, "end": 38},
+            {"text": "psychological origins", "label": "CONCEPT", "start": 52, "end": 73},
+            {"text": "slave morality", "label": "CONCEPT", "start": 77, "end": 91}
+        ]
+    }
+]
