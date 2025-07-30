@@ -27,6 +27,11 @@ py2neo>=2021.2.4       # Neo4j Python driver and toolkit
 sentence-transformers>=2.2.2  # Sentence embeddings for semantic similarity
 requests>=2.31.0       # HTTP requests for Ollama API
 
+# Visualization and Reporting Dependencies
+matplotlib>=3.7.0      # Plotting and visualization
+seaborn>=0.12.0        # Statistical data visualization
+Pillow>=10.0.0         # Image processing for matplotlib
+
 # Python Version Compatibility
 pathlib2>=2.3.7; python_version < '3.4'  # Backport of pathlib for older Python versions
 

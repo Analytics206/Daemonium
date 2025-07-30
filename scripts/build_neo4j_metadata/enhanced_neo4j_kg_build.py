@@ -705,37 +705,36 @@ class EnhancedKnowledgeGraphBuilder:
             
             # Add a small delay to ensure data is fully committed
             import time
-            time.sleep(1)
+            time.sleep(3)
             
-            # Print comprehensive stats
+            # Print enhanced stats
             stats_queries = [
                 ("Node Types", "MATCH (n) RETURN labels(n)[0] as NodeType, count(n) as Count ORDER BY Count DESC"),
                 ("Relationship Types", "MATCH ()-[r]->() RETURN type(r) as RelType, count(r) as Count ORDER BY Count DESC"),
-                ("Philosophers", "MATCH (p:Philosopher) RETURN p.name as Name, p.nationality as Nationality, p.birth_year as BirthYear ORDER BY p.birth_year"),
-                ("AI-Generated Relations", "MATCH ()-[r {ai_determined: true}]->() RETURN count(r) as AIRelations"),
-                ("Concept Nodes", "MATCH (c:Concept) RETURN count(c) as ConceptCount"),
+                ("AI-Generated Relations", "MATCH ()-[r {method: 'enhanced_semantic_analysis'}]->() RETURN count(r) as AIRelations"),
                 ("Total Nodes", "MATCH (n) RETURN count(n) as TotalNodes"),
                 ("Total Relationships", "MATCH ()-[r]->() RETURN count(r) as TotalRelationships")
             ]
-            
+                
             print("\nEnhanced Knowledge Graph Statistics:")
             for title, query in stats_queries:
                 print(f"\n{title}:")
+                print(f"  Query: {query}")
                 try:
                     results = list(self.graph.run(query))
+                    print(f"  Results count: {len(results)}")
+                    if len(results) > 0:
+                        print(f"  First result: {dict(results[0])}")
                     
                     if len(results) == 0:
                         print("  No results found")
-                    elif title in ["Total Nodes", "Total Relationships", "AI-Generated Relations", "Concept Nodes"]:
+                    elif title in ["Total Nodes", "Total Relationships", "AI-Generated Relations"]:
                         # Single value queries
                         record = results[0]
                         
                         if 'AIRelations' in record:
                             count = record['AIRelations'] or 0
                             print(f"  AI-generated relationships: {count}")
-                        elif 'ConceptCount' in record:
-                            count = record['ConceptCount'] or 0
-                            print(f"  Concept nodes: {count}")
                         elif 'TotalNodes' in record:
                             count = record['TotalNodes'] or 0
                             print(f"  Total nodes: {count}")
@@ -743,7 +742,7 @@ class EnhancedKnowledgeGraphBuilder:
                             count = record['TotalRelationships'] or 0
                             print(f"  Total relationships: {count}")
                     else:
-                        # Multi-row queries (Node Types, Relationship Types, Philosophers)
+                        # Multi-row queries (Node Types, Relationship Types)
                         if len(results) == 0:
                             print("  No data found")
                         else:
@@ -754,10 +753,6 @@ class EnhancedKnowledgeGraphBuilder:
                                 elif 'RelType' in record and record['RelType']:
                                     count = record['Count'] or 0
                                     print(f"  {record['RelType']}: {count} relationships")
-                                elif 'Name' in record and record['Name']:
-                                    birth_year = record['BirthYear'] if record['BirthYear'] else 'Unknown'
-                                    nationality = record['Nationality'] if record['Nationality'] else 'Unknown'
-                                    print(f"  {record['Name']} ({nationality}, {birth_year})")
                 except Exception as e:
                     print(f"  Error executing query: {e}")
                     
