@@ -1,7 +1,0 @@
-{
-  "model_name": "llama3.1:latest",
-  "device": "ollama",
-  "embedding_dimension": 384,
-  "evaluations": {},
-  "error": "[Errno 2] No such file or directory: 'data/semantic_similarity_test.json'"
-}

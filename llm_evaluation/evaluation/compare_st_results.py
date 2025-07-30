@@ -2,7 +2,7 @@ import json
 import numpy as np
 from datetime import datetime
 
-def compare_sentence_transformer_results(result_paths, output_path="results/st_comparison_results.txt"):
+def compare_sentence_transformer_results(result_paths, output_path="eval_results/st_comparison_results.txt"):
     """
     Compare results from multiple sentence transformer evaluations.
     
@@ -25,7 +25,7 @@ def compare_sentence_transformer_results(result_paths, output_path="results/st_c
         return
     
     # Generate comparison report
-    with open(output_path, "w") as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write("SENTENCE TRANSFORMER MODEL COMPARISON REPORT\n")
         f.write("=" * 60 + "\n")
         f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
@@ -76,7 +76,7 @@ def compare_sentence_transformer_results(result_paths, output_path="results/st_c
                 best_idx = np.argmax(scores)
                 f.write(f"{'Best:':<25}")
                 for i, score in enumerate(scores):
-                    marker = " ★" if i == best_idx else "  "
+                    marker = " *" if i == best_idx else "  "
                     f.write(f"{marker:>15}")
                 f.write("\n\n")
         

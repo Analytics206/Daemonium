@@ -1,0 +1,37 @@
+SENTENCE TRANSFORMER MODEL COMPARISON REPORT
+============================================================
+Generated: 2025-07-30 16:02:11
+Models Compared: 6
+
+MODEL OVERVIEW
+------------------------------
+1. llama3.1:latest
+   Embedding Dimension: 4096
+   Device: ollama
+
+2. nomic-embed-text
+   Embedding Dimension: 768
+   Device: ollama
+
+3. snowflake-arctic-embed
+   Embedding Dimension: 1024
+   Device: ollama
+
+4. mxbai-embed-large
+   Embedding Dimension: 1024
+   Device: ollama
+
+5. all-minilm
+   Embedding Dimension: 384
+   Device: ollama
+
+6. all-minilm:l6-v2
+   Embedding Dimension: 384
+   Device: ollama
+
+OVERALL SCORES COMPARISON
+----------------------------------------
+Metric                   llama3.1:latestnomic-embed-texsnowflake-arctimxbai-embed-lar     all-minilmall-minilm:l6-v
+-------------------------------------------------------------------------------------------------------------------
+semantic_similarity_score          0.171          0.049          0.045          0.050         -0.040         -0.040
+Best:                    
