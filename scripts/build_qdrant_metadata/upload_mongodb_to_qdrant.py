@@ -52,28 +52,36 @@ class QdrantUploader:
         # Collection mapping for processing
         self.collections_config = {
             'book_summary': {
-                'text_fields': ['content', 'summary', 'text'],
-                'metadata_fields': ['title', 'author', 'chapter', 'section', 'filename']
+                'text_fields': ['content', 'summary', 'text', 'description'],
+                'metadata_fields': ['title', 'author', 'chapter', 'section']
             },
             'aphorisms': {
                 'text_fields': ['aphorisms', 'content', 'text'],
-                'metadata_fields': ['filename', 'source_file', 'metadata']
+                'metadata_fields': []
             },
             'idea_summary': {
-                'text_fields': ['content', 'summary', 'description', 'text'],
-                'metadata_fields': ['title', 'philosopher', 'category', 'theme', 'filename']
+                'text_fields': ['content', 'summary', 'description', 'text', 'explanation'],
+                'metadata_fields': ['title', 'philosopher', 'category', 'theme']
             },
             'philosopher_summary': {
-                'text_fields': ['content', 'biography', 'key_ideas', 'influence', 'summary', 'text'],
-                'metadata_fields': ['name', 'birth_year', 'death_year', 'nationality', 'school', 'filename']
+                'text_fields': ['content', 'biography', 'key_ideas', 'influence', 'summary', 'text', 'description', 'background'],
+                'metadata_fields': ['name', 'author', 'birth_year', 'death_year', 'birth_death', 'nationality', 'school']
             },
             'top_10_ideas': {
-                'text_fields': ['content', 'description', 'explanation', 'text'],
-                'metadata_fields': ['title', 'rank', 'philosopher', 'category', 'filename']
+                'text_fields': ['content', 'description', 'explanation', 'text', 'summary'],
+                'metadata_fields': ['title', 'rank', 'philosopher', 'category']
             },
             'books': {
-                'text_fields': ['content', 'text', 'chapters'],
-                'metadata_fields': ['title', 'author', 'language', 'filename']
+                'text_fields': ['content', 'text', 'chapters', 'description', 'summary'],
+                'metadata_fields': ['title', 'author', 'language']
+            },
+            'philosophy_themes': {
+                'text_fields': ['themes', 'content', 'description', 'text', 'major_themes'],
+                'metadata_fields': ['philosopher', 'title', 'author']
+            },
+            'bibliography': {
+                'text_fields': ['bibliography', 'sources', 'references', 'content', 'text', 'description', 'background', 'works', 'major_themes', 'influence', 'note', 'chronological_periods'],
+                'metadata_fields': ['philosopher', 'author', 'birth_death', 'note']
             }
         }
     
