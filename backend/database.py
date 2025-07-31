@@ -35,6 +35,8 @@ class DatabaseManager:
             "philosopher_bios",
             "philosopher_bots",
             "philosopher_summaries",
+            "philosophers",
+            "philosophy_schools",
             "philosophy_themes",
             "top_ten_ideas"
         ]
@@ -112,29 +114,117 @@ class DatabaseManager:
     # Philosopher-related methods
     async def get_philosophers(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get philosophers with pagination"""
-        collection = self.get_collection("philosopher_summaries")
+        collection = self.get_collection("philosophers")
         cursor = collection.find({}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
     async def get_philosopher_by_id(self, philosopher_id: str) -> Optional[Dict[str, Any]]:
         """Get philosopher by ID"""
-        collection = self.get_collection("philosopher_summaries")
+        collection = self.get_collection("philosophers")
         return await collection.find_one({"_id": philosopher_id})
     
-    async def search_philosophers(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
-        """Search philosophers by name or content"""
-        collection = self.get_collection("philosopher_summaries")
+    # Philosophy Schools methods
+    async def get_philosophy_schools(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get philosophy schools with pagination"""
+        collection = self.get_collection("philosophy_schools")
+        cursor = collection.find({}).skip(skip).limit(limit)
+        return await cursor.to_list(length=limit)
+    
+    async def get_philosophy_school_by_id(self, school_id: str) -> Optional[Dict[str, Any]]:
+        """Get philosophy school by ID"""
+        collection = self.get_collection("philosophy_schools")
+        return await collection.find_one({"_id": school_id})
+    
+    async def search_philosophy_schools(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
+        """Search philosophy schools by name, category, or content"""
+        collection = self.get_collection("philosophy_schools")
         
-        # Text search across multiple fields
+        # Create a text search filter
         search_filter = {
             "$or": [
                 {"name": {"$regex": query, "$options": "i"}},
+                {"category": {"$regex": query, "$options": "i"}},
                 {"summary": {"$regex": query, "$options": "i"}},
-                {"key_concepts": {"$regex": query, "$options": "i"}}
+                {"core_principles": {"$regex": query, "$options": "i"}}
             ]
         }
         
         cursor = collection.find(search_filter).limit(limit)
+        return await cursor.to_list(length=limit)
+    
+    async def get_philosophers_by_school(self, school_id: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get philosophers belonging to a specific school"""
+        collection = self.get_collection("philosophers")
+        cursor = collection.find({"school_id": school_id}).skip(skip).limit(limit)
+        return await cursor.to_list(length=limit)
+    
+    async def get_philosopher_with_school(self, philosopher_id: str) -> Optional[Dict[str, Any]]:
+        """Get philosopher with their associated school information"""
+        philosopher = await self.get_philosopher_by_id(philosopher_id)
+        if not philosopher:
+            return None
+        
+        result = {"philosopher": philosopher, "school": None}
+        
+        # Get school information if school_id exists
+        if philosopher.get("school_id"):
+            school = await self.get_philosophy_school_by_id(f"school_{philosopher['school_id']}")
+            result["school"] = school
+        
+        return result
+    
+    async def search_philosophers(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
+        """Search philosophers by author name or content"""
+        collection = self.get_collection("philosophers")
+        
+        # Create a text search filter - prioritize author field
+        search_filter = {
+            "$or": [
+                {"author": {"$regex": query, "$options": "i"}},
+                {"philosopher": {"$regex": query, "$options": "i"}},
+                {"summary": {"$regex": query, "$options": "i"}},
+                {"content": {"$regex": query, "$options": "i"}}
+            ]
+        }
+        
+        cursor = collection.find(search_filter).limit(limit)
+        return await cursor.to_list(length=limit)
+    
+    # Methods to get data by author across collections
+    async def get_aphorisms_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get aphorisms by author"""
+        collection = self.get_collection("aphorisms")
+        cursor = collection.find({"author": author}).skip(skip).limit(limit)
+        return await cursor.to_list(length=limit)
+    
+    async def get_book_summaries_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get book summaries by author"""
+        collection = self.get_collection("book_summaries")
+        cursor = collection.find({"author": author}).skip(skip).limit(limit)
+        return await cursor.to_list(length=limit)
+    
+    async def get_top_ideas_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get top ten ideas by author"""
+        collection = self.get_collection("top_ten_ideas")
+        cursor = collection.find({"author": author}).skip(skip).limit(limit)
+        return await cursor.to_list(length=limit)
+    
+    async def get_idea_summaries_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get idea summaries by author"""
+        collection = self.get_collection("idea_summaries")
+        cursor = collection.find({"author": author}).skip(skip).limit(limit)
+        return await cursor.to_list(length=limit)
+    
+    async def get_philosophy_themes_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get philosophy themes by author"""
+        collection = self.get_collection("philosophy_themes")
+        cursor = collection.find({"author": author}).skip(skip).limit(limit)
+        return await cursor.to_list(length=limit)
+    
+    async def get_philosopher_summaries_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get philosopher summaries by author"""
+        collection = self.get_collection("philosopher_summaries")
+        cursor = collection.find({"author": author}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
     # Book-related methods
@@ -243,9 +333,9 @@ class DatabaseManager:
                 if collection_name == "philosopher_summaries":
                     search_filter = {
                         "$or": [
-                            {"name": {"$regex": query, "$options": "i"}},
+                            {"author": {"$regex": query, "$options": "i"}},
                             {"summary": {"$regex": query, "$options": "i"}},
-                            {"key_concepts": {"$regex": query, "$options": "i"}}
+                            {"content": {"$regex": query, "$options": "i"}}
                         ]
                     }
                 elif collection_name in ["books", "book_summaries"]:
@@ -259,14 +349,21 @@ class DatabaseManager:
                 elif collection_name == "aphorisms":
                     search_filter = {
                         "$or": [
+                            {"author": {"$regex": query, "$options": "i"}},
                             {"text": {"$regex": query, "$options": "i"}},
-                            {"philosopher": {"$regex": query, "$options": "i"}},
                             {"context": {"$regex": query, "$options": "i"}}
                         ]
                     }
                 else:
-                    # Generic search for other collections
-                    search_filter = {"$text": {"$search": query}}
+                    # Generic search for other collections that use author field
+                    search_filter = {
+                        "$or": [
+                            {"author": {"$regex": query, "$options": "i"}},
+                            {"title": {"$regex": query, "$options": "i"}},
+                            {"description": {"$regex": query, "$options": "i"}},
+                            {"content": {"$regex": query, "$options": "i"}}
+                        ]
+                    }
                 
                 cursor = collection.find(search_filter).limit(limit // len(search_collections))
                 collection_results = await cursor.to_list(length=limit // len(search_collections))

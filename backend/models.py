@@ -28,8 +28,18 @@ class SearchParams(BaseModel):
 class PhilosopherSummary(BaseModel):
     """Philosopher summary model"""
     id: str = Field(..., alias="_id")
-    name: str
+    author: str  # Primary field - all collections join by author
+    philosopher: Optional[str] = None  # Alternative name field
+    date_of_birth: Optional[str] = None
+    date_of_death: Optional[str] = None
     summary: Optional[str] = None
+    content: Optional[str] = None
+    school_id: Optional[str] = None
+    tag_id: Optional[str] = None
+    lifespan_years: Optional[int] = None
+    
+    # Legacy fields for backward compatibility
+    name: Optional[str] = None
     key_concepts: Optional[List[str]] = None
     birth_year: Optional[int] = None
     death_year: Optional[int] = None
@@ -44,6 +54,36 @@ class PhilosopherSummary(BaseModel):
 class PhilosopherResponse(BaseResponse):
     """Response model for philosopher data"""
     data: Union[PhilosopherSummary, List[PhilosopherSummary]]
+    total_count: Optional[int] = None
+
+# Philosophy School models
+class PhilosophySchool(BaseModel):
+    """Philosophy school model"""
+    id: str = Field(..., alias="_id")
+    school_id: str
+    name: str
+    category: Optional[str] = None
+    summary: Optional[str] = None
+    core_principles: Optional[str] = None
+    name_normalized: Optional[str] = None
+    category_normalized: Optional[str] = None
+    keywords: Optional[List[str]] = None
+    
+    model_config = {"populate_by_name": True}
+
+class PhilosophySchoolResponse(BaseResponse):
+    """Response model for philosophy school data"""
+    data: Union[PhilosophySchool, List[PhilosophySchool]]
+    total_count: Optional[int] = None
+
+class PhilosopherWithSchool(BaseModel):
+    """Philosopher with associated school information"""
+    philosopher: PhilosopherSummary
+    school: Optional[PhilosophySchool] = None
+
+class PhilosopherWithSchoolResponse(BaseResponse):
+    """Response model for philosopher with school data"""
+    data: Union[PhilosopherWithSchool, List[PhilosopherWithSchool]]
     total_count: Optional[int] = None
 
 # Book models

@@ -3,11 +3,11 @@ Philosophers API router
 """
 
 from fastapi import APIRouter, HTTPException, Depends, Query
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 import logging
 
 from ..database import DatabaseManager
-from ..models import PhilosopherResponse, PhilosopherSummary, PaginationParams, SearchParams
+from ..models import PhilosopherResponse, PhilosopherSummary, PhilosopherWithSchool, PhilosopherWithSchoolResponse, PaginationParams, SearchParams
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -100,6 +100,42 @@ async def search_philosophers(
         logger.error(f"Failed to search philosophers: {e}")
         raise HTTPException(status_code=500, detail="Failed to search philosophers")
 
+@router.get("/{philosopher_id}/with-school", response_model=PhilosopherWithSchoolResponse)
+async def get_philosopher_with_school(
+    philosopher_id: str,
+    db_manager: DatabaseManager = Depends(get_db_manager)
+):
+    """Get philosopher with their associated philosophy school information"""
+    try:
+        philosopher_with_school = await db_manager.get_philosopher_with_school(philosopher_id)
+        
+        if not philosopher_with_school:
+            raise HTTPException(status_code=404, detail=f"Philosopher with ID '{philosopher_id}' not found")
+        
+        # Convert to Pydantic models
+        philosopher_model = PhilosopherSummary(**philosopher_with_school["philosopher"])
+        school_model = None
+        
+        if philosopher_with_school["school"]:
+            from ..models import PhilosophySchool
+            school_model = PhilosophySchool(**philosopher_with_school["school"])
+        
+        philosopher_with_school_model = PhilosopherWithSchool(
+            philosopher=philosopher_model,
+            school=school_model
+        )
+        
+        return PhilosopherWithSchoolResponse(
+            data=philosopher_with_school_model,
+            message=f"Retrieved philosopher with school information: {philosopher_model.author}"
+        )
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to get philosopher with school {philosopher_id}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to retrieve philosopher with school information")
+
 @router.get("/{philosopher_id}/related", response_model=PhilosopherResponse)
 async def get_related_philosophers(
     philosopher_id: str,
@@ -117,22 +153,21 @@ async def get_related_philosophers(
         # Simple related philosophers logic - could be enhanced with ML/embeddings
         related_philosophers = []
         
-        # Search by philosophical school if available
-        if philosopher.get('philosophical_school'):
-            school_philosophers = await db_manager.search_philosophers(
-                query=philosopher['philosophical_school'], 
+        # Search by school_id if available
+        if philosopher.get('school_id'):
+            school_philosophers = await db_manager.get_philosophers_by_school(
+                philosopher['school_id'], 
                 limit=limit + 1  # +1 to account for the original philosopher
             )
             related_philosophers.extend([p for p in school_philosophers if p['_id'] != philosopher_id])
         
-        # Search by influences/influenced if available
-        if philosopher.get('influences'):
-            for influence in philosopher['influences'][:2]:  # Limit to first 2 influences
-                influence_philosophers = await db_manager.search_philosophers(
-                    query=influence, 
-                    limit=3
-                )
-                related_philosophers.extend([p for p in influence_philosophers if p['_id'] != philosopher_id])
+        # Search by author name for additional matches
+        if len(related_philosophers) < limit:
+            name_philosophers = await db_manager.search_philosophers(
+                query=philosopher.get('author', ''), 
+                limit=limit
+            )
+            related_philosophers.extend([p for p in name_philosophers if p['_id'] != philosopher_id])
         
         # Remove duplicates and limit results
         seen_ids = set()
@@ -154,7 +189,7 @@ async def get_related_philosophers(
         return PhilosopherResponse(
             data=philosopher_models,
             total_count=len(philosopher_models),
-            message=f"Found {len(philosopher_models)} philosophers related to {philosopher.get('name', philosopher_id)}"
+            message=f"Found {len(philosopher_models)} philosophers related to {philosopher.get('author', philosopher_id)}"
         )
     
     except HTTPException:
@@ -162,3 +197,65 @@ async def get_related_philosophers(
     except Exception as e:
         logger.error(f"Failed to get related philosophers for {philosopher_id}: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve related philosophers")
+
+@router.get("/by-author/{author}", response_model=Dict[str, Any])
+async def get_all_content_by_author(
+    author: str,
+    limit: int = Query(10, ge=1, le=100, description="Maximum number of items per collection"),
+    db_manager: DatabaseManager = Depends(get_db_manager)
+):
+    """Get all content across collections for a specific author"""
+    try:
+        # Get data from all collections that use author as a field
+        result = {
+            "author": author,
+            "philosophers": [],
+            "aphorisms": [],
+            "book_summaries": [],
+            "top_ten_ideas": [],
+            "idea_summaries": [],
+            "philosophy_themes": [],
+            "philosopher_summaries": []
+        }
+        
+        # Get philosophers
+        philosophers = await db_manager.search_philosophers(query=author, limit=limit)
+        result["philosophers"] = philosophers
+        
+        # Get aphorisms
+        aphorisms = await db_manager.get_aphorisms_by_author(author, limit=limit)
+        result["aphorisms"] = aphorisms
+        
+        # Get book summaries
+        book_summaries = await db_manager.get_book_summaries_by_author(author, limit=limit)
+        result["book_summaries"] = book_summaries
+        
+        # Get top ten ideas
+        top_ideas = await db_manager.get_top_ideas_by_author(author, limit=limit)
+        result["top_ten_ideas"] = top_ideas
+        
+        # Get idea summaries
+        idea_summaries = await db_manager.get_idea_summaries_by_author(author, limit=limit)
+        result["idea_summaries"] = idea_summaries
+        
+        # Get philosophy themes
+        themes = await db_manager.get_philosophy_themes_by_author(author, limit=limit)
+        result["philosophy_themes"] = themes
+        
+        # Get philosopher summaries
+        summaries = await db_manager.get_philosopher_summaries_by_author(author, limit=limit)
+        result["philosopher_summaries"] = summaries
+        
+        # Calculate totals
+        total_items = sum(len(items) for items in result.values() if isinstance(items, list))
+        
+        return {
+            "success": True,
+            "message": f"Retrieved {total_items} items for author: {author}",
+            "data": result,
+            "total_items": total_items
+        }
+    
+    except Exception as e:
+        logger.error(f"Failed to get content for author {author}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to retrieve content for author")

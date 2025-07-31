@@ -21,12 +21,14 @@ A comprehensive REST API for the Daemonium philosopher chatbot project, providin
 - `GET /api/v1/stats` - Database and API statistics
 
 ### Philosophers
+*MongoDB Collection: `philosopher_summaries`*
 - `GET /api/v1/philosophers/` - Get all philosophers (paginated)
 - `GET /api/v1/philosophers/{id}` - Get specific philosopher
 - `GET /api/v1/philosophers/search/` - Search philosophers
 - `GET /api/v1/philosophers/{id}/related` - Get related philosophers
 
 ### Books
+*MongoDB Collections: `books` (full text), `book_summaries` (summaries)*
 - `GET /api/v1/books/` - Get all books (paginated, filterable by author)
 - `GET /api/v1/books/{id}` - Get specific book
 - `GET /api/v1/books/summaries/` - Get book summaries
@@ -34,6 +36,7 @@ A comprehensive REST API for the Daemonium philosopher chatbot project, providin
 - `GET /api/v1/books/{id}/chapters` - Get book chapters
 
 ### Aphorisms
+*MongoDB Collection: `aphorisms`*
 - `GET /api/v1/aphorisms/` - Get all aphorisms (paginated, filterable)
 - `GET /api/v1/aphorisms/random` - Get random aphorisms
 - `GET /api/v1/aphorisms/by-philosopher/{philosopher}` - Get aphorisms by philosopher
@@ -41,6 +44,7 @@ A comprehensive REST API for the Daemonium philosopher chatbot project, providin
 - `GET /api/v1/aphorisms/{id}` - Get specific aphorism
 
 ### Ideas
+*MongoDB Collections: `top_ten_ideas` (top concepts), `idea_summaries` (detailed summaries)*
 - `GET /api/v1/ideas/top-ten` - Get top ten philosophical ideas
 - `GET /api/v1/ideas/summaries` - Get idea summaries
 - `GET /api/v1/ideas/top-ten/{rank}` - Get idea by rank (1-10)
@@ -48,6 +52,7 @@ A comprehensive REST API for the Daemonium philosopher chatbot project, providin
 - `GET /api/v1/ideas/{id}` - Get specific idea
 
 ### Summaries
+*MongoDB Collections: `philosophy_themes`, `modern_adaptations`, `discussion_hooks`, `philosopher_bios`, `persona_cores`*
 - `GET /api/v1/summaries/philosophy-themes` - Get philosophy themes
 - `GET /api/v1/summaries/modern-adaptations` - Get modern adaptations
 - `GET /api/v1/summaries/discussion-hooks` - Get discussion hooks
@@ -57,6 +62,7 @@ A comprehensive REST API for the Daemonium philosopher chatbot project, providin
 - `GET /api/v1/summaries/search/{collection}` - Search within collection
 
 ### Chat
+*MongoDB Collections: `chat_blueprints`, `conversation_logic`, `philosopher_bots`*
 - `GET /api/v1/chat/blueprints` - Get chat blueprints
 - `GET /api/v1/chat/conversation-logic` - Get conversation logic
 - `GET /api/v1/chat/philosopher-bots` - Get bot configurations
@@ -66,6 +72,7 @@ A comprehensive REST API for the Daemonium philosopher chatbot project, providin
 - `GET /api/v1/chat/personality/{philosopher}` - Get philosopher personality
 
 ### Search
+*MongoDB Collections: All collections (global search)*
 - `GET /api/v1/search/` - Global search across all collections
 - `GET /api/v1/search/philosophers` - Search philosopher-related content
 - `GET /api/v1/search/content` - Search content collections

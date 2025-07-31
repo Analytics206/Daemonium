@@ -15,6 +15,7 @@ from .database import DatabaseManager
 from .models import *
 from .routers import (
     philosophers,
+    philosophy_schools,
     books,
     aphorisms,
     ideas,
@@ -86,6 +87,13 @@ app.include_router(
     philosophers.router,
     prefix="/api/v1/philosophers",
     tags=["philosophers"],
+    dependencies=[Depends(get_db_manager)]
+)
+
+app.include_router(
+    philosophy_schools.router,
+    prefix="/api/v1/philosophy-schools",
+    tags=["philosophy-schools"],
     dependencies=[Depends(get_db_manager)]
 )
 
