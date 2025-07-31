@@ -1117,7 +1117,195 @@ The Docker setup includes MongoDB, so no additional installation is needed if us
 - Also consider **Qdrant Cloud Console** for more advanced features if you're using Qdrant Cloud
 - Check Jupyter notebooks for more advanced features
 These tools provide graphical interfaces to explore, query, and visualize the data stored in each component of the pipeline.
+
 ---
+
+## 🔌 MCP Servers (Model Context Protocol)
+
+Daemonium includes custom MCP servers that extend Windsurf IDE capabilities with specialized tools for document processing and text-to-speech functionality.
+
+### 📄 Document Reader MCP Server
+
+The Document Reader MCP provides tools to read and analyze markdown and text files within your project.
+
+**Location**: `scripts/mcp_document_reader.py`
+
+#### Available Tools:
+
+1. **`read_document`** - Read complete file content with metadata
+   ```json
+   {
+     "name": "read_document",
+     "arguments": {
+       "file_path": "README.md",
+       "max_size": 1048576
+     }
+   }
+   ```
+
+2. **`list_documents`** - List all supported documents in a directory
+   ```json
+   {
+     "name": "list_documents",
+     "arguments": {
+       "directory": "./docs",
+       "recursive": true
+     }
+   }
+   ```
+
+3. **`get_document_info`** - Get file metadata without reading content
+   ```json
+   {
+     "name": "get_document_info",
+     "arguments": {
+       "file_path": "docs/guide.txt"
+     }
+   }
+   ```
+
+4. **`get_supported_extensions`** - List supported file types
+   ```json
+   {
+     "name": "get_supported_extensions",
+     "arguments": {}
+   }
+   ```
+
+#### Supported File Types:
+- `.md` (Markdown)
+- `.txt` (Plain text)
+- `.markdown` (Markdown variant)
+- `.text` (Text variant)
+
+#### Features:
+- **Multi-encoding support**: UTF-8, UTF-8-BOM, Latin-1, CP1252
+- **File size protection**: Configurable maximum file size (default 1MB)
+- **Recursive directory search**: Search subdirectories for documents
+- **Comprehensive error handling**: Detailed error messages and logging
+- **Cross-platform compatibility**: Works on Windows, Linux, and macOS
+
+#### Windsurf IDE Configuration:
+
+Add to your Windsurf MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "document-reader": {
+      "command": "python",
+      "args": ["c:\\path\\to\\daemonium\\scripts\\mcp_document_reader.py"]
+    }
+  }
+}
+```
+
+### 🔊 Windows TTS MCP Server
+
+The Windows TTS MCP provides text-to-speech functionality using Windows built-in SAPI.
+
+**Location**: `scripts/mcp_tts_windows.py`
+
+#### Available Tools:
+
+1. **`windows_tts`** - Convert text to speech
+   ```json
+   {
+     "name": "windows_tts",
+     "arguments": {
+       "text": "Hello, this is a test",
+       "voice": "Microsoft Zira Desktop",
+       "rate": 0
+     }
+   }
+   ```
+
+2. **`list_voices`** - List available Windows TTS voices
+   ```json
+   {
+     "name": "list_voices",
+     "arguments": {}
+   }
+   ```
+
+#### Features:
+- **Windows SAPI integration**: Uses built-in Windows text-to-speech
+- **Voice selection**: Choose from available system voices
+- **Speech rate control**: Adjust speaking speed (-10 to 10)
+- **No API keys required**: Completely free using Windows built-in TTS
+- **PowerShell integration**: Leverages Windows PowerShell for TTS execution
+
+#### Windsurf IDE Configuration:
+
+Add to your Windsurf MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "windows-tts": {
+      "command": "python",
+      "args": ["c:\\path\\to\\daemonium\\scripts\\mcp_tts_windows.py"]
+    }
+  }
+}
+```
+
+### 🚀 Usage Examples
+
+#### Document Reader Examples:
+
+```bash
+# In Windsurf IDE chat, you can use:
+"Please read the contents of README.md"
+"List all markdown files in this project"
+"What file types does the document reader support?"
+"Show me information about the config file"
+"List all text files in the docs directory"
+"Read the contents of the main configuration file"
+```
+
+**Quick Test Commands:**
+After restarting Windsurf IDE, test the new functionality by asking in chat:
+- `"Please read the contents of README.md"`
+- `"List all markdown files in this project"`
+- `"What file types does the document reader support?"`
+
+#### Windows TTS Examples:
+
+```bash
+# In Windsurf IDE chat, you can use:
+"Read this text aloud: 'Welcome to Daemonium'"
+"What voices are available for text-to-speech?"
+"Speak this text with a slower rate"
+```
+
+### 🔧 MCP Server Management
+
+#### Testing MCP Servers:
+
+```bash
+# Test Document Reader MCP
+echo '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | python scripts/mcp_document_reader.py
+
+# Test Windows TTS MCP
+echo '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | python scripts/mcp_tts_windows.py
+```
+
+#### Debugging:
+
+- MCP servers log to stderr for debugging
+- Check Windsurf IDE logs for MCP connection issues
+- Ensure Python paths are correct in MCP configuration
+- Verify file permissions for script execution
+
+#### Requirements:
+
+- **Document Reader**: Python 3.7+ (no additional dependencies)
+- **Windows TTS**: Windows OS with PowerShell and SAPI support
+- **Windsurf IDE**: Latest version with MCP support
+
+---
+
 ## 📊 Optional Future Enhancements
 The following features are 'planned' for future development to enhance the research pipeline:
 ### Data Analysis and Visualization

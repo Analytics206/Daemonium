@@ -1,5 +1,65 @@
 # Daemonium
 ---
+## Version 0.2.7 (July 31, 2025)
+
+### Major Features
+
+#### 📄 Document Reader MCP Server
+- **New MCP Server** - Created `scripts/mcp_document_reader.py` for reading and analyzing markdown and text files within Windsurf IDE
+- **Four Comprehensive Tools**:
+  - **`read_document`** - Read complete file content with metadata (encoding, size, line count)
+  - **`list_documents`** - List all supported documents in directories with recursive search
+  - **`get_document_info`** - Get file metadata without reading content (size, modification date)
+  - **`get_supported_extensions`** - List all supported file types
+- **Multi-Encoding Support** - Automatic encoding detection with fallback support (UTF-8, UTF-8-BOM, Latin-1, CP1252)
+- **File Size Protection** - Configurable maximum file size limits (default 1MB) to prevent memory issues
+- **Cross-Platform Compatibility** - Works on Windows, Linux, and macOS with proper path handling
+- **No Dependencies** - Uses only Python standard library for maximum compatibility
+- **Comprehensive Error Handling** - Graceful error handling with detailed error messages
+
+#### 🔌 Enhanced MCP Integration
+- **Windsurf IDE Configuration** - Added Document Reader MCP to user's `mcp_config.json` configuration
+- **Complete Documentation** - Updated main README.md with comprehensive MCP servers section
+- **Standalone Setup Guide** - Created `README_DOCREADER.md` following the same structure as `README_TTS.md`
+- **Natural Language Interface** - Users can interact with document tools through conversational commands
+- **Testing Framework** - Command-line testing procedures and verification methods
+
+#### 📚 Supported File Types
+- **Markdown Files** - `.md`, `.markdown` extensions
+- **Text Files** - `.txt`, `.text` extensions
+- **Encoding Flexibility** - Automatic detection and conversion of various text encodings
+- **Metadata Extraction** - File size, line count, modification dates, and path information
+
+### Usage Examples
+```bash
+# In Windsurf IDE chat, users can now use:
+"Please read the contents of README.md"
+"List all markdown files in this project"
+"What file types does the document reader support?"
+"Show me information about the config file"
+"List all text files in the docs directory"
+
+# Command-line testing:
+echo '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | python scripts/mcp_document_reader.py
+```
+
+### Benefits
+- ✅ **Local File Access** - Direct access to project documentation and configuration files
+- ✅ **No API Keys Required** - Completely free with no external service dependencies
+- ✅ **Offline Operation** - Works entirely offline with local file system access
+- ✅ **Privacy Focused** - No external data transmission or cloud service requirements
+- ✅ **Developer Productivity** - Quick access to project files without leaving the IDE chat
+- ✅ **Documentation Analysis** - Easy analysis and summarization of project documentation
+- ✅ **Configuration Review** - Quick review of configuration files and settings
+
+### Documentation
+- **Main README Integration** - Added comprehensive "🔌 MCP Servers" section to main README.md
+- **Standalone Guide** - Created `README_DOCREADER.md` with complete setup and usage instructions
+- **Configuration Examples** - JSON configuration examples for Windsurf IDE setup
+- **Troubleshooting Guide** - Common issues and solutions for MCP server setup
+- **Quick Test Commands** - Ready-to-use test commands for immediate verification
+
+---
 ## Version 0.2.6 (July 30, 2025)
 
 ### Major Features
