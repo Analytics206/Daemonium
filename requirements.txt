@@ -44,5 +44,13 @@ Pillow>=10.0.0         # Image processing for matplotlib
 # Python Version Compatibility
 pathlib2>=2.3.7; python_version < '3.4'  # Backport of pathlib for older Python versions
 
+# FastAPI Backend Dependencies
+fastapi>=0.104.0        # Modern web framework for building APIs
+uvicorn[standard]>=0.24.0  # ASGI server for FastAPI
+motor>=3.3.0            # Async MongoDB driver for FastAPI
+pydantic>=2.5.0        # Data validation and serialization
+pydantic-settings>=2.0.0  # Settings management for Pydantic v2
+python-multipart>=0.0.6  # Form data parsing support
+
 # Project-specific dependencies
 # Add any additional dependencies below this line

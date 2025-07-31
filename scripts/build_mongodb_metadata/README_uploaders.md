@@ -4,7 +4,71 @@ This directory contains scripts for uploading JSON documents from various folder
 
 ## Available Scripts
 
-### 1. Aphorism Uploader (`upload_aphorisms_to_mongodb.py`)
+### 1. Philosophy Schools Uploader (`upload_philosophy_schools_to_mongodb.py`)
+
+Uploads the `philosophy_school.json` file to the `philosophy_schools` collection.
+
+**Features:**
+- Processes a single JSON file containing an array of philosophical schools
+- Creates unique document IDs based on schoolID
+- Generates normalized fields and keywords for enhanced searchability
+- Calculates derived fields for better search functionality
+- Creates comprehensive indexes for efficient querying
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_philosophy_schools_to_mongodb.py
+```
+
+**Collection:** `philosophy_schools`
+**Document Structure:**
+- `_id`: Unique identifier (school_{schoolID})
+- `school_id`: Original schoolID from JSON
+- `name`: School name
+- `category`: School category (e.g., "Ancient & Classical", "Contemporary")
+- `summary`: Detailed description of the philosophical school
+- `core_principles`: Key principles and concepts
+- `name_normalized`: Normalized name for searching
+- `category_normalized`: Normalized category for searching
+- `keywords`: Extracted keywords from summary and principles
+- `metadata`: Upload timestamps and source information
+
+### 2. Philosophers Uploader (`upload_philosophers_to_mongodb.py`)
+
+Uploads the `philosophers.json` file to the `philosophers` collection.
+
+**Features:**
+- Processes a single JSON file containing an array of philosopher records
+- Creates unique document IDs based on philosopher name
+- Calculates lifespan for philosophers with valid birth/death dates
+- Handles BCE dates properly with negative year calculations
+- References philosophy schools via school_id
+- Creates comprehensive indexes for efficient querying
+- Comprehensive logging with timestamps
+- Error handling and connection management
+
+**Usage:**
+```bash
+python build_metadata/upload_philosophers_to_mongodb.py
+```
+
+**Collection:** `philosophers`
+**Document Structure:**
+- `_id`: Unique identifier (philosopher_name_normalized)
+- `philosopher`: Philosopher name
+- `author`: Author name (usually same as philosopher)
+- `date_of_birth`: Birth date (original format)
+- `date_of_death`: Death date (original format)
+- `summary`: Brief description
+- `content`: Detailed biographical and philosophical content
+- `school_id`: Reference to philosophy school
+- `tag_id`: Tag identifier
+- `lifespan_years`: Calculated lifespan (if dates available)
+- `metadata`: Upload timestamps, source information, and original date formats
+
+### 3. Aphorism Uploader (`upload_aphorisms_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/aphorisms` to the `aphorisms` collection.
 
@@ -29,7 +93,7 @@ python build_metadata/upload_aphorisms_to_mongodb.py
 - `aphorisms`: Object containing categorized aphorisms
 - `metadata`: Upload timestamps and source information
 
-### 2. Book Summary Uploader (`upload_book_summaries_to_mongodb.py`)
+### 4. Book Summary Uploader (`upload_book_summaries_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/book_summary` to the `book_summary` collection.
 
@@ -60,7 +124,7 @@ python build_metadata/upload_book_summaries_to_mongodb.py
 - `philosophical_significance`: Significance description (if present)
 - `metadata`: Upload timestamps, source information, and section count
 
-### 3. Chat Blueprint Uploader (`upload_chat_blueprints_to_mongodb.py`)
+### 5. Chat Blueprint Uploader (`upload_chat_blueprints_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/chat_blueprint` to the `chat_blueprint` collection.
 
@@ -79,7 +143,7 @@ python build_metadata/upload_chat_blueprints_to_mongodb.py
 
 **Collection:** `chat_blueprint`
 
-### 4. Conversation Logic Uploader (`upload_conversation_logic_to_mongodb.py`)
+### 6. Conversation Logic Uploader (`upload_conversation_logic_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/conversation_logic` to the `conversation_logic` collection.
 
@@ -98,7 +162,7 @@ python build_metadata/upload_conversation_logic_to_mongodb.py
 
 **Collection:** `conversation_logic`
 
-### 5. Discussion Hook Uploader (`upload_discussion_hooks_to_mongodb.py`)
+### 7. Discussion Hook Uploader (`upload_discussion_hooks_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/discussion_hook` to the `discussion_hook` collection.
 
@@ -117,7 +181,7 @@ python build_metadata/upload_discussion_hooks_to_mongodb.py
 
 **Collection:** `discussion_hook`
 
-### 6. Idea Summary Uploader (`upload_idea_summaries_to_mongodb.py`)
+### 8. Idea Summary Uploader (`upload_idea_summaries_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/idea_summary` to the `idea_summary` collection.
 
@@ -136,7 +200,7 @@ python build_metadata/upload_idea_summaries_to_mongodb.py
 
 **Collection:** `idea_summary`
 
-### 7. Modern Adaptation Uploader (`upload_modern_adaptations_to_mongodb.py`)
+### 9. Modern Adaptation Uploader (`upload_modern_adaptations_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/modern_adaptation` to the `modern_adaptation` collection.
 
@@ -155,7 +219,7 @@ python build_metadata/upload_modern_adaptations_to_mongodb.py
 
 **Collection:** `modern_adaptation`
 
-### 8. Persona Core Uploader (`upload_persona_cores_to_mongodb.py`)
+### 10. Persona Core Uploader (`upload_persona_cores_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/persona_core` to the `persona_core` collection.
 
@@ -174,7 +238,7 @@ python build_metadata/upload_persona_cores_to_mongodb.py
 
 **Collection:** `persona_core`
 
-### 9. Philosopher Bio Uploader (`upload_philosopher_bios_to_mongodb.py`)
+### 11. Philosopher Biography Uploader (`upload_philosopher_bios_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/philosopher_bio` to the `philosopher_bio` collection.
 
@@ -193,7 +257,7 @@ python build_metadata/upload_philosopher_bios_to_mongodb.py
 
 **Collection:** `philosopher_bio`
 
-### 10. Philosopher Bot Uploader (`upload_philosopher_bots_to_mongodb.py`)
+### 12. Philosopher Bot Uploader (`upload_philosopher_bots_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/philosopher_bot` to the `philosopher_bot` collection.
 
@@ -212,7 +276,7 @@ python build_metadata/upload_philosopher_bots_to_mongodb.py
 
 **Collection:** `philosopher_bot`
 
-### 11. Philosopher Summary Uploader (`upload_philosopher_summaries_to_mongodb.py`)
+### 13. Philosopher Summary Uploader (`upload_philosopher_summaries_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/philosopher_summary` to the `philosopher_summary` collection.
 
@@ -231,7 +295,7 @@ python build_metadata/upload_philosopher_summaries_to_mongodb.py
 
 **Collection:** `philosopher_summary`
 
-### 12. Philosophy Themes Uploader (`upload_philosophy_themes_to_mongodb.py`)
+### 14. Philosophy Themes Uploader (`upload_philosophy_themes_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/philosophy_and_themes` to the `philosophy_themes` collection.
 
@@ -250,7 +314,7 @@ python build_metadata/upload_philosophy_themes_to_mongodb.py
 
 **Collection:** `philosophy_themes`
 
-### 13. Top 10 Ideas Uploader (`upload_top_10_ideas_to_mongodb.py`)
+### 15. Top 10 Ideas Uploader (`upload_top_10_ideas_to_mongodb.py`)
 
 Uploads JSON files from `json_bot_docs/top_10_ideas` to the `top_10_ideas` collection.
 

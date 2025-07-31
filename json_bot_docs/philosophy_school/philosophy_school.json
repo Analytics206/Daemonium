@@ -1,0 +1,219 @@
+[
+  {
+    "schoolID": 1,
+    "name": "Unknown",
+    "category": "Unknown",
+    "summary": "General placeholder for philosophical schools that cannot be clearly classified or lack sufficient historical or thematic data.",
+    "corePrinciples": "Unspecified principles"
+  },
+  {
+    "schoolID": 2,
+    "name": "Ancient Greek Philosophy",
+    "category": "Ancient & Classical",
+    "summary": "The foundation of Western philosophy, encompassing thinkers like Socrates, Plato, and Aristotle, focusing on metaphysics, ethics, politics, and the nature of knowledge.",
+    "corePrinciples": "Reason, virtue, pursuit of knowledge"
+  },
+  {
+    "schoolID": 3,
+    "name": "Stoicism",
+    "category": "Ancient & Classical",
+    "summary": "A Hellenistic philosophy emphasizing virtue, rationality, and emotional resilience, advocating living in harmony with nature and focusing on what is within one's control.",
+    "corePrinciples": "Virtue, rational control, acceptance of fate"
+  },
+  {
+    "schoolID": 4,
+    "name": "Epicureanism",
+    "category": "Ancient & Classical",
+    "summary": "A philosophy founded by Epicurus that promotes pleasure (understood as tranquility and absence of pain) as the highest good, while valuing simplicity and friendship.",
+    "corePrinciples": "Moderation, pleasure as tranquility, friendship"
+  },
+  {
+    "schoolID": 5,
+    "name": "Skepticism",
+    "category": "Ancient & Classical",
+    "summary": "A school that questions the possibility of certain knowledge, promoting doubt and suspension of judgment as a way to achieve intellectual humility and tranquility.",
+    "corePrinciples": "Suspension of judgment, inquiry, doubt"
+  },
+  {
+    "schoolID": 6,
+    "name": "Neoplatonism",
+    "category": "Ancient & Classical",
+    "summary": "A late antique philosophical movement based on Plato's ideas, emphasizing metaphysical hierarchies, the One, and spiritual ascent as a path to ultimate reality.",
+    "corePrinciples": "Unity, spiritual ascent, contemplation"
+  },
+  {
+    "schoolID": 7,
+    "name": "Scholasticism",
+    "category": "Medieval & Religious",
+    "summary": "A method of critical thought dominant in medieval Europe, combining Christian theology with Aristotelian logic to reconcile faith and reason.",
+    "corePrinciples": "Faith and reason, logic, systematic theology"
+  },
+  {
+    "schoolID": 8,
+    "name": "Islamic Philosophy",
+    "category": "Medieval & Religious",
+    "summary": "Philosophical thought rooted in Islamic tradition, integrating Greek philosophy with Islamic theology, addressing metaphysics, ethics, and epistemology.",
+    "corePrinciples": "Harmony of faith and reason, divine order"
+  },
+  {
+    "schoolID": 9,
+    "name": "Jewish Philosophy",
+    "category": "Medieval & Religious",
+    "summary": "A tradition blending Jewish theology with philosophical reasoning, often influenced by Islamic and Christian thinkers, exploring ethics, God, and reason.",
+    "corePrinciples": "Rational theology, ethics, divine law"
+  },
+  {
+    "schoolID": 10,
+    "name": "Rationalism",
+    "category": "Modern Era",
+    "summary": "A philosophical movement asserting that reason and innate ideas are the primary sources of knowledge, with thinkers like Descartes, Spinoza, and Leibniz.",
+    "corePrinciples": "Reason, innate ideas, deductive logic"
+  },
+  {
+    "schoolID": 11,
+    "name": "Empiricism",
+    "category": "Modern Era",
+    "summary": "A view emphasizing experience and sensory perception as the foundation of knowledge, championed by philosophers such as Locke, Berkeley, and Hume.",
+    "corePrinciples": "Experience, observation, sensory data"
+  },
+  {
+    "schoolID": 12,
+    "name": "German Idealism",
+    "category": "Modern Era",
+    "summary": "A post-Kantian movement focusing on the role of mind in constructing reality, represented by philosophers like Fichte, Schelling, and Hegel.",
+    "corePrinciples": "Mind as reality, self-consciousness, synthesis"
+  },
+  {
+    "schoolID": 13,
+    "name": "Utilitarianism",
+    "category": "Modern Era",
+    "summary": "An ethical theory advocating that the best action maximizes happiness or utility for the greatest number, developed by Bentham and Mill.",
+    "corePrinciples": "Utility, consequences, greatest happiness"
+  },
+  {
+    "schoolID": 14,
+    "name": "Analytic Philosophy",
+    "category": "Contemporary",
+    "summary": "A dominant 20th-century movement emphasizing logical clarity, linguistic analysis, and rigorous argumentation, often focused on language, logic, and science.",
+    "corePrinciples": "Logical analysis, clarity, linguistic meaning"
+  },
+  {
+    "schoolID": 15,
+    "name": "Continental Philosophy",
+    "category": "Contemporary",
+    "summary": "A broad tradition including existentialism, phenomenology, structuralism, and postmodernism, often concerned with history, culture, and human experience.",
+    "corePrinciples": "Historical context, interpretation, critique"
+  },
+  {
+    "schoolID": 16,
+    "name": "Existentialism",
+    "category": "Contemporary",
+    "summary": "A movement stressing individual freedom, authenticity, and meaning-making in a seemingly absurd or indifferent universe, represented by Sartre, Kierkegaard, and Camus.",
+    "corePrinciples": "Freedom, authenticity, personal responsibility"
+  },
+  {
+    "schoolID": 17,
+    "name": "Phenomenology",
+    "category": "Contemporary",
+    "summary": "A philosophical method focusing on the structures of conscious experience, pioneered by Husserl and further developed by Heidegger and Merleau-Ponty.",
+    "corePrinciples": "Intentionality, lived experience, essences"
+  },
+  {
+    "schoolID": 18,
+    "name": "Pragmatism",
+    "category": "Contemporary",
+    "summary": "An American philosophical tradition emphasizing practical consequences and problem-solving as central to truth and meaning, associated with James, Peirce, and Dewey.",
+    "corePrinciples": "Practicality, truth as utility, experimentation"
+  },
+  {
+    "schoolID": 19,
+    "name": "Logical Positivism",
+    "category": "Contemporary",
+    "summary": "A school that applies logical analysis to science and philosophy, rejecting metaphysics as meaningless, emphasizing empirical verification and formal logic.",
+    "corePrinciples": "Verification, empirical testing, logic"
+  },
+  {
+    "schoolID": 20,
+    "name": "Marxism",
+    "category": "Contemporary",
+    "summary": "A socio-political and economic philosophy based on the works of Karl Marx, analyzing class struggle, material conditions, and advocating revolutionary change.",
+    "corePrinciples": "Class struggle, materialism, social critique"
+  },
+  {
+    "schoolID": 21,
+    "name": "Postmodernism",
+    "category": "Contemporary",
+    "summary": "A movement skeptical of grand narratives and objective truths, emphasizing relativism, power structures, and cultural context in knowledge and meaning.",
+    "corePrinciples": "Relativism, deconstruction, critique of universals"
+  },
+  {
+    "schoolID": 22,
+    "name": "Structuralism",
+    "category": "Contemporary",
+    "summary": "An intellectual movement analyzing cultural phenomena as systems of interrelated structures, influenced by linguistics and anthropology.",
+    "corePrinciples": "Underlying structures, relational meaning"
+  },
+  {
+    "schoolID": 23,
+    "name": "Wittgensteinian Philosophy",
+    "category": "Contemporary",
+    "summary": "Philosophy rooted in Ludwig Wittgenstein's work, focusing on language games, meaning as use, and the limits of linguistic representation.",
+    "corePrinciples": "Language games, meaning as use, ordinary language"
+  },
+  {
+    "schoolID": 24,
+    "name": "Feminist Philosophy",
+    "category": "Additional Major Schools",
+    "summary": "A school analyzing gender, power, and social justice in philosophy, aiming to challenge patriarchal structures and promote equality.",
+    "corePrinciples": "Gender justice, equality, critique of patriarchy"
+  },
+  {
+    "schoolID": 25,
+    "name": "Philosophy of Mind",
+    "category": "Additional Major Schools",
+    "summary": "The branch of philosophy examining consciousness, mental states, and the mind-body problem, intersecting with cognitive science and AI.",
+    "corePrinciples": "Consciousness, mind-body relation, identity"
+  },
+  {
+    "schoolID": 26,
+    "name": "Environmental Philosophy",
+    "category": "Additional Major Schools",
+    "summary": "A field addressing the ethical, metaphysical, and political dimensions of human-environment relations, including sustainability and ecological ethics.",
+    "corePrinciples": "Ecological ethics, sustainability, intrinsic value"
+  },
+  {
+    "schoolID": 27,
+    "name": "Eastern Philosophy",
+    "category": "Additional Major Schools",
+    "summary": "A diverse range of traditions such as Confucianism, Taoism, Buddhism, and Hinduism, focusing on harmony, ethics, and spiritual practice.",
+    "corePrinciples": "Harmony, non-duality, spiritual practice"
+  },
+  {
+    "schoolID": 28,
+    "name": "Critical Theory",
+    "category": "Additional Major Schools",
+    "summary": "An approach from the Frankfurt School emphasizing social critique, power dynamics, and the role of ideology in sustaining oppression.",
+    "corePrinciples": "Social critique, emancipation, ideology analysis"
+  },
+  {
+    "schoolID": 29,
+    "name": "Postcolonial Philosophy",
+    "category": "Additional Major Schools",
+    "summary": "A school analyzing the legacy of colonialism on culture, identity, and knowledge systems, aiming to decolonize thought and power structures.",
+    "corePrinciples": "Decolonization, identity, critique of imperialism"
+  },
+  {
+    "schoolID": 30,
+    "name": "Philosophy of Science",
+    "category": "Additional Major Schools",
+    "summary": "The study of the foundations, methods, and implications of science, addressing concepts like theory, explanation, and scientific realism.",
+    "corePrinciples": "Scientific method, explanation, realism vs. anti-realism"
+  },
+  {
+    "schoolID": 31,
+    "name": "Libertarianism",
+    "category": "Additional Major Schools",
+    "summary": "A political philosophy prioritizing individual liberty, minimal state intervention, and strong property rights as the basis of social order.",
+    "corePrinciples": "Individual freedom, property rights, limited government"
+  }
+]

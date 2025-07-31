@@ -22,9 +22,12 @@ Daemonium is an AI-powered conversational platform that brings philosophy to lif
   - References to original works and related thinkers
 
 - **Technical Architecture**:
+  - **FastAPI REST API**: Comprehensive backend API with 30+ endpoints for all MongoDB collections
   - **Neo4j Enterprise Edition**: Multi-database graph database for modeling relationships between philosophers, concepts, and themes
-  - **Qdrant Vector Database**: For semantic search and retrieval-augmented generation
-  - **Containerized Services**: Docker-based deployment for all components
+  - **Qdrant Vector Database**: High-performance vector database for semantic search and retrieval-augmented generation with 768-dimensional embeddings
+  - **MongoDB Document Store**: Normalized storage for philosophical texts, summaries, and metadata
+  - **Containerized Services**: Docker-based deployment for all components with health monitoring
+  - **Interactive Documentation**: Auto-generated API docs with Swagger UI and ReDoc
   - **Modular Design**: Easily extensible for future features and content
 
 #### 🗄️ Neo4j Enterprise Edition Multi-Database Support
@@ -192,6 +195,125 @@ python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --database daemon
 **For detailed documentation, see:** [`llm_evaluation/README.md`](llm_evaluation/README.md)
 
 **Benefits:**
+- 🎯 **Optimized Model Selection** - Choose the best embedding model for your specific use case
+- 📊 **Quantitative Evaluation** - Data-driven model selection based on comprehensive metrics
+- 🔄 **Reproducible Results** - Consistent evaluation framework for comparing models
+- 🚀 **Performance Insights** - Understand model strengths and weaknesses for different tasks
+- 🎛️ **Flexible Integration** - Easy integration with existing knowledge graph builders
+- 📈 **Continuous Improvement** - Framework for evaluating new models as they become available
+
+#### 🔍 Qdrant Vector Database Integration
+
+Daemonium includes a comprehensive Qdrant vector database integration for semantic search and retrieval-augmented generation across philosophical content.
+
+**Vector Database Features:**
+- **High-Quality Embeddings**: Uses sentence-transformers (all-mpnet-base-v2) for 768-dimensional embeddings
+- **Multiple Collections**: Processes 5 MongoDB collections with specialized text extraction
+- **Batch Processing**: Efficient 50-document batches with comprehensive error handling
+- **Automatic Collection Creation**: COSINE distance similarity with proper vector configuration
+- **Unique Point IDs**: MD5 hashing for consistent point identification
+- **Text Preprocessing**: Automatic truncation and cleaning for token limits
+
+**Supported Collections:**
+- `book_summaries` - Detailed summaries of philosophical works
+- `aphorisms` - Philosophical aphorisms and quotes
+- `idea_summaries` - Individual philosophical concept summaries
+- `philosopher_summaries` - Comprehensive philosopher overviews
+- `top_ten_ideas` - Top 10 philosophical ideas and concepts
+
+**Usage:**
+```bash
+# Upload all MongoDB collections to Qdrant
+python scripts/build_qdrant_metadata/upload_mongodb_to_qdrant.py
+
+# Test Qdrant connection and dependencies
+python scripts/build_qdrant_metadata/test_qdrant_connection.py
+
+# Simple connectivity test
+python scripts/build_qdrant_metadata/simple_test.py
+```
+
+**Configuration Integration:**
+- Reads from `config/default.yaml` for database connections
+- Automatic MongoDB URL encoding for special characters
+- Qdrant REST API (port 6343) and GRPC (port 6344) support
+- Configurable text field extraction and metadata preservation
+
+**Dependencies:**
+- `qdrant-client>=1.7.0` - Vector database client
+- `sentence-transformers>=2.2.2` - High-quality embedding generation
+
+**Benefits:**
+- 🔍 **Semantic Search** - Find philosophically related content across all collections
+- 🎯 **RAG Integration** - Enable retrieval-augmented generation for chatbot responses
+- ⚡ **High Performance** - Optimized vector similarity search with COSINE distance
+- 🔄 **Batch Processing** - Efficient handling of large philosophical text collections
+- 🛡️ **Error Resilience** - Comprehensive error handling and logging
+- 📊 **Metadata Preservation** - Maintains original document structure and metadata
+
+#### 🚀 FastAPI Backend for MongoDB
+
+Daemonium includes a comprehensive REST API backend built with FastAPI, providing programmatic access to all philosophical content stored in MongoDB. This API serves as the foundation for frontend applications and enables integration with external systems.
+
+**API Features:**
+- **30+ REST Endpoints** - Complete CRUD operations across all MongoDB collections
+- **Interactive Documentation** - Automatic Swagger UI at `/docs` and ReDoc at `/redoc`
+- **Async MongoDB Integration** - High-performance operations using Motor driver
+- **Docker Containerization** - Fully integrated with existing Docker Compose stack
+- **Health Monitoring** - Database connection monitoring and API statistics
+- **CORS Support** - Ready for frontend integration with configurable origins
+- **Comprehensive Error Handling** - Detailed error responses and logging
+- **Pydantic v2 Models** - Complete data validation and serialization
+
+**Available Endpoints:**
+- **Philosophers** (`/api/v1/philosophers/`) - Search, filtering, related philosophers discovery
+- **Books** (`/api/v1/books/`) - Full text access, summaries, author filtering, chapter navigation
+- **Aphorisms** (`/api/v1/aphorisms/`) - Random selection, philosopher/theme filtering
+- **Ideas** (`/api/v1/ideas/`) - Top ten philosophical concepts, idea summaries
+- **Summaries** (`/api/v1/summaries/`) - Philosophy themes, modern adaptations, discussion hooks
+- **Chat** (`/api/v1/chat/`) - Mock chatbot endpoints, personality profiles, conversation starters
+- **Search** (`/api/v1/search/`) - Global search, suggestions, collection-specific queries
+- **Health & Stats** (`/health`, `/api/v1/stats`) - API monitoring and database statistics
+
+**Quick Start:**
+```bash
+# Start the API with Docker Compose
+docker-compose up backend -d
+
+# Access interactive API documentation
+open http://localhost:8000/docs
+
+# Test API health
+curl http://localhost:8000/health
+
+# Get API statistics
+curl http://localhost:8000/api/v1/stats
+
+# Search philosophers
+curl "http://localhost:8000/api/v1/philosophers/search/?query=Nietzsche&limit=5"
+
+# Get random aphorisms
+curl "http://localhost:8000/api/v1/aphorisms/random?count=3"
+```
+
+**Technical Stack:**
+- **FastAPI 0.116.1** - Modern Python web framework with automatic API documentation
+- **Motor 3.7.1** - Async MongoDB driver for high-performance database operations
+- **Pydantic 2.5.0** - Data validation with pydantic-settings for configuration management
+- **Docker Integration** - Python 3.11-slim base image with optimized build process
+- **Modular Architecture** - Organized endpoints across multiple router modules
+- **Configuration Management** - YAML-based config with Docker environment overrides
+
+**API Benefits:**
+- 🔌 **Frontend Ready** - Complete backend API for React/Vue/Angular frontends
+- 📊 **Data Access** - Programmatic access to all philosophical content
+- 🔍 **Advanced Search** - Global search with suggestions and filtering
+- 💬 **Chat Integration** - Mock endpoints ready for LLM integration
+- 📈 **Monitoring** - Health checks and performance statistics
+- 🐳 **Containerized** - Easy deployment with Docker Compose
+- 📖 **Self-Documenting** - Interactive API documentation with examples
+
+**Neo4j Integration Benefits:**
 - ✅ **True Data Isolation** - Complete separation between different knowledge graph versions
 - ✅ **Easy A/B Testing** - Compare different data processing approaches across databases
 - ✅ **Experimental Safety** - Test new features in isolated experimental database

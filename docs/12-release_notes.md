@@ -1,5 +1,38 @@
 # Daemonium
 ---
+## Version 0.2.8 (July 31, 2025)
+
+### Major Features
+
+#### 🚀 FastAPI Backend for MongoDB
+- **Complete REST API** - Created comprehensive FastAPI backend in `backend/` folder for philosopher chatbot frontend
+- **30+ API Endpoints** - Full CRUD operations across all MongoDB collections:
+  - **Philosophers** - Search, filtering, related philosophers discovery
+  - **Books** - Full text access, summaries, author filtering, chapter navigation
+  - **Aphorisms** - Random selection, philosopher/theme filtering
+  - **Ideas** - Top ten philosophical concepts, idea summaries
+  - **Summaries** - Philosophy themes, modern adaptations, discussion hooks
+  - **Chat** - Mock chatbot endpoints, personality profiles, conversation starters
+  - **Search** - Global search, suggestions, collection-specific queries
+- **Docker Integration** - Fully containerized with proper health checks and networking
+- **Interactive Documentation** - Automatic Swagger UI at `/docs` and ReDoc at `/redoc`
+- **Async MongoDB Integration** - High-performance async operations using Motor driver
+- **Pydantic v2 Models** - Complete data validation and serialization
+- **CORS Support** - Ready for frontend integration with configurable origins
+- **Comprehensive Error Handling** - Detailed error responses and logging
+- **Health Monitoring** - Database connection monitoring and API statistics
+
+#### 🏗️ Backend Architecture
+- **FastAPI 0.116.1** - Modern Python web framework with automatic API documentation
+- **Motor 3.7.1** - Async MongoDB driver for high-performance database operations
+- **Pydantic 2.5.0** - Data validation with pydantic-settings for configuration management
+- **Docker Containerization** - Python 3.11-slim base image with optimized build process
+- **Modular Router Design** - Organized endpoints across multiple router modules
+- **Configuration Management** - YAML-based config with Docker environment overrides
+- **Database Connection Pooling** - Efficient MongoDB connection management
+- **API Versioning** - Structured `/api/v1/` endpoint organization
+
+---
 ## Version 0.2.7 (July 31, 2025)
 
 ### Major Features
@@ -30,20 +63,49 @@
 - **Encoding Flexibility** - Automatic detection and conversion of various text encodings
 - **Metadata Extraction** - File size, line count, modification dates, and path information
 
+#### 🔍 Qdrant Vector Database Integration
+- **Comprehensive Uploader** - Created `scripts/build_qdrant_metadata/upload_mongodb_to_qdrant.py` for MongoDB to Qdrant data migration
+- **High-Quality Embeddings** - Uses sentence-transformers (all-mpnet-base-v2) for 768-dimensional vector embeddings
+- **Multiple Collection Support** - Processes 5 MongoDB collections with specialized text extraction:
+  - `book_summaries` - Detailed summaries of philosophical works
+  - `aphorisms` - Philosophical aphorisms and quotes
+  - `idea_summaries` - Individual philosophical concept summaries
+  - `philosopher_summaries` - Comprehensive philosopher overviews
+  - `top_ten_ideas` - Top 10 philosophical ideas and concepts
+- **Batch Processing** - Efficient 50-document batches with comprehensive error handling
+- **Automatic Collection Creation** - COSINE distance similarity with proper vector configuration
+- **Unique Point IDs** - MD5 hashing for consistent point identification across uploads
+- **Text Preprocessing** - Automatic truncation and cleaning for embedding model token limits
+- **Configuration Integration** - Reads from `config/default.yaml` with automatic MongoDB URL encoding
+- **Testing Framework** - Includes `test_qdrant_connection.py` and `simple_test.py` for validation
+
+#### 🔧 Qdrant Dependencies and Setup
+- **New Dependencies** - Added `qdrant-client>=1.7.0` and `sentence-transformers>=2.2.2` to requirements.txt
+- **Port Configuration** - Qdrant REST API (port 6343) and GRPC (port 6344) support
+- **Docker Integration** - Works seamlessly with existing Docker Compose Qdrant service
+- **Error Resilience** - Comprehensive error handling and logging for production use
+
 ### Usage Examples
 ```bash
-# In Windsurf IDE chat, users can now use:
+# Document Reader MCP - In Windsurf IDE chat, users can now use:
 "Please read the contents of README.md"
 "List all markdown files in this project"
 "What file types does the document reader support?"
 "Show me information about the config file"
 "List all text files in the docs directory"
 
-# Command-line testing:
+# Document Reader MCP - Command-line testing:
 echo '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | python scripts/mcp_document_reader.py
+
+# Qdrant Vector Database - Upload and test:
+python scripts/build_qdrant_metadata/upload_mongodb_to_qdrant.py
+python scripts/build_qdrant_metadata/test_qdrant_connection.py
+python scripts/build_qdrant_metadata/simple_test.py
 ```
 
 ### Benefits
+
+#### Document Reader MCP Benefits:
 - ✅ **Local File Access** - Direct access to project documentation and configuration files
 - ✅ **No API Keys Required** - Completely free with no external service dependencies
 - ✅ **Offline Operation** - Works entirely offline with local file system access
@@ -51,6 +113,15 @@ echo '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | python scripts/mcp_docum
 - ✅ **Developer Productivity** - Quick access to project files without leaving the IDE chat
 - ✅ **Documentation Analysis** - Easy analysis and summarization of project documentation
 - ✅ **Configuration Review** - Quick review of configuration files and settings
+
+#### Qdrant Vector Database Benefits:
+- 🔍 **Semantic Search** - Find philosophically related content across all MongoDB collections
+- 🎯 **RAG Integration** - Enable retrieval-augmented generation for enhanced chatbot responses
+- ⚡ **High Performance** - Optimized vector similarity search with COSINE distance metrics
+- 🔄 **Batch Processing** - Efficient handling of large philosophical text collections
+- 🛡️ **Error Resilience** - Comprehensive error handling and logging for production use
+- 📊 **Metadata Preservation** - Maintains original document structure and metadata
+- 🔧 **Production Ready** - Successfully connects to both MongoDB and Qdrant with proper configuration
 
 ### Documentation
 - **Main README Integration** - Added comprehensive "🔌 MCP Servers" section to main README.md
