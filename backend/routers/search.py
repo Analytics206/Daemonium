@@ -173,14 +173,22 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
 async def search_philosophers(
     query: str = Query(..., min_length=1, description="Search query"),
     limit: int = Query(10, ge=1, le=100, description="Maximum number of results"),
+    is_active_chat: Optional[int] = Query(None, description="Filter by active chat availability (0 or 1)"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Search specifically within philosopher-related collections"""
+    """Search specifically within philosopher-related collections with optional active chat filter"""
     try:
         start_time = time.time()
         
-        philosopher_collections = ["philosopher_summaries", "philosopher_bios", "philosopher_bots"]
-        results = await search_specific_collections(db_manager, query, philosopher_collections, limit)
+        # Include philosophers collection and apply is_active_chat filter if specified
+        if is_active_chat is not None:
+            # Use the database manager's search_philosophers method for filtering
+            philosophers_results = await db_manager.search_philosophers(query=query, limit=limit, is_active_chat=is_active_chat)
+            results = {"philosophers": philosophers_results} if philosophers_results else {}
+        else:
+            # Search across all philosopher-related collections
+            philosopher_collections = ["philosophers", "philosopher_summaries", "philosopher_bios", "philosopher_bots"]
+            results = await search_specific_collections(db_manager, query, philosopher_collections, limit)
         
         search_time = (time.time() - start_time) * 1000
         total_results = sum(len(collection_results) for collection_results in results.values())

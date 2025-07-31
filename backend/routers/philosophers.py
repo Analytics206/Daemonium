@@ -21,11 +21,12 @@ async def get_db_manager():
 async def get_philosophers(
     skip: int = Query(0, ge=0, description="Number of items to skip"),
     limit: int = Query(100, ge=1, le=1000, description="Maximum number of items to return"),
+    is_active_chat: Optional[int] = Query(None, description="Filter by active chat availability (0 or 1)"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Get all philosophers with pagination"""
+    """Get all philosophers with pagination and optional active chat filter"""
     try:
-        philosophers = await db_manager.get_philosophers(skip=skip, limit=limit)
+        philosophers = await db_manager.get_philosophers(skip=skip, limit=limit, is_active_chat=is_active_chat)
         
         # Convert to Pydantic models
         philosopher_models = []
@@ -75,11 +76,12 @@ async def get_philosopher_by_id(
 async def search_philosophers(
     query: str = Query(..., min_length=1, description="Search query"),
     limit: int = Query(10, ge=1, le=100, description="Maximum number of results"),
+    is_active_chat: Optional[int] = Query(None, description="Filter by active chat availability (0 or 1)"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Search philosophers by name or content"""
+    """Search philosophers by name or content with optional active chat filter"""
     try:
-        philosophers = await db_manager.search_philosophers(query=query, limit=limit)
+        philosophers = await db_manager.search_philosophers(query=query, limit=limit, is_active_chat=is_active_chat)
         
         # Convert to Pydantic models
         philosopher_models = []
@@ -140,9 +142,10 @@ async def get_philosopher_with_school(
 async def get_related_philosophers(
     philosopher_id: str,
     limit: int = Query(5, ge=1, le=20, description="Maximum number of related philosophers"),
+    is_active_chat: Optional[int] = Query(None, description="Filter by active chat availability (0 or 1)"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Get philosophers related to the specified philosopher"""
+    """Get philosophers related to the specified philosopher with optional active chat filter"""
     try:
         # First get the target philosopher
         philosopher = await db_manager.get_philosopher_by_id(philosopher_id)
@@ -157,7 +160,8 @@ async def get_related_philosophers(
         if philosopher.get('school_id'):
             school_philosophers = await db_manager.get_philosophers_by_school(
                 philosopher['school_id'], 
-                limit=limit + 1  # +1 to account for the original philosopher
+                limit=limit + 1,  # +1 to account for the original philosopher
+                is_active_chat=is_active_chat
             )
             related_philosophers.extend([p for p in school_philosophers if p['_id'] != philosopher_id])
         
@@ -165,7 +169,8 @@ async def get_related_philosophers(
         if len(related_philosophers) < limit:
             name_philosophers = await db_manager.search_philosophers(
                 query=philosopher.get('author', ''), 
-                limit=limit
+                limit=limit,
+                is_active_chat=is_active_chat
             )
             related_philosophers.extend([p for p in name_philosophers if p['_id'] != philosopher_id])
         

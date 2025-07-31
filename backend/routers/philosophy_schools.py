@@ -109,9 +109,10 @@ async def get_philosophers_by_school(
     school_id: str,
     skip: int = Query(0, ge=0, description="Number of items to skip"),
     limit: int = Query(20, ge=1, le=100, description="Maximum number of philosophers to return"),
+    is_active_chat: Optional[int] = Query(None, description="Filter by active chat availability (0 or 1)"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Get philosophers belonging to a specific philosophy school"""
+    """Get philosophers belonging to a specific philosophy school with optional active chat filter"""
     try:
         # First verify the school exists
         school_lookup_id = school_id if school_id.startswith("school_") else f"school_{school_id}"
@@ -122,7 +123,7 @@ async def get_philosophers_by_school(
         
         # Get philosophers by school_id (without the "school_" prefix)
         clean_school_id = school_id.replace("school_", "") if school_id.startswith("school_") else school_id
-        philosophers = await db_manager.get_philosophers_by_school(clean_school_id, skip=skip, limit=limit)
+        philosophers = await db_manager.get_philosophers_by_school(clean_school_id, skip=skip, limit=limit, is_active_chat=is_active_chat)
         
         # Convert to Pydantic models with school information
         philosopher_with_school_models = []

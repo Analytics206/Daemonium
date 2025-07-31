@@ -7,6 +7,7 @@
     "summary": "Greek philosopher",
     "content": "Socrates was a foundational figure in Western philosophy, known for his method of dialectical questioning, now called the Socratic Method. He emphasized ethics and the pursuit of virtue over material wealth or status. His ideas survive primarily through the writings of his students, especially Plato.",
     "school_id": 2,
+    "is_active_chat": 0,
     "tag_id": 1
   },
   {
@@ -17,6 +18,7 @@
     "summary": "Student of Socrates",
     "content": "Plato, a student of Socrates, founded the Academy in Athens and wrote dialogues that explored justice, politics, metaphysics, and knowledge. His Theory of Forms argued that abstract entities represent the truest reality, influencing Western philosophy for centuries.",
     "school_id": 2,
+    "is_active_chat": 1,
     "tag_id": 1
   },
   {
@@ -27,6 +29,7 @@
     "summary": "Student of Plato",
     "content": "Aristotle, a student of Plato, founded the Lyceum and contributed to nearly every field of knowledge, including logic, ethics, politics, metaphysics, and biology. His empirical approach and theory of causality laid the groundwork for scientific thinking and Western philosophy.",
     "school_id": 2,
+    "is_active_chat": 0,
     "tag_id": 1
   },
   {
@@ -37,6 +40,7 @@
     "summary": "Greek philosopher",
     "content": "Heraclitus emphasized the constant change and flux in the universe, encapsulated in his phrase \"You cannot step into the same river twice.\" He believed in the unity of opposites and that fire represented the fundamental substance of reality.",
     "school_id": 2,
+    "is_active_chat": 0,
     "tag_id": 1
   },
   {
@@ -47,6 +51,7 @@
     "summary": "Greek philosopher",
     "content": "Pythagoras was a mathematician and philosopher best known for the Pythagorean theorem, but he also founded a mystical philosophical movement emphasizing numerical harmony, the soul's immortality, and ethical living.",
     "school_id": 2,
+    "is_active_chat": 0,
     "tag_id": 1
   },
   {
@@ -57,6 +62,7 @@
     "summary": "Greek philosopher",
     "content": "Parmenides argued that reality is one, unchanging, and indivisible, rejecting the notion of change and multiplicity as illusions. His ideas greatly influenced metaphysical thought and set the stage for the debate between change and permanence in philosophy.",
     "school_id": 2,
+    "is_active_chat": 0,
     "tag_id": 1
   },
   {
@@ -67,6 +73,7 @@
     "summary": "Greek philosopher",
     "content": "Zeno of Citium founded Stoicism, a philosophy emphasizing rationality, virtue, and living in harmony with nature. Stoics believed that happiness comes from accepting what we cannot control and cultivating inner resilience.",
     "school_id": 3,
+    "is_active_chat": 0,
     "tag_id": 1
   },
   {
@@ -76,6 +83,7 @@
     "summary": "German philosopher",
     "content": "Nietzsche was a radical critic of traditional morality, religion, and metaphysics. He introduced concepts such as the Übermensch, the Will to Power, and Eternal Recurrence. His provocative style and critique of herd mentality have profoundly influenced modern thought.",
     "school_id": 16,
+    "is_active_chat": 1,
     "tag_id": 4
   },
   {
@@ -86,6 +94,7 @@
     "summary": "German philosopher",
     "content": "Kant revolutionized philosophy with his critical philosophy, particularly the \"Critique of Pure Reason,\" where he explored how knowledge is structured. He proposed that morality is grounded in the categorical imperative, an objective moral law based on reason.",
     "school_id": 12,
+    "is_active_chat": 1,
     "tag_id": 2
   },
   {
@@ -96,6 +105,7 @@
     "summary": "British philosopher",
     "content": "Rawls was a political philosopher best known for \"A Theory of Justice,\" where he proposed principles of justice based on fairness and equality, formulated under a hypothetical \"veil of ignorance.\" His ideas deeply shaped contemporary liberal political theory.",
     "school_id": 14,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -106,6 +116,7 @@
     "summary": "British philosopher",
     "content": "Russell was a logician, mathematician, and analytic philosopher who co-authored \"Principia Mathematica.\" He championed clarity in philosophy and was an influential figure in logic, epistemology, and social activism for peace and education.",
     "school_id": 14,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -116,6 +127,7 @@
     "summary": "German philosopher",
     "content": "Frege was a pioneer in logic and the philosophy of language. His work on the formalization of logic and the concept of meaning and reference laid the foundation for modern analytic philosophy and influenced thinkers like Russell and Wittgenstein.",
     "school_id": 14,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -126,6 +138,7 @@
     "summary": "German philosopher",
     "content": "Schopenhauer is best known for his pessimistic worldview, arguing that life is driven by a blind, irrational force he called the Will. He influenced later existential and psychoanalytic thought, as well as Nietzsche and Freud.",
     "school_id": 12,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -136,6 +149,7 @@
     "summary": "British philosopher",
     "content": "Hume was an empiricist who argued that all knowledge derives from experience. He questioned the rational basis of causality, the self, and religious belief, advocating for skepticism and naturalism.",
     "school_id": 11,
+    "is_active_chat": 1,
     "tag_id": 2
   },
   {
@@ -146,6 +160,7 @@
     "summary": "British philosopher",
     "content": "Mill was a leading utilitarian thinker who argued that the best actions are those that maximize happiness. He was also a strong advocate of liberty, individual rights, and gender equality, shaping liberal political thought.",
     "school_id": 13,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -156,6 +171,7 @@
     "summary": "British philosopher",
     "content": "Locke, known as the \"Father of Liberalism,\" emphasized empiricism and the idea that the mind begins as a blank slate (tabula rasa). His political theories on natural rights and government consent strongly influenced modern democracy.",
     "school_id": 11,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -166,6 +182,7 @@
     "summary": "French philosopher",
     "content": "Descartes was a French philosopher, mathematician, and scientist, often called the father of modern philosophy.",
     "school_id": 10,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -176,15 +193,17 @@
     "summary": "Dutch philosopher",
     "content": "Spinoza was a Dutch philosopher known for his rationalist and monist philosophy.",
     "school_id": 10,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
     "philosopher": "G.W.F. Hegel",
-        "dob": "1770-08-27",
+    "dob": "1770-08-27",
     "dod": "1831-11-14",
     "summary": "German philosopher",
     "content": "Hegel was a German philosopher who developed absolute idealism and influenced modern continental philosophy.",
     "school_id": 12,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -195,6 +214,7 @@
     "summary": "Swiss philosopher",
     "content": "Rousseau was a Genevan philosopher influential in political philosophy and the Enlightenment.",
     "school_id": 10,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -205,6 +225,7 @@
     "summary": "English philosopher",
     "content": "Hobbes was an English philosopher best known for his political thought and social contract theory.",
     "school_id": 10,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -215,6 +236,7 @@
     "summary": "French philosopher",
     "content": "Voltaire was a French Enlightenment writer and philosopher known for his advocacy of civil liberties.",
     "school_id": 10,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -225,6 +247,7 @@
     "summary": "Christian philosopher",
     "content": "Augustine was a Christian theologian and philosopher, a foundational figure in Western Christianity and philosophy.",
     "school_id": 7,
+    "is_active_chat": 0,
     "tag_id": 3
   },
   {
@@ -235,6 +258,7 @@
     "summary": "Italian philosopher",
     "content": "Aquinas was an Italian Dominican friar and philosopher, known for integrating Aristotelian philosophy with Christian theology.",
     "school_id": 7,
+    "is_active_chat": 0,
     "tag_id": 3
   },
   {
@@ -245,6 +269,7 @@
     "summary": "Greek philosopher",
     "content": "Epicurus founded Epicureanism, a philosophy emphasizing the pursuit of pleasure and the avoidance of pain as the highest good. He argued that happiness comes from simple living, friendship, and intellectual contemplation rather than indulgence.",
     "school_id": 4,
+    "is_active_chat": 0,
     "tag_id": 1
   },
   {
@@ -255,6 +280,7 @@
     "summary": "Greek philosopher",
     "content": "Diogenes was a founder of Cynicism, advocating for a life of virtue in accordance with nature. He rejected social conventions and material wealth, promoting simplicity and self-sufficiency as paths to freedom.",
     "school_id": 3,
+    "is_active_chat": 0,
     "tag_id": 1
   },
   {
@@ -265,6 +291,7 @@
     "summary": "Neoplatonic philosopher",
     "content": "Plotinus established Neoplatonism, emphasizing the existence of a single transcendent source, \"The One.\" His ideas profoundly influenced later Christian theology and medieval philosophy.",
     "school_id": 6,
+    "is_active_chat": 0,
     "tag_id": 1
   },
   {
@@ -275,6 +302,7 @@
     "summary": "Roman philosopher",
     "content": "Marcus Aurelius was a Roman emperor and Stoic philosopher, known for his work \"Meditations,\" which reflects on virtue, impermanence, and the importance of rational self-control.",
     "school_id": 3,
+    "is_active_chat": 0,
     "tag_id": 1
   },
   {
@@ -285,6 +313,7 @@
     "summary": "Chinese philosopher",
     "content": "Confucius was the founder of Confucianism, emphasizing morality, family loyalty, social harmony, and education as the foundation of a stable and ethical society.",
     "school_id": 27,
+    "is_active_chat": 0,
     "tag_id": 6
   },
   {
@@ -295,6 +324,7 @@
     "summary": "Chinese philosopher",
     "content": "Laozi is regarded as the founder of Daoism (Taoism). His text, the Tao Te Ching, advocates harmony with the Tao—the natural order of the universe—and simplicity in living.",
     "school_id": 27,
+    "is_active_chat": 0,
     "tag_id": 6
   },
   {
@@ -305,6 +335,7 @@
     "summary": "Chinese philosopher",
     "content": "Zhuangzi was a Daoist philosopher who emphasized the relativity of values, skepticism toward rigid doctrines, and the importance of spontaneity in living harmoniously with nature.",
     "school_id": 27,
+    "is_active_chat": 0,
     "tag_id": 6
   },
   {
@@ -315,6 +346,7 @@
     "summary": "Chinese philosopher",
     "content": "Mencius was a major Confucian thinker who argued that human nature is inherently good and that virtuous leadership creates a just society.",
     "school_id": 27,
+    "is_active_chat": 0,
     "tag_id": 6
   },
   {
@@ -325,6 +357,7 @@
     "summary": "Indian philosopher",
     "content": "Nagarjuna founded the Madhyamaka school of Mahayana Buddhism. He introduced the concept of emptiness (śūnyatā), arguing that all phenomena lack inherent existence.",
     "school_id": 27,
+    "is_active_chat": 0,
     "tag_id": 6
   },
   {
@@ -335,6 +368,7 @@
     "summary": "Persian philosopher",
     "content": "Avicenna (Ibn Sina) integrated Aristotelian philosophy with Islamic thought, contributing major works in metaphysics, medicine, and logic. His \"Book of Healing\" and \"Canon of Medicine\" influenced both Islamic and European intellectual traditions.",
     "school_id": 8,
+    "is_active_chat": 0,
     "tag_id": 3
   },
   {
@@ -345,6 +379,7 @@
     "summary": "Muslim philosopher",
     "content": "Averroes (Ibn Rushd) was an influential commentator on Aristotle and a defender of philosophy against religious orthodoxy. His ideas shaped scholastic thought and Western rationalism.",
     "school_id": 8,
+    "is_active_chat": 0,
     "tag_id": 3
   },
   {
@@ -355,6 +390,7 @@
     "summary": "English philosopher",
     "content": "Bacon is considered the father of empiricism and the scientific method. He emphasized inductive reasoning and observation as the foundation of knowledge, laying the groundwork for modern science.",
     "school_id": 11,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -365,6 +401,7 @@
     "summary": "Irish philosopher",
     "content": "Berkeley advanced the theory of immaterialism, claiming that reality consists only of minds and their ideas. He argued that existence depends on perception: \"to be is to be perceived.\"",
     "school_id": 11,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -375,6 +412,7 @@
     "summary": "British philosopher",
     "content": "Whitehead developed process philosophy, emphasizing that reality is dynamic and relational. His work in metaphysics, mathematics, and logic shaped 20th-century thought.",
     "school_id": 15,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -385,6 +423,7 @@
     "summary": "German philosopher",
     "content": "Carnap was a leading figure in logical positivism, advocating for the logical analysis of scientific language and the rejection of metaphysics as meaningless.",
     "school_id": 19,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -395,6 +434,7 @@
     "summary": "American philosopher",
     "content": "Quine challenged the analytic-synthetic distinction and emphasized the holistic nature of knowledge. His work in logic and language profoundly influenced analytic philosophy.",
     "school_id": 14,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -405,6 +445,7 @@
     "summary": "American philosopher",
     "content": "Kripke made groundbreaking contributions to modal logic, metaphysics, and the philosophy of language, introducing concepts like rigid designators and possible worlds semantics.",
     "school_id": 14,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -415,6 +456,7 @@
     "summary": "British philosopher",
     "content": "Anscombe was a central figure in 20th-century ethics and philosophy of mind. Her work \"Intention\" shaped the modern study of action theory, and she revived virtue ethics in moral philosophy.",
     "school_id": 14,
+    "is_active_chat": 0,
     "tag_id": 2
   },
   {
@@ -425,6 +467,7 @@
     "summary": "German-American philosopher",
     "content": "Arendt wrote extensively on political theory, totalitarianism, and human freedom. Her concept of the \"banality of evil\" challenged traditional views on moral responsibility.",
     "school_id": 28,
+    "is_active_chat": 0,
     "tag_id": 5
   },
   {
@@ -435,6 +478,7 @@
     "summary": "German philosopher",
     "content": "Marcuse, associated with the Frankfurt School, criticized advanced industrial society for fostering conformity. He advocated for liberation through critical theory and radical social change.",
     "school_id": 28,
+    "is_active_chat": 0,
     "tag_id": 5
   },
   {
@@ -445,6 +489,7 @@
     "summary": "German philosopher",
     "content": "Heidegger developed existential phenomenology, emphasizing the question of Being. His major work \"Being and Time\" explores human existence (Dasein), authenticity, and temporality.",
     "school_id": 17,
+    "is_active_chat": 0,
     "tag_id": 4
   },
   {
@@ -455,6 +500,7 @@
     "summary": "French philosopher",
     "content": "Sartre was a leading existentialist thinker who argued that humans are condemned to freedom, with no predetermined essence, and must create their own meaning through choices.",
     "school_id": 16,
+    "is_active_chat": 0,
     "tag_id": 4
   },
   {
@@ -465,6 +511,7 @@
     "summary": "French philosopher",
     "content": "De Beauvoir, an existentialist and feminist philosopher, explored the construction of gender in \"The Second Sex,\" arguing that women are made, not born, into their social roles.",
     "school_id": 16,
+    "is_active_chat": 0,
     "tag_id": 4
   },
   {
@@ -475,6 +522,7 @@
     "summary": "French philosopher",
     "content": "Foucault analyzed the relationship between power and knowledge, showing how institutions shape human behavior. His studies on prisons, sexuality, and medicine redefined social theory.",
     "school_id": 21,
+    "is_active_chat": 0,
     "tag_id": 4
   },
   {
@@ -485,6 +533,7 @@
     "summary": "German philosopher",
     "content": "Marx combined philosophy, economics, and political theory, critiquing capitalism and advocating for a classless society. His works laid the foundation for Marxism and modern socialism.",
     "school_id": 20,
+    "is_active_chat": 0,
     "tag_id": 5
   },
   {
@@ -495,6 +544,7 @@
     "summary": "Austrian philosopher",
     "content": "Wittgenstein revolutionized philosophy of language and logic. His early work emphasized logical structure, while his later philosophy focused on language games and meaning in use.",
     "school_id": 23,
+    "is_active_chat": 0,
     "tag_id": 2
   }
 ]

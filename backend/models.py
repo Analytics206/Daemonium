@@ -36,6 +36,7 @@ class PhilosopherSummary(BaseModel):
     content: Optional[str] = None
     school_id: Optional[str] = None
     tag_id: Optional[str] = None
+    is_active_chat: Optional[int] = None  # Flag for active chat availability (0 or 1)
     lifespan_years: Optional[int] = None
     
     # Legacy fields for backward compatibility

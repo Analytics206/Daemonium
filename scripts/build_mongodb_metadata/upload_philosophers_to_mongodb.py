@@ -116,6 +116,7 @@ class PhilosopherUploader:
                 IndexModel([("dod", ASCENDING)]),
                 IndexModel([("school_id", ASCENDING)]),
                 IndexModel([("tag_id", ASCENDING)]),
+                IndexModel([("is_active_chat", ASCENDING)]),
                 IndexModel([("philosopher", ASCENDING), ("author", ASCENDING)])
             ]
             
@@ -165,6 +166,7 @@ class PhilosopherUploader:
             'content': philosopher_data.get('content', ''),
             'school_id': philosopher_data.get('school_id'),
             'tag_id': philosopher_data.get('tag_id'),
+            'is_active_chat': philosopher_data.get('is_active_chat', 0),
             'metadata': {
                 'upload_timestamp': None,  # Will be set during upload
                 'last_updated': None,      # Will be set during upload

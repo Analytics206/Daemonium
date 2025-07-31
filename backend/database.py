@@ -112,10 +112,15 @@ class DatabaseManager:
         return self.collections[collection_name]
     
     # Philosopher-related methods
-    async def get_philosophers(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
-        """Get philosophers with pagination"""
+    async def get_philosophers(self, skip: int = 0, limit: int = 100, is_active_chat: Optional[int] = None) -> List[Dict[str, Any]]:
+        """Get philosophers with pagination and optional active chat filter"""
         collection = self.get_collection("philosophers")
-        cursor = collection.find({}).skip(skip).limit(limit)
+        
+        filter_query = {}
+        if is_active_chat is not None:
+            filter_query["is_active_chat"] = is_active_chat
+        
+        cursor = collection.find(filter_query).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
     async def get_philosopher_by_id(self, philosopher_id: str) -> Optional[Dict[str, Any]]:
@@ -152,10 +157,15 @@ class DatabaseManager:
         cursor = collection.find(search_filter).limit(limit)
         return await cursor.to_list(length=limit)
     
-    async def get_philosophers_by_school(self, school_id: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
-        """Get philosophers belonging to a specific school"""
+    async def get_philosophers_by_school(self, school_id: str, skip: int = 0, limit: int = 100, is_active_chat: Optional[int] = None) -> List[Dict[str, Any]]:
+        """Get philosophers belonging to a specific school with optional active chat filter"""
         collection = self.get_collection("philosophers")
-        cursor = collection.find({"school_id": school_id}).skip(skip).limit(limit)
+        
+        filter_query = {"school_id": school_id}
+        if is_active_chat is not None:
+            filter_query["is_active_chat"] = is_active_chat
+        
+        cursor = collection.find(filter_query).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
     async def get_philosopher_with_school(self, philosopher_id: str) -> Optional[Dict[str, Any]]:
@@ -173,8 +183,8 @@ class DatabaseManager:
         
         return result
     
-    async def search_philosophers(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
-        """Search philosophers by author name or content"""
+    async def search_philosophers(self, query: str, limit: int = 10, is_active_chat: Optional[int] = None) -> List[Dict[str, Any]]:
+        """Search philosophers by author name or content with optional active chat filter"""
         collection = self.get_collection("philosophers")
         
         # Create a text search filter - prioritize author field
@@ -186,6 +196,10 @@ class DatabaseManager:
                 {"content": {"$regex": query, "$options": "i"}}
             ]
         }
+        
+        # Add is_active_chat filter if specified
+        if is_active_chat is not None:
+            search_filter["is_active_chat"] = is_active_chat
         
         cursor = collection.find(search_filter).limit(limit)
         return await cursor.to_list(length=limit)
