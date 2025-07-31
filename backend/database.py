@@ -271,7 +271,7 @@ class DatabaseManager:
         
         filter_query = {}
         if philosopher:
-            filter_query["philosopher"] = {"$regex": philosopher, "$options": "i"}
+            filter_query["author"] = {"$regex": philosopher, "$options": "i"}
         
         cursor = collection.find(filter_query).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
@@ -302,7 +302,7 @@ class DatabaseManager:
         
         filter_query = {}
         if philosopher:
-            filter_query["philosopher"] = {"$regex": philosopher, "$options": "i"}
+            filter_query["author"] = {"$regex": philosopher, "$options": "i"}
         
         cursor = collection.find(filter_query)
         return await cursor.to_list(length=None)
@@ -319,7 +319,7 @@ class DatabaseManager:
         
         filter_query = {}
         if philosopher:
-            filter_query["philosopher"] = {"$regex": philosopher, "$options": "i"}
+            filter_query["author"] = {"$regex": philosopher, "$options": "i"}
         
         cursor = collection.find(filter_query)
         return await cursor.to_list(length=None)

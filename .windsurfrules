@@ -23,7 +23,9 @@
 - Use Pandas for data manipulation and analysis
 - Use Ollama Transformers for embeddings generation
 - Use Prometheus and Grafana for system monitoring
-- Use React 19.1 for the web user interface
+- Use latest React 18 for the web user interface
+- Use latest NEXT.js 15 for the web user interface
+- Use Tailwind CSS for styling
 
 ## Project-Specific Architecture
 - The project follows a microservices architecture with Docker containers
