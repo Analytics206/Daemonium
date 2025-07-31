@@ -99,7 +99,7 @@ class ImprovedKnowledgeGraphBuilder:
         self.logger = logging.getLogger(__name__)
     
     def query_ollama(self, prompt: str) -> str:
-        """Query Ollama local model"""
+        """Query Ollama local model with optimized timeout"""
         try:
             response = requests.post(
                 f"{self.ollama_url}/api/generate",
@@ -108,13 +108,16 @@ class ImprovedKnowledgeGraphBuilder:
                     "prompt": prompt,
                     "stream": False
                 },
-                timeout=30
+                timeout=10  # Reduced timeout for faster failure
             )
             if response.status_code == 200:
                 return response.json().get('response', '')
             else:
                 self.logger.warning(f"Ollama request failed: {response.status_code}")
                 return ""
+        except requests.exceptions.Timeout:
+            self.logger.warning("Ollama request timed out (10s)")
+            return ""
         except Exception as e:
             self.logger.error(f"Error querying Ollama: {e}")
             return ""
@@ -175,20 +178,39 @@ class ImprovedKnowledgeGraphBuilder:
         return embedding
     
     def find_similar_content(self, nodes: List[Dict], threshold: float = 0.7) -> List[Tuple]:
-        """Find similar content using sentence transformers"""
+        """Find similar content using optimized sentence transformers"""
         similarities = []
         
+        # Limit the number of nodes to prevent O(n²) explosion
+        max_nodes = 200  # Reasonable limit for similarity comparison
+        if len(nodes) > max_nodes:
+            self.logger.warning(f"Limiting similarity analysis to {max_nodes} nodes (from {len(nodes)})")
+            nodes = nodes[:max_nodes]
+        
+        # Pre-compute embeddings for efficiency
+        embeddings = {}
+        for i, node in enumerate(nodes):
+            content = node.get('content', '')
+            if content:
+                embeddings[i] = self.get_embedding(content[:200])  # Limit text length for speed
+        
+        # Compare embeddings
         for i, node1 in enumerate(nodes):
+            if i not in embeddings:
+                continue
+                
             for j, node2 in enumerate(nodes[i+1:], i+1):
-                embedding1 = self.get_embedding(node1['content'])
-                embedding2 = self.get_embedding(node2['content'])
-                
-                similarity = cosine_similarity([embedding1], [embedding2])[0][0]
-                # Convert numpy.float32 to Python float for Neo4j compatibility
-                similarity = float(similarity)
-                
-                if similarity >= threshold:
-                    similarities.append((node1, node2, similarity))
+                if j not in embeddings:
+                    continue
+                    
+                # Limit total comparisons to prevent performance issues
+                if len(similarities) < 500:  # Limit total pairs
+                    similarity = cosine_similarity([embeddings[i]], [embeddings[j]])[0][0]
+                    # Convert numpy.float32 to Python float for Neo4j compatibility
+                    similarity = float(similarity)
+                    
+                    if similarity >= threshold:
+                        similarities.append((node1, node2, similarity))
         
         return similarities
     
@@ -225,6 +247,29 @@ class ImprovedKnowledgeGraphBuilder:
             'type': relationship_type,
             'explanation': explanation
         }
+    
+    def determine_relationship_fast(self, node1_data: Dict, node2_data: Dict) -> str:
+        """Fast rule-based relationship determination without AI"""
+        type1 = node1_data.get('type', '')
+        type2 = node2_data.get('type', '')
+        
+        # Rule-based relationship mapping
+        if type1 == 'Philosopher' and type2 in ['Book', 'Aphorism', 'Idea']:
+            return 'CREATED'
+        elif type2 == 'Philosopher' and type1 in ['Book', 'Aphorism', 'Idea']:
+            return 'CREATED_BY'
+        elif type1 == 'Book' and type2 == 'Idea':
+            return 'CONTAINS'
+        elif type1 == 'Idea' and type2 == 'Book':
+            return 'CONTAINED_IN'
+        elif type1 == 'PhilosophicalTheme' and type2 == 'PhilosophicalConcept':
+            return 'ENCOMPASSES'
+        elif type1 == 'PhilosophicalConcept' and type2 == 'PhilosophicalTheme':
+            return 'PART_OF'
+        elif type1 == type2:  # Same type
+            return 'SIMILAR_TO'
+        else:
+            return 'RELATES_TO'
     
     def create_book_summary_nodes(self):
         """Create nodes for book summaries with correct JSON structure"""
@@ -603,36 +648,77 @@ class ImprovedKnowledgeGraphBuilder:
         return nodes
     
     def create_semantic_relationships(self, all_nodes: List[Dict]):
-        """Create relationships based on semantic similarity and Ollama analysis"""
+        """Create relationships based on optimized semantic similarity and AI analysis"""
         self.logger.info("Creating semantic relationships...")
         
-        # Find similar content using sentence transformers
-        similarities = self.find_similar_content(all_nodes, threshold=0.6)
+        # Find similar content using sentence transformers with higher threshold
+        similarities = self.find_similar_content(all_nodes, threshold=0.75)
         
-        for node1_data, node2_data, similarity_score in similarities:
-            node1 = node1_data['node']
-            node2 = node2_data['node']
+        self.logger.info(f"Found {len(similarities)} similar content pairs to analyze")
+        
+        # Limit the number of pairs to process (prevent infinite runtime)
+        max_pairs = 100  # Reasonable limit for AI analysis
+        if len(similarities) > max_pairs:
+            self.logger.warning(f"Limiting analysis to top {max_pairs} most similar pairs")
+            similarities = sorted(similarities, key=lambda x: x[2], reverse=True)[:max_pairs]
+        
+        # Process in batches to avoid overwhelming Ollama
+        batch_size = 10
+        relationships_created = 0
+        
+        for i in range(0, len(similarities), batch_size):
+            batch = similarities[i:i + batch_size]
+            self.logger.info(f"Processing batch {i//batch_size + 1}/{(len(similarities) + batch_size - 1)//batch_size}")
             
-            # Get deeper relationship analysis from Ollama
-            content1 = node1_data['content']
-            content2 = node2_data['content']
+            for node1_data, node2_data, similarity_score in batch:
+                try:
+                    node1 = node1_data['node']
+                    node2 = node2_data['node']
+                    
+                    # Use rule-based relationship determination for speed
+                    relationship_type = self.determine_relationship_fast(node1_data, node2_data)
+                    explanation = "Rule-based semantic relationship"
+                    
+                    # Only use Ollama for high-similarity pairs that need detailed analysis
+                    is_high_similarity = float(similarity_score) > 0.85
+                    use_ai = is_high_similarity and relationships_created < 20
+                    
+                    if use_ai:  # Limit expensive AI calls
+                        content1 = node1_data.get('content', '')[:300]  # Reduced content length
+                        content2 = node2_data.get('content', '')[:300]
+                        
+                        if content1 and content2:
+                            relationship_info = self.analyze_relationship_with_ollama(content1, content2)
+                            if relationship_info['type'] != "RELATES_TO":  # Only use if AI found specific relationship
+                                relationship_type = relationship_info['type']
+                                explanation = relationship_info['explanation'][:200]
+                    
+                    # Create relationship with semantic information
+                    rel = Relationship(
+                        node1, 
+                        relationship_type, 
+                        node2,
+                        similarity_score=float(round(similarity_score, 3)),  # Ensure Python float
+                        explanation=explanation,
+                        method="semantic_analysis",
+                        ai_determined=use_ai
+                    )
+                    self.graph.create(rel)
+                    relationships_created += 1
+                    
+                    self.logger.info(f"Created {relationship_type} relationship between "
+                                   f"{node1_data.get('type', 'Unknown')} and {node2_data.get('type', 'Unknown')} "
+                                   f"(similarity: {similarity_score:.3f})")
+                    
+                except Exception as e:
+                    self.logger.error(f"Error creating relationship: {e}")
+                    continue
             
-            relationship_info = self.analyze_relationship_with_ollama(content1, content2)
-            
-            # Create relationship with semantic information
-            rel = Relationship(
-                node1, 
-                relationship_info['type'], 
-                node2,
-                similarity_score=float(round(similarity_score, 3)),  # Ensure Python float
-                explanation=relationship_info['explanation'][:200],  # Limit length
-                method="semantic_analysis"
-            )
-            self.graph.create(rel)
-            
-            self.logger.info(f"Created {relationship_info['type']} relationship between "
-                           f"{node1_data['type']} and {node2_data['type']} "
-                           f"(similarity: {similarity_score:.3f})")
+            # Small delay between batches to prevent overwhelming the system
+            import time
+            time.sleep(1)
+        
+        self.logger.info(f"Created {relationships_created} semantic relationships")
     
     def create_cross_references(self):
         """Create additional relationships between nodes based on shared concepts"""

@@ -123,7 +123,7 @@ class EnhancedKnowledgeGraphBuilder:
         self.logger = logging.getLogger(__name__)
     
     def query_ollama(self, prompt: str) -> str:
-        """Query Ollama local model"""
+        """Query Ollama local model with optimized timeout"""
         try:
             response = requests.post(
                 f"{self.ollama_url}/api/generate",
@@ -132,13 +132,16 @@ class EnhancedKnowledgeGraphBuilder:
                     "prompt": prompt,
                     "stream": False
                 },
-                timeout=30
+                timeout=10  # Reduced timeout for faster failure
             )
             if response.status_code == 200:
                 return response.json().get('response', '')
             else:
                 self.logger.warning(f"Ollama request failed: {response.status_code}")
                 return ""
+        except requests.exceptions.Timeout:
+            self.logger.warning("Ollama request timed out (10s)")
+            return ""
         except Exception as e:
             self.logger.error(f"Error querying Ollama: {e}")
             return ""
@@ -199,22 +202,37 @@ class EnhancedKnowledgeGraphBuilder:
         return embedding
     
     def find_similar_content(self, nodes: List[Dict], threshold: float = 0.7) -> List[Tuple[Dict, Dict, float]]:
-        """Find similar content using sentence transformers"""
+        """Find similar content using optimized sentence transformers"""
         similar_pairs = []
         
+        # Limit the number of nodes to prevent O(n²) explosion
+        max_nodes = 200  # Reasonable limit for similarity comparison
+        if len(nodes) > max_nodes:
+            self.logger.warning(f"Limiting similarity analysis to {max_nodes} nodes (from {len(nodes)})")
+            nodes = nodes[:max_nodes]
+        
+        # Pre-compute embeddings for efficiency
+        embeddings = {}
+        for i, node in enumerate(nodes):
+            text = node.get('content', node.get('title', ''))
+            if text:
+                embeddings[i] = self.get_embedding(text[:200])  # Limit text length for speed
+        
+        # Compare embeddings
         for i, node1 in enumerate(nodes):
-            for node2 in nodes[i+1:]:
-                if node1['type'] != node2['type']:  # Only compare different types
-                    text1 = node1.get('content', node1.get('title', ''))
-                    text2 = node2.get('content', node2.get('title', ''))
+            if i not in embeddings:
+                continue
+                
+            for j, node2 in enumerate(nodes[i+1:], i+1):
+                if j not in embeddings:
+                    continue
                     
-                    if text1 and text2:
-                        emb1 = self.get_embedding(text1)
-                        emb2 = self.get_embedding(text2)
-                        similarity = cosine_similarity([emb1], [emb2])[0][0]
-                        
-                        if similarity > threshold:
-                            similar_pairs.append((node1, node2, similarity))
+                # Only compare different types and limit comparisons
+                if node1['type'] != node2['type'] and len(similar_pairs) < 500:  # Limit total pairs
+                    similarity = cosine_similarity([embeddings[i]], [embeddings[j]])[0][0]
+                    
+                    if similarity > threshold:
+                        similar_pairs.append((node1, node2, similarity))
         
         return similar_pairs
     
@@ -239,6 +257,29 @@ class EnhancedKnowledgeGraphBuilder:
                     return rel_type
         
         return "RELATES_TO"  # Default relationship
+    
+    def determine_relationship_fast(self, node1_data: Dict, node2_data: Dict) -> str:
+        """Fast rule-based relationship determination without AI"""
+        type1 = node1_data.get('type', '')
+        type2 = node2_data.get('type', '')
+        
+        # Rule-based relationship mapping
+        if type1 == 'Philosopher' and type2 in ['Book', 'Aphorism', 'Idea']:
+            return 'CREATED'
+        elif type2 == 'Philosopher' and type1 in ['Book', 'Aphorism', 'Idea']:
+            return 'CREATED_BY'
+        elif type1 == 'Book' and type2 == 'Idea':
+            return 'CONTAINS'
+        elif type1 == 'Idea' and type2 == 'Book':
+            return 'CONTAINED_IN'
+        elif type1 == 'PhilosophicalTheme' and type2 == 'PhilosophicalConcept':
+            return 'ENCOMPASSES'
+        elif type1 == 'PhilosophicalConcept' and type2 == 'PhilosophicalTheme':
+            return 'PART_OF'
+        elif type1 == type2:  # Same type
+            return 'SIMILAR_TO'
+        else:
+            return 'RELATES_TO'
     
     def load_json_files(self, directory: str) -> List[Dict[str, Any]]:
         """Load all JSON files from a directory, skipping templates"""
@@ -644,30 +685,68 @@ class EnhancedKnowledgeGraphBuilder:
                     self.graph.create(rel)
     
     def create_enhanced_semantic_relationships(self, all_nodes: List[Dict]):
-        """Create enhanced semantic relationships using AI analysis"""
+        """Create enhanced semantic relationships using optimized AI analysis"""
         self.logger.info("Creating enhanced semantic relationships...")
         
-        # Find similar content pairs
-        similar_pairs = self.find_similar_content(all_nodes, threshold=0.6)
+        # Find similar content pairs with higher threshold to reduce volume
+        similar_pairs = self.find_similar_content(all_nodes, threshold=0.75)
         
-        for node1_data, node2_data, similarity in similar_pairs:
-            node1 = node1_data['node']
-            node2 = node2_data['node']
+        self.logger.info(f"Found {len(similar_pairs)} similar content pairs to analyze")
+        
+        # Limit the number of pairs to process (prevent infinite runtime)
+        max_pairs = 100  # Reasonable limit for AI analysis
+        if len(similar_pairs) > max_pairs:
+            self.logger.warning(f"Limiting analysis to top {max_pairs} most similar pairs")
+            similar_pairs = sorted(similar_pairs, key=lambda x: x[2], reverse=True)[:max_pairs]
+        
+        # Process in batches to avoid overwhelming Ollama
+        batch_size = 10
+        relationships_created = 0
+        
+        for i in range(0, len(similar_pairs), batch_size):
+            batch = similar_pairs[i:i + batch_size]
+            self.logger.info(f"Processing batch {i//batch_size + 1}/{(len(similar_pairs) + batch_size - 1)//batch_size}")
             
-            # Use Ollama to determine relationship type
-            content1 = node1_data.get('content', '')[:500]
-            content2 = node2_data.get('content', '')[:500]
+            for node1_data, node2_data, similarity in batch:
+                try:
+                    node1 = node1_data['node']
+                    node2 = node2_data['node']
+                    
+                    # Use rule-based relationship determination for speed
+                    relationship_type = self.determine_relationship_fast(node1_data, node2_data)
+                    
+                    # Only use Ollama for high-similarity pairs that need detailed analysis
+                    is_high_similarity = float(similarity) > 0.85
+                    use_ai = is_high_similarity and relationships_created < 20
+                    
+                    if use_ai:  # Limit expensive AI calls
+                        content1 = node1_data.get('content', '')[:300]  # Reduced content length
+                        content2 = node2_data.get('content', '')[:300]
+                        
+                        if content1 and content2:
+                            ai_relationship = self.analyze_relationship_with_ollama(content1, content2)
+                            if ai_relationship != "RELATES_TO":  # Only use if AI found specific relationship
+                                relationship_type = ai_relationship
+                    
+                    # Create the relationship
+                    rel = Relationship(
+                        node1, relationship_type, node2,
+                        similarity_score=float(similarity),
+                        method='enhanced_semantic_analysis',
+                        ai_determined=use_ai
+                    )
+                    self.graph.create(rel)
+                    relationships_created += 1
+                    
+                except Exception as e:
+                    self.logger.error(f"Error creating relationship: {e}")
+                    continue
             
-            relationship_type = self.analyze_relationship_with_ollama(content1, content2)
-            
-            # Create the relationship
-            rel = Relationship(
-                node1, relationship_type, node2,
-                similarity_score=float(similarity),
-                method='enhanced_semantic_analysis',
-                ai_determined=True
-            )
-            self.graph.create(rel)
+            # Small delay between batches to prevent overwhelming the system
+            import time
+            time.sleep(1)
+        
+        self.logger.info(f"Created {relationships_created} enhanced semantic relationships")
     
     def create_concept_extraction_relationships(self, all_nodes: List[Dict]):
         """Extract concepts and create concept-based relationships"""
