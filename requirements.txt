@@ -26,6 +26,10 @@ scikit-learn>=1.3.0    # Machine learning utilities (cosine similarity)
 py2neo>=2021.2.4       # Neo4j Python driver and toolkit
 requests>=2.31.0       # HTTP requests for Ollama API
 
+# Vector Database Dependencies
+qdrant-client>=1.7.0   # Qdrant vector database client
+sentence-transformers>=2.2.2  # Sentence embeddings for semantic search
+
 # Ollama-based Evaluation Dependencies
 rouge-score>=0.1.2     # ROUGE evaluation metric
 nltk>=3.8              # Natural Language Toolkit

@@ -19,8 +19,8 @@ postgresql:
 # Qdrant Configuration
 qdrant:
   host: localhost
-  port: 6333
-  grpc_port: 6334
+  port: 6343
+  grpc_port: 6344
 
 # Neo4j Configuration (Enterprise Edition - Multiple Databases)
 neo4j:
