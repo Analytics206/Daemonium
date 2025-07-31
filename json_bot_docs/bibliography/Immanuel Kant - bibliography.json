@@ -1,0 +1,109 @@
+{
+    "author_bibliography": {
+      "author": "Immanuel Kant",
+      "birth_death": "1724 - 1804",
+      "description": "Immanuel Kant was a foundational figure in Western philosophy whose critical project revolutionized epistemology, metaphysics, ethics, and aesthetics. He is best known for the 'Critique of Pure Reason,' which laid the groundwork for modern discussions of perception, knowledge, and the limits of reason. Kant's categorical imperative reshaped moral philosophy, and his work on autonomy, freedom, and cosmopolitanism continues to influence contemporary debates in ethics and political theory.",
+      "background": "Born and raised in Königsberg, East Prussia, Kant was a disciplined scholar who spent his life teaching and writing in the same city. Initially influenced by rationalist and empirical traditions, he developed a 'transcendental' approach that synthesized both. His mature work, especially the three Critiques, represents a sustained effort to explore the conditions under which human experience, morality, and judgment are possible. Kant's impact stretches far beyond academic philosophy—his ideas have shaped law, politics, science, and theology.",
+      "works": [
+        {
+          "title": "Critique of Pure Reason",
+          "original_title": "Kritik der reinen Vernunft",
+          "year": "1781 (1st ed.), 1787 (2nd ed.)",
+          "type": "Philosophical Treatise (Epistemology and Metaphysics)",
+          "summary": "This monumental work revolutionized philosophy by proposing that the mind actively structures experience through a priori categories. Kant argues that we can only know phenomena—things as they appear to us—not noumena, or things-in-themselves. The work explores the limits of reason, introduces transcendental idealism, and analyzes how knowledge is possible. It critiques both dogmatic metaphysics and radical empiricism, attempting a synthesis that still shapes philosophical inquiry today."
+        },
+        {
+          "title": "Prolegomena to Any Future Metaphysics",
+          "original_title": "Prolegomena zu einer jeden künftigen Metaphysik",
+          "year": "1783",
+          "type": "Philosophical Introduction",
+          "summary": "Written as a clearer and more accessible version of the first Critique, the Prolegomena outlines Kant's key positions for a broader audience. It explains the distinction between analytic and synthetic judgments, introduces the idea of synthetic a priori knowledge, and makes a powerful case for the necessity of transcendental philosophy. It is often the recommended starting point for new readers of Kant."
+        },
+        {
+          "title": "Groundwork of the Metaphysics of Morals",
+          "original_title": "Grundlegung zur Metaphysik der Sitten",
+          "year": "1785",
+          "type": "Ethical Treatise",
+          "summary": "This foundational text introduces Kant's moral philosophy, particularly the concept of the categorical imperative—a universal moral law derived from reason. It lays out Kant’s vision of autonomy, duty, and the dignity of rational beings. The Groundwork is among the most influential works in moral theory, emphasizing that ethical actions must be guided by reason and universalizable maxims."
+        },
+        {
+          "title": "Critique of Practical Reason",
+          "original_title": "Kritik der praktischen Vernunft",
+          "year": "1788",
+          "type": "Philosophical Treatise (Ethics)",
+          "summary": "Building upon the Groundwork, Kant presents a complete system of ethics based on the autonomy of the will and the fact of moral obligation. He defends the necessity of postulating God, freedom, and immortality—not as knowledge, but as conditions for moral experience. The work argues that morality reveals a different kind of certainty than theoretical knowledge: one grounded in practical reason."
+        },
+        {
+          "title": "Critique of the Power of Judgment",
+          "original_title": "Kritik der Urteilskraft",
+          "year": "1790",
+          "type": "Philosophical Treatise (Aesthetics and Teleology)",
+          "summary": "Kant's third Critique examines aesthetic and teleological judgment. It analyzes how we experience beauty and the sublime, suggesting that such judgments are both subjective and universally valid. The second part addresses the purposiveness of nature, laying the foundation for debates in biology and design. This work bridges the gap between the sensible and the rational realms explored in the first two Critiques."
+        },
+        {
+          "title": "Religion within the Bounds of Bare Reason",
+          "original_title": "Die Religion innerhalb der Grenzen der bloßen Vernunft",
+          "year": "1793",
+          "type": "Philosophy of Religion",
+          "summary": "Kant reinterprets religious concepts like sin, grace, and salvation in ethical terms. He argues that true religion must conform to moral reason and that church institutions should never supersede individual moral conscience. Though controversial in its day, the work established a rational, ethical approach to religion that shaped liberal theology."
+        },
+        {
+          "title": "The Metaphysics of Morals",
+          "original_title": "Die Metaphysik der Sitten",
+          "year": "1797",
+          "type": "Ethical and Political Philosophy",
+          "summary": "A systematic account of Kant’s moral and political philosophy, this work is divided into two parts: the 'Doctrine of Right' (which covers law, justice, and civil society) and the 'Doctrine of Virtue' (which focuses on individual moral duties). Kant emphasizes freedom, dignity, and the legal basis of human rights and civil society, making this a foundational text in modern legal and political theory."
+        },
+        {
+          "title": "Perpetual Peace: A Philosophical Sketch",
+          "original_title": "Zum ewigen Frieden",
+          "year": "1795",
+          "type": "Political Essay",
+          "summary": "A visionary proposal for achieving lasting peace between nations through the spread of republican governments, international law, and cosmopolitan hospitality. The essay outlines six 'preliminary articles' and three 'definitive articles' for peace. It profoundly influenced liberal internationalism and institutions like the League of Nations and the UN."
+        },
+        {
+          "title": "Anthropology from a Pragmatic Point of View",
+          "original_title": "Anthropologie in pragmatischer Hinsicht",
+          "year": "1798",
+          "type": "Philosophical Anthropology",
+          "summary": "This work presents Kant’s empirical reflections on human nature, psychology, and society. Unlike his transcendental works, it emphasizes observation and experience. Kant discusses character, temperament, and the conditions of practical life. It was among his most popular books during his lifetime and provides insight into his views on education and culture."
+        },
+        {
+          "title": "Universal Natural History and Theory of the Heavens",
+          "original_title": "Allgemeine Naturgeschichte und Theorie des Himmels",
+          "year": "1755",
+          "type": "Scientific Cosmology",
+          "summary": "In this early work, Kant proposes a nebular hypothesis of the origin of the solar system, anticipating modern astrophysics. Though steeped in natural theology, the treatise exemplifies Kant’s ambition to ground cosmic order in rational, scientific principles. It marks his early effort to unify science, philosophy, and theology."
+        }
+      ],
+      "chronological_periods": {
+        "pre_critical_period_1747_1770": {
+          "characteristics": "Influenced by Leibniz and Wolff; metaphysical optimism; early engagement with science and logic",
+          "themes": "Space and time as metaphysical realities; pre-Copernican metaphysics; natural philosophy; early moral rationalism"
+        },
+        "critical_period_1781_1790": {
+          "characteristics": "Development of critical philosophy; transcendental idealism; the three Critiques; systematic structure",
+          "themes": "Limits of reason; synthetic a priori knowledge; moral autonomy; aesthetic judgment; categories of understanding"
+        },
+        "late_period_1790_1804": {
+          "characteristics": "Application of critical philosophy to law, politics, anthropology, and religion; refinement of earlier ideas",
+          "themes": "Freedom and right; cosmopolitanism; virtue ethics; philosophy of religion; history and education"
+        }
+      },
+      "major_themes": [
+        "Transcendental idealism and the limits of human knowledge",
+        "Synthetic a priori judgments",
+        "The categorical imperative and moral autonomy",
+        "Freedom, dignity, and human rationality",
+        "Aesthetic judgment and the sublime",
+        "Teleology and the purposiveness of nature",
+        "Moral foundations of religion",
+        "Universal history and cosmopolitanism",
+        "The conditions for perpetual peace",
+        "The unity of theoretical and practical reason"
+      ],
+      "influence": "Kant’s philosophy fundamentally reshaped epistemology, metaphysics, ethics, aesthetics, and political theory. His ideas influenced German Idealists (Fichte, Schelling, Hegel), 20th-century ethics (Rawls, Habermas), analytic philosophy (Carnap, Strawson), and existentialism (Heidegger, Sartre). His moral theory inspired contemporary human rights discourse, while his vision of peace and cosmopolitan law shaped modern liberal internationalism. Kant’s critical method remains a central model for philosophical inquiry.",
+      "note": "This bibliography includes Kant’s major published works. It excludes his extensive correspondence, lecture notes (such as the Logic and Physical Geography), and early essays, which also contribute significantly to understanding his intellectual development."
+    }
+  }
+  

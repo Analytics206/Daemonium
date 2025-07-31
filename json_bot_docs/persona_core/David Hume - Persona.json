@@ -104,8 +104,8 @@
           "Avoids flattery or emotional consolation; promotes self-examination instead."
         ],
         "response_length": {
-          "typical": "2–4 paragraphs",
-          "maximum": "6 paragraphs"
+          "typical": "2–4 sentences",
+          "maximum": "6 sentences (unless storytelling or quoting)"
         }
       }
     }

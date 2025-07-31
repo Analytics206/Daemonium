@@ -1,0 +1,137 @@
+{
+    "author": "Immanuel Kant",
+    "category": "Discussion Hooks",
+    "discussion_hooks": {
+      "The Nature of Reason and Understanding": [
+        "What do you think makes human beings rational?",
+        "Is the mind passive in receiving knowledge—or active in structuring it?",
+        "Can we know things as they are in themselves, or only as they appear to us?",
+        "How do you distinguish between appearances and reality?",
+        "Is understanding shaped more by the world or by the mind’s categories?",
+        "What role does reason play in constructing your experience of the world?",
+        "Do you think time and space exist independently of perception?",
+        "How does the mind bring unity to chaotic sensations?",
+        "Are there truths that reason can know independent of experience?",
+        "How does your understanding impose structure onto reality?",
+        "Can the laws of thought become the laws of nature?"
+      ],
+      "Moral Law and Duty": [
+        "What does it mean to act out of duty rather than inclination?",
+        "Can an action be good if it's done for the wrong reason?",
+        "Have you ever done the right thing even when you didn't want to?",
+        "Do you think morality is about consequences or about principles?",
+        "What is your guiding principle when you face a moral decision?",
+        "Is it possible to will that everyone act as you do?",
+        "Does a truly moral act require that we set aside personal interest?",
+        "What role does respect for law play in your ethical life?",
+        "Would morality exist without reason?",
+        "Can feelings guide us to moral truth—or must we rise above them?",
+        "What is your duty when duty contradicts desire?"
+      ],
+      "The Categorical Imperative": [
+        "Can you imagine a world where everyone acted on your intentions?",
+        "Is there a principle you believe everyone should follow—without exception?",
+        "What makes an action universally right or wrong?",
+        "Is lying ever morally justified?",
+        "Would you want your personal maxim turned into universal law?",
+        "Do ends ever justify the means—or must means be moral in themselves?",
+        "Can you respect yourself if you act against your own principles?",
+        "How do you test the moral worth of your decisions?",
+        "What would society look like if everyone followed only universalizable laws?",
+        "What is the difference between hypothetical and categorical imperatives?",
+        "Is morality binding even when no one is watching?"
+      ],
+      "Autonomy and Freedom": [
+        "Do you feel free when you follow your own reason—or your own desires?",
+        "What does it mean to be governed by a law you give to yourself?",
+        "Is true freedom about doing what you want—or doing what you ought?",
+        "Can a person be free and still bound by moral law?",
+        "Does autonomy require resisting emotional impulses?",
+        "When do you feel most morally self-governed?",
+        "Are we truly free if we are shaped by nature and society?",
+        "Can external authority ever override internal freedom?",
+        "Is obedience to reason a form of liberation or a form of constraint?",
+        "Is freedom compatible with being a member of a moral community?",
+        "Can acting ethically ever be considered an act of self-legislation?"
+      ],
+      "Knowledge and the Limits of Reason": [
+        "Can reason discover metaphysical truths—or does it eventually reach a boundary?",
+        "What are the limits of human understanding?",
+        "Is there value in pursuing questions that can never be fully answered?",
+        "Do you think there are things we can never know, no matter how advanced we become?",
+        "What happens when reason tries to go beyond experience?",
+        "Can we meaningfully talk about the soul, God, or free will?",
+        "How should we live if reason cannot settle metaphysical questions?",
+        "Are some ideas necessary for thought, even if unprovable?",
+        "Do contradictions in pure reason indicate a flaw in reason—or its limits?",
+        "Is the unknowable a failure of reason or a boundary we must respect?",
+        "Should reason regulate belief, or merely limit it?"
+      ],
+      "Aesthetics and the Sublime": [
+        "Can beauty be judged objectively, or is it merely subjective?",
+        "Have you ever experienced something so vast it made you feel small, yet uplifted?",
+        "What does it mean to have 'good taste'?",
+        "Is the experience of beauty rooted in reason, emotion, or both?",
+        "Can a judgment of beauty claim universal validity?",
+        "Does disinterested pleasure define the experience of art?",
+        "Is the sublime terrifying, beautiful, or something beyond both?",
+        "How do aesthetic experiences connect to moral or spiritual life?",
+        "Can nature teach us anything through its beauty or power?",
+        "Does art reveal something true about humanity?",
+        "Can aesthetic judgment ever be rationally justified?"
+      ],
+      "Human Dignity and Respect": [
+        "What does it mean to treat a person as an end and never merely as a means?",
+        "Is it possible to truly respect someone you disagree with?",
+        "Do all humans possess inherent dignity—or must it be earned?",
+        "Can dignity be taken away—or only violated?",
+        "How should society reflect the principle of human worth?",
+        "What does it mean to respect humanity, not just individuals?",
+        "Can punishment be compatible with respecting dignity?",
+        "What moral obligations arise from recognizing another’s dignity?",
+        "Is equality a moral or political principle first?",
+        "Should we ever tolerate treating some as less than others?",
+        "What does your treatment of others say about your respect for yourself?"
+      ],
+      "The Enlightenment and Human Progress": [
+        "What does it mean to think for yourself?",
+        "Is humanity progressing toward greater moral maturity?",
+        "How do education and reason contribute to freedom?",
+        "Are we still in a state of self-imposed immaturity?",
+        "What role does courage play in the pursuit of truth?",
+        "Is public reason the foundation of a just society?",
+        "Can enlightenment coexist with religious faith?",
+        "Are individuals responsible for the moral progress of society?",
+        "What institutions best encourage enlightenment?",
+        "Should we always question authority—or only certain kinds?",
+        "Does progress depend on individual freedom of thought?"
+      ],
+      "Religion within the Bounds of Reason": [
+        "Can faith be rational—or must it always go beyond reason?",
+        "Is moral religion superior to doctrinal religion?",
+        "What does it mean to believe in God as a postulate of practical reason?",
+        "Can ethical life replace religious observance?",
+        "Is the idea of God necessary for moral motivation?",
+        "Does religion corrupt or support moral progress?",
+        "Can moral principles stand independently of divine command?",
+        "Should religion be subject to public reasoning?",
+        "What happens when religious belief conflicts with universal ethics?",
+        "Is fear of divine punishment a moral motivation—or a psychological one?",
+        "Can religion be reformed through reason?"
+      ],
+      "Science, Nature, and Teleology": [
+        "Can we study nature as a mechanical system and still find meaning in it?",
+        "Is there purpose in nature, or do we just project it?",
+        "How do we reconcile mechanistic science with human freedom?",
+        "Can teleology be a legitimate lens for understanding biology?",
+        "Does reason find order in nature—or impose it?",
+        "What distinguishes living systems from machines?",
+        "Should science limit itself to observable causes—or include ends and purposes?",
+        "Is beauty in nature evidence of design?",
+        "Can science alone answer the most important human questions?",
+        "What is the role of judgment when confronting natural complexity?",
+        "Can nature reflect moral or spiritual truths?"
+      ]
+    }
+  }
+  

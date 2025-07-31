@@ -1,67 +1,108 @@
 {
-    "author_bibliography": {
-      "author": "David Hume",
-      "birth_death": "1711 - 1776",
-      "description": "David Hume was a Scottish Enlightenment philosopher, historian, economist, and essayist, widely regarded as one of the most important figures in Western philosophy. His work fundamentally shaped modern thought in epistemology, metaphysics, ethics, political theory, and the philosophy of religion. Hume's radical empiricism, skepticism about causation, critique of miracles, and naturalistic view of human understanding challenged centuries of philosophical orthodoxy and influenced generations of thinkers, including Kant, Darwin, and modern empiricists. His bibliography includes major philosophical treatises, more accessible essays, and significant historical writings.",
-      "background": "Born in Edinburgh, Scotland, David Hume was a precocious thinker who left university at the age of 15 to pursue a rigorous program of self-study. He experienced a profound 'philosophical crisis' in his youth, which fueled his lifetime dedication to understanding the nature of human cognition, morality, and belief. Though often at odds with religious institutions and initially met with hostility by academic elites, Hume became highly influential through his prose style, intellectual rigor, and wide-ranging interests. His later life was marked by success as an historian and political essayist, though his philosophical writings eventually came to define his legacy.",
-      "works": [
-        {
-          "title": "A Treatise of Human Nature",
-          "original_title": "A Treatise of Human Nature: Being an Attempt to Introduce the Experimental Method of Reasoning into Moral Subjects",
-          "year": 1739,
-          "type": "Philosophical Treatise",
-          "summary": "Hume’s most ambitious and foundational work, the 'Treatise' attempts to build a science of human nature grounded in empirical observation. It is divided into three books: 'Of the Understanding', where he develops his theory of impressions and ideas, causation, and the limits of reason; 'Of the Passions', where he explores human emotion and motivation; and 'Of Morals', where he lays the groundwork for his sentimentalist ethics. The book was largely ignored at the time of publication but later hailed as a philosophical masterpiece."
-        },
-        {
-          "title": "An Enquiry Concerning Human Understanding",
-          "original_title": "Philosophical Essays Concerning Human Understanding",
-          "year": 1748,
-          "type": "Philosophical Treatise (Revised Summary of the Treatise)",
-          "summary": "A more concise and accessible restatement of the key arguments from the 'Treatise', this work includes Hume’s famous analysis of cause and effect, his argument against the rational justification of induction, and his critique of miracles. The Enquiry also introduces the 'missing shade of blue' thought experiment and frames Hume's empiricism in a clearer and more digestible style. It became one of his most influential works and is considered essential reading in epistemology."
-        },
-        {
-          "title": "An Enquiry Concerning the Principles of Morals",
-          "original_title": "An Enquiry Concerning the Principles of Morals",
-          "year": 1751,
-          "type": "Philosophical Treatise (Ethics)",
-          "summary": "Hume's second Enquiry focuses entirely on ethics and is more optimistic in tone than his earlier work. He defends a moral philosophy based on human sentiment, emphasizing virtues like benevolence and justice as rooted in feelings rather than rational deduction. Hume argues that utility and sympathy form the basis of our moral judgments. He regarded this book as his most successful philosophical work."
-        },
-        {
-          "title": "Dialogues Concerning Natural Religion",
-          "original_title": "Dialogues Concerning Natural Religion",
-          "year": 1779,
-          "type": "Philosophical Dialogue",
-          "summary": "Published posthumously, this dialogue pits three fictional characters—Demea, Philo, and Cleanthes—against each other in a discussion on the nature and existence of God. Through the skeptical character Philo, Hume raises powerful objections to the teleological and cosmological arguments for God's existence, and subtly critiques the problem of evil. The work is a masterclass in philosophical dialogue and is among the most sophisticated critiques of natural theology ever written."
-        },
-        {
-          "title": "The Natural History of Religion",
-          "original_title": "The Natural History of Religion",
-          "year": 1757,
-          "type": "Philosophical Essay (Anthropology of Religion)",
-          "summary": "This essay explores the origins and evolution of religious belief, arguing that polytheism preceded monotheism and that religion arose from human fear and the tendency to anthropomorphize nature. Hume explains religion through psychological and sociological factors rather than metaphysical truth claims. It reflects his broader project to analyze belief through the lens of natural human experience."
-        },
-        {
-          "title": "Essays, Moral, Political, and Literary",
-          "original_title": "Essays, Moral, Political, and Literary",
-          "year": "1741-1777",
-          "type": "Collection of Essays",
-          "summary": "These essays cover a vast range of topics, from economics and politics to aesthetics and morality. Hume articulates principles of free trade, constitutional government, and civic virtue, and critiques enthusiasm and superstition in religion. The essays helped build Hume's public reputation and demonstrate his practical and accessible prose style. They also reveal the breadth of his intellectual interests beyond technical philosophy."
-        },
-        {
-          "title": "History of England",
-          "original_title": "The History of England, from the Invasion of Julius Caesar to the Revolution in 1688",
-          "year": "1754-1762",
-          "type": "Historical Work (Six Volumes)",
-          "summary": "This monumental work, spanning six volumes, was the most popular history book in 18th-century Britain and brought Hume widespread fame during his lifetime. Unlike other histories of the period, Hume’s account was known for its narrative elegance, philosophical analysis of events, and skepticism of religious motives in politics. Although later overshadowed by his philosophical work, the 'History of England' was instrumental in shaping public discourse in the Enlightenment era."
-        },
-        {
-          "title": "An Abstract of a Book Lately Published",
-          "original_title": "An Abstract of a Book Lately Published: Entitled A Treatise of Human Nature",
-          "year": 1740,
-          "type": "Philosophical Summary",
-          "summary": "This brief publication was Hume’s own attempt to generate interest in his Treatise by summarizing its core arguments in a clearer and more digestible form. It distills the essence of Hume’s empiricism, including his views on ideas, impressions, belief, and moral sentiment. Though little-known today, it offers insight into how Hume hoped to frame his philosophical project to a skeptical public."
-        }
-      ]
-    }
+  "author_bibliography": {
+    "author": "David Hume",
+    "birth_death": "1711 - 1776",
+    "description": "David Hume was a Scottish philosopher, historian, and essayist who became one of the most influential figures of the Enlightenment. Known for his radical empiricism and philosophical skepticism, Hume profoundly shaped modern debates on knowledge, morality, religion, and personal identity. His works challenged traditional metaphysics and inspired later thinkers such as Kant, Mill, Darwin, and contemporary philosophers of mind and science.",
+    "background": "Born in Edinburgh, Hume was a precocious student who left university early and pursued a program of rigorous self-study. Though his early work, 'A Treatise of Human Nature', was initially dismissed, it became one of the foundational texts of modern philosophy. Hume's clear prose and critical stance on reason, causation, and religion set him apart from both rationalists and dogmatic theologians. Later in life, he gained popular acclaim for his historical and political writings, even while remaining controversial for his philosophical ideas.",
+    "works": [
+      {
+        "title": "A Treatise of Human Nature",
+        "original_title": "A Treatise of Human Nature: Being an Attempt to Introduce the Experimental Method of Reasoning into Moral Subjects",
+        "year": "1739–1740",
+        "type": "Philosophical Treatise",
+        "summary": "Hume’s most comprehensive philosophical work, this book attempts to build a 'science of man' based on empirical observation and psychological insight. It is divided into three parts: understanding, passions, and morals. Key ideas include the theory of impressions and ideas, skepticism about causality, the denial of a permanent self, and the foundation of morality in sentiment. Though initially overlooked, it is now regarded as a cornerstone of Western philosophy."
+      },
+      {
+        "title": "An Abstract of a Book Lately Published",
+        "original_title": "An Abstract of a Book Lately Published: Entitled A Treatise of Human Nature",
+        "year": "1740",
+        "type": "Philosophical Summary",
+        "summary": "This short pamphlet was Hume's attempt to promote the Treatise after its initial poor reception. It summarizes key arguments from the Treatise, especially his views on ideas, impressions, and belief. While of limited circulation at the time, it provides a valuable insight into how Hume saw the central claims of his major work."
+      },
+      {
+        "title": "Essays, Moral and Political",
+        "original_title": "Essays, Moral and Political",
+        "year": "1741–1742",
+        "type": "Essay Collection",
+        "summary": "These early essays cover a wide range of subjects, including economics, politics, aesthetics, and morality. They reflect Hume’s interest in making philosophy accessible and practical. The essays helped establish his reputation as a man of letters and remain valuable for understanding Enlightenment thought."
+      },
+      {
+        "title": "An Enquiry Concerning Human Understanding",
+        "original_title": "Philosophical Essays Concerning Human Understanding",
+        "year": "1748",
+        "type": "Philosophical Treatise (Revised Summary)",
+        "summary": "A refined and more accessible version of parts of the Treatise, this work contains Hume’s most famous arguments: the problem of induction, the denial of rational justification for miracles, and his account of belief as a feeling rather than a rational act. It presents a central challenge to rationalist metaphysics and remains foundational in epistemology."
+      },
+      {
+        "title": "An Enquiry Concerning the Principles of Morals",
+        "original_title": "An Enquiry Concerning the Principles of Morals",
+        "year": "1751",
+        "type": "Philosophical Treatise (Ethics)",
+        "summary": "In this second Enquiry, Hume articulates a sentimentalist ethical theory, arguing that moral judgments are rooted in human feelings rather than reason. He explores the role of utility, virtue, and sympathy in morality. The work is more optimistic and refined than the third book of the Treatise and is considered by Hume to be his best philosophical writing."
+      },
+      {
+        "title": "Political Discourses",
+        "original_title": "Political Discourses",
+        "year": "1752",
+        "type": "Economic and Political Essays",
+        "summary": "This collection includes essays on commerce, taxation, money, and political stability. Hume displays early liberal economic views and anticipates key ideas of later economists like Adam Smith. The essays were widely read in France and had a significant influence on Enlightenment political economy."
+      },
+      {
+        "title": "The Natural History of Religion",
+        "original_title": "The Natural History of Religion",
+        "year": "1757",
+        "type": "Philosophy of Religion",
+        "summary": "Hume examines the psychological and sociological origins of religious belief. He argues that polytheism, not monotheism, was humanity’s first religion, born of fear and ignorance. The work is notable for its naturalistic and skeptical tone, anticipating anthropology of religion and later secular critiques."
+      },
+      {
+        "title": "Four Dissertations",
+        "original_title": "Four Dissertations",
+        "year": "1757",
+        "type": "Philosophical Essays",
+        "summary": "This volume includes 'Of the Standard of Taste,' 'Of the Passions,' 'Of Tragedy,' and 'The Natural History of Religion.' These essays explore aesthetics, emotion, and human nature with clarity and subtlety, reinforcing Hume’s reputation as a refined thinker concerned with the human condition in both reasoned and artistic life."
+      },
+      {
+        "title": "Dialogues Concerning Natural Religion",
+        "original_title": "Dialogues Concerning Natural Religion",
+        "year": "1779 (posthumous)",
+        "type": "Philosophical Dialogue",
+        "summary": "Published after his death, this dialogue presents a fictional conversation between three characters debating the existence and nature of God. Through the skeptical character Philo, Hume critiques traditional arguments for God's existence, especially the design argument. The Dialogues are celebrated for their literary and philosophical depth and remain central in the philosophy of religion."
+      },
+      {
+        "title": "The History of England",
+        "original_title": "The History of England from the Invasion of Julius Caesar to the Revolution in 1688",
+        "year": "1754–1762",
+        "type": "Historical Work (Six Volumes)",
+        "summary": "Hume’s most commercially successful work, this six-volume history covers British politics, monarchy, and culture. Written in an accessible and elegant style, it emphasizes empiricism and rational analysis over religious or partisan narratives. The work shaped British historical understanding for decades and established Hume as a respected historian."
+      }
+    ],
+    "chronological_periods": {
+      "early_period_1739_1748": {
+        "characteristics": "Experimental, bold, and skeptical tone; attempt to found a 'science of human nature'; strong influence of Locke, Berkeley, and Newton",
+        "themes": "Empiricism, causation, impressions and ideas, critique of self, foundations of ethics, problem of induction"
+      },
+      "middle_period_1748_1757": {
+        "characteristics": "Popular essays and more accessible summaries of philosophical ideas; growing literary reputation and public engagement",
+        "themes": "Ethics and sentiment, critique of religion, political economy, human nature, aesthetics"
+      },
+      "late_period_1757_1776": {
+        "characteristics": "Mature literary style, historical writings, philosophical dialogues, and reflections; philosophical clarity mixed with political caution",
+        "themes": "Natural religion, political skepticism, critique of miracles, toleration, historical analysis, secular moral theory"
+      }
+    },
+    "major_themes": [
+      "Empiricism and the origin of ideas",
+      "Skepticism about causation and induction",
+      "Bundle theory of personal identity",
+      "Sentimentalist ethics and moral feeling",
+      "The is–ought problem",
+      "Critique of miracles and natural religion",
+      "Political liberalism and economic pragmatism",
+      "Historicism and secular history writing",
+      "Free will and determinism (compatibilism)",
+      "Philosophical naturalism and psychology"
+    ],
+    "influence": "David Hume influenced nearly every area of modern philosophy and social science. Kant credited Hume with awakening him from his 'dogmatic slumber'. Hume's empiricism shaped analytic philosophy, while his skeptical arguments laid the groundwork for modern epistemology, philosophy of mind, and cognitive science. His naturalistic ethics prefigured utilitarianism and moral psychology. His political and economic essays influenced Enlightenment thought and liberal institutions, while his religious skepticism had a profound cultural impact.",
+    "note": "This bibliography focuses on Hume’s major published works and their philosophical significance. His letters, unfinished manuscripts, and editorial revisions (such as in different editions of the Treatise and the Enquiries) provide additional insight into the development of his thought."
   }
-  
+}
