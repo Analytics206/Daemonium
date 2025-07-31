@@ -115,7 +115,7 @@ async def get_philosopher_with_school(
             raise HTTPException(status_code=404, detail=f"Philosopher with ID '{philosopher_id}' not found")
         
         # Convert to Pydantic models
-        philosopher_model = PhilosopherSummary(**philosopher_with_school["philosopher"])
+        philosopher_model = PhilosopherSummary(**philosopher_with_school["author"])
         school_model = None
         
         if philosopher_with_school["school"]:

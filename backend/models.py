@@ -129,13 +129,18 @@ class Aphorism(BaseModel):
     """Aphorism model"""
     id: str = Field(..., alias="_id")
     text: str
-    philosopher: str
+    author: str  # Changed from philosopher to match database field
     source: Optional[str] = None
     context: Optional[str] = None
     themes: Optional[List[str]] = None
     interpretation: Optional[str] = None
     
-    model_config = {"populate_by_name": True}
+    # For backward compatibility
+    @property
+    def philosopher(self) -> str:
+        return self.author
+    
+    model_config = {"populate_by_name": True, "arbitrary_types_allowed": True}
 
 class AphorismResponse(BaseResponse):
     """Response model for aphorism data"""
@@ -149,7 +154,7 @@ class TopTenIdea(BaseModel):
     rank: int
     title: str
     description: str
-    philosopher: str
+    author: str  # Changed from philosopher to author
     significance: Optional[str] = None
     modern_relevance: Optional[str] = None
     related_concepts: Optional[List[str]] = None
@@ -161,7 +166,7 @@ class IdeaSummary(BaseModel):
     id: str = Field(..., alias="_id")
     title: str
     description: str
-    philosopher: Optional[str] = None
+    author: Optional[str] = None  # Changed from philosopher to author
     category: Optional[str] = None
     key_points: Optional[List[str]] = None
     examples: Optional[List[str]] = None
@@ -177,7 +182,7 @@ class IdeasResponse(BaseResponse):
 class ChatBlueprint(BaseModel):
     """Chat blueprint model"""
     id: str = Field(..., alias="_id")
-    philosopher: str
+    author: str  # Changed from philosopher to author
     personality_traits: Optional[List[str]] = None
     speaking_style: Optional[str] = None
     core_beliefs: Optional[List[str]] = None
@@ -189,35 +194,54 @@ class ChatBlueprint(BaseModel):
 class ConversationLogic(BaseModel):
     """Conversation logic model"""
     id: str = Field(..., alias="_id")
-    philosopher: str
+    author: str  # Changed from philosopher to author
     response_patterns: Optional[Dict[str, Any]] = None
     topic_preferences: Optional[List[str]] = None
     argumentation_style: Optional[str] = None
     question_handling: Optional[Dict[str, str]] = None
     
-    model_config = {"populate_by_name": True}
+    # For backward compatibility
+    @property
+    def philosopher(self) -> str:
+        return self.author
+    
+    model_config = {"populate_by_name": True, "arbitrary_types_allowed": True}
 
 class PhilosopherBot(BaseModel):
     """Philosopher bot configuration model"""
     id: str = Field(..., alias="_id")
-    philosopher: str
+    author: str  # Changed from philosopher to author
     bot_config: Optional[Dict[str, Any]] = None
     prompt_template: Optional[str] = None
     system_message: Optional[str] = None
     parameters: Optional[Dict[str, Any]] = None
     
-    model_config = {"populate_by_name": True}
+    # For backward compatibility
+    @property
+    def philosopher(self) -> str:
+        return self.author
+    
+    model_config = {"populate_by_name": True, "arbitrary_types_allowed": True}
 
 class ChatMessage(BaseModel):
     """Chat message model"""
     message: str = Field(..., min_length=1, description="User message")
-    philosopher: Optional[str] = Field(None, description="Target philosopher for response")
+    author: Optional[str] = Field(None, description="Target author for response")
     context: Optional[str] = Field(None, description="Additional context")
+    
+    # For backward compatibility
+    @property
+    def philosopher(self) -> Optional[str]:
+        return self.author
+    
+    @philosopher.setter
+    def philosopher(self, value: Optional[str]) -> None:
+        self.author = value
 
-class ChatResponse(BaseResponse):
+class ChatResponse(BaseModel):
     """Chat response model"""
     response: str
-    philosopher: str
+    author: str  # Changed from philosopher to author
     confidence: Optional[float] = None
     sources: Optional[List[str]] = None
 

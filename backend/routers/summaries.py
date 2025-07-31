@@ -246,7 +246,7 @@ async def search_summaries_collection(
                 {"description": {"$regex": query, "$options": "i"}},
                 {"content": {"$regex": query, "$options": "i"}},
                 {"summary": {"$regex": query, "$options": "i"}},
-                {"philosopher": {"$regex": query, "$options": "i"}},
+                {"author": {"$regex": query, "$options": "i"}},
                 {"themes": {"$regex": query, "$options": "i"}},
                 {"topic": {"$regex": query, "$options": "i"}}
             ]

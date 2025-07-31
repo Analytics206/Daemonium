@@ -20,12 +20,12 @@ async def get_db_manager():
 
 @router.get("/blueprints", response_model=ChatBlueprintResponse)
 async def get_chat_blueprints(
-    philosopher: Optional[str] = Query(None, description="Filter by philosopher"),
+    author: Optional[str] = Query(None, description="Filter by author"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
     """Get chat blueprints for philosopher personalities"""
     try:
-        blueprints = await db_manager.get_chat_blueprints(philosopher=philosopher)
+        blueprints = await db_manager.get_chat_blueprints(author=author)
         
         # Convert to Pydantic models
         blueprint_models = []
@@ -36,7 +36,7 @@ async def get_chat_blueprints(
                 logger.warning(f"Failed to parse chat blueprint {blueprint.get('_id', 'unknown')}: {e}")
                 continue
         
-        filter_msg = f" for philosopher '{philosopher}'" if philosopher else ""
+        filter_msg = f" for author '{author}'" if author else ""
         return ChatBlueprintResponse(
             data=blueprint_models,
             total_count=len(blueprint_models),
@@ -49,12 +49,12 @@ async def get_chat_blueprints(
 
 @router.get("/conversation-logic", response_model=ChatBlueprintResponse)
 async def get_conversation_logic(
-    philosopher: Optional[str] = Query(None, description="Filter by philosopher"),
+    author: Optional[str] = Query(None, description="Filter by author"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
     """Get conversation logic for philosophers"""
     try:
-        logic = await db_manager.get_conversation_logic(philosopher=philosopher)
+        logic = await db_manager.get_conversation_logic(author=author)
         
         # Convert to Pydantic models
         logic_models = []
@@ -65,7 +65,7 @@ async def get_conversation_logic(
                 logger.warning(f"Failed to parse conversation logic {item.get('_id', 'unknown')}: {e}")
                 continue
         
-        filter_msg = f" for philosopher '{philosopher}'" if philosopher else ""
+        filter_msg = f" for author '{author}'" if author else ""
         return ChatBlueprintResponse(
             data=logic_models,
             total_count=len(logic_models),
@@ -113,15 +113,15 @@ async def get_available_philosophers(
     try:
         # Get unique philosophers from chat blueprints
         blueprints_collection = db_manager.get_collection("chat_blueprints")
-        blueprint_philosophers = await blueprints_collection.distinct("philosopher")
+        blueprint_philosophers = await blueprints_collection.distinct("author")
         
         # Get unique philosophers from conversation logic
         logic_collection = db_manager.get_collection("conversation_logic")
-        logic_philosophers = await logic_collection.distinct("philosopher")
+        logic_philosophers = await logic_collection.distinct("author")
         
         # Get unique philosophers from philosopher bots
         bots_collection = db_manager.get_collection("philosopher_bots")
-        bot_philosophers = await bots_collection.distinct("philosopher")
+        bot_philosophers = await bots_collection.distinct("author")
         
         # Combine and deduplicate
         all_philosophers = set(blueprint_philosophers + logic_philosophers + bot_philosophers)
@@ -146,29 +146,29 @@ async def send_chat_message(
     """Send a message to a philosopher chatbot (mock implementation)"""
     try:
         # This is a mock implementation - in production you'd integrate with your LLM
-        philosopher = message.philosopher or "Nietzsche"  # Default to Nietzsche
+        author = message.author or "Nietzsche"  # Default to Nietzsche
         
-        # Get philosopher's chat blueprint for personality
+        # Get author's chat blueprint for personality
         blueprint = None
-        blueprints = await db_manager.get_chat_blueprints(philosopher=philosopher)
+        blueprints = await db_manager.get_chat_blueprints(author=author)
         if blueprints:
             blueprint = blueprints[0]
         
         # Get conversation logic
         logic = None
-        conversation_logic = await db_manager.get_conversation_logic(philosopher=philosopher)
+        conversation_logic = await db_manager.get_conversation_logic(author=author)
         if conversation_logic:
             logic = conversation_logic[0]
         
         # Mock response generation (replace with actual LLM integration)
         mock_responses = [
-            f"As {philosopher}, I find your question intriguing. Let me share my perspective...",
+            f"As {author}, I find your question intriguing. Let me share my perspective...",
             f"From my philosophical standpoint, {message.message.lower()} touches upon fundamental questions of existence.",
             f"In my view, this relates to the deeper nature of human experience and consciousness.",
             f"Your inquiry reminds me of my thoughts on the human condition and our search for meaning."
         ]
         
-        # Add philosopher-specific responses if blueprint available
+        # Add author-specific responses if blueprint available
         if blueprint and blueprint.get('typical_responses'):
             mock_responses.extend(list(blueprint['typical_responses'].values()))
         
@@ -180,10 +180,10 @@ async def send_chat_message(
         
         return ChatResponse(
             response=response_text,
-            philosopher=philosopher,
+            author=author,
             confidence=0.85,
-            sources=[f"{philosopher} philosophical writings", "Chat blueprint", "Conversation logic"],
-            message=f"Response generated for {philosopher}"
+            sources=[f"{author} philosophical writings", "Chat blueprint", "Conversation logic"],
+            message=f"Response generated for {author}"
         )
     
     except Exception as e:
@@ -258,7 +258,7 @@ async def get_philosopher_personality(
             raise HTTPException(status_code=404, detail=f"No personality data found for philosopher '{philosopher}'")
         
         personality_profile = {
-            "philosopher": philosopher,
+            "author": philosopher,
             "personality_traits": blueprint.get('personality_traits', []),
             "speaking_style": blueprint.get('speaking_style', ''),
             "core_beliefs": blueprint.get('core_beliefs', []),

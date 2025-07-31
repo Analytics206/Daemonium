@@ -67,8 +67,8 @@ async def get_idea_summaries(
             for idea in ideas:
                 include_idea = True
                 
-                if philosopher and idea.get('philosopher'):
-                    if philosopher.lower() not in idea['philosopher'].lower():
+                if philosopher and idea.get('author'):
+                    if philosopher.lower() not in idea['author'].lower():
                         include_idea = False
                 
                 if category and idea.get('category'):
@@ -146,7 +146,7 @@ async def get_ideas_by_philosopher(
         # Get from top_ten_ideas collection
         top_ten_collection = db_manager.get_collection("top_ten_ideas")
         top_ten_cursor = top_ten_collection.find(
-            {"philosopher": {"$regex": philosopher, "$options": "i"}}
+            {"author": {"$regex": philosopher, "$options": "i"}}
         ).limit(limit)
         top_ten_ideas = await top_ten_cursor.to_list(length=limit)
         
@@ -154,7 +154,7 @@ async def get_ideas_by_philosopher(
         if include_summaries:
             summaries_collection = db_manager.get_collection("idea_summaries")
             summaries_cursor = summaries_collection.find(
-                {"philosopher": {"$regex": philosopher, "$options": "i"}}
+                {"author": {"$regex": philosopher, "$options": "i"}}
             ).limit(limit)
             idea_summaries = await summaries_cursor.to_list(length=limit)
         else:

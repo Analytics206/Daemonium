@@ -174,7 +174,7 @@ class DatabaseManager:
         if not philosopher:
             return None
         
-        result = {"philosopher": philosopher, "school": None}
+        result = {"author": philosopher, "school": None}
         
         # Get school information if school_id exists
         if philosopher.get("school_id"):
@@ -191,7 +191,6 @@ class DatabaseManager:
         search_filter = {
             "$or": [
                 {"author": {"$regex": query, "$options": "i"}},
-                {"philosopher": {"$regex": query, "$options": "i"}},
                 {"summary": {"$regex": query, "$options": "i"}},
                 {"content": {"$regex": query, "$options": "i"}}
             ]
@@ -271,7 +270,10 @@ class DatabaseManager:
         
         filter_query = {}
         if philosopher:
-            filter_query["author"] = {"$regex": philosopher, "$options": "i"}
+            # Match either author or philosopher field for backward compatibility
+            filter_query["$or"] = [
+                {"author": {"$regex": philosopher, "$options": "i"}}
+            ]
         
         cursor = collection.find(filter_query).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
@@ -296,16 +298,14 @@ class DatabaseManager:
         return await cursor.to_list(length=limit)
     
     # Chat-related methods
-    async def get_chat_blueprints(self, philosopher: Optional[str] = None) -> List[Dict[str, Any]]:
-        """Get chat blueprints, optionally filtered by philosopher"""
+    async def get_chat_blueprints(self, author: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Get chat blueprints from the database"""
         collection = self.get_collection("chat_blueprints")
-        
-        filter_query = {}
-        if philosopher:
-            filter_query["author"] = {"$regex": philosopher, "$options": "i"}
-        
-        cursor = collection.find(filter_query)
-        return await cursor.to_list(length=None)
+        query = {}
+        if author:
+            query["author"] = author
+        cursor = collection.find(query)
+        return await cursor.to_list(length=100)
     
     async def get_philosopher_bots(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get philosopher bot configurations"""
@@ -313,16 +313,14 @@ class DatabaseManager:
         cursor = collection.find({}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
-    async def get_conversation_logic(self, philosopher: Optional[str] = None) -> List[Dict[str, Any]]:
-        """Get conversation logic, optionally filtered by philosopher"""
+    async def get_conversation_logic(self, author: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Get conversation logic from the database"""
         collection = self.get_collection("conversation_logic")
-        
-        filter_query = {}
-        if philosopher:
-            filter_query["author"] = {"$regex": philosopher, "$options": "i"}
-        
-        cursor = collection.find(filter_query)
-        return await cursor.to_list(length=None)
+        query = {}
+        if author:
+            query["author"] = author
+        cursor = collection.find(query)
+        return await cursor.to_list(length=100)
     
     # Search methods
     async def global_search(self, query: str, limit: int = 50) -> Dict[str, List[Dict[str, Any]]]:

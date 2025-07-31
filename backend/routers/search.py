@@ -130,7 +130,7 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
         return {
             "$or": [
                 {"text": {"$regex": query, "$options": "i"}},
-                {"philosopher": {"$regex": query, "$options": "i"}},
+                {"author": {"$regex": query, "$options": "i"}},
                 {"context": {"$regex": query, "$options": "i"}},
                 {"themes": {"$regex": query, "$options": "i"}}
             ]
@@ -141,7 +141,7 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
             "$or": [
                 {"title": {"$regex": query, "$options": "i"}},
                 {"description": {"$regex": query, "$options": "i"}},
-                {"philosopher": {"$regex": query, "$options": "i"}},
+                {"author": {"$regex": query, "$options": "i"}},
                 {"significance": {"$regex": query, "$options": "i"}}
             ]
         }
@@ -149,7 +149,7 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
     elif collection_name in ["chat_blueprints", "conversation_logic", "philosopher_bots"]:
         return {
             "$or": [
-                {"philosopher": {"$regex": query, "$options": "i"}},
+                {"author": {"$regex": query, "$options": "i"}},
                 {"speaking_style": {"$regex": query, "$options": "i"}},
                 {"personality_traits": {"$regex": query, "$options": "i"}},
                 {"core_beliefs": {"$regex": query, "$options": "i"}}
@@ -163,7 +163,7 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
                 {"title": {"$regex": query, "$options": "i"}},
                 {"description": {"$regex": query, "$options": "i"}},
                 {"content": {"$regex": query, "$options": "i"}},
-                {"philosopher": {"$regex": query, "$options": "i"}},
+                {"author": {"$regex": query, "$options": "i"}},
                 {"summary": {"$regex": query, "$options": "i"}},
                 {"themes": {"$regex": query, "$options": "i"}}
             ]
