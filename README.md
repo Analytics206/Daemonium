@@ -52,10 +52,12 @@ python scripts/manage_neo4j_databases.py stats daemonium-primary
 python scripts/manage_neo4j_databases.py clear daemonium-experimental
 ```
 
-**Knowledge Graph Building with Database Selection:**
+**Knowledge Graph Building with Embedding Model Selection:**
+
+Both scripts now support flexible embedding model selection based on evaluation results. By default, they use `llama3.1:latest` for both embeddings and semantic analysis, which performed best in our comprehensive evaluation.
 
 ```bash
-# Build knowledge graph in default database
+# Build knowledge graph with default settings (llama3.1:latest for both embeddings and semantic analysis)
 python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
 python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py
 
@@ -63,16 +65,40 @@ python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py
 python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py --database daemonium-primary
 python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --database daemonium-comparison
 
+# Use different models for embeddings vs semantic analysis
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --embedding-model llama3.1:latest --ollama-model llama3.2:latest
+python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py --embedding-model snowflake-arctic-embed --ollama-model llama3.1:latest
+
+# Switch back to SentenceTransformer for embeddings (if needed)
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --use-sentence-transformer
+python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py --use-sentence-transformer --database daemonium-experimental
 
 # Use environment variable for database selection
 set NEO4J_TARGET_DATABASE=daemonium-experimental
 python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
 python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py
 
-# Additional options (both scripts support these)
-python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --database daemonium-primary --ollama-model llama3.2:latest
-python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py -d daemonium-comparison --ollama-url http://localhost:11434
+# Full command with all options
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py \
+  --database daemonium-primary \
+  --ollama-url http://localhost:11434 \
+  --ollama-model llama3.1:latest \
+  --embedding-model llama3.1:latest
 ```
+
+**Available Command Line Options (both scripts):**
+- `--database`, `-d` - Target Neo4j database name (e.g., daemonium-primary)
+- `--ollama-url` - Ollama server URL (default: http://localhost:11434)
+- `--ollama-model` - Ollama model for semantic analysis (default: llama3.1:latest)
+- `--embedding-model` - Ollama model for embeddings (default: llama3.1:latest)
+- `--use-sentence-transformer` - Use SentenceTransformer instead of Ollama for embeddings
+
+**Embedding Model Recommendations (based on evaluation):**
+- **Best Overall**: `llama3.1:latest` (composite score: 0.324)
+- **Best for Semantic Similarity**: `llama3.1:latest` (score: 0.171)
+- **Best for Clustering**: `llama3.1:latest` (score: 0.363)
+- **Best for Entity Recognition**: `snowflake-arctic-embed` (score: 0.431)
+- **Best for Knowledge Graphs**: `snowflake-arctic-embed` (score: 0.377)
 
 **Note:** Both knowledge graph building scripts automatically display comprehensive statistics at the end of execution, including:
 - Node types and counts
@@ -109,9 +135,9 @@ python scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py --databases dae
 - **Consistency**: Temporal and semantic coherence
 - **Chatbot-Specific**: AI enhancement ratio, content accessibility, philosophical domain coverage
 
-#### 🔍 Ollama Embedding Model Evaluation
+#### 🔍 Embedding Model Evaluation & Integration
 
-Daemonium includes a comprehensive evaluation system for selecting the best Ollama embedding models for knowledge graph construction. This tool helps you choose the optimal embedding model for your philosophical content.
+Daemonium includes a comprehensive evaluation system for selecting the best embedding models for knowledge graph construction. Based on our evaluation results, **`llama3.1:latest` is now the default embedding model** for both knowledge graph builder scripts.
 
 **Quick Start:**
 ```bash
@@ -120,22 +146,48 @@ python llm_evaluation/setup_ollama_models.py
 
 # Evaluate all embedding models
 python llm_evaluation/main_sentence_transformers.py
+
+# View evaluation results
+cat llm_evaluation/eval_results/st_comparison_results.txt
 ```
+
+**Integration with Knowledge Graph Builders:**
+The evaluation results are automatically integrated into both `enhanced_neo4j_kg_build.py` and `improved_neo4j_kg_build.py` scripts:
+
+```bash
+# Scripts now default to the best-performing model (llama3.1:latest)
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
+
+# Override with specific embedding model if needed
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --embedding-model snowflake-arctic-embed
+
+# Compare different embedding approaches
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --database daemonium-primary --embedding-model llama3.1:latest
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --database daemonium-comparison --use-sentence-transformer
+```
+
+**Evaluation Results Summary:**
+- **🏆 Overall Winner**: `llama3.1:latest` (composite score: 0.324)
+- **🎯 Best for Semantic Similarity**: `llama3.1:latest` (score: 0.171)
+- **🔗 Best for Clustering**: `llama3.1:latest` (score: 0.363)
+- **📝 Best for Entity Recognition**: `snowflake-arctic-embed` (score: 0.431)
+- **🧠 Best for Knowledge Graphs**: `snowflake-arctic-embed` (score: 0.377)
 
 **Evaluation Features:**
 - 🎯 **Specialized Metrics** - Semantic similarity, clustering quality, entity recognition, relation extraction
-- 📊 **Comprehensive Analysis** - Evaluates multiple Ollama embedding models simultaneously
+- 📊 **Comprehensive Analysis** - Evaluates multiple embedding models simultaneously
 - 🏆 **Model Ranking** - Automatic ranking and recommendations for best-performing models
 - 📈 **Detailed Reports** - JSON results and comparative analysis reports
 - 🧠 **Philosophy-Focused** - Test datasets specifically designed for philosophical content
+- 🔄 **Auto-Integration** - Results automatically inform knowledge graph builder defaults
 
-**Supported Ollama Models:**
+**Supported Models:**
+- `llama3.1:latest` - **Default** - Best overall performance for philosophical content
+- `snowflake-arctic-embed` - Excellent for entity recognition and knowledge graphs
 - `nomic-embed-text` - Nomic's high-quality text embedding model
 - `mxbai-embed-large` - MixedBread AI's large embedding model
 - `all-minilm` - MiniLM embedding model
-- `snowflake-arctic-embed` - Snowflake's Arctic embedding model
-- `all-MiniLM-L6-v2` - Compact MiniLM variant
-- `llama3.1:latest` - Llama 3.1 with embedding capabilities
+- `all-MiniLM-L6-v2` - Compact MiniLM variant (SentenceTransformer fallback)
 
 **For detailed documentation, see:** [`llm_evaluation/README.md`](llm_evaluation/README.md)
 

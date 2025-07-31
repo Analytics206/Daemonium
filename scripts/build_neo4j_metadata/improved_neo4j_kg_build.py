@@ -27,6 +27,8 @@ class ImprovedKnowledgeGraphBuilder:
     def __init__(self, config_path: str = None, 
                  ollama_url: str = "http://localhost:11434", 
                  ollama_model: str = "llama3.1:latest",
+                 embedding_model: str = "llama3.1:latest",
+                 use_sentence_transformer: bool = False,
                  target_database: str = None):
         
         # Get script name for database selection
@@ -77,9 +79,18 @@ class ImprovedKnowledgeGraphBuilder:
         self.graph.delete_all()
         
         # AI Models
-        self.sentence_model = SentenceTransformer('all-MiniLM-L6-v2')
         self.ollama_url = ollama_url
         self.ollama_model = ollama_model
+        self.embedding_model = embedding_model
+        self.use_sentence_transformer = use_sentence_transformer
+        
+        # Initialize embedding model based on preference
+        if self.use_sentence_transformer:
+            self.sentence_model = SentenceTransformer('all-MiniLM-L6-v2')
+            logging.info("Using SentenceTransformer for embeddings: all-MiniLM-L6-v2")
+        else:
+            self.sentence_model = None
+            logging.info(f"Using Ollama for embeddings: {self.embedding_model}")
         
         # Cache for embeddings to avoid recomputation
         self.embedding_cache = {}
@@ -108,6 +119,31 @@ class ImprovedKnowledgeGraphBuilder:
             self.logger.error(f"Error querying Ollama: {e}")
             return ""
     
+    def get_ollama_embedding(self, text: str) -> np.ndarray:
+        """Get embedding from Ollama model"""
+        try:
+            response = requests.post(
+                f"{self.ollama_url}/api/embeddings",
+                json={
+                    "model": self.embedding_model,
+                    "prompt": text
+                },
+                timeout=30
+            )
+            if response.status_code == 200:
+                embedding = response.json().get('embedding', [])
+                if embedding:
+                    return np.array(embedding)
+                else:
+                    self.logger.warning("Empty embedding received from Ollama")
+                    return np.zeros(4096)  # Default embedding size for llama3.1
+            else:
+                self.logger.warning(f"Ollama embedding request failed: {response.status_code}")
+                return np.zeros(4096)
+        except Exception as e:
+            self.logger.error(f"Error getting Ollama embedding: {e}")
+            return np.zeros(4096)
+    
     def extract_concepts_with_ollama(self, text: str) -> List[str]:
         """Use Ollama to extract philosophical concepts from text"""
         prompt = f"""
@@ -130,7 +166,11 @@ class ImprovedKnowledgeGraphBuilder:
         if text in self.embedding_cache:
             return self.embedding_cache[text]
         
-        embedding = self.sentence_model.encode([text])[0]
+        if self.use_sentence_transformer:
+            embedding = self.sentence_model.encode([text])[0]
+        else:
+            embedding = self.get_ollama_embedding(text)
+        
         self.embedding_cache[text] = embedding
         return embedding
     
@@ -709,19 +749,25 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Build improved Neo4j knowledge graph with multi-database support')
     parser.add_argument('--database', '-d', type=str, help='Target Neo4j database name')
     parser.add_argument('--ollama-url', type=str, default="http://localhost:11434", help='Ollama server URL')
-    parser.add_argument('--ollama-model', type=str, default="llama3.1:latest", help='Ollama model to use')
+    parser.add_argument('--ollama-model', type=str, default="llama3.1:latest", help='Ollama model to use for semantic analysis')
+    parser.add_argument('--embedding-model', type=str, default="llama3.1:latest", help='Model to use for embeddings (Ollama model name)')
+    parser.add_argument('--use-sentence-transformer', action='store_true', help='Use SentenceTransformer instead of Ollama for embeddings')
     args = parser.parse_args()
     
     # Configuration is loaded automatically from config/default.yaml
     # You can optionally specify Ollama settings and target database
     OLLAMA_URL = args.ollama_url
     OLLAMA_MODEL = args.ollama_model
+    EMBEDDING_MODEL = args.embedding_model
+    USE_SENTENCE_TRANSFORMER = args.use_sentence_transformer
     TARGET_DATABASE = args.database
     
     try:
         builder = ImprovedKnowledgeGraphBuilder(
             ollama_url=OLLAMA_URL,
             ollama_model=OLLAMA_MODEL,
+            embedding_model=EMBEDDING_MODEL,
+            use_sentence_transformer=USE_SENTENCE_TRANSFORMER,
             target_database=TARGET_DATABASE
         )
         builder.build_knowledge_graph()
