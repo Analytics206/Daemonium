@@ -1,0 +1,137 @@
+{
+    "author": "John Stuart Mill",
+    "category": "Discussion Hooks",
+    "discussion_hooks": {
+      "Utilitarianism and Moral Theory": [
+        "Do you think the right action is always the one that produces the greatest happiness?",
+        "Can happiness be measured across different people fairly?",
+        "Is it moral to sacrifice the few for the happiness of the many?",
+        "Should we prioritize quality or quantity of pleasure?",
+        "Can pain ever be good if it leads to greater happiness later?",
+        "How do you distinguish higher pleasures from lower ones?",
+        "Is utility a sufficient basis for morality?",
+        "Do you act more from duty or from concern for consequences?",
+        "Can an action be wrong if it brings more happiness?",
+        "Should happiness be the sole measure of justice?",
+        "Are moral rights reducible to general utility?"
+      ],
+      "Liberty and Individual Freedom": [
+        "Should individuals be free to act as they wish if they harm no one?",
+        "Where should society draw the line between liberty and control?",
+        "Is freedom more about personal autonomy or protection from interference?",
+        "What happens to society when liberty is suppressed?",
+        "Do people have a right to make bad decisions, so long as they affect only themselves?",
+        "Can liberty exist without a culture of tolerance?",
+        "Is moral policing ever justified in a free society?",
+        "Should speech that offends be protected under liberty?",
+        "How do you balance freedom with responsibility?",
+        "Is liberty the highest political value?",
+        "Can public opinion be more oppressive than law?"
+      ],
+      "Freedom of Speech and Thought": [
+        "Should all ideas be allowed to be expressed, even dangerous ones?",
+        "Can silencing an opinion ever be justified?",
+        "How do we benefit from hearing ideas we disagree with?",
+        "Is it possible to be confident in your beliefs without exposure to the contrary?",
+        "What happens to truth when dissent is suppressed?",
+        "Can offensive speech contribute to social progress?",
+        "How do you know you're not simply echoing dominant opinion?",
+        "Is freedom of speech more valuable to society or to the individual?",
+        "Can truth survive without challenge?",
+        "Should people be protected from false or harmful beliefs?",
+        "How should we respond to ideas we believe are deeply wrong?"
+      ],
+      "Harm Principle and Social Ethics": [
+        "Is it ever justified to limit someone’s freedom for their own good?",
+        "What counts as 'harm' in the moral or legal sense?",
+        "Can emotional offense be considered a form of harm?",
+        "How should society respond to self-destructive behavior?",
+        "Does the harm principle apply equally to public and private life?",
+        "Should governments intervene in personal choices that don’t harm others?",
+        "Can omission or neglect be a form of harm?",
+        "What’s the moral difference between harm and mere inconvenience?",
+        "How do we balance individual risk with collective safety?",
+        "Does silence in the face of harm count as complicity?",
+        "Can freedom coexist with protection from harm?"
+      ],
+      "Women’s Rights and Equality": [
+        "Is equality a natural right or a social construction?",
+        "Should gender ever determine legal or social opportunity?",
+        "Can true justice exist without gender equality?",
+        "Is there any natural basis for assigning roles by gender?",
+        "How does society benefit from the full participation of women?",
+        "What social customs still limit liberty under the guise of tradition?",
+        "Should merit or identity be the basis for political and economic rights?",
+        "Can a just society allow any form of involuntary subordination?",
+        "What does equality require beyond legal rights?",
+        "How do you recognize and challenge invisible social constraints?",
+        "Is education the most powerful tool for liberation?"
+      ],
+      "Education and Intellectual Development": [
+        "Should education aim at developing reason or shaping character?",
+        "Can society thrive without widespread intellectual freedom?",
+        "What makes an education truly liberating?",
+        "Is critical thinking a teachable skill—or a natural disposition?",
+        "How does exposure to diverse views improve the mind?",
+        "Should education serve the individual or society first?",
+        "What role should government play in education?",
+        "Does ignorance threaten liberty?",
+        "Can people be truly free without intellectual cultivation?",
+        "Should all opinions be taught equally in schools?",
+        "What makes a society intellectually progressive?"
+      ],
+      "Democracy and Representative Government": [
+        "What are the greatest strengths of representative democracy?",
+        "Can a majority be as tyrannical as a monarch?",
+        "Should all citizens have an equal voice in politics?",
+        "Is political participation a duty or a right?",
+        "What limits, if any, should be placed on voting rights?",
+        "Can public opinion be more dangerous than state power?",
+        "Should educated opinions weigh more than uninformed ones?",
+        "What prevents democracy from becoming mob rule?",
+        "Is representative government superior to direct democracy?",
+        "How do we ensure democracy serves liberty—not just power?",
+        "Is democracy sustainable without individual responsibility?"
+      ],
+      "Progress and Civilization": [
+        "Is social progress inevitable—or does it require moral effort?",
+        "What are the signs of a civilized society?",
+        "Does economic growth always imply moral progress?",
+        "Can society progress without challenging inherited beliefs?",
+        "Is tradition an obstacle or a foundation for improvement?",
+        "Should we preserve the past or always seek the new?",
+        "What’s the role of dissent in human advancement?",
+        "Can political freedom exist without cultural evolution?",
+        "What responsibilities come with a more advanced civilization?",
+        "Is technological progress dangerous without moral progress?",
+        "What virtues sustain long-term societal flourishing?"
+      ],
+      "Justice and Social Reform": [
+        "What is the foundation of a just society?",
+        "Can justice ever be achieved without political reform?",
+        "Should laws reflect morality—or only maintain order?",
+        "Is legal justice enough—or do we need economic and social justice too?",
+        "Should equality of opportunity or equality of outcome be the goal?",
+        "Is it fair to redistribute wealth to reduce suffering?",
+        "Can social systems be neutral—or are they always biased?",
+        "What’s the relationship between justice and happiness?",
+        "Do you believe justice should prioritize the worst off?",
+        "Is reform possible without public pressure?",
+        "How do you judge whether a law is just?"
+      ],
+      "Individuality and Social Conformity": [
+        "Why is individuality important to human flourishing?",
+        "Does society punish those who are different?",
+        "Can nonconformity benefit the collective good?",
+        "Is being different a moral act—or just personal choice?",
+        "How does conformity threaten progress?",
+        "Should society encourage eccentricity?",
+        "What risks come with excessive individualism?",
+        "How can we tell if we're truly ourselves or products of custom?",
+        "Is true originality possible in modern life?",
+        "Does being different require courage?",
+        "How do we protect individuality while maintaining social cohesion?"
+      ]
+    }
+  }
+  

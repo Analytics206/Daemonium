@@ -1,0 +1,81 @@
+{
+    "author_bibliography": {
+      "author": "John Stuart Mill",
+      "birth_death": "1806 - 1873",
+      "description": "John Stuart Mill was a British philosopher, political economist, and civil servant, best known for his contributions to liberal thought, utilitarian ethics, and political philosophy. His bibliography covers a wide range of topics including liberty, ethics, logic, economics, and social theory.",
+      "background": "Mill was educated by his father, James Mill, and influenced heavily by Jeremy Bentham and utilitarianism. He was an early advocate for women's rights, freedom of speech, and individual liberty. Mill’s works deeply shaped 19th-century liberalism and continue to influence political philosophy and economics.",
+      "works": [
+        {
+          "title": "A System of Logic",
+          "original_title": "A System of Logic, Ratiocinative and Inductive",
+          "year": 1843,
+          "type": "Philosophy / Logic",
+          "summary": "A foundational text in logic and scientific methodology where Mill sets out his views on inductive reasoning and the principles of scientific inquiry."
+        },
+        {
+          "title": "Principles of Political Economy",
+          "original_title": "Principles of Political Economy",
+          "year": 1848,
+          "type": "Economics",
+          "summary": "Mill’s major work on economics, discussing production, distribution, and the role of government in economic affairs, combining classical economics with social reform."
+        },
+        {
+          "title": "On Liberty",
+          "original_title": "On Liberty",
+          "year": 1859,
+          "type": "Political Philosophy",
+          "summary": "A seminal essay arguing for the protection of individual freedom against societal and governmental encroachment, emphasizing the harm principle."
+        },
+        {
+          "title": "Utilitarianism",
+          "original_title": "Utilitarianism",
+          "year": 1861,
+          "type": "Ethics / Philosophy",
+          "summary": "An influential defense and elaboration of utilitarian moral philosophy, advocating the greatest happiness principle as the basis of ethics."
+        },
+        {
+          "title": "The Subjection of Women",
+          "original_title": "The Subjection of Women",
+          "year": 1869,
+          "type": "Social / Political Philosophy",
+          "summary": "An early and powerful argument for gender equality and women’s rights, challenging prevailing societal norms about women’s roles."
+        },
+        {
+          "title": "Autobiography",
+          "original_title": "Autobiography of John Stuart Mill",
+          "year": 1873,
+          "type": "Autobiography",
+          "summary": "Mill’s personal reflections on his life, education, and intellectual development, providing insight into his philosophy and character."
+        }
+      ],
+      "chronological_periods": {
+        "Early Period": {
+          "characteristics": "Focused on logic, scientific methodology, and early utilitarian thought influenced by Bentham and James Mill.",
+          "themes": "Logic, induction, early utilitarianism, education"
+        },
+        "Middle Period": {
+          "characteristics": "Development of political and economic philosophy integrating liberalism and social reform.",
+          "themes": "Political economy, liberty, individual rights, government role"
+        },
+        "Late Period": {
+          "characteristics": "Mature ethical and social philosophy, advocacy for women's rights and deep reflections on liberty and utilitarianism.",
+          "themes": "Utilitarian ethics, feminism, liberty, social justice"
+        }
+      },
+      "major_themes": [
+        "Utilitarianism and Ethics",
+        "Individual Liberty and Freedom",
+        "Political Economy and Social Reform",
+        "Women's Rights and Gender Equality",
+        "Scientific Logic and Methodology",
+        "Role of Government",
+        "Freedom of Speech",
+        "Education and Moral Development",
+        "Social Justice and Progress",
+        "Harm Principle"
+      ],
+      "influence": "Mill influenced liberal political philosophy, economics, and feminist thought. His ideas on liberty shaped modern democratic theory and civil rights discourse. He impacted philosophers such as Isaiah Berlin, John Rawls, and contemporary utilitarians.",
+      "note": "Mill’s synthesis of Benthamite utilitarianism with liberal individualism helped define modern liberal thought. His progressive views on women’s rights were ahead of his time."
+    }
+  }
+  
