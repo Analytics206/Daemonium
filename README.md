@@ -1,7 +1,6 @@
 
 # 🧠 Daemonium
 ## Overview
-
 Daemonium is an AI-powered conversational platform that brings philosophy to life through interactive dialogues with historical thinkers. This innovative application enables users to explore philosophical concepts, engage in thought-provoking conversations, and gain deeper insights into the works of great philosophers.
 
 ### 🎯 Core Objectives
@@ -388,82 +387,7 @@ Daemonium is designed to run locally using Docker, making it easy to set up and 
    pip install -r requirements.txt  # Production
    pip install -r requirements-dev.txt  # Development
    ```
-
-### Running the Import Script
-
-#### Prerequisites
-- Docker and Docker Compose must be running
-- Python environment with dependencies installed (see above)
-- The PostgreSQL container (`daemonium-postgresql`) should be running
-
-#### Start Docker Desktop
-
-  if (-not (Get-Process "Docker Desktop" -ErrorAction SilentlyContinue)) {
-      Start-Process $DockerDesktopPath
-      Write-Host "Docker Desktop is starting..."
-  } else {
-      Write-Host "Docker Desktop is already running."
-  }
-
-#### Using the Python Script (Cross-platform)
-
-1. Ensure Docker is running and the PostgreSQL container is up:
-   ```bash
-   docker-compose up -d postgresql
-   ```
-
-2. Run the import script:
-   ```bash
-   # Basic usage (uses default CSV path: data/philosophers.csv)
-   python scripts/import_philosophers.py data/philosophers.csv
-   
-   # Or specify a custom CSV file
-   python scripts/import_philosophers.py data/philosopher_schools.csv
-
-    python scripts/import_schools.py data/philosopher_schools.csv
-   ```
-
-#### Using the Batch File (Windows)
-
-The batch file simplifies the process on Windows:
-
-```batch
-# From the project root
-scripts\import_philosophers.bat
-```
-
-Or by double-clicking the batch file in Windows Explorer.
-
-#### What the Script Does
-1. Creates a temporary table in the database
-2. Imports data from the CSV file
-3. Updates existing records or inserts new ones based on the philosopher's name
-4. Shows the number of records processed
-
-#### Expected Output
-```
-Starting import from data/philosophers.csv
-Added unique constraint on name column
-Processed 2 philosopher records
-- Socrates (ID: 1) - Updated: 2025-06-23 01:05:30.123456+00:00
-- Plato (ID: 2) - Updated: 2025-06-23 01:05:30.123456+00:00
-Import completed successfully
-```
-
-#### Troubleshooting
-- If you get connection errors, ensure the PostgreSQL container is running
-- Check that the CSV file exists at the specified path
-- Verify the CSV format matches the expected columns: `name|dob|dod|summary|content|school_id|tag_id`
-
-### Development Tools
-- Format code: `black .`
-- Sort imports: `isort .`
-- Lint code: `pylint scripts/`
-- Run tests: `pytest`
-
 ---
-
-## 🚀 Key Features
 
 ## 🚀 Key Features
 | Feature                  | Description |
@@ -484,11 +408,11 @@ Import completed successfully
 ## 📦 System Components
 | Component                  | Purpose                                      |
 | -------------------------- | -------------------------------------------- |
-| **MongoDB**                | Stores normalized paper metadata and paper processing tracking    |
-| **Neo4j**                  | Stores the author-paper-category graph       |
+| **MongoDB**                | Stores philosophical metadata, paper information, and download statuses.   |
+| **Neo4j**                  | Stores the author-paper-category graph for knowledge graph analysis. |
 | **Qdrant**                 | Stores paper vector embeddings for semantic search with metrics tracking |
 | **Config Manager**         | Central config for category, limits, model   |
-| **User Interface**         | Web UI for interaction with graphs           |
+| **User Interface**         | Web UI for interaction with chatbots and knowledge graph analysis.        |
 | **Logger**                 | Tracks events, errors, and skipped entries   |
 | **Docker Compose**         | Brings it all together for local use         |
 | **Prometheus**             | Time series database for system metrics collection  |
@@ -544,7 +468,6 @@ python scripts/build_mongodb_metadata/run_all_uploaders.py --dry-run
 ```
 
 ### Data Sources
-
 All uploader scripts read from corresponding directories in `json_bot_docs/`:
 - `json_bot_docs/bibliography/` - Author bibliographies
 - `json_bot_docs/aphorisms/` - Philosophical aphorisms
@@ -583,16 +506,10 @@ For more deep dive into project and status, see the `docs/` directory.
 ---
 ## 💡 Use Cases
 ### Research & Knowledge Management
-- **Offline Semantic Paper Search**: Find relevant papers without relying on online search engines
-- **Research Gap Identification**: Analyze research areas to identify unexplored topics and opportunities
 
 ### Data Science & Analysis
-- **Research Trend Analysis**: 
-- **Citation Impact Visualization**: 
 
 ### AI-Assisted Research
-- **Paper Summarization**: 
-- **Research Agent**: 
 
 ### Education & Learning
 - **Personalized Learning Paths**: 
@@ -653,39 +570,9 @@ venv\Scripts\Activate.ps1
  - ✔ Network arxiv_pipeline_default         Started     
  - ✔ Container arxiv_pipeline-neo4j-1       Started     
 
-
-## 2. Managing Pipeline Service Containers
-   * pipelines do not have to run in order if you have previously run them or starting where you left off
-   * manual services (Jupyter, Kafka, etc.) are only started when needed with the `--profile manual` flag
-  ### a. Run sync_mongodb pipeline to fetch papers from ArXiv API and store in MongoDB:
-  ```bash
-  # Run the sync-mongodb pipeline container
-  docker compose up --build sync-mongodb
-  or
-   echo $env:MONGO_URI
-   $env:MONGO_URI="mongodb://localhost:27017/config"
-   python -m src.pipeline.sync_mongodb --config config/default.yaml
-  ```
-
-  ### b. Run sync-neo4j pipeline for new pdf metadata inserted from MongoDB:
-
-  ### c. Run sync_qdrant pipeline to process downloaded PDFs and store as vector embeddings in Qdrant:
-
 ## 3. (optional) Managing Monitoring Containers with Prometheus & Grafana
 a. **Start the monitoring stack:**
-   ```bash
-   docker compose -f docker-compose.monitoring.yml up -d
-   ```
-  or
-  **For monitoring containers, use the monitoring compose file:**
-  ```bash
-  # Start Prometheus
-  docker compose -f docker-compose.monitoring.yml start prometheus
-  # Start Grafana
-  docker compose -f docker-compose.monitoring.yml start grafana
-  # View Grafana logs
-  docker compose -f docker-compose.monitoring.yml logs grafana
-  ```
+
 b. **Access monitoring services:**
    - Prometheus: http://localhost:9090
    - Grafana: http://localhost:3001 (default login: admin/password)
@@ -698,44 +585,16 @@ c. **Explore metrics** for:
 
 d. **Monitoring Dashboards**
    Pre-configured Grafana dashboards are available in the repository:
-   - `config/grafana/dashboards/basic_test_dashboard.json` - Basic connectivity testing dashboard
-   - `config/grafana/dashboards/arxiv_data_science_dashboard.json` - Core monitoring for ArXiv pipeline
-   - `config/grafana/dashboards/arxiv_advanced_analytics_dashboard.json` - Advanced system correlation metrics
-   - `config/grafana/dashboards/arxiv_vector_embedding_dashboard.json` - Vector database performance metrics
 
    * These dashboards provide visualization for MongoDB operations, system resources, container performance, 
    and vector embedding generation metrics critical for the research paper processing pipeline.
 
 e. **Prometheus Query Documentation**
    Comprehensive documentation for Prometheus queries is available in:
-   - `docs/prometheus_basic_queries.md` - Simple queries for troubleshooting
-   - `docs/prometheus_queries.md` - General purpose monitoring queries
-   - `docs/prometheus_custom_queries.md` - ArXiv pipeline specific metrics
-   - `docs/prometheus_working_queries.md` - Verified working queries for dashboards
 
 f. **Monitoring Diagnostics**
-   Use the diagnostic script to verify your monitoring setup:
-   ```bash
-   python scripts/check_prometheus_metrics.py
-   ```
-   * This script analyzes your Prometheus setup and verifies that critical metrics
-   for the ArXiv pipeline are available and functioning correctly.
-
-* Refer to `docs/grafana_dashboard_guide.md` for details on customizing and extending these dashboards.**
 
 ## 4. Managing Manual Services
-
-The following services are configured with the `manual` profile in Docker Compose, which means they will only start when explicitly requested:
-
-### a. Jupyter Notebooks for Data Analysis
-```bash
-# Start Jupyter SciPy notebook server
-docker compose --profile manual up jupyter-scipy
-# Stop Jupyter SciPy notebook server
-docker compose --profile manual down jupyter-scipy
-```
-* Access at: http://localhost:8888 (check console for token)
-* Note: If token access is lost, restart the Jupyter docker container to get a new token
 
 ### b. Kafka Messaging System
 ```bash
@@ -758,17 +617,10 @@ docker compose --profile manual down zookeeper kafka kafka-ui
 ## 5. Database Connection Settings
 ```yaml
 mongo:
-  connection_string: "mongodb://mongodb:27017/" # or http://localhost:27017
-  db_name: "arxiv_papers"
-  
+
 neo4j:
-  url: "bolt://neo4j:7687"  # or http://localhost:7474
-  user: "neo4j"
-  password: "password"
 
 qdrant:
-  url: "http://localhost:6333" #Access Qdrant UI http://localhost:6333/dashboard
-  collection_name: "arxiv_papers"
 
 # Qdrant API Metrics
 # The database dashboard displays the following Qdrant metrics:
@@ -777,11 +629,7 @@ qdrant:
   vector_size: 768  # For all-MiniLM-L6-v2 model
 ```
 ## 6. Web UI
-* To restart Web UI docker service, starts with docker-compose up above:
-   ```bash
-   docker-compose up -d web-ui
-   ```
-* Access the web interface at: http://localhost:3000
+
 
 ### Web UI Development Setup
 
@@ -803,28 +651,9 @@ c. **Start the development server**:
    ```
 * The web UI connects to Neo4j using environment variables defined in the docker-compose.yml file.
 
-## 7. Data Visualization and Analysis Dashboards
-
-**Key Features:**
-- **Time-based Analysis**: 
-- **Multi-dimensional Filtering**: 
-- **Dynamic Category Selection**: 
 
 **How to Access:**
-1. Navigate to the web UI (http://localhost:3000) when services are running
-2. Click on "MongoDB Reports" in the navigation menu
-
-## 8. Data Validation and Analysis Utilities
-
-### Data Integrity Checking
-```python
-
-```
-
-### Formatted Reports
-```python
-
-```
+1. 
 
 ## 9. Managing Individual Docker Containers
 * For more fine-grained control over system components, you can start, stop, restart, and inspect specific containers:
@@ -858,16 +687,12 @@ docker compose logs --follow mongodb
 ```
 
 ### d. Inspecting Container Status
-
 ```bash
 # Check status of all containers
 docker compose ps
-```
+``` 
 
-## 6. Optional: GPU-Accelerated Qdrant Setup on Remote Windows Machine
-
-* For enhanced vector search performance, you can set up Qdrant with GPU acceleration on a separate Windows machine within the same network. This configuration is beneficial for:
-- Processing large volumes of papers with faster embedding searches
+## 10. Optional: GPU-Accelerated Qdrant Setup on Remote Windows Machine
 
 ### Quick Overview
 
@@ -891,32 +716,12 @@ c. **Integration with NEW PROJECT NAME**:
 ### Detailed Instructions
 * Complete step-by-step instructions are available in the `qdrant_setup` directory:
 
-```bash
-```
-
 #### The guide includes:
 - Full installation procedures
-- Configuration optimized for 768-dimensional embeddings (typical for research papers)
-- Testing and benchmarking tools
-- Maintenance and backup procedures
-- Security recommendations
 
 ## Updating Configuration
 
 * After setting up GPU-accelerated Qdrant, update your configuration:
-
-```yaml
-
-# In config/config.yaml
-
-qdrant:
-  host: "192.168.1.x"  # Replace with your Qdrant server's IP
-  port: 6333
-  collection_name: "arxiv_papers"
-
-```
-
-* **New Feature:** The sync_qdrant pipeline now includes **MongoDB tracking** to prevent duplicate processing of PDFs. Each processed PDF is recorded in the `vector_processed_pdfs` collection with metadata including file hash, processing date, and chunk count.
 
 ---
 
@@ -981,16 +786,10 @@ When running the `sync_qdrant` service in Docker, the PDF directory path specifi
 # In docker-compose.yml
 
 volumes:
-  - E:/AI Research:/app/data/pdfs  # Maps Windows path to container path
-```
+
 Config changes take effect when services are restarted. See `docs/system_design.md` for detailed information about configuration impact on system behavior.
 
 ## Qdrant Deployment Options
-
-This pipeline supports two options for running Qdrant (vector database):
-
-### Option 1: Running Qdrant in Docker (Default)
-
 In the `docker-compose.yml` file, we provide a pre-configured Qdrant container:
 
 ```yaml
@@ -1078,10 +877,7 @@ The Docker setup includes MongoDB, so no additional installation is needed if us
 
 3. **Test your connection**:
    ```python
-   from pymongo import MongoClient
-   client = MongoClient('mongodb://localhost:27017/')
-   db = client['arxiv_papers']
-   print(f"Connected to MongoDB: {client.server_info()['version']}")
+
    ```
 
 ### Neo4j Installation
@@ -1108,7 +904,6 @@ The Docker setup includes MongoDB, so no additional installation is needed if us
 ---
 
 ## Notes
-
 - **Python Versions**: 
   - Docker containers use `python:3.11-slim`
   - Local development 'requires' Python ≥3.11 as specified in pyproject.toml
@@ -1253,7 +1048,6 @@ The Document Reader MCP provides tools to read and analyze markdown and text fil
 **Location**: `scripts/mcp_document_reader.py`
 
 #### Available Tools:
-
 1. **`read_document`** - Read complete file content with metadata
    ```json
    {
@@ -1308,7 +1102,6 @@ The Document Reader MCP provides tools to read and analyze markdown and text fil
 - **Cross-platform compatibility**: Works on Windows, Linux, and macOS
 
 #### Windsurf IDE Configuration:
-
 Add to your Windsurf MCP settings:
 
 ```json
@@ -1414,15 +1207,13 @@ echo '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | python scripts/mcp_tts_w
 ```
 
 #### Debugging:
-
 - MCP servers log to stderr for debugging
 - Check Windsurf IDE logs for MCP connection issues
 - Ensure Python paths are correct in MCP configuration
 - Verify file permissions for script execution
 
 #### Requirements:
-
-- **Document Reader**: Python 3.7+ (no additional dependencies)
+- **Document Reader**: Python 3.11+ (no additional dependencies)
 - **Windows TTS**: Windows OS with PowerShell and SAPI support
 - **Windsurf IDE**: Latest version with MCP support
 
@@ -1435,14 +1226,14 @@ The following features are 'planned' for future development to enhance the resea
 - **Time-Series Analysis**: Track the evolution of research topics over time
 
 ### Research Enhancement Tools
-- **PDF Section Parsing**: Intelligently extract structured sections from research papers (abstract, methods, results, etc.)
-- **Citation Parsing**: Extract and normalize citations from paper references
-- **Mathematical Model Extraction**: Identify and extract mathematical formulas and models from papers
+- **PDF Section Parsing**: 
+- **Citation Parsing**: 
+- **Mathematical Model Extraction**: 
 
 ### Infrastructure Improvements
-- **LangChain-based Research Assistant**: Natural language interface to query the database
-- **Hybrid Search**: Combine keyword and semantic search for better results
-- **Export Tools**: Add BibTeX and PDF collection exports
+- **LangChain-based Research Assistant**: 
+- **Hybrid Search**: 
+- **Export Tools**: 
 
 ## To-Do List
 - [ ] **Short-term Tasks**
@@ -1451,4 +1242,3 @@ The following features are 'planned' for future development to enhance the resea
   - [ ] 
 ---
 For more details about project and status, see the `docs/` directory.
-

@@ -561,14 +561,18 @@ class ImprovedKnowledgeGraphBuilder:
                 # Extract key information from the bibliography document
                 bib_id = str(bib.get('_id', 'unknown'))
                 
-                # Get the main bibliography data (could be nested under various keys)
-                bib_data = None
-                for key, value in bib.items():
-                    if key != '_id' and isinstance(value, dict) and 'author' in value:
-                        bib_data = value
-                        break
+                # Check if data is directly at root level (new format)
+                if 'author' in bib and isinstance(bib.get('works'), list):
+                    bib_data = bib
+                else:
+                    # Fallback: look for nested data (old format)
+                    bib_data = None
+                    for key, value in bib.items():
+                        if key != '_id' and isinstance(value, dict) and 'author' in value:
+                            bib_data = value
+                            break
                 
-                if not bib_data:
+                if not bib_data or 'author' not in bib_data:
                     self.logger.warning(f"No valid bibliography data found in document {bib_id}")
                     continue
                 
