@@ -110,8 +110,8 @@ class PhilosophySchoolUploader:
         """Create indexes for the philosophy_schools collection."""
         try:
             indexes = [
-                IndexModel([("schoolID", ASCENDING)], unique=True),
-                IndexModel([("school", ASCENDING)], unique=True),
+                IndexModel([("school_id", ASCENDING)], unique=True),
+                IndexModel([("school", ASCENDING)]),  # Removed unique constraint
                 IndexModel([("category", ASCENDING)]),
                 IndexModel([("school", ASCENDING), ("category", ASCENDING)])
             ]
@@ -147,6 +147,10 @@ class PhilosophySchoolUploader:
         # Use schoolID as the primary identifier
         school_id = school_data.get('schoolID')
         school_name = school_data.get('school', 'Unknown')
+        
+        # Validate that schoolID is not None or empty
+        if school_id is None or school_id == '':
+            raise ValueError(f"School '{school_name}' has invalid or missing schoolID: {school_id}")
         
         # Create a unique identifier based on schoolID
         document_id = f"school_{school_id}"
@@ -189,39 +193,98 @@ class PhilosophySchoolUploader:
             # Set timestamps
             current_time = datetime.utcnow()
             
-            # Check if document exists
-            existing_doc = self.collection.find_one({'_id': document['_id']})
+            # First try to find by _id which is our primary key
+            document_id = document.get('_id')
+            existing_doc = self.collection.find_one({'_id': document_id}) if document_id else None
             
             if existing_doc:
                 # Update existing document
-                document['metadata']['upload_timestamp'] = existing_doc['metadata'].get('upload_timestamp', current_time)
-                document['metadata']['last_updated'] = current_time
+                update_data = {
+                    'school': document['school'],
+                    'category': document['category'],
+                    'summary': document['summary'],
+                    'core_principles': document['core_principles'],
+                    'school_normalized': document.get('school_normalized', ''),
+                    'category_normalized': document.get('category_normalized', ''),
+                    'keywords': document.get('keywords', []),
+                    'metadata': {
+                        'upload_timestamp': existing_doc['metadata'].get('upload_timestamp', current_time),
+                        'last_updated': current_time,
+                        'source_file': document['metadata']['source_file']
+                    }
+                }
                 
-                result = self.collection.replace_one(
-                    {'_id': document['_id']},
-                    document
+                # Use update_one with upsert=False to prevent creating new documents
+                result = self.collection.update_one(
+                    {'_id': document_id},
+                    {'$set': update_data}
                 )
                 
-                if result.modified_count > 0:
-                    self.logger.info(f"Updated existing school: {document['school']}")
+                if result.modified_count > 0 or result.matched_count > 0:
+                    self.logger.info(f"Updated existing school: {document.get('school', 'Unknown')} (ID: {document['school_id']})")
                     return True
                 else:
-                    self.logger.warning(f"No changes made to school: {document['school']}")
-                    return False
+                    self.logger.warning(f"No changes made to school: {document.get('school', 'Unknown')} (ID: {document['school_id']})")
+                    return True  # Still return True as this isn't an error
             else:
-                # Insert new document
+                # For new document, first check if a document with the same school_id exists
+                existing_by_id = self.collection.find_one({'school_id': document['school_id']})
+                if existing_by_id:
+                    # If a document with the same school_id exists, update it
+                    self.logger.warning(f"School with ID {document['school_id']} already exists, updating it.")
+                    
+                    update_data = {
+                        'school': document['school'],
+                        'category': document['category'],
+                        'summary': document['summary'],
+                        'core_principles': document['core_principles'],
+                        'school_normalized': document.get('school_normalized', ''),
+                        'category_normalized': document.get('category_normalized', ''),
+                        'keywords': document.get('keywords', []),
+                        'metadata': {
+                            'upload_timestamp': existing_by_id['metadata'].get('upload_timestamp', current_time),
+                            'last_updated': current_time,
+                            'source_file': document['metadata']['source_file']
+                        }
+                    }
+                    
+                    result = self.collection.update_one(
+                        {'_id': existing_by_id['_id']},
+                        {'$set': update_data}
+                    )
+                    
+                    if result.modified_count > 0 or result.matched_count > 0:
+                        self.logger.info(f"Updated existing school by ID: {document.get('school', 'Unknown')} (ID: {document['school_id']})")
+                        return True
+                    else:
+                        self.logger.warning(f"No changes made to school by ID: {document.get('school', 'Unknown')}")
+                        return True
+                
+                # If no existing document found, insert new one
                 document['metadata']['upload_timestamp'] = current_time
                 document['metadata']['last_updated'] = current_time
                 
-                self.collection.insert_one(document)
-                self.logger.info(f"Inserted new school: {document['school']}")
-                return True
+                # Ensure we have all required fields
+                if '_id' not in document:
+                    document['_id'] = f"school_{document['school_id']}"
                 
-        except DuplicateKeyError:
-            self.logger.error(f"Duplicate key error for school: {document['school']}")
-            return False
+                try:
+                    self.collection.insert_one(document)
+                    self.logger.info(f"Inserted new school: {document.get('school', 'Unknown')} (ID: {document['school_id']})")
+                    return True
+                except DuplicateKeyError as e:
+                    # If we get a duplicate key error, try to find the existing document by _id
+                    existing = self.collection.find_one({'_id': document['_id']})
+                    if existing:
+                        self.logger.warning(f"Document with _id {document['_id']} already exists, updating instead")
+                        return self._upsert_school(document)  # Recursively try to update
+                    
+                    # If we get here, it's an unexpected duplicate key error
+                    self.logger.error(f"Unexpected duplicate key error for school: {document.get('school', 'Unknown')}. Error: {str(e)}")
+                    return False
+                
         except Exception as e:
-            self.logger.error(f"Error upserting school {document['school']}: {e}")
+            self.logger.error(f"Error upserting school {document.get('school', 'Unknown')}: {e}")
             return False
             
     def process_philosophy_schools_file(self, schools_file: str) -> Dict[str, int]:
@@ -247,6 +310,11 @@ class PhilosophySchoolUploader:
             return stats
             
         self.logger.info(f"Found {len(schools_data)} philosophy schools to process")
+        
+        # Debug: Show first 3 schools
+        self.logger.info("DEBUG: First 3 schools:")
+        for i, school in enumerate(schools_data[:3]):
+            self.logger.info(f"  School {i+1}: ID={school.get('schoolID')}, Name={school.get('school')}")
         
         # Create indexes
         self._create_indexes()
@@ -320,6 +388,10 @@ def main():
     
     config_path = project_root / 'config' / 'default.yaml'
     schools_file = project_root / 'json_bot_docs' / 'philosophy_school' / 'philosophy_school.json'
+    
+    # Debug: Print the actual file path being used
+    print(f"DEBUG: Using schools file: {schools_file}")
+    print(f"DEBUG: File exists: {schools_file.exists()}")
     
     try:
         # Create and run the uploader
