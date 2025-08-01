@@ -24,17 +24,17 @@ class DatabaseManager:
         # Collection names based on project structure
         self.collection_names = [
             "aphorisms",
-            "book_summaries", 
+            "book_summary", 
             "books",
-            "chat_blueprints",
+            "chat_blueprint",
             "conversation_logic",
-            "discussion_hooks",
-            "idea_summaries",
-            "modern_adaptations",
-            "persona_cores",
-            "philosopher_bios",
-            "philosopher_bots",
-            "philosopher_summaries",
+            "discussion_hook",
+            "idea_summary",
+            "modern_adaptation",
+            "persona_core",
+            "philosopher_bio",
+            "philosopher_bot",
+            "philosopher_summary",
             "philosophers",
             "philosophy_schools",
             "philosophy_themes",
@@ -212,7 +212,7 @@ class DatabaseManager:
     
     async def get_book_summaries_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get book summaries by author"""
-        collection = self.get_collection("book_summaries")
+        collection = self.get_collection("book_summary")
         cursor = collection.find({"author": author}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
@@ -224,7 +224,7 @@ class DatabaseManager:
     
     async def get_idea_summaries_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get idea summaries by author"""
-        collection = self.get_collection("idea_summaries")
+        collection = self.get_collection("idea_summary")
         cursor = collection.find({"author": author}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
@@ -236,7 +236,7 @@ class DatabaseManager:
     
     async def get_philosopher_summaries_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get philosopher summaries by author"""
-        collection = self.get_collection("philosopher_summaries")
+        collection = self.get_collection("philosopher_summary")
         cursor = collection.find({"author": author}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
@@ -259,7 +259,7 @@ class DatabaseManager:
     
     async def get_book_summaries(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get book summaries with pagination"""
-        collection = self.get_collection("book_summaries")
+        collection = self.get_collection("book_summary")
         cursor = collection.find({}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
@@ -293,14 +293,14 @@ class DatabaseManager:
     
     async def get_idea_summaries(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get idea summaries with pagination"""
-        collection = self.get_collection("idea_summaries")
+        collection = self.get_collection("idea_summary")
         cursor = collection.find({}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
     # Chat-related methods
     async def get_chat_blueprints(self, author: Optional[str] = None) -> List[Dict[str, Any]]:
         """Get chat blueprints from the database"""
-        collection = self.get_collection("chat_blueprints")
+        collection = self.get_collection("chat_blueprint")
         query = {}
         if author:
             query["author"] = author
@@ -309,7 +309,7 @@ class DatabaseManager:
     
     async def get_philosopher_bots(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get philosopher bot configurations"""
-        collection = self.get_collection("philosopher_bots")
+        collection = self.get_collection("philosopher_bot")
         cursor = collection.find({}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
@@ -329,12 +329,12 @@ class DatabaseManager:
         
         # Search in key collections
         search_collections = [
-            "philosopher_summaries",
+            "philosopher_summary",
             "books", 
-            "book_summaries",
+            "book_summary",
             "aphorisms",
             "top_ten_ideas",
-            "idea_summaries"
+            "idea_summary"
         ]
         
         for collection_name in search_collections:
@@ -342,7 +342,7 @@ class DatabaseManager:
                 collection = self.get_collection(collection_name)
                 
                 # Create text search filter based on collection structure
-                if collection_name == "philosopher_summaries":
+                if collection_name == "philosopher_summary":
                     search_filter = {
                         "$or": [
                             {"author": {"$regex": query, "$options": "i"}},
@@ -350,7 +350,7 @@ class DatabaseManager:
                             {"content": {"$regex": query, "$options": "i"}}
                         ]
                     }
-                elif collection_name in ["books", "book_summaries"]:
+                elif collection_name in ["books", "book_summary"]:
                     search_filter = {
                         "$or": [
                             {"metadata.title": {"$regex": query, "$options": "i"}},

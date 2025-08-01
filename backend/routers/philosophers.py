@@ -216,11 +216,11 @@ async def get_all_content_by_author(
             "author": author,
             "philosophers": [],
             "aphorisms": [],
-            "book_summaries": [],
+            "book_summary": [],
             "top_ten_ideas": [],
-            "idea_summaries": [],
+            "idea_summary": [],
             "philosophy_themes": [],
-            "philosopher_summaries": []
+            "philosopher_summary": []
         }
         
         # Get philosophers
@@ -233,7 +233,7 @@ async def get_all_content_by_author(
         
         # Get book summaries
         book_summaries = await db_manager.get_book_summaries_by_author(author, limit=limit)
-        result["book_summaries"] = book_summaries
+        result["book_summary"] = book_summaries
         
         # Get top ten ideas
         top_ideas = await db_manager.get_top_ideas_by_author(author, limit=limit)
@@ -241,7 +241,7 @@ async def get_all_content_by_author(
         
         # Get idea summaries
         idea_summaries = await db_manager.get_idea_summaries_by_author(author, limit=limit)
-        result["idea_summaries"] = idea_summaries
+        result["idea_summary"] = idea_summaries
         
         # Get philosophy themes
         themes = await db_manager.get_philosophy_themes_by_author(author, limit=limit)
@@ -249,7 +249,7 @@ async def get_all_content_by_author(
         
         # Get philosopher summaries
         summaries = await db_manager.get_philosopher_summaries_by_author(author, limit=limit)
-        result["philosopher_summaries"] = summaries
+        result["philosopher_summary"] = summaries
         
         # Calculate totals
         total_items = sum(len(items) for items in result.values() if isinstance(items, list))

@@ -238,7 +238,7 @@ class ChatMessage(BaseModel):
     def philosopher(self, value: Optional[str]) -> None:
         self.author = value
 
-class ChatResponse(BaseModel):
+class ChatResponse(BaseResponse): # should be BaseResponse?
     """Chat response model"""
     response: str
     author: str  # Changed from philosopher to author

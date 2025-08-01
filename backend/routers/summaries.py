@@ -48,11 +48,11 @@ async def get_modern_adaptations(
 ):
     """Get modern adaptations of philosophical ideas"""
     try:
-        collection = db_manager.get_collection("modern_adaptations")
+        collection = db_manager.get_collection("modern_adaptation")
         
         filter_query = {}
         if philosopher:
-            filter_query["philosopher"] = {"$regex": philosopher, "$options": "i"}
+            filter_query["author"] = {"$regex": philosopher, "$options": "i"}
         
         cursor = collection.find(filter_query).skip(skip).limit(limit)
         adaptations = await cursor.to_list(length=limit)
@@ -62,7 +62,7 @@ async def get_modern_adaptations(
             "success": True,
             "data": adaptations,
             "total_count": len(adaptations),
-            "message": f"Retrieved {len(adaptations)} modern adaptations{filter_msg}"
+            "message": f"Retrieved {len(adaptations)} modern adaptation{filter_msg}"
         }
     
     except Exception as e:
@@ -78,7 +78,7 @@ async def get_discussion_hooks(
 ):
     """Get discussion hooks for philosophical conversations"""
     try:
-        collection = db_manager.get_collection("discussion_hooks")
+        collection = db_manager.get_collection("discussion_hook")
         
         filter_query = {}
         if topic:
@@ -114,7 +114,7 @@ async def get_philosopher_bios(
 ):
     """Get philosopher biographical information"""
     try:
-        collection = db_manager.get_collection("philosopher_bios")
+        collection = db_manager.get_collection("philosopher_bio")
         
         filter_query = {}
         if era:
@@ -134,12 +134,12 @@ async def get_philosopher_bios(
             "success": True,
             "data": bios,
             "total_count": len(bios),
-            "message": f"Retrieved {len(bios)} philosopher biographies{filter_msg}"
+            "message": f"Retrieved {len(bios)} philosopher biography{filter_msg}"
         }
     
     except Exception as e:
-        logger.error(f"Failed to get philosopher bios: {e}")
-        raise HTTPException(status_code=500, detail="Failed to retrieve philosopher biographies")
+        logger.error(f"Failed to get philosopher bio: {e}")
+        raise HTTPException(status_code=500, detail="Failed to retrieve philosopher bio")
 
 @router.get("/by-collection/{collection_name}", response_model=dict)
 async def get_summaries_by_collection(
@@ -153,10 +153,10 @@ async def get_summaries_by_collection(
     # Valid summary collections
     valid_collections = [
         "philosophy_themes",
-        "modern_adaptations", 
-        "discussion_hooks",
-        "philosopher_bios",
-        "persona_cores"
+        "modern_adaptation", 
+        "discussion_hook",
+        "philosopher_bio",
+        "persona_core"
     ]
     
     if collection_name not in valid_collections:
@@ -191,7 +191,7 @@ async def get_persona_cores(
 ):
     """Get persona cores for philosopher chatbots"""
     try:
-        collection = db_manager.get_collection("persona_cores")
+        collection = db_manager.get_collection("persona_core")
         
         filter_query = {}
         if philosopher:
@@ -205,12 +205,12 @@ async def get_persona_cores(
             "success": True,
             "data": cores,
             "total_count": len(cores),
-            "message": f"Retrieved {len(cores)} persona cores{filter_msg}"
+            "message": f"Retrieved {len(cores)} persona core{filter_msg}"
         }
     
     except Exception as e:
-        logger.error(f"Failed to get persona cores: {e}")
-        raise HTTPException(status_code=500, detail="Failed to retrieve persona cores")
+        logger.error(f"Failed to get persona core: {e}")
+        raise HTTPException(status_code=500, detail="Failed to retrieve persona core")
 
 @router.get("/search/{collection_name}", response_model=dict)
 async def search_summaries_collection(
@@ -224,10 +224,10 @@ async def search_summaries_collection(
     # Valid summary collections
     valid_collections = [
         "philosophy_themes",
-        "modern_adaptations", 
-        "discussion_hooks",
-        "philosopher_bios",
-        "persona_cores"
+        "modern_adaptation", 
+        "discussion_hook",
+        "philosopher_bio",
+        "persona_core"
     ]
     
     if collection_name not in valid_collections:

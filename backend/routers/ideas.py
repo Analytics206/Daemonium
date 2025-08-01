@@ -152,7 +152,7 @@ async def get_ideas_by_philosopher(
         
         # Get from idea_summaries collection if requested
         if include_summaries:
-            summaries_collection = db_manager.get_collection("idea_summaries")
+            summaries_collection = db_manager.get_collection("idea_summary")
             summaries_cursor = summaries_collection.find(
                 {"author": {"$regex": philosopher, "$options": "i"}}
             ).limit(limit)
@@ -213,7 +213,7 @@ async def get_idea_by_id(
             )
         
         # Try idea_summaries
-        summaries_collection = db_manager.get_collection("idea_summaries")
+        summaries_collection = db_manager.get_collection("idea_summary")
         idea = await summaries_collection.find_one({"_id": idea_id})
         
         if idea:

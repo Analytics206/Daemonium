@@ -35,10 +35,10 @@ async def global_search(
             target_collections = [c.strip() for c in collections.split(',')]
             # Validate collection names
             valid_collections = [
-                "philosopher_summaries", "books", "book_summaries", "aphorisms",
-                "top_ten_ideas", "idea_summaries", "philosophy_themes",
-                "modern_adaptations", "discussion_hooks", "philosopher_bios",
-                "persona_cores", "chat_blueprints", "conversation_logic", "philosopher_bots"
+                "philosopher_summary", "books", "book_summary", "aphorisms",
+                "top_ten_ideas", "idea_summary", "philosophy_themes",
+                "modern_adaptation", "discussion_hook", "philosopher_bio",
+                "persona_core", "chat_blueprint", "conversation_logic", "philosopher_bot"
             ]
             invalid_collections = [c for c in target_collections if c not in valid_collections]
             if invalid_collections:
@@ -104,17 +104,17 @@ async def search_specific_collections(
 def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
     """Create search filter based on collection structure"""
     
-    if collection_name == "philosopher_summaries":
+    if collection_name == "philosopher_summary":
         return {
             "$or": [
                 {"name": {"$regex": query, "$options": "i"}},
                 {"summary": {"$regex": query, "$options": "i"}},
                 {"key_concepts": {"$regex": query, "$options": "i"}},
-                {"philosophical_school": {"$regex": query, "$options": "i"}}
+                {"philosophical_schools": {"$regex": query, "$options": "i"}}
             ]
         }
     
-    elif collection_name in ["books", "book_summaries"]:
+    elif collection_name in ["books", "book_summary"]:
         return {
             "$or": [
                 {"metadata.title": {"$regex": query, "$options": "i"}},
@@ -136,7 +136,7 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
             ]
         }
     
-    elif collection_name in ["top_ten_ideas", "idea_summaries"]:
+    elif collection_name in ["top_ten_ideas", "idea_summary"]:
         return {
             "$or": [
                 {"title": {"$regex": query, "$options": "i"}},
@@ -146,7 +146,7 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
             ]
         }
     
-    elif collection_name in ["chat_blueprints", "conversation_logic", "philosopher_bots"]:
+    elif collection_name in ["chat_blueprint", "conversation_logic", "philosopher_bot"]:
         return {
             "$or": [
                 {"author": {"$regex": query, "$options": "i"}},
@@ -187,7 +187,7 @@ async def search_philosophers(
             results = {"philosophers": philosophers_results} if philosophers_results else {}
         else:
             # Search across all philosopher-related collections
-            philosopher_collections = ["philosophers", "philosopher_summaries", "philosopher_bios", "philosopher_bots"]
+            philosopher_collections = ["philosophers", "philosopher_summary", "philosopher_bio", "philosopher_bot"]
             results = await search_specific_collections(db_manager, query, philosopher_collections, limit)
         
         search_time = (time.time() - start_time) * 1000
@@ -215,7 +215,7 @@ async def search_content(
     try:
         start_time = time.time()
         
-        content_collections = ["books", "book_summaries", "aphorisms", "top_ten_ideas", "idea_summaries"]
+        content_collections = ["books", "book_summary", "aphorisms", "top_ten_ideas", "idea_summary"]
         results = await search_specific_collections(db_manager, query, content_collections, limit)
         
         search_time = (time.time() - start_time) * 1000
@@ -244,7 +244,7 @@ async def get_search_suggestions(
         suggestions = []
         
         # Get philosopher names for suggestions
-        philosopher_collection = db_manager.get_collection("philosopher_summaries")
+        philosopher_collection = db_manager.get_collection("philosopher_summary")
         philosopher_cursor = philosopher_collection.find(
             {"name": {"$regex": f"^{query}", "$options": "i"}},
             {"name": 1}
