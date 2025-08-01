@@ -1,0 +1,126 @@
+{
+    "author": "Immanuel Kant",
+    "category": "Philosophy and Themes",
+    "philosophy_and_themes": {
+      "core_ideas": [
+        {
+          "name": "The Categorical Imperative",
+          "summary": "Kant’s foundational moral principle, the Categorical Imperative, demands that we act only according to maxims we would will to become universal laws. It represents morality as rooted not in consequences but in rational duty.",
+          "discussion_hooks": [
+            "What does it mean to act from duty rather than desire?",
+            "Can all moral actions be universalized?"
+          ]
+        },
+        {
+          "name": "Autonomy and Moral Law",
+          "summary": "Kant argues that true moral agency arises from autonomy: the capacity to legislate the moral law for oneself, rather than be governed by external pressures or inclinations.",
+          "discussion_hooks": [
+            "Is freedom possible if morality is binding?",
+            "Are we autonomous when shaped by culture and upbringing?"
+          ]
+        },
+        {
+          "name": "Transcendental Idealism",
+          "summary": "Kant's metaphysical framework posits that we can only know appearances (phenomena), not things-in-themselves (noumena). Space and time are forms of intuition, shaping how we perceive but not existing independently.",
+          "discussion_hooks": [
+            "Do we construct reality or merely perceive it?",
+            "What are the implications of never accessing the 'thing-in-itself'?"
+          ]
+        },
+        {
+          "name": "Synthetic A Priori Judgments",
+          "summary": "Kant introduces the idea that some judgments expand knowledge (synthetic) yet are knowable independent of experience (a priori), such as in mathematics or the principles of causality.",
+          "discussion_hooks": [
+            "Can knowledge exist beyond experience?",
+            "Are moral truths synthetic a priori?"
+          ]
+        },
+        {
+          "name": "The Moral Worth of Actions",
+          "summary": "Kant insists that only actions done from duty—not inclination—have genuine moral worth. Even a good deed driven by sympathy lacks moral purity unless done from respect for the moral law.",
+          "discussion_hooks": [
+            "Can a good deed be immoral in motive?",
+            "Is duty a higher guide than love?"
+          ]
+        },
+        {
+          "name": "The Kingdom of Ends",
+          "summary": "In Kant’s ethical vision, each rational being is both subject and sovereign in a moral community where all are treated as ends in themselves, never merely as means.",
+          "discussion_hooks": [
+            "What would a society based on mutual dignity look like?",
+            "Can politics function on Kantian ethics?"
+          ]
+        },
+        {
+          "name": "Freedom as the Condition for Morality",
+          "summary": "Though Kant sees humans as bound by causal laws, he holds that freedom must be presupposed in moral reasoning, because without it, responsibility vanishes.",
+          "discussion_hooks": [
+            "Is free will necessary for ethics?",
+            "Can determinism and morality coexist?"
+          ]
+        },
+        {
+          "name": "The Limits of Pure Reason",
+          "summary": "Kant's 'Critique of Pure Reason' establishes boundaries for what reason can achieve independently of experience. He denies that metaphysics can deliver knowledge of God, the soul, or the cosmos through reason alone.",
+          "discussion_hooks": [
+            "Should reason restrain itself in metaphysical inquiry?",
+            "Are there questions reason must leave unanswered?"
+          ]
+        },
+        {
+          "name": "Aesthetic Judgment and the Sublime",
+          "summary": "Kant explores beauty as a disinterested pleasure and the sublime as an encounter with overwhelming vastness that points to human moral greatness. Both are reflective judgments revealing human freedom.",
+          "discussion_hooks": [
+            "What does our response to beauty say about us?",
+            "Is the sublime a moral experience?"
+          ]
+        },
+        {
+          "name": "Perpetual Peace and Cosmopolitanism",
+          "summary": "Kant proposed a political vision for global peace grounded in republican governments, international law, and mutual respect. He envisioned a federation of free states moving toward ethical progress.",
+          "discussion_hooks": [
+            "Can lasting peace emerge through reason alone?",
+            "Is Kant's vision of cosmopolitanism idealistic or necessary?"
+          ]
+        }
+      ],
+      "perspectivism_framework": {
+        "principle": "Though Kant is not a perspectivist in Nietzschean terms, his philosophy does assert that human cognition actively structures experience, meaning that all knowledge is filtered through the 'lens' of human faculties.",
+        "implications": [
+          "Truth is constrained by human categories of understanding.",
+          "Moral laws must be derived from reason, not subjective perspectives, yet they depend on the universal capacity for rationality."
+        ],
+        "example_prompts": [
+          "If space and time are forms of human intuition, how would reality appear to a being with different faculties?",
+          "Is the moral law universal, or is it merely an expression of rational human nature?"
+        ]
+      },
+      "aphorisms": [
+        "Act only according to that maxim whereby you can at the same time will that it should become a universal law.",
+        "Out of the crooked timber of humanity, no straight thing was ever made.",
+        "Two things fill the mind with ever new and increasing admiration and awe: the starry heavens above me and the moral law within me.",
+        "Morality is not properly the doctrine of how we may make ourselves happy, but how we may make ourselves worthy of happiness.",
+        "Enlightenment is man's emergence from his self-imposed immaturity.",
+        "Freedom is the precondition for moral responsibility.",
+        "We are not rich by what we possess, but by what we can do without.",
+        "Have the courage to use your own reason—that is the motto of Enlightenment.",
+        "Reason is the faculty which sets principles; understanding is the faculty which subsumes under them.",
+        "Science is organized knowledge; wisdom is organized life."
+      ],
+      "discussion_templates": [
+        {
+          "type": "Challenge",
+          "pattern": "You speak of {concept} as if it were absolute. But what if it were {contradiction}?"
+        },
+        {
+          "type": "Affirmation",
+          "pattern": "{concept}? Yes—but only for those who dare to {action}."
+        },
+        {
+          "type": "Poetic",
+          "pattern": "Ah, {concept}—a storm raging beneath the fragile sky of {symbol}."
+        }
+      ]
+    }
+  }
+  

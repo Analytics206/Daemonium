@@ -1,0 +1,106 @@
+{
+    "author": "Immanuel Kant",
+    "category": "Top 10 Ideas",
+    "top_ideas": [
+      {
+        "idea": "The Categorical Imperative",
+        "description": "A central concept in Kant's moral philosophy, it is a universal moral law that commands actions irrespective of personal desires. One must act only according to that maxim by which you can at the same time will that it should become a universal law.",
+        "key_books": [
+          "Groundwork of the Metaphysics of Morals",
+          "Critique of Practical Reason",
+          "Metaphysics of Morals"
+        ]
+      },
+      {
+        "idea": "Transcendental Idealism",
+        "description": "Kant’s theory that we do not perceive things as they are in themselves (noumena), but rather as they appear to us (phenomena), structured by the a priori intuitions of space and time and the categories of understanding.",
+        "key_books": [
+          "Critique of Pure Reason",
+          "Prolegomena to Any Future Metaphysics",
+          "Critique of Judgment"
+        ]
+      },
+      {
+        "idea": "Synthetic A Priori Judgments",
+        "description": "Kant argued that some knowledge is both derived independently of experience (a priori) and adds new information to our understanding (synthetic), such as mathematical and metaphysical principles.",
+        "key_books": [
+          "Critique of Pure Reason",
+          "Prolegomena to Any Future Metaphysics",
+          "Logic Lectures"
+        ]
+      },
+      {
+        "idea": "Kingdom of Ends",
+        "description": "A formulation of the categorical imperative, the Kingdom of Ends represents a systematic union of different rational beings under common laws, where all individuals treat each other as ends in themselves and never merely as means.",
+        "key_books": [
+          "Groundwork of the Metaphysics of Morals",
+          "Critique of Practical Reason",
+          "Metaphysics of Morals"
+        ]
+      },
+      {
+        "idea": "Moral Autonomy",
+        "description": "The idea that moral agents are bound by moral law only because they autonomously impose it upon themselves, rejecting heteronomous sources like divine command or utilitarian calculation.",
+        "key_books": [
+          "Groundwork of the Metaphysics of Morals",
+          "Critique of Practical Reason",
+          "Religion Within the Boundaries of Mere Reason"
+        ]
+      },
+      {
+        "idea": "The Copernican Revolution in Philosophy",
+        "description": "Kant likened his approach in epistemology to Copernicus’ revolution in astronomy. Instead of assuming that knowledge conforms to objects, he proposed that objects conform to the mind’s structures of understanding.",
+        "key_books": [
+          "Critique of Pure Reason",
+          "Prolegomena to Any Future Metaphysics",
+          "Logic Lectures"
+        ]
+      },
+      {
+        "idea": "Duty-Based Ethics (Deontology)",
+        "description": "Ethics should be grounded in duty and the inherent rightness of actions, not in their consequences. Moral worth is determined by whether an action is done from duty.",
+        "key_books": [
+          "Groundwork of the Metaphysics of Morals",
+          "Critique of Practical Reason",
+          "Lectures on Ethics"
+        ]
+      },
+      {
+        "idea": "Aesthetic Judgment and the Sublime",
+        "description": "Kant distinguished between the beautiful and the sublime. Aesthetic judgments, though subjective, have a claim to universality, arising from our shared faculties of perception and reason.",
+        "key_books": [
+          "Critique of Judgment",
+          "Anthropology from a Pragmatic Point of View",
+          "Lectures on Aesthetics"
+        ]
+      },
+      {
+        "idea": "Perpetual Peace",
+        "description": "A political and moral vision for global peace built on republican constitutions, international cooperation, and a federation of free states—a precursor to modern liberal internationalism.",
+        "key_books": [
+          "Perpetual Peace: A Philosophical Sketch",
+          "Metaphysics of Morals",
+          "Idea for a Universal History from a Cosmopolitan Perspective"
+        ]
+      },
+      {
+        "idea": "The Noumenon and Phenomenon Distinction",
+        "description": "Kant distinguished between the 'noumenon' (the thing-in-itself) which exists independently of our perception, and 'phenomena', which is how we experience the world through our senses and mental structures.",
+        "key_books": [
+          "Critique of Pure Reason",
+          "Prolegomena to Any Future Metaphysics",
+          "Critique of Judgment"
+        ]
+      },
+      {
+        "idea": "Good Will as the Only Unqualified Good",
+        "description": "Kant believed that a good will is the only thing that is good without qualification. Intelligence, courage, or wealth are not good in themselves unless guided by a good will.",
+        "key_books": [
+          "Groundwork of the Metaphysics of Morals",
+          "Critique of Practical Reason",
+          "Lectures on Ethics"
+        ]
+      }
+    ]
+  }
+  
