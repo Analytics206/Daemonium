@@ -1,0 +1,102 @@
+{
+    "author_bibliography": {
+      "author": "Simone de Beauvoir",
+      "birth_death": "1908 - 1986",
+      "description": "Simone de Beauvoir was a French existentialist philosopher, feminist theorist, and novelist. She is best known for her pioneering work in feminist philosophy, particularly her monumental book 'The Second Sex,' which laid the foundation for modern gender studies and feminist thought.",
+      "background": "Born in Paris, de Beauvoir was an intellectual prodigy who studied philosophy at the Sorbonne. A lifelong partner of Jean-Paul Sartre, she was deeply involved in the existentialist movement. Her writings span philosophy, fiction, memoir, and political commentary, exploring freedom, ethics, gender, aging, and oppression. Her thought blends existentialist themes with historical materialism and lived experience.",
+      "works": [
+        {
+          "title": "She Came to Stay",
+          "original_title": "L'Invitée",
+          "year": 1943,
+          "type": "Novel / Existentialist Fiction",
+          "summary": "A semi-autobiographical novel exploring themes of freedom, jealousy, and existential tension in human relationships. It mirrors de Beauvoir’s relationship with Sartre and Olga Kosakiewicz."
+        },
+        {
+          "title": "The Blood of Others",
+          "original_title": "Le Sang des autres",
+          "year": 1945,
+          "type": "Novel / Political Fiction",
+          "summary": "A novel confronting the moral dilemmas of political resistance during World War II. It examines personal responsibility, guilt, and the consequences of action or inaction."
+        },
+        {
+          "title": "All Men Are Mortal",
+          "original_title": "Tous les hommes sont mortels",
+          "year": 1946,
+          "type": "Novel / Philosophical Fiction",
+          "summary": "A story about an immortal man and the futility of eternity, exploring existential themes such as meaning, time, and the burden of limitless life."
+        },
+        {
+          "title": "The Ethics of Ambiguity",
+          "original_title": "Pour une morale de l'ambiguïté",
+          "year": 1947,
+          "type": "Philosophy / Ethics",
+          "summary": "A concise existentialist ethics work where de Beauvoir argues that human freedom is situated and ambiguous, and that ethical action comes through recognition of others’ freedom."
+        },
+        {
+          "title": "The Second Sex",
+          "original_title": "Le Deuxième Sexe",
+          "year": 1949,
+          "type": "Philosophy / Feminist Theory",
+          "summary": "De Beauvoir’s magnum opus, examining the construction of womanhood through history, biology, psychoanalysis, and culture. The book coined the famous phrase, 'One is not born, but rather becomes, a woman.'"
+        },
+        {
+          "title": "Memoirs of a Dutiful Daughter",
+          "original_title": "Mémoires d'une jeune fille rangée",
+          "year": 1958,
+          "type": "Autobiography",
+          "summary": "The first volume of de Beauvoir’s memoirs, detailing her early life, education, and philosophical awakening, especially in relation to gender and rebellion."
+        },
+        {
+          "title": "The Mandarins",
+          "original_title": "Les Mandarins",
+          "year": 1954,
+          "type": "Novel / Autobiographical Fiction",
+          "summary": "A roman à clef depicting post-war intellectual life in Paris, exploring political commitment and personal relationships. The book won the Prix Goncourt."
+        },
+        {
+          "title": "The Coming of Age",
+          "original_title": "La Vieillesse",
+          "year": 1970,
+          "type": "Philosophy / Social Critique",
+          "summary": "A major work examining aging as both a biological and cultural phenomenon, and how society marginalizes the elderly. It expands her existential critique into later life."
+        },
+        {
+          "title": "Adieux: A Farewell to Sartre",
+          "original_title": "La Cérémonie des adieux",
+          "year": 1981,
+          "type": "Memoir / Biography",
+          "summary": "A reflective memoir on Sartre’s final years, including conversations between the two and a touching, often controversial, portrayal of his decline and their bond."
+        }
+      ],
+      "chronological_periods": {
+        "Early Period (1930s–1945)": {
+          "characteristics": "Development of existentialist themes through fiction, often exploring relationships, freedom, and self-deception.",
+          "themes": "Freedom, bad faith, gendered experience, political awakening"
+        },
+        "Middle Period (1945–1960)": {
+          "characteristics": "Philosophical and feminist peak, combining existentialism with historical and gender analysis. Included major theoretical and autobiographical work.",
+          "themes": "Feminism, ethics, embodiment, ambiguity, lived experience"
+        },
+        "Later Period (1960–1986)": {
+          "characteristics": "Reflection on aging, personal history, and Sartre’s legacy. Expanded her social critique to aging, memory, and mortality.",
+          "themes": "Aging, mortality, memory, legacy, love and loss"
+        }
+      },
+      "major_themes": [
+        "Existential Freedom and Responsibility",
+        "Ambiguity and Ethical Action",
+        "The Construction of Gender",
+        "Oppression and Liberation",
+        "Embodiment and Lived Experience",
+        "Otherness and the Gaze",
+        "Feminist Ethics and Solidarity",
+        "Time, Aging, and Mortality",
+        "Political Commitment and Resistance",
+        "Love, Autonomy, and Intimacy"
+      ],
+      "influence": "Simone de Beauvoir reshaped feminist thought and existential ethics, influencing generations of feminist theorists, poststructuralists, and phenomenologists, including Judith Butler, bell hooks, and Iris Marion Young. Her blend of personal experience and rigorous analysis laid groundwork for feminist existentialism and critical theory.",
+      "note": "De Beauvoir’s life and work continually blurred the line between the personal and the political. She saw philosophy as a tool for lived liberation, and her writings retain deep cultural, ethical, and feminist relevance today."
+    }
+  }
+  

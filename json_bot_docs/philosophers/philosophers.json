@@ -511,7 +511,7 @@
     "summary": "French philosopher",
     "content": "De Beauvoir, an existentialist and feminist philosopher, explored the construction of gender in \"The Second Sex,\" arguing that women are made, not born, into their social roles.",
     "school_id": 16,
-    "is_active_chat": 0,
+    "is_active_chat": 1,
     "tag_id": 4
   },
   {
@@ -544,7 +544,7 @@
     "summary": "Austrian philosopher",
     "content": "Wittgenstein revolutionized philosophy of language and logic. His early work emphasized logical structure, while his later philosophy focused on language games and meaning in use.",
     "school_id": 23,
-    "is_active_chat": 0,
+    "is_active_chat": 1,
     "tag_id": 2
   }
 ]

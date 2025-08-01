@@ -111,9 +111,9 @@ class PhilosophySchoolUploader:
         try:
             indexes = [
                 IndexModel([("schoolID", ASCENDING)], unique=True),
-                IndexModel([("name", ASCENDING)], unique=True),
+                IndexModel([("school", ASCENDING)], unique=True),
                 IndexModel([("category", ASCENDING)]),
-                IndexModel([("name", ASCENDING), ("category", ASCENDING)])
+                IndexModel([("school", ASCENDING), ("category", ASCENDING)])
             ]
             
             self.collection.create_indexes(indexes)
@@ -146,7 +146,7 @@ class PhilosophySchoolUploader:
         """Prepare philosophy school document for MongoDB insertion."""
         # Use schoolID as the primary identifier
         school_id = school_data.get('schoolID')
-        school_name = school_data.get('name', 'Unknown')
+        school_name = school_data.get('school', 'Unknown')
         
         # Create a unique identifier based on schoolID
         document_id = f"school_{school_id}"
@@ -154,7 +154,7 @@ class PhilosophySchoolUploader:
         document = {
             '_id': document_id,
             'school_id': school_id,
-            'name': school_name,
+            'school': school_name,
             'category': school_data.get('category', 'Unknown'),
             'summary': school_data.get('summary', ''),
             'core_principles': school_data.get('corePrinciples', ''),
@@ -166,7 +166,7 @@ class PhilosophySchoolUploader:
         }
         
         # Add derived fields for better searchability
-        document['name_normalized'] = school_name.lower().replace(' ', '_')
+        document['school_normalized'] = school_name.lower().replace(' ', '_')
         document['category_normalized'] = school_data.get('category', 'Unknown').lower().replace(' ', '_').replace('&', 'and')
         
         # Extract keywords from summary and principles for enhanced search
@@ -203,10 +203,10 @@ class PhilosophySchoolUploader:
                 )
                 
                 if result.modified_count > 0:
-                    self.logger.info(f"Updated existing school: {document['name']}")
+                    self.logger.info(f"Updated existing school: {document['school']}")
                     return True
                 else:
-                    self.logger.warning(f"No changes made to school: {document['name']}")
+                    self.logger.warning(f"No changes made to school: {document['school']}")
                     return False
             else:
                 # Insert new document
@@ -214,14 +214,14 @@ class PhilosophySchoolUploader:
                 document['metadata']['last_updated'] = current_time
                 
                 self.collection.insert_one(document)
-                self.logger.info(f"Inserted new school: {document['name']}")
+                self.logger.info(f"Inserted new school: {document['school']}")
                 return True
                 
         except DuplicateKeyError:
-            self.logger.error(f"Duplicate key error for school: {document['name']}")
+            self.logger.error(f"Duplicate key error for school: {document['school']}")
             return False
         except Exception as e:
-            self.logger.error(f"Error upserting school {document['name']}: {e}")
+            self.logger.error(f"Error upserting school {document['school']}: {e}")
             return False
             
     def process_philosophy_schools_file(self, schools_file: str) -> Dict[str, int]:
@@ -261,8 +261,8 @@ class PhilosophySchoolUploader:
                     stats['errors'] += 1
                     continue
                     
-                if not school_data.get('name'):
-                    self.logger.warning(f"Skipping school with missing name: {school_data}")
+                if not school_data.get('school'):
+                    self.logger.warning(f"Skipping school with missing school: {school_data}")
                     stats['errors'] += 1
                     continue
                 
@@ -280,7 +280,7 @@ class PhilosophySchoolUploader:
                         stats['uploaded'] += 1
                         
             except Exception as e:
-                self.logger.error(f"Error processing school {school_data.get('name', 'unknown')}: {e}")
+                self.logger.error(f"Error processing school {school_data.get('school', 'unknown')}: {e}")
                 stats['errors'] += 1
                 continue
                 

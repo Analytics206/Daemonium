@@ -1,0 +1,81 @@
+{
+    "author_bibliography": {
+      "author": "Ludwig Wittgenstein",
+      "birth_death": "1889 - 1951",
+      "description": "Ludwig Wittgenstein was an Austrian-British philosopher whose work fundamentally shaped 20th-century philosophy, especially in logic, language, mind, and epistemology. His thought is marked by two distinct phases—early and later—which produced two of the most influential philosophical works of the modern era.",
+      "background": "Wittgenstein was born in Vienna into a wealthy and intellectual family. He studied engineering before turning to philosophy under Bertrand Russell at Cambridge. He led a reclusive and deeply introspective life, often retreating from academia to rethink the foundations of his philosophy. His career is defined by the contrast between the logical atomism of his early work and the ordinary language philosophy of his later work.",
+      "works": [
+        {
+          "title": "Tractatus Logico-Philosophicus",
+          "original_title": "Logisch-Philosophische Abhandlung",
+          "year": 1921,
+          "type": "Philosophy / Logic / Metaphysics",
+          "summary": "Wittgenstein’s early masterpiece where he attempts to define the relationship between language, world, and logic. The famous conclusion: 'Whereof one cannot speak, thereof one must be silent.'"
+        },
+        {
+          "title": "Philosophical Investigations",
+          "original_title": "Philosophische Untersuchungen",
+          "year": 1953,
+          "type": "Philosophy / Language / Mind",
+          "summary": "Published posthumously, this work represents Wittgenstein’s later philosophy, rejecting the rigid logical structure of the Tractatus and instead exploring the meaning of language through its use in 'language games.'"
+        },
+        {
+          "title": "The Blue and Brown Books",
+          "original_title": "Preliminary Studies for the 'Philosophical Investigations'",
+          "year": 1958,
+          "type": "Philosophy / Notes",
+          "summary": "Informal notes dictated to students that reveal the transition in Wittgenstein's thought from the Tractatus to the Investigations. They contain the seeds of his later philosophy."
+        },
+        {
+          "title": "On Certainty",
+          "original_title": "Über Gewissheit",
+          "year": 1969,
+          "type": "Epistemology / Posthumous Notes",
+          "summary": "A collection of notes written in the last 18 months of Wittgenstein’s life, dealing with knowledge, doubt, and epistemic justification, partly in response to G.E. Moore’s ‘common sense’ assertions."
+        },
+        {
+          "title": "Remarks on the Foundations of Mathematics",
+          "original_title": "Bemerkungen über die Grundlagen der Mathematik",
+          "year": 1956,
+          "type": "Philosophy of Mathematics",
+          "summary": "A critical examination of the logical foundations of mathematics, challenging the assumptions of logicism and formalism with Wittgenstein’s evolving views on rule-following and meaning."
+        },
+        {
+          "title": "Culture and Value",
+          "original_title": "Vermischte Bemerkungen",
+          "year": 1977,
+          "type": "Philosophical Reflections / Posthumous",
+          "summary": "A compilation of Wittgenstein’s reflections on art, ethics, religion, and culture. These aphoristic remarks reveal his aesthetic and moral concerns beyond technical philosophy."
+        }
+      ],
+      "chronological_periods": {
+        "Early Wittgenstein": {
+          "characteristics": "Focused on the logical structure of language and reality, influenced by Frege and Russell. Advocated a picture theory of language and the limits of what can be said.",
+          "themes": "Logic, representation, the world-language relation, silence, atomism"
+        },
+        "Transitional Period": {
+          "characteristics": "A period of doubt and reformulation, where Wittgenstein reconsidered his earlier views and began developing new approaches to language and meaning.",
+          "themes": "Doubt about logical form, rule-following, ordinary language, language in use"
+        },
+        "Later Wittgenstein": {
+          "characteristics": "Focused on language as a social activity, emphasizing context, 'language games,' and the idea that meaning is use. Abandoned formalism for philosophical therapy.",
+          "themes": "Language games, rule-following, family resemblance, forms of life, anti-foundationalism"
+        }
+      },
+      "major_themes": [
+        "Language and Meaning",
+        "Limits of Expression",
+        "Logic and the Structure of Reality",
+        "Rule-Following and Practice",
+        "Private Language Argument",
+        "Philosophical Method and Therapy",
+        "Mathematical Foundations",
+        "Certainty and Doubt",
+        "Aesthetics and Value",
+        "Religion and the Unsayable"
+      ],
+      "influence": "Wittgenstein profoundly influenced analytic philosophy, particularly philosophy of language, mind, and epistemology. His ideas shaped ordinary language philosophy and inspired figures like Elizabeth Anscombe, P.F. Strawson, Saul Kripke, and contemporary thinkers exploring language, normativity, and cognitive science.",
+      "note": "Wittgenstein published only one book in his lifetime, yet his notebooks and lectures posthumously reshaped the philosophical landscape. His legacy is one of radical transformation—he essentially changed his own philosophical foundations mid-life and redefined what philosophy itself could be."
+    }
+  }
+  
