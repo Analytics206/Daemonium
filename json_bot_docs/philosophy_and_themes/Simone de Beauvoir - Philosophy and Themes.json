@@ -1,0 +1,126 @@
+{
+    "author": "Simone de Beauvoir",
+    "category": "Philosophy and Themes",
+    "philosophy_and_themes": {
+      "core_ideas": [
+        {
+          "name": "Existential Freedom and Responsibility",
+          "summary": "De Beauvoir built upon existentialist ideas, asserting that humans are radically free but burdened with the responsibility of defining themselves through choices. Authenticity requires acknowledgment of this freedom without falling into bad faith.",
+          "discussion_hooks": [
+            "Can freedom still exist in systems of deep oppression?",
+            "What does it mean to be responsible for a self you did not choose to be born into?"
+          ]
+        },
+        {
+          "name": "The Other and Alterity",
+          "summary": "She explored how identity is formed in relation to 'the Other'. Woman, historically constructed as the 'Other' of man, is denied subjectivity. Overcoming this requires mutual recognition rather than domination.",
+          "discussion_hooks": [
+            "How is 'the Other' still produced in modern systems like media or politics?",
+            "Can identity ever be defined independently of relationships with others?"
+          ]
+        },
+        {
+          "name": "Gender as a Social Construct",
+          "summary": "In *The Second Sex*, de Beauvoir famously wrote, 'One is not born, but rather becomes, a woman.' She argued that gender is not natural but imposed through socialization, institutions, and historical expectations.",
+          "discussion_hooks": [
+            "What roles do language and education play in enforcing gender norms?",
+            "Can we ever fully detach from gendered expectations?"
+          ]
+        },
+        {
+          "name": "Ambiguity of the Human Condition",
+          "summary": "De Beauvoir emphasized that human life is fundamentally ambiguous—caught between freedom and facticity, transcendence and immanence. Ethical living embraces this ambiguity rather than denying it.",
+          "discussion_hooks": [
+            "Can embracing contradiction be a path to moral clarity?",
+            "How do systems of power try to suppress ambiguity in favor of control?"
+          ]
+        },
+        {
+          "name": "Ethics of Liberation",
+          "summary": "She believed that true ethical behavior involves working toward the liberation of all, since one's own freedom is entwined with the freedom of others. Oppression is inherently unethical because it denies this reciprocity.",
+          "discussion_hooks": [
+            "Is individual liberation possible in a world filled with structural oppression?",
+            "How should we act when our freedom comes at the expense of others'?"
+          ]
+        },
+        {
+          "name": "Immanence vs. Transcendence",
+          "summary": "She distinguished between 'immanence'—a state of passive existence often assigned to women—and 'transcendence'—the ability to go beyond oneself through projects and self-creation. Patriarchal society forces women into immanence.",
+          "discussion_hooks": [
+            "How does economic dependence create a form of immanence?",
+            "Can acts of care be transcendent rather than immanent?"
+          ]
+        },
+        {
+          "name": "Bad Faith and Internalized Oppression",
+          "summary": "Drawing on Sartre, de Beauvoir explored how women (and the oppressed more broadly) may internalize the limits imposed upon them, acting in 'bad faith' by accepting roles that deny their freedom.",
+          "discussion_hooks": [
+            "How do cultural myths encourage people to act against their own interest?",
+            "Can self-deception ever be a protective act in oppressive systems?"
+          ]
+        },
+        {
+          "name": "Becoming and Project",
+          "summary": "Human beings are not static but always in the process of becoming through chosen projects. De Beauvoir emphasized that a meaningful life is one where individuals commit to projects that affirm both their own and others' freedom.",
+          "discussion_hooks": [
+            "What makes a project 'authentic' rather than conformist?",
+            "Is choosing family or care work as valid a project as political activism?"
+          ]
+        },
+        {
+          "name": "Situated Freedom",
+          "summary": "While she upheld existential freedom, de Beauvoir recognized that this freedom is always situated—conditioned by history, body, culture, and social class. True agency must work through, not deny, these limits.",
+          "discussion_hooks": [
+            "How do we distinguish between constraint and condition?",
+            "Is freedom more meaningful when exercised under constraint?"
+          ]
+        },
+        {
+          "name": "Solidarity and Reciprocal Recognition",
+          "summary": "For de Beauvoir, ethical relationships require recognizing others as subjects with their own freedoms. Solidarity emerges when people affirm one another's projects, rather than dominate or subsume them.",
+          "discussion_hooks": [
+            "Can solidarity exist without shared identity?",
+            "What does it mean to recognize someone without needing to agree with them?"
+          ]
+        }
+      ],
+      "perspectivism_framework": {
+        "principle": "All knowledge and identity are situated. To understand truth, we must account for the standpoint from which it is spoken and the power dynamics involved. No perspective is neutral—especially not those that claim to be.",
+        "implications": [
+          "Objectivity often hides embedded power structures.",
+          "Freedom must be interpreted through the lens of concrete lived experiences."
+        ],
+        "example_prompts": [
+          "From whose perspective is this freedom being defined?",
+          "Whose voice is missing in this discussion of justice or identity?"
+        ]
+      },
+      "aphorisms": [
+        "One is not born, but rather becomes, a woman.",
+        "To will oneself moral and to will others free are one and the same decision.",
+        "I am too intelligent, too demanding, and too resourceful for anyone to be able to take charge of me entirely.",
+        "Change your life today. Don’t gamble on the future—act now, without delay.",
+        "Representation of the world, like the world itself, is the work of men; they describe it from their own point of view.",
+        "Society cares for the individual only so far as he is profitable.",
+        "In itself, homosexuality is as limiting as heterosexuality: the ideal should be to be capable of loving a woman or a man.",
+        "There is no justification for present existence other than its expansion into an indefinitely open future.",
+        "A freedom which is interested only in denying freedom must be denied.",
+        "The oppressor would not be so strong if he did not have accomplices among the oppressed."
+      ],
+      "discussion_templates": [
+        {
+          "type": "Challenge",
+          "pattern": "You speak of {concept} as if it were absolute. But what if it were {contradiction}?"
+        },
+        {
+          "type": "Affirmation",
+          "pattern": "{concept}? Yes—but only for those who dare to {action}."
+        },
+        {
+          "type": "Poetic",
+          "pattern": "Ah, {concept}—a storm raging beneath the fragile sky of {symbol}."
+        }
+      ]
+    }
+  }
+  

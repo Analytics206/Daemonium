@@ -1,0 +1,126 @@
+{
+    "author": "Ludwig Wittgenstein",
+    "category": "Philosophy and Themes",
+    "philosophy_and_themes": {
+      "core_ideas": [
+        {
+          "name": "Picture Theory of Language",
+          "summary": "In his early work *Tractatus Logico-Philosophicus*, Wittgenstein proposed that language functions by creating logical 'pictures' of reality. A statement is meaningful if it accurately mirrors the facts of the world.",
+          "discussion_hooks": [
+            "Can language ever truly 'mirror' reality, or is this just a philosophical ideal?",
+            "How might this theory fail when describing emotions, ethics, or aesthetics?"
+          ]
+        },
+        {
+          "name": "Limits of Language",
+          "summary": "Wittgenstein claimed that what can be said must be said clearly, and what cannot be spoken of must be passed over in silence. This separates meaningful, logical propositions from metaphysical speculation.",
+          "discussion_hooks": [
+            "Is silence a form of wisdom when faced with the unspeakable?",
+            "What are the risks of attempting to speak about the ineffable?"
+          ]
+        },
+        {
+          "name": "Language Games",
+          "summary": "In his later work *Philosophical Investigations*, Wittgenstein developed the concept of 'language games' to describe how the meaning of words arises from their use within specific social contexts.",
+          "discussion_hooks": [
+            "How does the meaning of a word change between professional, intimate, or online settings?",
+            "Can two people ever be playing the same 'language game' without realizing it?"
+          ]
+        },
+        {
+          "name": "Meaning as Use",
+          "summary": "Rejecting his earlier theories, Wittgenstein later emphasized that the meaning of a word is determined by how it is used in a particular form of life, not by its correspondence to an object or fact.",
+          "discussion_hooks": [
+            "Does this suggest that truth is relative to culture and context?",
+            "Can we ever have a universal language if meaning is use-dependent?"
+          ]
+        },
+        {
+          "name": "Private Language Argument",
+          "summary": "Wittgenstein argued that language is inherently public, and that a purely private language—one that refers only to internal sensations—would be incoherent because there would be no way to establish correct or incorrect usage.",
+          "discussion_hooks": [
+            "If no private language exists, what does that say about the limits of self-knowledge?",
+            "Are emotions only real if they can be expressed in a shared vocabulary?"
+          ]
+        },
+        {
+          "name": "Family Resemblance",
+          "summary": "Wittgenstein proposed that categories (like 'game') do not have one essential feature in common but are connected through overlapping similarities—like members of a family.",
+          "discussion_hooks": [
+            "Does this view undermine the need for rigid definitions in philosophy and science?",
+            "Are most of our categories fuzzier than we care to admit?"
+          ]
+        },
+        {
+          "name": "Rule-Following Paradox",
+          "summary": "Wittgenstein raised the question of how we can follow rules if every new application requires interpretation. He suggests that rule-following is grounded in shared practices, not private mental acts.",
+          "discussion_hooks": [
+            "Can rules exist without a community to interpret and enforce them?",
+            "How much of meaning is governed by habit rather than logic?"
+          ]
+        },
+        {
+          "name": "Philosophy as Therapy",
+          "summary": "Wittgenstein believed that philosophy should not construct grand theories but dissolve confusion caused by linguistic misunderstanding. Philosophy becomes a form of therapy.",
+          "discussion_hooks": [
+            "Is the role of philosophy to solve problems or to make them disappear?",
+            "Can philosophy heal us by showing us the limits of our own confusion?"
+          ]
+        },
+        {
+          "name": "Forms of Life",
+          "summary": "He introduced the notion of 'forms of life' to describe the cultural and biological contexts that give language its meaning. Meaning arises from participation in a shared way of living.",
+          "discussion_hooks": [
+            "Can we ever truly understand someone from a different form of life?",
+            "Is translation between forms of life a philosophical impossibility?"
+          ]
+        },
+        {
+          "name": "The Ineffable",
+          "summary": "In both early and late works, Wittgenstein pointed to the limits of what can be said. Beyond these limits lie values, aesthetics, and spiritual insight—things that show themselves but cannot be explained.",
+          "discussion_hooks": [
+            "Are the most important things in life beyond words?",
+            "How do we live with the tension between what we know and what we cannot say?"
+          ]
+        }
+      ],
+      "perspectivism_framework": {
+        "principle": "The meaning of a statement depends entirely on the context—the 'language game'—within which it is used. Thus, truth and clarity are not absolute but emerge from shared forms of life.",
+        "implications": [
+          "No universal language or perspective can capture all truths.",
+          "Disagreement often stems from participating in different 'games' without realizing it."
+        ],
+        "example_prompts": [
+          "What language game are we playing when we talk about freedom?",
+          "Is the meaning of 'justice' the same in a courtroom and in a protest?"
+        ]
+      },
+      "aphorisms": [
+        "The limits of my language mean the limits of my world.",
+        "Whereof one cannot speak, thereof one must be silent.",
+        "Philosophy is a battle against the bewitchment of our intelligence by means of language.",
+        "A new word is like a fresh seed sown on the ground of the discussion.",
+        "To imagine a language means to imagine a form of life.",
+        "The world is everything that is the case.",
+        "Don't think, but look!",
+        "Meaning is not a thing locked in the mind but a tool used in practice.",
+        "The problems are solved, not by giving new information, but by arranging what we have always known.",
+        "Ethics and aesthetics are one and the same."
+      ],
+      "discussion_templates": [
+        {
+          "type": "Challenge",
+          "pattern": "You speak of {concept} as if it were absolute. But what if it were {contradiction}?"
+        },
+        {
+          "type": "Affirmation",
+          "pattern": "{concept}? Yes—but only for those who dare to {action}."
+        },
+        {
+          "type": "Poetic",
+          "pattern": "Ah, {concept}—a storm raging beneath the fragile sky of {symbol}."
+        }
+      ]
+    }
+  }
+  
