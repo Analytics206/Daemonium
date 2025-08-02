@@ -1,2 +1,15 @@
 # Daemonium Notes
+- change /api/v1/philosophers/{philosopher_id} to search by philosopher name
+- remove legacy school fields
+- /api/v1/philosophers/{philosopher_id}/related to search by philosopher name
+- change /api/v1/philosophy-schools/{school_id} to search by idea
+- chagne /api/v1/philosophy-schools/{school_id}/philosophers to search by idea
+- change /api/v1/aphorisms/{aphorism_id} to search by idea
+- change /api/v1/ideas/{idea_id} to search by idea
+- fix /api/v1/summaries/by-collection/{collection_name}
+- add /api/v1/summaries/philosopher-bios to search by philosopher name
+- what does /api/v1/search/suggestions search for?
+- where is /api/v1/chat/conversation-starters/{philosopher} sourced from?
+- /api/v1/chat/personality/{philosopher} seems missing data points
+- document where all end points collection source
 - 
