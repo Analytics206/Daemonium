@@ -134,17 +134,18 @@ class DatabaseManager:
         return philosophers
     
     async def get_philosopher_by_id(self, philosopher_id: str) -> Optional[Dict[str, Any]]:
-        """Get philosopher by ID"""
-        from bson import ObjectId
+        """Get philosopher by author name (philosopher_id parameter now accepts author name)"""
         collection = self.get_collection("philosophers")
         
-        # Try to find by ObjectId first, then by string ID
-        philosopher = None
-        try:
-            philosopher = await collection.find_one({"_id": ObjectId(philosopher_id)})
-        except:
-            # If ObjectId conversion fails, try as string
-            philosopher = await collection.find_one({"_id": philosopher_id})
+        # Search using both author and philosopher fields with case-insensitive regex
+        query = {
+            "$or": [
+                {"author": {"$regex": philosopher_id, "$options": "i"}},
+                {"philosopher": {"$regex": philosopher_id, "$options": "i"}}
+            ]
+        }
+        
+        philosopher = await collection.find_one(query)
         
         if philosopher:
             # Convert ObjectId to string
@@ -585,6 +586,7 @@ class DatabaseManager:
         
         # Search in key collections
         search_collections = [
+            "philosophers",
             "philosopher_summary",
             "books", 
             "book_summary",
@@ -598,12 +600,22 @@ class DatabaseManager:
                 collection = self.get_collection(collection_name)
                 
                 # Create text search filter based on collection structure
-                if collection_name == "philosopher_summary":
+                if collection_name == "philosophers":
                     search_filter = {
                         "$or": [
                             {"author": {"$regex": query, "$options": "i"}},
+                            {"philosopher": {"$regex": query, "$options": "i"}},
                             {"summary": {"$regex": query, "$options": "i"}},
                             {"content": {"$regex": query, "$options": "i"}}
+                        ]
+                    }
+                elif collection_name == "philosopher_summary":
+                    search_filter = {
+                        "$or": [
+                            {"author": {"$regex": query, "$options": "i"}},
+                            {"title": {"$regex": query, "$options": "i"}},
+                            {"description": {"$regex": query, "$options": "i"}},
+                            {"sections": {"$regex": query, "$options": "i"}}
                         ]
                     }
                 elif collection_name in ["books", "book_summary"]:

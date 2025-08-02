@@ -275,13 +275,12 @@ async def get_philosopher_personality(
         logic_items = await db_manager.get_conversation_logic(author=philosopher)
         logic = logic_items[0] if logic_items else {}
         
-        # Get persona core (correct collection name and handle ObjectId)
+        # Get persona core (search by name field in nested persona structure)
         persona_collection = db_manager.get_collection("persona_core")
         persona = await persona_collection.find_one({
             "$or": [
-                {"philosopher": {"$regex": philosopher, "$options": "i"}},
-                {"author": {"$regex": philosopher, "$options": "i"}},
-                {"name": {"$regex": philosopher, "$options": "i"}}
+                {"persona.name": {"$regex": philosopher, "$options": "i"}},
+                {"persona.identity.full_name": {"$regex": philosopher, "$options": "i"}}
             ]
         })
         
@@ -292,20 +291,36 @@ async def get_philosopher_personality(
         if not blueprint and not logic and not persona:
             raise HTTPException(status_code=404, detail=f"No personality data found for philosopher '{philosopher}'")
         
+        # Extract data from actual JSON structure
+        prompt_blueprint = blueprint.get('prompt_blueprint', {})
+        conversation_logic_data = logic.get('conversation_logic', {})
+        persona_data = persona.get('persona', {}) if persona else {}
+        
         personality_profile = {
             "author": philosopher,
-            "personality_traits": blueprint.get('personality_traits', []),
-            "speaking_style": blueprint.get('speaking_style', ''),
-            "core_beliefs": blueprint.get('core_beliefs', []),
-            "argumentation_style": logic.get('argumentation_style', ''),
-            "topic_preferences": logic.get('topic_preferences', []),
-            "persona_core": persona.get('core_attributes', {}) if persona else {}
+            "full_name": persona_data.get('identity', {}).get('full_name', philosopher),
+            "birth_date": persona_data.get('identity', {}).get('birth_date', ''),
+            "death_date": persona_data.get('identity', {}).get('death_date', ''),
+            "nationality": persona_data.get('identity', {}).get('nationality', ''),
+            "roles": persona_data.get('identity', {}).get('roles', []),
+            "personality_traits": persona_data.get('biography', {}).get('personality_traits', []),
+            "speaking_style": persona_data.get('style', {}).get('speaking_style', ''),
+            "tone": persona_data.get('style', {}).get('tone', ''),
+            "thought_process": persona_data.get('style', {}).get('thought_process', ''),
+            "core_principles": persona_data.get('core_principles', []),
+            "conversation_goal": conversation_logic_data.get('primary_goal', ''),
+            "response_principles": conversation_logic_data.get('response_strategy', {}).get('core_principles', []),
+            "tone_modes": conversation_logic_data.get('tone_selection', {}).get('modes', []),
+            "provocation_techniques": conversation_logic_data.get('provocation_methods', {}).get('techniques', []),
+            "chat_blueprint_purpose": prompt_blueprint.get('purpose', ''),
+            "resources_used": prompt_blueprint.get('meta', {}).get('resources_used', []),
+            "response_pipeline": prompt_blueprint.get('response_pipeline', [])
         }
         
         return {
             "success": True,
             "data": personality_profile,
-            "message": f"Retrieved personality profile for {philosopher}"
+            "message": f"Retrieved comprehensive personality profile for {philosopher}"
         }
     
     except HTTPException:

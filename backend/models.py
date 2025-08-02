@@ -44,17 +44,6 @@ class PhilosopherSummary(BaseModel):
     is_active_chat: Optional[int] = None  # Flag for active chat availability (0 or 1)
     lifespan_years: Optional[int] = None
     
-    # Legacy fields for backward compatibility
-    name: Optional[str] = None
-    key_concepts: Optional[List[str]] = None
-    birth_year: Optional[int] = None
-    death_year: Optional[int] = None
-    nationality: Optional[str] = None
-    major_works: Optional[List[str]] = None
-    philosophical_school: Optional[str] = None
-    influences: Optional[List[str]] = None
-    influenced: Optional[List[str]] = None
-    
     model_config = {"populate_by_name": True}
 
 class PhilosopherResponse(BaseResponse):

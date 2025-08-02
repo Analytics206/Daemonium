@@ -166,43 +166,69 @@ async def get_aphorisms_by_theme(
         logger.error(f"Failed to get aphorisms by theme {theme}: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve aphorisms by theme")
 
-@router.get("/{aphorism_id}", response_model=AphorismResponse)
-async def get_aphorism_by_id(
-    aphorism_id: str,
+@router.get("/{keyword}", response_model=AphorismResponse)
+async def get_aphorisms_by_keyword(
+    keyword: str,
+    limit: int = Query(10, ge=1, le=100, description="Maximum number of aphorisms to return"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Get a specific aphorism by ID"""
+    """Get aphorisms related to a specific keyword"""
     try:
-        from bson import ObjectId
         collection = db_manager.get_collection("aphorisms")
         
-        # Try to find by ObjectId first, then by string ID
-        aphorism = None
-        try:
-            aphorism = await collection.find_one({"_id": ObjectId(aphorism_id)})
-        except:
-            # If ObjectId conversion fails, try as string
-            aphorism = await collection.find_one({"_id": aphorism_id})
+        # Search for aphorisms containing the keyword in various fields
+        # Handle nested aphorisms structure from JSON
+        search_filter = {
+            "$or": [
+                {"author": {"$regex": keyword, "$options": "i"}},
+                {"philosopher": {"$regex": keyword, "$options": "i"}},
+                {"category": {"$regex": keyword, "$options": "i"}},
+                {"text": {"$regex": keyword, "$options": "i"}},
+                {"context": {"$regex": keyword, "$options": "i"}},
+                {"themes": {"$regex": keyword, "$options": "i"}},
+                # Search within the nested aphorisms object values
+                {"aphorisms.Human Nature": {"$regex": keyword, "$options": "i"}},
+                {"aphorisms.Epistemology and Knowledge": {"$regex": keyword, "$options": "i"}},
+                {"aphorisms.Morality and Ethics": {"$regex": keyword, "$options": "i"}},
+                {"aphorisms.Politics and Society": {"$regex": keyword, "$options": "i"}},
+                {"aphorisms.Religion and Skepticism": {"$regex": keyword, "$options": "i"}},
+                {"aphorisms.Philosophy of Mind": {"$regex": keyword, "$options": "i"}},
+                # Generic search for any field within aphorisms object
+                {"aphorisms": {"$regex": keyword, "$options": "i"}}
+            ]
+        }
         
-        if not aphorism:
-            raise HTTPException(status_code=404, detail=f"Aphorism with ID '{aphorism_id}' not found")
+        cursor = collection.find(search_filter).limit(limit)
+        aphorisms = await cursor.to_list(length=limit)
+        
+        if not aphorisms:
+            raise HTTPException(status_code=404, detail=f"No aphorisms found related to keyword '{keyword}'")
         
         # Convert ObjectId to string and ensure proper field mapping
-        if "_id" in aphorism:
-            aphorism["_id"] = str(aphorism["_id"])
-        # Ensure we have the required fields
-        if "author" not in aphorism and "philosopher" in aphorism:
-            aphorism["author"] = aphorism["philosopher"]
+        for aphorism in aphorisms:
+            if "_id" in aphorism:
+                aphorism["_id"] = str(aphorism["_id"])
+            # Ensure we have the required fields
+            if "author" not in aphorism and "philosopher" in aphorism:
+                aphorism["author"] = aphorism["philosopher"]
         
-        aphorism_model = Aphorism(**aphorism)
+        # Convert to Pydantic models
+        aphorism_models = []
+        for aphorism in aphorisms:
+            try:
+                aphorism_models.append(Aphorism(**aphorism))
+            except Exception as e:
+                logger.warning(f"Failed to parse aphorism {aphorism.get('_id', 'unknown')}: {e}")
+                continue
         
         return AphorismResponse(
-            data=aphorism_model,
-            message=f"Retrieved aphorism by {aphorism_model.philosopher}"
+            data=aphorism_models,
+            total_count=len(aphorism_models),
+            message=f"Found {len(aphorism_models)} aphorisms related to keyword '{keyword}'"
         )
     
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"Failed to get aphorism {aphorism_id}: {e}")
-        raise HTTPException(status_code=500, detail="Failed to retrieve aphorism")
+        logger.error(f"Failed to get aphorisms for keyword {keyword}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to retrieve aphorisms for keyword")

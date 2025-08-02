@@ -35,7 +35,7 @@ async def global_search(
             target_collections = [c.strip() for c in collections.split(',')]
             # Validate collection names
             valid_collections = [
-                "philosopher_summary", "books", "book_summary", "aphorisms",
+                "philosophers", "philosopher_summary", "books", "book_summary", "aphorisms",
                 "top_ten_ideas", "idea_summary", "philosophy_themes",
                 "modern_adaptation", "discussion_hook", "philosopher_bio",
                 "persona_core", "chat_blueprint", "conversation_logic", "philosopher_bot"
@@ -104,13 +104,23 @@ async def search_specific_collections(
 def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
     """Create search filter based on collection structure"""
     
-    if collection_name == "philosopher_summary":
+    if collection_name == "philosophers":
         return {
             "$or": [
-                {"name": {"$regex": query, "$options": "i"}},
+                {"author": {"$regex": query, "$options": "i"}},
+                {"philosopher": {"$regex": query, "$options": "i"}},
                 {"summary": {"$regex": query, "$options": "i"}},
-                {"key_concepts": {"$regex": query, "$options": "i"}},
-                {"philosophical_schools": {"$regex": query, "$options": "i"}}
+                {"content": {"$regex": query, "$options": "i"}}
+            ]
+        }
+    
+    elif collection_name == "philosopher_summary":
+        return {
+            "$or": [
+                {"author": {"$regex": query, "$options": "i"}},
+                {"title": {"$regex": query, "$options": "i"}},
+                {"description": {"$regex": query, "$options": "i"}},
+                {"sections": {"$regex": query, "$options": "i"}}
             ]
         }
     

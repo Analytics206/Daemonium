@@ -221,61 +221,79 @@ async def get_ideas_by_philosopher(
         logger.error(f"Failed to get ideas by philosopher {philosopher}: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve ideas by philosopher")
 
-@router.get("/{idea_id}", response_model=IdeasResponse)
-async def get_idea_by_id(
-    idea_id: str,
+@router.get("/search/{keyword}", response_model=IdeasResponse)
+async def search_ideas_by_keyword(
+    keyword: str,
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Get a specific idea by ID from either collection"""
+    """Search for ideas by keyword, searching through the JSON tree structure"""
     try:
-        from bson import ObjectId
+        matching_ideas = []
         
-        # Try top_10_ideas first
+        # Search in top_10_ideas collection
         top_ten_collection = db_manager.get_collection("top_10_ideas")
-        idea = None
-        try:
-            idea = await top_ten_collection.find_one({"_id": ObjectId(idea_id)})
-        except:
-            idea = await top_ten_collection.find_one({"_id": idea_id})
+        top_ten_cursor = top_ten_collection.find({
+            "$or": [
+                {"author": {"$regex": keyword, "$options": "i"}},
+                {"category": {"$regex": keyword, "$options": "i"}},
+                {"top_ideas.idea": {"$regex": keyword, "$options": "i"}},
+                {"top_ideas.description": {"$regex": keyword, "$options": "i"}},
+                {"top_ideas.key_books": {"$regex": keyword, "$options": "i"}}
+            ]
+        })
         
-        if idea:
+        async for idea in top_ten_cursor:
             # Convert ObjectId to string and ensure proper field mapping
             if "_id" in idea:
                 idea["_id"] = str(idea["_id"])
             if "author" not in idea and "philosopher" in idea:
                 idea["author"] = idea["philosopher"]
-                
-            idea_model = TopTenIdea(**idea)
-            return IdeasResponse(
-                data=idea_model,
-                message=f"Retrieved top ten idea: {idea_model.title}"
-            )
+            
+            try:
+                idea_model = TopTenIdea(**idea)
+                matching_ideas.append(idea_model)
+            except Exception as e:
+                logger.warning(f"Failed to parse top ten idea {idea.get('_id', 'unknown')}: {e}")
+                continue
         
-        # Try idea_summaries
+        # Search in idea_summary collection
         summaries_collection = db_manager.get_collection("idea_summary")
-        idea = None
-        try:
-            idea = await summaries_collection.find_one({"_id": ObjectId(idea_id)})
-        except:
-            idea = await summaries_collection.find_one({"_id": idea_id})
+        summaries_cursor = summaries_collection.find({
+            "$or": [
+                {"author": {"$regex": keyword, "$options": "i"}},
+                {"category": {"$regex": keyword, "$options": "i"}},
+                {"title": {"$regex": keyword, "$options": "i"}},
+                {"quote": {"$regex": keyword, "$options": "i"}},
+                {"summary.section": {"$regex": keyword, "$options": "i"}},
+                {"summary.content": {"$regex": keyword, "$options": "i"}}
+            ]
+        })
         
-        if idea:
+        async for idea in summaries_cursor:
             # Convert ObjectId to string and ensure proper field mapping
             if "_id" in idea:
                 idea["_id"] = str(idea["_id"])
             if "author" not in idea and "philosopher" in idea:
                 idea["author"] = idea["philosopher"]
-                
-            idea_model = IdeaSummary(**idea)
-            return IdeasResponse(
-                data=idea_model,
-                message=f"Retrieved idea summary: {idea_model.title}"
-            )
+            
+            try:
+                idea_model = IdeaSummary(**idea)
+                matching_ideas.append(idea_model)
+            except Exception as e:
+                logger.warning(f"Failed to parse idea summary {idea.get('_id', 'unknown')}: {e}")
+                continue
         
-        raise HTTPException(status_code=404, detail=f"Idea with ID '{idea_id}' not found")
+        if not matching_ideas:
+            raise HTTPException(status_code=404, detail=f"No ideas found matching keyword '{keyword}'")
+        
+        return IdeasResponse(
+            data=matching_ideas,
+            total_count=len(matching_ideas),
+            message=f"Found {len(matching_ideas)} ideas matching keyword '{keyword}'"
+        )
     
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"Failed to get idea {idea_id}: {e}")
-        raise HTTPException(status_code=500, detail="Failed to retrieve idea")
+        logger.error(f"Failed to search ideas with keyword {keyword}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to search ideas")

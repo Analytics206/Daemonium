@@ -47,31 +47,6 @@ async def get_philosophers(
         logger.error(f"Failed to get philosophers: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve philosophers")
 
-@router.get("/{philosopher_id}", response_model=PhilosopherResponse)
-async def get_philosopher_by_id(
-    philosopher_id: str,
-    db_manager: DatabaseManager = Depends(get_db_manager)
-):
-    """Get a specific philosopher by ID"""
-    try:
-        philosopher = await db_manager.get_philosopher_by_id(philosopher_id)
-        
-        if not philosopher:
-            raise HTTPException(status_code=404, detail=f"Philosopher with ID '{philosopher_id}' not found")
-        
-        philosopher_model = PhilosopherSummary(**philosopher)
-        
-        return PhilosopherResponse(
-            data=philosopher_model,
-            message=f"Retrieved philosopher: {philosopher_model.name}"
-        )
-    
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Failed to get philosopher {philosopher_id}: {e}")
-        raise HTTPException(status_code=500, detail="Failed to retrieve philosopher")
-
 @router.get("/search/", response_model=PhilosopherResponse)
 async def search_philosophers(
     query: str = Query(..., min_length=1, description="Search query"),
@@ -138,53 +113,30 @@ async def get_philosopher_with_school(
         logger.error(f"Failed to get philosopher with school {philosopher_name}: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve philosopher with school information")
 
-@router.get("/{philosopher_id}/related", response_model=PhilosopherResponse)
+
+@router.get("/{author}/related", response_model=PhilosopherResponse)
 async def get_related_philosophers(
-    philosopher_id: str,
+    author: str,
     limit: int = Query(5, ge=1, le=20, description="Maximum number of related philosophers"),
     is_active_chat: Optional[int] = Query(None, description="Filter by active chat availability (0 or 1)"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Get philosophers related to the specified philosopher with optional active chat filter"""
+    """Get philosophers related to the specified author name"""
     try:
-        # First get the target philosopher
-        philosopher = await db_manager.get_philosopher_by_id(philosopher_id)
+        # Search for philosophers related to the given author name
+        # Use the author name directly as the search parameter
+        related_philosophers = await db_manager.search_philosophers(
+            query=author, 
+            limit=limit,
+            is_active_chat=is_active_chat
+        )
         
-        if not philosopher:
-            raise HTTPException(status_code=404, detail=f"Philosopher with ID '{philosopher_id}' not found")
-        
-        # Simple related philosophers logic - could be enhanced with ML/embeddings
-        related_philosophers = []
-        
-        # Search by school_id if available
-        if philosopher.get('school_id'):
-            school_philosophers = await db_manager.get_philosophers_by_school(
-                philosopher['school_id'], 
-                limit=limit + 1,  # +1 to account for the original philosopher
-                is_active_chat=is_active_chat
-            )
-            related_philosophers.extend([p for p in school_philosophers if p['_id'] != philosopher_id])
-        
-        # Search by author name for additional matches
-        if len(related_philosophers) < limit:
-            name_philosophers = await db_manager.search_philosophers(
-                query=philosopher.get('author', ''), 
-                limit=limit,
-                is_active_chat=is_active_chat
-            )
-            related_philosophers.extend([p for p in name_philosophers if p['_id'] != philosopher_id])
-        
-        # Remove duplicates and limit results
-        seen_ids = set()
-        unique_related = []
-        for p in related_philosophers:
-            if p['_id'] not in seen_ids and len(unique_related) < limit:
-                seen_ids.add(p['_id'])
-                unique_related.append(p)
+        if not related_philosophers:
+            raise HTTPException(status_code=404, detail=f"No philosophers found related to '{author}'")
         
         # Convert to Pydantic models
         philosopher_models = []
-        for related_philosopher in unique_related:
+        for related_philosopher in related_philosophers:
             try:
                 philosopher_models.append(PhilosopherSummary(**related_philosopher))
             except Exception as e:
@@ -194,13 +146,13 @@ async def get_related_philosophers(
         return PhilosopherResponse(
             data=philosopher_models,
             total_count=len(philosopher_models),
-            message=f"Found {len(philosopher_models)} philosophers related to {philosopher.get('author', philosopher_id)}"
+            message=f"Found {len(philosopher_models)} philosophers related to '{author}'"
         )
     
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"Failed to get related philosophers for {philosopher_id}: {e}")
+        logger.error(f"Failed to get related philosophers for {author}: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve related philosophers")
 
 @router.get("/by-author/{author}", response_model=Dict[str, Any])

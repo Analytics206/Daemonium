@@ -11,6 +11,7 @@
 - This project is to create a philosopher highly immersive chat bot experience 
 - Chat bot should be able to immitate the experience of chatting with the actual philosopher
 - Use Context7 agent to when you need deeper understand of the code or when you need to reason about the code
+- Do not use curl to test API endpoints, use powershell to test API endpoints
 
 ## Technology Stack
 - Use Python 3.11 as the primary programming language for data science and machine learning
