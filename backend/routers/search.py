@@ -243,54 +243,82 @@ async def get_search_suggestions(
     try:
         suggestions = []
         
-        # Get philosopher names for suggestions
-        philosopher_collection = db_manager.get_collection("philosopher_summary")
+        # Get philosopher names for suggestions (correct collection and field names)
+        philosopher_collection = db_manager.get_collection("philosophers")
         philosopher_cursor = philosopher_collection.find(
-            {"name": {"$regex": f"^{query}", "$options": "i"}},
-            {"name": 1}
+            {"$or": [
+                {"author": {"$regex": f"^{query}", "$options": "i"}},
+                {"philosopher": {"$regex": f"^{query}", "$options": "i"}}
+            ]},
+            {"author": 1, "philosopher": 1}
         ).limit(limit)
         philosophers = await philosopher_cursor.to_list(length=limit)
         
         for philosopher in philosophers:
+            # Use author field or fallback to philosopher field
+            name = philosopher.get("author") or philosopher.get("philosopher", "Unknown")
             suggestions.append({
-                "text": philosopher["name"],
+                "text": name,
                 "type": "philosopher",
                 "category": "Philosophers"
             })
         
-        # Get book titles for suggestions
+        # Get book titles for suggestions (try different field structures)
         if len(suggestions) < limit:
             remaining_limit = limit - len(suggestions)
             books_collection = db_manager.get_collection("books")
+            # Try multiple field structures for books
             books_cursor = books_collection.find(
-                {"metadata.title": {"$regex": f"^{query}", "$options": "i"}},
-                {"metadata.title": 1}
+                {"$or": [
+                    {"title": {"$regex": f"^{query}", "$options": "i"}},
+                    {"metadata.title": {"$regex": f"^{query}", "$options": "i"}},
+                    {"book_title": {"$regex": f"^{query}", "$options": "i"}}
+                ]},
+                {"title": 1, "metadata.title": 1, "book_title": 1}
             ).limit(remaining_limit)
             books = await books_cursor.to_list(length=remaining_limit)
             
             for book in books:
+                # Try different field names for title
+                title = book.get("title") or book.get("metadata", {}).get("title") or book.get("book_title", "Unknown Book")
                 suggestions.append({
-                    "text": book["metadata"]["title"],
+                    "text": title,
                     "type": "book",
                     "category": "Books"
                 })
         
-        # Get philosophical concepts for suggestions
+        # Get philosophical concepts for suggestions (correct collection name)
         if len(suggestions) < limit:
             remaining_limit = limit - len(suggestions)
-            ideas_collection = db_manager.get_collection("top_ten_ideas")
+            ideas_collection = db_manager.get_collection("top_10_ideas")
+            # Handle nested structure for ideas
             ideas_cursor = ideas_collection.find(
-                {"title": {"$regex": f"^{query}", "$options": "i"}},
-                {"title": 1}
+                {"$or": [
+                    {"title": {"$regex": f"^{query}", "$options": "i"}},
+                    {"top_ideas.idea": {"$regex": f"^{query}", "$options": "i"}}
+                ]},
+                {"title": 1, "top_ideas": 1}
             ).limit(remaining_limit)
             ideas = await ideas_cursor.to_list(length=remaining_limit)
             
             for idea in ideas:
-                suggestions.append({
-                    "text": idea["title"],
-                    "type": "idea",
-                    "category": "Philosophical Ideas"
-                })
+                # Handle both flat and nested structures
+                if "title" in idea:
+                    suggestions.append({
+                        "text": idea["title"],
+                        "type": "idea",
+                        "category": "Philosophical Ideas"
+                    })
+                elif "top_ideas" in idea and isinstance(idea["top_ideas"], list):
+                    for top_idea in idea["top_ideas"]:
+                        if isinstance(top_idea, dict) and "idea" in top_idea:
+                            suggestions.append({
+                                "text": top_idea["idea"],
+                                "type": "idea",
+                                "category": "Philosophical Ideas"
+                            })
+                            if len(suggestions) >= limit:
+                                break
         
         return {
             "success": True,

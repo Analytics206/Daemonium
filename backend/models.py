@@ -30,12 +30,17 @@ class PhilosopherSummary(BaseModel):
     id: str = Field(..., alias="_id")
     author: str  # Primary field - all collections join by author
     philosopher: Optional[str] = None  # Alternative name field
+    
+    # Date fields - handle both string and date formats
+    dob: Optional[str] = Field(None, alias="date_of_birth")  # Date of birth
+    dod: Optional[str] = Field(None, alias="date_of_death")  # Date of death
     date_of_birth: Optional[str] = None
     date_of_death: Optional[str] = None
+    
     summary: Optional[str] = None
     content: Optional[str] = None
-    school_id: Optional[str] = None
-    tag_id: Optional[str] = None
+    school_id: Optional[Union[int, str]] = None  # Handle both int and string
+    tag_id: Optional[Union[int, str]] = None     # Handle both int and string
     is_active_chat: Optional[int] = None  # Flag for active chat availability (0 or 1)
     lifespan_years: Optional[int] = None
     
@@ -61,11 +66,17 @@ class PhilosopherResponse(BaseResponse):
 class PhilosophySchool(BaseModel):
     """Philosophy school model"""
     id: str = Field(..., alias="_id")
-    school_id: str
-    name: str
+    school_id: Optional[Union[int, str]] = None  # Handle both int and string
+    schoolID: Optional[Union[int, str]] = None   # From JSON structure
+    
+    name: Optional[str] = None
+    school: Optional[str] = None  # From JSON structure
     category: Optional[str] = None
     summary: Optional[str] = None
     core_principles: Optional[str] = None
+    corePrinciples: Optional[str] = None  # From JSON structure
+    
+    # Normalized fields
     name_normalized: Optional[str] = None
     category_normalized: Optional[str] = None
     keywords: Optional[List[str]] = None
@@ -128,8 +139,14 @@ class BookResponse(BaseResponse):
 class Aphorism(BaseModel):
     """Aphorism model"""
     id: str = Field(..., alias="_id")
-    text: str
-    author: str  # Changed from philosopher to match database field
+    author: str  # Primary field for author name
+    category: Optional[str] = None  # Category of aphorisms (e.g., "Aphorisms")
+    
+    # Handle both single aphorism and nested structure
+    text: Optional[str] = None  # For individual aphorism text
+    aphorisms: Optional[Dict[str, List[str]]] = None  # For nested structure
+    
+    # Additional fields
     source: Optional[str] = None
     context: Optional[str] = None
     themes: Optional[List[str]] = None
@@ -151,10 +168,16 @@ class AphorismResponse(BaseResponse):
 class TopTenIdea(BaseModel):
     """Top ten philosophical idea model"""
     id: str = Field(..., alias="_id")
-    rank: int
-    title: str
-    description: str
-    author: str  # Changed from philosopher to author
+    author: str  # Primary field for author name
+    category: Optional[str] = None  # Category field (e.g., "Top 10 Ideas")
+    
+    # Handle both individual idea and nested structure
+    rank: Optional[int] = None  # For individual ideas
+    title: Optional[str] = None  # For individual ideas
+    description: Optional[str] = None  # For individual ideas
+    top_ideas: Optional[List[Dict[str, Any]]] = None  # For nested structure
+    
+    # Additional fields
     significance: Optional[str] = None
     modern_relevance: Optional[str] = None
     related_concepts: Optional[List[str]] = None
@@ -164,10 +187,16 @@ class TopTenIdea(BaseModel):
 class IdeaSummary(BaseModel):
     """Idea summary model"""
     id: str = Field(..., alias="_id")
-    title: str
-    description: str
-    author: Optional[str] = None  # Changed from philosopher to author
-    category: Optional[str] = None
+    author: str  # Primary field for author name
+    category: Optional[str] = None  # Category field (e.g., "Idea Summary")
+    
+    # Handle both individual summary and nested structure
+    title: Optional[str] = None  # Title of the idea
+    quote: Optional[str] = None  # Quote associated with the idea
+    description: Optional[str] = None  # For flat structure
+    summary: Optional[List[Dict[str, Any]]] = None  # For nested structure
+    
+    # Additional fields
     key_points: Optional[List[str]] = None
     examples: Optional[List[str]] = None
     

@@ -112,11 +112,18 @@ async def get_top_idea_by_rank(
 ):
     """Get a specific top ten idea by rank"""
     try:
-        collection = db_manager.get_collection("top_ten_ideas")
+        collection = db_manager.get_collection("top_10_ideas")
         idea = await collection.find_one({"rank": rank})
         
         if not idea:
             raise HTTPException(status_code=404, detail=f"No idea found with rank {rank}")
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        if "_id" in idea:
+            idea["_id"] = str(idea["_id"])
+        # Ensure we have the required fields
+        if "author" not in idea and "philosopher" in idea:
+            idea["author"] = idea["philosopher"]
         
         idea_model = TopTenIdea(**idea)
         
@@ -143,20 +150,40 @@ async def get_ideas_by_philosopher(
     try:
         all_ideas = []
         
-        # Get from top_ten_ideas collection
-        top_ten_collection = db_manager.get_collection("top_ten_ideas")
+        # Get from top_10_ideas collection
+        top_ten_collection = db_manager.get_collection("top_10_ideas")
         top_ten_cursor = top_ten_collection.find(
-            {"author": {"$regex": philosopher, "$options": "i"}}
+            {"$or": [
+                {"author": {"$regex": philosopher, "$options": "i"}},
+                {"philosopher": {"$regex": philosopher, "$options": "i"}}
+            ]}
         ).limit(limit)
         top_ten_ideas = await top_ten_cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and ensure proper field mapping for top ten ideas
+        for idea in top_ten_ideas:
+            if "_id" in idea:
+                idea["_id"] = str(idea["_id"])
+            if "author" not in idea and "philosopher" in idea:
+                idea["author"] = idea["philosopher"]
         
         # Get from idea_summaries collection if requested
         if include_summaries:
             summaries_collection = db_manager.get_collection("idea_summary")
             summaries_cursor = summaries_collection.find(
-                {"author": {"$regex": philosopher, "$options": "i"}}
+                {"$or": [
+                    {"author": {"$regex": philosopher, "$options": "i"}},
+                    {"philosopher": {"$regex": philosopher, "$options": "i"}}
+                ]}
             ).limit(limit)
             idea_summaries = await summaries_cursor.to_list(length=limit)
+            
+            # Convert ObjectId to string and ensure proper field mapping for idea summaries
+            for idea in idea_summaries:
+                if "_id" in idea:
+                    idea["_id"] = str(idea["_id"])
+                if "author" not in idea and "philosopher" in idea:
+                    idea["author"] = idea["philosopher"]
         else:
             idea_summaries = []
         
@@ -201,11 +228,23 @@ async def get_idea_by_id(
 ):
     """Get a specific idea by ID from either collection"""
     try:
-        # Try top_ten_ideas first
-        top_ten_collection = db_manager.get_collection("top_ten_ideas")
-        idea = await top_ten_collection.find_one({"_id": idea_id})
+        from bson import ObjectId
+        
+        # Try top_10_ideas first
+        top_ten_collection = db_manager.get_collection("top_10_ideas")
+        idea = None
+        try:
+            idea = await top_ten_collection.find_one({"_id": ObjectId(idea_id)})
+        except:
+            idea = await top_ten_collection.find_one({"_id": idea_id})
         
         if idea:
+            # Convert ObjectId to string and ensure proper field mapping
+            if "_id" in idea:
+                idea["_id"] = str(idea["_id"])
+            if "author" not in idea and "philosopher" in idea:
+                idea["author"] = idea["philosopher"]
+                
             idea_model = TopTenIdea(**idea)
             return IdeasResponse(
                 data=idea_model,
@@ -214,9 +253,19 @@ async def get_idea_by_id(
         
         # Try idea_summaries
         summaries_collection = db_manager.get_collection("idea_summary")
-        idea = await summaries_collection.find_one({"_id": idea_id})
+        idea = None
+        try:
+            idea = await summaries_collection.find_one({"_id": ObjectId(idea_id)})
+        except:
+            idea = await summaries_collection.find_one({"_id": idea_id})
         
         if idea:
+            # Convert ObjectId to string and ensure proper field mapping
+            if "_id" in idea:
+                idea["_id"] = str(idea["_id"])
+            if "author" not in idea and "philosopher" in idea:
+                idea["author"] = idea["philosopher"]
+                
             idea_model = IdeaSummary(**idea)
             return IdeasResponse(
                 data=idea_model,

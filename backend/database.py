@@ -38,7 +38,7 @@ class DatabaseManager:
             "philosophers",
             "philosophy_schools",
             "philosophy_themes",
-            "top_ten_ideas"
+            "top_10_ideas"
         ]
     
     async def connect(self) -> None:
@@ -121,52 +121,155 @@ class DatabaseManager:
             filter_query["is_active_chat"] = is_active_chat
         
         cursor = collection.find(filter_query).skip(skip).limit(limit)
-        return await cursor.to_list(length=limit)
+        philosophers = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for philosopher in philosophers:
+            if "_id" in philosopher:
+                philosopher["_id"] = str(philosopher["_id"])
+            # Ensure we have the required fields
+            if "author" not in philosopher and "philosopher" in philosopher:
+                philosopher["author"] = philosopher["philosopher"]
+        
+        return philosophers
     
     async def get_philosopher_by_id(self, philosopher_id: str) -> Optional[Dict[str, Any]]:
         """Get philosopher by ID"""
+        from bson import ObjectId
         collection = self.get_collection("philosophers")
-        return await collection.find_one({"_id": philosopher_id})
+        
+        # Try to find by ObjectId first, then by string ID
+        philosopher = None
+        try:
+            philosopher = await collection.find_one({"_id": ObjectId(philosopher_id)})
+        except:
+            # If ObjectId conversion fails, try as string
+            philosopher = await collection.find_one({"_id": philosopher_id})
+        
+        if philosopher:
+            # Convert ObjectId to string
+            philosopher["_id"] = str(philosopher["_id"])
+            # Ensure we have the required fields
+            if "author" not in philosopher and "philosopher" in philosopher:
+                philosopher["author"] = philosopher["philosopher"]
+        
+        return philosopher
     
     # Philosophy Schools methods
     async def get_philosophy_schools(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get philosophy schools with pagination"""
         collection = self.get_collection("philosophy_schools")
         cursor = collection.find({}).skip(skip).limit(limit)
-        return await cursor.to_list(length=limit)
+        schools = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for school in schools:
+            if "_id" in school:
+                school["_id"] = str(school["_id"])
+            # Map schoolID to school_id if needed
+            if "schoolID" in school and "school_id" not in school:
+                school["school_id"] = school["schoolID"]
+        
+        return schools
     
     async def get_philosophy_school_by_id(self, school_id: str) -> Optional[Dict[str, Any]]:
         """Get philosophy school by ID"""
+        from bson import ObjectId
         collection = self.get_collection("philosophy_schools")
-        return await collection.find_one({"_id": school_id})
+        
+        # Try multiple ways to find the school
+        school = None
+        
+        # Try by ObjectId first
+        try:
+            school = await collection.find_one({"_id": ObjectId(school_id)})
+        except:
+            pass
+            
+        # Try by string _id
+        if not school:
+            school = await collection.find_one({"_id": school_id})
+            
+        # Try by school_id field
+        if not school:
+            try:
+                school_id_int = int(school_id)
+                school = await collection.find_one({"school_id": school_id_int})
+            except ValueError:
+                school = await collection.find_one({"school_id": school_id})
+                
+        # Try by schoolID field (from JSON)
+        if not school:
+            try:
+                school_id_int = int(school_id)
+                school = await collection.find_one({"schoolID": school_id_int})
+            except ValueError:
+                school = await collection.find_one({"schoolID": school_id})
+        
+        if school:
+            # Convert ObjectId to string
+            school["_id"] = str(school["_id"])
+            # Map schoolID to school_id if needed
+            if "schoolID" in school and "school_id" not in school:
+                school["school_id"] = school["schoolID"]
+        
+        return school
     
     async def search_philosophy_schools(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
         """Search philosophy schools by name, category, or content"""
         collection = self.get_collection("philosophy_schools")
         
-        # Create a text search filter
+        # Create a text search filter - search both original and normalized fields
         search_filter = {
             "$or": [
                 {"name": {"$regex": query, "$options": "i"}},
+                {"school": {"$regex": query, "$options": "i"}},  # From JSON structure
                 {"category": {"$regex": query, "$options": "i"}},
                 {"summary": {"$regex": query, "$options": "i"}},
-                {"core_principles": {"$regex": query, "$options": "i"}}
+                {"core_principles": {"$regex": query, "$options": "i"}},
+                {"corePrinciples": {"$regex": query, "$options": "i"}}  # From JSON structure
             ]
         }
         
         cursor = collection.find(search_filter).limit(limit)
-        return await cursor.to_list(length=limit)
+        schools = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for school in schools:
+            if "_id" in school:
+                school["_id"] = str(school["_id"])
+            # Map schoolID to school_id if needed
+            if "schoolID" in school and "school_id" not in school:
+                school["school_id"] = school["schoolID"]
+        
+        return schools
     
     async def get_philosophers_by_school(self, school_id: str, skip: int = 0, limit: int = 100, is_active_chat: Optional[int] = None) -> List[Dict[str, Any]]:
         """Get philosophers belonging to a specific school with optional active chat filter"""
         collection = self.get_collection("philosophers")
         
-        filter_query = {"school_id": school_id}
+        # Handle both string and integer school_id
+        try:
+            school_id_int = int(school_id)
+            filter_query = {"school_id": school_id_int}
+        except ValueError:
+            filter_query = {"school_id": school_id}
+            
         if is_active_chat is not None:
             filter_query["is_active_chat"] = is_active_chat
         
         cursor = collection.find(filter_query).skip(skip).limit(limit)
-        return await cursor.to_list(length=limit)
+        philosophers = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for philosopher in philosophers:
+            if "_id" in philosopher:
+                philosopher["_id"] = str(philosopher["_id"])
+            # Ensure we have the required fields
+            if "author" not in philosopher and "philosopher" in philosopher:
+                philosopher["author"] = philosopher["philosopher"]
+        
+        return philosophers
     
     async def get_philosopher_with_school(self, philosopher_id: str) -> Optional[Dict[str, Any]]:
         """Get philosopher with their associated school information"""
@@ -174,11 +277,44 @@ class DatabaseManager:
         if not philosopher:
             return None
         
-        result = {"author": philosopher, "school": None}
+        result = {"philosopher": philosopher, "school": None}
         
         # Get school information if school_id exists
         if philosopher.get("school_id"):
-            school = await self.get_philosophy_school_by_id(f"school_{philosopher['school_id']}")
+            school = await self.get_philosophy_school_by_id(str(philosopher['school_id']))
+            if school:
+                school["_id"] = str(school["_id"]) if "_id" in school else None
+            result["school"] = school
+        
+        return result
+    
+    async def get_philosopher_with_school_by_name(self, philosopher_name: str) -> Optional[Dict[str, Any]]:
+        """Get philosopher with their associated school information by name"""
+        # Search for philosopher by name (author or philosopher field)
+        collection = self.get_collection("philosophers")
+        philosopher = await collection.find_one({
+            "$or": [
+                {"author": {"$regex": philosopher_name, "$options": "i"}},
+                {"philosopher": {"$regex": philosopher_name, "$options": "i"}}
+            ]
+        })
+        
+        if not philosopher:
+            return None
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        if "_id" in philosopher:
+            philosopher["_id"] = str(philosopher["_id"])
+        if "author" not in philosopher and "philosopher" in philosopher:
+            philosopher["author"] = philosopher["philosopher"]
+        
+        result = {"philosopher": philosopher, "school": None}
+        
+        # Get school information if school_id exists
+        if philosopher.get("school_id"):
+            school = await self.get_philosophy_school_by_id(str(philosopher['school_id']))
+            if school:
+                school["_id"] = str(school["_id"]) if "_id" in school else None
             result["school"] = school
         
         return result
@@ -187,10 +323,11 @@ class DatabaseManager:
         """Search philosophers by author name or content with optional active chat filter"""
         collection = self.get_collection("philosophers")
         
-        # Create a text search filter - prioritize author field
+        # Create a text search filter - search both author and philosopher fields
         search_filter = {
             "$or": [
                 {"author": {"$regex": query, "$options": "i"}},
+                {"philosopher": {"$regex": query, "$options": "i"}},
                 {"summary": {"$regex": query, "$options": "i"}},
                 {"content": {"$regex": query, "$options": "i"}}
             ]
@@ -201,7 +338,17 @@ class DatabaseManager:
             search_filter["is_active_chat"] = is_active_chat
         
         cursor = collection.find(search_filter).limit(limit)
-        return await cursor.to_list(length=limit)
+        philosophers = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for philosopher in philosophers:
+            if "_id" in philosopher:
+                philosopher["_id"] = str(philosopher["_id"])
+            # Ensure we have the required fields
+            if "author" not in philosopher and "philosopher" in philosopher:
+                philosopher["author"] = philosopher["philosopher"]
+        
+        return philosophers
     
     # Methods to get data by author across collections
     async def get_aphorisms_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
@@ -218,7 +365,7 @@ class DatabaseManager:
     
     async def get_top_ideas_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get top ten ideas by author"""
-        collection = self.get_collection("top_ten_ideas")
+        collection = self.get_collection("top_10_ideas")
         cursor = collection.find({"author": author}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
@@ -272,30 +419,71 @@ class DatabaseManager:
         if philosopher:
             # Match either author or philosopher field for backward compatibility
             filter_query["$or"] = [
-                {"author": {"$regex": philosopher, "$options": "i"}}
+                {"author": {"$regex": philosopher, "$options": "i"}},
+                {"philosopher": {"$regex": philosopher, "$options": "i"}}
             ]
         
         cursor = collection.find(filter_query).skip(skip).limit(limit)
-        return await cursor.to_list(length=limit)
+        aphorisms = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for aphorism in aphorisms:
+            if "_id" in aphorism:
+                aphorism["_id"] = str(aphorism["_id"])
+            # Ensure we have the required fields
+            if "author" not in aphorism and "philosopher" in aphorism:
+                aphorism["author"] = aphorism["philosopher"]
+        
+        return aphorisms
     
     async def get_random_aphorisms(self, count: int = 5) -> List[Dict[str, Any]]:
         """Get random aphorisms"""
         collection = self.get_collection("aphorisms")
         cursor = collection.aggregate([{"$sample": {"size": count}}])
-        return await cursor.to_list(length=count)
+        aphorisms = await cursor.to_list(length=count)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for aphorism in aphorisms:
+            if "_id" in aphorism:
+                aphorism["_id"] = str(aphorism["_id"])
+            # Ensure we have the required fields
+            if "author" not in aphorism and "philosopher" in aphorism:
+                aphorism["author"] = aphorism["philosopher"]
+        
+        return aphorisms
     
     # Ideas-related methods
     async def get_top_ideas(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get top ten ideas with pagination"""
-        collection = self.get_collection("top_ten_ideas")
+        collection = self.get_collection("top_10_ideas")
         cursor = collection.find({}).skip(skip).limit(limit)
-        return await cursor.to_list(length=limit)
+        ideas = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for idea in ideas:
+            if "_id" in idea:
+                idea["_id"] = str(idea["_id"])
+            # Ensure we have the required fields
+            if "author" not in idea and "philosopher" in idea:
+                idea["author"] = idea["philosopher"]
+        
+        return ideas
     
     async def get_idea_summaries(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get idea summaries with pagination"""
         collection = self.get_collection("idea_summary")
         cursor = collection.find({}).skip(skip).limit(limit)
-        return await cursor.to_list(length=limit)
+        ideas = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for idea in ideas:
+            if "_id" in idea:
+                idea["_id"] = str(idea["_id"])
+            # Ensure we have the required fields
+            if "author" not in idea and "philosopher" in idea:
+                idea["author"] = idea["philosopher"]
+        
+        return ideas
     
     # Chat-related methods
     async def get_chat_blueprints(self, author: Optional[str] = None) -> List[Dict[str, Any]]:
@@ -303,24 +491,92 @@ class DatabaseManager:
         collection = self.get_collection("chat_blueprint")
         query = {}
         if author:
-            query["author"] = author
+            # Search in nested structure and flat structure
+            query = {
+                "$or": [
+                    {"prompt_blueprint.author": {"$regex": author, "$options": "i"}},
+                    {"author": {"$regex": author, "$options": "i"}}
+                ]
+            }
         cursor = collection.find(query)
-        return await cursor.to_list(length=100)
+        blueprints = await cursor.to_list(length=100)
+        
+        # Convert ObjectId to string and handle nested structure
+        for blueprint in blueprints:
+            if "_id" in blueprint:
+                blueprint["_id"] = str(blueprint["_id"])
+            
+            # Handle nested structure - extract data from prompt_blueprint if it exists
+            if "prompt_blueprint" in blueprint:
+                nested_data = blueprint["prompt_blueprint"]
+                # Copy nested fields to top level for model compatibility
+                if "author" in nested_data:
+                    blueprint["author"] = nested_data["author"]
+                # Extract other relevant fields if they exist
+                for field in ["personality_traits", "speaking_style", "core_beliefs", "typical_responses", "conversation_starters"]:
+                    if field in nested_data:
+                        blueprint[field] = nested_data[field]
+            
+            # Ensure we have the required fields
+            if "author" not in blueprint and "philosopher" in blueprint:
+                blueprint["author"] = blueprint["philosopher"]
+        
+        return blueprints
     
     async def get_philosopher_bots(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get philosopher bot configurations"""
         collection = self.get_collection("philosopher_bot")
         cursor = collection.find({}).skip(skip).limit(limit)
-        return await cursor.to_list(length=limit)
+        bots = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and handle nested structure
+        for bot in bots:
+            if "_id" in bot:
+                bot["_id"] = str(bot["_id"])
+            
+            # Handle nested structure - extract data from persona if it exists
+            if "persona" in bot:
+                persona_data = bot["persona"]
+                # Copy nested fields to top level for model compatibility
+                if "name" in persona_data:
+                    bot["author"] = persona_data["name"]
+                # Extract other relevant fields if they exist
+                for field in ["category", "language", "style", "philosophical_themes"]:
+                    if field in persona_data:
+                        bot[field] = persona_data[field]
+            
+            # Ensure we have the required fields
+            if "author" not in bot and "philosopher" in bot:
+                bot["author"] = bot["philosopher"]
+            elif "author" not in bot and "name" in bot:
+                bot["author"] = bot["name"]
+        
+        return bots
     
     async def get_conversation_logic(self, author: Optional[str] = None) -> List[Dict[str, Any]]:
         """Get conversation logic from the database"""
         collection = self.get_collection("conversation_logic")
         query = {}
         if author:
-            query["author"] = author
+            # Search both author and philosopher fields
+            query = {
+                "$or": [
+                    {"author": {"$regex": author, "$options": "i"}},
+                    {"philosopher": {"$regex": author, "$options": "i"}}
+                ]
+            }
         cursor = collection.find(query)
-        return await cursor.to_list(length=100)
+        logic_items = await cursor.to_list(length=100)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for item in logic_items:
+            if "_id" in item:
+                item["_id"] = str(item["_id"])
+            # Ensure we have the required fields
+            if "author" not in item and "philosopher" in item:
+                item["author"] = item["philosopher"]
+        
+        return logic_items
     
     # Search methods
     async def global_search(self, query: str, limit: int = 50) -> Dict[str, List[Dict[str, Any]]]:

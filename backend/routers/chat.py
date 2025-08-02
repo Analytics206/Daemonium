@@ -111,20 +111,45 @@ async def get_available_philosophers(
 ):
     """Get list of available philosophers for chat"""
     try:
-        # Get unique philosophers from chat blueprints
-        blueprints_collection = db_manager.get_collection("chat_blueprints")
-        blueprint_philosophers = await blueprints_collection.distinct("author")
+        all_philosophers = set()
         
-        # Get unique philosophers from conversation logic
-        logic_collection = db_manager.get_collection("conversation_logic")
-        logic_philosophers = await logic_collection.distinct("author")
+        # Get philosophers from chat blueprints (nested structure)
+        try:
+            blueprints = await db_manager.get_chat_blueprints()
+            for blueprint in blueprints:
+                if "author" in blueprint and blueprint["author"]:
+                    all_philosophers.add(blueprint["author"])
+        except Exception as e:
+            logger.warning(f"Failed to get chat blueprint philosophers: {e}")
         
-        # Get unique philosophers from philosopher bots
-        bots_collection = db_manager.get_collection("philosopher_bots")
-        bot_philosophers = await bots_collection.distinct("author")
+        # Get philosophers from conversation logic
+        try:
+            logic_items = await db_manager.get_conversation_logic()
+            for item in logic_items:
+                if "author" in item and item["author"]:
+                    all_philosophers.add(item["author"])
+        except Exception as e:
+            logger.warning(f"Failed to get conversation logic philosophers: {e}")
         
-        # Combine and deduplicate
-        all_philosophers = set(blueprint_philosophers + logic_philosophers + bot_philosophers)
+        # Get philosophers from philosopher bots (nested structure)
+        try:
+            bots = await db_manager.get_philosopher_bots()
+            for bot in bots:
+                if "author" in bot and bot["author"]:
+                    all_philosophers.add(bot["author"])
+        except Exception as e:
+            logger.warning(f"Failed to get philosopher bot philosophers: {e}")
+        
+        # Also get from main philosophers collection for active chat philosophers
+        try:
+            active_philosophers = await db_manager.get_philosophers(is_active_chat=1)
+            for philosopher in active_philosophers:
+                if "author" in philosopher and philosopher["author"]:
+                    all_philosophers.add(philosopher["author"])
+        except Exception as e:
+            logger.warning(f"Failed to get active chat philosophers: {e}")
+        
+        # Convert to sorted list
         available_philosophers = sorted(list(all_philosophers))
         
         return {
@@ -198,8 +223,8 @@ async def get_conversation_starters(
 ):
     """Get conversation starters for a specific philosopher"""
     try:
-        # Get chat blueprint for the philosopher
-        blueprints = await db_manager.get_chat_blueprints(philosopher=philosopher)
+        # Get chat blueprint for the philosopher (use author parameter)
+        blueprints = await db_manager.get_chat_blueprints(author=philosopher)
         
         if not blueprints:
             raise HTTPException(status_code=404, detail=f"No chat configuration found for philosopher '{philosopher}'")
@@ -242,17 +267,27 @@ async def get_philosopher_personality(
 ):
     """Get personality profile for a philosopher"""
     try:
-        # Get chat blueprint
-        blueprints = await db_manager.get_chat_blueprints(philosopher=philosopher)
+        # Get chat blueprint (use author parameter)
+        blueprints = await db_manager.get_chat_blueprints(author=philosopher)
         blueprint = blueprints[0] if blueprints else {}
         
-        # Get conversation logic
-        logic_items = await db_manager.get_conversation_logic(philosopher=philosopher)
+        # Get conversation logic (use author parameter)
+        logic_items = await db_manager.get_conversation_logic(author=philosopher)
         logic = logic_items[0] if logic_items else {}
         
-        # Get persona core
-        persona_collection = db_manager.get_collection("persona_cores")
-        persona = await persona_collection.find_one({"philosopher": {"$regex": philosopher, "$options": "i"}})
+        # Get persona core (correct collection name and handle ObjectId)
+        persona_collection = db_manager.get_collection("persona_core")
+        persona = await persona_collection.find_one({
+            "$or": [
+                {"philosopher": {"$regex": philosopher, "$options": "i"}},
+                {"author": {"$regex": philosopher, "$options": "i"}},
+                {"name": {"$regex": philosopher, "$options": "i"}}
+            ]
+        })
+        
+        # Convert ObjectId to string if persona exists
+        if persona and "_id" in persona:
+            persona["_id"] = str(persona["_id"])
         
         if not blueprint and not logic and not persona:
             raise HTTPException(status_code=404, detail=f"No personality data found for philosopher '{philosopher}'")

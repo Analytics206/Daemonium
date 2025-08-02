@@ -134,6 +134,14 @@ async def get_aphorisms_by_theme(
         cursor = collection.find(search_filter).skip(skip).limit(limit)
         aphorisms = await cursor.to_list(length=limit)
         
+        # Convert ObjectId to string and ensure proper field mapping
+        for aphorism in aphorisms:
+            if "_id" in aphorism:
+                aphorism["_id"] = str(aphorism["_id"])
+            # Ensure we have the required fields
+            if "author" not in aphorism and "philosopher" in aphorism:
+                aphorism["author"] = aphorism["philosopher"]
+        
         if not aphorisms:
             raise HTTPException(status_code=404, detail=f"No aphorisms found for theme '{theme}'")
         
@@ -165,11 +173,26 @@ async def get_aphorism_by_id(
 ):
     """Get a specific aphorism by ID"""
     try:
+        from bson import ObjectId
         collection = db_manager.get_collection("aphorisms")
-        aphorism = await collection.find_one({"_id": aphorism_id})
+        
+        # Try to find by ObjectId first, then by string ID
+        aphorism = None
+        try:
+            aphorism = await collection.find_one({"_id": ObjectId(aphorism_id)})
+        except:
+            # If ObjectId conversion fails, try as string
+            aphorism = await collection.find_one({"_id": aphorism_id})
         
         if not aphorism:
             raise HTTPException(status_code=404, detail=f"Aphorism with ID '{aphorism_id}' not found")
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        if "_id" in aphorism:
+            aphorism["_id"] = str(aphorism["_id"])
+        # Ensure we have the required fields
+        if "author" not in aphorism and "philosopher" in aphorism:
+            aphorism["author"] = aphorism["philosopher"]
         
         aphorism_model = Aphorism(**aphorism)
         

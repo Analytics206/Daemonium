@@ -102,20 +102,20 @@ async def search_philosophers(
         logger.error(f"Failed to search philosophers: {e}")
         raise HTTPException(status_code=500, detail="Failed to search philosophers")
 
-@router.get("/{philosopher_id}/with-school", response_model=PhilosopherWithSchoolResponse)
+@router.get("/{philosopher_name}/with-school", response_model=PhilosopherWithSchoolResponse)
 async def get_philosopher_with_school(
-    philosopher_id: str,
+    philosopher_name: str,
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Get philosopher with their associated philosophy school information"""
+    """Get philosopher with their associated philosophy school information by name"""
     try:
-        philosopher_with_school = await db_manager.get_philosopher_with_school(philosopher_id)
+        philosopher_with_school = await db_manager.get_philosopher_with_school_by_name(philosopher_name)
         
         if not philosopher_with_school:
-            raise HTTPException(status_code=404, detail=f"Philosopher with ID '{philosopher_id}' not found")
+            raise HTTPException(status_code=404, detail=f"Philosopher '{philosopher_name}' not found")
         
         # Convert to Pydantic models
-        philosopher_model = PhilosopherSummary(**philosopher_with_school["author"])
+        philosopher_model = PhilosopherSummary(**philosopher_with_school["philosopher"])
         school_model = None
         
         if philosopher_with_school["school"]:
@@ -135,7 +135,7 @@ async def get_philosopher_with_school(
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"Failed to get philosopher with school {philosopher_id}: {e}")
+        logger.error(f"Failed to get philosopher with school {philosopher_name}: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve philosopher with school information")
 
 @router.get("/{philosopher_id}/related", response_model=PhilosopherResponse)
