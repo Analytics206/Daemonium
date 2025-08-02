@@ -125,8 +125,8 @@ class PhilosopherBioUploader:
             
     def _prepare_document(self, json_data: Dict[str, Any], filename: str) -> Dict[str, Any]:
         """Prepare document for MongoDB insertion."""
-        # Create a unique identifier based on philosopher name and category
-        philosopher = json_data.get('philosopher', 'unknown').replace(' ', '_').lower()
+        # Create a unique identifier based on author name and category
+        author = json_data.get('author', 'unknown').replace(' ', '_').lower()
         category = json_data.get('category', 'unknown').replace(' ', '_').lower()
         
         # Extract sections data
@@ -144,9 +144,9 @@ class PhilosopherBioUploader:
                     total_key_events += len(key_events)
         
         document = {
-            '_id': f"{philosopher}_{category}",
+            '_id': f"{author}_{category}",
             'filename': filename,
-            'philosopher': json_data.get('philosopher', 'Unknown'),
+            'author': json_data.get('author', 'Unknown'),
             'category': json_data.get('category', 'Unknown'),
             'birth_year': json_data.get('birth_year', None),
             'death_year': json_data.get('death_year', None),

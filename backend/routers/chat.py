@@ -275,11 +275,11 @@ async def get_philosopher_personality(
         logic_items = await db_manager.get_conversation_logic(author=philosopher)
         logic = logic_items[0] if logic_items else {}
         
-        # Get persona core (search by name field in nested persona structure)
+        # Get persona core (search by author field in nested persona structure)
         persona_collection = db_manager.get_collection("persona_core")
         persona = await persona_collection.find_one({
             "$or": [
-                {"persona.name": {"$regex": philosopher, "$options": "i"}},
+                {"persona.author": {"$regex": philosopher, "$options": "i"}},
                 {"persona.identity.full_name": {"$regex": philosopher, "$options": "i"}}
             ]
         })

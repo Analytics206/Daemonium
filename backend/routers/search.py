@@ -156,13 +156,41 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
             ]
         }
     
-    elif collection_name in ["chat_blueprint", "conversation_logic", "philosopher_bot"]:
+    elif collection_name in ["chat_blueprint", "conversation_logic"]:
         return {
             "$or": [
                 {"author": {"$regex": query, "$options": "i"}},
                 {"speaking_style": {"$regex": query, "$options": "i"}},
                 {"personality_traits": {"$regex": query, "$options": "i"}},
                 {"core_beliefs": {"$regex": query, "$options": "i"}}
+            ]
+        }
+    
+    elif collection_name == "philosopher_bot":
+        return {
+            "$or": [
+                {"persona.author": {"$regex": query, "$options": "i"}},
+                {"persona.style.speaking_style": {"$regex": query, "$options": "i"}},
+                {"persona.personality_traits": {"$regex": query, "$options": "i"}},
+                {"persona.philosophical_themes": {"$regex": query, "$options": "i"}},
+                {"instructions.primary_goal": {"$regex": query, "$options": "i"}},
+                {"instructions.behavior": {"$regex": query, "$options": "i"}}
+            ]
+        }
+    
+    elif collection_name == "philosopher_bio":
+        return {
+            "$or": [
+                {"author": {"$regex": query, "$options": "i"}},
+                {"description": {"$regex": query, "$options": "i"}},
+                {"sections.1_life_and_works.content": {"$regex": query, "$options": "i"}},
+                {"sections.2_philosophical_development.content": {"$regex": query, "$options": "i"}},
+                {"sections.3_major_works.content": {"$regex": query, "$options": "i"}},
+                {"sections.4_philosophical_themes.content": {"$regex": query, "$options": "i"}},
+                {"sections.5_influence_and_legacy.content": {"$regex": query, "$options": "i"}},
+                {"sections.6_personal_life.content": {"$regex": query, "$options": "i"}},
+                {"sections.7_criticism_and_controversies.content": {"$regex": query, "$options": "i"}},
+                {"sections.8_quotes_and_aphorisms.content": {"$regex": query, "$options": "i"}}
             ]
         }
     

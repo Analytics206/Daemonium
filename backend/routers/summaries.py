@@ -155,7 +155,7 @@ async def search_philosopher_bios_by_author(
         # Search filter for philosopher bio collection
         search_filter = {
             "$or": [
-                {"philosopher": {"$regex": author, "$options": "i"}},
+                {"author": {"$regex": author, "$options": "i"}},
                 {"description": {"$regex": author, "$options": "i"}},
                 {"sections.1_life_and_works.content": {"$regex": author, "$options": "i"}},
                 {"sections.2_philosophical_development.content": {"$regex": author, "$options": "i"}},
@@ -175,9 +175,6 @@ async def search_philosopher_bios_by_author(
         for bio in bios:
             if "_id" in bio:
                 bio["_id"] = str(bio["_id"])
-            # Add author field mapping for consistency
-            if "author" not in bio and "philosopher" in bio:
-                bio["author"] = bio["philosopher"]
         
         if not bios:
             raise HTTPException(status_code=404, detail=f"No philosopher biographies found matching '{author}'")
@@ -260,7 +257,8 @@ async def get_persona_cores(
         
         filter_query = {}
         if philosopher:
-            filter_query["philosopher"] = {"$regex": philosopher, "$options": "i"}
+            # Search in nested persona structure by author field
+            filter_query["persona.author"] = {"$regex": philosopher, "$options": "i"}
         
         cursor = collection.find(filter_query).skip(skip).limit(limit)
         cores = await cursor.to_list(length=limit)
@@ -335,6 +333,31 @@ async def search_summaries_collection(
                     {"title": {"$regex": query, "$options": "i"}},
                     {"description": {"$regex": query, "$options": "i"}},
                     {"sections": {"$regex": query, "$options": "i"}}
+                ]
+            }
+        elif collection_name == "persona_core":
+            search_filter = {
+                "$or": [
+                    {"persona.author": {"$regex": query, "$options": "i"}},
+                    {"persona.identity.full_name": {"$regex": query, "$options": "i"}},
+                    {"persona.biography.overview": {"$regex": query, "$options": "i"}},
+                    {"persona.voice.tone": {"$regex": query, "$options": "i"}},
+                    {"persona.voice.style": {"$regex": query, "$options": "i"}}
+                ]
+            }
+        elif collection_name == "philosopher_bio":
+            search_filter = {
+                "$or": [
+                    {"author": {"$regex": query, "$options": "i"}},
+                    {"description": {"$regex": query, "$options": "i"}},
+                    {"sections.1_life_and_works.content": {"$regex": query, "$options": "i"}},
+                    {"sections.2_philosophical_development.content": {"$regex": query, "$options": "i"}},
+                    {"sections.3_major_works.content": {"$regex": query, "$options": "i"}},
+                    {"sections.4_philosophical_themes.content": {"$regex": query, "$options": "i"}},
+                    {"sections.5_influence_and_legacy.content": {"$regex": query, "$options": "i"}},
+                    {"sections.6_personal_life.content": {"$regex": query, "$options": "i"}},
+                    {"sections.7_criticism_and_controversies.content": {"$regex": query, "$options": "i"}},
+                    {"sections.8_quotes_and_aphorisms.content": {"$regex": query, "$options": "i"}}
                 ]
             }
         else:

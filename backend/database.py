@@ -539,8 +539,8 @@ class DatabaseManager:
             if "persona" in bot:
                 persona_data = bot["persona"]
                 # Copy nested fields to top level for model compatibility
-                if "name" in persona_data:
-                    bot["author"] = persona_data["name"]
+                if "author" in persona_data:
+                    bot["author"] = persona_data["author"]
                 # Extract other relevant fields if they exist
                 for field in ["category", "language", "style", "philosophical_themes"]:
                     if field in persona_data:

@@ -128,8 +128,8 @@ class PhilosopherBotUploader:
         # Extract persona data
         persona = json_data.get('persona', {})
         
-        # Create a unique identifier based on name and category
-        name = persona.get('name', 'unknown').replace(' ', '_').lower()
+        # Create a unique identifier based on author and category
+        author = persona.get('author', 'unknown').replace(' ', '_').lower()
         category = persona.get('category', 'unknown').replace(' ', '_').lower()
         
         # Extract style and instructions data
@@ -145,10 +145,10 @@ class PhilosopherBotUploader:
         behavior_count = len(behavior) if isinstance(behavior, list) else 0
         
         document = {
-            '_id': f"{name}_{category}",
+            '_id': f"{author}_{category}",
             'filename': filename,
             'persona': {
-                'name': persona.get('name', 'Unknown'),
+                'author': persona.get('author', 'Unknown'),
                 'category': persona.get('category', 'Unknown'),
                 'language': persona.get('language', 'English'),
                 'style': {
