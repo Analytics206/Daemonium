@@ -1,6 +1,7 @@
 {
     "author_bibliography": {
       "author": "Author Name",
+      "category": "Bibliography",
       "birth_death": "Birth Year - Death Year",
       "description": "Description of the author and bibliography",
       "background": "Background of the author",

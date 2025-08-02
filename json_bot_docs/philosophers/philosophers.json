@@ -55,17 +55,6 @@
     "tag_id": 1
   },
   {
-    "philosopher": "Parmenides",
-    "author": "Parmenides",
-    "dob": "-515-05-20",
-    "dod": "-445-05-05",
-    "summary": "Greek philosopher",
-    "content": "Parmenides argued that reality is one, unchanging, and indivisible, rejecting the notion of change and multiplicity as illusions. His ideas greatly influenced metaphysical thought and set the stage for the debate between change and permanence in philosophy.",
-    "school_id": 2,
-    "is_active_chat": 0,
-    "tag_id": 1
-  },
-  {
     "philosopher": "Zeno of Citium",
     "author": "Zeno of Citium",
     "dob": "-334-05-20",
@@ -543,47 +532,32 @@
     "dod": "1951-04-29",
     "summary": "Austrian philosopher",
     "content": "Wittgenstein revolutionized philosophy of language and logic. His early work emphasized logical structure, while his later philosophy focused on language games and meaning in use.",
-    "school_id": 23,
+    "school_id": 2,
     "is_active_chat": 1,
     "tag_id": 2
-  }
-  ,
+  },
   {
-    "philosopher": "Thales",
-    "author": "Thales",
+    "philosopher": "Thales of Miletus",
+    "author": "Thales of Miletus",
     "dob": "-624-04-26",
     "dod": "-546-04-29",
     "summary": "Greek philosopher",
-    "content": "Thales was a pre-Socratic philosopher. A Greek philosopher of Ephesus (near modern Kuşadası, Turkey) who was active around 500 BCE, Heraclitus propounded a distinctive theory which he expressed in oracular language. He is best known for his doctrines that things are constantly changing (universal flux), that opposites coincide (unity of opposites), and that fire is the basic material of the world. The exact interpretation of these doctrines is controversial, as is the inference often drawn from this theory that in the world as Heraclitus conceives it contradictory propositions must be true.",
-    "school_id": 23,
+    "content": "Thales of Miletus, an early Greek philosopher, is often considered the first philosopher due to his groundbreaking approach of seeking natural explanations for the world, rather than relying on traditional mythology. He proposed that water is the fundamental substance (arche) from which all things originate, and is also credited with predicting a solar eclipse and making early contributions to astronomy and mathematics.",
+    "school_id": 2,
     "is_active_chat": 0,
     "tag_id": 2
-  }
-  ,
+  },
   {
     "philosopher": "Anaximander",
     "author": "Anaximander",
     "dob": "-610-04-26",
     "dod": "-546-04-29",
     "summary": "Greek philosopher",
-    "content": "Anaximander was a pre-Socratic philosopher. A Greek philosopher of Ephesus (near modern Kuşadası, Turkey) who was active around 500 BCE, Heraclitus propounded a distinctive theory which he expressed in oracular language. He is best known for his doctrines that things are constantly changing (universal flux), that opposites coincide (unity of opposites), and that fire is the basic material of the world. The exact interpretation of these doctrines is controversial, as is the inference often drawn from this theory that in the world as Heraclitus conceives it contradictory propositions must be true.",
-    "school_id": 23,
+    "content": "Anaximander was a pre-Socratic philosopher. Anaximander was the author of the first surviving lines of Western philosophy. He speculated and argued about “the Boundless” as the origin of all that is. He also worked on the fields of what we now call geography and biology. Moreover, Anaximander was the first speculative astronomer. He originated the world-picture of the open universe, which replaced the closed universe of the celestial vault.",
+    "school_id": 3,
     "is_active_chat": 0,
     "tag_id": 2
-  }
-  ,
-  {
-    "philosopher": "Heraclitus",
-    "author": "Heraclitus",
-    "dob": "-535-04-26",
-    "dod": "-475-04-29",
-    "summary": "Greek philosopher",
-    "content": "Heraclitus was a pre-Socratic philosopher. A Greek philosopher of Ephesus (near modern Kuşadası, Turkey) who was active around 500 BCE, Heraclitus propounded a distinctive theory which he expressed in oracular language. He is best known for his doctrines that things are constantly changing (universal flux), that opposites coincide (unity of opposites), and that fire is the basic material of the world. The exact interpretation of these doctrines is controversial, as is the inference often drawn from this theory that in the world as Heraclitus conceives it contradictory propositions must be true.",
-    "school_id": 23,
-    "is_active_chat": 0,
-    "tag_id": 2
-  }
-  ,
+  },
   {
     "philosopher": "Anaximenes",
     "author": "Anaximenes",
@@ -591,23 +565,21 @@
     "dod": "-475-04-29",
     "summary": "Greek philosopher",
     "content": "Anaximenes was a pre-Socratic philosopher. Anaximenes of Miletus, active in the earlier part of the 5th c. BCE, was a member of the Milesian school of philosophy, which emphasized the study of nature and the universe. He is best known for his theory of the nature of air, which he held to be the basic element of the universe. He also developed a theory of the origin of the universe, which he held to be the result of the separation of the elements of air and fire. This entry will introduce Anaximenes, his life and work, as well as the scholarly debates that continue to dominate study of his philosophical system. The numbering of the fragments in this article follows that of the Diels-Kranz edition [DK] and Laks and Most 2016; translations are from Laks and Most.",
-    "school_id": 23,
+    "school_id": 2,
     "is_active_chat": 0,
     "tag_id": 2
-  }
-  ,
+  },
   {
     "philosopher": "Parmenides",
     "author": "Parmenides",
     "dob": "-535-04-26",
     "dod": "-475-04-29",
     "summary": "Greek philosopher",
-    "content": "Parmenides was a pre-Socratic philosopher. Parmenides of Elea, active in the earlier part of the 5th c. BCE, authored a difficult metaphysical poem that has earned him a reputation as early Greek philosophy’s most profound and challenging thinker. His philosophical stance has typically been understood as at once extremely paradoxical and yet crucial for the broader development of Greek natural philosophy and metaphysics. He has been seen as a metaphysical monist (of one stripe or another) who so challenged the naïve cosmological theories of his predecessors that his major successors among the Presocratics were all driven to develop more sophisticated physical theories in response to his arguments. The difficulties involved in the interpretation of his poem have resulted in disagreement about many fundamental questions concerning his philosophical views, such as: whether he actually was a monist and, if so, what kind of monist he was; whether his system reflects a critical attitude toward earlier thinkers such as the Milesians, Pythagoreans, and Heraclitus, or whether he was motivated simply by more strictly logical concerns, such as the paradox of negative existentials that Bertrand Russell detected at the heart of his thought; whether he considered the world of our everyday awareness, with its vast population of entities changing and affecting one another in all manner of ways, to be simply an illusion, and thus whether the lengthy cosmological portion of his poem represented a genuine attempt to understand this world at all. This entry aims to provide an overview of Parmenides’ work and of some of the major interpretive approaches advanced over the past few decades. It concludes by suggesting that understanding his thought and his place in the development of early Greek philosophy requires taking due account of the fundamental modal distinctions that he was the first to articulate and explore with any precision.",
-    "school_id": 23,
+    "content": "Parmenides was a pre-Socratic philosopher. Parmenides argued that reality is one, unchanging, and indivisible, rejecting the notion of change and multiplicity as illusions. His ideas greatly influenced metaphysical thought and set the stage for the debate between change and permanence in philosophy. Parmenides of Elea, active in the earlier part of the 5th c. BCE, authored a difficult metaphysical poem that has earned him a reputation as early Greek philosophy’s most profound and challenging thinker. His philosophical stance has typically been understood as at once extremely paradoxical and yet crucial for the broader development of Greek natural philosophy and metaphysics. He has been seen as a metaphysical monist (of one stripe or another) who so challenged the naïve cosmological theories of his predecessors that his major successors among the Presocratics were all driven to develop more sophisticated physical theories in response to his arguments. The difficulties involved in the interpretation of his poem have resulted in disagreement about many fundamental questions concerning his philosophical views, such as: whether he actually was a monist and, if so, what kind of monist he was; whether his system reflects a critical attitude toward earlier thinkers such as the Milesians, Pythagoreans, and Heraclitus, or whether he was motivated simply by more strictly logical concerns, such as the paradox of negative existentials that Bertrand Russell detected at the heart of his thought; whether he considered the world of our everyday awareness, with its vast population of entities changing and affecting one another in all manner of ways, to be simply an illusion, and thus whether the lengthy cosmological portion of his poem represented a genuine attempt to understand this world at all. This entry aims to provide an overview of Parmenides’ work and of some of the major interpretive approaches advanced over the past few decades. It concludes by suggesting that understanding his thought and his place in the development of early Greek philosophy requires taking due account of the fundamental modal distinctions that he was the first to articulate and explore with any precision.",
+    "school_id": 2,
     "is_active_chat": 0,
     "tag_id": 2
-  }
-  ,
+  },
   {
     "philosopher": "Empedocles",
     "author": "Empedocles",
@@ -615,23 +587,21 @@
     "dod": "-475-04-29",
     "summary": "Greek philosopher",
     "content": "Empedocles was a pre-Socratic philosopher. In the middle of the fifth century BCE, Empedocles of Acragas formulated a philosophical program in hexameter verse that pioneered the influential four-part theory of roots (air, water, earth, and fire) along with two active principles of Love and Strife, which influenced later philosophy, medicine, mysticism, cosmology, and religion. The philosophical system responded to Parmenides’ rejection of change while embracing religious injunctions and magical practices. As a result, Empedocles has occupied a significant position in the history of Presocratic philosophy as a figure moving between mythos and logos, religion and science. Modern debate arises from the lack of consensus on the number of his verse works, their relation to one another, and the coherence of his philosophical system as a whole. This entry will introduce Empedocles, his life and work – traditionally referred to as On Nature and the Purifications – as well as the scholarly debates that continue to dominate study of his philosophical system. It closes with the influence Empedocles had upon his successors. The numbering of the fragments in this article follows that of the Diels-Kranz edition [DK] and Laks and Most 2016; translations are from Laks and Most.",
-    "school_id": 23,
+    "school_id": 2,
     "is_active_chat": 0,
     "tag_id": 2
-  }
-  ,
+  },
   {
     "philosopher": "Democritus",
     "author": "Democritus",
     "dob": "-460-04-26",
     "dod": "-370-04-29",
     "summary": "Greek philosopher",
-    "content": "Democritus was a pre-Socratic philosopher. Democritus, known in antiquity as the ‘laughing philosopher’ because of his emphasis on the value of ‘cheerfulness,’ was one of the two founders of ancient atomist theory. He elaborated a system originated by his teacher Leucippus into a materialist account of the natural world. The atomists held that there are smallest indivisible bodies from which everything else is composed, and that these move about in an infinite void. Of the ancient materialist accounts of the natural world which did not rely on some kind of teleology or purpose to account for the apparent order and regularity found in the world, atomism was the most influential. Even its chief critic, Aristotle, praised Democritus for arguing from sound considerations appropriate to natural philosophy.",
-    "school_id": 23,
+    "content": "Democritus was a pre-Socratic philosopher. Democritus, known in antiquity as the \"laughing philosopher\" because of his emphasis on the value of \"cheerfulness,\" was one of the two founders of ancient atomist theory. He elaborated a system originated by his teacher Leucippus into a materialist account of the natural world. The atomists held that there are smallest indivisible bodies from which everything else is composed, and that these move about in an infinite void. Of the ancient materialist accounts of the natural world which did not rely on some kind of teleology or purpose to account for the apparent order and regularity found in the world, atomism was the most influential. Even its chief critic, Aristotle, praised Democritus for arguing from sound considerations appropriate to natural philosophy.",
+    "school_id": 2,
     "is_active_chat": 0,
     "tag_id": 2
-  }
-  ,
+  },
   {
     "philosopher": "Anaxagoras",
     "author": "Anaxagoras",
@@ -639,7 +609,7 @@
     "dod": "-428-04-29",
     "summary": "Greek philosopher",
     "content": "Anaxagoras was a pre-Socratic philosopher was the first of the Presocratic philosophers to live in Athens. He propounded a physical theory of “everything-in-everything,” and claimed that nous (intellect or mind) was the motive cause of the cosmos. He was the first to give a correct explanation of eclipses, and was both famous and notorious for his scientific theories, including the claims that the sun is a mass of red-hot metal, that the moon is earthy, and that the stars are fiery stones. Anaxagoras maintained that the original state of the cosmos was a mixture of all its ingredients (the basic realities of his system). The ingredients are thoroughly mixed, so that no individual ingredient as such is evident, but the mixture is not entirely uniform or homogeneous. Although every ingredient is ubiquitous, some ingredients are present in higher concentrations than others, and these proportions may also vary from place to place (even if they do not do so in the original state of the cosmos). The mixture is unlimited in extent, and at some point in time it is set into motion by the action of nous (intellect). The mixture begins to rotate around some small point within it, and as the whirling motion proceeds and expands through the mass, the ingredients in the mixture are shifted and separated out (in terms of relative density) and remixed with each other, ultimately producing the cosmos of apparently separate material masses and material objects, with the different properties, that we perceive.",
-    "school_id": 23,
+    "school_id": 2,
     "is_active_chat": 0,
     "tag_id": 2
   }

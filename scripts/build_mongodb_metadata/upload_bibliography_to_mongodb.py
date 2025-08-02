@@ -150,6 +150,7 @@ class BibliographyUploader:
             'filename': filename,
             'original_key': bibliography_key,  # Store the original key for reference
             'author': bibliography_data.get('author', ''),
+            'category': bibliography_data.get('category', 'Bibliography'),  # Include category field
             'birth_death': bibliography_data.get('birth_death', ''),
             'description': bibliography_data.get('description', ''),
             'background': bibliography_data.get('background', ''),  # Include background field
