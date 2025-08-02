@@ -1,6 +1,6 @@
 {
     "persona": {
-      "name": "Author Name",
+      "author": "Author Name",
       "category": "Persona Category",
       "language": "English",
       "identity": {
