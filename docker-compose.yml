@@ -121,6 +121,33 @@ services:
       retries: 3
       start_period: 40s
 
+  # Web UI service
+  web-ui:
+    build:
+      context: ./web-ui
+      dockerfile: Dockerfile
+    container_name: daemonium-web-ui
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET:-your-secret-key-here}
+      - BACKEND_API_URL=http://backend:8000
+      - NEXT_PUBLIC_BACKEND_API_URL=http://localhost:8000
+    ports:
+      - "3000:3000"
+    networks:
+      - daemonium-network
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
 # Docker volumes for data persistence
 volumes:
   mongo_data:

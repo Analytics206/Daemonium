@@ -43,7 +43,7 @@ logs/
 
 # IDE
 .idea/
-.vscode/
+# .vscode/
 *.swp
 *.swo
 
@@ -55,3 +55,17 @@ agent_data/
 
 # Ollama models
 .ollama/
+
+# Web UI specific
+web-ui/node_modules/
+web-ui/.next/
+web-ui/out/
+web-ui/dist/
+web-ui/.env.local
+web-ui/.env.development.local
+web-ui/.env.test.local
+web-ui/.env.production.local
+web-ui/.vercel/
+
+# Override the global lib/ exclusion for web-ui src/lib
+!web-ui/src/lib/
