@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true,
+    // appDir is now stable in Next.js 15, removing deprecated option
   },
   output: 'standalone',
   images: {

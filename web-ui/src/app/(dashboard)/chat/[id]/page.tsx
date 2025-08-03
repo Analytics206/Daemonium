@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ChatInterface from '@/components/chat/chat-interface';
+import ChatInterface from '../../../../components/chat/chat-interface';
 
 interface ChatPageProps {
   params: Promise<{

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import RegisterForm from '@/components/auth/register-form';
-import AuthLayout from '@/components/auth/auth-layout';
+import RegisterForm from '../../../components/auth/register-form';
+import AuthLayout from '../../../components/auth/auth-layout';
 
 export const metadata: Metadata = {
   title: 'Create Account',

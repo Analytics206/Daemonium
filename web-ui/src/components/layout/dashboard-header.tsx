@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '../ui/button';
+import { ThemeToggle } from '../ui/theme-toggle';
 import { User, LogOut } from 'lucide-react';
 import { signOut, useSession } from 'next-auth/react';
 
@@ -28,6 +29,8 @@ export function DashboardHeader() {
               {session?.user?.name || session?.user?.email || 'User'}
             </span>
           </div>
+          
+          <ThemeToggle />
           
           <Button
             variant="outline"

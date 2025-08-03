@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import { PhilosopherGrid } from '@/components/philosophers/philosopher-grid';
-import { PhilosopherFilters } from '@/components/philosophers/philosopher-filters';
-import { PhilosopherSearch } from '@/components/philosophers/philosopher-search';
+import { PhilosopherGrid } from '../../../components/philosophers/philosopher-grid';
+import { PhilosopherFilters } from '../../../components/philosophers/philosopher-filters';
+import { PhilosopherSearch } from '../../../components/philosophers/philosopher-search';
 
 export const metadata: Metadata = {
   title: 'Philosophers',

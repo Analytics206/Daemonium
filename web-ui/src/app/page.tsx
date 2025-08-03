@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import HeroSection from '@/components/sections/hero-section';
-import FeaturedPhilosophers from '@/components/sections/featured-philosophers';
+import HeroSection from '../components/sections/hero-section';
+import FeaturedPhilosophers from '../components/sections/featured-philosophers';
 
 export const metadata: Metadata = {
   title: 'Daemonium - Converse with Philosophers',

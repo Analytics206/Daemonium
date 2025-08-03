@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { Button } from '../ui/button';
 import { MessageCircle, Star } from 'lucide-react';
 
 const philosophers = [
