@@ -12,6 +12,8 @@ from evaluation.kg_metrics import (
     calculate_embedding_quality_metrics
 )
 
+delaytime = 10
+
 # Get the directory containing this script
 SCRIPT_DIR = Path(__file__).parent.parent  # Go up to llm_evaluation directory
 DATA_DIR = SCRIPT_DIR / "data"
@@ -138,9 +140,9 @@ def evaluate_sentence_transformer_model(model_name, output_path="results/st_mode
     # Load model
     model, device = load_sentence_transformer(model_name)
     
-    # Add 5-second delay after loading model to allow Ollama to stabilize
+    # Add delay after loading model to allow Ollama to stabilize
     print("Model loaded, waiting 5 seconds before starting evaluation...")
-    time.sleep(5)
+    time.sleep(delaytime)
     
     results = {
         "model_name": model_name,

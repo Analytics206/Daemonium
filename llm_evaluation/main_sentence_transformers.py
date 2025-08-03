@@ -4,6 +4,8 @@ from evaluation.compare_st_results import compare_sentence_transformer_results
 import os
 import time
 
+delaytime = 10
+
 def main():
     """Main function to evaluate multiple sentence transformer models and compare results."""
     print("Starting Sentence Transformer Evaluation for Knowledge Graph Tasks")
@@ -33,10 +35,10 @@ def main():
             print(f"✗ Failed to evaluate {model_name}: {e}")
             model_results.append((model_name, None, None))
         
-        # Add 5-second delay between model evaluations (except after the last model)
+        # Add delay between model evaluations (except after the last model)
         if i < len(MODELS_TO_COMPARE) - 1:
-            print(f"  Waiting 5 seconds before next model evaluation...")
-            time.sleep(5)
+            print(f"  Waiting {delaytime} seconds before next model evaluation...")
+            time.sleep(delaytime)
     
     print("\n" + "=" * 70)
     print("EVALUATION SUMMARY")
