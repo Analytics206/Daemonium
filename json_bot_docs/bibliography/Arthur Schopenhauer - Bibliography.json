@@ -1,0 +1,89 @@
+{
+    "author_bibliography": {
+      "author": "Arthur Schopenhauer",
+      "category": "Bibliography",
+      "birth_death": "1788 - 1860",
+      "description": "Arthur Schopenhauer was a German philosopher best known for his pessimistic philosophy and metaphysical analysis of the will. His work profoundly influenced existentialism, psychoanalysis, literature, and modern philosophy, especially through his central concept of the 'will to live' as the irrational force behind all existence.",
+      "background": "Born in Danzig (now Gdańsk, Poland), Schopenhauer was educated in classical literature, science, and philosophy. Deeply influenced by Kant, the Upanishads, and Buddhism, he developed a unique system centered around the idea that blind, insatiable will is the essence of reality. Though largely unrecognized in his lifetime, he later became one of the most influential thinkers of the 19th and 20th centuries.",
+      "works": [
+        {
+          "title": "On the Fourfold Root of the Principle of Sufficient Reason",
+          "original_title": "Über die vierfache Wurzel des Satzes vom zureichenden Grunde",
+          "year": 1813,
+          "type": "Philosophy / Epistemology",
+          "summary": "Schopenhauer's doctoral dissertation, which analyzes the principle that nothing happens without a reason. It distinguishes four types of rational explanation and sets the groundwork for his later metaphysics."
+        },
+        {
+          "title": "The World as Will and Representation",
+          "original_title": "Die Welt als Wille und Vorstellung",
+          "year": 1818,
+          "type": "Philosophy / Metaphysics / Aesthetics",
+          "summary": "His magnum opus, proposing that the underlying reality of the world is irrational will, and that human experience is merely representation. The work includes discussions on aesthetics, ethics, and asceticism."
+        },
+        {
+          "title": "On Vision and Colors",
+          "original_title": "Über das Sehn und die Farben",
+          "year": 1816,
+          "type": "Philosophy of Science",
+          "summary": "A critique and expansion of Goethe's color theory, this work blends philosophy, perception, and empirical observation, attempting to explain how color arises from the interaction of light and the eye."
+        },
+        {
+          "title": "On the Will in Nature",
+          "original_title": "Über den Willen in der Natur",
+          "year": 1836,
+          "type": "Philosophy / Natural Science",
+          "summary": "An attempt to show how his metaphysical concept of the will is confirmed by scientific discoveries across disciplines like biology, chemistry, and physiology."
+        },
+        {
+          "title": "Parerga and Paralipomena",
+          "original_title": "Parerga und Paralipomena",
+          "year": 1851,
+          "type": "Essays / Philosophy / Aphorisms",
+          "summary": "A two-volume collection of essays and aphorisms covering diverse topics such as metaphysics, aesthetics, psychology, ethics, and religion. These writings brought Schopenhauer late recognition and influence."
+        },
+        {
+          "title": "On the Freedom of the Will",
+          "original_title": "Über die Freiheit des menschlichen Willens",
+          "year": 1839,
+          "type": "Philosophy / Ethics",
+          "summary": "An award-winning essay exploring human freedom, determinism, and moral responsibility. Schopenhauer argues that while humans experience themselves as free, their actions are determined by character and motivation."
+        },
+        {
+          "title": "On the Basis of Morality",
+          "original_title": "Über die Grundlage der Moral",
+          "year": 1840,
+          "type": "Philosophy / Ethics",
+          "summary": "A companion essay to 'On the Freedom of the Will', defending compassion as the only true moral motive and critiquing Kantian ethics as abstract and formalistic."
+        }
+      ],
+      "chronological_periods": {
+        "Early Period (1810–1818)": {
+          "characteristics": "Focus on epistemology and the foundations of reason; early Kantian influence and metaphysical inquiry into the nature of reality.",
+          "themes": "Reason, perception, idealism, foundation of knowledge"
+        },
+        "Middle Period (1819–1840)": {
+          "characteristics": "Development and articulation of core metaphysical and ethical ideas, including the nature of will, suffering, and denial of desire.",
+          "themes": "Will, representation, pessimism, aesthetics, ethics"
+        },
+        "Later Period (1840–1860)": {
+          "characteristics": "Expansion and popularization of his ideas through essays, aphorisms, and engagement with natural sciences and moral philosophy.",
+          "themes": "Compassion, freedom, fate, cultural critique, human nature"
+        }
+      },
+      "major_themes": [
+        "The Will as the Essence of Reality",
+        "Representation and Subjectivity",
+        "Pessimism and Suffering",
+        "Art and Aesthetic Contemplation",
+        "Asceticism and Denial of the Will",
+        "Compassion as the Basis of Morality",
+        "Critique of Kantian Ethics",
+        "Freedom and Determinism",
+        "The Illusion of Individuality",
+        "The Sublime and Metaphysical Solitude"
+      ],
+      "influence": "Schopenhauer’s philosophy deeply influenced Friedrich Nietzsche, Richard Wagner, Sigmund Freud, Thomas Mann, Albert Einstein, and modern existentialist and psychoanalytic thought. His integration of Eastern philosophy into Western metaphysics helped broaden philosophical discourse beyond European traditions.",
+      "note": "Though largely ignored in academic circles during his early career, Schopenhauer’s later recognition led to a lasting impact on literature, psychology, and existential philosophy. His aphoristic style and cultural pessimism continue to resonate in critiques of modernity and human suffering."
+    }
+  }
+  
