@@ -141,7 +141,7 @@ def evaluate_sentence_transformer_model(model_name, output_path="results/st_mode
     model, device = load_sentence_transformer(model_name)
     
     # Add delay after loading model to allow Ollama to stabilize
-    print("Model loaded, waiting 5 seconds before starting evaluation...")
+    print("Model loaded, waiting {delaytime} seconds before starting evaluation...")
     time.sleep(delaytime)
     
     results = {

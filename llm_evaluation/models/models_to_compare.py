@@ -1,11 +1,11 @@
 # Ollama embedding models to compare for knowledge graph tasks
 # Note: These models need to be pulled in Ollama first using: ollama pull <model_name>
 MODELS_TO_COMPARE = [
-    "nomic-embed-text",                 # Nomic's embedding model (excellent for text)
+    "deepseek-r1:latest",                 # Nomic's embedding model (excellent for text)
     # "mxbai-embed-large",                # MixedBread AI large embedding model
     # "snowflake-arctic-embed2:latest",    # Snowflake's Arctic embedding model
     "granite-embedding:278m",           # 
-    "llama3.1:latest",                  # Llama 3.1 (can generate embeddings)
+    # "llama3.1:latest",                  # Llama 3.1 (can generate embeddings)
     "llama3.2:latest"                   # Llama 3.2 (can generate embeddings)    
 ]
 
@@ -54,3 +54,12 @@ MODELS_TO_COMPARE = [
 #     "knowledge_graph_score": 0.22832794853534,
 #     "embedding_quality_score": 0.3044946879390685,
 #     "composite_score": 0.2701412574569647
+
+# "nomic-embed-text"
+# "overall_scores":
+#     "semantic_similarity_score": 0.0493058738336765,
+#     "clustering_score": 0.32018720963200786,
+#     "entity_recognition_score": 0.3917866676795584,
+#     "knowledge_graph_score": 0.2521291975653489,
+#     "embedding_quality_score": 0.3550063468554971,
+#     "composite_score": 0.2736830591132177
