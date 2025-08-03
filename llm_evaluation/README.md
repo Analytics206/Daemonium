@@ -5,6 +5,7 @@ This project evaluates **Ollama embedding models** for **Knowledge Graph constru
 ---
 
 ## Table of Contents
+0. [Quick Start-0](#quick-start-0)
 1. [Project Overview](#project-overview)
 2. [Folder Structure](#folder-structure)
 3. [Installation](#installation)
@@ -14,6 +15,19 @@ This project evaluates **Ollama embedding models** for **Knowledge Graph constru
 7. [Limitations](#limitations)
 8. [Useful Resources](#useful-resources)
 
+#### 🔍 Embedding Model Evaluation
+Daemonium includes a comprehensive evaluation system for selecting the best embedding models for knowledge graph construction. Based on our evaluation results, **`llama3.1:latest` is now the default embedding model** for both knowledge graph builder scripts.
+
+**Quick Start-0:**
+```bash
+# Setup required Ollama models
+python llm_evaluation/setup_ollama_models.py
+
+# Evaluate all embedding models
+python llm_evaluation/main_sentence_transformers.py
+
+# View evaluation results
+cat llm_evaluation/eval_results/st_comparison_results.txt
 ## Project Overview
 The goal of this project is to:
 - Connect to your local Ollama installation to use embedding models (e.g., `nomic-embed-text`, `mxbai-embed-large`).
