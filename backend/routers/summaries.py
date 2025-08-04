@@ -319,10 +319,12 @@ async def search_summaries_collection(
             search_filter = {
                 "$or": [
                     {"author": {"$regex": query, "$options": "i"}},
+                    {"category": {"$regex": query, "$options": "i"}},
                     {"title": {"$regex": query, "$options": "i"}},
                     {"quote": {"$regex": query, "$options": "i"}},
                     {"summary.section": {"$regex": query, "$options": "i"}},
-                    {"summary.content": {"$regex": query, "$options": "i"}}
+                    {"summary.content": {"$regex": query, "$options": "i"}},
+                    {"key_books": {"$regex": query, "$options": "i"}}
                 ]
             }
         elif collection_name == "philosopher_summary":

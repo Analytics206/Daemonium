@@ -138,18 +138,14 @@ class IdeaSummaryUploader:
             'title': json_data.get('title', 'Unknown'),
             'quote': json_data.get('quote', ''),
             'summary': json_data.get('summary', []),
-            'key_concepts': json_data.get('key_concepts', []),
-            'related_ideas': json_data.get('related_ideas', []),
-            'modern_applications': json_data.get('modern_applications', []),
-            'philosophical_significance': json_data.get('philosophical_significance', ''),
+            'key_books': json_data.get('key_books', []),
             'metadata': {
                 'upload_timestamp': None,  # Will be set during upload
                 'last_updated': None,      # Will be set during upload
                 'source_file': filename,
                 'total_sections': len(json_data.get('summary', [])) if isinstance(json_data.get('summary'), list) else 0,
                 'has_quote': bool(json_data.get('quote', '')),
-                'key_concepts_count': len(json_data.get('key_concepts', [])) if isinstance(json_data.get('key_concepts'), list) else 0,
-                'related_ideas_count': len(json_data.get('related_ideas', [])) if isinstance(json_data.get('related_ideas'), list) else 0
+                'key_books_count': len(json_data.get('key_books', [])) if isinstance(json_data.get('key_books'), list) else 0
             }
         }
         return document

@@ -179,15 +179,11 @@ class IdeaSummary(BaseModel):
     author: str  # Primary field for author name
     category: Optional[str] = None  # Category field (e.g., "Idea Summary")
     
-    # Handle both individual summary and nested structure
+    # Core fields matching JSON structure
     title: Optional[str] = None  # Title of the idea
     quote: Optional[str] = None  # Quote associated with the idea
-    description: Optional[str] = None  # For flat structure
-    summary: Optional[List[Dict[str, Any]]] = None  # For nested structure
-    
-    # Additional fields
-    key_points: Optional[List[str]] = None
-    examples: Optional[List[str]] = None
+    summary: Optional[List[Dict[str, Any]]] = None  # List of sections with "section" and "content" fields
+    key_books: Optional[List[str]] = None  # List of 5 key books related to the idea
     
     model_config = {"populate_by_name": True}
 

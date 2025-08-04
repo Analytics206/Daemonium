@@ -634,6 +634,28 @@ class DatabaseManager:
                             {"context": {"$regex": query, "$options": "i"}}
                         ]
                     }
+                elif collection_name == "idea_summary":
+                    search_filter = {
+                        "$or": [
+                            {"author": {"$regex": query, "$options": "i"}},
+                            {"category": {"$regex": query, "$options": "i"}},
+                            {"title": {"$regex": query, "$options": "i"}},
+                            {"quote": {"$regex": query, "$options": "i"}},
+                            {"summary.section": {"$regex": query, "$options": "i"}},
+                            {"summary.content": {"$regex": query, "$options": "i"}},
+                            {"key_books": {"$regex": query, "$options": "i"}}
+                        ]
+                    }
+                elif collection_name == "top_10_ideas":
+                    search_filter = {
+                        "$or": [
+                            {"author": {"$regex": query, "$options": "i"}},
+                            {"category": {"$regex": query, "$options": "i"}},
+                            {"top_ideas.idea": {"$regex": query, "$options": "i"}},
+                            {"top_ideas.description": {"$regex": query, "$options": "i"}},
+                            {"top_ideas.key_books": {"$regex": query, "$options": "i"}}
+                        ]
+                    }
                 else:
                     # Generic search for other collections that use author field
                     search_filter = {

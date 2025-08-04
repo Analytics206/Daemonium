@@ -265,7 +265,8 @@ async def search_ideas_by_keyword(
                 {"title": {"$regex": keyword, "$options": "i"}},
                 {"quote": {"$regex": keyword, "$options": "i"}},
                 {"summary.section": {"$regex": keyword, "$options": "i"}},
-                {"summary.content": {"$regex": keyword, "$options": "i"}}
+                {"summary.content": {"$regex": keyword, "$options": "i"}},
+                {"key_books": {"$regex": keyword, "$options": "i"}}
             ]
         })
         

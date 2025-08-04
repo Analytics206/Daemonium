@@ -146,13 +146,27 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
             ]
         }
     
-    elif collection_name in ["top_ten_ideas", "idea_summary"]:
+    elif collection_name == "top_ten_ideas":
         return {
             "$or": [
-                {"title": {"$regex": query, "$options": "i"}},
-                {"description": {"$regex": query, "$options": "i"}},
                 {"author": {"$regex": query, "$options": "i"}},
-                {"significance": {"$regex": query, "$options": "i"}}
+                {"category": {"$regex": query, "$options": "i"}},
+                {"top_ideas.idea": {"$regex": query, "$options": "i"}},
+                {"top_ideas.description": {"$regex": query, "$options": "i"}},
+                {"top_ideas.key_books": {"$regex": query, "$options": "i"}}
+            ]
+        }
+    
+    elif collection_name == "idea_summary":
+        return {
+            "$or": [
+                {"author": {"$regex": query, "$options": "i"}},
+                {"category": {"$regex": query, "$options": "i"}},
+                {"title": {"$regex": query, "$options": "i"}},
+                {"quote": {"$regex": query, "$options": "i"}},
+                {"summary.section": {"$regex": query, "$options": "i"}},
+                {"summary.content": {"$regex": query, "$options": "i"}},
+                {"key_books": {"$regex": query, "$options": "i"}}
             ]
         }
     
