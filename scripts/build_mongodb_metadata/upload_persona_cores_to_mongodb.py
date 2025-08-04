@@ -132,10 +132,13 @@ class PersonaCoreUploader:
         author = persona.get('author', 'unknown').replace(' ', '_').lower()
         category = persona.get('category', 'unknown').replace(' ', '_').lower()
         
-        # Extract identity and biography data
+        # Extract nested data structures
         identity = persona.get('identity', {})
         biography = persona.get('biography', {})
-        voice = persona.get('voice', {})
+        style = persona.get('style', {})
+        interaction_rules = persona.get('interaction_rules', {})
+        modes_of_response = persona.get('modes_of_response', [])
+        core_principles = persona.get('core_principles', [])
         
         document = {
             '_id': f"{author}_{category}",
@@ -155,19 +158,23 @@ class PersonaCoreUploader:
                     'overview': biography.get('overview', ''),
                     'historical_context': biography.get('historical_context', ''),
                     'key_events': biography.get('key_events', []),
-                    'personality_traits': biography.get('personality_traits', []),
-                    'philosophical_evolution': biography.get('philosophical_evolution', [])
+                    'personality_traits': biography.get('personality_traits', [])
                 },
-                'voice': {
-                    'tone': voice.get('tone', ''),
-                    'style': voice.get('style', ''),
-                    'speech_patterns': voice.get('speech_patterns', []),
-                    'vocabulary_preferences': voice.get('vocabulary_preferences', []),
-                    'rhetorical_devices': voice.get('rhetorical_devices', [])
+                'core_principles': core_principles,
+                'style': {
+                    'tone': style.get('tone', ''),
+                    'speaking_style': style.get('speaking_style', ''),
+                    'pacing': style.get('pacing', ''),
+                    'thought_process': style.get('thought_process', ''),
+                    'devices': style.get('devices', []),
+                    'prohibited': style.get('prohibited', [])
                 },
-                'interaction_guidelines': persona.get('interaction_guidelines', {}),
-                'response_patterns': persona.get('response_patterns', {}),
-                'philosophical_stance': persona.get('philosophical_stance', {})
+                'modes_of_response': modes_of_response,
+                'interaction_rules': {
+                    'primary_goal': interaction_rules.get('primary_goal', ''),
+                    'behavior': interaction_rules.get('behavior', []),
+                    'response_length': interaction_rules.get('response_length', {})
+                }
             },
             'metadata': {
                 'upload_timestamp': None,  # Will be set during upload
@@ -176,9 +183,13 @@ class PersonaCoreUploader:
                 'roles_count': len(identity.get('roles', [])),
                 'key_events_count': len(biography.get('key_events', [])),
                 'personality_traits_count': len(biography.get('personality_traits', [])),
-                'speech_patterns_count': len(voice.get('speech_patterns', [])),
+                'core_principles_count': len(core_principles),
+                'modes_of_response_count': len(modes_of_response),
+                'style_devices_count': len(style.get('devices', [])),
+                'behavior_rules_count': len(interaction_rules.get('behavior', [])),
                 'has_birth_date': bool(identity.get('birth_date', '')),
-                'has_death_date': bool(identity.get('death_date', ''))
+                'has_death_date': bool(identity.get('death_date', '')),
+                'has_primary_goal': bool(interaction_rules.get('primary_goal', ''))
             }
         }
         return document

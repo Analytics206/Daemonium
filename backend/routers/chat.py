@@ -8,6 +8,7 @@ import logging
 import random
 
 from ..database import DatabaseManager
+from ..models import PersonaCoreResponse
 from ..models import ChatBlueprintResponse, ChatBlueprint, ConversationLogic, PhilosopherBot, ChatMessage, ChatResponse, ModernAdaptationResponse
 
 logger = logging.getLogger(__name__)
@@ -307,7 +308,12 @@ async def get_philosopher_personality(
             "speaking_style": persona_data.get('style', {}).get('speaking_style', ''),
             "tone": persona_data.get('style', {}).get('tone', ''),
             "thought_process": persona_data.get('style', {}).get('thought_process', ''),
+            "style_devices": persona_data.get('style', {}).get('devices', []),
+            "prohibited_patterns": persona_data.get('style', {}).get('prohibited', []),
             "core_principles": persona_data.get('core_principles', []),
+            "modes_of_response": persona_data.get('modes_of_response', []),
+            "interaction_primary_goal": persona_data.get('interaction_rules', {}).get('primary_goal', ''),
+            "interaction_behavior": persona_data.get('interaction_rules', {}).get('behavior', []),
             "conversation_goal": conversation_logic_data.get('primary_goal', ''),
             "response_principles": conversation_logic_data.get('response_strategy', {}).get('core_principles', []),
             "tone_modes": conversation_logic_data.get('tone_selection', {}).get('modes', []),
@@ -328,6 +334,41 @@ async def get_philosopher_personality(
     except Exception as e:
         logger.error(f"Failed to get personality for {philosopher}: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve philosopher personality")
+
+@router.get("/persona-cores", response_model=PersonaCoreResponse)
+async def get_persona_cores(
+    skip: int = Query(0, ge=0, description="Number of items to skip"),
+    limit: int = Query(100, ge=1, le=1000, description="Maximum number of items to return"),
+    philosopher: Optional[str] = Query(None, description="Filter by philosopher"),
+    db_manager: DatabaseManager = Depends(get_db_manager)
+):
+    """Get persona cores for philosopher chatbots"""
+    try:
+        collection = db_manager.get_collection("persona_core")
+        
+        filter_query = {}
+        if philosopher:
+            # Search in nested persona structure by author field
+            filter_query["persona.author"] = {"$regex": philosopher, "$options": "i"}
+        
+        cursor = collection.find(filter_query).skip(skip).limit(limit)
+        cores = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string for each document
+        for core in cores:
+            if "_id" in core:
+                core["_id"] = str(core["_id"])
+        
+        filter_msg = f" for philosopher '{philosopher}'" if philosopher else ""
+        return PersonaCoreResponse(
+            data=cores,
+            total_count=len(cores),
+            message=f"Retrieved {len(cores)} persona core{filter_msg}"
+        )
+    
+    except Exception as e:
+        logger.error(f"Failed to get persona core: {e}")
+        raise HTTPException(status_code=500, detail="Failed to retrieve persona core")
 
 @router.get("/modern-adaptations", response_model=ModernAdaptationResponse)
 async def get_modern_adaptations(

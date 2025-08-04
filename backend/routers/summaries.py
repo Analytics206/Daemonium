@@ -7,6 +7,12 @@ from typing import List, Optional, Dict, Any
 import logging
 
 from ..database import DatabaseManager
+from ..models import (
+    BookSummaryResponse, BookSummary, IdeaSummaryResponse, IdeaSummary, 
+    AphorismResponse, Aphorism, TopTenIdeasResponse, TopTenIdeas,
+    PhilosopherBioResponse, PhilosopherBio, ModernAdaptationResponse,
+    PhilosopherSummaryDetailedResponse, PhilosopherSummaryDetailed
+) 
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -164,6 +170,48 @@ async def search_philosopher_bios_by_author(
         logger.error(f"Failed to search philosopher bios for {author}: {e}")
         raise HTTPException(status_code=500, detail="Failed to search philosopher biographies")
 
+@router.get("/philosopher-summaries", response_model=PhilosopherSummaryDetailedResponse)
+async def get_philosopher_summaries(
+    author: Optional[str] = Query(None, description="Filter by philosopher author"),
+    skip: int = Query(0, ge=0, description="Number of items to skip"),
+    limit: int = Query(100, ge=1, le=1000, description="Maximum number of items to return"),
+    db_manager: DatabaseManager = Depends(get_db_manager)
+):
+    """Get detailed philosopher summaries from philosopher_summary collection"""
+    try:
+        collection = db_manager.get_collection("philosopher_summary")
+        
+        # Build query filter
+        query_filter = {}
+        if author:
+            query_filter["author"] = {"$regex": author, "$options": "i"}
+        
+        # Execute query with pagination
+        cursor = collection.find(query_filter).skip(skip).limit(limit)
+        summaries = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string for JSON serialization
+        for summary in summaries:
+            if "_id" in summary:
+                summary["_id"] = str(summary["_id"])
+        
+        if not summaries:
+            message = f"No philosopher summaries found" + (f" matching '{author}'" if author else "")
+            raise HTTPException(status_code=404, detail=message)
+        
+        return {
+            "success": True,
+            "data": summaries,
+            "total_count": len(summaries),
+            "message": f"Found {len(summaries)} philosopher summaries" + (f" matching '{author}'" if author else "")
+        }
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to get philosopher summaries: {e}")
+        raise HTTPException(status_code=500, detail="Failed to retrieve philosopher summaries")
+
 @router.get("/by-collection/{collection_name}", response_model=dict)
 async def get_summaries_by_collection(
     collection_name: str,
@@ -216,36 +264,7 @@ async def get_summaries_by_collection(
         logger.error(f"Failed to get summaries from collection {collection_name}: {e}")
         raise HTTPException(status_code=500, detail=f"Failed to retrieve summaries from {collection_name}")
 
-@router.get("/persona-cores", response_model=dict)
-async def get_persona_cores(
-    skip: int = Query(0, ge=0, description="Number of items to skip"),
-    limit: int = Query(100, ge=1, le=1000, description="Maximum number of items to return"),
-    philosopher: Optional[str] = Query(None, description="Filter by philosopher"),
-    db_manager: DatabaseManager = Depends(get_db_manager)
-):
-    """Get persona cores for philosopher chatbots"""
-    try:
-        collection = db_manager.get_collection("persona_core")
-        
-        filter_query = {}
-        if philosopher:
-            # Search in nested persona structure by author field
-            filter_query["persona.author"] = {"$regex": philosopher, "$options": "i"}
-        
-        cursor = collection.find(filter_query).skip(skip).limit(limit)
-        cores = await cursor.to_list(length=limit)
-        
-        filter_msg = f" for philosopher '{philosopher}'" if philosopher else ""
-        return {
-            "success": True,
-            "data": cores,
-            "total_count": len(cores),
-            "message": f"Retrieved {len(cores)} persona core{filter_msg}"
-        }
-    
-    except Exception as e:
-        logger.error(f"Failed to get persona core: {e}")
-        raise HTTPException(status_code=500, detail="Failed to retrieve persona core")
+
 
 @router.get("/search/{collection_name}", response_model=dict)
 async def search_summaries_collection(
@@ -303,10 +322,13 @@ async def search_summaries_collection(
             search_filter = {
                 "$or": [
                     {"author": {"$regex": query, "$options": "i"}},
-                    {"philosopher": {"$regex": query, "$options": "i"}},
                     {"title": {"$regex": query, "$options": "i"}},
                     {"description": {"$regex": query, "$options": "i"}},
-                    {"sections": {"$regex": query, "$options": "i"}}
+                    {"nationality": {"$regex": query, "$options": "i"}},
+                    {"sections.title": {"$regex": query, "$options": "i"}},
+                    {"sections.content": {"$regex": query, "$options": "i"}},
+                    {"sections.subsections.title": {"$regex": query, "$options": "i"}},
+                    {"sections.subsections.content": {"$regex": query, "$options": "i"}}
                 ]
             }
         elif collection_name == "persona_core":
@@ -315,8 +337,13 @@ async def search_summaries_collection(
                     {"persona.author": {"$regex": query, "$options": "i"}},
                     {"persona.identity.full_name": {"$regex": query, "$options": "i"}},
                     {"persona.biography.overview": {"$regex": query, "$options": "i"}},
-                    {"persona.voice.tone": {"$regex": query, "$options": "i"}},
-                    {"persona.voice.style": {"$regex": query, "$options": "i"}}
+                    {"persona.biography.historical_context": {"$regex": query, "$options": "i"}},
+                    {"persona.core_principles": {"$regex": query, "$options": "i"}},
+                    {"persona.style.tone": {"$regex": query, "$options": "i"}},
+                    {"persona.style.speaking_style": {"$regex": query, "$options": "i"}},
+                    {"persona.interaction_rules.primary_goal": {"$regex": query, "$options": "i"}},
+                    {"persona.modes_of_response.name": {"$regex": query, "$options": "i"}},
+                    {"persona.modes_of_response.description": {"$regex": query, "$options": "i"}}
                 ]
             }
         elif collection_name == "philosopher_bio":

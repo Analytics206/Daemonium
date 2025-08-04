@@ -394,6 +394,12 @@ class DatabaseManager:
         cursor = collection.find({"author": {"$regex": author, "$options": "i"}}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
+    async def get_persona_cores_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get persona cores by author"""
+        collection = self.get_collection("persona_core")
+        cursor = collection.find({"persona.author": {"$regex": author, "$options": "i"}}).skip(skip).limit(limit)
+        return await cursor.to_list(length=limit)
+    
     # Book-related methods
     async def get_books(self, skip: int = 0, limit: int = 100, author: Optional[str] = None) -> List[Dict[str, Any]]:
         """Get books with pagination and optional author filter"""
@@ -598,7 +604,8 @@ class DatabaseManager:
             "book_summary",
             "aphorisms",
             "top_ten_ideas",
-            "idea_summary"
+            "idea_summary",
+            "persona_core"
         ]
         
         for collection_name in search_collections:
@@ -674,6 +681,21 @@ class DatabaseManager:
                             {"modern_adaptation.modern_topics.analysis": {"$regex": query, "$options": "i"}},
                             {"modern_adaptation.adaptive_templates.pattern": {"$regex": query, "$options": "i"}},
                             {"modern_adaptation.tone_instructions": {"$regex": query, "$options": "i"}}
+                        ]
+                    }
+                elif collection_name == "persona_core":
+                    search_filter = {
+                        "$or": [
+                            {"persona.author": {"$regex": query, "$options": "i"}},
+                            {"persona.identity.full_name": {"$regex": query, "$options": "i"}},
+                            {"persona.biography.overview": {"$regex": query, "$options": "i"}},
+                            {"persona.biography.historical_context": {"$regex": query, "$options": "i"}},
+                            {"persona.core_principles": {"$regex": query, "$options": "i"}},
+                            {"persona.style.tone": {"$regex": query, "$options": "i"}},
+                            {"persona.style.speaking_style": {"$regex": query, "$options": "i"}},
+                            {"persona.interaction_rules.primary_goal": {"$regex": query, "$options": "i"}},
+                            {"persona.modes_of_response.name": {"$regex": query, "$options": "i"}},
+                            {"persona.modes_of_response.description": {"$regex": query, "$options": "i"}}
                         ]
                     }
                 else:

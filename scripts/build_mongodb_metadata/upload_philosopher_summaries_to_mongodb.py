@@ -187,14 +187,6 @@ class PhilosopherSummaryUploader:
             'nationality': json_data.get('nationality', ''),
             'description': json_data.get('description', ''),
             'sections': sections,
-            'philosophical_schools': json_data.get('philosophical_schools', []),
-            'key_concepts': json_data.get('key_concepts', []),
-            'major_works': json_data.get('major_works', []),
-            'influences': json_data.get('influences', []),
-            'influenced': json_data.get('influenced', []),
-            'quotes': json_data.get('quotes', []),
-            'timeline': json_data.get('timeline', []),
-            'bibliography': json_data.get('bibliography', []),
             'metadata': {
                 'upload_timestamp': None,  # Will be set during upload
                 'last_updated': None,      # Will be set during upload
@@ -204,14 +196,8 @@ class PhilosopherSummaryUploader:
                 'has_death_year': death_year is not None,
                 'has_nationality': bool(json_data.get('nationality', '')),
                 'has_description': bool(json_data.get('description', '')),
-                'has_philosophical_schools': bool(json_data.get('philosophical_schools', [])),
-                'has_key_concepts': bool(json_data.get('key_concepts', [])),
-                'has_major_works': bool(json_data.get('major_works', [])),
-                'has_influences': bool(json_data.get('influences', [])),
-                'has_influenced': bool(json_data.get('influenced', [])),
-                'has_quotes': bool(json_data.get('quotes', [])),
-                'has_timeline': bool(json_data.get('timeline', [])),
-                'has_bibliography': bool(json_data.get('bibliography', []))
+                'sections_count': len(sections),
+                'has_sections': len(sections) > 0
             }
         }
         return document

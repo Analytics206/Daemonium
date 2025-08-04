@@ -59,8 +59,11 @@ The FastAPI backend consists of 8 router modules that provide REST API endpoints
 
 | Endpoint | HTTP Method | Collections Used | Description |
 |----------|-------------|------------------|-------------|
-| `/api/v1/philosophers/` | GET | `philosophers` | Get all philosophers with pagination |
-| `/api/v1/philosophers/{philosopher_id}` | GET | `philosophers` | Get specific philosopher by ID |
+| `/api/v1/philosophers/` | GET | `philosophers` | Get all philosophers with pagination and optional active chat filter |
+| `/api/v1/philosophers/search/` | GET | `philosophers` | Search philosophers by name or content with optional active chat filter |
+| `/api/v1/philosophers/{philosopher_name}/with-school` | GET | `philosophers`, `philosophy_schools` | Get philosopher with associated school information by name |
+| `/api/v1/philosophers/{author}/related` | GET | `philosophers` | Get philosophers related to the specified author name |
+| `/api/v1/philosophers/by-author/{author}` | GET | `philosophers`, `aphorisms`, `book_summary`, `top_10_ideas`, `idea_summary`, `philosophy_themes`, `philosopher_summary` | Get all content across collections for a specific author |
 | `/api/v1/philosophers/{philosopher_name}/with-school` | GET | `philosophers`, `philosophy_schools` | Get philosopher with associated school information |
 | `/api/v1/philosophers/search/` | GET | `philosophers` | Search philosophers by name/content |
 | `/api/v1/philosophers/{philosopher_id}/related` | GET | `philosophers`, `philosophy_schools` | Get related philosophers by school and name similarity |
@@ -94,13 +97,13 @@ The FastAPI backend consists of 8 router modules that provide REST API endpoints
 
 | Endpoint | HTTP Method | Collections Used | Description |
 |----------|-------------|------------------|-------------|
-| `/api/v1/summaries/philosophy-themes` | GET | `philosophy_themes` | Get philosophy themes |
-| `/api/v1/summaries/modern-adaptations` | GET | `modern_adaptation` | Get modern adaptations of philosophical concepts |
-| `/api/v1/summaries/discussion-hooks` | GET | `discussion_hook` | Get discussion hooks for philosophical topics |
-| `/api/v1/summaries/philosopher-bios` | GET | `philosopher_bio` | Get philosopher biographies |
+| `/api/v1/summaries/philosophy-themes` | GET | `philosophy_themes` | Get philosophy themes with pagination |
+| `/api/v1/summaries/discussion-hooks` | GET | `discussion_hook` | Get discussion hooks for philosophical conversations with topic filtering |
+| `/api/v1/summaries/philosopher-bios` | GET | `philosopher_bio` | Get philosopher biographical information with era filtering |
+| `/api/v1/summaries/philosopher-bios/search/{author}` | GET | `philosopher_bio` | Search philosopher biographical information by author name |
+| `/api/v1/summaries/philosopher-summaries` | GET | `philosopher_summary` | Get detailed philosopher summaries with author filtering and pagination |
 | `/api/v1/summaries/by-collection/{collection_name}` | GET | Dynamic (based on parameter) | Get summaries from specified collection |
-| `/api/v1/summaries/persona-cores` | GET | `persona_core` | Get persona core data for philosophers |
-| `/api/v1/summaries/by-collection/{collection_name}/search` | GET | Dynamic (based on parameter) | Search within specified collection |
+| `/api/v1/summaries/search/{collection_name}` | GET | Dynamic (based on parameter) | Search within specified collection with comprehensive field coverage |
 
 ## MongoDB Collections Overview
 
@@ -124,32 +127,44 @@ The following collections are available in the MongoDB database:
 | `philosophy_schools` | Philosophical schools and movements | Philosophy schools router, relationships |
 | `philosophy_themes` | Thematic philosophical content | Summaries router, content aggregation |
 | `top_10_ideas` | Top 10 philosophical ideas by philosopher | Ideas router, search functionality |
+| `bibliography` | Bibliographic references and sources | Cross-collection queries |
+| `modern_adaptation` | Modern applications of philosophy | Summaries router |
 
 ## Key Design Patterns
 
 ### 1. Cross-Collection Queries
 Some endpoints aggregate data from multiple collections:
-- **Philosopher by Author**: Combines data from 7 collections for comprehensive profiles
+- **Philosopher by Author**: `/api/v1/philosophers/by-author/{author}` combines data from 7 collections for comprehensive profiles
 - **Available Philosophers**: Aggregates from 3 chat-related collections
 - **Global Search**: Searches across all collections simultaneously
+- **Philosopher with School**: Joins philosophers and philosophy_schools collections
 
 ### 2. Relationship Handling
 - **Philosophers ↔ Philosophy Schools**: Joined via `school_id` field
-- **Author-based Relationships**: Multiple collections linked by `author` field
+- **Author-based Relationships**: Multiple collections linked by `author` field (standardized across all collections)
 - **Content Hierarchies**: Books contain chapters, ideas have summaries
+- **Chat Integration**: Multiple chat collections linked by `author` field for personality profiles
 
 ### 3. Search Strategies
 - **Direct Collection Access**: Most endpoints query single collections
-- **Multi-field Search**: Search across multiple fields within collections
+- **Multi-field Search**: Search across multiple fields within collections with nested structure support
 - **Aggregation Pipelines**: Complex queries combining multiple collections
+- **Name-based Search**: Human-friendly endpoints using author names instead of database IDs
+- **Active Chat Filtering**: Optional `is_active_chat` parameter for chat-enabled philosophers
 
 ## Usage Notes
 
-1. **Field Mapping**: Most collections use `author` as the primary joining field
+1. **Field Mapping**: All collections standardized to use `author` as the primary joining field
 2. **ObjectId Handling**: All endpoints properly convert MongoDB ObjectIds to strings
 3. **Pagination**: Most list endpoints support `skip` and `limit` parameters
-4. **Filtering**: Many endpoints support additional filters (e.g., `is_active_chat`)
+4. **Filtering**: Many endpoints support additional filters:
+   - `is_active_chat`: Filter philosophers available for chat (0/1)
+   - `topic`: Filter discussion hooks by topic
+   - `era`: Filter philosopher bios by historical era
 5. **Error Handling**: All endpoints include comprehensive error handling and logging
+6. **Name-based Access**: Key endpoints accept human-readable names instead of database IDs
+7. **Nested Structure Support**: Search functionality handles complex nested JSON structures
+8. **Cross-Collection Aggregation**: Author-based endpoints provide comprehensive content across all collections
 
 ## Development Guidelines
 

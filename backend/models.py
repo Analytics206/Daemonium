@@ -124,6 +124,11 @@ class BookResponse(BaseResponse):
     data: Union[Book, BookSummary, List[Union[Book, BookSummary]]]
     total_count: Optional[int] = None
 
+class BookSummaryResponse(BaseResponse):
+    """Response model for book summary data"""
+    data: Union[BookSummary, List[BookSummary]]
+    total_count: Optional[int] = None
+
 # Aphorism models
 class Aphorism(BaseModel):
     """Aphorism model"""
@@ -190,6 +195,16 @@ class IdeaSummary(BaseModel):
 class IdeasResponse(BaseResponse):
     """Response model for ideas data"""
     data: Union[TopTenIdea, IdeaSummary, List[Union[TopTenIdea, IdeaSummary]]]
+    total_count: Optional[int] = None
+
+class IdeaSummaryResponse(BaseResponse):
+    """Response model for idea summary data"""
+    data: Union[IdeaSummary, List[IdeaSummary]]
+    total_count: Optional[int] = None
+
+class TopTenIdeasResponse(BaseResponse):
+    """Response model for top ten ideas data"""
+    data: Union[TopTenIdea, List[TopTenIdea]]
     total_count: Optional[int] = None
 
 # Modern Adaptation models
@@ -408,6 +423,154 @@ class StatsResponse(BaseResponse):
     api_version: str
     collections: Dict[str, int]
     total_documents: int
+
+# Persona Core models
+class PersonaIdentity(BaseModel):
+    """Persona identity model"""
+    full_name: Optional[str] = None
+    birth_date: Optional[str] = None
+    death_date: Optional[str] = None
+    nationality: Optional[str] = None
+    roles: Optional[List[str]] = None
+
+class PersonaBiography(BaseModel):
+    """Persona biography model"""
+    overview: Optional[str] = None
+    historical_context: Optional[str] = None
+    key_events: Optional[List[str]] = None
+    personality_traits: Optional[List[str]] = None
+
+class PersonaStyle(BaseModel):
+    """Persona style model"""
+    tone: Optional[str] = None
+    speaking_style: Optional[str] = None
+    pacing: Optional[str] = None
+    thought_process: Optional[str] = None
+    devices: Optional[List[str]] = None
+    prohibited: Optional[List[str]] = None
+
+class ModeOfResponse(BaseModel):
+    """Mode of response model"""
+    name: Optional[str] = None
+    description: Optional[str] = None
+    triggers: Optional[List[str]] = None
+    example: Optional[str] = None
+
+class ResponseLength(BaseModel):
+    """Response length configuration model"""
+    typical: Optional[str] = None
+    maximum: Optional[str] = None
+
+class PersonaInteractionRules(BaseModel):
+    """Persona interaction rules model"""
+    primary_goal: Optional[str] = None
+    behavior: Optional[List[str]] = None
+    response_length: Optional[ResponseLength] = None
+
+class PersonaData(BaseModel):
+    """Persona data model"""
+    author: Optional[str] = None
+    category: Optional[str] = None
+    language: Optional[str] = None
+    identity: Optional[PersonaIdentity] = None
+    biography: Optional[PersonaBiography] = None
+    core_principles: Optional[List[str]] = None
+    style: Optional[PersonaStyle] = None
+    modes_of_response: Optional[List[ModeOfResponse]] = None
+    interaction_rules: Optional[PersonaInteractionRules] = None
+
+class PersonaCoreMetadata(BaseModel):
+    """Persona core metadata model"""
+    upload_timestamp: Optional[str] = None
+    last_updated: Optional[str] = None
+    source_file: Optional[str] = None
+    roles_count: Optional[int] = 0
+    key_events_count: Optional[int] = 0
+    personality_traits_count: Optional[int] = 0
+    core_principles_count: Optional[int] = 0
+    modes_of_response_count: Optional[int] = 0
+    style_devices_count: Optional[int] = 0
+    behavior_rules_count: Optional[int] = 0
+    has_birth_date: Optional[bool] = False
+    has_death_date: Optional[bool] = False
+    has_primary_goal: Optional[bool] = False
+
+class PersonaCore(BaseModel):
+    """Persona core model matching MongoDB structure"""
+    id: str = Field(..., alias="_id")
+    filename: Optional[str] = None
+    persona: Optional[Dict[str, Any]] = None
+    metadata: Optional[Dict[str, Any]] = None
+    
+    # For backward compatibility
+    @property
+    def author(self) -> str:
+        if self.persona and "author" in self.persona:
+            return self.persona["author"]
+        return "Unknown"
+    
+    @property
+    def philosopher(self) -> str:
+        return self.author
+    
+    model_config = {
+        "populate_by_name": True, 
+        "arbitrary_types_allowed": True,
+        "extra": "allow"
+    }
+
+class PersonaCoreResponse(BaseResponse):
+    """Response model for persona core data"""
+    data: Union[PersonaCore, List[PersonaCore]]
+    total_count: Optional[int] = None
+
+# Philosopher Bio models
+class PhilosopherBio(BaseModel):
+    """Philosopher biography model"""
+    id: str = Field(..., alias="_id")
+    author: str
+    category: Optional[str] = None
+    description: Optional[str] = None
+    sections: Optional[Dict[str, Any]] = None
+    
+    model_config = {"populate_by_name": True}
+
+class PhilosopherBioResponse(BaseResponse):
+    """Response model for philosopher biography data"""
+    data: Union[PhilosopherBio, List[PhilosopherBio]]
+    total_count: Optional[int] = None
+
+# Philosopher Summary models (for philosopher_summary collection)
+class PhilosopherSummarySection(BaseModel):
+    """Philosopher summary section model"""
+    title: str
+    content: str
+    subsections: Optional[List[Dict[str, Any]]] = None
+
+class PhilosopherSummaryDetailed(BaseModel):
+    """Detailed philosopher summary model for philosopher_summary collection"""
+    id: str = Field(..., alias="_id")
+    filename: Optional[str] = None
+    author: str
+    category: Optional[str] = None
+    title: Optional[str] = None
+    birth_year: Optional[int] = None
+    death_year: Optional[int] = None
+    lifespan_years: Optional[int] = None
+    nationality: Optional[str] = None
+    description: Optional[str] = None
+    sections: Optional[List[PhilosopherSummarySection]] = None
+    metadata: Optional[Dict[str, Any]] = None
+    
+    model_config = {"populate_by_name": True}
+
+class PhilosopherSummaryDetailedResponse(BaseResponse):
+    """Response model for detailed philosopher summary data"""
+    data: Union[PhilosopherSummaryDetailed, List[PhilosopherSummaryDetailed]]
+    total_count: Optional[int] = None
+
+# Aliases for backward compatibility
+TopTenIdeas = TopTenIdea  # Alias for import compatibility
 
 # Error models
 class ErrorDetail(BaseModel):

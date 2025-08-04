@@ -120,7 +120,11 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
                 {"author": {"$regex": query, "$options": "i"}},
                 {"title": {"$regex": query, "$options": "i"}},
                 {"description": {"$regex": query, "$options": "i"}},
-                {"sections": {"$regex": query, "$options": "i"}}
+                {"nationality": {"$regex": query, "$options": "i"}},
+                {"sections.title": {"$regex": query, "$options": "i"}},
+                {"sections.content": {"$regex": query, "$options": "i"}},
+                {"sections.subsections.title": {"$regex": query, "$options": "i"}},
+                {"sections.subsections.content": {"$regex": query, "$options": "i"}}
             ]
         }
     
