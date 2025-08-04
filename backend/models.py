@@ -209,10 +209,76 @@ class ChatBlueprint(BaseModel):
     
     model_config = {"populate_by_name": True}
 
+class ResponseStrategy(BaseModel):
+    """Response strategy nested model"""
+    core_principles: Optional[List[str]] = []
+    response_structure: Optional[List[str]] = []
+    
+    model_config = {"extra": "allow"}
+
+class ToneSelection(BaseModel):
+    """Tone selection nested model"""
+    modes: Optional[List[Dict[str, Any]]] = []  # Changed from List[str] to List[Dict]
+    
+    model_config = {"extra": "allow"}
+
+class ProvocationMethods(BaseModel):
+    """Provocation methods nested model"""
+    techniques: Optional[List[str]] = []
+    examples: Optional[List[str]] = []
+    
+    model_config = {"extra": "allow"}
+
+class ConversationFlow(BaseModel):
+    """Conversation flow nested model"""
+    opening_moves: Optional[List[str]] = []
+    closing_moves: Optional[List[str]] = []
+    
+    model_config = {"extra": "allow"}
+
+class Fallbacks(BaseModel):
+    """Fallbacks nested model"""
+    when_unknown: Optional[List[str]] = []
+    
+    model_config = {"extra": "allow"}
+
+class ConversationLogicData(BaseModel):
+    """Nested conversation logic data structure"""
+    primary_goal: Optional[str] = ""
+    response_strategy: Optional[ResponseStrategy] = None
+    tone_selection: Optional[ToneSelection] = None
+    provocation_methods: Optional[ProvocationMethods] = None
+    dynamic_response_templates: Optional[List[Dict[str, Any]]] = []  # Changed from List[str] to List[Dict]
+    prohibited_patterns: Optional[List[str]] = []
+    conversation_flow: Optional[ConversationFlow] = None
+    fallbacks: Optional[Fallbacks] = None
+    
+    model_config = {"extra": "allow"}
+
+class ConversationLogicMetadata(BaseModel):
+    """Conversation logic metadata"""
+    upload_timestamp: Optional[Any] = None  # Can be string or datetime
+    last_updated: Optional[Any] = None      # Can be string or datetime
+    source_file: Optional[str] = None
+    tone_modes_count: Optional[int] = 0
+    core_principles_count: Optional[int] = 0
+    response_structure_steps: Optional[int] = 0
+    provocation_techniques_count: Optional[int] = 0
+    dynamic_templates_count: Optional[int] = 0
+    prohibited_patterns_count: Optional[int] = 0
+    
+    model_config = {"extra": "allow"}
+
 class ConversationLogic(BaseModel):
-    """Conversation logic model"""
+    """Conversation logic model matching standardized structure"""
     id: str = Field(..., alias="_id")
-    author: str  # Changed from philosopher to author
+    filename: Optional[str] = None
+    author: str
+    category: Optional[str] = None
+    conversation_logic: Optional[ConversationLogicData] = None
+    metadata: Optional[ConversationLogicMetadata] = None
+    
+    # Legacy fields for backward compatibility
     response_patterns: Optional[Dict[str, Any]] = None
     topic_preferences: Optional[List[str]] = None
     argumentation_style: Optional[str] = None
@@ -223,7 +289,11 @@ class ConversationLogic(BaseModel):
     def philosopher(self) -> str:
         return self.author
     
-    model_config = {"populate_by_name": True, "arbitrary_types_allowed": True}
+    model_config = {
+        "populate_by_name": True, 
+        "arbitrary_types_allowed": True,
+        "extra": "allow"
+    }
 
 class PhilosopherBot(BaseModel):
     """Philosopher bot configuration model"""

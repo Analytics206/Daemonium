@@ -162,15 +162,15 @@
         }
       ],
       "chronological_periods": {
-        "early_dialogues": {
+        "early_period": {
           "characteristics": "Focus on Socratic method, moral definitions, typically end in aporia (puzzlement), primarily negative (refuting false beliefs)",
           "themes": "Virtue, piety, courage, knowledge vs. ignorance, the examined life"
         },
-        "middle_dialogues": {
+        "middle_period": {
           "characteristics": "Introduction of Theory of Forms, soul's immortality, recollection doctrine, positive philosophical theories",
           "themes": "Forms, philosopher-kings, justice, love, beauty, immortality of soul"
         },
-        "late_dialogues": {
+        "late_period": {
           "characteristics": "Critical examination of earlier theories, sophisticated logical analysis, practical political philosophy",
           "themes": "Problems with Forms, being and non-being, practical politics, cosmology, law"
         }

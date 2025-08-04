@@ -57,16 +57,16 @@
         }
       ],
       "chronological_periods": {
-        "Early Period (1810–1818)": {
-          "characteristics": "Focus on epistemology and the foundations of reason; early Kantian influence and metaphysical inquiry into the nature of reality.",
+        "early_period": {
+          "characteristics": "1810-1818 Focus on epistemology and the foundations of reason; early Kantian influence and metaphysical inquiry into the nature of reality.",
           "themes": "Reason, perception, idealism, foundation of knowledge"
         },
-        "Middle Period (1819–1840)": {
-          "characteristics": "Development and articulation of core metaphysical and ethical ideas, including the nature of will, suffering, and denial of desire.",
+        "middle_period": {
+          "characteristics": "1819-1840 Development and articulation of core metaphysical and ethical ideas, including the nature of will, suffering, and denial of desire.",
           "themes": "Will, representation, pessimism, aesthetics, ethics"
         },
-        "Later Period (1840–1860)": {
-          "characteristics": "Expansion and popularization of his ideas through essays, aphorisms, and engagement with natural sciences and moral philosophy.",
+        "late_period": {
+          "characteristics": "1840-1860 Expansion and popularization of his ideas through essays, aphorisms, and engagement with natural sciences and moral philosophy.",
           "themes": "Compassion, freedom, fate, cultural critique, human nature"
         }
       },

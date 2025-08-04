@@ -31,6 +31,8 @@ from datetime import datetime
 import os
 import sys
 
+relationshipstocreate = 33
+
 # Add utils directory to path
 sys.path.append(str(Path(__file__).parent.parent / 'utils'))
 from neo4j_database_utils import get_neo4j_database_config, get_neo4j_connection_uri, get_neo4j_auth, print_database_info, create_database_if_not_exists
@@ -39,8 +41,8 @@ from neo4j_database_utils import get_neo4j_database_config, get_neo4j_connection
 class EnhancedKnowledgeGraphBuilder:
     def __init__(self, config_path: str = None, 
                  ollama_url: str = "http://localhost:11434", 
-                 ollama_model: str = "llama3.1:latest",
-                 embedding_model: str = "llama3.1:latest",
+                 ollama_model: str = "deepseek-r1:latest",
+                 embedding_model: str = "deepseek-r1:latest",
                  use_sentence_transformer: bool = False,
                  target_database: str = None):
         
@@ -717,7 +719,7 @@ class EnhancedKnowledgeGraphBuilder:
                     
                     # Only use Ollama for high-similarity pairs that need detailed analysis
                     is_high_similarity = float(similarity) > 0.85
-                    use_ai = is_high_similarity and relationships_created < 20
+                    use_ai = is_high_similarity and relationships_created <= relationshipstocreate
                     
                     if use_ai:  # Limit expensive AI calls
                         content1 = node1_data.get('content', '')[:300]  # Reduced content length

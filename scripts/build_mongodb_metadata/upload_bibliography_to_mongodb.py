@@ -144,6 +144,25 @@ class BibliographyUploader:
         # Create a clean ID from the author name
         document_id = author.lower().replace(' ', '_').replace('-', '_').replace('.', '')
         
+        # Validate and process chronological periods structure
+        chronological_periods = bibliography_data.get('chronological_periods', {})
+        if chronological_periods:
+            # Validate that the expected period keys are present
+            expected_periods = ['early_period', 'middle_period', 'late_period']
+            period_keys = list(chronological_periods.keys())
+            
+            # Log information about the periods structure
+            self.logger.info(f"Processing chronological periods for {author}: {period_keys}")
+            
+            # Validate each period has the expected structure
+            for period_key, period_data in chronological_periods.items():
+                if not isinstance(period_data, dict):
+                    self.logger.warning(f"Invalid period structure for {period_key} in {filename}")
+                    continue
+                    
+                if 'characteristics' not in period_data or 'themes' not in period_data:
+                    self.logger.warning(f"Missing characteristics or themes in {period_key} for {filename}")
+        
         # Prepare the final document with all expected fields
         document = {
             '_id': document_id,
@@ -155,7 +174,7 @@ class BibliographyUploader:
             'description': bibliography_data.get('description', ''),
             'background': bibliography_data.get('background', ''),  # Include background field
             'works': bibliography_data.get('works', []),
-            'chronological_periods': bibliography_data.get('chronological_periods', {}),
+            'chronological_periods': chronological_periods,  # Use validated periods
             'major_themes': bibliography_data.get('major_themes', []),
             'influence': bibliography_data.get('influence', ''),
             'note': bibliography_data.get('note', '')

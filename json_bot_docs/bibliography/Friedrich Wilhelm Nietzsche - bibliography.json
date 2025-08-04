@@ -106,21 +106,17 @@
         }
       ],
       "chronological_periods": {
-      "early_period_1872_1876": {
-        "characteristics": "Influenced by Schopenhauer and Wagner, focus on aesthetics and cultural criticism, romantic and pessimistic outlook",
+      "early_period": {
+        "characteristics": "  1872-1876 Influenced by Schopenhauer and Wagner, focus on aesthetics and cultural criticism, romantic and pessimistic outlook",
         "themes": "Tragedy and art, Apollonian vs. Dionysian, critique of modern culture, influence of music and mythology"
       },
-      "middle_period_1878_1882": {
-        "characteristics": "Break from Wagner and Schopenhauer, adoption of scientific and psychological approach, aphoristic style, 'free spirit' philosophy",
+      "middle_period": {
+        "characteristics": "1878-1882 Break from Wagner and Schopenhauer, adoption of scientific and psychological approach, aphoristic style, 'free spirit' philosophy",
         "themes": "Critique of metaphysics and morality, psychological analysis of human behavior, intellectual independence, skepticism toward absolute truths"
       },
-      "mature_period_1883_1888": {
-        "characteristics": "Development of distinctive philosophical voice, introduction of major concepts, increasingly radical critique of Western values",
-        "themes": "Übermensch, eternal recurrence, will to power, master/slave morality, revaluation of all values, death of God, nihilism and its overcoming"
-      },
-      "final_period_1888": {
-        "characteristics": "Intense productivity before mental collapse, extreme polemical tone, systematic attacks on Christianity and German culture, megalomaniacal self-presentation",
-        "themes": "Anti-Christian polemic, cultural diagnosis of decadence, autobiographical reflection, final formulation of philosophical system"
+      "late_period": {
+        "characteristics": "1883-1888 Development of distinctive philosophical voice, introduction of major concepts, increasingly radical critique of Western values. 1888 Intense productivity before mental collapse, extreme polemical tone, systematic attacks on Christianity and German culture, megalomaniacal self-presentation",
+        "themes": "Übermensch, eternal recurrence, will to power, master/slave morality, revaluation of all values, death of God, nihilism and its overcoming. Anti-Christian polemic, cultural diagnosis of decadence, autobiographical reflection, final formulation of philosophical system"
       }
     },
       "major_themes": [

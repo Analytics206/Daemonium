@@ -78,16 +78,16 @@
         }
       ],
       "chronological_periods": {
-        "pre_critical_period_1747_1770": {
-          "characteristics": "Influenced by Leibniz and Wolff; metaphysical optimism; early engagement with science and logic",
+        "early_period": {
+          "characteristics": "1747-1770 Influenced by Leibniz and Wolff; metaphysical optimism; early engagement with science and logic",
           "themes": "Space and time as metaphysical realities; pre-Copernican metaphysics; natural philosophy; early moral rationalism"
         },
-        "critical_period_1781_1790": {
-          "characteristics": "Development of critical philosophy; transcendental idealism; the three Critiques; systematic structure",
+        "middle_period": {
+          "characteristics": "1781-1790 Development of critical philosophy; transcendental idealism; the three Critiques; systematic structure",
           "themes": "Limits of reason; synthetic a priori knowledge; moral autonomy; aesthetic judgment; categories of understanding"
         },
-        "late_period_1790_1804": {
-          "characteristics": "Application of critical philosophy to law, politics, anthropology, and religion; refinement of earlier ideas",
+        "late_period": {
+          "characteristics": "1790-1804 Application of critical philosophy to law, politics, anthropology, and religion; refinement of earlier ideas",
           "themes": "Freedom and right; cosmopolitanism; virtue ethics; philosophy of religion; history and education"
         }
       },

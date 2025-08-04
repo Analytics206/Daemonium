@@ -1,0 +1,208 @@
+{
+  "comparison_timestamp": "2025-08-03T18:33:18.401595",
+  "databases_evaluated": [
+    "daemonium-primary",
+    "daemonium-comparison"
+  ],
+  "individual_evaluations": {
+    "daemonium-primary": {
+      "database_name": "daemonium-primary",
+      "evaluation_timestamp": "2025-08-03T18:33:13.755477",
+      "basic_statistics": {
+        "total_nodes": 3066,
+        "total_relationships": 13927,
+        "node_types": {
+          "Concept": 2151,
+          "Aphorism": 699,
+          "PhilosophicalIdea": 86,
+          "Work": 84,
+          "IdeaSummary": 22,
+          "TopIdeasCollection": 8,
+          "AphorismsCollection": 8,
+          "Bibliography": 8
+        },
+        "node_type_count": 8,
+        "relationship_types": {
+          "RELATED_VIA": 9145,
+          "EXPRESSES": 2648,
+          "CONTAINS_APHORISM": 699,
+          "EXPLORES": 659,
+          "EXPLAINS": 499,
+          "CONTAINS_IDEA": 86,
+          "AUTHORED": 84,
+          "RELATES_TO": 59,
+          "SIMILAR_TO": 22,
+          "SUPPORTS": 9,
+          "EXEMPLIFIES": 8,
+          "SUMMARIZES": 8,
+          "INFLUENCES": 1
+        },
+        "relationship_type_count": 13,
+        "ai_relationships": {
+          "semantic_analysis": 100,
+          "enhanced_semantic_analysis": 0,
+          "total_ai": 100
+        },
+        "property_statistics": {
+          "nodes_with_content": 22,
+          "nodes_with_summary": 84,
+          "nodes_with_title": 106,
+          "nodes_with_author": 893,
+          "nodes_with_birth_year": 0,
+          "nodes_with_nationality": 0
+        },
+        "connectivity_statistics": {
+          "isolated_nodes": 16,
+          "connected_nodes": 3050,
+          "leaf_nodes": 0,
+          "hub_nodes": 0
+        },
+        "content_statistics": {
+          "avg_content_length": 0,
+          "max_content_length": 0,
+          "min_content_length": 0
+        },
+        "temporal_statistics": {
+          "philosophers_with_birth_year": 0,
+          "earliest_birth_year": 0,
+          "latest_birth_year": 0,
+          "avg_birth_year": 0
+        }
+      },
+      "structural": {
+        "density": 0.0014820230087610364,
+        "average_degree": 9.084801043705154,
+        "degree_std_dev": 17.071330552369563,
+        "max_degree": 125,
+        "min_degree": 0,
+        "degree_centralization": 0.0378436742638822,
+        "clustering_coefficient": 0.4704279070764985
+      },
+      "completeness": {
+        "schema_completeness": 0.2857142857142857,
+        "philosopher_bio_completeness": 0,
+        "book_metadata_completeness": 0,
+        "idea_content_completeness": 0,
+        "linkability_completeness": 0.994781474233529
+      },
+      "consistency": {
+        "temporal_consistency": 1,
+        "semantic_consistency": 1.0
+      },
+      "chatbot_specific": {
+        "relationship_diversity": 13,
+        "error": "unsupported operand type(s) for /: 'dict' and 'int'"
+      },
+      "overall_quality_score": 0.5266935961226668
+    },
+    "daemonium-comparison": {
+      "database_name": "daemonium-comparison",
+      "evaluation_timestamp": "2025-08-03T18:33:16.778398",
+      "basic_statistics": {
+        "total_nodes": 3222,
+        "total_relationships": 17630,
+        "node_types": {
+          "Concept": 2255,
+          "Aphorism": 699,
+          "PhilosophicalConcept": 99,
+          "AphorismCategory": 77,
+          "PhilosophicalTheme": 37,
+          "IdeaSummary": 22,
+          "BookSummary": 9,
+          "Philosopher": 8,
+          "TopIdeas": 8,
+          "AphorismCollection": 8
+        },
+        "node_type_count": 10,
+        "relationship_types": {
+          "SHARES_CONCEPT": 11625,
+          "INVOLVES_CONCEPT": 4208,
+          "CONTAINS": 798,
+          "WROTE": 708,
+          "THEORIZED": 99,
+          "HAS_CATEGORY": 77,
+          "DEVELOPED": 37,
+          "EXPLORED": 22,
+          "PRECEDED": 16,
+          "DEVELOPED_IDEAS": 8,
+          "WROTE_APHORISMS": 8,
+          "RELATES_TO": 7,
+          "CONTEMPORARY": 5,
+          "ENCOMPASSES": 5,
+          "PART_OF": 5,
+          "INFLUENCES": 1,
+          "SAME_NATIONALITY": 1
+        },
+        "relationship_type_count": 17,
+        "ai_relationships": {
+          "semantic_analysis": 0,
+          "enhanced_semantic_analysis": 18,
+          "total_ai": 18
+        },
+        "property_statistics": {
+          "nodes_with_content": 857,
+          "nodes_with_summary": 0,
+          "nodes_with_title": 268,
+          "nodes_with_author": 823,
+          "nodes_with_birth_year": 8,
+          "nodes_with_nationality": 8
+        },
+        "connectivity_statistics": {
+          "isolated_nodes": 0,
+          "connected_nodes": 3222,
+          "leaf_nodes": 0,
+          "hub_nodes": 0
+        },
+        "content_statistics": {
+          "avg_content_length": 148.35,
+          "max_content_length": 3171,
+          "min_content_length": 0
+        },
+        "temporal_statistics": {
+          "philosophers_with_birth_year": 8,
+          "earliest_birth_year": 0,
+          "latest_birth_year": 0,
+          "avg_birth_year": 1530.4
+        }
+      },
+      "structural": {
+        "density": 0.001698775744450168,
+        "average_degree": 10.943513345747983,
+        "degree_std_dev": 22.073775304995042,
+        "max_degree": 296,
+        "min_degree": 1,
+        "degree_centralization": 0.0885547291551368,
+        "clustering_coefficient": 0.4370555924677179
+      },
+      "completeness": {
+        "schema_completeness": 0.8571428571428571,
+        "philosopher_bio_completeness": 1.0,
+        "book_metadata_completeness": 1.0,
+        "idea_content_completeness": 0,
+        "linkability_completeness": 1.0
+      },
+      "consistency": {
+        "temporal_consistency": 1.0,
+        "semantic_consistency": 1.0
+      },
+      "chatbot_specific": {
+        "relationship_diversity": 17,
+        "error": "unsupported operand type(s) for /: 'dict' and 'int'"
+      },
+      "overall_quality_score": 0.6993845648736373
+    }
+  },
+  "comparison_summary": {
+    "best_overall": {
+      "database": "daemonium-comparison",
+      "score": 0.6993845648736373
+    },
+    "best_by_category": {},
+    "recommendations": [
+      "For philosopher chatbot use, recommend: daemonium-comparison (overall score: 0.699)",
+      "daemonium-primary: Good content volume (3066 nodes)",
+      "daemonium-comparison: Good content volume (3222 nodes)",
+      "daemonium-comparison: High relationship diversity (17 types)"
+    ]
+  }
+}

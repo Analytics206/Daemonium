@@ -22,13 +22,17 @@
         }
       ],
       "chronological_periods": {
-        "period 1": {
+        "early_period": {
           "characteristics": "Characteristics of Period 1",
           "themes": "Themes of Period 1"
         },
-        "period 2": {
+        "middle_period": {
           "characteristics": "Characteristics of Period 2",
           "themes": "Themes of Period 2"
+        },
+        "late_period": {
+          "characteristics": "Characteristics of Period 3",
+          "themes": "Themes of Period 3"
         }
       },
       "major_themes": [

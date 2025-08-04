@@ -132,28 +132,72 @@ class ConversationLogicUploader:
         # Extract conversation logic data
         conversation_logic = json_data.get('conversation_logic', {})
         
+        # Validate required fields and log warnings for missing data
+        if not conversation_logic:
+            self.logger.warning(f"No conversation_logic data found in {filename}")
+            
+        # Validate and extract all conversation logic components
+        primary_goal = conversation_logic.get('primary_goal', '')
+        response_strategy = conversation_logic.get('response_strategy', {})
+        tone_selection = conversation_logic.get('tone_selection', {})
+        provocation_methods = conversation_logic.get('provocation_methods', {})
+        dynamic_response_templates = conversation_logic.get('dynamic_response_templates', [])
+        prohibited_patterns = conversation_logic.get('prohibited_patterns', [])
+        conversation_flow = conversation_logic.get('conversation_flow', {})
+        fallbacks = conversation_logic.get('fallbacks', {})
+        
+        # Log warnings for missing critical components
+        if not primary_goal:
+            self.logger.warning(f"Missing primary_goal in {filename}")
+        if not response_strategy:
+            self.logger.warning(f"Missing response_strategy in {filename}")
+        if not tone_selection.get('modes', []):
+            self.logger.warning(f"Missing tone_selection modes in {filename}")
+            
         document = {
             '_id': f"{author}_{category}",
             'filename': filename,
             'author': json_data.get('author', 'Unknown'),
             'category': json_data.get('category', 'Unknown'),
             'conversation_logic': {
-                'primary_goal': conversation_logic.get('primary_goal', ''),
-                'response_strategy': conversation_logic.get('response_strategy', {}),
-                'tone_selection': conversation_logic.get('tone_selection', {}),
-                'conversation_flow': conversation_logic.get('conversation_flow', {}),
-                'engagement_patterns': conversation_logic.get('engagement_patterns', {}),
-                'fallback_strategies': conversation_logic.get('fallback_strategies', [])
+                'primary_goal': primary_goal,
+                'response_strategy': {
+                    'core_principles': response_strategy.get('core_principles', []),
+                    'response_structure': response_strategy.get('response_structure', [])
+                },
+                'tone_selection': {
+                    'modes': tone_selection.get('modes', [])
+                },
+                'provocation_methods': {
+                    'techniques': provocation_methods.get('techniques', []),
+                    'examples': provocation_methods.get('examples', [])
+                },
+                'dynamic_response_templates': dynamic_response_templates,
+                'prohibited_patterns': prohibited_patterns,
+                'conversation_flow': {
+                    'opening_moves': conversation_flow.get('opening_moves', []),
+                    'closing_moves': conversation_flow.get('closing_moves', [])
+                },
+                'fallbacks': {
+                    'when_unknown': fallbacks.get('when_unknown', [])
+                }
             },
             'metadata': {
                 'upload_timestamp': None,  # Will be set during upload
                 'last_updated': None,      # Will be set during upload
                 'source_file': filename,
-                'tone_modes_count': len(conversation_logic.get('tone_selection', {}).get('modes', [])),
-                'core_principles_count': len(conversation_logic.get('response_strategy', {}).get('core_principles', [])),
-                'response_structure_steps': len(conversation_logic.get('response_strategy', {}).get('response_structure', []))
+                'tone_modes_count': len(tone_selection.get('modes', [])),
+                'core_principles_count': len(response_strategy.get('core_principles', [])),
+                'response_structure_steps': len(response_strategy.get('response_structure', [])),
+                'provocation_techniques_count': len(provocation_methods.get('techniques', [])),
+                'dynamic_templates_count': len(dynamic_response_templates),
+                'prohibited_patterns_count': len(prohibited_patterns)
             }
         }
+        
+        # Log successful document preparation
+        self.logger.info(f"Prepared document for {author} with {document['metadata']['tone_modes_count']} tone modes")
+        
         return document
         
     def _upsert_document(self, document: Dict[str, Any]) -> bool:

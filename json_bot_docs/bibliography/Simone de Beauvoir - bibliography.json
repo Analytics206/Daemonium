@@ -71,16 +71,16 @@
         }
       ],
       "chronological_periods": {
-        "Early Period (1930s–1945)": {
-          "characteristics": "Development of existentialist themes through fiction, often exploring relationships, freedom, and self-deception.",
+        "early_period": {
+          "characteristics": "1930-1945 Development of existentialist themes through fiction, often exploring relationships, freedom, and self-deception.",
           "themes": "Freedom, bad faith, gendered experience, political awakening"
         },
-        "Middle Period (1945–1960)": {
-          "characteristics": "Philosophical and feminist peak, combining existentialism with historical and gender analysis. Included major theoretical and autobiographical work.",
+        "middle_period": {
+          "characteristics": "1945-1960 Philosophical and feminist peak, combining existentialism with historical and gender analysis. Included major theoretical and autobiographical work.",
           "themes": "Feminism, ethics, embodiment, ambiguity, lived experience"
         },
-        "Later Period (1960–1986)": {
-          "characteristics": "Reflection on aging, personal history, and Sartre’s legacy. Expanded her social critique to aging, memory, and mortality.",
+        "late_period": {
+          "characteristics": "1960-1986 Reflection on aging, personal history, and Sartre’s legacy. Expanded her social critique to aging, memory, and mortality.",
           "themes": "Aging, mortality, memory, legacy, love and loss"
         }
       },

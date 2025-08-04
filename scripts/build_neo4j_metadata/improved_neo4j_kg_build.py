@@ -26,8 +26,8 @@ from neo4j_database_utils import (
 class ImprovedKnowledgeGraphBuilder:
     def __init__(self, config_path: str = None, 
                  ollama_url: str = "http://localhost:11434", 
-                 ollama_model: str = "llama3.1:latest",
-                 embedding_model: str = "llama3.1:latest",
+                 ollama_model: str = "deepseek-r1:latest",
+                 embedding_model: str = "deepseek-r1:latest",
                  use_sentence_transformer: bool = False,
                  target_database: str = None):
         

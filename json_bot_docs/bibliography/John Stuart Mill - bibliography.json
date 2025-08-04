@@ -50,15 +50,15 @@
         }
       ],
       "chronological_periods": {
-        "Early Period": {
+        "early_period": {
           "characteristics": "Focused on logic, scientific methodology, and early utilitarian thought influenced by Bentham and James Mill.",
           "themes": "Logic, induction, early utilitarianism, education"
         },
-        "Middle Period": {
+        "middle_period": {
           "characteristics": "Development of political and economic philosophy integrating liberalism and social reform.",
           "themes": "Political economy, liberty, individual rights, government role"
         },
-        "Late Period": {
+        "late_period": {
           "characteristics": "Mature ethical and social philosophy, advocacy for women's rights and deep reflections on liberty and utilitarianism.",
           "themes": "Utilitarian ethics, feminism, liberty, social justice"
         }

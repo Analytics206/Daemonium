@@ -50,15 +50,15 @@
         }
       ],
       "chronological_periods": {
-        "Early Wittgenstein": {
+        "early_period": {
           "characteristics": "Focused on the logical structure of language and reality, influenced by Frege and Russell. Advocated a picture theory of language and the limits of what can be said.",
           "themes": "Logic, representation, the world-language relation, silence, atomism"
         },
-        "Transitional Period": {
+        "middle_period": {
           "characteristics": "A period of doubt and reformulation, where Wittgenstein reconsidered his earlier views and began developing new approaches to language and meaning.",
           "themes": "Doubt about logical form, rule-following, ordinary language, language in use"
         },
-        "Later Wittgenstein": {
+        "late_period": {
           "characteristics": "Focused on language as a social activity, emphasizing context, 'language games,' and the idea that meaning is use. Abandoned formalism for philosophical therapy.",
           "themes": "Language games, rule-following, family resemblance, forms of life, anti-foundationalism"
         }

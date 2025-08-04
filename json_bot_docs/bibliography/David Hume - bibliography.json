@@ -78,16 +78,16 @@
       }
     ],
     "chronological_periods": {
-      "early_period_1739_1748": {
-        "characteristics": "Experimental, bold, and skeptical tone; attempt to found a 'science of human nature'; strong influence of Locke, Berkeley, and Newton",
+      "early_period": {
+        "characteristics": "1739-1748 Experimental, bold, and skeptical tone; attempt to found a 'science of human nature'; strong influence of Locke, Berkeley, and Newton",
         "themes": "Empiricism, causation, impressions and ideas, critique of self, foundations of ethics, problem of induction"
       },
-      "middle_period_1748_1757": {
-        "characteristics": "Popular essays and more accessible summaries of philosophical ideas; growing literary reputation and public engagement",
+      "middle_period": {
+        "characteristics": "1748-1757 Popular essays and more accessible summaries of philosophical ideas; growing literary reputation and public engagement",
         "themes": "Ethics and sentiment, critique of religion, political economy, human nature, aesthetics"
       },
-      "late_period_1757_1776": {
-        "characteristics": "Mature literary style, historical writings, philosophical dialogues, and reflections; philosophical clarity mixed with political caution",
+      "late_period": {
+        "characteristics": "1757-1776 Mature literary style, historical writings, philosophical dialogues, and reflections; philosophical clarity mixed with political caution",
         "themes": "Natural religion, political skepticism, critique of miracles, toleration, historical analysis, secular moral theory"
       }
     },

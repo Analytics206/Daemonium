@@ -156,13 +156,32 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
             ]
         }
     
-    elif collection_name in ["chat_blueprint", "conversation_logic"]:
+    elif collection_name == "chat_blueprint":
         return {
             "$or": [
                 {"author": {"$regex": query, "$options": "i"}},
                 {"speaking_style": {"$regex": query, "$options": "i"}},
                 {"personality_traits": {"$regex": query, "$options": "i"}},
                 {"core_beliefs": {"$regex": query, "$options": "i"}}
+            ]
+        }
+    
+    elif collection_name == "conversation_logic":
+        return {
+            "$or": [
+                {"author": {"$regex": query, "$options": "i"}},
+                {"filename": {"$regex": query, "$options": "i"}},
+                {"category": {"$regex": query, "$options": "i"}},
+                {"conversation_logic.primary_goal": {"$regex": query, "$options": "i"}},
+                {"conversation_logic.response_strategy.core_principles": {"$regex": query, "$options": "i"}},
+                {"conversation_logic.response_strategy.response_structure": {"$regex": query, "$options": "i"}},
+                {"conversation_logic.tone_selection.modes": {"$regex": query, "$options": "i"}},
+                {"conversation_logic.provocation_methods.techniques": {"$regex": query, "$options": "i"}},
+                {"conversation_logic.dynamic_response_templates": {"$regex": query, "$options": "i"}},
+                {"conversation_logic.prohibited_patterns": {"$regex": query, "$options": "i"}},
+                {"conversation_logic.conversation_flow.opening_moves": {"$regex": query, "$options": "i"}},
+                {"conversation_logic.conversation_flow.closing_moves": {"$regex": query, "$options": "i"}},
+                {"conversation_logic.fallbacks.when_unknown": {"$regex": query, "$options": "i"}}
             ]
         }
     

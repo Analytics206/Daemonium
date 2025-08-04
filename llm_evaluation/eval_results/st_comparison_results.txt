@@ -1,128 +1,91 @@
 SENTENCE TRANSFORMER MODEL COMPARISON REPORT
 ============================================================
-Generated: 2025-08-03 14:32:25
-Models Compared: 6
+Generated: 2025-08-03 15:42:09
+Models Compared: 3
 
 MODEL OVERVIEW
 ------------------------------
-1. llama3.1:latest
+1. deepseek-r1:latest
    Embedding Dimension: 4096
    Device: ollama
 
-2. granite-embedding:278m
+2. llama3.2:latest
+   Embedding Dimension: 3072
+   Device: ollama
+
+3. granite-embedding:278m
    Embedding Dimension: 768
-   Device: ollama
-
-3. nomic-embed-text
-   Embedding Dimension: 768
-   Device: ollama
-
-4. snowflake-arctic-embed2:latest
-   Embedding Dimension: 1024
-   Device: ollama
-
-5. snowflake-arctic-embed:latest
-   Embedding Dimension: 1024
-   Device: ollama
-
-6. mxbai-embed-large
-   Embedding Dimension: 1024
    Device: ollama
 
 OVERALL SCORES COMPARISON
 ----------------------------------------
-Metric                   llama3.1:latestgranite-embeddinomic-embed-texsnowflake-arctisnowflake-arctimxbai-embed-lar
--------------------------------------------------------------------------------------------------------------------
-semantic_similarity_score          0.171          0.362          0.049          0.195          0.045          0.050
-Best:                                                 *                                                            
+Metric                   deepseek-r1:latllama3.2:latestgranite-embeddi
+----------------------------------------------------------------------
+semantic_similarity_score          0.291          0.249          0.362
+Best:                                                                *
 
-clustering_score                   0.363          0.329          0.320          0.322          0.334          0.334
-Best:                                  *                                                                           
+clustering_score                   0.339          0.352          0.329
+Best:                                                 *               
 
-entity_recognition_score           0.337          0.385          0.392          0.301          0.431          0.388
-Best:                                                                                              *               
+entity_recognition_score           0.508          0.328          0.385
+Best:                                  *                              
 
-knowledge_graph_score              0.322          0.324          0.252          0.228          0.377          0.298
-Best:                                                                                              *               
+knowledge_graph_score              0.449          0.309          0.324
+Best:                                  *                              
 
-embedding_quality_score            0.429          0.190          0.355          0.304          0.139          0.242
-Best:                                  *                                                                           
+embedding_quality_score            0.310          0.469          0.190
+Best:                                                 *               
 
-composite_score                    0.324          0.318          0.274          0.270          0.265          0.262
-Best:                                  *                                                                           
+composite_score                    0.379          0.342          0.318
+Best:                                  *                              
 
 DETAILED TASK PERFORMANCE
 ----------------------------------------
 
 1. SEMANTIC SIMILARITY
    --------------------
-   llama3.1:latest:
-     Accuracy: 0.400
-     Correlation: -0.394
-     MAE: 0.154
+   deepseek-r1:latest:
+     Accuracy: 0.200
+     Correlation: 0.121
+     MAE: 0.187
+
+   llama3.2:latest:
+     Accuracy: 0.267
+     Correlation: -0.054
+     MAE: 0.179
 
    granite-embedding:278m:
      Accuracy: 0.400
      Correlation: 0.061
      MAE: 0.111
 
-   nomic-embed-text:
-     Accuracy: 0.267
-     Correlation: -0.522
-     MAE: 0.243
-
-   snowflake-arctic-embed2:latest:
-     Accuracy: 0.267
-     Correlation: -0.151
-     MAE: 0.255
-
-   snowflake-arctic-embed:latest:
-     Accuracy: 0.333
-     Correlation: -0.651
-     MAE: 0.137
-
-   mxbai-embed-large:
-     Accuracy: 0.400
-     Correlation: -0.680
-     MAE: 0.188
-
 2. CLUSTERING QUALITY
    ------------------
-   llama3.1:latest:
-     Silhouette Score: 0.101
-     Cluster Coherence: 0.751
-     Cluster Separation: 0.439
+   deepseek-r1:latest:
+     Silhouette Score: 0.073
+     Cluster Coherence: 0.972
+     Cluster Separation: 0.055
+
+   llama3.2:latest:
+     Silhouette Score: 0.044
+     Cluster Coherence: 0.726
+     Cluster Separation: 0.560
 
    granite-embedding:278m:
      Silhouette Score: 0.076
      Cluster Coherence: 0.718
      Cluster Separation: 0.375
 
-   nomic-embed-text:
-     Silhouette Score: 0.081
-     Cluster Coherence: 0.531
-     Cluster Separation: 0.601
-
-   snowflake-arctic-embed2:latest:
-     Silhouette Score: 0.070
-     Cluster Coherence: 0.504
-     Cluster Separation: 0.676
-
-   snowflake-arctic-embed:latest:
-     Silhouette Score: 0.073
-     Cluster Coherence: 0.810
-     Cluster Separation: 0.272
-
-   mxbai-embed-large:
-     Silhouette Score: 0.082
-     Cluster Coherence: 0.653
-     Cluster Separation: 0.486
-
 3. ENTITY RECOGNITION
    ------------------
-   llama3.1:latest:
-     Entity Clustering Silhouette: 0.285
-     Avg Entity-Text Similarity: 0.414
+   deepseek-r1:latest:
+     Entity Clustering Silhouette: 0.303
+     Avg Entity-Text Similarity: 0.816
+     Unique Entity Types: 4
+
+   llama3.2:latest:
+     Entity Clustering Silhouette: 0.274
+     Avg Entity-Text Similarity: 0.409
      Unique Entity Types: 4
 
    granite-embedding:278m:
@@ -130,30 +93,16 @@ DETAILED TASK PERFORMANCE
      Avg Entity-Text Similarity: 0.667
      Unique Entity Types: 4
 
-   nomic-embed-text:
-     Entity Clustering Silhouette: 0.195
-     Avg Entity-Text Similarity: 0.687
-     Unique Entity Types: 4
-
-   snowflake-arctic-embed2:latest:
-     Entity Clustering Silhouette: 0.166
-     Avg Entity-Text Similarity: 0.503
-     Unique Entity Types: 4
-
-   snowflake-arctic-embed:latest:
-     Entity Clustering Silhouette: 0.191
-     Avg Entity-Text Similarity: 0.792
-     Unique Entity Types: 4
-
-   mxbai-embed-large:
-     Entity Clustering Silhouette: 0.191
-     Avg Entity-Text Similarity: 0.683
-     Unique Entity Types: 4
-
 4. KNOWLEDGE GRAPH CONSTRUCTION
    ------------------------------
-   llama3.1:latest:
-     Relation Coherence: 0.639
+   deepseek-r1:latest:
+     Relation Coherence: 0.956
+     Graph Density: 0.032
+     Clustering Coefficient: 0.190
+     Nodes: 28, Edges: 24
+
+   llama3.2:latest:
+     Relation Coherence: 0.606
      Graph Density: 0.032
      Clustering Coefficient: 0.190
      Nodes: 28, Edges: 24
@@ -164,37 +113,19 @@ DETAILED TASK PERFORMANCE
      Clustering Coefficient: 0.190
      Nodes: 28, Edges: 24
 
-   nomic-embed-text:
-     Relation Coherence: 0.464
-     Graph Density: 0.032
-     Clustering Coefficient: 0.190
-     Nodes: 28, Edges: 24
-
-   snowflake-arctic-embed2:latest:
-     Relation Coherence: 0.404
-     Graph Density: 0.032
-     Clustering Coefficient: 0.190
-     Nodes: 28, Edges: 24
-
-   snowflake-arctic-embed:latest:
-     Relation Coherence: 0.775
-     Graph Density: 0.032
-     Clustering Coefficient: 0.190
-     Nodes: 28, Edges: 24
-
-   mxbai-embed-large:
-     Relation Coherence: 0.578
-     Graph Density: 0.032
-     Clustering Coefficient: 0.190
-     Nodes: 28, Edges: 24
-
 5. EMBEDDING QUALITY
    -----------------
-   llama3.1:latest:
-     Avg Pairwise Similarity: 0.687
-     Embedding Variance: 1.313
-     Norm Mean: 137.012
-     Norm Std: 1.507
+   deepseek-r1:latest:
+     Avg Pairwise Similarity: 0.959
+     Embedding Variance: 0.890
+     Norm Mean: 286.668
+     Norm Std: 25.489
+
+   llama3.2:latest:
+     Avg Pairwise Similarity: 0.536
+     Embedding Variance: 0.898
+     Norm Mean: 80.326
+     Norm Std: 3.847
 
    granite-embedding:278m:
      Avg Pairwise Similarity: 0.653
@@ -202,43 +133,19 @@ DETAILED TASK PERFORMANCE
      Norm Mean: 19.439
      Norm Std: 0.238
 
-   nomic-embed-text:
-     Avg Pairwise Similarity: 0.402
-     Embedding Variance: 0.371
-     Norm Mean: 22.793
-     Norm Std: 0.359
-
-   snowflake-arctic-embed2:latest:
-     Avg Pairwise Similarity: 0.330
-     Embedding Variance: 0.090
-     Norm Mean: 12.222
-     Norm Std: 0.391
-
-   snowflake-arctic-embed:latest:
-     Avg Pairwise Similarity: 0.740
-     Embedding Variance: 0.101
-     Norm Mean: 20.819
-     Norm Std: 0.299
-
-   mxbai-embed-large:
-     Avg Pairwise Similarity: 0.521
-     Embedding Variance: 0.130
-     Norm Mean: 17.396
-     Norm Std: 0.654
-
 RECOMMENDATIONS
 --------------------
 Best for semantic_similarity_score: granite-embedding:278m (Score: 0.362)
-Best for clustering_score: llama3.1:latest (Score: 0.363)
-Best for entity_recognition_score: snowflake-arctic-embed:latest (Score: 0.431)
-Best for knowledge_graph_score: snowflake-arctic-embed:latest (Score: 0.377)
-Best for embedding_quality_score: llama3.1:latest (Score: 0.429)
+Best for clustering_score: llama3.2:latest (Score: 0.352)
+Best for entity_recognition_score: deepseek-r1:latest (Score: 0.508)
+Best for knowledge_graph_score: deepseek-r1:latest (Score: 0.449)
+Best for embedding_quality_score: llama3.2:latest (Score: 0.469)
 
-OVERALL BEST MODEL: llama3.1:latest (Composite Score: 0.324)
+OVERALL BEST MODEL: deepseek-r1:latest (Composite Score: 0.379)
 
 USAGE RECOMMENDATIONS:
-- For general knowledge graph tasks: llama3.1:latest
+- For general knowledge graph tasks: deepseek-r1:latest
 - For semantic similarity tasks: granite-embedding:278m
-- For concept clustering: llama3.1:latest
+- For concept clustering: llama3.2:latest
 
 Report generated successfully!
