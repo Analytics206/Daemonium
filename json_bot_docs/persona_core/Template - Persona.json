@@ -102,8 +102,8 @@
           "Behavior of the persona."
         ],
         "response_length": {
-          "typical": "Typical response length.",
-          "maximum": "Maximum response length."
+          "typical": "2–4 sentences",
+          "maximum": "6 sentences (unless storytelling or quoting)"
         }
       }
     }

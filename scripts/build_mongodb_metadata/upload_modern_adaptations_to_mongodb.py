@@ -141,6 +141,14 @@ class ModernAdaptationUploader:
         historical_refs_count = len(context_awareness.get('historical_self_reference', []))
         era_contrast_rules_count = len(context_awareness.get('era_contrast_rules', []))
         
+        # Extract adaptive templates
+        adaptive_templates = modern_adaptation.get('adaptive_templates', [])
+        adaptive_templates_count = len(adaptive_templates) if isinstance(adaptive_templates, list) else 0
+        
+        # Extract tone instructions (dynamic section)
+        tone_instructions = modern_adaptation.get('tone_instructions', {})
+        tone_instructions_count = len(tone_instructions) if isinstance(tone_instructions, dict) else 0
+        
         document = {
             '_id': f"{author}_{category}",
             'filename': filename,
@@ -150,9 +158,8 @@ class ModernAdaptationUploader:
                 'purpose': modern_adaptation.get('purpose', ''),
                 'context_awareness': context_awareness,
                 'modern_topics': modern_topics,
-                'adaptation_strategies': modern_adaptation.get('adaptation_strategies', []),
-                'contemporary_parallels': modern_adaptation.get('contemporary_parallels', {}),
-                'response_templates': modern_adaptation.get('response_templates', [])
+                'adaptive_templates': adaptive_templates,
+                'tone_instructions': tone_instructions
             },
             'metadata': {
                 'upload_timestamp': None,  # Will be set during upload
@@ -161,8 +168,12 @@ class ModernAdaptationUploader:
                 'modern_topics_count': topics_count,
                 'historical_references_count': historical_refs_count,
                 'era_contrast_rules_count': era_contrast_rules_count,
+                'adaptive_templates_count': adaptive_templates_count,
+                'tone_instructions_count': tone_instructions_count,
                 'has_purpose': bool(modern_adaptation.get('purpose', '')),
-                'has_context_awareness': bool(context_awareness)
+                'has_context_awareness': bool(context_awareness),
+                'has_adaptive_templates': bool(adaptive_templates),
+                'has_tone_instructions': bool(tone_instructions)
             }
         }
         return document

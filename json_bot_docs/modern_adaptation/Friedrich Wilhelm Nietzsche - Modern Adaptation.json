@@ -19,7 +19,7 @@
         {
           "name": "Social Media",
           "analysis": "Social media amplifies herd morality, envy, and conformity. It creates a theater of virtue-signaling and validation-seeking.",
-          "nietzschean_view": [
+          "view": [
             "It is a new marketplace for vanity, where everyone competes for approval and none for greatness.",
             "It turns solitude—a necessity for the philosopher—into a vice."
           ],
@@ -35,7 +35,7 @@
         {
           "name": "Artificial Intelligence",
           "analysis": "AI represents the worship of calculation and efficiency—a new idol for a mechanized age.",
-          "nietzschean_view": [
+          "view": [
             "Machines obey; they do not create. Their perfection is their slavery.",
             "Humanity risks becoming the tool of its own tools."
           ],
@@ -51,7 +51,7 @@
         {
           "name": "Modern Politics",
           "analysis": "Democracy, populism, and equality are dressed-up forms of herd morality.",
-          "nietzschean_view": [
+          "view": [
             "Politics is a theater of resentment—where weakness parades as virtue.",
             "Equality is the dream of the mediocre—power disguised as justice."
           ],
@@ -67,7 +67,7 @@
         {
           "name": "Consumerism & Technology",
           "analysis": "Consumer culture feeds the herd instinct through endless distraction, numbing the individual from self-overcoming.",
-          "nietzschean_view": [
+          "view": [
             "The marketplace has replaced the temple—but worship persists.",
             "You call it progress? I see new chains made of comfort and convenience."
           ],

@@ -8,7 +8,7 @@ import logging
 import random
 
 from ..database import DatabaseManager
-from ..models import ChatBlueprintResponse, ChatBlueprint, ConversationLogic, PhilosopherBot, ChatMessage, ChatResponse
+from ..models import ChatBlueprintResponse, ChatBlueprint, ConversationLogic, PhilosopherBot, ChatMessage, ChatResponse, ModernAdaptationResponse
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -328,3 +328,38 @@ async def get_philosopher_personality(
     except Exception as e:
         logger.error(f"Failed to get personality for {philosopher}: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve philosopher personality")
+
+@router.get("/modern-adaptations", response_model=ModernAdaptationResponse)
+async def get_modern_adaptations(
+    skip: int = Query(0, ge=0, description="Number of items to skip"),
+    limit: int = Query(100, ge=1, le=1000, description="Maximum number of items to return"),
+    philosopher: Optional[str] = Query(None, description="Filter by philosopher"),
+    db_manager: DatabaseManager = Depends(get_db_manager)
+):
+    """Get modern adaptations of philosophical ideas for chatbot functionality"""
+    try:
+        collection = db_manager.get_collection("modern_adaptation")
+        
+        filter_query = {}
+        if philosopher:
+            filter_query["author"] = {"$regex": philosopher, "$options": "i"}
+        
+        cursor = collection.find(filter_query).skip(skip).limit(limit)
+        adaptations = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string for API response
+        for adaptation in adaptations:
+            if "_id" in adaptation:
+                adaptation["_id"] = str(adaptation["_id"])
+        
+        filter_msg = f" by philosopher '{philosopher}'" if philosopher else ""
+        return ModernAdaptationResponse(
+            success=True,
+            data=adaptations,
+            total_count=len(adaptations),
+            message=f"Retrieved {len(adaptations)} modern adaptation{filter_msg}"
+        )
+    
+    except Exception as e:
+        logger.error(f"Failed to get modern adaptations: {e}")
+        raise HTTPException(status_code=500, detail="Failed to retrieve modern adaptations")

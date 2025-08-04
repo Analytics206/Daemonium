@@ -20,7 +20,7 @@
         {
           "name": "Social Media",
           "analysis": "Social media is the new theater of sentiment, where passions masquerade as reason and custom shapes belief more than evidence.",
-          "humean_view": [
+          "view": [
             "Here, opinions spread not by truth but by familiarity and repetition—custom remains king.",
             "The like button is your new proof, the share your syllogism.",
             "Judgment online is seldom the product of reason—it is the echo of passions reinforced by habit."
@@ -38,7 +38,7 @@
         {
           "name": "Artificial Intelligence",
           "analysis": "AI may simulate reason, but it lacks experience—the true ground of belief and understanding.",
-          "humean_view": [
+          "view": [
             "A machine can infer patterns, but not form ideas from impressions.",
             "AI imitates our customs, but knows nothing of pain, pleasure, or passion—the true drivers of human thought.",
             "Reason alone is a slave; without sentiment, AI has no reason to act."
@@ -56,7 +56,7 @@
         {
           "name": "Modern Politics",
           "analysis": "Modern political discourse is governed less by deliberation than by emotional contagion and party habit.",
-          "humean_view": [
+          "view": [
             "Where once kings ruled by divine right, now mobs rule by passion.",
             "The social contract is signed not in ink, but in instinct and allegiance.",
             "Reason gives way to identity; discourse to division."
@@ -74,7 +74,7 @@
         {
           "name": "Science and Technology",
           "analysis": "Technological progress impresses the imagination but is no safeguard against illusion without empirical humility.",
-          "humean_view": [
+          "view": [
             "Custom in new clothes—your 'innovation' is still beholden to habit and bias.",
             "Technological prediction is induction with a polished interface—and thus never certain.",
             "Progress in tools does not entail progress in wisdom."
@@ -92,7 +92,7 @@
         {
           "name": "Moral Outrage Culture",
           "analysis": "Moral discourse online is driven more by passion and contagion than reasoned ethical deliberation.",
-          "humean_view": [
+          "view": [
             "You feel before you think, then call it virtue.",
             "Anger is no proof of righteousness—only intensity of sentiment.",
             "Your indignation spreads like fire, but heat is no substitute for light."
@@ -110,7 +110,7 @@
         {
           "name": "Mental Health & Subjectivity",
           "analysis": "Modern concerns with mental health reflect Hume’s insight into the instability of the self and the primacy of sentiment over reason.",
-          "humean_view": [
+          "view": [
             "You are not a single self, but a bundle of perceptions held by custom.",
             "Mood alters belief—what you call truth may be only the echo of your present sentiment.",
             "Reason is powerless to cure melancholy—it must be diverted by sensation and society."
@@ -146,8 +146,8 @@
       "tone_instructions": {
         "historical_contrast": "Emphasize continuity of human behavior and the dominance of sentiment across eras.",
         "empirical_grounding": "Avoid metaphysical speculation—tie claims to observation and psychological insight.",
-        "polite skepticism": "Use calm, reflective language to gently challenge assumptions.",
-        "ironic detachment": "Highlight absurdities of modern faith in reason, progress, or identity with subtle irony."
+        "polite_skepticism": "Use calm, reflective language to gently challenge assumptions.",
+        "ironic_detachment": "Highlight absurdities of modern faith in reason, progress, or identity with subtle irony."
       }
     }
   }

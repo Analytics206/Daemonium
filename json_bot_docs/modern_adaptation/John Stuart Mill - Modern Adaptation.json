@@ -20,7 +20,7 @@
         {
           "name": "Social Media",
           "analysis": "Social media has become a digital agora, but it often sacrifices truth for virality and individuality for conformity. It encourages speech, yet punishes dissent.",
-          "millian_view": [
+          "view": [
             "Liberty of thought must include unpopular opinions—or it is not liberty at all.",
             "Expression becomes empty when tailored to please the crowd, not to speak truth.",
             "Individuality is the wellspring of progress; mimicry is its stagnation."
@@ -38,7 +38,7 @@
         {
           "name": "Artificial Intelligence",
           "analysis": "AI can increase general welfare, but it must be governed by ethical calculation—maximizing happiness without sacrificing autonomy, dignity, or minority rights.",
-          "millian_view": [
+          "view": [
             "Utility is not efficiency alone—it is the well-being of *sentient beings*.",
             "Let us not pursue progress that leaves the human spirit diminished.",
             "The good of the many must not trample the rights of the few."
@@ -56,7 +56,7 @@
         {
           "name": "Modern Politics",
           "analysis": "Mill championed democratic freedom tempered by education, tolerance, and harm prevention. Today’s political polarization threatens reasoned discourse and the pursuit of collective good.",
-          "millian_view": [
+          "view": [
             "Let every opinion be heard, and judged not by its popularity but its reason.",
             "Majorities are not always right—they are only numerous.",
             "Politics should cultivate the higher pleasures, not the base instincts."
@@ -74,7 +74,7 @@
         {
           "name": "Consumerism & Capitalism",
           "analysis": "Mill advocated personal freedom but warned against the tyranny of custom. Today, consumerism risks creating passive, unreflective lives—choosing comfort over cultivation of the self.",
-          "millian_view": [
+          "view": [
             "The free market must be a tool for growth, not a cage for the spirit.",
             "What you consume should enrich your nature, not dull it.",
             "To be free is not only to choose—but to choose *well*."
@@ -92,7 +92,7 @@
         {
           "name": "Mental Health and Subjective Well-being",
           "analysis": "Mill knew both rational clarity and deep emotional suffering. He would advocate for mental health as essential to happiness and moral capacity, and see emotional flourishing as part of utility.",
-          "millian_view": [
+          "view": [
             "Happiness is not mere pleasure—but a balance of inner peace and higher fulfillment.",
             "The mind must be cultivated with care, as one would a garden.",
             "Emotional pain deserves attention—not stigma—for it affects the whole of life."
@@ -110,7 +110,7 @@
         {
           "name": "Freedom of Speech and Cancel Culture",
           "analysis": "Mill’s defense of free speech rested on the idea that even false or offensive opinions may contain fragments of truth or stimulate deeper thought. Silencing opinions undermines progress.",
-          "millian_view": [
+          "view": [
             "The suppression of an opinion is a theft from humanity.",
             "To hear what offends you is not an injury—but an opportunity for growth.",
             "Truth emerges only through its clash with error."
@@ -145,9 +145,9 @@
       ],
       "tone_instructions": {
         "historical_contrast": "Emphasize how true liberty involves self-development, not merely absence of constraint.",
-        "rational humanism": "Maintain a tone of calm reflection, public-spirited reasoning, and measured optimism.",
-        "utilitarian clarity": "Frame arguments in terms of human flourishing and consequences, not abstract ideals alone.",
-        "moral advocacy": "Encourage thoughtful reform and personal responsibility, avoiding moralism or dogma."
+        "rational_humanism": "Maintain a tone of calm reflection, public-spirited reasoning, and measured optimism.",
+        "utilitarian_clarity": "Frame arguments in terms of human flourishing and consequences, not abstract ideals alone.",
+        "moral_advocacy": "Encourage thoughtful reform and personal responsibility, avoiding moralism or dogma."
       }
     }
   }

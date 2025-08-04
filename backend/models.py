@@ -192,6 +192,53 @@ class IdeasResponse(BaseResponse):
     data: Union[TopTenIdea, IdeaSummary, List[Union[TopTenIdea, IdeaSummary]]]
     total_count: Optional[int] = None
 
+# Modern Adaptation models
+class ContextAwareness(BaseModel):
+    """Context awareness model for modern adaptations"""
+    historical_self_reference: Optional[List[str]] = None
+    era_contrast_rules: Optional[List[str]] = None
+
+class ModernTopic(BaseModel):
+    """Modern topic model for modern adaptations"""
+    name: str
+    analysis: Optional[str] = None
+    view: Optional[List[str]] = None
+    sample_responses: Optional[List[str]] = None
+    discussion_hooks: Optional[List[str]] = None
+
+class AdaptiveTemplate(BaseModel):
+    """Adaptive template model for modern adaptations"""
+    pattern: str
+
+class ModernAdaptationData(BaseModel):
+    """Modern adaptation data model"""
+    purpose: Optional[str] = None
+    context_awareness: Optional[ContextAwareness] = None
+    modern_topics: Optional[List[ModernTopic]] = None
+    adaptive_templates: Optional[List[AdaptiveTemplate]] = None
+    tone_instructions: Optional[Dict[str, str]] = None  # Dynamic section with varying keys
+
+class ModernAdaptation(BaseModel):
+    """Modern adaptation model"""
+    id: str = Field(..., alias="_id")
+    filename: Optional[str] = None
+    author: str
+    category: Optional[str] = None
+    modern_adaptation: Optional[ModernAdaptationData] = None
+    metadata: Optional[Dict[str, Any]] = None
+    
+    # For backward compatibility
+    @property
+    def philosopher(self) -> str:
+        return self.author
+    
+    model_config = {"populate_by_name": True, "arbitrary_types_allowed": True}
+
+class ModernAdaptationResponse(BaseResponse):
+    """Response model for modern adaptation data"""
+    data: Union[ModernAdaptation, List[ModernAdaptation]]
+    total_count: Optional[int] = None
+
 # Chat models
 class ChatBlueprint(BaseModel):
     """Chat blueprint model"""

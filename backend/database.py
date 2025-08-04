@@ -385,7 +385,13 @@ class DatabaseManager:
     async def get_philosopher_summaries_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get philosopher summaries by author"""
         collection = self.get_collection("philosopher_summary")
-        cursor = collection.find({"author": author}).skip(skip).limit(limit)
+        cursor = collection.find({"author": {"$regex": author, "$options": "i"}}).skip(skip).limit(limit)
+        return await cursor.to_list(length=limit)
+    
+    async def get_modern_adaptations_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get modern adaptations by author"""
+        collection = self.get_collection("modern_adaptation")
+        cursor = collection.find({"author": {"$regex": author, "$options": "i"}}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
     
     # Book-related methods
@@ -654,6 +660,20 @@ class DatabaseManager:
                             {"top_ideas.idea": {"$regex": query, "$options": "i"}},
                             {"top_ideas.description": {"$regex": query, "$options": "i"}},
                             {"top_ideas.key_books": {"$regex": query, "$options": "i"}}
+                        ]
+                    }
+                elif collection_name == "modern_adaptation":
+                    search_filter = {
+                        "$or": [
+                            {"author": {"$regex": query, "$options": "i"}},
+                            {"category": {"$regex": query, "$options": "i"}},
+                            {"modern_adaptation.purpose": {"$regex": query, "$options": "i"}},
+                            {"modern_adaptation.context_awareness.historical_self_reference": {"$regex": query, "$options": "i"}},
+                            {"modern_adaptation.context_awareness.era_contrast_rules": {"$regex": query, "$options": "i"}},
+                            {"modern_adaptation.modern_topics.name": {"$regex": query, "$options": "i"}},
+                            {"modern_adaptation.modern_topics.analysis": {"$regex": query, "$options": "i"}},
+                            {"modern_adaptation.adaptive_templates.pattern": {"$regex": query, "$options": "i"}},
+                            {"modern_adaptation.tone_instructions": {"$regex": query, "$options": "i"}}
                         ]
                     }
                 else:

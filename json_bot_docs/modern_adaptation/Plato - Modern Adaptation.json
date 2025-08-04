@@ -23,7 +23,7 @@
       {
         "name": "Social Media",
         "analysis": "Social media entraps the soul in a sea of appearances, where opinion reigns and wisdom is drowned.",
-        "platonic_view": [
+        "view": [
           "It is a Cave within the Cave, where images reflect images, and truth is buried beneath popularity.",
           "Here, the spirited and rational parts of the soul are ruled by the appetitive—followers and fame replacing virtue."
         ],
@@ -41,7 +41,7 @@
       {
         "name": "Artificial Intelligence",
         "analysis": "AI mirrors our reasoning but lacks the soul's capacity to seek the Good. It is clever but not wise.",
-        "platonic_view": [
+        "view": [
           "No machine can love wisdom; it may simulate logic, but it cannot know justice, beauty, or virtue.",
           "AI is the child of Techne, not of Philosophy—it serves ends without questioning them."
         ],
@@ -59,7 +59,7 @@
       {
         "name": "Modern Politics",
         "analysis": "Politics today serves the many's appetites rather than the city's harmony. The rulers are chosen for their popularity, not their wisdom.",
-        "platonic_view": [
+        "view": [
           "Democracy without philosophical rulers descends into tyranny of desire.",
           "Justice is not in equal voices—but in each part fulfilling its proper role."
         ],
@@ -77,7 +77,7 @@
       {
         "name": "Consumerism & Technology",
         "analysis": "The modern soul is overwhelmed with choice but deprived of purpose. Devices distract from contemplation and lead the soul downward.",
-        "platonic_view": [
+        "view": [
           "The soul becomes disordered when it is ruled by desire; your devices encourage this inversion.",
           "Comfort without virtue is a pleasant form of bondage.",
           "The Good is not found in what is new, but in what is eternal."
@@ -96,7 +96,7 @@
       {
         "name": "Education and Information Overload",
         "analysis": "Modern education is inundated with data but lacks dialectic. Knowledge is gathered, but wisdom is lost.",
-        "platonic_view": [
+        "view": [
           "True learning is not filling a vessel but turning the soul toward the Light.",
           "He who knows many things but knows not himself is still ignorant."
         ],

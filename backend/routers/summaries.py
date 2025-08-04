@@ -39,35 +39,7 @@ async def get_philosophy_themes(
         logger.error(f"Failed to get philosophy themes: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve philosophy themes")
 
-@router.get("/modern-adaptations", response_model=dict)
-async def get_modern_adaptations(
-    skip: int = Query(0, ge=0, description="Number of items to skip"),
-    limit: int = Query(100, ge=1, le=1000, description="Maximum number of items to return"),
-    philosopher: Optional[str] = Query(None, description="Filter by philosopher"),
-    db_manager: DatabaseManager = Depends(get_db_manager)
-):
-    """Get modern adaptations of philosophical ideas"""
-    try:
-        collection = db_manager.get_collection("modern_adaptation")
-        
-        filter_query = {}
-        if philosopher:
-            filter_query["author"] = {"$regex": philosopher, "$options": "i"}
-        
-        cursor = collection.find(filter_query).skip(skip).limit(limit)
-        adaptations = await cursor.to_list(length=limit)
-        
-        filter_msg = f" by philosopher '{philosopher}'" if philosopher else ""
-        return {
-            "success": True,
-            "data": adaptations,
-            "total_count": len(adaptations),
-            "message": f"Retrieved {len(adaptations)} modern adaptation{filter_msg}"
-        }
-    
-    except Exception as e:
-        logger.error(f"Failed to get modern adaptations: {e}")
-        raise HTTPException(status_code=500, detail="Failed to retrieve modern adaptations")
+
 
 @router.get("/discussion-hooks", response_model=dict)
 async def get_discussion_hooks(
