@@ -62,11 +62,7 @@ async def get_conversation_logic(
             try:
                 logic_models.append(ConversationLogic(**item))
             except Exception as e:
-                logger.error(f"Failed to parse conversation logic {item.get('_id', 'unknown')}: {e}")
-                logger.error(f"Document structure: {item}")
-                # For debugging, let's see what's failing
-                print(f"PARSING ERROR: {e}")
-                print(f"DOCUMENT: {item}")
+                logger.warning(f"Failed to parse conversation logic {item.get('_id', 'unknown')}: {e}")
                 continue
         
         filter_msg = f" for author '{author}'" if author else ""
