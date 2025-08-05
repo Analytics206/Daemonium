@@ -84,39 +84,47 @@
 - name
 - 
 
-#### philosopher_books_view
-
-#### school_books_view
-
-#### philosopher_keywords_view
-
-#### school_keywords_view
-
-#### book_keywords_view
-
-#### keywords_view
+-----
 
 ## MongoDB
 
 ### Collections
 
+#### aphorisms
+
+#### bibliography
+
+#### book_summary
+
 #### books
+
+#### chat_blueprint
+
+#### conversation_logic
+
+#### discussion_hook
+
+#### idea_summary
+
+#### modern_adaptation
+
+#### persona_core
+
+#### philosopher_bio
+
+#### philosopher_bot
+
+#### philosopher_summary
 
 #### philosophers
 
-#### schools
+#### philosophy_school
 
-#### philosopher_books
+#### philosophy_themes
 
-#### school_books
+#### top_10_ideas
 
-#### philosopher_keywords
-
-#### school_keywords
-
-#### book_keywords
-
-#### keywords
+------
 
 ## Neo4j
 
@@ -141,7 +149,7 @@
 #### book_keywords
 
 #### keywords
-
+------
 ## Qdrant
 
 ### Collections

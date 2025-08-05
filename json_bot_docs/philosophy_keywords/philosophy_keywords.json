@@ -1,0 +1,71 @@
+{
+  "philosophy_keywords": {
+    "metaphysics": {
+      "definition": "The branch of philosophy dealing with the nature of reality, existence, and being",
+      "key_concepts": ["ontology", "substance", "causation", "space", "time", "identity", "possibility", "necessity"]
+    },
+    "epistemology": {
+      "definition": "The study of knowledge, justified belief, and the rationality of belief",
+      "key_concepts": ["knowledge", "truth", "belief", "justification", "skepticism", "empiricism", "rationalism", "a priori", "a posteriori"]
+    },
+    "ethics": {
+      "definition": "The branch of philosophy concerned with moral principles and values",
+      "key_concepts": ["virtue", "duty", "consequentialism", "deontology", "utilitarianism", "moral relativism", "categorical imperative", "good", "evil", "justice"]
+    },
+    "logic": {
+      "definition": "The systematic study of valid inference and correct reasoning",
+      "key_concepts": ["argument", "premise", "conclusion", "validity", "soundness", "fallacy", "syllogism", "contradiction", "tautology"]
+    },
+    "aesthetics": {
+      "definition": "The philosophical study of beauty, art, and taste",
+      "key_concepts": ["beauty", "sublime", "artistic expression", "aesthetic experience", "criticism", "representation", "form", "content"]
+    },
+    "political_philosophy": {
+      "definition": "The study of government, politics, liberty, justice, and the enforcement of laws",
+      "key_concepts": ["state", "sovereignty", "liberty", "equality", "democracy", "authoritarianism", "social contract", "natural rights", "civil disobedience"]
+    },
+    "philosophy_of_mind": {
+      "definition": "The study of the nature of mind, mental events, consciousness, and their relationship to the physical body",
+      "key_concepts": ["consciousness", "intentionality", "qualia", "dualism", "materialism", "functionalism", "free will", "personal identity"]
+    },
+    "phenomenology": {
+      "definition": "The study of structures of experience and consciousness",
+      "key_concepts": ["intentionality", "bracketing", "lived experience", "intersubjectivity", "embodiment", "temporality", "horizon"]
+    },
+    "existentialism": {
+      "definition": "Philosophy emphasizing individual existence, freedom, and the search for meaning",
+      "key_concepts": ["existence precedes essence", "authenticity", "absurd", "angst", "bad faith", "freedom", "responsibility", "nothingness"]
+    },
+    "ancient_philosophy": {
+      "definition": "Philosophical traditions from antiquity, particularly Greek and Roman thought",
+      "key_concepts": ["virtue ethics", "stoicism", "platonism", "aristotelian", "skepticism", "epicureanism", "cynicism", "the good life"]
+    },
+    "modern_philosophy": {
+      "definition": "Western philosophy from the Renaissance through the 18th century",
+      "key_concepts": ["rationalism", "empiricism", "skepticism", "mechanistic worldview", "mind-body problem", "social contract", "natural law"]
+    },
+    "contemporary_philosophy": {
+      "definition": "20th and 21st century philosophical movements and problems",
+      "key_concepts": ["analytic philosophy", "continental philosophy", "postmodernism", "philosophy of language", "cognitive science", "applied ethics", "environmental ethics"]
+    }
+  },
+  "fundamental_concepts": [
+    "being", "becoming", "substance", "accident", "universal", "particular", "essence", "existence", 
+    "causation", "determinism", "free will", "necessity", "contingency", "infinity", "eternity",
+    "truth", "falsity", "knowledge", "belief", "doubt", "certainty", "experience", "reason",
+    "good", "evil", "right", "wrong", "virtue", "vice", "happiness", "suffering", "meaning",
+    "language", "interpretation", "dialectic", "synthesis", "critique", "theory", "practice"
+  ],
+  "major_philosophical_questions": [
+    "What is the nature of reality?",
+    "How do we acquire knowledge?",
+    "What makes an action morally right or wrong?",
+    "What is the meaning of life?",
+    "Do we have free will?",
+    "What is consciousness?",
+    "What is the relationship between mind and body?",
+    "What is justice?",
+    "What is beauty?",
+    "Does God exist?"
+  ]
+}
