@@ -46,6 +46,7 @@ class MasterUploader:
         self.script_order = [
             'upload_philosophy_schools_to_mongodb.py',      # Philosophy schools (foundational)
             'upload_philosophers_to_mongodb.py',            # Philosophers data
+            'upload_philosophy_keywords_to_mongodb.py',     # Philosophy keywords (foundational concepts)
             'upload_books_to_mongodb.py',                    # Core books data
             'upload_book_summaries_to_mongodb.py',           # Book summaries
             'upload_philosopher_bios_to_mongodb.py',         # Philosopher biographies

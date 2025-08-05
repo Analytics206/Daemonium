@@ -118,6 +118,8 @@
 
 #### philosophers
 
+#### philosophy_keywords
+
 #### philosophy_school
 
 #### philosophy_themes
