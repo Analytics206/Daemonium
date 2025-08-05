@@ -36,9 +36,6 @@ async def get_top_ten_ideas(
                 logger.warning(f"Failed to parse top ten idea {idea.get('_id', 'unknown')}: {e}")
                 continue
         
-        # Sort by rank if available
-        idea_models.sort(key=lambda x: x.rank if hasattr(x, 'rank') and x.rank else 999)
-        
         return IdeasResponse(
             data=idea_models,
             total_count=len(idea_models),
@@ -110,26 +107,52 @@ async def get_top_idea_by_rank(
     rank: int = Path(..., ge=1, le=10, description="Rank of the idea (1-10)"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Get a specific top ten idea by rank"""
+    """Get a specific top ten idea by rank from all philosophers"""
     try:
+        # Search for documents that contain an idea with the specified rank
         collection = db_manager.get_collection("top_10_ideas")
-        idea = await collection.find_one({"rank": rank})
+        cursor = collection.find({"top_ideas.rank": rank})
+        documents = await cursor.to_list(length=50)
         
-        if not idea:
-            raise HTTPException(status_code=404, detail=f"No idea found with rank {rank}")
+        # Extract the specific ideas with the requested rank
+        matching_ideas = []
+        for doc in documents:
+            if "_id" in doc:
+                doc["_id"] = str(doc["_id"])
+            if "author" not in doc and "philosopher" in doc:
+                doc["author"] = doc["philosopher"]
+            
+            # Find the idea with the matching rank in the top_ideas array
+            top_ideas = doc.get("top_ideas", [])
+            for idea in top_ideas:
+                if idea.get("rank") == rank:
+                    # Create a document representing this specific idea
+                    idea_doc = {
+                        "_id": f"{doc['_id']}_rank_{rank}",
+                        "author": doc.get("author", "Unknown"),
+                        "category": doc.get("category", "Top 10 Ideas"),
+                        "filename": doc.get("filename"),
+                        "top_ideas": [idea],  # Single idea in array format
+                        "metadata": doc.get("metadata", {})
+                    }
+                    matching_ideas.append(idea_doc)
         
-        # Convert ObjectId to string and ensure proper field mapping
-        if "_id" in idea:
-            idea["_id"] = str(idea["_id"])
-        # Ensure we have the required fields
-        if "author" not in idea and "philosopher" in idea:
-            idea["author"] = idea["philosopher"]
+        if not matching_ideas:
+            raise HTTPException(status_code=404, detail=f"No ideas found with rank {rank}")
         
-        idea_model = TopTenIdea(**idea)
+        # Convert to Pydantic models
+        idea_models = []
+        for idea_doc in matching_ideas:
+            try:
+                idea_models.append(TopTenIdea(**idea_doc))
+            except Exception as e:
+                logger.warning(f"Failed to parse top ten idea {idea_doc.get('_id', 'unknown')}: {e}")
+                continue
         
         return IdeasResponse(
-            data=idea_model,
-            message=f"Retrieved idea #{rank}: {idea_model.title}"
+            data=idea_models,
+            total_count=len(idea_models),
+            message=f"Retrieved {len(idea_models)} ideas with rank {rank}"
         )
     
     except HTTPException:

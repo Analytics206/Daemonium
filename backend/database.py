@@ -379,8 +379,34 @@ class DatabaseManager:
     async def get_philosophy_themes_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get philosophy themes by author"""
         collection = self.get_collection("philosophy_themes")
-        cursor = collection.find({"author": author}).skip(skip).limit(limit)
-        return await cursor.to_list(length=limit)
+        cursor = collection.find({"author": {"$regex": author, "$options": "i"}}).skip(skip).limit(limit)
+        themes = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for theme in themes:
+            if "_id" in theme:
+                theme["_id"] = str(theme["_id"])
+            # Ensure we have the required fields
+            if "author" not in theme and "philosopher" in theme:
+                theme["author"] = theme["philosopher"]
+        
+        return themes
+    
+    async def get_philosophy_themes(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get philosophy themes with pagination"""
+        collection = self.get_collection("philosophy_themes")
+        cursor = collection.find({}).skip(skip).limit(limit)
+        themes = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string and ensure proper field mapping
+        for theme in themes:
+            if "_id" in theme:
+                theme["_id"] = str(theme["_id"])
+            # Ensure we have the required fields
+            if "author" not in theme and "philosopher" in theme:
+                theme["author"] = theme["philosopher"]
+        
+        return themes
     
     async def get_philosopher_summaries_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get philosopher summaries by author"""
@@ -603,8 +629,9 @@ class DatabaseManager:
             "books", 
             "book_summary",
             "aphorisms",
-            "top_ten_ideas",
+            "top_10_ideas",
             "idea_summary",
+            "philosophy_themes",
             "persona_core"
         ]
         
@@ -681,6 +708,22 @@ class DatabaseManager:
                             {"modern_adaptation.modern_topics.analysis": {"$regex": query, "$options": "i"}},
                             {"modern_adaptation.adaptive_templates.pattern": {"$regex": query, "$options": "i"}},
                             {"modern_adaptation.tone_instructions": {"$regex": query, "$options": "i"}}
+                        ]
+                    }
+                elif collection_name == "philosophy_themes":
+                    search_filter = {
+                        "$or": [
+                            {"author": {"$regex": query, "$options": "i"}},
+                            {"category": {"$regex": query, "$options": "i"}},
+                            {"philosophy_and_themes.core_ideas.name": {"$regex": query, "$options": "i"}},
+                            {"philosophy_and_themes.core_ideas.summary": {"$regex": query, "$options": "i"}},
+                            {"philosophy_and_themes.core_ideas.discussion_hooks": {"$regex": query, "$options": "i"}},
+                            {"philosophy_and_themes.perspectivism_framework.principle": {"$regex": query, "$options": "i"}},
+                            {"philosophy_and_themes.perspectivism_framework.implications": {"$regex": query, "$options": "i"}},
+                            {"philosophy_and_themes.perspectivism_framework.example_prompts": {"$regex": query, "$options": "i"}},
+                            {"philosophy_and_themes.aphorisms": {"$regex": query, "$options": "i"}},
+                            {"philosophy_and_themes.discussion_templates.type": {"$regex": query, "$options": "i"}},
+                            {"philosophy_and_themes.discussion_templates.pattern": {"$regex": query, "$options": "i"}}
                         ]
                     }
                 elif collection_name == "persona_core":

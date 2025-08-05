@@ -130,9 +130,11 @@ class PhilosophyThemesUploader:
             'total_discussion_hooks': 0,
             'core_ideas_with_hooks': 0,
             'total_summary_length': 0,
-            'has_additional_themes': False,
-            'has_related_concepts': False,
-            'has_practical_applications': False
+            'total_aphorisms': 0,
+            'total_discussion_templates': 0,
+            'has_perspectivism_framework': False,
+            'has_aphorisms': False,
+            'has_discussion_templates': False
         }
         
         # Count core ideas
@@ -154,10 +156,21 @@ class PhilosophyThemesUploader:
                     if summary:
                         metrics['total_summary_length'] += len(summary)
         
-        # Check for additional sections
-        metrics['has_additional_themes'] = bool(philosophy_themes.get('additional_themes', []))
-        metrics['has_related_concepts'] = bool(philosophy_themes.get('related_concepts', []))
-        metrics['has_practical_applications'] = bool(philosophy_themes.get('practical_applications', []))
+        # Count aphorisms
+        aphorisms = philosophy_themes.get('aphorisms', [])
+        if isinstance(aphorisms, list):
+            metrics['total_aphorisms'] = len(aphorisms)
+            metrics['has_aphorisms'] = len(aphorisms) > 0
+        
+        # Count discussion templates
+        discussion_templates = philosophy_themes.get('discussion_templates', [])
+        if isinstance(discussion_templates, list):
+            metrics['total_discussion_templates'] = len(discussion_templates)
+            metrics['has_discussion_templates'] = len(discussion_templates) > 0
+        
+        # Check for perspectivism framework
+        perspectivism_framework = philosophy_themes.get('perspectivism_framework', {})
+        metrics['has_perspectivism_framework'] = bool(perspectivism_framework.get('principle', ''))
         
         return metrics
             
@@ -171,7 +184,7 @@ class PhilosophyThemesUploader:
         philosophy_themes = json_data.get('philosophy_and_themes', {})
         theme_metrics = self._count_theme_metrics(philosophy_themes)
         
-        # Extract core ideas with their details
+        # Extract core ideas with their actual structure
         core_ideas = philosophy_themes.get('core_ideas', [])
         processed_core_ideas = []
         
@@ -180,14 +193,18 @@ class PhilosophyThemesUploader:
                 processed_idea = {
                     'name': idea.get('name', ''),
                     'summary': idea.get('summary', ''),
-                    'discussion_hooks': idea.get('discussion_hooks', []),
-                    'related_quotes': idea.get('related_quotes', []),
-                    'practical_examples': idea.get('practical_examples', []),
-                    'modern_relevance': idea.get('modern_relevance', ''),
-                    'criticism': idea.get('criticism', []),
-                    'further_reading': idea.get('further_reading', [])
+                    'discussion_hooks': idea.get('discussion_hooks', [])
                 }
                 processed_core_ideas.append(processed_idea)
+        
+        # Extract perspectivism framework
+        perspectivism_framework = philosophy_themes.get('perspectivism_framework', {})
+        
+        # Extract aphorisms
+        aphorisms = philosophy_themes.get('aphorisms', [])
+        
+        # Extract discussion templates
+        discussion_templates = philosophy_themes.get('discussion_templates', [])
         
         document = {
             '_id': f"{author}_{category}",
@@ -196,37 +213,26 @@ class PhilosophyThemesUploader:
             'category': json_data.get('category', 'Unknown'),
             'philosophy_and_themes': {
                 'core_ideas': processed_core_ideas,
-                'additional_themes': philosophy_themes.get('additional_themes', []),
-                'related_concepts': philosophy_themes.get('related_concepts', []),
-                'practical_applications': philosophy_themes.get('practical_applications', []),
-                'modern_interpretations': philosophy_themes.get('modern_interpretations', []),
-                'criticisms': philosophy_themes.get('criticisms', []),
-                'influences_on': philosophy_themes.get('influences_on', []),
-                'influenced_by': philosophy_themes.get('influenced_by', [])
-            },
-            'thematic_analysis': {
-                'primary_focus': philosophy_themes.get('primary_focus', ''),
-                'secondary_themes': philosophy_themes.get('secondary_themes', []),
-                'philosophical_method': philosophy_themes.get('philosophical_method', ''),
-                'historical_context': philosophy_themes.get('historical_context', ''),
-                'contemporary_relevance': philosophy_themes.get('contemporary_relevance', '')
-            },
-            'discussion_framework': {
-                'key_questions': philosophy_themes.get('key_questions', []),
-                'debate_topics': philosophy_themes.get('debate_topics', []),
-                'thought_experiments': philosophy_themes.get('thought_experiments', []),
-                'case_studies': philosophy_themes.get('case_studies', [])
+                'perspectivism_framework': {
+                    'principle': perspectivism_framework.get('principle', ''),
+                    'implications': perspectivism_framework.get('implications', []),
+                    'example_prompts': perspectivism_framework.get('example_prompts', [])
+                },
+                'aphorisms': aphorisms,
+                'discussion_templates': discussion_templates
             },
             'metadata': {
                 'upload_timestamp': None,  # Will be set during upload
                 'last_updated': None,      # Will be set during upload
                 'source_file': filename,
                 'theme_metrics': theme_metrics,
-                'has_thematic_analysis': bool(philosophy_themes.get('primary_focus', '') or philosophy_themes.get('secondary_themes', [])),
-                'has_discussion_framework': bool(philosophy_themes.get('key_questions', []) or philosophy_themes.get('debate_topics', [])),
-                'has_modern_interpretations': bool(philosophy_themes.get('modern_interpretations', [])),
-                'has_criticisms': bool(philosophy_themes.get('criticisms', [])),
-                'has_influences': bool(philosophy_themes.get('influences_on', []) or philosophy_themes.get('influenced_by', []))
+                'core_ideas_count': len(processed_core_ideas),
+                'aphorisms_count': len(aphorisms),
+                'discussion_templates_count': len(discussion_templates),
+                'has_perspectivism_framework': bool(perspectivism_framework.get('principle', '')),
+                'has_core_ideas': bool(processed_core_ideas),
+                'has_aphorisms': bool(aphorisms),
+                'has_discussion_templates': bool(discussion_templates)
             }
         }
         return document

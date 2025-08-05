@@ -11,7 +11,8 @@ from ..models import (
     BookSummaryResponse, BookSummary, IdeaSummaryResponse, IdeaSummary, 
     AphorismResponse, Aphorism, TopTenIdeasResponse, TopTenIdeas,
     PhilosopherBioResponse, PhilosopherBio, ModernAdaptationResponse,
-    PhilosopherSummaryDetailedResponse, PhilosopherSummaryDetailed
+    PhilosopherSummaryDetailedResponse, PhilosopherSummaryDetailed,
+    PhilosophyThemeResponse, PhilosophyTheme
 ) 
 
 logger = logging.getLogger(__name__)
@@ -22,7 +23,7 @@ async def get_db_manager():
     from ..main import app
     return app.state.db_manager
 
-@router.get("/philosophy-themes", response_model=dict)
+@router.get("/philosophy-themes", response_model=PhilosophyThemeResponse)
 async def get_philosophy_themes(
     skip: int = Query(0, ge=0, description="Number of items to skip"),
     limit: int = Query(100, ge=1, le=1000, description="Maximum number of items to return"),
@@ -30,16 +31,14 @@ async def get_philosophy_themes(
 ):
     """Get philosophy themes"""
     try:
-        collection = db_manager.get_collection("philosophy_themes")
-        cursor = collection.find({}).skip(skip).limit(limit)
-        themes = await cursor.to_list(length=limit)
+        themes = await db_manager.get_philosophy_themes(skip=skip, limit=limit)
         
-        return {
-            "success": True,
-            "data": themes,
-            "total_count": len(themes),
-            "message": f"Retrieved {len(themes)} philosophy themes"
-        }
+        return PhilosophyThemeResponse(
+            success=True,
+            data=themes,
+            total_count=len(themes),
+            message=f"Retrieved {len(themes)} philosophy themes"
+        )
     
     except Exception as e:
         logger.error(f"Failed to get philosophy themes: {e}")

@@ -162,19 +162,15 @@ class AphorismResponse(BaseResponse):
 class TopTenIdea(BaseModel):
     """Top ten philosophical idea model"""
     id: str = Field(..., alias="_id")
+    filename: Optional[str] = None
     author: str  # Primary field for author name
     category: Optional[str] = None  # Category field (e.g., "Top 10 Ideas")
     
-    # Handle both individual idea and nested structure
-    rank: Optional[int] = None  # For individual ideas
-    title: Optional[str] = None  # For individual ideas
-    description: Optional[str] = None  # For individual ideas
-    top_ideas: Optional[List[Dict[str, Any]]] = None  # For nested structure
+    # Main structure - array of ideas with rank, idea, description, key_books
+    top_ideas: Optional[List[Dict[str, Any]]] = None  # Array of idea objects
     
-    # Additional fields
-    significance: Optional[str] = None
-    modern_relevance: Optional[str] = None
-    related_concepts: Optional[List[str]] = None
+    # Metadata from upload
+    metadata: Optional[Dict[str, Any]] = None
     
     model_config = {"populate_by_name": True}
 
@@ -571,6 +567,52 @@ class PhilosopherSummaryDetailedResponse(BaseResponse):
 
 # Aliases for backward compatibility
 TopTenIdeas = TopTenIdea  # Alias for import compatibility
+
+# Philosophy Themes models
+class PhilosophyThemeCoreIdea(BaseModel):
+    """Core idea model for philosophy themes"""
+    name: str
+    summary: str
+    discussion_hooks: List[str] = []
+
+class PhilosophyThemePerspectivismFramework(BaseModel):
+    """Perspectivism framework model for philosophy themes"""
+    principle: str
+    implications: List[str] = []
+    example_prompts: List[str] = []
+
+class PhilosophyThemeDiscussionTemplate(BaseModel):
+    """Discussion template model for philosophy themes"""
+    type: str
+    pattern: str
+
+class PhilosophyThemeData(BaseModel):
+    """Philosophy theme data model"""
+    core_ideas: List[PhilosophyThemeCoreIdea] = []
+    perspectivism_framework: Optional[PhilosophyThemePerspectivismFramework] = None
+    aphorisms: List[str] = []
+    discussion_templates: List[PhilosophyThemeDiscussionTemplate] = []
+
+class PhilosophyTheme(BaseModel):
+    """Philosophy theme model"""
+    id: str = Field(..., alias="_id")
+    filename: Optional[str] = None
+    author: str
+    category: Optional[str] = None
+    philosophy_and_themes: Optional[PhilosophyThemeData] = None
+    metadata: Optional[Dict[str, Any]] = None
+    
+    # For backward compatibility
+    @property
+    def philosopher(self) -> str:
+        return self.author
+    
+    model_config = {"populate_by_name": True, "arbitrary_types_allowed": True}
+
+class PhilosophyThemeResponse(BaseResponse):
+    """Response model for philosophy theme data"""
+    data: Union[PhilosophyTheme, List[PhilosophyTheme]]
+    total_count: Optional[int] = None
 
 # Error models
 class ErrorDetail(BaseModel):

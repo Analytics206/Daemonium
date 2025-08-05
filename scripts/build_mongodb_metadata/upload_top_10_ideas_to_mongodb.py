@@ -171,7 +171,7 @@ class Top10IdeasUploader:
         top_ideas = json_data.get('top_ideas', [])
         ideas_metrics = self._count_ideas_metrics(top_ideas)
         
-        # Process each idea with enhanced structure
+        # Process each idea with actual structure from JSON files
         processed_ideas = []
         for i, idea in enumerate(top_ideas):
             if isinstance(idea, dict):
@@ -179,14 +179,7 @@ class Top10IdeasUploader:
                     'rank': i + 1,
                     'idea': idea.get('idea', ''),
                     'description': idea.get('description', ''),
-                    'key_books': idea.get('key_books', []),
-                    'related_concepts': idea.get('related_concepts', []),
-                    'quotes': idea.get('quotes', []),
-                    'examples': idea.get('examples', []),
-                    'modern_relevance': idea.get('modern_relevance', ''),
-                    'criticism': idea.get('criticism', ''),
-                    'further_reading': idea.get('further_reading', []),
-                    'cross_references': idea.get('cross_references', [])
+                    'key_books': idea.get('key_books', [])
                 }
                 processed_ideas.append(processed_idea)
         
@@ -196,29 +189,13 @@ class Top10IdeasUploader:
             'author': json_data.get('author', 'Unknown'),
             'category': json_data.get('category', 'Unknown'),
             'top_ideas': processed_ideas,
-            'summary': {
-                'overview': json_data.get('overview', ''),
-                'methodology': json_data.get('methodology', ''),
-                'selection_criteria': json_data.get('selection_criteria', ''),
-                'historical_context': json_data.get('historical_context', ''),
-                'philosophical_significance': json_data.get('philosophical_significance', '')
-            },
-            'additional_info': {
-                'honorable_mentions': json_data.get('honorable_mentions', []),
-                'related_philosophers': json_data.get('related_philosophers', []),
-                'recommended_reading_order': json_data.get('recommended_reading_order', []),
-                'study_guide': json_data.get('study_guide', {}),
-                'discussion_questions': json_data.get('discussion_questions', [])
-            },
             'metadata': {
                 'upload_timestamp': None,  # Will be set during upload
                 'last_updated': None,      # Will be set during upload
                 'source_file': filename,
                 'ideas_metrics': ideas_metrics,
-                'has_summary': bool(json_data.get('overview', '') or json_data.get('methodology', '')),
-                'has_additional_info': bool(json_data.get('honorable_mentions', []) or json_data.get('related_philosophers', [])),
-                'has_study_materials': bool(json_data.get('study_guide', {}) or json_data.get('discussion_questions', [])),
-                'has_reading_recommendations': bool(json_data.get('recommended_reading_order', [])),
+                'total_ideas': len(processed_ideas),
+                'has_key_books': any(idea.get('key_books', []) for idea in processed_ideas),
                 'average_books_per_idea': round(ideas_metrics['total_key_books'] / max(ideas_metrics['total_ideas'], 1), 2)
             }
         }
