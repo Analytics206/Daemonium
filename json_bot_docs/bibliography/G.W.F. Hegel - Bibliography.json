@@ -1,0 +1,96 @@
+{
+    "author_bibliography": {
+      "author": "G.W.F. Hegel",
+      "category": "Bibliography",
+      "birth_death": "1770 - 1831",
+      "description": "Georg Wilhelm Friedrich Hegel was a German philosopher and a central figure in German idealism. His work laid the foundation for much of modern philosophy, particularly in the areas of logic, metaphysics, history, and political theory. Hegel is best known for his dialectical method, his comprehensive philosophical system, and his influential views on history, freedom, and the development of human consciousness.",
+      "background": "Born in Stuttgart, Hegel studied theology before turning to philosophy. Deeply influenced by Kant, he sought to overcome the dualisms of Enlightenment rationalism and Kantian thought. His dialectical method—based on the dynamic development of thesis, antithesis, and synthesis—allowed him to present history, consciousness, and reality as rational and self-unfolding. Hegel held academic posts in Jena, Heidelberg, and Berlin, becoming one of the most influential philosophers in European history.",
+      "works": [
+        {
+          "title": "Phenomenology of Spirit",
+          "original_title": "Phänomenologie des Geistes",
+          "year": 1807,
+          "type": "Philosophy / Epistemology / History of Consciousness",
+          "summary": "A landmark work tracing the development of human consciousness from sense-certainty to absolute knowledge. It introduces key concepts such as dialectic, the master-slave dynamic, and the unfolding of Spirit."
+        },
+        {
+          "title": "Science of Logic",
+          "original_title": "Wissenschaft der Logik",
+          "year": 1816,
+          "type": "Philosophy / Logic / Metaphysics",
+          "summary": "A foundational text on logic and ontology, in which Hegel develops his dialectical method and outlines the dynamic structure of pure thought, moving from Being to Essence to Concept."
+        },
+        {
+          "title": "Encyclopedia of the Philosophical Sciences",
+          "original_title": "Enzyklopädie der philosophischen Wissenschaften",
+          "year": 1817,
+          "type": "Philosophy / Systematic Overview",
+          "summary": "A concise systematic summary of Hegel’s philosophy, divided into three parts: Logic, Philosophy of Nature, and Philosophy of Spirit. Used as the basis for his lectures and teaching."
+        },
+        {
+          "title": "Elements of the Philosophy of Right",
+          "original_title": "Grundlinien der Philosophie des Rechts",
+          "year": 1820,
+          "type": "Political Philosophy / Ethics",
+          "summary": "A major work in political philosophy where Hegel articulates his vision of ethical life (Sittlichkeit), freedom, and the rational state. Influential in the development of liberal and communitarian thought."
+        },
+        {
+          "title": "Lectures on the Philosophy of History",
+          "original_title": "Vorlesungen über die Philosophie der Weltgeschichte",
+          "year": 1837,
+          "type": "Philosophy of History",
+          "summary": "Collected from student notes and edited posthumously, these lectures present history as the rational unfolding of Spirit and freedom through time, famously declaring that 'the real is rational.'"
+        },
+        {
+          "title": "Lectures on the History of Philosophy",
+          "original_title": "Vorlesungen über die Geschichte der Philosophie",
+          "year": 1836,
+          "type": "History of Philosophy / Systematic Interpretation",
+          "summary": "A comprehensive and systematic history of Western philosophy, presenting it as the self-development of thought, culminating in his own system."
+        },
+        {
+          "title": "Lectures on Aesthetics",
+          "original_title": "Vorlesungen über die Ästhetik",
+          "year": 1838,
+          "type": "Philosophy of Art / Aesthetics",
+          "summary": "Explores the nature of art and beauty, categorizing symbolic, classical, and romantic art forms. Hegel sees art as a manifestation of the Absolute Spirit."
+        },
+        {
+          "title": "Lectures on the Philosophy of Religion",
+          "original_title": "Vorlesungen über die Philosophie der Religion",
+          "year": 1832,
+          "type": "Philosophy / Religion",
+          "summary": "An analysis of the development of religious consciousness and its role in the unfolding of Spirit. Religion is seen as a stage in the realization of Absolute knowledge."
+        }
+      ],
+      "chronological_periods": {
+        "Early Hegel (1790s–1806)": {
+          "characteristics": "Engaged with theological and political issues during the French Revolution and developed early critiques of Kantian dualism and Enlightenment rationalism.",
+          "themes": "Alienation, community, critique of formal reason, ethical life"
+        },
+        "Middle Hegel (1807–1820)": {
+          "characteristics": "Mature development of dialectical logic, systematization of philosophical science, and articulation of historical consciousness.",
+          "themes": "Spirit, dialectic, self-consciousness, freedom, ethical institutions"
+        },
+        "Late Hegel (1820–1831)": {
+          "characteristics": "Expanded teaching and lecturing; refinement and clarification of his system through work on aesthetics, religion, and historical development.",
+          "themes": "Art, religion, state, Absolute Spirit, cultural evolution"
+        }
+      },
+      "major_themes": [
+        "Dialectics and Logical Development",
+        "Spirit (Geist) and Historical Unfolding",
+        "Self-Consciousness and Recognition",
+        "Freedom and Ethical Life (Sittlichkeit)",
+        "The Rational State",
+        "History as the Progress of Freedom",
+        "Absolute Idealism",
+        "Alienation and Reconciliation",
+        "Art, Religion, and Philosophy",
+        "The Unity of Thought and Being"
+      ],
+      "influence": "Hegel’s philosophy has shaped nearly every major tradition of Western thought, including Marxism, existentialism, phenomenology, postmodernism, theology, and analytic philosophy. Influenced figures include Karl Marx, Søren Kierkegaard, Jean-Paul Sartre, Alexandre Kojève, Slavoj Žižek, and many others.",
+      "note": "Hegel's system is vast, dense, and often challenging, but his vision of philosophy as the unfolding of rational freedom through history remains one of the most ambitious and influential legacies in Western thought."
+    }
+  }
+  
