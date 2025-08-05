@@ -1,0 +1,95 @@
+{
+    "author_bibliography": {
+      "author": "Martin Heidegger",
+      "birth_death": "1889 - 1976",
+      "description": "Martin Heidegger was a German philosopher widely regarded as one of the most significant figures in 20th-century philosophy. He is best known for his analysis of Being, time, and human existence, which laid the groundwork for existentialism, phenomenology, and postmodern thought. His ideas profoundly influenced a wide range of disciplines, from philosophy and theology to literature and architecture.",
+      "background": "Born in Messkirch, Germany, Heidegger studied theology before turning to philosophy, becoming a student and then assistant to Edmund Husserl. His early work revolutionized phenomenology by focusing on the question of Being itself. Though controversial for his affiliation with National Socialism in the 1930s, his philosophical contributions remain foundational. His style—often dense and poetic—explores the nature of existence, language, and truth through a radical reinterpretation of Western metaphysics.",
+      "works": [
+        {
+          "title": "Being and Time",
+          "original_title": "Sein und Zeit",
+          "year": 1927,
+          "type": "Philosophy / Ontology / Phenomenology",
+          "summary": "Heidegger’s magnum opus, which redefines the question of Being through an existential analysis of Dasein (human existence). It introduces concepts like Being-in-the-world, authenticity, thrownness, and temporality."
+        },
+        {
+          "title": "Kant and the Problem of Metaphysics",
+          "original_title": "Kant und das Problem der Metaphysik",
+          "year": 1929,
+          "type": "Philosophy / History of Philosophy",
+          "summary": "A reinterpretation of Kant’s Critique of Pure Reason, arguing that Kant laid the groundwork for ontology but did not fully realize the implications of the question of Being."
+        },
+        {
+          "title": "The Basic Problems of Phenomenology",
+          "original_title": "Die Grundprobleme der Phänomenologie",
+          "year": 1927,
+          "type": "Phenomenology / Lectures",
+          "summary": "Lectures delivered in the same year as 'Being and Time' elaborating on key phenomenological and ontological problems and offering clarifications of his existential analytic."
+        },
+        {
+          "title": "Introduction to Metaphysics",
+          "original_title": "Einführung in die Metaphysik",
+          "year": 1935 ,
+          "type": "Philosophy / Metaphysics",
+          "summary": "Explores the question 'Why is there something rather than nothing?' and critiques Western metaphysics for forgetting the true meaning of Being."
+        },
+        {
+          "title": "Letter on Humanism",
+          "original_title": "Brief über den Humanismus",
+          "year": 1947,
+          "type": "Philosophy / Existentialism / Language",
+          "summary": "A response to Sartre’s existentialism, clarifying Heidegger’s departure from humanist and subject-centered philosophy. Emphasizes the centrality of language and the 'clearing' of Being."
+        },
+        {
+          "title": "The Question Concerning Technology",
+          "original_title": "Die Frage nach der Technik",
+          "year": 1954,
+          "type": "Philosophy of Technology / Essays",
+          "summary": "A critical examination of modern technology, warning that it enframes Being in a limiting way, turning nature and humans into resources to be exploited."
+        },
+        {
+          "title": "Poetry, Language, Thought",
+          "original_title": "Poetik, Sprache, Denken",
+          "year": 1971,
+          "type": "Philosophy / Aesthetics / Language",
+          "summary": "A collection of essays exploring how poetry and language disclose Being, particularly through readings of Hölderlin and the idea that 'language is the house of Being.'"
+        },
+        {
+          "title": "Contributions to Philosophy (From Enowning)",
+          "original_title": "Beiträge zur Philosophie (Vom Ereignis)",
+          "year": 1938,
+          "type": "Philosophy / Metaphysics / Ontological Shift",
+          "summary": "A pivotal but cryptic work marking Heidegger's 'turn' from existential analysis to a deeper exploration of Being as Ereignis (the event of appropriation)."
+        }
+      ],
+      "chronological_periods": {
+        "early_period": {
+          "characteristics": "1919–1930 Focus on phenomenology, existential analysis of Dasein, and reawakening the question of Being through human temporality.",
+          "themes": "Being, Dasein, time, care, authenticity, finitude"
+        },
+        "middle_period": {
+          "characteristics": "1930–1945 Engagement with history of metaphysics, critique of modernity, and exploration of language as the key to the essence of Being.",
+          "themes": "Metaphysics, truth as unconcealment, history, language"
+        },
+        "late_period": {
+          "characteristics": "1945–1976 Poetic and meditative turn, emphasizing Ereignis (enowning), the essence of technology, and the role of poetry in revealing Being.",
+          "themes": "Ereignis, clearing, dwelling, the fourfold, poetic thinking"
+        }
+      },
+      "major_themes": [
+        "The Question of Being",
+        "Dasein and Human Finitude",
+        "Authenticity and Inauthenticity",
+        "Temporality and Care",
+        "Language as the House of Being",
+        "Technology and Enframing",
+        "Poetic Dwelling",
+        "Truth as Aletheia (Unconcealment)",
+        "The History of Metaphysics",
+        "Ereignis (The Event of Appropriation)"
+      ],
+      "influence": "Heidegger shaped existentialism, hermeneutics, deconstruction, and phenomenology. His work profoundly impacted thinkers such as Jean-Paul Sartre, Maurice Merleau-Ponty, Hans-Georg Gadamer, Michel Foucault, Jacques Derrida, and Hannah Arendt. He also influenced architecture, theology, psychology, and literary theory.",
+      "note": "Heidegger remains one of the most profound and controversial figures in philosophy. His complex language and Nazi affiliation continue to provoke scholarly debate, yet his rethinking of Being, language, and human existence remains foundational in contemporary thought."
+    }
+  }
+  
