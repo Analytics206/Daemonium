@@ -1,0 +1,89 @@
+{
+    "author_bibliography": {
+      "author": "Søren Kierkegaard",
+      "category": "Bibliography",
+      "birth_death": "1813 - 1855",
+      "description": "Søren Kierkegaard was a Danish philosopher, theologian, poet, and cultural critic, often considered the father of existentialism. Writing under various pseudonyms, he explored themes such as anxiety, despair, faith, individuality, and the leap into belief. His works confront the existential condition of man and the tension between the aesthetic, ethical, and religious stages of life.",
+      "background": "Born in Copenhagen into a deeply religious and melancholic household, Kierkegaard was marked by his father's intense spirituality and guilt. He studied theology but never entered the clergy. Instead, he used literature and philosophy to grapple with Christian existence and subjective truth. His relationship with Regine Olsen—whom he loved but broke off engagement with—shaped much of his thought on love, sacrifice, and despair.",
+      "works": [
+        {
+          "title": "Either/Or",
+          "original_title": "Enten – Eller",
+          "year": 1843,
+          "type": "Philosophical Work (Pseudonymous)",
+          "summary": "Kierkegaard presents two contrasting life views: the aesthetic and the ethical. The aesthetic is characterized by pursuit of pleasure and avoidance of commitment, while the ethical embraces responsibility and moral seriousness. The book sets up the existential tension between living for immediate enjoyment and striving for authenticity."
+        },
+        {
+          "title": "Fear and Trembling",
+          "original_title": "Frygt og Bæven",
+          "year": 1843,
+          "type": "Philosophical/Theological Work (Pseudonymous)",
+          "summary": "Under the pseudonym Johannes de Silentio, Kierkegaard explores the biblical story of Abraham and Isaac to investigate the nature of faith. He introduces the idea of the 'leap of faith' and the paradox of the 'knight of faith,' whose trust in God transcends reason and ethics."
+        },
+        {
+          "title": "The Concept of Anxiety",
+          "original_title": "Begrebet Angest",
+          "year": 1844,
+          "type": "Philosophical Psychology (Pseudonymous)",
+          "summary": "Published under the pseudonym Vigilius Haufniensis, this work discusses anxiety as the psychological condition preceding sin and choice. Kierkegaard interprets anxiety not as a defect but as the possibility of freedom, tied to human self-awareness and the burden of moral responsibility."
+        },
+        {
+          "title": "The Sickness Unto Death",
+          "original_title": "Sygdommen til Døden",
+          "year": 1849,
+          "type": "Theological/Existential Psychology",
+          "summary": "Written under the pseudonym Anti-Climacus, this work delves into despair as the sickness of the self. It explores different forms of despair—ignorant, defiant, and reconciled—revealing that true selfhood is found only through a relationship with God."
+        },
+        {
+          "title": "Practice in Christianity",
+          "original_title": "Indøvelse i Christendom",
+          "year": 1850,
+          "type": "Religious Treatise (Pseudonymous)",
+          "summary": "A late and deeply Christian work written by 'Anti-Climacus,' critiquing Christendom and its domestication of Christianity. It emphasizes the offense of the God-man figure and calls for a life of radical Christian discipleship and imitation of Christ."
+        },
+        {
+          "title": "Works of Love",
+          "original_title": "Kjerlighedens Gjerninger",
+          "year": 1847,
+          "type": "Christian Ethics",
+          "summary": "Written under Kierkegaard’s own name, this work explores Christian love as distinct from romantic or preferential love. It emphasizes duty, neighborly love, and the eternal nature of true love rooted in God's command."
+        },
+        {
+          "title": "Philosophical Fragments",
+          "original_title": "Philosophiske Smuler",
+          "year": 1844,
+          "type": "Philosophical Theology (Pseudonymous)",
+          "summary": "Using the pseudonym Johannes Climacus, Kierkegaard examines the difference between Socratic recollection and Christian revelation. He introduces the concept of the 'absolute paradox'—that God became man—and the idea that truth is a gift from outside human reason."
+        }
+      ],
+      "chronological_periods": {
+        "early_period": {
+          "characteristics": "Early writings focus on the individual's subjective experience, irony, and critique of Hegelianism. Kierkegaard uses pseudonyms to explore multiple perspectives.",
+          "themes": "Irony, aesthetic vs. ethical life, despair, faith, individuality, love, anxiety."
+        },
+        "middle_period": {
+          "characteristics": "Heightened religious emphasis, increasingly critical of institutional Christianity. Kierkegaard continues to use pseudonyms while deepening theological reflection.",
+          "themes": "Sin, despair, faith, selfhood, human freedom, God-relation, paradox of Christianity."
+        },
+        "late_period": {
+          "characteristics": "Direct religious writings and polemics. Open attacks on the Danish State Church and a call to authentic Christianity.",
+          "themes": "Radical Christian discipleship, offense of the Incarnation, imitation of Christ, critique of Christendom, truth as subjectivity."
+        }
+      },
+      "major_themes": [
+        "Faith and the Leap",
+        "Despair and the Self",
+        "Anxiety and Freedom",
+        "Irony and Indirect Communication",
+        "Stages of Life (Aesthetic, Ethical, Religious)",
+        "Existential Subjectivity",
+        "Critique of Christendom",
+        "The Absolute Paradox (God-Man)",
+        "Christian Love",
+        "Authentic Existence"
+      ],
+      "influence": "Kierkegaard laid the groundwork for existentialism, influencing 20th-century thinkers like Heidegger, Sartre, and Camus. His theological insights shaped modern Christian thought, notably Karl Barth, Paul Tillich, and Reinhold Niebuhr. He also impacted literature and psychology, including figures like Franz Kafka and Rollo May.",
+      "note": "Kierkegaard’s use of pseudonyms was intended to present various existential viewpoints rather than his own, encouraging readers to grapple with truth personally. His work was largely unrecognized during his lifetime but gained prominence in the 20th century."
+    }
+  }
+  

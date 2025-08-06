@@ -64,16 +64,16 @@
         }
       ],
       "chronological_periods": {
-        "Early Hegel (1790s–1806)": {
-          "characteristics": "Engaged with theological and political issues during the French Revolution and developed early critiques of Kantian dualism and Enlightenment rationalism.",
+        "early_period": {
+          "characteristics": " 1790s–1806 Engaged with theological and political issues during the French Revolution and developed early critiques of Kantian dualism and Enlightenment rationalism.",
           "themes": "Alienation, community, critique of formal reason, ethical life"
         },
-        "Middle Hegel (1807–1820)": {
-          "characteristics": "Mature development of dialectical logic, systematization of philosophical science, and articulation of historical consciousness.",
+        "middle_period": {
+          "characteristics": "1807–1820 Mature development of dialectical logic, systematization of philosophical science, and articulation of historical consciousness.",
           "themes": "Spirit, dialectic, self-consciousness, freedom, ethical institutions"
         },
-        "Late Hegel (1820–1831)": {
-          "characteristics": "Expanded teaching and lecturing; refinement and clarification of his system through work on aesthetics, religion, and historical development.",
+        "late_period": {
+          "characteristics": "1820–1831 Expanded teaching and lecturing; refinement and clarification of his system through work on aesthetics, religion, and historical development.",
           "themes": "Art, religion, state, Absolute Spirit, cultural evolution"
         }
       },
