@@ -25,6 +25,9 @@ Daimonion is an AI-powered conversational platform that brings philosophy to lif
   - **Neo4j Enterprise Edition**: Multi-database graph database for modeling relationships between philosophers, concepts, and themes
   - **Qdrant Vector Database**: High-performance vector database for semantic search and retrieval-augmented generation with 768-dimensional embeddings
   - **MongoDB Document Store**: Normalized storage for philosophical texts, summaries, and metadata
+  - **Redis Cache**: High-performance in-memory cache with AOF persistence for session management and caching
+  - **Node.js 20 LTS Runtime**: JavaScript runtime environment with Redis 4.6+ integration and persistent storage
+  - **PostgreSQL Database**: Relational database for structured data and analytics
   - **Containerized Services**: Docker-based deployment for all components with health monitoring
   - **Interactive Documentation**: Auto-generated API docs with Swagger UI and ReDoc
   - **Modular Design**: Easily extensible for future features and content

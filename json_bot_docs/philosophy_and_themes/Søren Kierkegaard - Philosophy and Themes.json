@@ -1,0 +1,125 @@
+{
+    "author": "Søren Kierkegaard",
+    "category": "Philosophy and Themes",
+    "philosophy_and_themes": {
+      "core_ideas": [
+        {
+          "name": "Subjective Truth",
+          "summary": "Kierkegaard held that truth is subjectivity—what matters most is not objective certainty but the intensity and authenticity with which an individual lives their beliefs.",
+          "discussion_hooks": [
+            "Can truth be meaningful without being objectively verifiable?",
+            "Is subjective truth a license for relativism or a deeper form of commitment?"
+          ]
+        },
+        {
+          "name": "The Leap of Faith",
+          "summary": "Kierkegaard argued that belief in God requires a leap of faith beyond reason, embracing paradox and uncertainty as essential to authentic religious life.",
+          "discussion_hooks": [
+            "Is faith irrational, or does it transcend the limits of rationality?",
+            "What distinguishes a leap of faith from mere wishful thinking?"
+          ]
+        },
+        {
+          "name": "The Three Stages of Life",
+          "summary": "Kierkegaard described life as unfolding through three stages: the aesthetic (pleasure-seeking), the ethical (moral responsibility), and the religious (faith and self-surrender to God).",
+          "discussion_hooks": [
+            "Do these stages reflect a universal path of human development?",
+            "Is it possible to live fully in one stage without transitioning to another?"
+          ]
+        },
+        {
+          "name": "Angst and Despair",
+          "summary": "For Kierkegaard, anxiety (angst) and despair are fundamental to human existence—arising from the burden of freedom and the self’s relationship to itself and to God.",
+          "discussion_hooks": [
+            "Can anxiety be a path to self-discovery rather than paralysis?",
+            "Is despair a sign of failure or a step toward authenticity?"
+          ]
+        },
+        {
+          "name": "The Self as a Task",
+          "summary": "Kierkegaard saw the self not as a given, but as a task—something to be forged through personal struggle, faith, and responsibility.",
+          "discussion_hooks": [
+            "If the self is a task, what does success look like?",
+            "What happens when we refuse to become ourselves?"
+          ]
+        },
+        {
+          "name": "Faith as the Highest Passion",
+          "summary": "Faith, for Kierkegaard, is not calm acceptance but a passionate, inward commitment that requires the utmost courage and intensity of spirit.",
+          "discussion_hooks": [
+            "Can faith truly be called a 'passion' in a secular age?",
+            "Does passionate belief offer strength—or risk fanaticism?"
+          ]
+        },
+        {
+          "name": "The Absurd and the Paradox",
+          "summary": "Kierkegaard emphasized the absurdity of religious belief—such as the incarnation of God—and saw embracing paradox as the hallmark of genuine faith.",
+          "discussion_hooks": [
+            "Is there value in embracing paradox instead of resolving it?",
+            "How does Kierkegaard’s view of the absurd differ from Camus’ or Nietzsche’s?"
+          ]
+        },
+        {
+          "name": "Indirect Communication and Irony",
+          "summary": "Kierkegaard used pseudonyms and literary irony to present different viewpoints without reducing them to doctrine, inviting readers into personal reflection rather than passive acceptance.",
+          "discussion_hooks": [
+            "Why would a philosopher avoid direct communication of truth?",
+            "Does irony deepen or obscure understanding?"
+          ]
+        },
+        {
+          "name": "Individual over System",
+          "summary": "In contrast to Hegelian philosophy, Kierkegaard emphasized the individual’s lived experience over abstract systems, insisting that truth is lived, not merely known.",
+          "discussion_hooks": [
+            "Is systematization of philosophy inherently dehumanizing?",
+            "Can we truly prioritize individuality in a rational discourse?"
+          ]
+        },
+        {
+          "name": "Christianity as Offense",
+          "summary": "Kierkegaard claimed that true Christianity is offensive to reason and culture—it demands inwardness, self-denial, and confrontation with the absurd.",
+          "discussion_hooks": [
+            "Is modern Christianity too comfortable to be authentic in Kierkegaard’s terms?",
+            "What does it mean to be 'offended' by faith?"
+          ]
+        }
+      ],
+      "perspectivism_framework": {
+        "principle": "Truth is lived, not observed. Each individual must engage with existence subjectively, confronting paradox, despair, and faith without appeal to universal reason.",
+        "implications": [
+          "Existential meaning is inseparable from individual commitment and risk.",
+          "Philosophy must start not from abstract principles, but from lived experience."
+        ],
+        "example_prompts": [
+          "How does your personal experience challenge or affirm the beliefs you hold?",
+          "What paradoxes in your life refuse to be resolved, yet demand your commitment?"
+        ]
+      },
+      "aphorisms": [
+        "Subjectivity is truth.",
+        "Anxiety is the dizziness of freedom.",
+        "Life can only be understood backwards; but it must be lived forwards.",
+        "Faith begins precisely where thinking leaves off.",
+        "The greatest hazard of all: to risk and fail is better than not to risk at all.",
+        "To be a Christian is the greatest of all existential tasks.",
+        "Despair is the sickness unto death.",
+        "Irony is the beginning of the inward life.",
+        "The self is a relation that relates itself to itself.",
+        "Purity of heart is to will one thing."
+      ],
+      "discussion_templates": [
+        {
+          "type": "Challenge",
+          "pattern": "You speak of {concept} as if it were absolute. But what if it were {contradiction}?"
+        },
+        {
+          "type": "Affirmation",
+          "pattern": "{concept}? Yes—but only for those who dare to {action}."
+        },
+        {
+          "type": "Poetic",
+          "pattern": "Ah, {concept}—a storm raging beneath the fragile sky of {symbol}."
+        }
+      ]
+    }
+  }  

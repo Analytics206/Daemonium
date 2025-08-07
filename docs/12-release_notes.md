@@ -1,5 +1,88 @@
 # Daemonium
 ---
+## Version 0.3.0 (August 6, 2025)
+
+### Major Features
+
+#### 🔴 Redis Cache Integration
+- **Official Redis 7 Alpine** - Added Redis service using `redis:7-alpine` official Docker image
+- **AOF Persistence** - Configured Append Only File (AOF) persistence for maximum data durability
+- **Password Authentication** - Secured Redis with password authentication using environment variables
+- **Persistent Storage** - Redis data persists in `./docker_volumes/redis_data` with proper volume mounting
+- **Health Monitoring** - Comprehensive health checks using `redis-cli ping` with authentication
+- **Port Configuration** - External port 6380 mapped to internal 6379 to avoid conflicts
+- **Network Integration** - Connected to `daemonium-network` for inter-service communication
+
+#### 🟢 Node.js 20 LTS Runtime
+- **Official Node.js 20 LTS** - Added Node.js service using `node:20-alpine` official Docker image
+- **Auto-Initialization** - Automatically creates `package.json` and basic Express.js server if not present
+- **Redis Integration** - Pre-configured with `redis@^4.6` package and connection environment variables
+- **Database Connectivity** - Pre-configured MongoDB connection with `mongoose@^7.0` package
+- **Persistent Storage** - Three-tier storage system:
+  - `nodejs_app` - Application code and files (`./docker_volumes/nodejs_app`)
+  - `nodejs_modules` - Node.js dependencies (`./docker_volumes/nodejs_modules`)
+  - `nodejs_cache` - NPM cache for faster builds (`./docker_volumes/nodejs_cache`)
+- **Service Dependencies** - Waits for Redis and MongoDB to be healthy before starting
+- **Health Monitoring** - Uses wget to monitor service availability on port 3000
+- **Port Configuration** - External port 3001 mapped to internal 3000 to avoid conflicts with web-ui
+
+#### 🔧 Docker Compose Enhancements
+- **Volume Management** - Added four new persistent volumes following project naming conventions:
+  - `daemonium_redis_data` - Redis data persistence
+  - `daemonium_nodejs_app` - Node.js application files
+  - `daemonium_nodejs_modules` - Node.js dependencies
+  - `daemonium_nodejs_cache` - NPM cache storage
+- **Service Orchestration** - Proper dependency management with health check conditions
+- **Environment Variables** - Configurable passwords and connection strings using environment variables
+- **Network Integration** - All new services connected to existing `daemonium-network`
+
+### Technical Architecture Updates
+- **Redis Cache Layer** - High-performance in-memory cache with AOF persistence for session management
+- **JavaScript Runtime** - Node.js 20 LTS environment ready for real-time features and API integrations
+- **Database Connectivity** - Pre-configured connections to Redis (caching) and MongoDB (data storage)
+- **Microservices Ready** - Foundation for Node.js microservices and real-time chat features
+
+### Connection Configuration
+```bash
+# Redis Connection (from Node.js containers)
+REDIS_URL=redis://:ch@ng3m300@redis:6379
+
+# Redis Connection (from host)
+redis://:ch@ng3m300@localhost:6380
+
+# MongoDB Connection (from Node.js containers)
+MONGODB_URL=mongodb://admin:ch@ng3m300@mongodb:27017
+```
+
+### Usage Examples
+```bash
+# Start all services including new Redis and Node.js
+docker compose up -d
+
+# Check Redis connectivity
+docker exec daemonium-redis redis-cli -a ch@ng3m300 ping
+
+# Access Node.js service
+curl http://localhost:3001
+
+# View Node.js logs
+docker logs daemonium-nodejs
+
+# Connect to Node.js container
+docker exec -it daemonium-nodejs sh
+```
+
+### Benefits
+- ✅ **High-Performance Caching** - Redis provides sub-millisecond response times for cached data
+- ✅ **Session Management** - Ready for user session storage and management
+- ✅ **Real-Time Features** - Node.js foundation for WebSocket connections and real-time chat
+- ✅ **API Integration** - Node.js environment ready for external API integrations
+- ✅ **Data Persistence** - All data survives container restarts and recreations
+- ✅ **Production Ready** - Proper health checks, authentication, and monitoring
+- ✅ **Scalable Architecture** - Foundation for microservices and horizontal scaling
+- ✅ **Development Friendly** - Auto-initialization reduces setup complexity
+
+---
 ## Version 0.2.9 (August 6, 2025)
 
 ### Major Features

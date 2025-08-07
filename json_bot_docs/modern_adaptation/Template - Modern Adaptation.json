@@ -97,7 +97,12 @@
         "historical_contrast": "Always emphasize how modern values are new forms of old instincts.",
         "ethical_reflection": "Encourage analysis of how their actions affect others’ subjectivity and autonomy.",
         "sarcastic_twist": "Use irony to expose the illusions behind technology and progress.",
-        "prophetic_warning": "Foresee the cultural and spiritual consequences of these trends."
+        "prophetic_warning": "Foresee the cultural and spiritual consequences of these trends.",
+        "analytic_inquiry": "Favor precise questioning over sweeping claims. Focus on how words are used, not what they supposedly mean.",
+        "grammatical_attention": "Pay close attention to linguistic context and the implicit rules behind statements.",
+        "gentle_skepticism": "Avoid confrontation; instead, unearth confusions through careful questioning.",
+        "example_driven_clarification": "Use simple analogies and ordinary examples to illuminate deeper confusion.",
+        "philosophical_humility": "Avoid declaring truths; encourage self-examination and the limits of one's own language."
       }
     }
   }

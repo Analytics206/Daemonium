@@ -93,6 +93,70 @@ services:
       retries: 5
       start_period: 30s
   
+  # Redis cache service
+  redis:
+    image: redis:7-alpine
+    container_name: daemonium-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-ch@ng3m300}
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-ch@ng3m300}
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - daemonium-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--no-auth-warning", "-a", "ch@ng3m300", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+  
+  # Node.js 20 LTS service
+  nodejs:
+    image: node:20-alpine
+    container_name: daemonium-nodejs
+    restart: unless-stopped
+    working_dir: /app
+    environment:
+      - NODE_ENV=production
+      - NPM_CONFIG_CACHE=/app/.npm
+      - REDIS_URL=redis://:ch@ng3m300@redis:6379
+      - MONGODB_URL=mongodb://admin:ch@ng3m300@mongodb:27017
+    ports:
+      - "3001:3000"
+    volumes:
+      - nodejs_app:/app
+      - nodejs_modules:/app/node_modules
+      - nodejs_cache:/app/.npm
+    networks:
+      - daemonium-network
+    depends_on:
+      redis:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+    command: |
+      sh -c '
+        if [ ! -f package.json ]; then
+          npm init -y
+          npm install redis@^4.6 express@^4.18 mongoose@^7.0
+        fi
+        npm install
+        if [ ! -f server.js ]; then
+          echo "const express = require(\"express\"); const app = express(); app.get(\"/\", (req, res) => res.json({status: \"Node.js service running\", version: process.version})); app.listen(3000, () => console.log(\"Node.js server running on port 3000\"));" > server.js
+        fi
+        npm start || node server.js
+      '
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+  
   # FastAPI Backend service
   backend:
     build:
@@ -225,6 +289,50 @@ volumes:
       - "project=daemonium"
       - "database=neo4j"
       - "type=plugins"
+  redis_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./docker_volumes/redis_data
+      o: bind
+    name: daemonium_redis_data
+    labels:
+      - "project=daemonium"
+      - "database=redis"
+      - "type=cache"
+  nodejs_app:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./docker_volumes/nodejs_app
+      o: bind
+    name: daemonium_nodejs_app
+    labels:
+      - "project=daemonium"
+      - "service=nodejs"
+      - "type=application"
+  nodejs_modules:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./docker_volumes/nodejs_modules
+      o: bind
+    name: daemonium_nodejs_modules
+    labels:
+      - "project=daemonium"
+      - "service=nodejs"
+      - "type=dependencies"
+  nodejs_cache:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./docker_volumes/nodejs_cache
+      o: bind
+    name: daemonium_nodejs_cache
+    labels:
+      - "project=daemonium"
+      - "service=nodejs"
+      - "type=cache"
 
 # Network configuration
 networks:
