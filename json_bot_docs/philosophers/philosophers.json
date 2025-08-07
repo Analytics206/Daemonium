@@ -171,7 +171,7 @@
     "summary": "French philosopher",
     "content": "Descartes was a French philosopher, mathematician, and scientist, often called the father of modern philosophy.",
     "school_id": 10,
-    "is_active_chat": 0,
+    "is_active_chat": 1,
     "tag_id": 2
   },
   {
