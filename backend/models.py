@@ -129,6 +129,42 @@ class BookSummaryResponse(BaseResponse):
     data: Union[BookSummary, List[BookSummary]]
     total_count: Optional[int] = None
 
+class ChronologicalPeriod(BaseModel):
+    """Chronological period model for bibliography"""
+    characteristics: str
+    themes: str
+
+class BibliographyWork(BaseModel):
+    """Bibliography work model"""
+    original_title: str
+    summary: str
+    title: str
+    type: str
+    year: Union[int, str]
+
+class Bibliography(BaseModel):
+    """Bibliography model"""
+    id: str = Field(..., alias="_id")
+    filename: str
+    original_key: str
+    author: str
+    category: str
+    birth_death: str
+    description: str
+    background: str
+    works: List[BibliographyWork]
+    chronological_periods: Dict[str, ChronologicalPeriod]
+    major_themes: List[str]
+    influence: str
+    note: str
+    
+    model_config = {"populate_by_name": True}
+
+class BibliographyResponse(BaseResponse):
+    """Response model for bibliography data"""
+    data: Union[Bibliography, List[Bibliography]]
+    total_count: Optional[int] = None
+
 # Aphorism models
 class Aphorism(BaseModel):
     """Aphorism model"""

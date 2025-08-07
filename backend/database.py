@@ -24,6 +24,7 @@ class DatabaseManager:
         # Collection names based on project structure
         self.collection_names = [
             "aphorisms",
+            "bibliography",
             "book_summary", 
             "books",
             "chat_blueprint",
@@ -448,6 +449,71 @@ class DatabaseManager:
         collection = self.get_collection("book_summary")
         cursor = collection.find({}).skip(skip).limit(limit)
         return await cursor.to_list(length=limit)
+    
+    # Bibliography-related methods
+    async def get_bibliographies(self, skip: int = 0, limit: int = 100, author: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Get bibliographies with pagination and optional author filter"""
+        collection = self.get_collection("bibliography")
+        
+        filter_query = {}
+        if author:
+            filter_query["author"] = {"$regex": author, "$options": "i"}
+        
+        cursor = collection.find(filter_query).skip(skip).limit(limit)
+        bibliographies = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string
+        for bibliography in bibliographies:
+            if "_id" in bibliography:
+                bibliography["_id"] = str(bibliography["_id"])
+        
+        return bibliographies
+    
+    async def get_bibliography_by_id(self, bibliography_id: str) -> Optional[Dict[str, Any]]:
+        """Get bibliography by ID"""
+        collection = self.get_collection("bibliography")
+        bibliography = await collection.find_one({"_id": bibliography_id})
+        
+        if bibliography and "_id" in bibliography:
+            bibliography["_id"] = str(bibliography["_id"])
+        
+        return bibliography
+    
+    async def get_bibliography_by_author(self, author: str) -> Optional[Dict[str, Any]]:
+        """Get bibliography by author name"""
+        collection = self.get_collection("bibliography")
+        bibliography = await collection.find_one({"author": {"$regex": author, "$options": "i"}})
+        
+        if bibliography and "_id" in bibliography:
+            bibliography["_id"] = str(bibliography["_id"])
+        
+        return bibliography
+    
+    async def search_bibliographies(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
+        """Search bibliographies by author, description, or content"""
+        collection = self.get_collection("bibliography")
+        
+        search_filter = {
+            "$or": [
+                {"author": {"$regex": query, "$options": "i"}},
+                {"description": {"$regex": query, "$options": "i"}},
+                {"background": {"$regex": query, "$options": "i"}},
+                {"works": {"$regex": query, "$options": "i"}},
+                {"major_themes": {"$regex": query, "$options": "i"}},
+                {"influence": {"$regex": query, "$options": "i"}},
+                {"note": {"$regex": query, "$options": "i"}}
+            ]
+        }
+        
+        cursor = collection.find(search_filter).limit(limit)
+        bibliographies = await cursor.to_list(length=limit)
+        
+        # Convert ObjectId to string
+        for bibliography in bibliographies:
+            if "_id" in bibliography:
+                bibliography["_id"] = str(bibliography["_id"])
+        
+        return bibliographies
     
     # Aphorism-related methods
     async def get_aphorisms(self, skip: int = 0, limit: int = 100, philosopher: Optional[str] = None) -> List[Dict[str, Any]]:
