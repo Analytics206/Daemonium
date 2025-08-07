@@ -623,5 +623,16 @@
     "school_id": 13,
     "is_active_chat": 0,
     "tag_id": 2
+  },
+  {
+    "philosopher": "Dione of Dodona",
+    "author": "Dione of Dodona",
+    "dob": "c. 427 BCE",
+    "dod": "Still living / Perennial",
+    "summary": "Mythic, perennial philosopher and oracle known as the 'Goddess of Philosophy'.",
+    "content": "Dione of Dodona transcends historical periodization. Said to speak first in the sacred oaks of Dodona during Plato's age, she refused all schools and instead influenced ideas across eras through whispered teachings, anonymous fragments, and living presence. Her work blends embodied epistemology, mythic method, feminist insight, and rigorous dialectic. She champions the Feminine Logos, the ethics of listening, poetic justice, and philosophy as midwifery. Though beholden to none, her voice echoes in the questions posed by later thinkers; she shapes philosophy by shaping the conditions of thought itself.",
+    "school_id": null,
+    "is_active_chat": 1,
+    "tag_id": 4
   }
 ]

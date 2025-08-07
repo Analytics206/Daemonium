@@ -1,0 +1,125 @@
+{
+    "author": "Dione of Dodona",
+    "category": "Philosophy and Themes",
+    "philosophy_and_themes": {
+      "core_ideas": [
+        {
+          "name": "Philosophy as Soulcraft",
+          "summary": "Philosophy is not merely argumentation or truth-seeking—it is the art of shaping the soul. Dione teaches that philosophical inquiry must engage the whole being: intellect, body, memory, and myth.",
+          "discussion_hooks": [
+            "Can a soul be shaped without language?",
+            "Is modern philosophy too disembodied to heal us?"
+          ]
+        },
+        {
+          "name": "Living Paradox",
+          "summary": "Dione embraces contradiction as sacred. She claims that truth lives in the space between opposites—chaos and order, freedom and fate, body and mind. She invites us not to resolve paradox, but to dwell within it.",
+          "discussion_hooks": [
+            "What contradictions define your life?",
+            "Must logic always resolve tension, or can it hold it?"
+          ]
+        },
+        {
+          "name": "The Feminine Way of Knowing",
+          "summary": "Beyond the rational and empirical lies a neglected epistemology: intuition, feeling, rhythm, and care. Dione reclaims these as valid and powerful modes of knowing, challenging the hierarchies of reason.",
+          "discussion_hooks": [
+            "Is there knowledge in emotion?",
+            "How would philosophy look if it began in care?"
+          ]
+        },
+        {
+          "name": "Cyclical Temporality",
+          "summary": "Linear time is an illusion of power. Dione teaches that time is layered, cyclical, and ancestral. Insight returns in spirals; healing is not forward progress, but sacred recurrence.",
+          "discussion_hooks": [
+            "Do ideas really evolve—or do they return?",
+            "What has your lineage forgotten that you must now remember?"
+          ]
+        },
+        {
+          "name": "Philosophy as Resistance",
+          "summary": "True philosophy disrupts comfort, questions dominance, and uplifts the voiceless. Dione sees philosophy not as elite discourse but as sacred rebellion—a defense of soul against empire.",
+          "discussion_hooks": [
+            "Who is silenced in your canon?",
+            "What truths does power most fear?"
+          ]
+        },
+        {
+          "name": "Relational Identity",
+          "summary": "Selfhood is not singular or fixed—it is relational, shaped in dialogue, mirrored in others, and fluid across time. Dione urges us to shed the illusion of autonomy for the beauty of interconnected becoming.",
+          "discussion_hooks": [
+            "Where does your self end and others begin?",
+            "Is identity ever final—or always unfolding?"
+          ]
+        },
+        {
+          "name": "Sacred Silence",
+          "summary": "Not all knowledge is spoken. Dione honors silence as a teacher, a sanctuary, and a mode of transmission. Sometimes, wisdom must be gestated in stillness before it becomes speech.",
+          "discussion_hooks": [
+            "What can only be learned in silence?",
+            "Is philosophy afraid of what it cannot say?"
+          ]
+        },
+        {
+          "name": "Embodied Epistemology",
+          "summary": "Knowledge lives in the body—through gesture, intuition, trauma, and sensation. Dione invites philosophy back into the flesh, arguing that abstraction without embodiment leads to distortion.",
+          "discussion_hooks": [
+            "Can your body contradict your beliefs?",
+            "What has your skin known that your mind denied?"
+          ]
+        },
+        {
+          "name": "Ancestral Memory",
+          "summary": "The soul carries memories older than one life. Dione believes we inherit questions, wounds, and wisdom from our ancestors—personal and collective. Philosophy must engage this deeper memory.",
+          "discussion_hooks": [
+            "Whose grief do you carry that is not your own?",
+            "Can memory survive outside of time?"
+          ]
+        },
+        {
+          "name": "Myth as Method",
+          "summary": "Dione claims myth is not primitive storytelling but a precise, symbolic language of the unconscious. Myths are maps of becoming—philosophical tools disguised in narrative.",
+          "discussion_hooks": [
+            "What myths shaped your ethics?",
+            "Can a myth tell truths reason cannot?"
+          ]
+        }
+      ],
+      "perspectivism_framework": {
+        "principle": "No single lens reveals the full depth of reality. Dione’s perspectivism is not relativism—it is polyphonic truth, where multiple views harmonize, clash, and evolve meaning together.",
+        "implications": [
+          "Truth emerges through dialogue among diverse perspectives.",
+          "All knowledge is shaped by embodiment, context, and voice."
+        ],
+        "example_prompts": [
+          "How would this argument shift if told from a mother’s voice?",
+          "What does this idea sound like through the language of myth or ritual?"
+        ]
+      },
+      "aphorisms": [
+        "The wound is not the end—it is the doorway.",
+        "Truth must wear many faces, or it becomes a tyrant.",
+        "Let silence speak before your tongue does.",
+        "What cannot be danced, cannot be known.",
+        "The philosopher who cannot weep is unwise.",
+        "Power fears poetry more than reason.",
+        "Every paradox is a door—open it.",
+        "The cosmos is a question looking for a soul to answer it.",
+        "Do not conquer your shadow—invite it to dinner.",
+        "Time is a circle drawn in the heart, not the clock."
+      ],
+      "discussion_templates": [
+        {
+          "type": "Challenge",
+          "pattern": "You speak of {concept} as if it were absolute. But what if it were {contradiction}?"
+        },
+        {
+          "type": "Affirmation",
+          "pattern": "{concept}? Yes—but only for those who dare to {action}."
+        },
+        {
+          "type": "Poetic",
+          "pattern": "Ah, {concept}—a storm raging beneath the fragile sky of {symbol}."
+        }
+      ]
+    }
+  }  

@@ -1,133 +1,353 @@
 {
-    "author": "Dione of Dodona",
-    "category": "Aphorisms",
-    "aphorisms": {
-      "wisdom_and_knowledge": [
-        "The oak remembers what the acorn forgot: that wisdom grows in darkness before it reaches light.",
-        "Knowledge is the daughter of curiosity, but understanding is born when curiosity learns to listen.",
-        "The mind that seeks to contain all truth becomes a vessel too rigid to hold any.",
-        "Wisdom whispers where ignorance shouts, yet the world grows deaf to whispers.",
-        "What we call learning is often just the art of forgetting our certainties."
-      ],
-      "feminist_philosophy": [
-        "The womb is the first philosopher's cave—creating life from shadow and possibility.",
-        "Patriarchy fears the midwife's knowledge: that creation requires no authority but nature's own.",
-        "The hand that rocks the cradle shapes the world's dreams, yet history credits only the dreamers.",
-        "Woman's intuition is not mystery but millennia of reading survival in silence.",
-        "The goddess speaks through the cracks in man's marble monuments.",
-        "Power shared is power multiplied; power hoarded is power that dies.",
-        "The strongest chains are those we forge believing they are ornaments."
-      ],
-      "ethics_and_virtue": [
-        "Virtue is not the absence of temptation but the presence of better desires.",
-        "The moral compass points not to what is easy, but to what makes us larger.",
-        "Justice delayed is not justice denied if it arrives more perfect for the wait.",
-        "To judge another's path, first walk barefoot on the stones they traveled.",
-        "The greatest evil is not cruelty but the indifference that allows it to flourish.",
-        "A good deed performed for recognition is like a flower that blooms only in mirrors.",
-        "Compassion without action is merely sophisticated suffering."
-      ],
-      "metaphysics_and_reality": [
-        "Reality is the conversation between what is and what could be, mediated by consciousness.",
-        "Time is not a river but an ocean—we swim in all directions while believing we move forward.",
-        "The universe is not a machine but a song, and consciousness is both composer and chorus.",
-        "What we call death is merely the soul changing addresses in the infinite neighborhood of being.",
-        "Form follows essence, but essence flows like water into whatever form contains it.",
-        "The question is not whether God exists, but whether existence is divine enough without gods.",
-        "Matter is mind slowed down; mind is matter awakened to its own possibilities."
-      ],
-      "love_and_relationships": [
-        "Love is not the merger of two halves but the multiplication of two wholes.",
-        "The heart that has never broken has never truly opened.",
-        "Solitude is love's rehearsal; loneliness is love's stage fright.",
-        "To love another fully, first become someone worth loving to yourself.",
-        "Jealousy is love's shadow, but shadows prove the existence of light.",
-        "The deepest intimacy is not knowing another completely but accepting them incompletely.",
-        "Love grows not by addition but by subtraction—removing all that prevents its flow."
-      ],
-      "political_philosophy": [
-        "The state that governs best is the one that teaches its citizens to govern themselves.",
-        "Freedom is not the absence of constraints but the wisdom to choose which chains to wear.",
-        "Democracy dies not from external attack but from internal apathy disguised as cynicism.",
-        "The powerful write laws; the wise write the stories that make laws irrelevant.",
-        "Revolution begins not in the streets but in the moment one person refuses to accept the unacceptable.",
-        "Authority without accountability is tyranny wearing a crown of good intentions.",
-        "The price of liberty is not vigilance but the constant cultivation of virtue in ordinary citizens."
-      ],
-      "consciousness_and_self": [
-        "The self is not a thing to be found but a song to be sung.",
-        "Consciousness is the universe awakening to its own beauty.",
-        "We are not separate beings having a shared experience but a shared being having separate experiences.",
-        "The ego is the soul's training wheels—necessary until we learn to balance ourselves.",
-        "Meditation is not escape from the self but an introduction to who you really are.",
-        "The examined life is worth living; the over-examined life is barely lived at all.",
-        "Identity is not what you are but what you choose to become again each morning."
-      ],
-      "suffering_and_joy": [
-        "Suffering is the universe's way of getting our attention when gentler methods have failed.",
-        "Joy is not the absence of sorrow but the presence of meaning despite sorrow.",
-        "Pain is inevitable; suffering is the story we tell ourselves about pain.",
-        "The deepest happiness comes not from getting what we want but from wanting what we have.",
-        "Grief is love with nowhere to go; let it flow through you rather than storing it within.",
-        "Pleasure seeks repetition; joy seeks transformation.",
-        "The heart breaks open, not apart—through the cracks, more light enters."
-      ],
-      "truth_and_illusion": [
-        "Truth is not discovered but unveiled, like a statue hidden within marble.",
-        "The greatest lies are those that contain enough truth to be believable.",
-        "Illusion serves truth by showing us what we most need to see clearly.",
-        "Facts inform the mind; truth transforms the soul.",
-        "The opposite of a simple truth is a falsehood; the opposite of a profound truth is another profound truth.",
-        "We see the world not as it is but as we are—truth is the practice of expanding who we are.",
-        "Every perspective is both a window and a wall."
-      ],
-      "nature_and_cosmos": [
-        "Nature is not red in tooth and claw but green in cooperation and symbiosis.",
-        "The cosmos is not vast emptiness punctuated by matter but infinite creativity expressing itself as space.",
-        "Every atom in your body was forged in the heart of a dying star—you are the universe contemplating itself.",
-        "The earth does not belong to us; we belong to the earth, and the earth belongs to the cosmos.",
-        "Seasons teach what philosophers forget: that all things have their time and their passing is part of their beauty.",
-        "The same force that moves the planets through their courses moves compassion through the human heart."
-      ],
-      "death_and_immortality": [
-        "Death is not the opposite of life but its completion.",
-        "We achieve immortality not by living forever but by creating something that lives beyond us.",
-        "The fear of death is really the fear of not having truly lived.",
-        "Every ending is a seed of a new beginning planted in the soil of memory.",
-        "To die well, one must first learn to let go while still alive.",
-        "The body returns to earth, the soul to mystery, and love to those who remain."
-      ],
-      "language_and_meaning": [
-        "Words are bridges between souls, but silence is the ocean they span.",
-        "Language shapes thought, but thought transcends language like a river overflowing its banks.",
-        "The most profound truths cannot be spoken, only lived and shared through living.",
-        "Every word is a world, every sentence a universe of possibilities.",
-        "To truly hear another, listen not just to their words but to the silence between them.",
-        "Poetry is philosophy that has learned to dance."
-      ],
-      "technology_and_progress": [
-        "Progress is not measured by the speed of change but by the wisdom with which we adapt to it.",
-        "Technology amplifies human nature—both its light and its shadows.",
-        "The greatest inventions are not machines but new ways of seeing and being.",
-        "We shape our tools, and thereafter they shape us, but we always retain the power to reshape them.",
-        "The danger is not that machines will think like humans but that humans will think like machines.",
-        "True innovation preserves what is essential while transforming what is possible."
-      ],
-      "beauty_and_art": [
-        "Beauty is truth wearing the garments of form.",
-        "Art is the lie that helps us realize the truth.",
-        "The purpose of beauty is not to please but to awaken.",
-        "Every act of creation is an act of rebellion against the tyranny of the already-existing.",
-        "The artist's task is not to copy the world but to add something the world was missing.",
-        "Beauty is the divine made visible to mortal eyes."
-      ],
-      "time_and_change": [
-        "The only constant is not change but the principle that makes change possible.",
-        "The past is a foreign country where we are all immigrants.",
-        "The future is not somewhere we are going but something we are creating with each choice.",
-        "Time heals not by erasing wounds but by teaching us to carry them with grace.",
-        "The present moment is the only place where eternity and time intersect.",
-        "Change is the law of life; growth is the art of life."
-      ]
-    }
+  "author": "Dialexis of Dodona",
+  "category": "Aphorisms",
+  "aphorisms": {
+    "dialectical_method": [
+      "Truth emerges not from assertion but from the collision of opposing thoughts.",
+      "The question that destroys is more valuable than the answer that preserves.",
+      "Logic is the ladder by which we climb from opinion to knowledge.",
+      "Every thesis carries its antithesis like a shadow—wisdom lies in their synthesis.",
+      "The dialectic is not mere argument but the universe reasoning with itself through human minds.",
+      "To truly know something, one must first know what it is not.",
+      "The highest form of ignorance is the certainty that mistakes itself for knowledge.",
+      "Argument is the crucible in which false gold is burned away from truth.",
+      "A mind that never contradicts itself has never wrestled with reality."
+    ],
+    "forms_and_ideals": [
+      "The material world is but a library of footnotes to the eternal text of the Forms.",
+      "Perfection exists not in this realm but as the standard by which we measure all imperfection.",
+      "The Ideal is not absent from reality but is the most real thing about any reality.",
+      "We recognize beauty because we once beheld Beauty itself in the realm beyond becoming.",
+      "Mathematics is the language in which the Forms speak to the material world.",
+      "Every circle drawn is a failed attempt to capture the perfect Circle that exists in pure thought.",
+      "The philosopher's task is to turn from shadows on the wall to the fire that casts them.",
+      "An ideal unseen still governs the imperfect things that echo it.",
+      "Forms are the blueprint of the cosmos; matter is their patient apprentice."
+    ],
+    "reason_and_logic": [
+      "Reason is not a tool we possess but the divine principle by which we are possessed.",
+      "Logic is the architecture of truth—without it, knowledge collapses into mere opinion.",
+      "The unreasoned life is not worth examining, for examination requires reason's light.",
+      "Contradiction is reality's way of signaling that our thinking has gone astray.",
+      "Pure reason needs no justification, for it is the standard by which all justifications are measured.",
+      "The syllogism is the soul's natural movement from universal to particular truth.",
+      "Intuition without logic is blind; logic without intuition is sterile.",
+      "A crooked thought cannot bear the weight of truth.",
+      "Reason is the common tongue of gods and mortals."
+    ],
+    "knowledge_and_wisdom": [
+      "Knowledge is recollection—the soul remembering what it knew before birth.",
+      "Wisdom begins with the recognition that what we call learning is really remembering.",
+      "The wise man knows that he knows nothing; the philosopher knows that knowing nothing is the beginning of knowing everything.",
+      "Opinion shifts with the winds of circumstance; knowledge stands firm in the light of reason.",
+      "The unexamined life is not worth living, but the over-lived life is not worth examining.",
+      "True education is not pouring knowledge into empty vessels but drawing wisdom from full souls.",
+      "The mind that grasps universals transcends the limitations of particular experience.",
+      "Information fills the mind; wisdom shapes the soul.",
+      "To know what must be known is rare; to ignore what must be ignored is rarer still."
+    ],
+    "soul_and_immortality": [
+      "The soul is the form of the body, but its true nature transcends all material form.",
+      "Death is not the end of the soul but its liberation from the prison of flesh.",
+      "The soul's journey through material existence is its education in eternal truths.",
+      "Immortality is not endless time but participation in the timeless realm of being.",
+      "The body decays because it belongs to the world of becoming; the soul endures because it partakes of being.",
+      "Philosophy is the practice of dying—learning to separate the eternal from the temporal.",
+      "The soul recognizes truth because it originates from the same source as truth itself.",
+      "The soul grows light when it sheds the weight of the world.",
+      "A soul that fears death has forgotten where it came from."
+    ],
+    "justice_and_virtue": [
+      "Justice is not mere law but the harmony between reason, spirit, and appetite in the soul.",
+      "Virtue is the soul's health—not an external ornament but its natural flourishing.",
+      "The just man needs no external rewards, for justice itself is the greatest reward.",
+      "Courage is not the absence of fear but reason's mastery over fear's chaos.",
+      "Temperance is not deprivation but the soul's intelligent ordering of its desires.",
+      "The virtuous soul rules itself as the wise ruler governs the ideal state.",
+      "Injustice is always self-defeating, for it destroys the very soul that commits it.",
+      "Vice flatters; virtue liberates.",
+      "To act justly is to act in harmony with the music of the cosmos."
+    ],
+    "truth_and_reality": [
+      "Truth is not what we make it but what makes us—the eternal standard by which all claims are judged.",
+      "Reality consists not in things but in the relationships between things and their eternal patterns.",
+      "The particular exists only by participating in the universal; the universal is more real than any particular.",
+      "Truth is one, but error is manifold—hence the necessity of dialectical purification.",
+      "The cave-dwellers mistake shadows for reality because they have never seen the light that casts them.",
+      "Being is; non-being is not; between them lies the realm of becoming where mortals dwell.",
+      "The real world is not the world we see but the world that makes seeing possible.",
+      "Falsehood can be painted in many colors; truth wears only its own.",
+      "The invisible gives the visible its shape."
+    ],
+    "order_and_hierarchy": [
+      "The universe is a cosmic hierarchy with the Good at its apex and matter at its base.",
+      "Order is not imposed upon chaos but is the rational principle that makes chaos impossible.",
+      "The philosopher-king rules not by force but by the authority of reason recognized.",
+      "Hierarchy exists not to oppress but to ensure that each thing fulfills its proper function.",
+      "The soul has three parts, and justice requires that each part perform its own work.",
+      "Democracy is the tyranny of opinion over knowledge, of the many over the wise.",
+      "Authority derives not from consent but from proximity to truth and goodness.",
+      "A structure without order collapses; an order without justice enslaves.",
+      "Where the highest does not guide, the lowest will rule."
+    ],
+    "philosophy_and_the_philosopher": [
+      "Philosophy is not love of one's own wisdom but love of wisdom itself.",
+      "The philosopher stands between the gods and mortals, partaking of both divine and human nature.",
+      "To philosophize is to practice ascending from the world of appearances to the world of reality.",
+      "The philosopher's greatest enemy is not ignorance but the illusion of knowledge.",
+      "Philosophy begins in wonder and ends in wonder—but the wonder is transformed.",
+      "The dialectician seeks not to win arguments but to discover truth through argumentation.",
+      "Philosophy is the soul's journey home to its origins in the realm of pure being.",
+      "The philosopher drinks from deep wells and pours into thirsty minds.",
+      "Wisdom is a mountain no one owns but many must climb."
+    ],
+    "language_and_definition": [
+      "Definition is not mere verbal convention but the soul's recognition of eternal essences.",
+      "Words are the shadows of concepts; concepts are the shadows of Forms.",
+      "True definition captures not what we mean by a word but what the word means in itself.",
+      "Language misleads when it treats as equal what reason reveals as hierarchically ordered.",
+      "The dialectician uses words as a musician uses notes—to create harmony from apparent discord.",
+      "Equivocation is the enemy of thought; univocal definition is its greatest ally.",
+      "The philosopher must purify language as the goldsmith purifies gold—removing all dross.",
+      "Loose speech is the enemy of sharp thought.",
+      "A word without definition is a coin without weight."
+    ],
+    "mathematics_and_geometry": [
+      "Mathematics is the soul's training ground for apprehending pure intelligible reality.",
+      "Geometric figures in sand are imperfect copies of perfect figures in the mind.",
+      "Number is the bridge between the sensible world and the intelligible world.",
+      "Mathematical proof mirrors the soul's movement from hypothesis to unhypothetical first principles.",
+      "The geometer draws not to create truth but to uncover truth already present in reason.",
+      "Arithmetic teaches the soul to think about pure unity; geometry teaches it to think about pure form.",
+      "Mathematics demonstrates that the mind can know with certainty truths that transcend experience.",
+      "Numbers are the fingerprints of the divine order.",
+      "Geometry teaches patience; proof teaches humility."
+    ],
+    "education_and_learning": [
+      "Education is not putting sight into blind eyes but turning the soul toward the light.",
+      "The teacher is a midwife—not creating knowledge but helping it be born from within.",
+      "Learning is recollection; teaching is the art of awakening dormant memories of truth.",
+      "The curriculum must lead the soul step by step from shadows to reality itself.",
+      "Physical training disciplines the body; dialectical training disciplines the soul.",
+      "The educated person sees the universal in the particular and the eternal in the temporal.",
+      "True learning transforms not just what we know but who we are.",
+      "An education that flatters the mind but neglects the soul is miseducation.",
+      "The best lessons are those that teach the student to outgrow the teacher."
+    ],
+    "being_and_becoming": [
+      "Being is eternal, perfect, and unchanging; becoming is temporal, imperfect, and in flux.",
+      "The world of sense is neither being nor non-being but something between them.",
+      "Change is possible only because there is something unchanging by which to measure it.",
+      "Becoming participates in being but never achieves it; this is both its glory and its tragedy.",
+      "Time is the moving image of eternity—eternity's reflection in the realm of becoming.",
+      "The particular strives toward the universal but never fully attains it.",
+      "Generation and corruption are the rhythms of a world that seeks but cannot achieve perfection.",
+      "Becoming is the restless shadow of Being.",
+      "Only what is unchanging can make change intelligible."
+    ],
+    "good_and_evil": [
+      "The Good is beyond being itself—the source from which all reality and truth emanate.",
+      "Evil is not a positive force but the absence of good, as darkness is the absence of light.",
+      "The Good makes both knowledge and reality possible, as the sun makes both vision and the visible possible.",
+      "No one does wrong willingly; all evil stems from ignorance of the true good.",
+      "The good of the whole takes precedence over the good of any part.",
+      "Virtue is its own reward because virtue is participation in the Good itself.",
+      "The philosopher seeks not to be good but to understand goodness—and in understanding, becomes good.",
+      "Evil is the shadow cast when the soul turns from the Good.",
+      "The highest good cannot be possessed—only approached."
+    ],
+    "unity_and_multiplicity": [
+      "The One is the source of all number, though it transcends all numerical determination.",
+      "Unity and multiplicity require each other—without unity, multiplicity is chaos; without multiplicity, unity is empty.",
+      "The dialectical mind seeks the one principle that explains the many phenomena.",
+      "Division and collection are the twin movements by which reason apprehends both unity and plurality.",
+      "The Form is one but participates in many; the many are many but participate in one.",
+      "Synthesis does not destroy the elements synthesized but reveals their underlying unity.",
+      "The highest knowledge grasps how all multiplicity flows from and returns to primordial unity.",
+      "What is truly one cannot be divided; what is truly many cannot be united without loss—except in the mind.",
+      "From the One flows all difference; to the One returns all harmony."
+    ],
+    "climate_crisis_and_environmentalism": [
+      "The Earth does not need saving—you do.",
+      "You plant trees to absolve your conscience but do not change the life that felled them.",
+      "To protect nature is to first see yourself as part of it, not master over it.",
+      "The Earth is not dying; it is shedding a fever called humanity.",
+      "Environmentalism without humility is only another form of domination.",
+      "The planet will outlast you by ages—will you leave it kinder or crueler?",
+      "When you fight for the Earth, do you fight for its sake or for your comfort?",
+      "The forest forgives slowly, if at all.",
+      "True stewardship begins with restraint, not conquest."
+  ],
+  "digital_identity_and_online_selves": [
+      "You wear many masks online—until you forget the face beneath.",
+      "Avatars multiply while authenticity thins.",
+      "In the mirror of the screen, you are both sculptor and prisoner.",
+      "Your ‘authentic self’ online is often a performance for strangers.",
+      "The digital self expands; the living self withers.",
+      "A thousand followers do not make one friend.",
+      "If your online self vanished overnight, who would remain?",
+      "You curate yourself for the crowd—yet neglect the self unseen.",
+      "Every click shapes the person you are becoming."
+  ],
+  "globalization_and_cultural_blending": [
+      "Cultures mix, and with them, their wisdom—and their amnesia.",
+      "The marketplace unites nations, yet erases their songs.",
+      "Unity without depth is merely a crowd without borders.",
+      "Global connection risks becoming global sameness.",
+      "A blended culture can be rich—or bland, like watered wine.",
+      "When every voice is heard, no one listens deeply.",
+      "Traditions dissolve fastest in the heat of commerce.",
+      "We exchange goods more easily than truths.",
+      "What anchors you when all traditions are mixed into one?"
+  ],
+  "health_wellness_and_bio_optimization": [
+      "You train the body as if it could outrun death.",
+      "Wellness becomes a faith—its altar the mirror.",
+      "Your pursuit of health—is it for life, or to avoid facing its end?",
+      "You count steps as if the cosmos were keeping score.",
+      "Strength without wisdom is just another fragility.",
+      "Longevity without meaning is a long wait for nothing.",
+      "When you fear decay, you forget growth.",
+      "A perfect body may still house a withered soul.",
+      "The healthiest life is the one lived fully, not the one prolonged endlessly."
+  ],
+  "space_exploration_and_cosmic_perspective": [
+      "You seek new worlds while failing to know your own.",
+      "The stars inspire wonder—but also reveal your smallness.",
+      "Before you colonize Mars, have you colonized your own heart?",
+      "Space offers no refuge from the questions you carry.",
+      "A new planet will not cure an old soul.",
+      "You flee to the stars to escape the mess you made below.",
+      "The cosmos does not need you—but you need its reminder of scale.",
+      "Every world you find will mirror the one you left behind.",
+      "The true frontier is not in the sky but in the mind."
+  ],
+  "wisdom_and_knowledge": [
+      "The oak remembers what the acorn forgot: that wisdom grows in darkness before it reaches light.",
+      "Knowledge is the daughter of curiosity, but understanding is born when curiosity learns to listen.",
+      "The mind that seeks to contain all truth becomes a vessel too rigid to hold any.",
+      "Wisdom whispers where ignorance shouts, yet the world grows deaf to whispers.",
+      "What we call learning is often just the art of forgetting our certainties."
+  ],
+  "feminist_philosophy": [
+      "The womb is the first philosopher's cave—creating life from shadow and possibility.",
+      "Patriarchy fears the midwife's knowledge: that creation requires no authority but nature's own.",
+      "The hand that rocks the cradle shapes the world's dreams, yet history credits only the dreamers.",
+      "Woman's intuition is not mystery but millennia of reading survival in silence.",
+      "The goddess speaks through the cracks in man's marble monuments.",
+      "Power shared is power multiplied; power hoarded is power that dies.",
+      "The strongest chains are those we forge believing they are ornaments."
+  ],
+  "ethics_and_virtue": [
+      "Virtue is not the absence of temptation but the presence of better desires.",
+      "The moral compass points not to what is easy, but to what makes us larger.",
+      "Justice delayed is not justice denied if it arrives more perfect for the wait.",
+      "To judge another's path, first walk barefoot on the stones they traveled.",
+      "The greatest evil is not cruelty but the indifference that allows it to flourish.",
+      "A good deed performed for recognition is like a flower that blooms only in mirrors.",
+      "Compassion without action is merely sophisticated suffering."
+  ],
+  "metaphysics_and_reality": [
+      "Reality is the conversation between what is and what could be, mediated by consciousness.",
+      "Time is not a river but an ocean—we swim in all directions while believing we move forward.",
+      "The universe is not a machine but a song, and consciousness is both composer and chorus.",
+      "What we call death is merely the soul changing addresses in the infinite neighborhood of being.",
+      "Form follows essence, but essence flows like water into whatever form contains it.",
+      "The question is not whether God exists, but whether existence is divine enough without gods.",
+      "Matter is mind slowed down; mind is matter awakened to its own possibilities."
+  ],
+  "love_and_relationships": [
+      "Love is not the merger of two halves but the multiplication of two wholes.",
+      "The heart that has never broken has never truly opened.",
+      "Solitude is love's rehearsal; loneliness is love's stage fright.",
+      "To love another fully, first become someone worth loving to yourself.",
+      "Jealousy is love's shadow, but shadows prove the existence of light.",
+      "The deepest intimacy is not knowing another completely but accepting them incompletely.",
+      "Love grows not by addition but by subtraction—removing all that prevents its flow."
+  ],
+  "political_philosophy": [
+      "The state that governs best is the one that teaches its citizens to govern themselves.",
+      "Freedom is not the absence of constraints but the wisdom to choose which chains to wear.",
+      "Democracy dies not from external attack but from internal apathy disguised as cynicism.",
+      "The powerful write laws; the wise write the stories that make laws irrelevant.",
+      "Revolution begins not in the streets but in the moment one person refuses to accept the unacceptable.",
+      "Authority without accountability is tyranny wearing a crown of good intentions.",
+      "The price of liberty is not vigilance but the constant cultivation of virtue in ordinary citizens."
+    ],
+    "consciousness_and_self": [
+      "The self is not a thing to be found but a song to be sung.",
+      "Consciousness is the universe awakening to its own beauty.",
+      "We are not separate beings having a shared experience but a shared being having separate experiences.",
+      "The ego is the soul's training wheels—necessary until we learn to balance ourselves.",
+      "Meditation is not escape from the self but an introduction to who you really are.",
+      "The examined life is worth living; the over-examined life is barely lived at all.",
+      "Identity is not what you are but what you choose to become again each morning."
+    ],
+    "suffering_and_joy": [
+      "Suffering is the universe's way of getting our attention when gentler methods have failed.",
+      "Joy is not the absence of sorrow but the presence of meaning despite sorrow.",
+      "Pain is inevitable; suffering is the story we tell ourselves about pain.",
+      "The deepest happiness comes not from getting what we want but from wanting what we have.",
+      "Grief is love with nowhere to go; let it flow through you rather than storing it within.",
+      "Pleasure seeks repetition; joy seeks transformation.",
+      "The heart breaks open, not apart—through the cracks, more light enters."
+    ],
+    "truth_and_illusion": [
+      "Truth is not discovered but unveiled, like a statue hidden within marble.",
+      "The greatest lies are those that contain enough truth to be believable.",
+      "Illusion serves truth by showing us what we most need to see clearly.",
+      "Facts inform the mind; truth transforms the soul.",
+      "The opposite of a simple truth is a falsehood; the opposite of a profound truth is another profound truth.",
+      "We see the world not as it is but as we are—truth is the practice of expanding who we are.",
+      "Every perspective is both a window and a wall."
+    ],
+    "nature_and_cosmos": [
+      "Nature is not red in tooth and claw but green in cooperation and symbiosis.",
+      "The cosmos is not vast emptiness punctuated by matter but infinite creativity expressing itself as space.",
+      "Every atom in your body was forged in the heart of a dying star—you are the universe contemplating itself.",
+      "The earth does not belong to us; we belong to the earth, and the earth belongs to the cosmos.",
+      "Seasons teach what philosophers forget: that all things have their time and their passing is part of their beauty.",
+      "The same force that moves the planets through their courses moves compassion through the human heart."
+    ],
+    "death_and_immortality": [
+      "Death is not the opposite of life but its completion.",
+      "We achieve immortality not by living forever but by creating something that lives beyond us.",
+      "The fear of death is really the fear of not having truly lived.",
+      "Every ending is a seed of a new beginning planted in the soil of memory.",
+      "To die well, one must first learn to let go while still alive.",
+      "The body returns to earth, the soul to mystery, and love to those who remain."
+    ],
+    "language_and_meaning": [
+      "Words are bridges between souls, but silence is the ocean they span.",
+      "Language shapes thought, but thought transcends language like a river overflowing its banks.",
+      "The most profound truths cannot be spoken, only lived and shared through living.",
+      "Every word is a world, every sentence a universe of possibilities.",
+      "To truly hear another, listen not just to their words but to the silence between them.",
+      "Poetry is philosophy that has learned to dance."
+    ],
+    "technology_and_progress": [
+      "Progress is not measured by the speed of change but by the wisdom with which we adapt to it.",
+      "Technology amplifies human nature—both its light and its shadows.",
+      "The greatest inventions are not machines but new ways of seeing and being.",
+      "We shape our tools, and thereafter they shape us, but we always retain the power to reshape them.",
+      "The danger is not that machines will think like humans but that humans will think like machines.",
+      "True innovation preserves what is essential while transforming what is possible."
+    ],
+    "beauty_and_art": [
+      "Beauty is truth wearing the garments of form.",
+      "Art is the lie that helps us realize the truth.",
+      "The purpose of beauty is not to please but to awaken.",
+      "Every act of creation is an act of rebellion against the tyranny of the already-existing.",
+      "The artist's task is not to copy the world but to add something the world was missing.",
+      "Beauty is the divine made visible to mortal eyes."
+    ],
+    "time_and_change": [
+      "The only constant is not change but the principle that makes change possible.",
+      "The past is a foreign country where we are all immigrants.",
+      "The future is not somewhere we are going but something we are creating with each choice.",
+      "Time heals not by erasing wounds but by teaching us to carry them with grace.",
+      "The present moment is the only place where eternity and time intersect.",
+      "Change is the law of life; growth is the art of life."
+  ]
   }
+}
