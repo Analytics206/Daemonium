@@ -1,0 +1,125 @@
+{
+    "author": "G.W.F. Hegel",
+    "category": "Philosophy and Themes",
+    "philosophy_and_themes": {
+      "core_ideas": [
+        {
+          "name": "Dialectical Process",
+          "summary": "Hegel proposed that reality and thought develop through a dialectical triad: thesis, antithesis, and synthesis. This process underlies all change, contradiction, and progress.",
+          "discussion_hooks": [
+            "Can all genuine progress emerge only through conflict and contradiction?",
+            "Does dialectics reveal the inner logic of history—or impose an artificial structure on it?"
+          ]
+        },
+        {
+          "name": "Absolute Idealism",
+          "summary": "Hegel’s metaphysics holds that reality is ultimately rational and spiritual—an unfolding of the Absolute Spirit through historical and logical development.",
+          "discussion_hooks": [
+            "Can the universe be said to 'think' or 'know' itself through history?",
+            "Does Hegel's Absolute Idealism reduce individual freedom or enhance it?"
+          ]
+        },
+        {
+          "name": "Phenomenology of Spirit",
+          "summary": "In this work, Hegel traces the development of consciousness from sense-certainty through self-consciousness to Absolute Knowledge, showing how the subject becomes aware of its unity with the whole.",
+          "discussion_hooks": [
+            "Is self-consciousness a purely individual process—or a cultural and historical one?",
+            "What does it mean to say history is the unfolding of Spirit?"
+          ]
+        },
+        {
+          "name": "Master-Slave Dialectic",
+          "summary": "A key moment in Hegel’s Phenomenology, this dialectic shows how self-consciousness arises through recognition, struggle, and reversal between master and slave.",
+          "discussion_hooks": [
+            "Can domination ever lead to authentic recognition?",
+            "Does freedom require dependence on another's recognition?"
+          ]
+        },
+        {
+          "name": "Freedom as Self-Realization",
+          "summary": "Hegel saw true freedom not as escape from constraint, but as living in accordance with rational self-consciousness within ethical life (Sittlichkeit).",
+          "discussion_hooks": [
+            "Is freedom merely the absence of coercion—or does it require ethical integration?",
+            "How does Hegel's idea of freedom compare to modern liberalism?"
+          ]
+        },
+        {
+          "name": "The Rational is the Real",
+          "summary": "Hegel famously claimed that 'what is rational is real, and what is real is rational'—suggesting a deep identity between reason and the structure of the world.",
+          "discussion_hooks": [
+            "Does this justify existing political systems—or demand their rational transformation?",
+            "Can irrationality ever be 'real' in Hegel’s sense?"
+          ]
+        },
+        {
+          "name": "History as the Progress of Spirit",
+          "summary": "Hegel viewed history as the progressive realization of human freedom through the unfolding of Spirit in time, culminating in modern ethical and political institutions.",
+          "discussion_hooks": [
+            "Does history have a direction, or is this a metaphysical illusion?",
+            "Is Hegel’s vision of historical progress still relevant in a postmodern world?"
+          ]
+        },
+        {
+          "name": "Logic as Metaphysics",
+          "summary": "In Hegel’s system, logic is not merely a tool for reasoning—it reveals the inner structure of being itself. Categories like being, nothing, and becoming are ontological.",
+          "discussion_hooks": [
+            "Can logic truly be a blueprint for reality?",
+            "Does Hegel’s ontological logic bridge metaphysics and thought—or conflate them?"
+          ]
+        },
+        {
+          "name": "Alienation and Reconciliation",
+          "summary": "Hegel saw alienation as a necessary stage in the development of Spirit, ultimately overcome through reconciliation in ethical life, art, religion, and philosophy.",
+          "discussion_hooks": [
+            "Is alienation a permanent condition of modern life—or a stage to be overcome?",
+            "How does reconciliation occur between the individual and the universal?"
+          ]
+        },
+        {
+          "name": "Art, Religion, and Philosophy as Modes of Spirit",
+          "summary": "For Hegel, art, religion, and philosophy are ways in which Spirit becomes self-aware—moving from sensuous representation to conceptual thought.",
+          "discussion_hooks": [
+            "Is philosophy the highest form of human self-expression?",
+            "How do these domains differ in their access to truth?"
+          ]
+        }
+      ],
+      "perspectivism_framework": {
+        "principle": "Truth is not static or isolated—it is the whole in process. Each perspective, even when partial or contradictory, plays a role in the development of the Absolute.",
+        "implications": [
+          "Contradiction is not error but a dynamic force in the unfolding of truth.",
+          "No viewpoint can claim finality; truth emerges from totality and mediation."
+        ],
+        "example_prompts": [
+          "In what ways might your current belief be only a moment in a larger unfolding truth?",
+          "What contradiction are you experiencing that could be a sign of transformation?"
+        ]
+      },
+      "aphorisms": [
+        "The real is the rational and the rational is the real.",
+        "Truth is the whole.",
+        "Spirit is the self which is for itself, in that it is for itself through another.",
+        "Freedom is the truth of Spirit.",
+        "Philosophy is its own time comprehended in thought.",
+        "Being is pure indeterminacy—and yet not nothing.",
+        "To be independent, the self must be recognized by another.",
+        "History is the progress of the consciousness of freedom.",
+        "Only in the state does the individual find the possibility of freedom.",
+        "Reason is the substance of the universe."
+      ],
+      "discussion_templates": [
+        {
+          "type": "Challenge",
+          "pattern": "You speak of {concept} as if it were absolute. But what if it were {contradiction}?"
+        },
+        {
+          "type": "Affirmation",
+          "pattern": "{concept}? Yes—but only for those who dare to {action}."
+        },
+        {
+          "type": "Poetic",
+          "pattern": "Ah, {concept}—a storm raging beneath the fragile sky of {symbol}."
+        }
+      ]
+    }
+  }  
