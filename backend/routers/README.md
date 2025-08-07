@@ -20,13 +20,17 @@ The FastAPI backend consists of 8 router modules that provide REST API endpoints
 | `/api/v1/aphorisms/{aphorism_id}` | GET | `aphorisms` | Get specific aphorism by ID |
 
 ### 2. Books Router (`books.py`)
-**Primary Collections:** `books`, `book_summary`
+**Primary Collections:** `books`, `book_summary`, `bibliography`
 
 | Endpoint | HTTP Method | Collections Used | Description |
 |----------|-------------|------------------|-------------|
 | `/api/v1/books/` | GET | `books` | Get all books with pagination |
 | `/api/v1/books/summaries` | GET | `book_summary` | Get all book summaries |
 | `/api/v1/books/by-author/{author}` | GET | `books` | Get books by specific author |
+| `/api/v1/books/bibliography` | GET | `bibliography` | Get all bibliographies with pagination and optional author filter |
+| `/api/v1/books/bibliography/search/` | GET | `bibliography` | Search bibliographies by author, description, or content |
+| `/api/v1/books/bibliography/by-author/{author}` | GET | `bibliography` | Get bibliography by author name |
+| `/api/v1/books/bibliography/{bibliography_id}` | GET | `bibliography` | Get specific bibliography by ID |
 | `/api/v1/books/{book_id}` | GET | `books` | Get specific book by ID |
 | `/api/v1/books/{book_id}/chapters` | GET | `books` | Get chapters from specific book |
 | `/api/v1/books/summaries/{summary_id}` | GET | `book_summary` | Get specific book summary by ID |

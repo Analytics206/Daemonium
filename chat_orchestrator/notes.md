@@ -56,7 +56,7 @@ Dev Steps:
 - [ ] combine required data for master_orchestrator dataset
 - [ ] data should be stacked using philosophers dataset as master
 - [ ] data should be combined for two master_orchestrator datasets, is_active_chat = 0 or is_active_chat = 1
-- [ ] 2 datasets namedmaster_orchestrator and master_orchestrator_active
+- [ ] 2 datasets named master_orchestrator and master_orchestrator_active
 - [ ] master_orchestrator and master_orchestrator_active dataset:
     - philosophers
     - aphorisms
