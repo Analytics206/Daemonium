@@ -1,0 +1,82 @@
+{
+    "author_bibliography": {
+      "author": "René Descartes",
+      "category": "Bibliography",
+      "birth_death": "1596 - 1650",
+      "description": "René Descartes was a French philosopher, mathematician, and scientist, widely regarded as the father of modern philosophy. He pioneered a method of systematic doubt and emphasized rational deduction as the path to certain knowledge. Descartes’ work shaped the development of modern science and epistemology, with his famous dictum 'Cogito, ergo sum' ('I think, therefore I am') becoming foundational in Western thought.",
+      "background": "Descartes was born in La Haye en Touraine, France, and educated at Jesuit schools where he received training in scholastic philosophy and mathematics. After serving briefly in the military, he devoted himself to study and traveled extensively across Europe. Descartes lived much of his later life in the Dutch Republic, where he produced his most influential works. He sought to ground scientific knowledge on indubitable first principles through the use of reason.",
+      "works": [
+        {
+          "title": "Discourse on the Method",
+          "original_title": "Discours de la méthode",
+          "year": 1637,
+          "type": "Philosophical Treatise",
+          "summary": "Descartes presents his method for acquiring knowledge based on radical doubt, clarity, and deduction. The work introduces his famous statement 'I think, therefore I am' and outlines principles for philosophical and scientific reasoning. It includes early applications in optics, geometry, and meteorology."
+        },
+        {
+          "title": "Meditations on First Philosophy",
+          "original_title": "Meditationes de prima philosophia",
+          "year": 1641,
+          "type": "Metaphysical Treatise",
+          "summary": "A foundational work of modern philosophy, the *Meditations* presents Descartes' project of foundationalism. Through six meditations, he doubts all prior knowledge, establishes the cogito, argues for the existence of God, and attempts to reconcile the mind-body dualism. The work profoundly shaped subsequent metaphysics and epistemology."
+        },
+        {
+          "title": "Principles of Philosophy",
+          "original_title": "Principia Philosophiae",
+          "year": 1644,
+          "type": "Philosophical System/Science",
+          "summary": "An attempt to present a unified philosophical and scientific worldview, integrating metaphysics, physics, and natural science. Descartes offers his famous laws of motion, the concept of vortices in cosmology, and further elaboration on dualism. It was designed to replace Aristotelian philosophy in the universities."
+        },
+        {
+          "title": "Rules for the Direction of the Mind",
+          "original_title": "Regulae ad directionem ingenii",
+          "year": 1701,
+          "type": "Epistemology (Posthumously Published)",
+          "summary": "An unfinished early work in which Descartes outlines his theory of method and rules for acquiring knowledge. Though fragmentary, it anticipates themes developed later in the *Discourse* and *Meditations*, such as intuition, deduction, and clarity as criteria of truth."
+        },
+        {
+          "title": "Passions of the Soul",
+          "original_title": "Les Passions de l’âme",
+          "year": 1649,
+          "type": "Philosophy of Mind",
+          "summary": "A late work in which Descartes explores the emotions, their physical origins, and their interaction with the rational soul. It provides his final articulation of the mind-body dualism and attempts to explain the mechanisms of human behavior through a physiological and philosophical lens."
+        },
+        {
+          "title": "Geometry",
+          "original_title": "La Géométrie",
+          "year": 1637,
+          "type": "Mathematical Appendix",
+          "summary": "Appended to the *Discourse on the Method*, this mathematical work revolutionized geometry by introducing Cartesian coordinates. It laid the foundation for analytic geometry and helped bridge algebra and geometry into a unified mathematical system."
+        }
+      ],
+      "chronological_periods": {
+        "early_period": {
+          "characteristics": "Formative period including early writings on method and mathematics. Exploration of doubt and certainty begins, though still tied to scholastic structures.",
+          "themes": "Rational method, rules of thinking, mathematical reasoning, search for epistemic certainty."
+        },
+        "middle_period": {
+          "characteristics": "Mature metaphysical writings including *Discourse* and *Meditations*. Systematic exploration of doubt, existence, and God. Development of dualism and foundationalism.",
+          "themes": "Radical doubt, cogito, existence of God, dualism, clarity and distinctness, mind-body separation."
+        },
+        "late_period": {
+          "characteristics": "Integration of metaphysics with science. Focus on passions, cosmology, and mechanistic physics. Increasing polemic against Aristotelianism and scholasticism.",
+          "themes": "Human passions, mind-body interaction, laws of nature, mechanistic universe, rejection of scholastic metaphysics."
+        }
+      },
+      "major_themes": [
+        "Methodological Doubt",
+        "Cogito and the Self",
+        "Mind-Body Dualism",
+        "Clear and Distinct Ideas",
+        "Existence of God",
+        "Cartesian Rationalism",
+        "Foundational Epistemology",
+        "Analytic Geometry",
+        "Mechanistic Physics",
+        "Passions and Human Nature"
+      ],
+      "influence": "Descartes' ideas laid the foundation for modern philosophy, influencing rationalists like Spinoza and Leibniz, and provoking responses from empiricists like Locke and Hume. His dualism shaped debates in philosophy of mind for centuries. In mathematics, his coordinate system became a pillar of modern geometry. His challenge to Aristotelianism opened the door for modern science, reason-based inquiry, and Enlightenment thinking.",
+      "note": "Descartes' influence is foundational across philosophy, mathematics, and science. Though criticized for the mind-body split, his emphasis on reason and doubt permanently altered the trajectory of Western thought. He died in Stockholm while tutoring Queen Christina of Sweden."
+    }
+  }
+  
