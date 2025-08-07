@@ -1,5 +1,68 @@
 # Daemonium
 ---
+## Version 0.2.9 (August 6, 2025)
+
+### Major Features
+
+#### 🔍 Enhanced Ollama Validation Script
+- **Comprehensive Model Loading Logic** - Enhanced `scripts/build_neo4j_metadata/validate_ollama.py` with proper model loading and warmup timeouts
+- **Centralized Configuration Integration** - Full integration with `config/ollama_models.yaml` for model assignments, timeouts, and server settings
+- **Smart Fallback Testing** - Implements proper fallback strategy: test default model first, only test alternatives if default fails, stop at first passing alternative
+- **Progressive Model Loading** - Added `wait_for_model_loading()` method with progressive wait intervals [5, 10, 15, 20, 30] seconds
+- **Model Responsiveness Testing** - Quick 5-second tests to verify model availability before full validation
+- **Enhanced Timeout Management** - Uses config-driven timeouts:
+  - **Model-specific timeouts**: DeepSeek-R1 (160s), Llama3.2 (120s), Granite-Embedding (120s)
+  - **Task-type defaults**: All tasks now use 160s timeout for reliability
+  - **Model loading timeouts**: 160s for normal loading, 160s for initial warmup
+  - **Pull timeouts**: Calculated as model timeout × 3 (minimum 5 minutes)
+
+#### 📊 Comprehensive Validation Reporting
+- **Detailed Console Logging** - Enhanced logging with timeout information, response times, command outputs, and partial response previews
+- **Dual Report Generation** - Generates both text and JSON reports in `scripts/build_neo4j_metadata/reports/`
+- **Report Contents**:
+  - Execution details (start/end times, duration, config paths)
+  - Server status and response times
+  - Task validation summary (which model passed per task)
+  - Detailed model results (generation/embeddings test results)
+  - Configuration details (timeouts, alternatives, server URLs)
+  - Overall validation status (success/partial/failure)
+- **Developer-Friendly Output** - Verbose logging designed for analyst review with command lines, endpoints, and timing information
+
+#### ⚙️ Configuration Enhancements
+- **Missing Config Method** - Added `get_alternatives_for_task()` method to `config/ollama_config.py`
+- **Model Loading Configuration** - Enhanced config loader with model loading settings access
+- **Timeout Hierarchy** - Proper fallback chain: model-specific → task-default → global fallback
+- **Environment Variable Support** - Maintains support for `OLLAMA_MODEL_*` environment variable overrides
+
+#### 🎯 Validation Logic Improvements
+- **Smart Model Testing** - Tracks tested models to avoid redundant loading waits
+- **First Model Warmup** - Extended wait time for initial model startup (160s)
+- **Model Switching Logic** - Proper delays between different model tests
+- **Automatic Model Pulling** - Downloads missing models with appropriate timeouts
+- **Generation and Embeddings Testing** - Comprehensive functionality testing for all model types
+
+### Usage Examples
+```bash
+# Basic validation with detailed output
+python scripts/build_neo4j_metadata/validate_ollama.py --verbose
+
+# Custom config file
+python scripts/build_neo4j_metadata/validate_ollama.py --config /path/to/config.yaml
+
+# Check generated reports
+ls scripts/build_neo4j_metadata/reports/ollama_validation_*.txt
+ls scripts/build_neo4j_metadata/reports/ollama_validation_*.json
+```
+
+### Benefits
+- ✅ **Reliable Model Validation** - Proper loading timeouts prevent false negatives
+- ✅ **Production Ready** - Comprehensive error handling and detailed reporting
+- ✅ **Configuration Consistency** - Uses same config system as enhanced Neo4j knowledge graph builder
+- ✅ **Developer Insights** - Detailed logs and reports for troubleshooting and analysis
+- ✅ **Automated Workflow** - Can be integrated into CI/CD pipelines for Ollama environment validation
+- ✅ **Timeout Reliability** - Increased timeouts (160s) ensure stable validation on slower systems
+
+---
 ## Version 0.2.8 (July 31, 2025)
 
 ### Major Features

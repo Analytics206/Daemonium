@@ -1,0 +1,122 @@
+{
+  "start_time": "2025-08-06T17:59:10.126100",
+  "end_time": "2025-08-06T18:08:21.647966",
+  "total_duration": 551.521866,
+  "server_status": true,
+  "config_info": {
+    "server_url": "http://localhost:11434",
+    "config_path": "C:\\Users\\mad_p\\OneDrive\\Desktop\\Py Projects\\daemonium\\config\\ollama_models.yaml"
+  },
+  "task_results": {
+    "general_kg": "deepseek-r1:latest",
+    "semantic_similarity": null,
+    "concept_clustering": "llama3.2:latest"
+  },
+  "test_results": [
+    {
+      "model": "deepseek-r1:latest",
+      "type": "general_kg",
+      "available": true,
+      "generation_test": {
+        "success": true,
+        "result": "<think>\nOkay, the user asked \"What is philosophy?\" and wants a one-sentence answer. Let me start by ..."
+      },
+      "embeddings_test": {
+        "success": false,
+        "result": ""
+      },
+      "overall_status": "PASSED"
+    },
+    {
+      "model": "granite-embedding:278m",
+      "type": "semantic_similarity",
+      "available": true,
+      "generation_test": {
+        "success": false,
+        "result": "HTTP 400"
+      },
+      "embeddings_test": {
+        "success": false,
+        "result": "HTTP 500"
+      },
+      "overall_status": "FAILED"
+    },
+    {
+      "model": "snowflake-arctic-embed2:latest",
+      "type": "semantic_similarity",
+      "available": true,
+      "generation_test": {
+        "success": false,
+        "result": "HTTP 400"
+      },
+      "embeddings_test": {
+        "success": false,
+        "result": "HTTP 500"
+      },
+      "overall_status": "FAILED"
+    },
+    {
+      "model": "mxbai-embed-large:latest",
+      "type": "semantic_similarity",
+      "available": true,
+      "generation_test": {
+        "success": false,
+        "result": "HTTP 400"
+      },
+      "embeddings_test": {
+        "success": false,
+        "result": "HTTP 500"
+      },
+      "overall_status": "FAILED"
+    },
+    {
+      "model": "nomic-embed-text:latest",
+      "type": "semantic_similarity",
+      "available": true,
+      "generation_test": {
+        "success": false,
+        "result": "HTTP 400"
+      },
+      "embeddings_test": {
+        "success": true,
+        "result": "Embedding dimension: 768"
+      },
+      "overall_status": "FAILED"
+    },
+    {
+      "model": "all-minilm:latest",
+      "type": "semantic_similarity",
+      "available": true,
+      "generation_test": {
+        "success": false,
+        "result": "HTTP 400"
+      },
+      "embeddings_test": {
+        "success": true,
+        "result": "Embedding dimension: 384"
+      },
+      "overall_status": "FAILED"
+    },
+    {
+      "model": "llama3.2:latest",
+      "type": "concept_clustering",
+      "available": true,
+      "generation_test": {
+        "success": true,
+        "result": "Philosophy is the study of fundamental nature of existence, knowledge, values, and reality through c..."
+      },
+      "embeddings_test": {
+        "success": false,
+        "result": ""
+      },
+      "overall_status": "PASSED"
+    }
+  ],
+  "summary": {
+    "total_models_tested": 7,
+    "functional_models": 2,
+    "failed_models": 5,
+    "success_rate": 28.57142857142857
+  },
+  "server_response_time": 2.086498498916626
+}

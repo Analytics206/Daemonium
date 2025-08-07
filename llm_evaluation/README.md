@@ -16,7 +16,7 @@ This project evaluates **Ollama embedding models** for **Knowledge Graph constru
 8. [Useful Resources](#useful-resources)
 
 #### 🔍 Embedding Model Evaluation
-Daemonium includes a comprehensive evaluation system for selecting the best embedding models for knowledge graph construction. Based on our evaluation results, **`llama3.1:latest` is now the default embedding model** for both knowledge graph builder scripts.
+Daimonion includes a comprehensive evaluation system for selecting the best embedding models for knowledge graph construction. Based on our evaluation results, **`llama3.1:latest` is now the default embedding model** for both knowledge graph builder scripts.
 
 **Quick Start-0:**
 ```bash

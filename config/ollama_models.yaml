@@ -1,0 +1,133 @@
+# Ollama Model Configuration for Daemonium System
+# This file centralizes model assignments and timeout settings for all scripts
+
+# Model Assignments for Different Task Types
+models:
+  # General Knowledge Graph Tasks (relationship analysis, philosophical influence, argument extraction)
+  general_kg:
+    default: "deepseek-r1:latest"
+    alternatives:
+      - "llama3.1:latest"
+      - "mistral:latest"
+      - "qwen3-coder:latest"
+    description: "Large reasoning models for complex philosophical analysis"
+  
+  # Semantic Similarity Tasks (embeddings, similarity calculations, conceptual analysis)
+  semantic_similarity:
+    default: "granite-embedding:278m"
+    alternatives:
+      - "snowflake-arctic-embed2:latest"
+      - "mxbai-embed-large:latest"
+      - "nomic-embed-text:latest"
+      - "all-minilm:latest"
+    description: "Specialized embedding models for semantic similarity"
+  
+  # Concept Clustering Tasks (concept extraction, clustering, content categorization)
+  concept_clustering:
+    default: "llama3.2:latest"
+    alternatives:
+      - "llama3.1:latest"
+      - "gemma3:12b"
+      - "mistral:latest"
+    description: "Models optimized for concept extraction and clustering"
+
+# Timeout Settings (in seconds)
+timeouts:
+  # Model-specific timeouts based on model characteristics
+  model_specific:
+    # Large reasoning models (DeepSeek, R1 variants)
+    "deepseek-r1:latest": 160
+    "deepseek-r1:14b": 160
+    
+    # Medium language models
+    "llama3.1:latest": 120
+    "llama3.2:latest": 120
+    "gemma3:12b": 120
+    "mistral:latest": 120
+    "qwen3-coder:latest": 120
+    
+    # Embedding models
+    "granite-embedding:278m": 120
+    "snowflake-arctic-embed2:latest": 45
+    "snowflake-arctic-embed:latest": 30
+    "mxbai-embed-large:latest": 45
+    "nomic-embed-text:latest": 30
+    "all-minilm:latest": 20
+    "all-minilm:l6-v2": 20
+  
+  # Task-type based defaults (used if model-specific timeout not found)
+  task_defaults:
+    general_kg: 160
+    semantic_similarity: 160
+    concept_clustering: 160
+    embedding_generation: 160
+  
+  # Retry and loading settings
+  retry:
+    max_attempts: 3
+    base_delay: 2  # seconds
+    backoff_multiplier: 2  # exponential backoff
+  
+  model_loading:
+    max_wait: 160  # seconds to wait for model loading
+    test_timeout: 5  # seconds for quick model availability test
+    warmup_timeout: 160  # seconds for initial model warmup
+
+# Ollama Server Configuration
+server:
+  url: "http://localhost:11434"
+  endpoints:
+    generate: "/api/generate"
+    embeddings: "/api/embeddings"
+    tags: "/api/tags"
+  
+  # Connection settings
+  connection_timeout: 10
+  read_timeout: 400
+
+# Fallback Settings
+fallbacks:
+  # If primary model fails, try these in order
+  general_kg_fallbacks:
+    - "llama3.1:latest"
+    - "mistral:latest"
+  
+  embedding_fallbacks:
+    - "all-minilm:latest"
+    - "nomic-embed-text:latest"
+  
+  clustering_fallbacks:
+    - "llama3.1:latest"
+    - "mistral:latest"
+
+# Environment-specific overrides (can be set via environment variables)
+# Format: OLLAMA_MODEL_<TASK_TYPE>=model_name
+# Example: OLLAMA_MODEL_GENERAL_KG=custom-model:latest
+environment_overrides:
+  enabled: true
+  prefix: "OLLAMA_MODEL_"
+
+# Logging configuration for model operations
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  log_model_loading: true
+  log_timeouts: true
+  log_retries: true
+  log_fallbacks: true
+
+# Performance optimization settings
+performance:
+  # Cache settings
+  enable_embedding_cache: true
+  max_cache_size: 10000
+  
+  # Batch processing
+  max_batch_size: 10
+  batch_delay: 1  # seconds between batches
+  
+  # Model warmup
+  warmup_on_startup: true
+  warmup_all_models: false  # Only warmup assigned models
+  
+  # Memory management
+  clear_cache_threshold: 8000  # Clear cache when this many items

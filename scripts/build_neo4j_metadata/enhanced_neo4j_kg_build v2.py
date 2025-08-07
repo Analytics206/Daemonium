@@ -30,29 +30,26 @@ from urllib.parse import quote_plus
 from datetime import datetime
 import os
 import sys
-import time
-from functools import wraps
 
 relationshipstocreate = 33
 
-# Add utils and config directories to path
+# Add utils directory to path
 sys.path.append(str(Path(__file__).parent.parent / 'utils'))
-sys.path.append(str(Path(__file__).parent.parent.parent / 'config'))
 from neo4j_database_utils import get_neo4j_database_config, get_neo4j_connection_uri, get_neo4j_auth, print_database_info, create_database_if_not_exists
-from ollama_config import get_ollama_config
 
 
 class EnhancedKnowledgeGraphBuilder:
     def __init__(self, config_path: str = None, 
-                 ollama_url: str = None, 
-                 general_kg_model: str = None,
-                 semantic_similarity_model: str = None, 
-                 concept_clustering_model: str = None,
+                 ollama_url: str = "http://localhost:11434", 
+                 # Multi-model configuration for specialized tasks
+                 general_kg_model: str = "deepseek-r1:latest",
+                 semantic_similarity_model: str = "granite-embedding:278m", 
+                 concept_clustering_model: str = "llama3.2:latest",
+                 # Legacy parameters for backward compatibility
                  ollama_model: str = None,
                  embedding_model: str = None,
                  use_sentence_transformer: bool = False,
-                 target_database: str = None,
-                 ollama_config_path: str = None):
+                 target_database: str = None):
         
         # Setup logging
         logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -105,39 +102,22 @@ class EnhancedKnowledgeGraphBuilder:
         # Clear existing graph (optional - remove if you want to preserve data)
         self.graph.delete_all()
         
-        # Load centralized Ollama configuration
-        self.ollama_config = get_ollama_config(ollama_config_path)
+        # Multi-Model AI Configuration
+        self.ollama_url = ollama_url
         
-        # Model assignments with centralized config and backward compatibility
-        # Handle legacy parameters for backward compatibility
-        if ollama_model:  # Legacy parameter
-            self.general_kg_model = ollama_model
-        elif general_kg_model:  # CLI override
-            self.general_kg_model = general_kg_model
-        else:
-            self.general_kg_model = self.ollama_config.get_model_for_task('general_kg')
-            
-        if embedding_model:  # Legacy parameter
-            self.semantic_similarity_model = embedding_model
-        elif semantic_similarity_model:  # CLI override
-            self.semantic_similarity_model = semantic_similarity_model
-        else:
-            self.semantic_similarity_model = self.ollama_config.get_model_for_task('semantic_similarity')
-            
-        if concept_clustering_model:  # CLI override
-            self.concept_clustering_model = concept_clustering_model
-        else:
-            self.concept_clustering_model = self.ollama_config.get_model_for_task('concept_clustering')
+        # Handle backward compatibility with legacy parameters
+        if ollama_model is not None:
+            general_kg_model = ollama_model
+            self.logger.info(f"Using legacy ollama_model parameter: {ollama_model}")
+        if embedding_model is not None:
+            semantic_similarity_model = embedding_model
+            self.logger.info(f"Using legacy embedding_model parameter: {embedding_model}")
         
-        # Server configuration
-        self.ollama_url = ollama_url or self.ollama_config.get_server_url()
+        # Specialized model assignments
+        self.general_kg_model = general_kg_model  # For general KG tasks, relationship analysis
+        self.semantic_similarity_model = semantic_similarity_model  # For embeddings and similarity
+        self.concept_clustering_model = concept_clustering_model  # For concept extraction and clustering
         self.use_sentence_transformer = use_sentence_transformer
-        
-        # Load additional configuration if provided
-        self.config = {}
-        if config_path and Path(config_path).exists():
-            with open(config_path, 'r') as f:
-                self.config = yaml.safe_load(f)
         
         # Log model assignments
         self.logger.info(f"Model Configuration:")
@@ -165,218 +145,61 @@ class EnhancedKnowledgeGraphBuilder:
         
         logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
-        
-        # Warm up models at startup to avoid loading delays during processing
-        self._warmup_models()
-    
-    def _wait_for_model_load(self, model_name: str, max_wait: int = None):
-        """Wait for model to load with progress indication using centralized config"""
-        # Use config-based max_wait if not provided
-        if max_wait is None:
-            loading_config = self.ollama_config.get_model_loading_config()
-            max_wait = loading_config.get('max_wait', 90)
-        
-        self.logger.info(f"Checking if model {model_name} needs loading...")
-        start_time = time.time()
-        
-        # Test with a simple prompt to see if model loads quickly
-        test_response = self._quick_model_test(model_name)
-        if test_response:
-            return True
-            
-        self.logger.info(f"Model {model_name} appears to be loading, waiting...")
-        
-        # Progressive wait with status checks
-        wait_intervals = [5, 10, 15, 15, 15]  # Total: 60 seconds max
-        
-        for i, wait_time in enumerate(wait_intervals):
-            if time.time() - start_time > max_wait:
-                self.logger.warning(f"Model {model_name} loading timeout after {max_wait}s")
-                return False
-                
-            self.logger.info(f"Waiting {wait_time}s for model loading... ({i+1}/{len(wait_intervals)})")
-            time.sleep(wait_time)
-            
-            # Test if model is ready
-            if self._quick_model_test(model_name):
-                elapsed = time.time() - start_time
-                self.logger.info(f"Model {model_name} loaded successfully in {elapsed:.1f}s")
-                return True
-                
-        return False
-    
-    def _quick_model_test(self, model_name: str) -> bool:
-        """Quick test to see if model responds using centralized config"""
-        try:
-            loading_config = self.ollama_config.get_model_loading_config()
-            test_timeout = loading_config.get('test_timeout', 5)
-            
-            generate_url = self.ollama_config.get_endpoint_url('generate')
-            response = requests.post(
-                generate_url,
-                json={
-                    "model": model_name,
-                    "prompt": "Hi",
-                    "stream": False
-                },
-                timeout=test_timeout
-            )
-            return response.status_code == 200
-        except:
-            return False
-    
-    def _warmup_models(self):
-        """Warm up all models at startup to avoid loading delays during processing"""
-        # Check if warmup is enabled in config
-        if not self.ollama_config.should_warmup_on_startup():
-            self.logger.info("Model warmup disabled in configuration")
-            return
-        
-        # Determine which models to warm up
-        if self.ollama_config.should_warmup_all_models():
-            # Get all available models from config
-            models_to_warmup = []
-            for task_type, model_config in self.ollama_config.models.items():
-                models_to_warmup.append(model_config.default)
-                models_to_warmup.extend(model_config.alternatives)
-        else:
-            # Only warm up assigned models
-            models_to_warmup = [
-                self.general_kg_model,
-                self.semantic_similarity_model, 
-                self.concept_clustering_model
-            ]
-        
-        # Remove duplicates while preserving order
-        unique_models = []
-        for model in models_to_warmup:
-            if model and model not in unique_models:
-                unique_models.append(model)
-        
-        self.logger.info(f"Warming up {len(unique_models)} models...")
-        
-        # Get warmup timeout from config
-        loading_config = self.ollama_config.get_model_loading_config()
-        warmup_timeout = loading_config.get('warmup_timeout', 120)
-        
-        for i, model in enumerate(unique_models, 1):
-            self.logger.info(f"[{i}/{len(unique_models)}] Warming up model: {model}")
-            success = self._wait_for_model_load(model, max_wait=warmup_timeout)
-            if success:
-                self.logger.info(f"✓ Model {model} ready")
-            else:
-                self.logger.warning(f"✗ Model {model} failed to warm up")
-        
-        self.logger.info("Model warmup complete!")
     
     def query_ollama(self, prompt: str, model_override: str = None) -> str:
-        """Query Ollama local model with robust timeout and model loading handling
+        """Query Ollama local model with optimized timeout
         
         Args:
             prompt: The prompt to send to the model
             model_override: Optional model to use instead of default general_kg_model
         """
         model_to_use = model_override if model_override else self.general_kg_model
-        
-        # Get timeout from centralized configuration
-        timeout = self.ollama_config.get_timeout_for_model(model_to_use, 'general_kg')
-        
-        # Wait for model to load if needed
-        if not self._wait_for_model_load(model_to_use):
-            self.logger.error(f"Model {model_to_use} failed to load")
+        try:
+            response = requests.post(
+                f"{self.ollama_url}/api/generate",
+                json={
+                    "model": model_to_use,
+                    "prompt": prompt,
+                    "stream": False
+                },
+                timeout=10  # Reduced timeout for faster failure
+            )
+            if response.status_code == 200:
+                return response.json().get('response', '')
+            else:
+                self.logger.warning(f"Ollama request failed: {response.status_code}")
+                return ""
+        except requests.exceptions.Timeout:
+            self.logger.warning("Ollama request timed out (10s)")
             return ""
-        
-        # Get retry configuration from centralized config
-        retry_config = self.ollama_config.get_retry_config()
-        max_retries = retry_config.get('max_attempts', 3)
-        base_delay = retry_config.get('base_delay', 2)
-        backoff_multiplier = retry_config.get('backoff_multiplier', 2)
-        
-        for attempt in range(max_retries):
-            try:
-                if attempt > 0:
-                    delay = base_delay * (backoff_multiplier ** (attempt - 1))
-                    self.logger.info(f"Retrying Ollama request (attempt {attempt + 1}/{max_retries}) after {delay}s...")
-                    time.sleep(delay)
-                
-                generate_url = self.ollama_config.get_endpoint_url('generate')
-                response = requests.post(
-                    generate_url,
-                    json={
-                        "model": model_to_use,
-                        "prompt": prompt,
-                        "stream": False
-                    },
-                    timeout=timeout
-                )
-                
-                if response.status_code == 200:
-                    result = response.json().get('response', '')
-                    if result.strip():  # Ensure we got a meaningful response
-                        return result
-                    else:
-                        self.logger.warning(f"Empty response from {model_to_use} on attempt {attempt + 1}")
-                        continue
-                else:
-                    self.logger.warning(f"Ollama request failed: {response.status_code} on attempt {attempt + 1}")
-                    
-            except requests.exceptions.Timeout:
-                self.logger.warning(f"Ollama request timed out ({timeout}s) on attempt {attempt + 1}")
-            except Exception as e:
-                self.logger.error(f"Error querying Ollama on attempt {attempt + 1}: {e}")
-        
-        self.logger.error(f"All {max_retries} attempts failed for model {model_to_use}")
-        return ""
+        except Exception as e:
+            self.logger.error(f"Error querying Ollama: {e}")
+            return ""
     
     def get_ollama_embedding(self, text: str) -> np.ndarray:
-        """Get embedding from Ollama model using semantic similarity model with robust error handling"""
-        # Wait for embedding model to load if needed
-        loading_config = self.ollama_config.get_model_loading_config()
-        max_wait = loading_config.get('max_wait', 90)
-        if not self._wait_for_model_load(self.semantic_similarity_model, max_wait=max_wait):
-            self.logger.error(f"Embedding model {self.semantic_similarity_model} failed to load")
-            return np.zeros(4096)
-        
-        # Get timeout and retry config from centralized configuration
-        timeout = self.ollama_config.get_timeout_for_model(self.semantic_similarity_model, 'semantic_similarity')
-        retry_config = self.ollama_config.get_retry_config()
-        max_retries = min(retry_config.get('max_attempts', 3), 2)  # Limit embedding retries to 2
-        base_delay = retry_config.get('base_delay', 2)
-        
-        for attempt in range(max_retries):
-            try:
-                if attempt > 0:
-                    delay = base_delay * attempt
-                    self.logger.info(f"Retrying embedding request (attempt {attempt + 1}/{max_retries}) after {delay}s...")
-                    time.sleep(delay)
-                
-                embeddings_url = self.ollama_config.get_endpoint_url('embeddings')
-                response = requests.post(
-                    embeddings_url,
-                    json={
-                        "model": self.semantic_similarity_model,
-                        "prompt": text
-                    },
-                    timeout=timeout
-                )
-                
-                if response.status_code == 200:
-                    embedding = response.json().get('embedding', [])
-                    if embedding:
-                        return np.array(embedding)
-                    else:
-                        self.logger.warning(f"Empty embedding received from Ollama on attempt {attempt + 1}")
-                        continue
+        """Get embedding from Ollama model using semantic similarity model"""
+        try:
+            response = requests.post(
+                f"{self.ollama_url}/api/embeddings",
+                json={
+                    "model": self.semantic_similarity_model,
+                    "prompt": text
+                },
+                timeout=30
+            )
+            if response.status_code == 200:
+                embedding = response.json().get('embedding', [])
+                if embedding:
+                    return np.array(embedding)
                 else:
-                    self.logger.warning(f"Ollama embedding request failed: {response.status_code} on attempt {attempt + 1}")
-                    
-            except requests.exceptions.Timeout:
-                self.logger.warning(f"Ollama embedding request timed out ({timeout}s) on attempt {attempt + 1}")
-            except Exception as e:
-                self.logger.error(f"Error getting Ollama embedding on attempt {attempt + 1}: {e}")
-        
-        self.logger.error(f"All {max_retries} embedding attempts failed")
-        return np.zeros(4096)  # Default embedding size
+                    self.logger.warning("Empty embedding received from Ollama")
+                    return np.zeros(4096)  # Default embedding size for llama3.1
+            else:
+                self.logger.warning(f"Ollama embedding request failed: {response.status_code}")
+                return np.zeros(4096)
+        except Exception as e:
+            self.logger.error(f"Error getting Ollama embedding: {e}")
+            return np.zeros(4096)
     
     def extract_concepts_with_ollama(self, text: str) -> List[str]:
         """Use Ollama to extract philosophical concepts from text using concept clustering model"""
@@ -1280,32 +1103,26 @@ if __name__ == "__main__":
     import argparse
     
     # Parse command line arguments
-    parser = argparse.ArgumentParser(description='Build enhanced Neo4j knowledge graph with specialized multi-model support and centralized configuration')
+    parser = argparse.ArgumentParser(description='Build enhanced Neo4j knowledge graph with specialized multi-model support')
     parser.add_argument('--database', '-d', type=str, help='Target Neo4j database name')
-    parser.add_argument('--ollama-url', type=str, help='Ollama server URL (overrides config file)')
+    parser.add_argument('--ollama-url', type=str, default="http://localhost:11434", help='Ollama server URL')
     
-    # Configuration file arguments
-    parser.add_argument('--ollama-config', type=str, help='Path to Ollama models configuration file (YAML)')
-    parser.add_argument('--config', type=str, help='Path to main configuration file')
-    
-    # New specialized model arguments (override config file settings)
-    parser.add_argument('--general-kg-model', type=str, 
-                       help='Model for general knowledge graph tasks and relationship analysis (overrides config)')
-    parser.add_argument('--semantic-similarity-model', type=str, 
-                       help='Model for semantic similarity and embedding tasks (overrides config)')
-    parser.add_argument('--concept-clustering-model', type=str, 
-                       help='Model for concept extraction and clustering tasks (overrides config)')
+    # New specialized model arguments
+    parser.add_argument('--general-kg-model', type=str, default="deepseek-r1:latest", 
+                       help='Model for general knowledge graph tasks and relationship analysis')
+    parser.add_argument('--semantic-similarity-model', type=str, default="granite-embedding:278m", 
+                       help='Model for semantic similarity and embedding tasks')
+    parser.add_argument('--concept-clustering-model', type=str, default="llama3.2:latest", 
+                       help='Model for concept extraction and clustering tasks')
     
     # Legacy arguments for backward compatibility
-    parser.add_argument('--ollama-model', type=str, help='Legacy: Ollama model to use (overrides general-kg-model and config)')
-    parser.add_argument('--embedding-model', type=str, help='Legacy: Model for embeddings (overrides semantic-similarity-model and config)')
+    parser.add_argument('--ollama-model', type=str, help='Legacy: Ollama model to use (overrides general-kg-model)')
+    parser.add_argument('--embedding-model', type=str, help='Legacy: Model for embeddings (overrides semantic-similarity-model)')
     parser.add_argument('--use-sentence-transformer', action='store_true', help='Use SentenceTransformer instead of Ollama for embeddings')
     args = parser.parse_args()
     
-    # Configuration is loaded automatically from config/ollama_models.yaml
-    # CLI arguments override configuration file settings
-    OLLAMA_CONFIG_PATH = args.ollama_config
-    CONFIG_PATH = args.config
+    # Configuration is loaded automatically from config/default.yaml
+    # You can optionally specify Ollama settings and target database
     OLLAMA_URL = args.ollama_url
     GENERAL_KG_MODEL = args.general_kg_model
     SEMANTIC_SIMILARITY_MODEL = args.semantic_similarity_model
@@ -1317,30 +1134,16 @@ if __name__ == "__main__":
     USE_SENTENCE_TRANSFORMER = args.use_sentence_transformer
     TARGET_DATABASE = args.database
     
-    # Load configuration to show actual models that will be used
-    try:
-        temp_config = get_ollama_config(OLLAMA_CONFIG_PATH)
-        actual_general = OLLAMA_MODEL or GENERAL_KG_MODEL or temp_config.get_model_for_task('general_kg')
-        actual_semantic = EMBEDDING_MODEL or SEMANTIC_SIMILARITY_MODEL or temp_config.get_model_for_task('semantic_similarity')
-        actual_clustering = CONCEPT_CLUSTERING_MODEL or temp_config.get_model_for_task('concept_clustering')
-    except Exception as e:
-        # Fallback to CLI args if config loading fails
-        actual_general = OLLAMA_MODEL or GENERAL_KG_MODEL or "deepseek-r1:latest"
-        actual_semantic = EMBEDDING_MODEL or SEMANTIC_SIMILARITY_MODEL or "granite-embedding:278m"
-        actual_clustering = CONCEPT_CLUSTERING_MODEL or "llama3.2:latest"
-    
     # Print model configuration
     print("\n=== Multi-Model Configuration ===")
-    print(f"General KG Tasks: {actual_general}")
-    print(f"Semantic Similarity: {actual_semantic}")
-    print(f"Concept Clustering: {actual_clustering}")
+    print(f"General KG Tasks: {OLLAMA_MODEL if OLLAMA_MODEL else GENERAL_KG_MODEL}")
+    print(f"Semantic Similarity: {EMBEDDING_MODEL if EMBEDDING_MODEL else SEMANTIC_SIMILARITY_MODEL}")
+    print(f"Concept Clustering: {CONCEPT_CLUSTERING_MODEL}")
     print(f"Use SentenceTransformer: {USE_SENTENCE_TRANSFORMER}")
     print("=================================\n")
     
     try:
         builder = EnhancedKnowledgeGraphBuilder(
-            config_path=CONFIG_PATH,
-            ollama_config_path=OLLAMA_CONFIG_PATH,
             ollama_url=OLLAMA_URL,
             general_kg_model=GENERAL_KG_MODEL,
             semantic_similarity_model=SEMANTIC_SIMILARITY_MODEL,

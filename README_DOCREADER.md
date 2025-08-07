@@ -12,7 +12,7 @@ The Document Reader MCP server enables reading and analyzing markdown and text f
 
 ### Quick Setup:
 
-1. **Use the custom Python MCP server** (already created in your Daemonium project)
+1. **Use the custom Python MCP server** (already created in your Daimonion project)
 2. **Configure Windsurf IDE** with this simple setup:
 
 ```json
@@ -308,7 +308,7 @@ Read the README.md file and then use TTS to speak the installation instructions
 
 ## 🔗 Useful Links
 
-- [Daemonium Project Repository](https://github.com/your-repo/daemonium)
+- [Daimonion Project Repository](https://github.com/your-repo/daemonium)
 - [Windsurf IDE Documentation](https://windsurf.com/)
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.io/)
 - [Python Documentation](https://docs.python.org/)

@@ -12,7 +12,7 @@ The MCP-TTS server enables text-to-speech functionality in Windsurf IDE chat con
 
 ### Quick Setup for Free Windows TTS:
 
-1. **Use the custom Python MCP server** (already created in your Daemonium project)
+1. **Use the custom Python MCP server** (already created in your Daimonion project)
 2. **Configure Windsurf IDE** with this simple setup:
 
 ```json

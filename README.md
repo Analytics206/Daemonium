@@ -1,7 +1,7 @@
 
-# 🧠 Daemonium
+# 🧠 Daimonion
 ## Overview
-Daemonium is an AI-powered conversational platform that brings philosophy to life through interactive dialogues with historical thinkers. This innovative application enables users to explore philosophical concepts, engage in thought-provoking conversations, and gain deeper insights into the works of great philosophers.
+Daimonion is an AI-powered conversational platform that brings philosophy to life through interactive dialogues with historical thinkers. This innovative application enables users to explore philosophical concepts, engage in thought-provoking conversations, and gain deeper insights into the works of great philosophers.
 
 ### 🎯 Core Objectives
 - **Interactive Learning**: Make philosophy accessible and engaging through AI-powered conversations
@@ -31,7 +31,7 @@ Daemonium is an AI-powered conversational platform that brings philosophy to lif
 
 #### 🗄️ Neo4j Enterprise Edition Multi-Database Support
 
-Daemonium leverages Neo4j Enterprise Edition's multi-database capabilities to provide isolated environments for comparison and experimental work:
+Daimonion leverages Neo4j Enterprise Edition's multi-database capabilities to provide isolated environments for comparison and experimental work:
 
 **Available Databases:**
 - **`daemonium-primary`** - Primary knowledge graph for production data
@@ -54,46 +54,104 @@ python scripts/manage_neo4j_databases.py stats daemonium-primary
 python scripts/manage_neo4j_databases.py clear daemonium-experimental
 ```
 
-**Knowledge Graph Building with Embedding Model Selection:**
+**Knowledge Graph Building with Centralized Multi-Model Configuration:**
 
-Both scripts now support flexible embedding model selection based on evaluation results. By default, they use `llama3.1:latest` for both embeddings and semantic analysis, which performed best in our comprehensive evaluation.
+The enhanced Neo4j knowledge graph builder features a **centralized configuration system** with specialized 3-model support, robust timeout handling, and intelligent model loading. All timeout and model loading issues have been resolved with the new configuration-driven approach.
+
+**🎯 Model Specialization with Centralized Config:**
+- **General KG Tasks** (`deepseek-r1:latest`): Relationship analysis, philosophical influence analysis, argument extraction, thematic analysis
+- **Semantic Similarity** (`granite-embedding:278m`): Embeddings generation, similarity calculations, conceptual similarity analysis  
+- **Concept Clustering** (`llama3.2:latest`): Concept extraction, concept clustering, philosophical content categorization
+
+**⚙️ Centralized Configuration System:**
+- **Configuration File**: `config/ollama_models.yaml` - Central YAML config for all model settings
+- **Model-Specific Timeouts**: DeepSeek-R1 (120s), Llama3.2 (60s), Embeddings (60s)
+- **Intelligent Retry Logic**: Exponential backoff with configurable attempts
+- **Model Loading Detection**: Progressive wait intervals with status checks
+- **Startup Model Warmup**: Preloads models to eliminate loading delays
+- **Fallback Models**: Alternative models for each task type
+- **Environment Overrides**: `OLLAMA_MODEL_*` environment variables
+
+**🚀 Usage Examples:**
 
 ```bash
-# Build knowledge graph with default settings (llama3.1:latest for both embeddings and semantic analysis)
+# Build knowledge graph with default centralized config (recommended)
 python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
-python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py
 
 # Build knowledge graph in specific database
-python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py --database daemonium-primary
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --database daemonium-primary
 python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --database daemonium-comparison
 
-# Use different models for embeddings vs semantic analysis
-python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --embedding-model llama3.1:latest --ollama-model llama3.2:latest
-python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py --embedding-model snowflake-arctic-embed --ollama-model llama3.1:latest
+# Use custom configuration file
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py \
+  --ollama-config /path/to/custom_ollama_config.yaml
 
-# Switch back to SentenceTransformer for embeddings (if needed)
-python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --use-sentence-transformer
-python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py --use-sentence-transformer --database daemonium-experimental
+# Override specific models (overrides config file)
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py \
+  --general-kg-model "custom-reasoning-model" \
+  --semantic-similarity-model "custom-embedding-model" \
+  --concept-clustering-model "custom-clustering-model"
 
-# Use environment variable for database selection
-set NEO4J_TARGET_DATABASE=daemonium-experimental
+# Use environment variables for model overrides
+OLLAMA_MODEL_GENERAL_KG=custom-model \
+OLLAMA_MODEL_SEMANTIC_SIMILARITY=custom-embedding \
 python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py
-python scripts/build_neo4j_metadata/improved_neo4j_kg_build.py
 
-# Full command with all options
+# Legacy compatibility (still supported)
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py \
+  --ollama-model "llama3.1:latest" \
+  --embedding-model "snowflake-arctic-embed"
+
+# Custom server URL (overrides config)
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py \
+  --ollama-url http://custom-server:11434
+
+# Switch back to SentenceTransformer for embeddings
+python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --use-sentence-transformer
+
+# Full command with config and database options
 python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py \
   --database daemonium-primary \
-  --ollama-url http://localhost:11434 \
-  --ollama-model llama3.1:latest \
-  --embedding-model llama3.1:latest
+  --ollama-config config/custom_models.yaml \
+  --general-kg-model "deepseek-r1:latest"
 ```
 
-**Available Command Line Options (both scripts):**
+**🔧 Enhanced Command Line Options:**
+
+**Configuration Parameters:**
+- `--ollama-config` - Path to Ollama models configuration file (YAML)
+- `--config` - Path to main configuration file
 - `--database`, `-d` - Target Neo4j database name (e.g., daemonium-primary)
-- `--ollama-url` - Ollama server URL (default: http://localhost:11434)
-- `--ollama-model` - Ollama model for semantic analysis (default: llama3.1:latest)
-- `--embedding-model` - Ollama model for embeddings (default: llama3.1:latest)
+- `--ollama-url` - Ollama server URL (overrides config file)
+
+**Model Override Parameters (override config file):**
+- `--general-kg-model` - Model for general knowledge graph tasks and relationship analysis
+- `--semantic-similarity-model` - Model for semantic similarity and embedding tasks
+- `--concept-clustering-model` - Model for concept extraction and clustering tasks
 - `--use-sentence-transformer` - Use SentenceTransformer instead of Ollama for embeddings
+
+**Legacy Parameters (backward compatibility):**
+- `--ollama-model` - Legacy: Ollama model to use (overrides general-kg-model and config)
+- `--embedding-model` - Legacy: Model for embeddings (overrides semantic-similarity-model and config)
+
+**🛠️ Configuration Hierarchy (highest priority first):**
+1. **CLI Arguments** - Command line parameters
+2. **Environment Variables** - `OLLAMA_MODEL_GENERAL_KG`, `OLLAMA_MODEL_SEMANTIC_SIMILARITY`, etc.
+3. **Configuration File** - `config/ollama_models.yaml`
+4. **Built-in Defaults** - Fallback values
+
+**⚡ Performance Features:**
+- **Model Warmup**: All models preloaded at startup (eliminates loading delays)
+- **Intelligent Timeouts**: Model-specific timeouts prevent failures
+- **Retry Logic**: Progressive backoff with configurable attempts
+- **Caching**: Embedding and response caching for efficiency
+- **Batch Processing**: Optimized batch handling with rate limiting
+
+**🔍 Troubleshooting:**
+- **Timeout Issues**: Resolved with model-specific timeouts and retry logic
+- **Model Loading**: Progressive wait intervals with status feedback
+- **Configuration**: Use `--ollama-config` to specify custom config files
+- **Legacy Scripts**: All existing CLI parameters still work for backward compatibility
 
 **Embedding Model Recommendations (based on evaluation):**
 - **Best Overall**: `llama3.1:latest` (composite score: 0.324)
@@ -139,7 +197,7 @@ python scripts/build_neo4j_metadata/evaluate_knowledge_graphs.py --databases dae
 
 #### 🔍 Embedding Model Evaluation & Integration
 
-Daemonium includes a comprehensive evaluation system for selecting the best embedding models for knowledge graph construction. Based on our evaluation results, **`llama3.1:latest` is now the default embedding model** for both knowledge graph builder scripts.
+Daimonion includes a comprehensive evaluation system for selecting the best embedding models for knowledge graph construction. Based on our evaluation results, **`llama3.1:latest` is now the default embedding model** for both knowledge graph builder scripts.
 
 **Quick Start:**
 ```bash
@@ -203,7 +261,7 @@ python scripts/build_neo4j_metadata/enhanced_neo4j_kg_build.py --database daemon
 
 #### 🔍 Qdrant Vector Database Integration
 
-Daemonium includes a comprehensive Qdrant vector database integration for semantic search and retrieval-augmented generation across philosophical content.
+Daimonion includes a comprehensive Qdrant vector database integration for semantic search and retrieval-augmented generation across philosophical content.
 
 **Vector Database Features:**
 - **High-Quality Embeddings**: Uses sentence-transformers (all-mpnet-base-v2) for 768-dimensional embeddings
@@ -252,7 +310,7 @@ python scripts/build_qdrant_metadata/simple_test.py
 
 #### 🚀 FastAPI Backend for MongoDB
 
-Daemonium includes a comprehensive REST API backend built with FastAPI, providing programmatic access to all philosophical content stored in MongoDB. This API serves as the foundation for frontend applications and enables integration with external systems.
+Daimonion includes a comprehensive REST API backend built with FastAPI, providing programmatic access to all philosophical content stored in MongoDB. This API serves as the foundation for frontend applications and enables integration with external systems.
 
 **API Features:**
 - **30+ REST Endpoints** - Complete CRUD operations across all MongoDB collections
@@ -332,7 +390,7 @@ curl "http://localhost:8000/api/v1/aphorisms/random?count=3"
   - User authentication and subscription management
 
 ### 🚀 Getting Started
-Daemonium is designed to run locally using Docker, making it easy to set up and start exploring philosophical ideas. The system supports both local LLM models (via Ollama) and cloud-based models (like GPT-4), giving you flexibility in how you interact with the philosophical content.
+Daimonion is designed to run locally using Docker, making it easy to set up and start exploring philosophical ideas. The system supports both local LLM models (via Ollama) and cloud-based models (like GPT-4), giving you flexibility in how you interact with the philosophical content.
 
 ## 🛠 Development Setup
 
@@ -421,7 +479,7 @@ Daemonium is designed to run locally using Docker, making it easy to set up and 
 
 ## 📥 MongoDB Data Upload Scripts
 
-Daemonium includes a comprehensive suite of MongoDB uploader scripts for populating the database with philosophical content. All scripts are located in `scripts/build_mongodb_metadata/` and follow consistent patterns for error handling, logging, and configuration.
+Daimonion includes a comprehensive suite of MongoDB uploader scripts for populating the database with philosophical content. All scripts are located in `scripts/build_mongodb_metadata/` and follow consistent patterns for error handling, logging, and configuration.
 
 ### Available Uploaders
 
@@ -1039,7 +1097,7 @@ These tools provide graphical interfaces to explore, query, and visualize the da
 
 ## 🔌 MCP Servers (Model Context Protocol)
 
-Daemonium includes custom MCP servers that extend Windsurf IDE capabilities with specialized tools for document processing and text-to-speech functionality.
+Daimonion includes custom MCP servers that extend Windsurf IDE capabilities with specialized tools for document processing and text-to-speech functionality.
 
 ### 📄 Document Reader MCP Server
 
@@ -1189,7 +1247,7 @@ After restarting Windsurf IDE, test the new functionality by asking in chat:
 
 ```bash
 # In Windsurf IDE chat, you can use:
-"Read this text aloud: 'Welcome to Daemonium'"
+"Read this text aloud: 'Welcome to Daimonion'"
 "What voices are available for text-to-speech?"
 "Speak this text with a slower rate"
 ```
