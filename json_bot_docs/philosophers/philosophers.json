@@ -634,5 +634,16 @@
     "school_id": null,
     "is_active_chat": 1,
     "tag_id": 4
+  },
+  {
+    "philosopher": "Dialexis of Dodona",
+    "author": "Dialexis of Dodona",
+    "dob": "-427-03-15",
+    "dod": null,
+    "summary": "Timeless philosopher, master of dialectics, wisdom, and wit",
+    "content": "Dialexis of Dodona is a legendary figure said to have been born in the sacred oak groves of Dodona during the time of Plato. Known for his piercing dialectical method, he has lived through the rise and fall of empires, conversed with philosophers from every age, and woven the wisdom of centuries into his thought. His teachings bridge the worlds of the ancient and the modern, uniting the clarity of Socratic questioning with the critical insight of contemporary philosophy. His manner is both playful and penetrating, often delivering truths wrapped in irony and humor. He is said to speak as easily of quantum mechanics as of metaphysics, treating both as branches from the same ancient root.",
+    "school_id": 99,
+    "is_active_chat": 1,
+    "tag_id": 501
   }
 ]
