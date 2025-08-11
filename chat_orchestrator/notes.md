@@ -7,51 +7,29 @@
 - Datasets 
     - philosophers
     - aphorisms
-        '''json
-        {
-            "success": true,
-            "message": "string",
-            "timestamp": "2025-08-07T18:42:42.919Z",
-            "data": {
-                "_id": "string",
-                "author": "string",
-                "category": "string",
-                "text": "string",
-                "aphorisms": {
-                "additionalProp1": [
-                    "string"
-                ],
-                "additionalProp2": [
-                    "string"
-                ],
-                "additionalProp3": [
-                    "string"
-                ]
-                },
-                "source": "string",
-                "context": "string",
-                "themes": [
-                "string"
-                ],
-                "interpretation": "string"
-            },
-            "total_count": 0
-        }
-        '''
+        -endpoint /api/aphorisms
     - bibliography
-        '''json
-
-        '''
+        -endpoint /api/v1/books/bibliography
     - book_summary
+        -endpoint /api/v1/books/summary
     - conversation_logic
+        -endpoint /api/v1/chat/conversation-logic
     - discussion_hook
+        -endpoint /api/v1/summaries/discussion-hooks
     - idea_summary
+        -endpoint /api/v1/ideas/summaries
     - modern_adaptation
+        -endpoint /api/v1/chat/modern-adaptations
     - persona_core
+        -endpoint /api/v1/chat/persona-cores
     - philosopher_summary
+        -endpoint /api/v1/summaries/philosopher-summaries
     - philosophy_school
+        -endpoint /api/v1/philosophy-schools/
     - philosophy_themes
+        -endpoint /api/v1/summaries/philosophy-themes
     - top_10_ideas
+        -endpoint /api/v1/ideas/top-ten/{rank}
 
 Dev Steps:
 - [ ] pulling required API endpoints
@@ -81,7 +59,6 @@ Dev Steps:
 - [ ] create chat_blueprint_master dataset from:
     - chat_blueprint - master chat_blueprint collection is master dataset for all philosophers, doesn't join by any key
     - philosophers
-    persona_core
 - [ ] pull redis file for selected philosopher and create chat_orchestrator dataset
 - [ ] chat_orchestrator dataset should include:
 - [ ] store chat_orchestrator in redis for use of selected philosopher chat bot instance
@@ -90,7 +67,7 @@ Dev Steps:
 - [ ] create step to optional write data as json to file for dev review
 
 ## Chat Bot Notes
-- [ ] chat should be able to use both Ollama local and OpenAI API. Easy to switch between them.
+- [ ] chat LLM should be able to use both Ollama local and OpenAI API. Easy to switch between them.
 - [ ] Token use calculation should be implemented
 - [ ] Token use should be stored in redis for each chat session and postgres for history
 
