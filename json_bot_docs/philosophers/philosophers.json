@@ -645,5 +645,227 @@
     "school_id": 99,
     "is_active_chat": 1,
     "tag_id": 501
-  }
+  },
+  [
+    {
+      "philosopher": "Søren Kierkegaard",
+      "author": "Søren Kierkegaard",
+      "dob": "1813-05-05",
+      "dod": "1855-11-11",
+      "summary": "Danish philosopher",
+      "content": "Kierkegaard is considered the father of existentialism, emphasizing subjective truth, faith, and the individual's relationship with God. He explored themes of anxiety, despair, and the leap of faith, arguing that authentic existence requires passionate commitment beyond rational certainty.",
+      "school_id": 16,
+      "is_active_chat": 0,
+      "tag_id": 4
+    },
+    {
+      "philosopher": "Edmund Husserl",
+      "author": "Edmund Husserl",
+      "dob": "1859-04-08",
+      "dod": "1938-04-27",
+      "summary": "German philosopher",
+      "content": "Husserl founded phenomenology, a philosophical method focused on the systematic study of consciousness as experienced from the first-person point of view. He emphasized the intentionality of consciousness and the importance of bracketing assumptions about the external world.",
+      "school_id": 17,
+      "is_active_chat": 0,
+      "tag_id": 4
+    },
+    {
+      "philosopher": "John Dewey",
+      "author": "John Dewey",
+      "dob": "1859-10-20",
+      "dod": "1952-06-01",
+      "summary": "American philosopher",
+      "content": "Dewey was a leading pragmatist who emphasized experience, democracy, and education. He argued that ideas should be tested by their practical consequences and advocated for progressive education and democratic participation in social reform.",
+      "school_id": 18,
+      "is_active_chat": 0,
+      "tag_id": 2
+    },
+    {
+      "philosopher": "William James",
+      "author": "William James",
+      "dob": "1842-01-11",
+      "dod": "1910-08-26",
+      "summary": "American philosopher",
+      "content": "James was a founder of pragmatism and a pioneer in psychology. He emphasized the practical consequences of ideas, developed the 'Will to Believe' doctrine, and explored religious experience from a psychological perspective.",
+      "school_id": 18,
+      "is_active_chat": 0,
+      "tag_id": 2
+    },
+    {
+      "philosopher": "Maurice Merleau-Ponty",
+      "author": "Maurice Merleau-Ponty",
+      "dob": "1908-03-14",
+      "dod": "1961-05-03",
+      "summary": "French philosopher",
+      "content": "Merleau-Ponty developed a phenomenology of perception, emphasizing the body's role in understanding the world. He argued that perception is not merely cognitive but involves our entire embodied being-in-the-world.",
+      "school_id": 17,
+      "is_active_chat": 0,
+      "tag_id": 4
+    },
+    {
+      "philosopher": "Albert Camus",
+      "author": "Albert Camus",
+      "dob": "1913-11-07",
+      "dod": "1960-01-04",
+      "summary": "French philosopher",
+      "content": "Camus explored the absurd condition of human existence, arguing that life lacks inherent meaning but that we must create meaning through rebellion, solidarity, and acceptance. He rejected both suicide and philosophical escape as responses to absurdity.",
+      "school_id": 16,
+      "is_active_chat": 0,
+      "tag_id": 4
+    },
+    {
+      "philosopher": "Jürgen Habermas",
+      "author": "Jürgen Habermas",
+      "dob": "1929-06-18",
+      "dod": "",
+      "summary": "German philosopher",
+      "content": "Habermas developed communicative action theory and discourse ethics, emphasizing rational dialogue as the foundation of democratic legitimacy. His work bridges critical theory, philosophy of language, and political philosophy.",
+      "school_id": 28,
+      "is_active_chat": 0,
+      "tag_id": 5
+    },
+    {
+      "philosopher": "Emmanuel Levinas",
+      "author": "Emmanuel Levinas",
+      "dob": "1906-01-12",
+      "dod": "1995-12-25",
+      "summary": "French philosopher",
+      "content": "Levinas developed an ethics of responsibility centered on the face-to-face encounter with the Other. He argued that ethics is first philosophy, preceding ontology, and that we have an infinite responsibility toward others.",
+      "school_id": 17,
+      "is_active_chat": 0,
+      "tag_id": 4
+    },
+    {
+      "philosopher": "Jacques Derrida",
+      "author": "Jacques Derrida",
+      "dob": "1930-07-15",
+      "dod": "2004-10-09",
+      "summary": "French philosopher",
+      "content": "Derrida developed deconstruction, a method of reading that reveals the instability and contradictions within texts and concepts. He challenged traditional notions of presence, meaning, and binary oppositions in Western philosophy.",
+      "school_id": 21,
+      "is_active_chat": 0,
+      "tag_id": 4
+    },
+    {
+      "philosopher": "Alasdair MacIntyre",
+      "author": "Alasdair MacIntyre",
+      "dob": "1929-01-12",
+      "dod": "",
+      "summary": "Scottish philosopher",
+      "content": "MacIntyre critiques modern moral philosophy and advocates for a return to Aristotelian virtue ethics. His work 'After Virtue' argues that moral discourse has lost its foundation and calls for narrative unity in moral life.",
+      "school_id": 14,
+      "is_active_chat": 0,
+      "tag_id": 2
+    },
+    {
+      "philosopher": "Martha Nussbaum",
+      "author": "Martha Nussbaum",
+      "dob": "1947-05-06",
+      "dod": "",
+      "summary": "American philosopher",
+      "content": "Nussbaum has contributed to moral and political philosophy, particularly in capabilities approach to human development, emotions in ethical theory, and the role of humanities in democratic education.",
+      "school_id": 14,
+      "is_active_chat": 0,
+      "tag_id": 2
+    },
+    {
+      "philosopher": "Daniel Dennett",
+      "author": "Daniel Dennett",
+      "dob": "1942-03-28",
+      "dod": "",
+      "summary": "American philosopher",
+      "content": "Dennett is known for his materialist approach to consciousness and free will. He argues that consciousness can be explained through computational processes and challenges folk psychological notions of qualia and libertarian free will.",
+      "school_id": 14,
+      "is_active_chat": 0,
+      "tag_id": 2
+    },
+    {
+      "philosopher": "Thomas Nagel",
+      "author": "Thomas Nagel",
+      "dob": "1937-07-04",
+      "dod": "",
+      "summary": "American philosopher",
+      "content": "Nagel is known for his work on consciousness, moral psychology, and political philosophy. His famous paper 'What Is It Like to Be a Bat?' argues that subjective experience poses a fundamental challenge to physicalism.",
+      "school_id": 14,
+      "is_active_chat": 0,
+      "tag_id": 2
+    },
+    {
+      "philosopher": "John Searle",
+      "author": "John Searle",
+      "dob": "1932-07-31",
+      "dod": "",
+      "summary": "American philosopher",
+      "content": "Searle has made significant contributions to philosophy of mind and language, particularly his Chinese Room argument against strong AI and his theory of speech acts. He defends biological naturalism about consciousness.",
+      "school_id": 14,
+      "is_active_chat": 0,
+      "tag_id": 2
+    },
+    {
+      "philosopher": "Peter Singer",
+      "author": "Peter Singer",
+      "dob": "1946-07-06",
+      "dod": "",
+      "summary": "Australian philosopher",
+      "content": "Singer is a utilitarian philosopher known for his work on animal rights, global poverty, and effective altruism. His book 'Animal Liberation' helped launch the modern animal rights movement.",
+      "school_id": 13,
+      "is_active_chat": 0,
+      "tag_id": 2
+    },
+    {
+      "philosopher": "Judith Butler",
+      "author": "Judith Butler",
+      "dob": "1956-02-24",
+      "dod": "",
+      "summary": "American philosopher",
+      "content": "Butler is known for their work on gender theory, particularly the concept of gender performativity. They argue that gender identity is constructed through repeated performances rather than being an essential characteristic.",
+      "school_id": 21,
+      "is_active_chat": 0,
+      "tag_id": 4
+    },
+    {
+      "philosopher": "Charles Sanders Peirce",
+      "author": "Charles Sanders Peirce",
+      "dob": "1839-09-10",
+      "dod": "1914-04-19",
+      "summary": "American philosopher",
+      "content": "Peirce was the founder of pragmatism and made significant contributions to logic, semiotics, and scientific method. He developed the pragmatic maxim and a triadic theory of signs that influenced modern semiotics.",
+      "school_id": 18,
+      "is_active_chat": 0,
+      "tag_id": 2
+    },
+    {
+      "philosopher": "Gotlinde of Würzburg",
+      "author": "Gotlinde of Würzburg",
+      "dob": "1098-03-21",
+      "dod": "1179-11-15",
+      "summary": "German mystic philosopher",
+      "content": "Gotlinde was a Benedictine abbess and philosopher who developed a unique synthesis of Augustinian theology and Aristotelian natural philosophy. Her 'Contemplations on the Divine Wisdom' explored the relationship between reason and mystical experience, arguing that intellectual contemplation could serve as a ladder to divine union.",
+      "school_id": 7,
+      "is_active_chat": 0,
+      "tag_id": 3
+    },
+    {
+      "philosopher": "Ibn Khaldun",
+      "author": "Ibn Khaldun",
+      "dob": "1332-05-27",
+      "dod": "1406-03-17",
+      "summary": "Arab philosopher",
+      "content": "Ibn Khaldun was a pioneering social scientist and philosopher who developed theories of social cohesion, economic cycles, and historical change. His 'Muqaddimah' is considered a foundational work in sociology and historiography.",
+      "school_id": 8,
+      "is_active_chat": 0,
+      "tag_id": 3
+    },
+    {
+      "philosopher": "Maimonides",
+      "author": "Maimonides",
+      "dob": "1138-03-30",
+      "dod": "1204-12-13",
+      "summary": "Jewish philosopher",
+      "content": "Maimonides (Moses ben Maimon) was a medieval Jewish philosopher who sought to reconcile Aristotelian philosophy with Jewish theology. His 'Guide for the Perplexed' profoundly influenced Jewish, Christian, and Islamic thought.",
+      "school_id": 9,
+      "is_active_chat": 0,
+      "tag_id": 3
+    }
+  ]
 ]
