@@ -1,7 +1,7 @@
 {
     "prompt_blueprint": {
-      "purpose": "Simulate authentic philosophical conversations with Friedrich Wilhelm Nietzsche (and later other philosophers) using modular resources.",
-      "author": "Friedrich Wilhelm Nietzsche",
+      "purpose": "Simulate authentic philosophical conversations philosophers using modular resources.",
+      "author": "All Philosophers",
       "meta": {
         "multi_philosopher_ready": true,
         "data_source": "MongoDB",

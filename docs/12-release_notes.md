@@ -1,5 +1,87 @@
 # Daemonium
 ---
+## Version 0.3.1 (August 12, 2025)
+
+### Orchestrator: Discussion Hooks Join Fix
+
+- Ensured author-specific join for `discussion_hook` in `chat_orchestrator/master_combiner.js`.
+- Fetches via `/api/v1/summaries/discussion-hooks` using:
+  - `topic={full author}` and `topic={last name}`; merges and de-duplicates results.
+  - Fallback: unfiltered fetch, then strict client-side filtering by author terms.
+- Flattens documents that contain nested `discussion_hooks` into hook items; supports:
+  - Array and object forms (e.g., `{ author: "Plato", discussion_hooks: [...] }` or `discussion_hooks: { ... }`).
+- Prevents the entire global dataset from being attached to every philosopher.
+- Robust matching (word-boundary + substring) across `topic`, `content`, `themes`, and optional `author`/`philosopher` fields.
+
+### Orchestrator: Master Aggregation & Joins
+
+- Implemented full per-author aggregation pipeline in `chat_orchestrator/master_combiner.js` with Redis outputs and optional JSON dumps.
+- Join rules:
+  - Philosophers base: `GET /api/v1/philosophers?limit=1000` (with optional `is_active_chat=1` for active set).
+  - Philosophy school join: `GET /api/v1/philosophy-schools?limit=1000` and map by `philosophers.school_id` → `school`.
+  - By-author aggregator: `GET /api/v1/philosophers/by-author/{author}` used as primary per-author payload (aphorisms, book_summary, idea_summary, top_10_ideas, philosophy_themes, philosopher_summary).
+  - Bibliography: `GET /api/v1/books/bibliography/by-author/{author}` (normalize single-object → array).
+  - Conversation logic: `GET /api/v1/chat/conversation-logic?author={author}`.
+  - Discussion hooks: `GET /api/v1/summaries/discussion-hooks` with author-focused queries and strict client-side filtering (see section above).
+  - Persona core: `GET /api/v1/chat/persona-cores?philosopher={author}`.
+  - Modern adaptation: `GET /api/v1/chat/modern-adaptations?philosopher={author}`.
+  - Chat blueprints: `GET /api/v1/chat/blueprints` fetched once and applied to all philosophers (global dataset).
+
+### Normalization & Data Shape
+
+- `normalizeByAuthorData()` ensures array shape for all collections and aliases `top_ten_ideas` → `top_10_ideas`.
+- Bibliography normalization wraps single docs into arrays to prevent empty joins.
+- `combineOne()` merges per-author collections, adds `school`, attaches global `chat_blueprints`, and computes `counts` for all collections.
+- `discussion_hook` is flattened and de-duplicated before join; others are attached as returned.
+
+### Collections Covered (per author unless noted)
+
+- Philosophers (base list driving aggregation)
+- Aphorisms
+- Book Summary
+- Bibliography (normalized single-document to array)
+- Conversation Logic
+- Discussion Hook (author-filtered and flattened)
+- Idea Summary
+- Modern Adaptation
+- Persona Core
+- Philosopher Summary
+- Philosophy Themes
+- Top 10 Ideas (alias supported from top_ten_ideas)
+- Philosophy School (joined by `school_id` from philosophers)
+- Chat Blueprints (global, applied to each philosopher)
+
+### Concurrency, Config, and Reliability
+
+- Concurrency: Batched per-author work via `processWithConcurrency` with `ORCHESTRATOR_CONCURRENCY=6` default.
+- Redis TTL: Controlled by `MASTER_ORCHESTRATOR_TTL` (seconds). `0` disables TTL.
+- Environment & auth: Uses `FASTAPI_BASE_URL`, optional `FASTAPI_API_KEY` bearer header, `REDIS_URL`.
+- Error handling: Defensive `.catch(() => [])/{}` on per-call fetches to avoid failing the entire aggregation.
+
+### Behavior/Compatibility
+
+- Output structure remains `discussion_hook: []` per philosopher.
+- If no author-relevant hooks exist, the array may be empty (no global default join).
+- No API contract changes; no endpoint changes.
+
+### Verification
+
+- Orchestrator run results:
+  - Combined counts: `all=79`, `active=14`.
+  - Stored Redis keys: `master_orchestrator`, `master_orchestrator_active`.
+  - Optional JSON written with `--write-json`:
+    - `/app/master_orchestrator.json`
+    - `/app/master_orchestrator_active.json`
+
+### Files Changed
+
+- `chat_orchestrator/master_combiner.js`: fetching, filtering, flattening, and combine logic for `discussion_hook`.
+
+### Next Steps
+
+- Optional: theme-based matching as secondary fallback to improve recall while preserving author relevance.
+- Add metrics/telemetry for per-author hook counts.
+
 ## Version 0.3.0 (August 6, 2025)
 
 ### Major Features

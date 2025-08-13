@@ -1,7 +1,7 @@
 # Orchestrator Dev Notes
 - Creating master orchestrator dataset from all philosophers in node.js docker instance
 - Node.js docker container is already created 'nodejs'
-- Philosophers datasets are master join for all philosophers by "author", except except philosophy_school join by school_id from philosophers 
+- Philosophers datasets are joined for all philosophers by "author", except philosophy_school join by school_id from philosophers 
 - All philosophers should be pulled but 'is_active_chat' should be checked for active chat philosophers
 - Data should be stacked
 - Datasets:
@@ -32,9 +32,11 @@
         -endpoint /api/v1/ideas/top-ten/{rank}
 
 Dev Steps:
-- [ ] pulling required API endpoints
+- [ ] pull required API endpoints
+- [ ] Do not change API endpoints
 - [ ] combine required data for master_orchestrator dataset and master_orchestrator_active dataset
-- [ ] data should be stacked using philosophers endpoint as master
+- [ ] data should be stacked using philosophers endpoint as master and grouped by philosopher.
+- [ ] dataset should not be separated by philosopher
 - [ ] data should be combined for two master_orchestrator datasets, is_active_chat = 0 or is_active_chat = 1
 - [ ] 2 datasets should be named master_orchestrator and master_orchestrator_active
 - [ ] master_orchestrator and master_orchestrator_active dataset:
