@@ -1,0 +1,97 @@
+```mermaid
+graph TD
+    A[User Input: "What should I do with my life?"] --> B{Choose Architecture}
+    
+    B -->|Single Orchestrator| C[Single Agent Orchestrator]
+    B -->|Micro-Agents| D[Micro-Agents Orchestrator]
+    
+    %% Single Orchestrator Flow
+    C --> E[Step 1: Analyze Input]
+    E --> F[Query chat_blueprint collection]
+    F --> G[Query conversation_logic collection]
+    G --> H[Query top_10_ideas collection]
+    H --> I[Query modern_adaptation collection]
+    I --> J[Query bibliography collection]
+    
+    J --> K[Step 2: Gather Relevant Data]
+    K --> L[Query persona_core collection]
+    L --> M[Query philosophy_themes collection]
+    M --> N[Query ideas_summary collection]
+    N --> O[Query aphorisms collection]
+    O --> P[Query discussion_hooks collection]
+    P --> Q[Query book_summaries collection]
+    
+    Q --> R[Step 3: Build Dynamic Prompt]
+    R --> S[Single Orchestrated Response]
+    
+    %% Micro-Agents Flow
+    D --> T[Parallel Agent Execution]
+    
+    T --> U[Conversation Logic Agent]
+    U --> U1[Query conversation_logic]
+    U1 --> U2[Determine Tone Mode]
+    
+    T --> V[Theme Analysis Agent]
+    V --> V1[Query top_10_ideas]
+    V1 --> V2[Query philosophy_themes]
+    V2 --> V3[Detect & Detail Themes]
+    
+    T --> W[Modern Adaptation Agent]
+    W --> W1[Query modern_adaptation]
+    W1 --> W2[Find Modern Connections]
+    
+    T --> X[Persona Agent]
+    X --> X1[Query persona_core]
+    X1 --> X2[Get Voice & Style]
+    
+    T --> Y[Aphorism Agent]
+    Y --> Y1[Query aphorisms]
+    Y1 --> Y2[Select Relevant Quotes]
+    
+    T --> Z[Discussion Hook Agent]
+    Z --> Z1[Query discussion_hooks]
+    Z1 --> Z2[Select Provocative Questions]
+    
+    U2 --> AA[Synthesis Step]
+    V3 --> AA
+    W2 --> AA
+    X2 --> AA
+    Y2 --> AA
+    Z2 --> AA
+    
+    AA --> BB[Micro-Agents Combined Response]
+    
+    S --> CC[Final LLM Prompt]
+    BB --> CC
+    CC --> DD[AI Generated Response]
+    DD --> EE[User Receives Nietzschean Reply]
+    
+    %% Database Collections
+    FF[(MongoDB Collections)]
+    FF --> FF1[nietzsche_aphorisms]
+    FF --> FF2[nietzsche_conversation_logic]
+    FF --> FF3[nietzsche_discussion_hooks]
+    FF --> FF4[nietzsche_modern_adaptation]
+    FF --> FF5[nietzsche_bio]
+    FF --> FF6[nietzsche_bibliography]
+    FF --> FF7[nietzsche_book_summaries]
+    FF --> FF8[nietzsche_philosophy_summary]
+    FF --> FF9[nietzsche_philosophy_themes]
+    FF --> FF10[nietzsche_top_10_ideas]
+    FF --> FF11[nietzsche_ideas_summary]
+    FF --> FF12[nietzsche_persona_core]
+    FF --> FF13[nietzsche_chat_blueprint]
+    
+    %% Styling
+    classDef singleAgent fill:#e1f5fe
+    classDef microAgent fill:#f3e5f5
+    classDef database fill:#e8f5e8
+    classDef decision fill:#fff3e0
+    classDef final fill:#ffebee
+    
+    class C,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S singleAgent
+    class D,T,U,V,W,X,Y,Z,U1,U2,V1,V2,V3,W1,W2,X1,X2,Y1,Y2,Z1,Z2,AA,BB microAgent
+    class FF,FF1,FF2,FF3,FF4,FF5,FF6,FF7,FF8,FF9,FF10,FF11,FF12,FF13 database
+    class B decision
+    class CC,DD,EE final
+    ```
