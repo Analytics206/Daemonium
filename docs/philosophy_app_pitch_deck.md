@@ -131,10 +131,10 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
 #### Year 1
 - **Revenue**: $375K
 - **ARR**: $375K
-- **MRR**: $55K
+- **MRR**: $50K
 - **Gross Margin**: 75%
 - **Net Margin**: 55%
-- **Year 1 Monthly Subscriptions**: 5,000
+- **Year 1 End Monthly Subscriptions**: 5,000
 - **Customer Acquisition Cost**: $15-25
 - **Customer Retention Cost**: $5-10
 - **Customer Lifetime Value**: $130-180
@@ -145,7 +145,7 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
 - **MRR**: $125K
 - **Gross Margin**: 80%
 - **Net Margin**: 60%
-- **Year 2 Monthly Subscriptions**: 10,000
+- **Year 2 End Monthly Subscriptions**: 10,000
 - **Customer Acquisition Cost**: $15-25
 - **Customer Retention Cost**: $5-10
 - **Customer Lifetime Value**: $140-200
@@ -156,7 +156,7 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
 - **MRR**: $250K
 - **Gross Margin**: 85%
 - **Net Margin**: 65%
-- **Year 3 Monthly Subscriptions**: 20,000
+- **Year 3 End Monthly Subscriptions**: 20,000
 - **Customer Acquisition Cost**: $15-25
 - **Customer Retention Cost**: $5-10
 - **Customer Lifetime Value**: $150-220
@@ -167,7 +167,7 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
 - **MRR**: $650K
 - **Gross Margin**: 85%
 - **Net Margin**: 65%
-- **Year 4 Monthly Subscriptions**: 50,000
+- **Year 4 End Monthly Subscriptions**: 50,000
 - **Customer Acquisition Cost**: $15-25
 - **Customer Retention Cost**: $5-10
 - **Customer Lifetime Value**: $160-240
@@ -178,7 +178,7 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
 - **MRR**: $1M
 - **Gross Margin**: 85%
 - **Net Margin**: 65%
-- **Year 5 Monthly Subscriptions**: 75,000
+- **Year 5 End Monthly Subscriptions**: 75,000
 - **Customer Acquisition Cost**: $15-25
 - **Customer Retention Cost**: $5-10
 - **Customer Lifetime Value**: $160-240
@@ -262,6 +262,11 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
 - **Customer Acquisition Cost**: $10-20 (organic viral growth + targeted content)
 - **Customer Retention Cost**: $5-10 (retention marketing, community building)
 - **Customer Lifetime Value**: $130-200 (10-14 month retention average)
+
+### Key Milestones
+- **Milestone 1**: 1K users, $10K ARR (MVP launch, core features)
+- **Milestone 2**: 5K users, $50K ARR (full philosopher chat platform)
+- **Milestone 3**: 10K users, $100K ARR (discovery tools, educational partnerships)
 
 ---
 
