@@ -122,8 +122,8 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
    - **Personal Development Coaching**: Customized learning paths for personal development coaching
 
 ### Unit Economics Projection
-- **Customer Acquisition Cost**: $10-20 (organic viral growth + targeted content)
-- **Lifetime Value**: $150-210 (10-14 month retention average)
+- **Customer Acquisition Cost**: $40-60 (organic viral growth + targeted content)
+- **Lifetime Value**: $140-160 (10-14 month retention average)
 - **Gross Margin**: 85%+ (software-based service)
 
 ### Revenue Projections
@@ -131,57 +131,67 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
 #### Year 1
 - **Revenue**: $375K
 - **ARR**: $375K
-- **MRR**: $50K
+- **MRR**: $32K
+- **Exit MRR**: $62k
 - **Gross Margin**: 75%
 - **Net Margin**: 55%
 - **Year 1 End Monthly Subscriptions**: 5,000
-- **Customer Acquisition Cost**: $15-25
-- **Customer Retention Cost**: $5-10
-- **Customer Lifetime Value**: $130-180
+- **Customer Acquisition Cost**: $40-60
+- **Customer Churn Rate**: 10%
+- **Customer Retention Cost**: $15-20
+- **Customer Lifetime Value**: $130-150
 
 #### Year 2
 - **Revenue**: $1M
 - **ARR**: $1M
-- **MRR**: $125K
+- **MRR**: $83K
+- **Exit MRR**: $125k
 - **Gross Margin**: 80%
-- **Net Margin**: 60%
+- **Net Margin**: 45%
 - **Year 2 End Monthly Subscriptions**: 10,000
-- **Customer Acquisition Cost**: $15-25
-- **Customer Retention Cost**: $5-10
-- **Customer Lifetime Value**: $140-200
+- **Customer Acquisition Cost**: $40-60
+- **Customer Churn Rate**: 9%
+- **Customer Retention Cost**: $15-20
+- **Customer Lifetime Value**: $140-160
 
 #### Year 3
 - **Revenue**: $2M
 - **ARR**: $2M
-- **MRR**: $250K
+- **MRR**: $167K
+- **Exit MRR**: $250k
 - **Gross Margin**: 85%
-- **Net Margin**: 65%
+- **Net Margin**: 55%
 - **Year 3 End Monthly Subscriptions**: 20,000
-- **Customer Acquisition Cost**: $15-25
-- **Customer Retention Cost**: $5-10
-- **Customer Lifetime Value**: $150-220
+- **Customer Acquisition Cost**: $40-60
+- **Customer Churn Rate**: 8%
+- **Customer Retention Cost**: $15-20
+- **Customer Lifetime Value**: $150-170
 
 #### Year 4
-- **Revenue**: $5M
-- **ARR**: $5M
-- **MRR**: $650K
+- **Revenue**: $3M
+- **ARR**: $3M
+- **MRR**: $275K
+- **Exit MRR**: $375k
 - **Gross Margin**: 85%
-- **Net Margin**: 65%
-- **Year 4 End Monthly Subscriptions**: 50,000
-- **Customer Acquisition Cost**: $15-25
-- **Customer Retention Cost**: $5-10
-- **Customer Lifetime Value**: $160-240
+- **Net Margin**: 60%
+- **Year 4 End Monthly Subscriptions**: 30,000
+- **Customer Acquisition Cost**: $40-60
+- **Customer Churn Rate**: 7%
+- **Customer Retention Cost**: $15-20
+- **Customer Lifetime Value**: $160-180
 
 #### Year 5
-- **Revenue**: $10M
-- **ARR**: $10M
-- **MRR**: $1M
+- **Revenue**: $5M
+- **ARR**: $5M
+- **MRR**: $416k
+- **Exit MRR**: $625k 
 - **Gross Margin**: 85%
 - **Net Margin**: 65%
-- **Year 5 End Monthly Subscriptions**: 75,000
-- **Customer Acquisition Cost**: $15-25
-- **Customer Retention Cost**: $5-10
-- **Customer Lifetime Value**: $160-240
+- **Year 5 End Monthly Subscriptions**: 50,000
+- **Customer Acquisition Cost**: $40-60
+- **Customer Churn Rate**: 7%
+- **Customer Retention Cost**: $15-20
+- **Customer Lifetime Value**: $160-180
 
 ---
 
@@ -246,11 +256,11 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
 ## Financial Projections
 
 ### 5-Year Vision
-- **Year 1**: 5K users, $55K ARR (MVP launch, core features)
+- **Year 1**: 5K users, $62K ARR (MVP launch, core features)
 - **Year 2**: 10K users, $125K ARR (full philosopher chat platform)
-- **Year 3**: 20K users, $275K ARR (discovery tools, educational partnerships)
-- **Year 4**: 50K users, $725K ARR (complete philosophical ecosystem)
-- **Year 5**: 75K users, $1.25M ARR (complete philosophical ecosystem)
+- **Year 3**: 20K users, $250K ARR (discovery tools, educational partnerships)
+- **Year 4**: 40K users, $475K ARR (complete philosophical ecosystem)
+- **Year 5**: 50K users, $625K ARR (complete philosophical ecosystem)
 
 ### Key Metrics
 - **Monthly Active Users** (philosophical engagement depth)
@@ -259,9 +269,9 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
 - **Long-term Retention** (life transformation validation)
 
 ### Key Financial Metrics
-- **Customer Acquisition Cost**: $10-20 (organic viral growth + targeted content)
-- **Customer Retention Cost**: $5-10 (retention marketing, community building)
-- **Customer Lifetime Value**: $130-200 (10-14 month retention average)
+- **Customer Acquisition Cost**: $40-60 (organic viral growth + targeted content)
+- **Customer Retention Cost**: $15-20 (retention marketing, community building)
+- **Customer Lifetime Value**: $130-160 (10-14 month retention average)
 
 ### Key Milestones
 - **Milestone 1**: 1K users, $10K ARR (MVP launch, core features)

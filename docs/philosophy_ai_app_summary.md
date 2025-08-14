@@ -125,4 +125,3 @@ Each philosopher includes:
 
 ## 📝 Notes
 > This document is designed for iterative updates. Add your thoughts inline or comment where you'd like to refine or expand ideas.
-
