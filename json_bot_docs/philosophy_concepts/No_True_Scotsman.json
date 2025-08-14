@@ -1,7 +1,7 @@
 {
     "Concept": "No True Scotsman Fallacy",
     "category": "Philosophy Concepts",
-    "Author": "Antony Flew (term popularized)",
+    "Author": ["Antony Flew", "John Locke", "John Stuart Mill", "Immanuel Kant"],
     "Antagonist": "Definitional manipulation used to exclude counterexamples without addressing the argument.",
     "Keywords": [
       "No True Scotsman",

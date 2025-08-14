@@ -54,6 +54,7 @@ class MasterUploader:
             'upload_bibliography_to_mongodb.py',            # Bibliography data
             'upload_aphorisms_to_mongodb.py',               # Aphorisms
             'upload_philosophy_themes_to_mongodb.py',        # Philosophy themes
+            'upload_philosophy_concepts_to_mongodb.py',     # Philosophy concepts
             'upload_top_10_ideas_to_mongodb.py',            # Top ideas
             'upload_idea_summaries_to_mongodb.py',          # Idea summaries
             'upload_modern_adaptations_to_mongodb.py',      # Modern adaptations

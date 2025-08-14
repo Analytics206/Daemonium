@@ -1,7 +1,7 @@
 {
     "Concept": "Mereological Paradox",
     "category": "Philosophy Concepts",
-    "Author": "Various philosophers (roots in ancient philosophy, discussed by modern metaphysicians)",
+    "Author": ["Various philosophers"],
     "Antagonist": "Critics of mereological realism and proponents of mereological nihilism who deny that composite objects truly exist.",
     "Keywords": [
       "mereology",

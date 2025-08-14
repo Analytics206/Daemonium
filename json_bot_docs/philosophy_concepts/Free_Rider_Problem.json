@@ -1,7 +1,7 @@
 {
     "Concept": "Free Rider Problem",
     "category": "Philosophy Concepts",
-    "Author": "N/A",
+    "Author": ["John Rawls", "John Locke", "John Stuart Mill"],
     "Antagonist": "The tendency for individuals to avoid contributing to shared resources or public goods while still benefiting from them.",
     "Keywords": [
       "public goods",

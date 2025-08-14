@@ -1,7 +1,7 @@
 {
     "Concept": "Ontological Argument",
     "category": "Philosophy Concepts",
-    "Author": "Anselm of Canterbury (later refined by René Descartes and Gottfried Leibniz)",
+    "Author": ["Anselm of Canterbury", "René Descartes", "Gottfried Leibniz", "Immanuel Kant", "Bertrand Russell"],
     "Antagonist": "Critics who reject the argument, including Immanuel Kant and Bertrand Russell, who argue that existence is not a property and that logical definitions cannot guarantee reality.",
     "Keywords": [
       "ontological argument",

@@ -1,7 +1,7 @@
 {
     "Concept": "Hume's Guillotine",
     "category": "Philosophy Concepts",
-    "Author": "David Hume",
+    "Author": ["David Hume"],
     "Antagonist": "The logical leap from descriptive statements ('what is') to prescriptive statements ('what ought to be') without justification.",
     "Keywords": [
       "Hume's Guillotine",

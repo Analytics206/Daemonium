@@ -1,7 +1,7 @@
 {
     "Concept": "Skepticism",
     "category": "Philosophy Concepts",
-    "Author": "Various (Pyrrho of Elis, René Descartes, David Hume)",
+    "Author": ["Pyrrho of Elis", "René Descartes", "David Hume"],
     "Antagonist": "The assumption that certain knowledge is attainable without doubt.",
     "Keywords": [
       "skepticism",

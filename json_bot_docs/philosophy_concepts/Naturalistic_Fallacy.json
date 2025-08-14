@@ -1,7 +1,7 @@
 {
     "Concept": "Naturalistic Fallacy",
     "category": "Philosophy Concepts",
-    "Author": "G.E. Moore",
+    "Author": ["G.E. Moore", "John Locke", "John Stuart Mill", "Immanuel Kant"],
     "Antagonist": "The assumption that what is natural is inherently good or morally right.",
     "Keywords": [
       "Naturalistic Fallacy",

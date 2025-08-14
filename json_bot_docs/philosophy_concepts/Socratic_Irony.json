@@ -1,7 +1,7 @@
 {
     "Concept": "Socratic Irony",
     "category": "Philosophy Concepts",
-    "Author": "Socrates",
+    "Author": ["Socrates", "Plato"],
     "Antagonist": "The assumption of knowledge without examination; untested or contradictory beliefs.",
     "Keywords": [
       "Socratic Irony",

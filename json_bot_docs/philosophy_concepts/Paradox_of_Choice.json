@@ -1,7 +1,7 @@
 {
     "Concept": "Paradox of Choice",
     "category": "Philosophy Concepts",
-    "Author": "Barry Schwartz",
+    "Author": ["Barry Schwartz", "Various Philosophers"],
     "Antagonist": "The cultural belief that more options always lead to greater happiness and freedom.",
     "Keywords": [
       "paradox of choice",

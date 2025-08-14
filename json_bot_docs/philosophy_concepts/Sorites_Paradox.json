@@ -1,7 +1,7 @@
 {
     "Concept": "Sorites Paradox",
     "category": "Philosophy Concepts",
-    "Author": "Eubulides of Miletus",
+    "Author": ["Eubulides of Miletus", "Bertrand Russell", "Kurt Gödel"],
     "Antagonist": "Vagueness and gradual change",
     "Keywords": ["Sorites Paradox", "Eubulides of Miletus", "Vagueness and gradual change", "Existentialism", "Existentialism", "Existentialism", "Existentialism", "Existentialism", "Existentialism", "Existentialism"],
     "Content": "The Sorites Paradox, also known as the Paradox of the Heap, challenges our understanding of vague concepts and gradual change. It asks: How many grains of sand make a heap? If you start with a heap of sand and remove one grain, it’s still a heap. Remove another, and it remains a heap. But if you continue, eventually you’ll be left with only a few grains—when did it stop being a heap? Conversely, if you start with a single grain and add more, at what exact point does it become a heap? This highlights the problem of vagueness in language, where concepts like baldness, wealth, and tallness lack clear boundaries. Philosophers have suggested solutions such as fuzzy logic (truth as a spectrum), acceptance of approximate reasoning, or rejecting the paradox by acknowledging language’s natural imprecision. The Sorites Paradox has real-world applications in law, ethics, and identity, prompting reflection on how much change is needed for something to fundamentally transform. It ultimately forces us to confront the limits of human reasoning and to think carefully about how we define the world around us."

@@ -1,7 +1,7 @@
 {
     "Concept": "Copernican Principle",
     "category": "Philosophy Concepts",
-    "Author": "Nicolaus Copernicus",
+    "Author": ["Nicolaus Copernicus"],
     "Antagonist": "The belief that Earth and humanity hold a central or privileged position in the universe.",
     "Keywords": [
       "Copernican Principle",
@@ -21,4 +21,4 @@
       "astro philosophy"
     ],
     "Content": "The Copernican Principle is the idea that humans do not occupy a privileged or special position in the universe. Named after Nicolaus Copernicus—who demonstrated that the Earth orbits the Sun rather than being the center of the cosmos—the principle suggests that our place in the universe is likely unremarkable. Historically, people believed that Earth was the center of everything, but Copernicus's model shattered this assumption, showing that Earth is just one planet among many. This concept has been extended to modern cosmology, implying that our solar system, our galaxy, and even our observable universe are not uniquely special but rather part of a vast, indifferent cosmos. The principle has profound implications in astronomy, suggesting that if life emerged on Earth, it is likely to exist elsewhere. In philosophy, it challenges human exceptionalism and raises questions about our significance. It also supports the mediocrity principle, which holds that Earth and humanity are probably average rather than unique. However, the Copernican Principle has limits—some argue that Earth's ability to support complex life may not be entirely random. Still, this principle continues to shape scientific thought, reminding us that the universe is vast and that humanity is likely not central to it."
-  }  
+  }

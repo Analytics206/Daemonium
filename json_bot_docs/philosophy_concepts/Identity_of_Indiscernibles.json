@@ -1,8 +1,8 @@
 {
     "Concept": "Identity of Indiscernibles",
     "category": "Philosophy Concepts",
-    "Author": "Gottfried Wilhelm Leibniz",
+    "Author": ["Gottfried Wilhelm Leibniz"],
     "Antagonist": "Philosophical views that allow distinct entities to share all properties",
-    "Keywords": "Identity of Indiscernibles, Gottfried Wilhelm Leibniz, Philosophical views that allow distinct entities to share all properties, Identity of Indiscernibles, Identity of Indiscernibles, Identity of Indiscernibles, Identity of Indiscernibles, Identity of Indiscernibles, Identity of Indiscernibles, Identity of Indiscernibles",
+    "Keywords": ["Identity of Indiscernibles", "Gottfried Wilhelm Leibniz", "Philosophical views that allow distinct entities to share all properties", "Identity of Indiscernibles", "Identity of Indiscernibles", "Identity of Indiscernibles", "Identity of Indiscernibles", "Identity of Indiscernibles", "Identity of Indiscernibles", "Identity of Indiscernibles"],
     "Content": "The Identity of Indiscernibles, proposed by Gottfried Wilhelm Leibniz, is the principle that if two entities share all their properties, they must be the same entity. If no difference—actual or possible—can be found between two things, they are not truly distinct. This principle, often summarized as 'No two things can be exactly alike in all respects and still be distinct,' has major implications in metaphysics, logic, and physics. In classical philosophy, it grounds individuality in unique properties rather than mere existence. In logic, it underpins identity claims. In physics, however, it faces challenges from quantum mechanics, where particles like electrons seem perfectly identical. A related idea, Leibniz’s Law of Identity, holds that if two things are identical, whatever is true of one must be true of the other. Together, these ideas drive debates about personal identity, the persistence of objects, and the nature of reality. The principle invites the question: Is identity determined by intrinsic properties, or by distinctions imposed through perception and language?"
   } 

@@ -333,6 +333,44 @@ python build_metadata/upload_top_10_ideas_to_mongodb.py
 
 **Collection:** `top_10_ideas`
 
+### 16. Philosophy Concepts Uploader (`upload_philosophy_concepts_to_mongodb.py`)
+
+Uploads JSON files from `json_bot_docs/philosophy_concepts` to the `philosophy_concepts` collection.
+
+**Features:**
+- Skips template files (files starting with 'template')
+- Merges existing documents and uploads new ones
+- Supports both `author` (string) and `authors` (array) in JSON
+  - Stores normalized `author` (primary author = first in list)
+  - Stores `authors` as an array for multi-author concepts
+  - `_id` is generated as `author_primary_concept`
+- Comprehensive logging with timestamps
+- Error handling and connection management
+- Dry-run validation mode for schema checks without DB writes
+
+**Usage:**
+```bash
+python scripts/build_mongodb_metadata/upload_philosophy_concepts_to_mongodb.py \
+  --config config/default.yaml \
+  --concepts-folder json_bot_docs/philosophy_concepts
+
+# Validate only (no MongoDB connection)
+python scripts/build_mongodb_metadata/upload_philosophy_concepts_to_mongodb.py --dry-run
+```
+
+**Collection:** `philosophy_concepts`
+**Document Structure:**
+- `_id`: Unique identifier (author_primary_concept)
+- `filename`: Source JSON filename
+- `author`: Primary author (string, first element of `authors`)
+- `authors`: Array of authors
+- `concept`: Concept name
+- `category`: Document category
+- `antagonist`: Antagonist or opposing view (optional)
+- `keywords`: Array of keywords
+- `content`: Detailed content/summary
+- `metadata`: Upload timestamps and source information
+
 ## Configuration
 
 Both scripts use the configuration from `config/default.yaml`:
@@ -357,6 +395,7 @@ Required Python packages (install with `pip install -r requirements.txt`):
 Each script creates its own log file:
 - `aphorism_upload.log` - For aphorism uploads
 - `book_summary_upload.log` - For book summary uploads
+- `philosophy_concepts_upload.log` - For philosophy concepts uploads
 
 Logs include:
 - Configuration loading status
