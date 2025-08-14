@@ -164,7 +164,7 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
 #### Year 4
 - **Revenue**: $5M
 - **ARR**: $5M
-- **MRR**: $725k
+- **MRR**: $650K
 - **Gross Margin**: 85%
 - **Net Margin**: 65%
 - **Year 4 Monthly Subscriptions**: 50,000
@@ -175,7 +175,7 @@ People crave **meaning, wisdom, and authentic guidance** for life's big question
 #### Year 5
 - **Revenue**: $10M
 - **ARR**: $10M
-- **MRR**: $1.25M
+- **MRR**: $1M
 - **Gross Margin**: 85%
 - **Net Margin**: 65%
 - **Year 5 Monthly Subscriptions**: 75,000
