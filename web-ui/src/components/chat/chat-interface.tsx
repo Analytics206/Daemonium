@@ -15,9 +15,10 @@ interface Message {
 interface ChatInterfaceProps {
   chatId: string;
   philosopher?: string;
+  endpoint?: string;
 }
 
-export default function ChatInterface({ chatId, philosopher }: ChatInterfaceProps) {
+export default function ChatInterface({ chatId, philosopher, endpoint = '/api/chat' }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +48,7 @@ export default function ChatInterface({ chatId, philosopher }: ChatInterfaceProp
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -137,8 +138,8 @@ export default function ChatInterface({ chatId, philosopher }: ChatInterfaceProp
             <div className="bg-slate-100 dark:bg-slate-700 px-4 py-2 rounded-lg">
               <div className="flex space-x-1">
                 <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce [animation-delay:100ms]"></div>
+                <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce [animation-delay:200ms]"></div>
               </div>
             </div>
           </div>

@@ -1,5 +1,39 @@
 # Daemonium
 ---
+## Version 0.3.2 (August 15, 2025)
+
+### Web-UI: Ollama Chat Integration
+
+- Added a new server-side API proxy at `web-ui/src/app/api/ollama/route.ts` to forward chat prompts to a local Ollama server.
+  - Supports environment variables: `OLLAMA_BASE_URL` and `OLLAMA_MODEL`.
+  - Backward/legacy compatibility: `OLLAMA_API_URL` + `OLLAMA_API_PORT` are also supported when `OLLAMA_BASE_URL` is not set.
+  - Normalizes Ollama responses to `{ response }` to match existing `ChatInterface` expectations.
+  - Uses non-streaming mode (`stream: false`) for initial implementation.
+
+### Web-UI: New Chat Page
+
+- Added a simple chat page at `web-ui/src/app/chat/page.tsx` that reuses `ChatInterface` with `endpoint="/api/ollama"`.
+- Maintains styling consistency with existing components and Tailwind theme.
+- Intended for quick local testing with Ollama models (default: `llama3:latest`).
+
+### Landing Page UX
+
+- Updated `web-ui/src/components/sections/hero-section.tsx` "Start Exploring" button to open `/chat` in a new tab using the `Button` component's `asChild` prop.
+
+### Configuration
+
+- Updated `web-ui/.env.example` with Ollama variables:
+  - `OLLAMA_BASE_URL` (default `http://localhost:11434`)
+  - `OLLAMA_MODEL` (default `llama3:latest`)
+  - Optional legacy variables: `OLLAMA_API_URL`, `OLLAMA_API_PORT`
+
+### Files Changed
+
+- `web-ui/src/app/api/ollama/route.ts`
+- `web-ui/src/app/chat/page.tsx`
+- `web-ui/src/components/sections/hero-section.tsx`
+- `web-ui/.env.example`
+
 ## Version 0.3.1 (August 12, 2025)
 
 ### Orchestrator: Discussion Hooks Join Fix

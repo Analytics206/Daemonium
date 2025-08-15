@@ -108,6 +108,20 @@ The monitoring system follows a sidecar pattern with the following components:
    - Processing time measurements
    - Success/failure rate tracking
 
+### Web UI: Ollama Chat Architecture
+
+- **API Proxy Pattern**: The web UI uses a server-only Next.js route at `web-ui/src/app/api/ollama/route.ts` to proxy requests to a local Ollama server.
+  - Purpose: avoid CORS, keep local server details hidden from the browser, and normalize response shape for the UI.
+  - Request: `{ message: string }` → forwards to `{ model, prompt, stream: false }` at `${OLLAMA_BASE_URL}/api/generate`.
+  - Response: normalized to `{ response: string }` to match `ChatInterface` expectations.
+- **Environment Variables**:
+  - Primary: `OLLAMA_BASE_URL` (default `http://localhost:11434`), `OLLAMA_MODEL` (default `llama3:latest`).
+  - Legacy compatibility: `OLLAMA_API_URL` + `OLLAMA_API_PORT` are supported when `OLLAMA_BASE_URL` is not set.
+- **Chat Page**: `web-ui/src/app/chat/page.tsx` renders `ChatInterface` with `endpoint="/api/ollama"` for a minimal, fixed chat route used in local testing.
+- **Reusable Component**: `web-ui/src/components/chat/chat-interface.tsx` accepts an optional `endpoint` prop (default `/api/chat`) enabling backend/LLM swapping without changing UI code.
+- **Security**: No auth required for the Ollama proxy in local dev; add middleware/auth if exposed beyond localhost.
+- **Future**: Consider streaming responses, auth/session checks, and per-model selection from UI.
+
 ## Future Design Considerations
 - Asynchronous processing pipeline
 - Event-driven architecture for better component decoupling

@@ -63,8 +63,10 @@ export default function HeroSection() {
             and discover profound insights that have shaped human thought for millennia.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Button size="lg" className="px-8 py-3">
-              Start Exploring
+            <Button size="lg" className="px-8 py-3" asChild>
+              <a href="/chat" target="_blank" rel="noopener noreferrer">
+                Start Exploring
+              </a>
             </Button>
             <Button variant="outline" size="lg" className="px-8 py-3">
               Learn More
