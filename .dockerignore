@@ -1,0 +1,21 @@
+# Ignore docker-managed volumes and heavy deps
+docker_volumes/
+**/node_modules/
+**/.next/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs and temp
+*.log
+*.bak
+
+# VCS and OS cruft
+.git/
+.gitignore
+.DS_Store
+Thumbs.db

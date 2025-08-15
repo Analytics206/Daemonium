@@ -119,6 +119,8 @@ services:
     image: node:20-alpine
     container_name: daemonium-nodejs
     restart: unless-stopped
+    profiles:
+      - orchestrator
     working_dir: /app
     environment:
       - NODE_ENV=production
@@ -129,8 +131,6 @@ services:
       - FASTAPI_API_KEY=${FASTAPI_API_KEY:-}
       - MASTER_ORCHESTRATOR_TTL=0
       - ORCHESTRATOR_CONCURRENCY=6
-    ports:
-      - "3001:3000"
     volumes:
       - nodejs_app:/app
       - nodejs_modules:/app/node_modules
@@ -203,6 +203,10 @@ services:
       - NEXTAUTH_SECRET=${NEXTAUTH_SECRET:-your-secret-key-here}
       - BACKEND_API_URL=http://backend:8000
       - NEXT_PUBLIC_BACKEND_API_URL=http://localhost:8000
+      # Ollama (container -> host)
+      # On Docker Desktop, host.docker.internal resolves to the host machine.
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-llama3:latest}
     ports:
       - "3000:3000"
     networks:
