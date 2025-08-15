@@ -34,6 +34,13 @@
 - `web-ui/src/components/sections/hero-section.tsx`
 - `web-ui/.env.example`
 
+### Verification
+
+- Basic web-ui chat confirmed working locally. Next.js dev server auto-selected fallback port `3002` (port 3000 was in use): `http://localhost:3002`.
+- `/chat` route loads and sends messages successfully via `/api/ollama` proxy to the local Ollama server.
+- Default model used: `OLLAMA_MODEL=llama3:latest` (configurable via environment variables).
+- See `web-ui/README_chat.md` for quick-start steps and PowerShell API test commands.
+
 ## Version 0.3.1 (August 12, 2025)
 
 ### Orchestrator: Discussion Hooks Join Fix
