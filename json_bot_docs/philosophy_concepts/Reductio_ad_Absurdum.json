@@ -1,0 +1,14 @@
+{
+    "Concept": "Reductio ad Absurdum",
+    "Category": "Philosophy Concepts",
+    "Author": ["Zeno", "Aristotle"],
+    "Antagonist": "Direct Proof",
+    "Keywords": [
+        "logic"
+        , "argument"
+        , "contradiction"
+        , "proof"
+        , "Reductio ad absurdum"
+    ],
+    "Content": "Reductio ad absurdum is a method of argument where a claim is refuted by showing that it leads to a contradiction or absurd conclusion. It is widely used in mathematics and philosophy."
+  }
