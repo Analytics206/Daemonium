@@ -122,6 +122,39 @@ The monitoring system follows a sidecar pattern with the following components:
 - **Security**: No auth required for the Ollama proxy in local dev; add middleware/auth if exposed beyond localhost.
 - **Future**: Consider streaming responses, auth/session checks, and per-model selection from UI.
 
+### Web UI: Redis Chat Session State
+
+- **Purpose**: Persist per-session chat events in Redis for analytics, continuity, and server coordination.
+- **Lifecycle**:
+  - `session_start` on component mount with state: `userId`, `chatId` (UUID), `date`, `startTime`, `endTime=null`.
+  - `user_message` on each user send.
+  - `session_end` on component unmount with `endTime`.
+- **Endpoints** (`backend/routers/chat.py`):
+  - POST `/api/v1/chat/redis/{user_id}/{chat_id}?input=<STRING>&ttl_seconds=<INT>`
+    - Appends an item to Redis list key `chat:{user_id}:{chat_id}:messages`.
+    - `ttl_seconds` optional; if `> 0`, sets/refreshes key TTL.
+    - Stored item shape (normalized):
+      - Always includes: `{ user_id, chat_id, timestamp: <ISO UTC>, date: <YYYY-MM-DD>, ... }`
+      - If `input` is JSON (recommended): elevates common fields to top-level when present:
+        - `type` (e.g., `session_start`, `user_message`, `session_end`)
+        - `text` (for user message text)
+        - `state` (for session_start/end payload)
+      - Also keeps `original` with the raw parsed JSON for traceability
+      - If `input` is plain string: stores it under `message`
+  - GET `/api/v1/chat/redis/{user_id}/{chat_id}` → returns `{ success, key, count, data: [ ... ] }` in insertion order.
+- **Front-end integration** (`web-ui/src/components/chat/chat-interface.tsx`):
+  - Generates `chatId` on mount; uses placeholder `userId='analytics206@gmail'` until auth is added.
+  - Sends `session_start` immediately; pushes each `user_message` on send; sends `session_end` on unmount.
+  - Reads backend base URL from `NEXT_PUBLIC_BACKEND_API_URL` (default `http://localhost:8000`).
+- **Verification (PowerShell)**:
+  - `$u='analytics206@gmail'`
+  - `$c='<chatId from browser console>'`
+  - `Invoke-RestMethod -Method Get -Uri "http://localhost:8000/api/v1/chat/redis/$($u)/$($c)"`
+  - Expect to see the initial `session_start` item, followed by `user_message` items; a `session_end` appears after navigating away.
+- **Configuration**:
+  - Backend Redis connection from `config/default.yaml` (host, port, password, db).
+  - Python dependency: `redis>=5.0.0` (async client).
+
 ## Future Design Considerations
 - Asynchronous processing pipeline
 - Event-driven architecture for better component decoupling

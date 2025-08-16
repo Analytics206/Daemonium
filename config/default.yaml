@@ -43,6 +43,13 @@ neo4j:
     comparison_analysis: daemonium-comparison
     experimental_features: daemonium-experimental
   
+# Redis Configuration
+redis:
+  host: localhost
+  port: 6380
+  password: ch@ng3m300
+  db: 0
+  
 # Application Settings
 app:
   debug: false

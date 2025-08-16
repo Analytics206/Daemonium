@@ -6,10 +6,19 @@ from fastapi import APIRouter, HTTPException, Depends, Query
 from typing import List, Optional, Dict, Any
 import logging
 import random
+import json
+from datetime import datetime, timezone
+
+try:
+    # Prefer async Redis client from redis-py 4/5
+    from redis.asyncio import Redis  # type: ignore
+except Exception as _:
+    Redis = None  # Will raise at runtime if endpoints are used without dependency
 
 from ..database import DatabaseManager
 from ..models import PersonaCoreResponse
 from ..models import ChatBlueprintResponse, ChatBlueprint, ConversationLogic, PhilosopherBot, ChatMessage, ChatResponse, ModernAdaptationResponse
+from ..config import get_settings
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -18,6 +27,36 @@ async def get_db_manager():
     """Dependency to get database manager"""
     from ..main import app
     return app.state.db_manager
+
+
+# ------------------------------
+# Redis helpers (scoped to router)
+# ------------------------------
+def _chat_messages_key(user_id: str, chat_id: str) -> str:
+    """Build Redis key for chat message list."""
+    return f"chat:{user_id}:{chat_id}:messages"
+
+async def _with_redis(func):
+    """Utility to create a short-lived Redis client, run func(redis), and close it.
+    Keeps changes minimal and avoids modifying app lifespan.
+    """
+    settings = get_settings()
+    if Redis is None:
+        raise HTTPException(status_code=500, detail="Redis client not available. Install 'redis' package.")
+    client = Redis(
+        host=settings.redis_host,
+        port=settings.redis_port,
+        password=settings.redis_password,
+        db=settings.redis_db,
+        decode_responses=True,
+    )
+    try:
+        return await func(client)
+    finally:
+        try:
+            await client.close()
+        except Exception:
+            pass
 
 @router.get("/blueprints", response_model=ChatBlueprintResponse)
 async def get_chat_blueprints(
@@ -404,3 +443,114 @@ async def get_modern_adaptations(
     except Exception as e:
         logger.error(f"Failed to get modern adaptations: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve modern adaptations")
+
+
+# ==============================
+# Redis chat message endpoints
+# ==============================
+@router.post("/redis/{user_id}/{chat_id}", response_model=dict)
+async def push_chat_message_to_redis(
+    user_id: str,
+    chat_id: str,
+    input: str = Query(..., description="User chat input to store"),
+    ttl_seconds: int = Query(0, ge=0, description="Optional TTL (seconds) for the chat list; 0 means no TTL"),
+):
+    """Push a chat input into Redis under a list keyed by user_id and chat_id.
+
+    - Key: chat:{user_id}:{chat_id}:messages
+    - Operation: RPUSH JSON(message)
+    - Optional: set/update TTL if ttl_seconds > 0
+    """
+
+    async def _do(redis):
+        key = _chat_messages_key(user_id, chat_id)
+        now = datetime.now(timezone.utc)
+
+        # Try to parse the incoming input as JSON to extract structured fields
+        parsed: Any
+        try:
+            parsed = json.loads(input)
+        except Exception:
+            parsed = input
+
+        # Always include user and chat identifiers
+        payload_obj: Dict[str, Any] = {
+            "user_id": user_id,
+            "chat_id": chat_id,
+            "timestamp": now.isoformat(),  # e.g., 2025-08-15T21:32:00.000000+00:00
+            "date": now.date().isoformat(),  # e.g., 2025-08-15
+        }
+
+        # If client sent structured JSON, surface common fields at top-level
+        if isinstance(parsed, dict):
+            # Preserve known fields if present
+            if "type" in parsed:
+                payload_obj["type"] = parsed.get("type")
+            if "text" in parsed:
+                payload_obj["text"] = parsed.get("text")
+            if "state" in parsed:
+                # Store session state as-is when provided (e.g., session_start/end)
+                payload_obj["state"] = parsed.get("state")
+            # Keep original for completeness/debugging
+            payload_obj["original"] = parsed
+        else:
+            # Fallback: store the raw message under 'message'
+            payload_obj["message"] = str(parsed)
+
+        payload = json.dumps(payload_obj)
+        new_len = await redis.rpush(key, payload)
+        if ttl_seconds > 0:
+            await redis.expire(key, ttl_seconds)
+        return {
+            "success": True,
+            "key": key,
+            "list_length": new_len,
+            "data": payload_obj,
+            "message": "Chat input stored in Redis",
+        }
+
+    try:
+        return await _with_redis(_do)
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to push chat message to Redis for user={user_id} chat={chat_id}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to push chat message to Redis")
+
+
+@router.get("/redis/{user_id}/{chat_id}", response_model=dict)
+async def get_chat_messages_from_redis(
+    user_id: str,
+    chat_id: str,
+    start: int = Query(0, description="Start index for LRANGE"),
+    stop: int = Query(-1, description="Stop index for LRANGE (-1 for end)"),
+):
+    """Retrieve chat inputs from Redis list for a given user_id and chat_id.
+
+    Returns an array of message objects in insertion order.
+    """
+
+    async def _do(redis):
+        key = _chat_messages_key(user_id, chat_id)
+        items = await redis.lrange(key, start, stop)
+        messages: List[Dict[str, Any]] = []
+        for it in items:
+            try:
+                messages.append(json.loads(it))
+            except Exception:
+                messages.append({"message": it})
+        return {
+            "success": True,
+            "key": key,
+            "count": len(messages),
+            "data": messages,
+            "message": f"Retrieved {len(messages)} messages from Redis",
+        }
+
+    try:
+        return await _with_redis(_do)
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to get chat messages from Redis for user={user_id} chat={chat_id}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to retrieve chat messages from Redis")

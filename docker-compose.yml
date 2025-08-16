@@ -173,6 +173,10 @@ services:
       - PYTHONPATH=/app
       - MONGODB_HOST=mongodb
       - MONGODB_PORT=27017
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-ch@ng3m300}
+      - REDIS_DB=0
     ports:
       - "8000:8000"
     volumes:

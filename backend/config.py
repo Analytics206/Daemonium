@@ -29,6 +29,12 @@ class Settings(BaseSettings):
     mongodb_username: str = "admin"
     mongodb_password: str = "ch@ng3m300"
     
+    # Redis Settings
+    redis_host: str = "localhost"
+    redis_port: int = 6380
+    redis_password: str = "ch@ng3m300"
+    redis_db: int = 0
+    
     # CORS Settings
     cors_origins: list = ["*"]
     cors_allow_credentials: bool = True
@@ -67,6 +73,12 @@ def get_settings() -> Settings:
         mongodb_username=yaml_config.get('mongodb', {}).get('username', 'admin'),
         mongodb_password=yaml_config.get('mongodb', {}).get('password', 'ch@ng3m300'),
         
+        # Redis settings with Docker environment overrides
+        redis_host=os.getenv('REDIS_HOST', yaml_config.get('redis', {}).get('host', 'localhost')),
+        redis_port=int(os.getenv('REDIS_PORT', yaml_config.get('redis', {}).get('port', 6380))),
+        redis_password=os.getenv('REDIS_PASSWORD', yaml_config.get('redis', {}).get('password', 'ch@ng3m300')),
+        redis_db=int(os.getenv('REDIS_DB', yaml_config.get('redis', {}).get('db', 0))),
+
         # App settings from YAML
         debug=yaml_config.get('app', {}).get('debug', False),
         log_level=yaml_config.get('app', {}).get('log_level', 'INFO'),

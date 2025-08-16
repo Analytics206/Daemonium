@@ -27,7 +27,12 @@ The Daemonium is built on a microservices architecture using Docker containers w
 - **Git**: Version control system
 
 ### Messaging System
-- **
+- **Redis 7 (Docker)**: In-memory store for chat session state and orchestrator datasets
+  - **Backend**: FastAPI endpoints in `backend/routers/chat.py` use `redis>=5.0.0` (asyncio client) to store/retrieve chat events
+  - **Frontend**: Web UI pushes `session_start`, `user_message`, and `session_end` via backend Redis endpoints
+  - **Orchestrator**: `chat_orchestrator/master_combiner.js` writes combined datasets to Redis keys (e.g., `master_orchestrator`, `master_orchestrator_active`)
+  - **Configuration**: Values loaded from `config/default.yaml` under `redis` (host, port, password, db)
+  - **Security**: Password-authenticated Redis per docker-compose; avoid exposing Redis beyond Docker network in production
 
 ### Monitoring & Observability
 - **Prometheus**: Time series database for metrics collection and storage

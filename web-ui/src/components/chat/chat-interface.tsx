@@ -12,6 +12,14 @@ interface Message {
   timestamp: Date;
 }
 
+interface SessionState {
+  userId: string;
+  chatId: string;
+  date: string;        // YYYY-MM-DD
+  startTime: string;   // ISO string
+  endTime: string | null; // ISO string or null until session ends
+}
+
 interface ChatInterfaceProps {
   chatId: string;
   philosopher?: string;
@@ -24,6 +32,33 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Placeholder user identity until auth is wired
+  const userId = 'analytics206@gmail';
+  const backendBaseUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'http://localhost:8000';
+
+  const [sessionChatId, setSessionChatId] = useState<string>('');
+  const [sessionState, setSessionState] = useState<SessionState | null>(null);
+  const [sessionInitSent, setSessionInitSent] = useState<boolean>(false);
+
+  const generateId = () => {
+    try {
+      // Prefer crypto.randomUUID when available
+      return (crypto as any)?.randomUUID ? (crypto as any).randomUUID() : `chat-${Math.random().toString(36).slice(2)}-${Date.now()}`;
+    } catch {
+      return `chat-${Math.random().toString(36).slice(2)}-${Date.now()}`;
+    }
+  };
+
+  const pushToRedis = async (payload: string) => {
+    if (!sessionChatId) return;
+    const url = `${backendBaseUrl}/api/v1/chat/redis/${encodeURIComponent(userId)}/${encodeURIComponent(sessionChatId)}?input=${encodeURIComponent(payload)}`;
+    try {
+      await fetch(url, { method: 'POST' });
+    } catch (err) {
+      console.error('Failed to push to Redis:', err);
+    }
+  };
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -31,6 +66,52 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Initialize session (generate ChatID, set session state, push session_start to Redis)
+  useEffect(() => {
+    // Only initialize once per mount
+    if (!sessionChatId) {
+      const now = new Date();
+      const newChatId = generateId();
+      setSessionChatId(newChatId);
+      try { console.log('[Chat] New session ChatID:', newChatId); } catch {}
+
+      const state: SessionState = {
+        userId,
+        chatId: newChatId,
+        date: now.toISOString().slice(0, 10),
+        startTime: now.toISOString(),
+        endTime: null,
+      };
+      setSessionState(state);
+    }
+  }, [sessionChatId, userId]);
+
+  // Once sessionState is ready and not yet sent, push to Redis as session_start
+  useEffect(() => {
+    const sendInit = async () => {
+      if (sessionState && !sessionInitSent) {
+        const payload = JSON.stringify({ type: 'session_start', state: sessionState });
+        await pushToRedis(payload);
+        setSessionInitSent(true);
+      }
+    };
+    sendInit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sessionState, sessionInitSent]);
+
+  // On unmount, set endTime and push session_end
+  useEffect(() => {
+    return () => {
+      if (sessionState) {
+        const ended = { ...sessionState, endTime: new Date().toISOString() };
+        const payload = JSON.stringify({ type: 'session_end', state: ended });
+        // Fire and forget
+        pushToRedis(payload);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sessionState]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,18 +125,22 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentInput = input;
     setInput('');
     setIsLoading(true);
 
     try {
+      // Push the user's input to Redis (do not block chat flow on failure)
+      void pushToRedis(JSON.stringify({ type: 'user_message', text: currentInput }));
+
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: input,
-          chatId,
+          message: currentInput,
+          chatId: sessionChatId || chatId,
           philosopher,
         }),
       });

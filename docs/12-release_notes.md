@@ -1,5 +1,61 @@
 # Daemonium
 ---
+## Version 0.3.4 (August 16, 2025)
+
+### Backend: Redis Chat Message Normalization
+
+- Ensured every stored Redis chat item includes `user_id` and `chat_id`.
+- JSON payloads sent via `input` are parsed and normalized:
+  - Elevates common fields to top-level when present: `type`, `text`, `state`.
+  - Preserves the original parsed payload under `original` for traceability.
+  - If `input` is plain text, it is stored under `message`.
+- Applies to POST endpoint `POST /api/v1/chat/redis/{user_id}/{chat_id}?input=<STRING>&ttl_seconds=<INT>` in `backend/routers/chat.py`.
+
+### Documentation
+
+- Updated `docs/06-system_design.md` to reflect normalized Redis message shape.
+
+### Verification (PowerShell)
+
+- After sending a new message from the web UI:
+  - `$u='analytics206@gmail'`
+  - `$c='<new_chat_id_from_browser>'`
+  - `Invoke-RestMethod -Method Get -Uri "http://localhost:8000/api/v1/chat/redis/$($u)/$($c)"`
+- Expect items with top-level `user_id`, `chat_id`, and elevated `type`/`text`/`state` plus `original`.
+
+## Version 0.3.3 (August 15, 2025)
+
+### Redis Chat Session State and UI Integration
+
+- Web UI chat now manages session state: `userId`, `chatId`, `date`, `startTime`, `endTime`.
+- On mount: generates `chatId`, sends `session_start` to backend Redis endpoint.
+- On each send: pushes `user_message`.
+- On unmount: sends `session_end`.
+- Backend: added FastAPI endpoints to push and fetch messages in Redis lists:
+  - POST `/api/v1/chat/redis/{user_id}/{chat_id}?input=<STRING>&ttl_seconds=<INT>`
+  - GET `/api/v1/chat/redis/{user_id}/{chat_id}`
+- Data stored as JSON strings per item with `message`, `timestamp` (UTC ISO), `date`.
+- Uses `NEXT_PUBLIC_BACKEND_API_URL` for web UI → backend base URL.
+- No auth changes; placeholder `userId='analytics206@gmail'` until login is wired.
+
+### Files Changed
+- `backend/routers/chat.py` — Redis endpoints added.
+- `requirements.txt` — added `redis>=5.0.0`.
+- `web-ui/src/components/chat/chat-interface.tsx` — session state + Redis integration.
+- `docs/06-system_design.md` — added Redis session architecture.
+- `docs/07-tech_stack.md` — documented Redis in Messaging System.
+
+### Verification (PowerShell)
+- In browser, open `/chat`; copy `ChatID` from console log.
+- `$u='analytics206@gmail'`
+- `$c='<paste_chat_id>'`
+- `Invoke-RestMethod -Method Get -Uri "http://localhost:8000/api/v1/chat/redis/$($u)/$($c)"`
+- Expect `session_start` first, `user_message` entries after sending input, and `session_end` after leaving the page.
+
+### Notes
+- Redis config in `config/default.yaml` (`host`, `port`, `password`, `db`).
+- Data retention optional via `ttl_seconds` query param on POST.
+
 ## Version 0.3.2 (August 15, 2025)
 
 ### Web-UI: Ollama Chat Integration
