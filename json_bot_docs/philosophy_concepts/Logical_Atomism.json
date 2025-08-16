@@ -1,11 +1,15 @@
 {
     "Concept": "Logical Atomism",
     "Category": "Philosophy Concepts",
-    "Author": ["Bertrand Russell"],
+    "Author": ["Bertrand Russell", "Ludwig Wittgenstein", "Gottlob Frege", "John Stuart Mill", "David Hume"],
     "Antagonist": "Holism",
     "Keywords": [   
         "Logical Atomism"
         , "Bertrand Russell"
+        , "Ludwig Wittgenstein"
+        , "Gottlob Frege"
+        , "John Stuart Mill"
+        , "David Hume"
         , "Metaphysics"
         , "Logic"
         , "atoms of meaning"

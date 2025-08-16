@@ -1,7 +1,7 @@
 {
     "Concept": "Pragmatism",
     "Category": "Philosophy Concepts",
-    "Author": ["Charles Sanders Peirce", "William James"],
+    "Author": ["Charles Sanders Peirce", "William James", "John Dewey"],
     "Antagonist": "Rationalism",
     "Keywords": [
         "truth"
@@ -9,6 +9,11 @@
         , "utility"
         , "experience"
         , "Epistemology"
+        , "John Dewey"
+        , "Pragmatism"
+        , "Charles Sanders Peirce"
+        , "William James"
+        , "Pragmatism"
         , "Philosophy of Science"
     ],
     "Content": "Pragmatism holds that the meaning and truth of ideas are best understood in terms of their practical consequences. Knowledge is evaluated based on its usefulness in guiding action rather than abstract certainty."
