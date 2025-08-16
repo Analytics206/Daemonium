@@ -1,6 +1,6 @@
 {
     "Concept": "Hume's Guillotine",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["David Hume"],
     "Antagonist": "The logical leap from descriptive statements ('what is') to prescriptive statements ('what ought to be') without justification.",
     "Keywords": [
@@ -12,7 +12,7 @@
       "descriptive vs prescriptive",
       "naturalistic reasoning",
       "logical gap",
-      "moral reasoning",
+      "moral reasoning",  
       "fallacy",
       "metaethics",
       "moral epistemology",

@@ -1,0 +1,16 @@
+{
+    "Concept": "Infinite Monkey Theorem",
+    "Category": "Philosophy Concepts",
+    "Author": ["Émile Borel"],
+    "Antagonist": "Deterministic Limits",
+    "Keywords": [   
+        "Infinite Monkey Theorem"
+        , "Émile Borel"
+        , "probability"
+        , "randomness"
+        , "infinity"
+        , "statistics"
+        , "Philosophy of Probability"
+    ],
+    "Content": "The infinite monkey theorem suggests that given infinite time, a monkey randomly pressing keys would almost surely type out any given text, such as Shakespeare's works. It illustrates the counterintuitive nature of probability and infinity."
+  }

@@ -1,8 +1,13 @@
 {
     "Concept": "Butterfly Effect",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Edward Lorenz"],
     "Antagonist": "Predictability in complex systems",
-    "Keywords": ["Butterfly Effect", "Edward Lorenz", "Predictability in complex systems", "Existentialism", "Existentialism", "Existentialism", "Existentialism", "Existentialism", "Existentialism", "Existentialism"],
+    "Keywords": [
+        "Butterfly Effect"
+        , "Edward Lorenz"
+        , "Predictability in complex systems"
+        , "Existentialism"
+    ],
     "Content": "The Butterfly Effect is the idea that small changes in initial conditions can lead to vastly different outcomes in complex systems. Originating from chaos theory, it was popularized by meteorologist Edward Lorenz, who discovered that tiny variations in atmospheric conditions could drastically alter weather predictions. The name comes from the poetic notion that a butterfly flapping its wings in Brazil could, through a chain of small and unpredictable changes, set off a tornado in Texas. This challenges the belief that small causes produce small effects—many systems, including weather patterns, ecosystems, economies, and human lives, are highly sensitive to minor inputs. A seemingly small choice can cascade into life-changing consequences. Philosophically, it raises questions about free will and determinism: if the future is shaped by countless small factors beyond our control, can we truly predict or control our destiny? It also prompts reflection on responsibility—if tiny actions can have massive consequences, how much influence do we really have? While emphasizing unpredictability, the butterfly effect does not imply randomness; even deterministic systems can be so complex that they appear chaotic. The concept is widely used in physics, economics, psychology, and storytelling, highlighting that even the smallest actions can carry immense significance."
   }

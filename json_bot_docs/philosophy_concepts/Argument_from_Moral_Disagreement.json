@@ -1,8 +1,19 @@
 {
     "Concept": "Argument from Moral Disagreement",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["G.E. Moore", "Roderick Chisholm", "John Mackie", "W.D. Ross", "Alasdair MacIntyre", "John Rawls", "Thomas Nagel"],
     "Antagonist": "Objective Moral Truth",
-    "Keywords": ["moral disagreement", "metaethics", "moral relativism", "moral realism", "ethics", "culture", "subjectivity", "objectivity", "moral truth", "philosophy of morality"],
+    "Keywords": [
+        "moral disagreement"
+        , "metaethics"
+        , "moral relativism"
+        , "moral realism"
+        , "ethics"
+        , "culture"
+        , "subjectivity"
+        , "objectivity"
+        , "moral truth"
+        , "philosophy of morality"
+    ],
     "Content": "The Argument from Moral Disagreement suggests that the persistence of deep moral disagreements across cultures and individuals challenges the idea of objective moral truths. If morality were truly objective—akin to mathematics or physics—we might expect broad consensus. Instead, history reveals enduring conflicts over issues such as human rights, justice, and ethical values.\n\nMoral relativists use this argument to claim that morality is subjective, shaped by culture, historical context, and personal perspective. According to this view, moral truths are not absolute, but rather socially constructed and influenced by factors such as upbringing, environment, and tradition.\n\nMoral realists, however, counter that disagreement does not necessarily imply the absence of objective truth. Just as scientific disagreement does not mean there is no fact of the matter, moral disagreement may stem from bias, misinformation, or self-interest rather than the nonexistence of moral facts. On this account, moral truths exist independently of human opinion, but people may struggle to recognize them.\n\nThe Argument from Moral Disagreement remains central in metaethics, shaping debates about whether morality reflects an objective reality or is fundamentally a human invention."
 }

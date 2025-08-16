@@ -1,8 +1,11 @@
 {
     "Concept": "Argument from Illusion",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Various Philosophers"],
     "Antagonist": "The fallibility of human perception",
-    "Keywords": ["Argument from Illusion", "The fallibility of human perception", "The Argument from Illusion", "The Argument from Illusion", "The Argument from Illusion", "The Argument from Illusion", "The Argument from Illusion", "The Argument from Illusion", "The Argument from Illusion", "The Argument from Illusion"],
+    "Keywords": [
+        "Argument from Illusion"
+        , "The fallibility of human perception"
+    ],
     "Content": "The Argument from Illusion challenges the reliability of our senses by noting that perception is not always accurate. We sometimes experience illusions or hallucinations that misrepresent reality, such as a stick in water appearing bent, distant objects looking smaller, or mirages showing water where there is none. If our senses deceive us in these cases, how can we know they are not deceiving us all the time? This raises the question: do we perceive reality as it truly is, or only distorted representations? Skeptics use this to doubt the possibility of absolute knowledge. René Descartes famously applied similar reasoning in his Meditations, introducing the 'evil demon' thought experiment—an entity capable of deceiving us into believing a false reality. Responses include indirect realism, which claims we only perceive mental representations of the world, and idealism, which holds that reality consists solely of perceptions in the mind. The argument remains relevant today, linking to debates in virtual reality, simulation theory, and consciousness, and suggesting that what we call reality may be an elaborate illusion shaped by our perceptual limits."
   }

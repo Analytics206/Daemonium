@@ -1,8 +1,19 @@
 {
     "Concept": "Cartesian Theater",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Daniel Dennett", "René Descartes"],
     "Antagonist": "Centralized Model of Consciousness",
-    "Keywords": ["Cartesian Theater", "consciousness", "dualism", "René Descartes", "Daniel Dennett", "multiple drafts model", "neuroscience", "self", "mind-body problem", "philosophy of mind"],
+    "Keywords": [
+        "Cartesian Theater"
+        , "consciousness"
+        , "dualism"
+        , "René Descartes"
+        , "Daniel Dennett"
+        , "multiple drafts model"
+        , "neuroscience"
+        , "self"
+        , "mind-body problem"
+        , "philosophy of mind"
+    ],
     "Content": "The Cartesian Theater is a term used by philosopher Daniel Dennett to criticize the traditional view of consciousness as a centralized place in the brain where all sensory information is presented to an internal observer—the 'self.' This idea has roots in René Descartes' dualism, which implies that the mind is distinct from the body and that there is a conscious entity watching experiences unfold, like an audience viewing a movie.\n\nDennett argues that this model is deeply flawed. Neuroscience reveals that there is no single location in the brain where all information converges before becoming conscious. Instead, consciousness arises from distributed neural processes operating in parallel, without a central observer.\n\nTo replace the outdated model, Dennett proposed the 'Multiple Drafts Model,' which suggests that our experiences are the product of ongoing edits and revisions by various brain processes, rather than being presented in a single, unified 'theater of the mind.' This framework emphasizes that what we call 'the self' is not a separate internal spectator but an emergent property of complex, decentralized information processing.\n\nThe Cartesian Theater remains an influential concept in debates about the nature of consciousness, highlighting the illusion that there is a single, unchanging self inside our brains passively watching reality unfold."
 }
