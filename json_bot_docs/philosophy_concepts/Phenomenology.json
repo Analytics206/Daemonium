@@ -3,6 +3,17 @@
     "category": "Philosophy Concepts",
     "Author": ["Edmund Husserl", "Martin Heidegger", "Jean-Paul Sartre", "Maurice Merleau-Ponty"],
     "Antagonist": "Objectivist Approaches to Reality",
-    "Keywords": ["Phenomenology", "Edmund Husserl", "first-person perspective", "consciousness", "perception", "lived experience", "existentialism", "Martin Heidegger", "Jean-Paul Sartre", "Maurice Merleau-Ponty"],
+    "Keywords": [
+        "Phenomenology"
+        , "Edmund Husserl"
+        , "first-person perspective"
+        , "consciousness"
+        , "perception"
+        , "lived experience"
+        , "existentialism"
+        , "Martin Heidegger"
+        , "Jean-Paul Sartre"
+        , "Maurice Merleau-Ponty"
+    ],
     "Content": "Phenomenology is a philosophical approach that studies reality as it is experienced from a first-person perspective. Rather than focusing on objective facts or external explanations, phenomenology investigates consciousness, perception, and lived experience, asking what it means to be aware of something.\n\nFounded by Edmund Husserl, phenomenology seeks to describe experiences exactly as they appear, free from preconceived assumptions or theoretical interpretations. For example, instead of asking, 'What is a tree?' in scientific terms, a phenomenologist would ask, 'What is it like to experience a tree?' This methodological shift moves philosophy away from analyzing external reality toward examining the structure of subjective experience itself.\n\nHusserl’s student, Martin Heidegger, expanded phenomenology into existentialism, exploring concepts such as being, time, and authenticity. Later thinkers, including Jean-Paul Sartre and Maurice Merleau-Ponty, applied phenomenological methods to questions of selfhood, embodiment, and freedom.\n\nPhenomenology remains influential in psychology, cognitive science, and even artificial intelligence, as it challenges us to understand the world not just as it exists independently, but as it is lived, felt, and perceived by conscious beings."
 }

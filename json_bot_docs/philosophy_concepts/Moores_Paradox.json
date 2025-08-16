@@ -3,6 +3,17 @@
     "category": "Philosophy Concepts",
     "Author": ["George Edward Moore", "John Locke", "John Stuart Mill", "Immanuel Kant"],
     "Antagonist": "Epistemic Incoherence",
-    "Keywords": ["Moore's Paradox", "belief", "self-awareness", "rationality", "philosophy of mind", "philosophy of language", "self-knowledge", "cognitive dissonance", "contradiction", "epistemology"],
+    "Keywords": [
+        "Moore's Paradox"
+        , "belief"
+        , "self-awareness"
+        , "rationality"
+        , "philosophy of mind"
+        , "philosophy of language"
+        , "self-knowledge"
+        , "cognitive dissonance"
+        , "contradiction"
+        , "epistemology"
+    ],
     "Content": "Moore’s Paradox, introduced by the philosopher George Edward Moore, describes a peculiar contradiction that occurs when someone makes a statement such as, 'It is raining, but I do not believe it is raining.' Although this sentence is not logically inconsistent—it can indeed be raining while someone does not believe it is raining—it is epistemically absurd. The paradox arises because asserting such a statement requires holding two conflicting attitudes at the same time: affirming a fact while simultaneously denying belief in it. \n\nThis tension reveals deeper questions about belief, self-awareness, and rationality. Ordinarily, if we assert something, we also believe it to be true. When someone says, 'I am in pain, but I do not believe I am in pain,' we recognize that something has gone wrong—not in the logical structure of the statement, but in the coherence of their belief system. Moore’s Paradox thus challenges the relationship between truth claims and internal belief commitments.\n\nPhilosophers have examined Moore’s Paradox in the fields of philosophy of mind, philosophy of language, and self-knowledge, using it to probe the nature of belief and assertion. If belief involves an internal commitment to truth, then making contradictory statements about one’s own beliefs undermines rational discourse. \n\nPsychology and cognitive science have also explored similar phenomena, particularly in the study of cognitive dissonance—where individuals simultaneously hold incompatible beliefs or attitudes. Moore’s insight sheds light on why self-awareness and belief are intimately connected, making this paradox one of the most intriguing puzzles in the study of language, thought, and human cognition."
 }

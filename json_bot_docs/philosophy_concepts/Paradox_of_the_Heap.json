@@ -3,6 +3,15 @@
     "category": "Philosophy Concepts",
     "Author": ["René Descartes", "John Locke", "John Stuart Mill", "Immanuel Kant"],
     "Antagonist": "",
-    "Keywords": ["Paradox of the Heap", "Sorites Paradox", "Philosophy", "Logic", "Language", "Reasoning", "Vagueness", "Existentialism", "Existentialism", "Existentialism"],
+    "Keywords": [
+        "Paradox of the Heap"
+        , "Sorites Paradox"
+        , "Philosophy"
+        , "Logic"
+        , "Language"
+        , "Reasoning"
+        , "Vagueness"
+        , "Existentialism"
+    ],
     "Content": "The Paradox of the Heap, also known as the Sorites Paradox, is a logical puzzle that challenges how we define vague concepts, particularly when gradual change makes it unclear where one state ends and another begins. Imagine you have a heap of sand. If you remove one grain, it’s still a heap. Remove another, and another—it’s still a heap. But at some point, after enough grains are removed, it stops being a heap. The question is: at what exact point does that change occur? Conversely, if you start with a single grain of sand and add one at a time, when does it officially become a heap? This paradox applies to more than just sand. Consider baldness: if a man loses one hair, he’s not bald—but if he keeps losing hair, there comes a vague point when we begin to call him bald. Similar questions arise in many areas: When does a fetus become a child? When does an old car become junk? When does a child become an adult? The Paradox of the Heap highlights a fundamental issue in human language and reasoning—many everyday concepts (“heap,” “rich,” “tall,” “bald”) are not sharply defined. This vagueness leads to paradoxical situations. Some philosophers, such as those in the school of fuzzy logic, argue that truth is not always binary (true or false) but exists on a spectrum. Others suggest that our language lacks the precision needed to resolve such puzzles. Ultimately, the Sorites Paradox forces us to question how we categorize the world. If we cannot pinpoint where a transition occurs, does that mean our definitions are flawed—or does reality itself resist clear boundaries?"
 }

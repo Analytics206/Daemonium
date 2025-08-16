@@ -3,6 +3,17 @@
     "category": "Philosophy Concepts",
     "Author": ["Kurt Gödel", "David Hilbert"],
     "Antagonist": "Mathematical Foundationalism",
-    "Keywords": ["Incompleteness Theorems", "Gödel", "mathematics", "logic", "formal systems", "consistency", "completeness", "Hilbert's program", "limits of knowledge", "philosophy of mathematics"],
+    "Keywords": [
+        "Incompleteness Theorems"
+        , "Gödel"
+        , "mathematics"
+        , "logic"
+        , "formal systems"
+        , "consistency"
+        , "completeness"
+        , "Hilbert's program"
+        , "limits of knowledge"
+        , "philosophy of mathematics"
+    ],
     "Content": "The Incompleteness Theorems, proven by Kurt Gödel in 1931, revolutionized mathematics and logic by demonstrating that no sufficiently complex formal system can be both complete and consistent. These results challenged the prevailing hope that all mathematical truths could be derived from a fixed set of axioms and logical rules.\n\nGödel’s First Incompleteness Theorem states that in any formal mathematical system rich enough to express basic arithmetic, there will always be true statements that cannot be proven within the system itself. This means that no matter how advanced or comprehensive our mathematical framework is, some truths will inevitably lie beyond formal proof.\n\nThe Second Incompleteness Theorem goes even further, showing that no such system can prove its own consistency. In other words, we can never be absolutely certain from within the system that it is free from contradictions.\n\nGödel’s work dealt a significant blow to mathematical foundationalism, particularly David Hilbert’s program, which aimed to create a complete, self-contained, and fully provable foundation for mathematics. Beyond mathematics, the theorems have profound implications for philosophy, artificial intelligence, and the limits of human knowledge, suggesting that certain truths may forever remain beyond the reach of formal reasoning."
 }

@@ -3,6 +3,17 @@
     "category": "Philosophy Concepts",
     "Author": ["Roderick Chisholm", "Immanuel Kant", "Bertrand Russell", "G.E. Moore", "David Hume", "John Locke"],
     "Antagonist": "Epistemic Circularity",
-    "Keywords": ["Problem of the Criterion", "epistemology", "knowledge", "justification", "infinite regress", "circular reasoning", "methodism", "particularism", "skepticism", "truth"],
+    "Keywords": [
+        "Problem of the Criterion"
+        , "epistemology"
+        , "knowledge"
+        , "justification"
+        , "infinite regress"
+        , "circular reasoning"
+        , "methodism"
+        , "particularism"
+        , "skepticism"
+        , "truth"
+    ],
     "Content": "The Problem of the Criterion, introduced by philosopher Roderick Chisholm, is a fundamental dilemma in epistemology that questions how we can distinguish true knowledge from falsehood. It presents a circular challenge: to determine whether a belief is justified, we need a reliable method for evaluating knowledge; yet to establish that our method is reliable, we must first know which beliefs are true. This creates a paradox—how can we define knowledge without already knowing what knowledge is?\n\nThis issue appears in everyday reasoning. If someone asks, 'How do you know this claim is true?' one might respond, 'Because of this reliable method.' But if they then ask, 'How do you know that method is reliable?' we must appeal to another justification, which itself demands validation. The process risks either falling into an infinite regress, endlessly requiring new justifications, or collapsing into circular reasoning, where we assume the very thing we are trying to prove.\n\nPhilosophers have proposed two main responses. Methodists argue that we should begin by establishing a clear method for determining truth before deciding what we can know. Particularists, on the other hand, maintain that we already know certain things and should build our criteria for knowledge based on these examples. \n\nThe Problem of the Criterion remains one of the most enduring challenges in philosophy, forcing us to confront whether certainty is ever possible and whether our attempts to justify knowledge are inevitably trapped in circularity or infinite skepticism."
 }

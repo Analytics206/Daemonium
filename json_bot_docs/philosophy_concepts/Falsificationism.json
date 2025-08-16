@@ -3,6 +3,11 @@
     "category": "Philosophy Concepts",
     "Author": ["Karl Popper", "Immanuel Kant"],
     "Antagonist": "Verificationism and certainty in scientific proof",
-    "Keywords": ["Falsificationism", "Karl Popper", "Verificationism and certainty in scientific proof", "Existentialism", "Existentialism", "Existentialism", "Existentialism", "Existentialism", "Existentialism", "Existentialism"],
+    "Keywords": [
+        "Falsificationism"
+        , "Karl Popper"
+        , "Verificationism and certainty in scientific proof"
+        , "Existentialism"
+    ],
     "Content": "Falsificationism is a philosophy of science proposed by Karl Popper as a response to the Problem of Induction. Rather than proving theories true through repeated observations, Popper argued that science advances by trying to prove theories false. A theory is only scientifically meaningful if it can be tested and potentially proven wrong. For example, the claim 'All swans are white' is not confirmed by thousands of white swans, but can be refuted by finding a single black swan. This view rejects verificationism—the idea that science should focus on confirming theories—in favor of falsifiability as the true criterion of science. Scientific theories make bold predictions that can be tested and potentially refuted, while pseudosciences often explain away counterexamples to avoid being proven wrong. If a theory can accommodate any possible observation, it is not falsifiable and thus not scientific. Critics note that in practice, scientists often refine rather than discard theories after a failed experiment, and some scientific fields deal with phenomena that cannot always be directly tested. Despite these challenges, falsificationism remains one of the most influential principles in the philosophy of science, guiding the distinction between genuine science and unfounded speculation."
   }

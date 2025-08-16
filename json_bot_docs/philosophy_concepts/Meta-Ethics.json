@@ -3,6 +3,12 @@
     "category": "Philosophy Concepts",
     "Author": ["Various Philosophers"],
     "Antagonist": "Uncertainty about the nature of morality",
-    "Keywords": ["Moral realism, Moral anti-realism, Cognitivism, Non-cognitivism"],
+    "Keywords": [
+        "Meta-Ethics"
+        , "Moral realism"
+        , "Moral anti-realism"
+        , "Cognitivism"
+        , "Non-cognitivism"
+    ],
     "Content": "Meta-ethics is the branch of philosophy that examines the nature, origin, and meaning of moral concepts. Unlike normative ethics, which asks what actions are right or wrong, meta-ethics explores what morality itself is, asking questions such as: Are moral values objective or subjective? Do moral statements express facts or just opinions? Can we truly know what is right or wrong? One key debate is between moral realism and moral anti-realism. Moral realism asserts that moral truths exist independently of human beliefs, much like mathematical truths, e.g., murder is objectively wrong regardless of opinion. Moral anti-realism holds that morality is a human construct with no existence outside our perceptions, making moral rules more like social agreements than universal truths. Another debate is between cognitivism and non-cognitivism. Cognitivists argue that moral statements are factual claims that can be true or false, while non-cognitivists see them as expressions of emotion or commands. Meta-ethics also examines how moral beliefs are justified—through reason, emotions, social conventions, or evolutionary factors. This study is crucial because it influences how we handle ethical dilemmas: if morality is objective, debates may have definitive answers; if subjective, some may never be resolved. By probing the foundations of moral reasoning, meta-ethics forces us to reflect deeply on what it means to be good or bad."
   }
