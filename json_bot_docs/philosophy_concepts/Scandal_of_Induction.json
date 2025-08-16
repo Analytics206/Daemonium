@@ -1,0 +1,19 @@
+{
+    "Concept": "Scandal of Induction",
+    "category": "Philosophy Concepts",
+    "Author": ["David Hume", "Karl Popper"],
+    "Antagonist": "Problem of Justifying Induction",
+    "Keywords": [
+        "Scandal of Induction"
+        , "David Hume"
+        , "inductive reasoning"
+        , "epistemology"
+        , "philosophy of science"
+        , "falsification"
+        , "pragmatism"
+        , "Karl Popper"
+        , "circular reasoning"
+        , "knowledge"
+    ],
+    "Content": "The Scandal of Induction refers to the long-standing philosophical problem of why inductive reasoning works despite having no logical guarantee. First articulated by David Hume, the issue arises because induction—drawing general conclusions from repeated past observations—rests on the assumption that the future will resemble the past. However, there is no logical proof for this assumption. For example, we believe the sun will rise tomorrow because it always has, but logically this inference is not certain.\n\nThis creates a paradox: we justify induction by appealing to its past success, but this itself is an inductive argument, making the reasoning circular. Philosophers have proposed different responses. Karl Popper rejected induction altogether and instead developed falsificationism, where scientific theories are evaluated by attempts to disprove them rather than confirm them. Others defend a pragmatic approach, suggesting that induction works well in practice even if it cannot be formally justified.\n\nThe Scandal of Induction remains one of the deepest challenges in epistemology and the philosophy of science. It raises the question of whether human knowledge is built on certainty or on practical habits and expectations about how the world tends to behave."
+}
