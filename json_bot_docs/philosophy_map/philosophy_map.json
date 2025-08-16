@@ -1,0 +1,509 @@
+{
+  "philosophy_map": {
+    "description": "A comprehensive map of philosophical disciplines, methods, and traditions",
+    "central_foundation": {
+      "logic_and_philosophical_methods": {
+        "description": "The methods with which philosophy connects various disciplines and translates normal language into evaluable forms",
+        "formal_classical_logic": {
+          "first_order_logic": {
+            "name": "First Order Logic",
+            "propositional_logic": "Macro logic dealing with relations between propositions and statements",
+            "categorical_logic": "Older version of logic working on micro scale with subjects and predicates",
+            "predicate_calculus": "Modern combination that quantifies over subjects and predicates"
+          },
+          "higher_order_logic": {
+            "name": "Higher Order Logic",
+            "description": "Quantifies over predicates as well as objects",
+            "includes": [
+              "type_theory",
+              "set_theory", 
+              "philosophy_of_mathematics"
+            ]
+          },
+          "modal_logics": {
+            "alethic_modal_logic": {
+              "name": "Alethic Modal Logic",
+              "description": "Basic modal logic dealing with logical possibility and necessity",
+              "includes": [
+                "possibility",
+                "necessity"
+              ]
+            },
+            "temporal_logic": {
+              "name": "Temporal Logic",
+              "description": "Logic of time - past, present, future",
+              "includes": [
+                "past",
+                "present",
+                "future"
+              ]
+            },
+            "epistemic_logic": {
+              "name": "Epistemic Logic",
+              "description": "Logic of knowledge, belief, justification",
+              "includes": [
+                "knowledge",
+                "belief",
+                "justification"
+              ]
+            },
+            "deontic_logic": {
+              "name": "Deontic Logic",
+              "description": "Logic of ethics and obligation",
+              "includes": [
+                "ethics",
+                "obligation"
+              ]
+            }
+          }
+        },
+        "non_classical_logic": {
+          "name": "Non-Classical Logic",
+          "description": "Logics that deny or question basic premises of classical logic",
+          "types": [
+            "many_valued_logics",
+            "fuzzy_logic",
+            "computability_logic",
+            "linear_logic",
+            "non_reflexive_logic",
+            "relevance_logic",
+            "intuitionistic_logic",
+            "paraconsistent_logic",
+            "non_monotonic_logic"
+          ]
+        },
+        "informal_logic": {
+          "name": "Informal Logic",
+          "inductive_arguments": "Truth of premises makes conclusion more likely - generalize from specific cases",
+          "abductive_arguments": "Arguments toward best explanation based on available information"
+        },
+        "philosophical_methods": {
+          "name": "Philosophical Methods",
+          "thought_experiments": "Philosopher imagines scenarios to lead intuition to conclusions",
+          "experimental_philosophy": "Studies intuitions empirically, uses empirical research",
+          "intuitions": "Feelings or impressions used as building blocks for premises"
+        }
+      }
+    },
+    "history_and_traditions": {
+      "historical_periods": {
+        "ancient_greek_roman": {
+          "name": "Ancient Greek and Roman Philosophy",
+          "description": "Birthplace of Western philosophical tradition",
+          "key_figures": ["Plato", "Socrates", "Aristotle"],
+          "positions": ["stoicism", "skepticism", "atomism", "cyrenaicism", "epicureanism"],
+          "includes": ["dialectical_method", "platonic_idealism", "aristotelian_philosophy", "cyrenaicism", "epicureanism", "stoicism", "skepticism", "atomism", "cyrenaicism", "epicureanism"]
+        },
+        "medieval_philosophy": {
+          "name": "Medieval Philosophy",
+          "description": "Scholastics trying to reconcile ancient Greek texts with the Bible",
+          "key_figures": ["Thomas Aquinas", "Saint Augustine", "Boethius", "Saint Anselm"],
+          "positions": ["thomism", "patrology"],
+          "includes": ["thomism", "patrology"]
+        },
+        "17th_century_early_modern": {
+          "name": "17th Century Early Modern",
+          "description": "Dominated by Descartes and Locke, advancing 16th century ideas",
+          "key_figures": ["René Descartes", "John Locke", "Gottfried Leibniz", "Thomas Hobbes"],
+          "positions": ["rationalism", "empiricism", "idealism", "dualism"],
+          "includes": ["rationalism", "empiricism", "idealism", "dualism"]
+        },
+        "18th_century": {
+          "name": "18th Century",
+          "description": "Dominated by Kant and Hume, advancing 17th century ideas",
+          "key_figures": ["Kant", "Hume", "Jean-Jacques Rousseau", "Voltaire"],
+          "positions": ["rationalism", "empiricism", "idealism", "dualism"],
+          "includes": ["rationalism", "empiricism", "idealism", "dualism"]
+        },
+        "19th_century": {
+          "name": "19th Century",
+          "description": "Dominated   by Mill and Hegel, advancing 18th century ideas",
+          "key_figures": ["John Stuart Mill", "Hegel", "William James", "Friedrich Nietzsche"],
+          "positions": ["German idealism", "pragmatism", "utilitarianism", "transcendentalism"],
+          "includes": ["German idealism", "pragmatism", "utilitarianism", "transcendentalism"]
+        },
+        "20th_century": {
+          "name": "20th Century",
+          "description": "Philosophy blooms and expands significantly",
+          "key_figures": ["Bertrand Russell", "Ludwig Wittgenstein", "Karl Popper", "Martin Heidegger", "Thomas Kuhn", "David Lewis", "Kurt Gödel", "Quine", "Sartre"],
+          "positions": ["Bertrand Russell", "Ludwig Wittgenstein", "Karl Popper", "Martin Heidegger", "Thomas Kuhn", "David Lewis", "Kurt Gödel", "Quine", "Sartre"],
+          "includes": ["Bertrand Russell", "Ludwig Wittgenstein", "Karl Popper", "Martin Heidegger", "Thomas Kuhn", "David Lewis", "Kurt Gödel", "Quine", "Sartre"]
+        }
+      },
+      "philosophical_traditions": {
+        "western_traditions": {
+          "analytic_philosophy": {
+            "name": "Analytic Philosophy",
+            "description": "Pervasive throughout English-speaking world",
+            "geographic_focus": "North America, English-speaking countries"
+          },
+          "continental_philosophy": {
+            "name": "Continental Philosophy",
+            "description": "European tradition that opposes analytic philosophy",
+            "includes": [
+              "phenomenology",
+              "poststructuralism", 
+              "hermeneutics",
+              "existentialism",
+              "critical_theory",
+              "speculative_realism",
+              "German_idealism"
+            ]
+          }
+        },
+        "regional_traditions": {
+          "native_american_philosophy": {
+            "name": "Native American Philosophy",
+            "focus": ["sovereignty", "power", "indigenous_rights", "colonialism"]
+          },
+          "afro_caribbean_philosophy": {
+            "name": "Afro Caribbean Philosophy",
+            "focus": ["multiculturalism", "colonialism", "imperialism"]
+          },
+          "latin_american_philosophy": {
+            "name": "Latin American Philosophy",
+            "focus": ["identity", "social_issues", "feminist_philosophy"]
+          },
+          "african_philosophy": {
+            "name": "African Philosophy",
+            "challenges": "Impacted by colonialist history, forced to defend rights and ideas",
+            "distinction": "North African vs sub-Saharan development"
+          }
+        },
+        "eastern_traditions": {
+          "chinese_philosophy": {
+            "name": "Chinese Philosophy",
+            "includes": ["confucianism", "taoism", "buddhism"],
+            "influence": "Confucianism impactful throughout region"
+          },
+          "japanese_philosophy": {
+            "name": "Japanese Philosophy",
+            "combines": ["shinto", "buddhism", "confucianism", "western_philosophy"]
+          },
+          "korean_philosophy": {
+            "name": "Korean Philosophy",
+            "combines": ["buddhism", "neo_confucianism", "shamanism"]
+          },
+          "indian_philosophy": {
+            "name": "Indian Philosophy",
+            "structure": {
+              "orthodox_schools": 6,
+              "heterodox_schools": 4
+            },
+            "description": "Very much its own philosophy with ten major schools"
+          },
+          "tibetan_philosophy": {
+            "name": "Tibetan Philosophy",
+            "association": "Buddhism as religion and philosophy",
+            "includes": ["formal_debate_system", "cultural_practices"]
+          },
+          "islamic_philosophy": {
+            "name": "Islamic Philosophy",
+            "description": "Wide range of topics, preserved ancient Greek texts",
+            "includes": ["metaphysics", "post_colonial_opinions", "illuminationist_school", "transcendent_schools"]
+          }
+        },
+        "other_traditions": {
+          "polynesian_philosophy": {
+            "name": "Polynesian Philosophy",
+            "description": "Post-colonialist with pre-colonialism metaphysics and cosmology",
+            "includes": ["metaphysics", "cosmology"]
+          },
+          "australian_philosophy": {
+            "name": "Australian Philosophy",
+            "description": "Australian realism within analytic philosophy world",
+            "includes": ["realism", "analytic_philosophy"]
+          }
+        }
+      }
+    },
+    "major_philosophical_areas": {
+      "value_theory": {
+        "name": "Value Theory",
+        "description": "Area of philosophy most applicable to daily life",
+        "aesthetics": {
+          "name": "Aesthetics",
+          "philosophy_of_art": {
+            "name": "Philosophy of Art",
+            "questions": ["What is art?", "What can be classified as art?", "High art vs popular art"],
+            "specific_areas": [
+              "philosophy_of_literature",
+              "philosophy_of_film", 
+              "philosophy_of_music",
+              "philosophy_of_visual_art"
+            ]
+          },
+          "philosophy_of_beauty": {
+            "name": "Philosophy of Beauty",
+            "focuses": [
+              "aesthetic_judgment",
+              "aesthetic_value",
+              "aesthetic_cognition",
+              "sublime",
+              "humor",
+              "horror"
+            ]
+          }
+        },
+        "political_philosophy": {
+          "name": "Political Philosophy",
+          "core_questions": [
+            "What is justice?",
+            "Best types of government",
+            "Government power over people",
+            "Freedom and free speech"
+          ],
+          "extends_to": ["law", "political_theory", "war", "international_development", "human_rights"]
+        },
+        "social_philosophy": {
+          "name": "Social Philosophy",
+          "major_areas": [
+            "feminism",
+            "equality",
+            "philosophy_of_culture",
+            "philosophy_of_gender",
+            "philosophy_of_race",
+            "philosophy_of_sex",
+            "philosophy_of_sexuality"
+          ]
+        },
+        "moral_theory_and_ethics": {
+          "name": "Moral Theory and Ethics",
+          "meta_ethics": {
+            "questions": ["What types of things are good/evil?", "Is good just opinion or objective?"]
+          },
+          "normative_ethics": {
+            "name": "Normative Ethics",
+            "theories": {
+              "consequentialism": {
+                "includes": "utilitarianism",
+                "focus": "Consequences of actions determine if good or bad"
+              },
+              "deontology": {
+                "includes": ["divine_command_theory", "kantian_ethics"],
+                "focus": "Following specific rules"
+              },
+              "virtue_ethics": {
+                "focus": "Virtues and vices, balance between extremes",
+                "origin": "Aristotle"
+              }
+            }
+          },
+          "applied_ethics": {
+            "name": "Applied Ethics",
+            "areas": [
+              "biomedical_ethics",
+              "business_ethics",
+              "environmental_ethics",
+              "professional_ethics",
+              "political_ethics",
+              "social_ethics",
+              "technology_ethics",
+              "development_ethics"
+            ]
+          }
+        }
+      },
+      "epistemology": {
+        "name": "Epistemology",
+        "description": "Study of knowledge - true justified belief",
+        "core_focus": "Principles, varieties, and definitions of knowledge",
+        "epistemic_states_and_properties": [
+          "believing",
+          "being_justified",
+          "being_wise",
+          "epistemic_luck",
+          "epistemic_defeat",
+          "rationality",
+          "warrant"
+        ],
+        "social_epistemology": {
+          "name": "Social Epistemology",
+          "includes": [
+            "trust",
+            "collective_mentality",
+            "social_choice_procedures"
+          ]
+        },
+        "sources_of_knowledge": {
+          "name": "Sources of Knowledge",
+          "a_posteriori": "Knowledge from experience",
+          "a_priori": "Knowledge independent of experience",
+          "specific_sources": [
+            "memory",
+            "testimony", 
+            "reasoning",
+            "seemings",
+            "intuition",
+            "perception"
+          ]
+        },
+        "epistemic_theories": [
+          "skepticism",
+          "pragmatism",
+          "foundationalism",
+          "coherentism",
+          "contextualism",
+          "internalism",
+          "externalism",
+          "infinitism",
+          "reliabilism",
+          "rationalism",
+          "empiricism"
+        ]
+      },
+      "metaphysics": {
+        "name": "Metaphysics",
+        "description": "Study of fundamental reality",
+        "ontology": {
+          "name": "Ontology",
+          "description": "Study of things that exist",
+          "focus": "Dividing world into objects that exist and don't exist"
+        },
+        "philosophy_of_objects": "What objects are made of, what are separate objects",
+        "mereology": "Study of part-whole relations",
+        "identity": "Why objects remain same over time despite changes",
+        "personhood": "What makes something a person, personal identity over time",
+        "properties": {
+          "description": "Things like redness, roundness, sweetness",
+          "question": "Do properties actually exist? How do they adhere to objects?"
+        },
+        "global_metaphysical_theories": [
+          "realism",
+          "relativism",
+          "process_philosophy",
+          "physicalism",
+          "phenomenalism",
+          "monism",
+          "logical_atomism",
+          "dualism",
+          "idealism"
+        ],
+        "interlevel_metaphysics": [
+          "grounding",
+          "supervenience",
+          "reduction",
+          "fundamentality",
+          "emergence",
+          "realization"
+        ],
+        "specific_studies": {
+          "metaphysics_of_time": "What time is, can time exist without change",
+          "modality": "Study of possible worlds, necessity and possibility",
+          "causation": "How cause and effect work, does causation exist"
+        }
+      }
+    },
+    "bridging_disciplines": {
+      "philosophy_of_science": {
+        "name": "Philosophy of Science",
+        "scientific_methodology": {
+          "name": "Scientific Methodology",
+          "problems": [
+            "underdetermination",
+            "new_riddle_of_induction",
+            "problem_of_induction"
+          ]
+        },
+        "history_of_science": "How scientific theories shift and change, paradigm shifts",
+        "key_concepts": [
+          "natural_kinds",
+          "scientific_realism"
+        ],
+        "specific_philosophies": [
+          "philosophy_of_biology",
+          "philosophy_of_chemistry",
+          "philosophy_of_physics",
+          "philosophy_of_quantum_mechanics",
+          "philosophy_of_social_sciences",
+          "philosophy_of_cognitive_sciences",
+          "philosophy_of_computing",
+          "philosophy_of_mathematics",
+          "philosophy_of_psychology"
+        ]
+      },
+      "philosophy_of_religion": {
+        "name": "Philosophy of Religion",
+        "arguments_for_god": [
+          "ontological_argument",
+          "teleological_argument", 
+          "cosmological_argument"
+        ],
+        "arguments_against_god": [
+          "problem_of_evil",
+          "euthyphro_dilemma"
+        ],
+        "attributes_of_god": [
+          "omniscience",
+          "omnipotence", 
+          "omnibenevolence"
+        ],
+        "religious_experience": "Study of religious experience as epistemic state",
+        "philosophy_of_particular_religions": "How individual religions interact with philosophy"
+      },
+      "philosophy_of_language": {
+        "name": "Philosophy of Language",
+        "meaning": "What words mean, semantics",
+        "truth": {
+          "description": "One of the big ideas in philosophy",
+          "theories": [
+            "coherentism",
+            "correspondence_theories",
+            "tarski_theories"
+          ]
+        },
+        "specific_expressions": [
+          "indexicals",
+          "demonstratives",
+          "nouns",
+          "verbs",
+          "modal_expressions",
+          "predicates",
+          "quantifiers",
+          "conditionals",
+          "temporal_expressions"
+        ]
+      },
+      "philosophy_of_mind": {
+        "name": "Philosophy of Mind",
+        "philosophy_of_consciousness": [
+          "What makes something conscious?",
+          "Philosophical zombies",
+          "Computer consciousness"
+        ],
+        "mental_states": {
+          "name": "Mental States",
+          "belief": "Closely related to knowledge and epistemology",
+          "emotions": ["anger", "fear", "love", "disgust", "happiness"]
+        },
+        "mind_body_interaction": "How mental states interact with physical states",
+        "philosophy_of_perception": "What is perception, how do we understand the world through senses"
+      },
+      "philosophy_of_action": {
+        "name": "Philosophy of Action",
+        "decision_theory": "How to make choices, game theory, decision paradoxes",
+        "free_will": {
+          "name": "Free Will",
+          "positions": [
+            "compatibilism",
+            "libertarianism", 
+            "determinism"
+          ],
+          "questions": [
+            "Do we have free will?",
+            "How is free will defined?",
+            "Science and free will"
+          ]
+        },
+        "action_theory_topics": [
+          "motivations",
+          "will",
+          "rationality",
+          "agency",
+          "intentions",
+          "volunteerism"
+        ]
+      }
+    }
+  }
+}

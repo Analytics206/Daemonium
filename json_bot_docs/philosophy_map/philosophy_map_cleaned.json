@@ -1,0 +1,515 @@
+{
+  "philosophy_map": {
+    "name": "Philosophy Map",
+    "description": "A comprehensive map of philosophical disciplines, methods, and traditions",
+    "subfields": {
+      "central_foundation": {
+        "name": "Central Foundation",
+        "description": "",
+        "subfields": {
+          "logic_and_philosophical_methods": {
+            "name": "Logic and Philosophical Methods",
+            "description": "The methods with which philosophy connects various disciplines and translates normal language into evaluable forms",
+            "subfields": {
+              "formal_classical_logic": {
+                "name": "Formal Classical Logic",
+                "description": "",
+                "subfields": {
+                  "first_order_logic": {
+                    "name": "First Order Logic",
+                    "description": "",
+                    "extra": {
+                      "propositional_logic": "Macro logic dealing with relations between propositions and statements",
+                      "categorical_logic": "Older version of logic working on micro scale with subjects and predicates",
+                      "predicate_calculus": "Modern combination that quantifies over subjects and predicates"
+                    }
+                  },
+                  "higher_order_logic": {
+                    "name": "Higher Order Logic",
+                    "description": "Quantifies over predicates as well as objects",
+                    "subfields": {}
+                  }
+                }
+              },
+              "modal_logic": {
+                "name": "Modal Logic",
+                "description": "Logic that quantifies over logical modality",
+                "subfields": {
+                  "alethic_modality": {
+                    "name": "Alethic Modality",
+                    "description": "",
+                    "extra": {
+                      "description": "Relates to truth; includes necessity, possibility, and impossibility"
+                    }
+                  },
+                  "deontic_modality": {
+                    "name": "Deontic Modality",
+                    "description": "",
+                    "extra": {
+                      "description": "Relates to obligation, permissibility, and prohibition"
+                    }
+                  },
+                  "temporal_modality": {
+                    "name": "Temporal Modality",
+                    "description": "",
+                    "extra": {
+                      "description": "Relates to time; includes pastness, presentness, and futurity"
+                    }
+                  },
+                  "epistemic_modality": {
+                    "name": "Epistemic Modality",
+                    "description": "",
+                    "extra": {
+                      "description": "Relates to knowledge; includes probability and certainty"
+                    }
+                  }
+                }
+              },
+              "informal_logic_critical_thinking": {
+                "name": "Informal Logic Critical Thinking",
+                "description": "Methods including rhetoric, dialectic, and critical analysis; often precedes formal logic in argument construction",
+                "subfields": {
+                  "philosophical_methods": {
+                    "name": "Philosophical Methods",
+                    "description": "Various strategies for approaching philosophical questions",
+                    "subfields": {
+                      "conceptual_analysis": {
+                        "name": "Conceptual Analysis",
+                        "description": "",
+                        "subfields": {}
+                      },
+                      "first_principle_reasoning": {
+                        "name": "First Principle Reasoning",
+                        "description": "",
+                        "subfields": {}
+                      },
+                      "thought_experiments": {
+                        "name": "Thought Experiments",
+                        "description": "",
+                        "subfields": {}
+                      },
+                      "ambient_intuition": {
+                        "name": "Ambient Intuition",
+                        "description": "",
+                        "subfields": {}
+                      },
+                      "ontological_engineering": {
+                        "name": "Ontological Engineering",
+                        "description": "",
+                        "subfields": {}
+                      },
+                      "bayesian_epistemology": {
+                        "name": "Bayesian Epistemology",
+                        "description": "",
+                        "subfields": {}
+                      },
+                      "principia_epistemology": {
+                        "name": "Principia Epistemology",
+                        "description": "",
+                        "subfields": {}
+                      },
+                      "part_whole_assessment": {
+                        "name": "Part Whole Assessment",
+                        "description": "",
+                        "subfields": {}
+                      },
+                      "principle_of_explanatory_power": {
+                        "name": "Principle of Explanatory Power",
+                        "description": "",
+                        "subfields": {}
+                      },
+                      "rhetorical_and_dialectical_methods": {
+                        "name": "Rhetorical and Dialectical Methods",
+                        "description": "",
+                        "subfields": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "metaphysics": {
+        "name": "Metaphysics",
+        "description": "The study of the fundamental nature of reality, including questions about existence, identity, time, and causation",
+        "subfields": {
+          "metaphysical_themes": {
+            "name": "Metaphysical Themes",
+            "description": "Core topics and debates within metaphysics",
+            "subfields": {
+              "ontology_and_what_exists": {
+                "name": "Ontology and What Exists",
+                "description": "Categories of being and what kinds of things exist",
+                "subfields": {
+                  "universals_and_particulars": {
+                    "name": "Universals and Particulars",
+                    "description": "Debate over whether properties (universals) exist independently of particulars",
+                    "subfields": {}
+                  },
+                  "properties_and_tropes": {
+                    "name": "Properties and Tropes",
+                    "description": "Nature of properties and whether they are repeatable universals or particularized tropes",
+                    "subfields": {}
+                  },
+                  "substance_and_essence": {
+                    "name": "Substance and Essence",
+                    "description": "What makes an object the kind of thing it is (its essential features)",
+                    "subfields": {}
+                  },
+                  "existence_and_identity": {
+                    "name": "Existence and Identity",
+                    "description": "Criteria for existence and the identity conditions for objects",
+                    "subfields": {}
+                  }
+                }
+              },
+              "time_and_modality": {
+                "name": "Time and Modality",
+                "description": "The nature of time and possibility/necessity",
+                "subfields": {
+                  "a_theory_b_theory": {
+                    "name": "A Theory B Theory",
+                    "description": "Debates between dynamic (A-theory) and static (B-theory) views of time",
+                    "subfields": {}
+                  },
+                  "possible_worlds": {
+                    "name": "Possible Worlds",
+                    "description": "Frameworks for understanding modality via possible worlds semantics",
+                    "subfields": {}
+                  },
+                  "counterfactuals": {
+                    "name": "Counterfactuals",
+                    "description": "Conditionals about what would be the case under different circumstances",
+                    "subfields": {}
+                  }
+                }
+              },
+              "causation_and_laws": {
+                "name": "Causation and Laws",
+                "description": "Nature of causality, laws of nature, and related metaphysical issues",
+                "subfields": {
+                  "regularity_vs_necessitation": {
+                    "name": "Regularity vs Necessitation",
+                    "description": "Are laws summaries of regularities or do they necessitate events?",
+                    "subfields": {}
+                  },
+                  "agency_and_causation": {
+                    "name": "Agency and Causation",
+                    "description": "How agents cause actions and events",
+                    "subfields": {}
+                  }
+                }
+              },
+              "identity_and_change": {
+                "name": "Identity and Change",
+                "description": "How objects persist and change over time",
+                "subfields": {
+                  "persistance_and_endurantism_perdurantism": {
+                    "name": "Persistance and Endurantism Perdurantism",
+                    "description": "Debates over whether objects persist by enduring wholly or perduring as temporal parts",
+                    "subfields": {}
+                  },
+                  "ship_of_theseus": {
+                    "name": "Ship of Theseus",
+                    "description": "Classical puzzle about identity through replacement of parts",
+                    "subfields": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "epistemology": {
+        "name": "Epistemology",
+        "description": "The study of knowledge, belief, justification, and rationality",
+        "subfields": {
+          "sources_of_knowledge": {
+            "name": "Sources of Knowledge",
+            "description": "Where knowledge comes from and how it is justified",
+            "subfields": {
+              "a_priori_and_a_posteriori": {
+                "name": "A Priori and A Posteriori",
+                "description": "Knowledge independent of experience versus knowledge from experience",
+                "subfields": {}
+              },
+              "perception_memory_testimony_reason": {
+                "name": "Perception Memory Testimony Reason",
+                "description": "Key sources and routes to knowledge",
+                "subfields": {}
+              }
+            }
+          },
+          "structure_of_justification": {
+            "name": "Structure of Justification",
+            "description": "Competing theories of how beliefs are justified",
+            "subfields": {
+              "foundationalism": {
+                "name": "Foundationalism",
+                "description": "Beliefs are justified by basic beliefs",
+                "subfields": {}
+              },
+              "coherentism": {
+                "name": "Coherentism",
+                "description": "Justification arises from coherence among beliefs",
+                "subfields": {}
+              },
+              "infinitism": {
+                "name": "Infinitism",
+                "description": "Justification consists of infinite non-repeating reasons",
+                "subfields": {}
+              },
+              "reliabilism": {
+                "name": "Reliabilism",
+                "description": "Beliefs are justified by being produced by reliable processes",
+                "subfields": {}
+              }
+            }
+          },
+          "skepticism_and_contextualism": {
+            "name": "Skepticism and Contextualism",
+            "description": "Limits of knowledge and the role of context in truth-conditions",
+            "subfields": {
+              "radical_skepticism": {
+                "name": "Radical Skepticism",
+                "description": "Arguments suggesting knowledge might be impossible",
+                "subfields": {}
+              },
+              "contextualism": {
+                "name": "Contextualism",
+                "description": "Knowledge ascriptions vary with conversational context",
+                "subfields": {}
+              }
+            }
+          }
+        }
+      },
+      "value_theory": {
+        "name": "Value Theory",
+        "description": "Philosophical investigation into what is valuable, including ethics, politics, and aesthetics",
+        "subfields": {
+          "ethics": {
+            "name": "Ethics",
+            "description": "The study of morality and how we ought to live",
+            "subfields": {
+              "meta_ethics": {
+                "name": "Meta Ethics",
+                "description": "Questions about the nature of moral facts, properties, and language",
+                "subfields": {}
+              },
+              "normative_ethics": {
+                "name": "Normative Ethics",
+                "description": "Theories about what makes actions right or wrong",
+                "subfields": {
+                  "consequentialism": {
+                    "name": "Consequentialism",
+                    "description": "Rightness depends on consequences (e.g., Utilitarianism)",
+                    "subfields": {}
+                  },
+                  "deontology": {
+                    "name": "Deontology",
+                    "description": "Rightness depends on duties, rules, or rights",
+                    "subfields": {}
+                  },
+                  "virtue_ethics": {
+                    "name": "Virtue Ethics",
+                    "description": "Focus on character and virtues (Aristotelian tradition)",
+                    "subfields": {}
+                  }
+                }
+              },
+              "applied_ethics": {
+                "name": "Applied Ethics",
+                "description": "Application of ethical theory to practical domains",
+                "subfields": {
+                  "bioethics": {
+                    "name": "Bioethics",
+                    "description": "",
+                    "subfields": {}
+                  },
+                  "business_ethics": {
+                    "name": "Business Ethics",
+                    "description": "",
+                    "subfields": {}
+                  },
+                  "environmental_ethics": {
+                    "name": "Environmental Ethics",
+                    "description": "",
+                    "subfields": {}
+                  },
+                  "technology_ethics": {
+                    "name": "Technology Ethics",
+                    "description": "",
+                    "subfields": {}
+                  }
+                }
+              }
+            }
+          },
+          "aesthetics": {
+            "name": "Aesthetics",
+            "description": "Study of beauty, art, and aesthetic experience",
+            "subfields": {
+              "philosophy_of_art": {
+                "name": "Philosophy of Art",
+                "description": "",
+                "subfields": {}
+              },
+              "theories_of_beauty": {
+                "name": "Theories of Beauty",
+                "description": "",
+                "subfields": {}
+              }
+            }
+          },
+          "political_philosophy": {
+            "name": "Political Philosophy",
+            "description": "Study of the state, justice, rights, liberty, and political obligations",
+            "subfields": {
+              "theories_of_justice": {
+                "name": "Theories of Justice",
+                "description": "",
+                "subfields": {}
+              },
+              "authority_and_legitimacy": {
+                "name": "Authority and Legitimacy",
+                "description": "",
+                "subfields": {}
+              }
+            }
+          },
+          "social_philosophy": {
+            "name": "Social Philosophy",
+            "description": "Study of social values, structures, and collective life",
+            "subfields": {
+              "philosophy_of_gender": {
+                "name": "Philosophy of Gender",
+                "description": "",
+                "subfields": {}
+              },
+              "philosophy_of_race": {
+                "name": "Philosophy of Race",
+                "description": "",
+                "subfields": {}
+              },
+              "philosophy_of_sexuality": {
+                "name": "Philosophy of Sexuality",
+                "description": "",
+                "subfields": {}
+              }
+            }
+          }
+        }
+      },
+      "bridging_disciplines": {
+        "name": "Bridging Disciplines",
+        "description": "Philosophy as it connects with and informs other disciplines",
+        "subfields": {
+          "philosophy_of_science": {
+            "name": "Philosophy of Science",
+            "description": "Study of methods, aims, and structure of scientific inquiry",
+            "subfields": {
+              "scientific_methodology": {
+                "name": "Scientific Methodology",
+                "description": "Underdetermination, Problem of Induction, and the New Riddle of Induction",
+                "subfields": {}
+              },
+              "history_of_science": {
+                "name": "History of Science",
+                "description": "Paradigm shifts and theory change",
+                "subfields": {}
+              },
+              "key_concepts": {
+                "name": "Key Concepts",
+                "description": "Natural kinds, scientific realism",
+                "subfields": {}
+              }
+            }
+          },
+          "philosophy_of_language": {
+            "name": "Philosophy of Language",
+            "description": "Meaning, reference, truth, and linguistic structure",
+            "subfields": {
+              "meaning_and_reference": {
+                "name": "Meaning and Reference",
+                "description": "Semantics and reference theories",
+                "subfields": {}
+              },
+              "theories_of_truth": {
+                "name": "Theories of Truth",
+                "description": "Coherence, correspondence, and Tarskian approaches",
+                "subfields": {}
+              },
+              "expressions": {
+                "name": "Expressions",
+                "description": "Indexicals, demonstratives, predicates, quantifiers, conditionals, temporal expressions",
+                "subfields": {}
+              }
+            }
+          },
+          "philosophy_of_mind": {
+            "name": "Philosophy of Mind",
+            "description": "Consciousness, mental states, and the mind-body relation",
+            "subfields": {
+              "consciousness": {
+                "name": "Consciousness",
+                "description": "Philosophical questions about what makes something conscious; possibility of philosophical zombies; machine consciousness",
+                "subfields": {}
+              },
+              "mental_states": {
+                "name": "Mental States",
+                "description": "Belief and emotions (anger, fear, love, disgust, happiness)",
+                "subfields": {}
+              },
+              "mind_body_interaction": {
+                "name": "Mind Body Interaction",
+                "description": "How mental and physical states interact",
+                "subfields": {}
+              }
+            }
+          },
+          "philosophy_of_action": {
+            "name": "Philosophy of Action",
+            "description": "Agency, free will, and decision-making",
+            "subfields": {
+              "decision_theory": {
+                "name": "Decision Theory",
+                "description": "Rational choice, game theory, and decision paradoxes",
+                "subfields": {}
+              },
+              "free_will": {
+                "name": "Free Will",
+                "description": "Compatibilism, libertarianism, and determinism; key questions about the existence and nature of free will",
+                "subfields": {}
+              }
+            }
+          },
+          "philosophy_of_religion": {
+            "name": "Philosophy of Religion",
+            "description": "Arguments about the existence and nature of God, religious experience, and attributes of divinity",
+            "subfields": {
+              "arguments_for_god": {
+                "name": "Arguments for God",
+                "description": "Ontological, teleological, and cosmological arguments",
+                "subfields": {}
+              },
+              "arguments_against_god": {
+                "name": "Arguments Against God",
+                "description": "Problem of evil and the Euthyphro dilemma",
+                "subfields": {}
+              },
+              "attributes_of_god": {
+                "name": "Attributes of God",
+                "description": "Omniscience, omnipotence, omnibenevolence",
+                "subfields": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "parent": null
+  }
+}

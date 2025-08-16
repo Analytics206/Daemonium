@@ -1,0 +1,143 @@
+{
+  "philosophy_map": {
+    "name": "Philosophy Map",
+    "description": "A comprehensive map of philosophical disciplines, methods, and traditions.",
+    "subfields": {
+      "central_foundation": {
+        "name": "Central Foundation",
+        "description": "Core methods with which philosophy connects various disciplines and translates normal language into evaluable forms.",
+        "parent": "philosophy_map",
+        "subfields": {
+          "logic_and_philosophical_methods": {
+            "name": "Logic and Philosophical Methods",
+            "description": "Study of logical systems and methodological tools used in philosophy.",
+            "parent": "central_foundation",
+            "subfields": {
+              "formal_classical_logic": {
+                "name": "Formal Classical Logic",
+                "description": "Traditional systems of logic focusing on valid inference.",
+                "parent": "Logic and Philosophical Methods",
+                "subfields": {
+                  "first_order_logic": {
+                    "name": "First-Order Logic",
+                    "description": "Logic dealing with quantified statements over individuals.",
+                    "parent": "Formal Classical Logic",
+                    "subfields": {
+                      "propositional_logic": {
+                        "name": "Propositional Logic",
+                        "description": "Macro-logic dealing with relations between whole propositions.",
+                        "parent": "First-Order Logic"
+                      },
+                      "categorical_logic": {
+                        "name": "Categorical Logic",
+                        "description": "Older system of logic analyzing subjects and predicates.",
+                        "parent": "First-Order Logic"
+                      },
+                      "predicate_calculus": {
+                        "name": "Predicate Calculus",
+                        "description": "Modern system quantifying over subjects and predicates.",
+                        "parent": "First-Order Logic"
+                      }
+                    }
+                  },
+                  "higher_order_logic": {
+                    "name": "Higher-Order Logic",
+                    "description": "Extends first-order logic by quantifying over predicates as well as objects.",
+                    "includes": ["Type Theory", "Set Theory", "Philosophy of Mathematics"],
+                    "parent": "Formal Classical Logic"
+                  },
+                  "modal_logics": {
+                    "name": "Modal Logics",
+                    "description": "Logics dealing with modality, possibility, necessity, and related notions.",
+                    "parent": "Formal Classical Logic",
+                    "subfields": {
+                      "alethic_modal_logic": {
+                        "name": "Alethic Modal Logic",
+                        "description": "Logic of possibility and necessity.",
+                        "includes": ["Possibility", "Necessity"],
+                        "parent": "Modal Logics"
+                      },
+                      "temporal_logic": {
+                        "name": "Temporal Logic",
+                        "description": "Logic of temporal relations: past, present, and future.",
+                        "includes": ["Past", "Present", "Future"],
+                        "parent": "Modal Logics"
+                      },
+                      "epistemic_logic": {
+                        "name": "Epistemic Logic",
+                        "description": "Logic of knowledge, belief, and justification.",
+                        "includes": ["Knowledge", "Belief", "Justification"],
+                        "parent": "Modal Logics"
+                      },
+                      "deontic_logic": {
+                        "name": "Deontic Logic",
+                        "description": "Logic of ethics, norms, and obligation.",
+                        "includes": ["Ethics", "Obligation"],
+                        "parent": "Modal Logics"
+                      }
+                    }
+                  }
+                }
+              },
+              "non_classical_logic": {
+                "name": "Non-Classical Logic",
+                "description": "Logics that deny, extend, or question the premises of classical logic.",
+                "types": [
+                  "Many-Valued Logics",
+                  "Fuzzy Logic",
+                  "Computability Logic",
+                  "Linear Logic",
+                  "Non-Reflexive Logic",
+                  "Relevance Logic",
+                  "Intuitionistic Logic",
+                  "Paraconsistent Logic",
+                  "Non-Monotonic Logic"
+                ],
+                "parent": "Logic and Philosophical Methods"
+              },
+              "informal_logic": {
+                "name": "Informal Logic",
+                "description": "Study of reasoning, argumentation, and everyday logical practices.",
+                "parent": "Logic and Philosophical Methods",
+                "subfields": {
+                  "inductive_arguments": {
+                    "name": "Inductive Arguments",
+                    "description": "Arguments in which premises support the likelihood of the conclusion, generalizing from specific cases.",
+                    "parent": "Informal Logic"
+                  },
+                  "abductive_arguments": {
+                    "name": "Abductive Arguments",
+                    "description": "Arguments to the best explanation, based on available evidence.",
+                    "parent": "Informal Logic"
+                  }
+                }
+              },
+              "philosophical_methods": {
+                "name": "Philosophical Methods",
+                "description": "Methods of inquiry and reasoning unique to philosophy.",
+                "parent": "Logic and Philosophical Methods",
+                "subfields": {
+                  "thought_experiments": {
+                    "name": "Thought Experiments",
+                    "description": "Hypothetical scenarios designed to test intuitions and concepts.",
+                    "parent": "Philosophical Methods"
+                  },
+                  "experimental_philosophy": {
+                    "name": "Experimental Philosophy",
+                    "description": "Philosophy using empirical research to study intuitions and judgments.",
+                    "parent": "Philosophical Methods"
+                  },
+                  "intuitions": {
+                    "name": "Intuitions",
+                    "description": "Pre-theoretical judgments or impressions used as premises in reasoning.",
+                    "parent": "Philosophical Methods"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
