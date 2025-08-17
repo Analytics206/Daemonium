@@ -1,12 +1,12 @@
 {
     "Concept": "Aestheticism",
-    "Category": "Aesthetics",
-    "Author": ["Oscar Wilde (modern form)", "Immanuel Kant (original form)", "John Stuart Mill"],
+    "Category": "Philosophy Concepts",
+    "Author": ["Oscar Wilde", "Immanuel Kant", "John Stuart Mill"],
     "Antagonist": "Moralism in Art",
     "Keywords": [
         "Aestheticism"
-        , "Oscar Wilde (modern form)"
-        , "Immanuel Kant (original form)"
+        , "Oscar Wilde"
+        , "Immanuel Kant"
         , "John Stuart Mill"
         , "art"
         , "beauty"
