@@ -1,0 +1,19 @@
+{
+    "Concept": "Epistemic Closure",
+    "Category": "Philosophy Concepts",
+    "Author": ["Fred Dretske","Robert Nozick"],
+    "Antagonist": "Skeptical Arguments",
+    "Keywords": [   
+        "Epistemic Closure"
+        , "Philosophy Concepts"
+        , "Fred Dretske"
+        , "Robert Nozick"
+        , "Skeptical Arguments"
+        , "knowledge"
+        , "closure"
+        , "epistemology"
+        , "skepticism"
+        , "justification"
+    ],
+    "Content": "Epistemic Closure is the principle that if someone knows a proposition (P), and knows that P entails Q, then they also know Q. Critics like Nozick argue against closure, particularly in responding to skepticism (e.g., 'I know I have hands, therefore I know I am not a brain in a vat')."
+  }

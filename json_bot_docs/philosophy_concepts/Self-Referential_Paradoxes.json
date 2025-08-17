@@ -1,0 +1,18 @@
+{
+    "Concept": "Self-Referential Paradoxes",
+    "Category": "Philosophy Concepts",
+    "Author": ["Ancient Roots", "Developed in Analytic Philosophy"],
+    "Antagonist": "Consistency in Logical Systems",
+    "Keywords": [
+        "Self-Referential Paradoxes"
+        , "Ancient Roots"
+        , "Developed in Analytic Philosophy"
+        , "Consistency in Logical Systems"
+        , "paradox"
+        , "self-reference"
+        , "logic"
+        , "language"
+        , "truth"
+    ],
+    "Content": "Self-Referential Paradoxes, such as the Liar Paradox ('This statement is false'), arise when statements refer to themselves in ways that create contradictions. They reveal deep problems about truth, meaning, and logical consistency in formal systems."
+  }

@@ -1,0 +1,17 @@
+{
+    "Concept": "Principle of Indifference",
+    "Category": "Philosophy Concepts",
+    "Author": [
+        "Jacob Bernoulli"
+        , "Various Philosophers"
+    ],
+    "Antagonist": "Subjective Bayesianism",
+    "Keywords": [
+        "probability"
+        , "indifference"
+        , "epistemology"
+        , "uncertainty"
+        , "rationality"
+    ],
+    "Content": "The Principle of Indifference states that when we lack reason to favor one outcome over another, we should assign them equal probability. Critics argue it can lead to paradoxes when applied to infinite or continuous possibilities."
+  }
