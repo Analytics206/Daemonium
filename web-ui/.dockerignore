@@ -16,4 +16,3 @@ coverage
 .nyc_output
 .cache
 dist
-auth

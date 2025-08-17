@@ -56,6 +56,9 @@ agent_data/
 # Ollama models
 .ollama/
 
+# Auth keys
+auth_keys
+
 # Web UI specific
 web-ui/node_modules/
 web-ui/.next/
