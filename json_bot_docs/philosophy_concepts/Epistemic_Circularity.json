@@ -1,0 +1,15 @@
+{
+    "Concept": "Epistemic Circularity",
+    "Category": "Philosophy Concepts",
+    "Author": ["Alvin Plantinga", "Peter Klein"],
+    "Antagonist": "Foundationalism",
+    "Keywords": [
+        "epistemology"
+        , "circularity"
+        , "knowledge"
+        , "skepticism"
+        , "justification"
+        , "Epistemic Circularity"
+    ],
+    "Content": "Epistemic Circularity arises when justifications for a belief presuppose the reliability of the very source being justified (e.g., trusting memory because memory says it’s reliable). Philosophers debate whether such circularity is vicious or unavoidable."
+  }

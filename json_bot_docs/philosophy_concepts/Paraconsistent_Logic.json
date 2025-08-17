@@ -1,0 +1,17 @@
+{
+    "Concept": "Paraconsistent Logic",
+    "Category": "Philosophy Concepts",
+    "Author": ["Stanislaw Jaśkowski", "Newton da Costa"],
+    "Antagonist": "Classical Logic",
+    "Keywords": [
+        "logic"
+        , "contradiction"
+        , "non-classical"
+        , "truth"
+        , "consistency"
+        , "Epistemology"
+        , "Stanislaw Jaśkowski"
+        , "Newton da Costa"
+    ],
+    "Content": "Paraconsistent Logic allows for the coexistence of contradictory statements without collapsing into triviality. It challenges the classical principle of explosion, opening new ways to handle paradoxes and inconsistent but useful theories."
+  }

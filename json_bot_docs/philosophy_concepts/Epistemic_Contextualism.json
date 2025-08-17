@@ -1,0 +1,15 @@
+{
+    "Concept": "Epistemic Contextualism",
+    "Category": "Philosophy Concepts",
+    "Author": ["David Lewis", "Stewart Cohen", "Various Philosophers"],
+    "Antagonist": "Invariantism",
+    "Keywords": [
+        "epistemology"
+        , "context"
+        , "knowledge"
+        , "skepticism"
+        , "semantics"
+        , "Epistemic Contextualism"
+    ],
+    "Content": "Epistemic Contextualism claims that the truth conditions for knowledge attributions vary depending on conversational context. For example, 'I know the bank is open' may be true in ordinary conversation but false under skeptical scrutiny."
+  }

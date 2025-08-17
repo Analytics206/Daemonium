@@ -1,0 +1,15 @@
+{
+    "Concept": "Epistemic Closure Principle",
+    "Category": "Philosophy Concepts",
+    "Author": ["Fred Dretske", "Robert Nozick (critics)", "Various Philosophers"],
+    "Antagonist": "Skepticism (Nozick’s Tracking Theory)",
+    "Keywords": [
+        "epistemology"
+        , "knowledge"
+        , "closure"
+        , "deduction"
+        , "skepticism"
+        , "Epistemic Closure Principle"
+    ],
+    "Content": "The Epistemic Closure Principle states that if one knows a proposition and also knows that it entails another, then one also knows the entailed proposition. Critics argue this principle strengthens skeptical arguments, while others defend it as core to knowledge."
+  }

@@ -1,0 +1,18 @@
+{
+    "Concept": "Instrumental Convergence",
+    "Category": "Philosophy Concepts",
+    "Author": ["Nick Bostrom", "Various Philosophers"],
+    "Antagonist": "Value Alignment Problem",
+    "Keywords": [
+        "AI"
+        , "ethics"
+        , "instrumental"
+        , "goals"
+        , "convergence"
+        , "Instrumental Convergence"
+        , "Value Alignment Problem"
+        , "Artificial Intelligence"
+        , "Nick Bostrom"
+    ],
+    "Content": "Instrumental Convergence is the hypothesis that many intelligent agents, regardless of their ultimate goals, will pursue similar sub-goals such as self-preservation, resource acquisition, and efficiency. It raises concerns about AI alignment with human values."
+  }
