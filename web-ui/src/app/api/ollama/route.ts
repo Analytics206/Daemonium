@@ -29,9 +29,66 @@ export async function POST(request: NextRequest) {
     const model = process.env.OLLAMA_MODEL || 'llama3:latest';
     const backendBaseUrl = process.env.BACKEND_API_URL || process.env.NEXT_PUBLIC_BACKEND_API_URL || 'http://localhost:8000';
 
+    // Build prompt including prior conversation messages from Redis (oldest -> newest).
+    // If history retrieval fails, fall back to the current message only.
+    let finalPrompt: string = message;
+    try {
+      if (chatId && userId) {
+        const histUrl = `${backendBaseUrl}/api/v1/chat/redis/${encodeURIComponent(userId)}/${encodeURIComponent(chatId)}?start=0&stop=-1`;
+        const histRes = await fetch(histUrl, { method: 'GET' });
+        if (histRes.ok) {
+          const hist = await histRes.json();
+          const items: any[] = Array.isArray(hist?.data) ? hist.data : [];
+          // Sort by timestamp ascending if present; LRANGE is insertion-ordered but we ensure correctness.
+          const toTime = (x: any): number => {
+            const ts = x?.timestamp ? Date.parse(x.timestamp) : NaN;
+            if (!Number.isNaN(ts)) return ts;
+            const dt = x?.date ? Date.parse(x.date) : NaN;
+            if (!Number.isNaN(dt)) return dt;
+            const st = x?.state?.startTime ? Date.parse(x.state.startTime) : NaN;
+            if (!Number.isNaN(st)) return st;
+            const et = x?.state?.endTime ? Date.parse(x.state.endTime) : NaN;
+            if (!Number.isNaN(et)) return et;
+            return 0;
+          };
+          items.sort((a: any, b: any) => toTime(a) - toTime(b));
+
+          // Build conversation including both user and assistant messages
+          const convo: { type: string; text: string }[] = [];
+          for (const it of items) {
+            if ((it?.type === 'user_message' || it?.type === 'assistant_message') && typeof it?.text === 'string' && it.text.trim()) {
+              convo.push({ type: it.type, text: it.text.trim() });
+            } else if (!it?.type && typeof it?.message === 'string' && it.message.trim()) {
+              // Back-compat: entries without a type treated as user messages
+              convo.push({ type: 'user_message', text: it.message.trim() });
+            } else if (!it?.type && typeof it?.text === 'string' && it.text.trim()) {
+              convo.push({ type: 'user_message', text: it.text.trim() });
+            }
+          }
+
+          if (convo.length > 0) {
+            const currentTrim = message.trim();
+            // Avoid duplicating the current user message if it's already the last in Redis history
+            if (convo[convo.length - 1]?.type === 'user_message' && convo[convo.length - 1]?.text === currentTrim) {
+              convo.pop();
+            }
+            if (convo.length > 0) {
+              const historyBlock = convo
+                .map((entry, idx) => `${entry.type} ${idx + 1}: ${entry.text}`)
+                .join('\n');
+              finalPrompt = `Prior conversation (oldest first):\n${historyBlock}\n\nCurrent user input:\n${message}`;
+            }
+          }
+        }
+      }
+    } catch {
+      // Ignore history errors and fall back silently
+      finalPrompt = message;
+    }
+
     const payload = {
       model,
-      prompt: message,
+      prompt: finalPrompt,
       stream: false,
     };
 
