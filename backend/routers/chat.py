@@ -2,12 +2,13 @@
 Chat API router - for chatbot functionality
 """
 
-from fastapi import APIRouter, HTTPException, Depends, Query
+from fastapi import APIRouter, HTTPException, Depends, Query, BackgroundTasks
 from typing import List, Optional, Dict, Any
 import logging
 import random
 import json
 from datetime import datetime, timezone
+import asyncio
 
 try:
     # Prefer async Redis client from redis-py 4/5
@@ -454,6 +455,8 @@ async def push_chat_message_to_redis(
     chat_id: str,
     input: str = Query(..., description="User chat input to store"),
     ttl_seconds: int = Query(0, ge=0, description="Optional TTL (seconds) for the chat list; 0 means no TTL"),
+    background_tasks: BackgroundTasks = None,
+    db_manager: DatabaseManager = Depends(get_db_manager),
 ):
     """Push a chat input into Redis under a list keyed by user_id and chat_id.
 
@@ -501,6 +504,34 @@ async def push_chat_message_to_redis(
         new_len = await redis.rpush(key, payload)
         if ttl_seconds > 0:
             await redis.expire(key, ttl_seconds)
+
+        # Schedule background persistence to MongoDB without blocking response
+        async def _insert_to_mongo(document: Dict[str, Any], collection_name: str):
+            try:
+                collection = db_manager.get_collection(collection_name)
+                await collection.insert_one(document)
+            except Exception as ex:
+                logger.warning(
+                    f"Background insert to MongoDB failed into {collection_name} for user={user_id} chat={chat_id}: {ex}"
+                )
+
+        # Enrich document with redis key context
+        doc_to_insert = {**payload_obj, "redis_key": key}
+
+        # Determine target collection based on message type
+        msg_type = payload_obj.get("type", "")
+        target_collection = "chat_reponse_history" if msg_type == "assistant_message" else "chat_history"
+        try:
+            if background_tasks is not None:
+                background_tasks.add_task(_insert_to_mongo, doc_to_insert, target_collection)
+            else:
+                # Fallback scheduling if BackgroundTasks unavailable
+                asyncio.create_task(_insert_to_mongo(doc_to_insert, target_collection))
+        except Exception as ex:
+            logger.warning(
+                f"Failed to schedule background MongoDB insert for user={user_id} chat={chat_id}: {ex}"
+            )
+
         return {
             "success": True,
             "key": key,

@@ -39,7 +39,10 @@ class DatabaseManager:
             "philosophers",
             "philosophy_schools",
             "philosophy_themes",
-            "top_10_ideas"
+            "top_10_ideas",
+            # Added for chat persistence from Redis background tasks
+            "chat_history",
+            "chat_reponse_history",
         ]
     
     async def connect(self) -> None:

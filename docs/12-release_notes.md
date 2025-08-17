@@ -1,5 +1,63 @@
 # Daemonium
 ---
+## Version 0.3.6 (August 17, 2025)
+
+### Backend: Assistant Response History (non-blocking)
+
+- Assistant messages (`type: 'assistant_message'`) are now persisted asynchronously to MongoDB collection `chat_reponse_history`.
+- Updated `backend/routers/chat.py` to route background inserts based on message type:
+  - Assistant → `chat_reponse_history`
+  - All others (user/session) → `chat_history`
+- Reuses the normalized Redis payload and adds `redis_key` for traceability. Failures are logged; HTTP response remains successful.
+
+### Files Changed
+- `backend/routers/chat.py` — conditional background insert target based on `type`.
+- `backend/database.py` — ensured `chat_reponse_history` collection is registered.
+
+### Verification (PowerShell)
+```powershell
+$u = 'analytics206@gmail'
+$c = [guid]::NewGuid().ToString()
+$assistant = @{ type='assistant_message'; text='Hello from assistant'; model='llama3:latest'; source='ollama' } | ConvertTo-Json -Depth 5
+$enc = [System.Web.HttpUtility]::UrlEncode($assistant)
+Invoke-RestMethod -Method Post -Uri "http://localhost:8000/api/v1/chat/redis/$($u)/$($c)?input=$enc"
+# Optionally fetch Redis to confirm insertion
+Invoke-RestMethod -Method Get  -Uri "http://localhost:8000/api/v1/chat/redis/$($u)/$($c)"
+```
+Then verify the MongoDB document appears in `chat_reponse_history` shortly after.
+
+## Version 0.3.5 (August 17, 2025)
+
+### Backend: Async MongoDB Chat History (non-blocking)
+
+- Added background persistence of chat inputs to MongoDB collection `chat_history` from the Redis chat endpoint.
+- Uses FastAPI `BackgroundTasks` to schedule insert after Redis `RPUSH`, ensuring no impact on live chat latency.
+- Inserted document reuses the same normalized payload saved to Redis and adds `redis_key` context.
+- Errors during MongoDB background insert are logged but do not affect the Redis success response.
+
+### Web UI: Ollama assistant response persisted to Redis
+
+- Next.js API route `/api/ollama` now accepts `{ message, chatId, userId, philosopher }`.
+- After successful generation from the local Ollama server, the route fire-and-forget pushes an `assistant_message` entry to FastAPI Redis endpoint:
+  - Shape: `{ type: 'assistant_message', text, model, source: 'ollama', original, context }`
+  - Stored in same list as user messages: `chat:{user_id}:{chat_id}:messages`.
+- Does not block UI response; logs warnings on push failures.
+
+### Files Changed
+- `backend/routers/chat.py` — schedules background MongoDB insert in `push_chat_message_to_redis()`.
+- `backend/database.py` — registered `chat_history` in `DatabaseManager` collections.
+
+### Verification (PowerShell)
+```powershell
+$u = 'analytics206@gmail'
+$c = [guid]::NewGuid().ToString()
+$payload = @{ type='user_message'; text='Hello from web-ui'; state=@{ step='start' } } | ConvertTo-Json -Depth 5
+$enc = [System.Web.HttpUtility]::UrlEncode($payload)
+Invoke-RestMethod -Method Post -Uri "http://localhost:8000/api/v1/chat/redis/$($u)/$($c)?input=$enc"
+Invoke-RestMethod -Method Get  -Uri "http://localhost:8000/api/v1/chat/redis/$($u)/$($c)"
+```
+Expect Redis to contain the normalized item. MongoDB will contain the same payload in `chat_history` shortly after the POST.
+
 ## Version 0.3.4 (August 16, 2025)
 
 ### Backend: Redis Chat Message Normalization

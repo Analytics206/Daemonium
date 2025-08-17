@@ -128,6 +128,7 @@ The monitoring system follows a sidecar pattern with the following components:
 - **Lifecycle**:
   - `session_start` on component mount with state: `userId`, `chatId` (UUID), `date`, `startTime`, `endTime=null`.
   - `user_message` on each user send.
+  - `assistant_message` for each model response, pushed by Next.js Ollama proxy route after successful generation.
   - `session_end` on component unmount with `endTime`.
 - **Endpoints** (`backend/routers/chat.py`):
   - POST `/api/v1/chat/redis/{user_id}/{chat_id}?input=<STRING>&ttl_seconds=<INT>`
@@ -146,7 +147,8 @@ The monitoring system follows a sidecar pattern with the following components:
   - Generates `chatId` on mount; uses placeholder `userId='analytics206@gmail'` until auth is added.
   - Sends `session_start` immediately; pushes each `user_message` on send; sends `session_end` on unmount.
   - Reads backend base URL from `NEXT_PUBLIC_BACKEND_API_URL` (default `http://localhost:8000`).
-- **Verification (PowerShell)**:
+  - Next.js API route `/api/ollama` accepts `{ message, chatId, userId, philosopher }` and, after calling Ollama, fire-and-forget pushes `{ type: 'assistant_message', text, model, source: 'ollama', context }` to the FastAPI Redis endpoint.
+  - **Verification (PowerShell)**:
   - `$u='analytics206@gmail'`
   - `$c='<chatId from browser console>'`
   - `Invoke-RestMethod -Method Get -Uri "http://localhost:8000/api/v1/chat/redis/$($u)/$($c)"`
@@ -154,6 +156,24 @@ The monitoring system follows a sidecar pattern with the following components:
 - **Configuration**:
   - Backend Redis connection from `config/default.yaml` (host, port, password, db).
   - Python dependency: `redis>=5.0.0` (async client).
+
+ ### Backend: Async MongoDB Chat History Persistence
+
+- **Purpose**: Durably persist chat events to MongoDB without impacting live Redis performance.
+- **Trigger**: After a successful Redis `RPUSH` in `backend/routers/chat.py` endpoint `push_chat_message_to_redis()`.
+- **Mechanism**: Schedules a FastAPI `BackgroundTasks` job (fallback: `asyncio.create_task`) to insert into MongoDB collection `chat_history` via `DatabaseManager`.
+- **Routing**: Target collection is selected based on message `type`:
+  - `assistant_message` → `chat_reponse_history`
+  - all other types (e.g., `session_start`, `user_message`, `session_end`) → `chat_history`
+- **Document Shape**: Reuses the normalized Redis payload (fields: `user_id`, `chat_id`, `timestamp`, `date`, `type|text|state|message`, `original`) and adds `redis_key` for traceability.
+- **Resilience**: Mongo insert errors are logged and do not affect the HTTP response or Redis path.
+- **Configuration**:
+  - `chat_history` and `chat_reponse_history` registered in `backend/database.py` collections.
+  - No new environment variables; uses existing Mongo connection settings.
+- **Verification (PowerShell)**:
+  - POST a user message to Redis endpoint; immediately GET confirms Redis storage.
+  - Check MongoDB `chat_history` to see the user/session payload appear shortly after.
+  - POST an assistant payload (`type='assistant_message'`); verify MongoDB `chat_reponse_history` contains the document shortly after.
 
 ## Future Design Considerations
 - Asynchronous processing pipeline

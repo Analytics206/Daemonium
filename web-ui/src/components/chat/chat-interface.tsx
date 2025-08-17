@@ -141,6 +141,7 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
         body: JSON.stringify({
           message: currentInput,
           chatId: sessionChatId || chatId,
+          userId,
           philosopher,
         }),
       });
