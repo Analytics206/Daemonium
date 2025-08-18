@@ -39,6 +39,8 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
   const [sessionChatId, setSessionChatId] = useState<string>('');
   const [sessionState, setSessionState] = useState<SessionState | null>(null);
   const [sessionInitSent, setSessionInitSent] = useState<boolean>(false);
+  const [loadingHistory, setLoadingHistory] = useState<boolean>(false);
+  const [isNewSession, setIsNewSession] = useState<boolean>(true);
 
   const generateId = () => {
     try {
@@ -63,34 +65,94 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Load an existing chat's history from Redis and map to UI messages
+  const loadHistoryFromRedis = async (targetChatId: string) => {
+    if (!targetChatId) return;
+    setLoadingHistory(true);
+    try {
+      const url = `${backendBaseUrl}/api/v1/chat/redis/${encodeURIComponent(userId)}/${encodeURIComponent(targetChatId)}`;
+      const res = await fetch(url, { method: 'GET' });
+      if (!res.ok) throw new Error(`Failed to load chat history: ${res.status}`);
+      const data = await res.json();
+      const items: any[] = Array.isArray(data?.data) ? data.data : [];
+
+      const mapped: Message[] = [];
+      for (let i = 0; i < items.length; i++) {
+        const obj = items[i] || {};
+        const t = (obj.type ?? '').toString();
+        if (t === 'session_start' || t === 'session_end') continue; // skip meta
+
+        let role: 'user' | 'assistant' = 'user';
+        if (t === 'assistant_message') role = 'assistant';
+        else if (t === 'user_message') role = 'user';
+
+        const content: string = (obj.text ?? obj.message ?? '').toString();
+        if (!content) continue;
+
+        const ts = obj.timestamp ? new Date(obj.timestamp) : new Date();
+        mapped.push({ id: `${targetChatId}-${i}`, content, role, timestamp: ts });
+      }
+
+      setMessages(mapped);
+      scrollToBottom();
+    } catch (err) {
+      console.error('Failed to load chat history:', err);
+      setMessages([]);
+    } finally {
+      setLoadingHistory(false);
+    }
+  };
+
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
 
-  // Initialize session (generate ChatID, set session state, push session_start to Redis)
+  // React to external chatId changes: load history or start a fresh session
   useEffect(() => {
-    // Only initialize once per mount
-    if (!sessionChatId) {
-      const now = new Date();
-      const newChatId = generateId();
-      setSessionChatId(newChatId);
-      try { console.log('[Chat] New session ChatID:', newChatId); } catch {}
+    const go = async () => {
+      if (chatId && chatId.trim().length > 0) {
+        // Load existing chat
+        setIsNewSession(false);
+        setSessionInitSent(false);
+        setSessionChatId(chatId);
+        setMessages([]);
 
-      const state: SessionState = {
-        userId,
-        chatId: newChatId,
-        date: now.toISOString().slice(0, 10),
-        startTime: now.toISOString(),
-        endTime: null,
-      };
-      setSessionState(state);
-    }
-  }, [sessionChatId, userId]);
+        // Set a lightweight session state but do NOT send session_start for existing chats
+        const now = new Date();
+        setSessionState({
+          userId,
+          chatId,
+          date: now.toISOString().slice(0, 10),
+          startTime: now.toISOString(),
+          endTime: null,
+        });
 
-  // Once sessionState is ready and not yet sent, push to Redis as session_start
+        await loadHistoryFromRedis(chatId);
+      } else {
+        // New chat requested
+        const now = new Date();
+        const newChatId = generateId();
+        setIsNewSession(true);
+        setSessionInitSent(false);
+        setSessionChatId(newChatId);
+        setMessages([]);
+        setSessionState({
+          userId,
+          chatId: newChatId,
+          date: now.toISOString().slice(0, 10),
+          startTime: now.toISOString(),
+          endTime: null,
+        });
+      }
+    };
+    void go();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chatId]);
+
+  // Once sessionState is ready and not yet sent, push to Redis as session_start (only for brand-new sessions)
   useEffect(() => {
     const sendInit = async () => {
-      if (sessionState && !sessionInitSent) {
+      if (sessionState && !sessionInitSent && isNewSession) {
         const payload = JSON.stringify({ type: 'session_start', state: sessionState });
         await pushToRedis(payload);
         setSessionInitSent(true);
@@ -155,6 +217,8 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
           timestamp: new Date(),
         };
         setMessages(prev => [...prev, assistantMessage]);
+        // Push assistant reply to Redis so history shows both sides
+        void pushToRedis(JSON.stringify({ type: 'assistant_message', text: data.response }));
       } else {
         console.error('Chat API error:', response.statusText);
       }
