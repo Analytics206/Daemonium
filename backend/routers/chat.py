@@ -548,6 +548,129 @@ async def push_chat_message_to_redis(
         logger.error(f"Failed to push chat message to Redis for user={user_id} chat={chat_id}: {e}")
         raise HTTPException(status_code=500, detail="Failed to push chat message to Redis")
 
+@router.get("/redis/{user_id}/summaries", response_model=dict)
+async def list_user_chat_summaries(
+    user_id: str,
+    max_chats: int = Query(100, ge=1, le=1000, description="Maximum number of chat summaries to return"),
+):
+    """List chat summaries for a user by scanning Redis keys.
+
+    - Pattern: chat:{user_id}:*:messages
+    - For each chat, find the first user_message to build a 24-char title
+    - Returns a list of objects: { chat_id, title, first_user_text, created_at, last_updated, key, count }
+    """
+
+    async def _do(redis):
+        pattern = f"chat:{user_id}:*:messages"
+
+        # Collect keys via SCAN to avoid blocking
+        cursor = 0
+        keys: List[str] = []
+        try:
+            while True:
+                cursor, batch = await redis.scan(cursor=cursor, match=pattern, count=1000)
+                if batch:
+                    keys.extend(batch)
+                if cursor == 0:
+                    break
+        except Exception as ex:
+            logger.error(f"Redis SCAN failed for pattern {pattern}: {ex}")
+            keys = []
+
+        summaries = []
+        for key in keys:
+            try:
+                parts = key.split(":")
+                if len(parts) < 4:
+                    continue
+                chat_id = parts[2]
+
+                items = await redis.lrange(key, 0, -1)
+                first_user_text = None
+                created_at = None
+                last_updated = None
+
+                if items:
+                    # created_at from first item's timestamp when available
+                    try:
+                        first_obj = json.loads(items[0])
+                        created_at = first_obj.get("timestamp")
+                    except Exception:
+                        created_at = None
+
+                    # last_updated from last item's timestamp when available
+                    try:
+                        last_obj = json.loads(items[-1])
+                        last_updated = last_obj.get("timestamp")
+                    except Exception:
+                        last_updated = created_at
+
+                    # find first user message in the list
+                    for it in items:
+                        text_val = None
+                        try:
+                            obj = json.loads(it)
+                            t = obj.get("type", "")
+                            if t == "user_message":
+                                text_val = obj.get("text") or obj.get("message")
+                            elif not t and "message" in obj:
+                                text_val = obj.get("message")
+                        except Exception:
+                            # raw string fallback
+                            text_val = it
+
+                        if text_val:
+                            first_user_text = str(text_val)
+                            break
+
+                if not first_user_text:
+                    first_user_text = "(no user input)"
+
+                title = first_user_text[:24]
+                summaries.append(
+                    {
+                        "chat_id": chat_id,
+                        "title": title,
+                        "first_user_text": first_user_text,
+                        "created_at": created_at,
+                        "last_updated": last_updated,
+                        "key": key,
+                        "count": len(items) if items else 0,
+                    }
+                )
+            except Exception as ex:
+                logger.warning(f"Failed to build summary for key {key}: {ex}")
+                continue
+
+        # sort by last_updated desc when available
+        def _to_dt(ts: Optional[str]):
+            try:
+                if ts:
+                    # handle 'Z' suffix if present
+                    return datetime.fromisoformat(ts.replace("Z", "+00:00"))
+            except Exception:
+                pass
+            return datetime.min.replace(tzinfo=timezone.utc)
+
+        summaries.sort(key=lambda s: _to_dt(s.get("last_updated")), reverse=True)
+        if len(summaries) > max_chats:
+            summaries = summaries[:max_chats]
+
+        return {
+            "success": True,
+            "user_id": user_id,
+            "total_chats": len(summaries),
+            "data": summaries,
+            "message": f"Found {len(summaries)} chat summaries for user",
+        }
+
+    try:
+        return await _with_redis(_do)
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to list chat summaries from Redis for user={user_id}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to list chat summaries from Redis")
 
 @router.get("/redis/{user_id}/{chat_id}", response_model=dict)
 async def get_chat_messages_from_redis(
