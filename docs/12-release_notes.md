@@ -1,5 +1,260 @@
 # Daemonium
 ---
+## Version 0.3.13 (August 19, 2025)
+
+### Web UI + API: Ollama response capture fixed and Redis logging centralized (UID-only, no duplicates)
+
+- Enforced Firebase UID-only identity across chat UI for all backend calls and Redis keys.
+- Removed duplicate `assistant_message` push from `web-ui/src/components/chat/chat-interface.tsx`; UI now only pushes `session_start`, `user_message`, and `session_end`.
+- Centralized assistant message persistence inside the Next.js Ollama API route (`web-ui/src/app/api/ollama/route.ts`):
+  - Normalizes Ollama responses to `{ response: string }` for the UI.
+  - Fire-and-forget pushes `assistant_message` payload to the FastAPI Redis endpoint with proper Authorization headers.
+  - Prevents duplicate assistant entries by making the API route the single source of truth.
+- Consistent Redis keying by UID ensures recents/history load correctly per authenticated user.
+
+### Files Changed
+
+- `web-ui/src/components/chat/chat-page-container.tsx`
+- `web-ui/src/components/chat/chat-interface.tsx`
+- `web-ui/src/app/api/ollama/route.ts`
+- `docs/06-system_design.md`
+- `docs/12-release_notes.md`
+
+### Verification (PowerShell)
+
+```powershell
+# Prereqs: web-ui dev server and backend running; obtain a Firebase ID token into $token
+$web = 'http://localhost:3000'
+$base = 'http://localhost:8000'
+$u = '<firebase_uid>'
+$c = '<chatId>'  # Use the ChatID shown in the browser console or UI
+$token = '<paste_firebase_id_token>'
+
+# Send a prompt through the Next.js API route (server proxies to Ollama and pushes assistant_message to backend)
+$body = @{ message='Hello Ollama'; chatId=$c; userId=$u; philosopher='Local LLM' } | ConvertTo-Json -Depth 5
+Invoke-RestMethod -Method Post -Headers @{ 'Content-Type'='application/json'; Authorization = "Bearer $token" } -Uri "$web/api/ollama" -Body $body
+
+# Verify Redis now has exactly one assistant_message for this turn
+Invoke-RestMethod -Method Get -Headers @{ Authorization = "Bearer $token" } -Uri "$base/api/v1/chat/redis/$($u)/$($c)"
+```
+
+---
+## Version 0.3.12 (August 19, 2025)
+
+### Backend: Firebase ID Token Validation for Redis Chat Endpoints
+
+- Added secure Firebase ID token verification and per-user authorization to FastAPI Redis chat APIs.
+- Initializes Firebase Admin SDK on app startup; robust error handling and logging without exposing secrets.
+- Enforces that token UID matches `user_id` in path params; returns appropriate HTTP errors on failure.
+
+### Files Changed
+
+- `backend/auth.py` — new module: Firebase Admin init + `verify_firebase_id_token` dependency
+- `backend/main.py` — lifespan startup initializes Firebase Admin if enabled
+- `backend/routers/chat.py` — applied auth dependency to Redis chat endpoints with `user_id`
+- `backend/config.py` — added Firebase settings with env overrides
+- `config/default.yaml` — new `firebase` section with credentials options
+- `docs/06-system_design.md` — architecture and verification steps for backend token validation
+- `docs/07-tech_stack.md` — tech stack section for backend Firebase Admin
+- `docs/12-release_notes.md` — this entry
+
+### Configuration
+
+- YAML (`config/default.yaml`):
+  - `firebase.enabled` (bool)
+  - `firebase.project_id` (string)
+  - `firebase.credentials.file` (path) or `firebase.credentials.base64` (base64 JSON)
+- Environment overrides:
+  - `FIREBASE_ENABLED`, `FIREBASE_PROJECT_ID`, `FIREBASE_CREDENTIALS_FILE`, `FIREBASE_CREDENTIALS_BASE64`
+- Dependency: `firebase-admin>=6.5.0` in `requirements.txt`
+
+### Verification (PowerShell)
+
+```powershell
+$base = 'http://localhost:8000'
+$u = '<firebase_uid>'
+$c = '<chatId>'
+$token = '<paste_firebase_id_token>'
+
+# GET chat history (requires valid token; UID must match $u)
+Invoke-RestMethod -Method Get -Headers @{ Authorization = "Bearer $token" } -Uri "$base/api/v1/chat/redis/$($u)/$($c)"
+
+# POST a message (JSON payload via query param)
+$payload = @{ type='user_message'; text='Hello from release test' } | ConvertTo-Json -Depth 5
+$enc = [System.Web.HttpUtility]::UrlEncode($payload)
+Invoke-RestMethod -Method Post -Headers @{ Authorization = "Bearer $token" } -Uri "$base/api/v1/chat/redis/$($u)/$($c)?input=$enc&ttl_seconds=0"
+```
+
+### Notes
+
+- If Firebase is disabled, the dependency is a no-op for backward compatibility.
+- Initialization failures are logged and cause the dependency to return 503 without crashing startup.
+
+---
+## Version 0.3.11 (August 19, 2025)
+
+### Web UI: Ollama API Proxy Reliability
+
+- Improved Ollama base URL resolution in `web-ui/src/app/api/ollama/route.ts`:
+  - Honors `OLLAMA_BASE_URL` and legacy `OLLAMA_API_URL`/`OLLAMA_API_PORT`.
+  - Uses IPv4 loopback for explicit `localhost` to avoid IPv6 issues on Windows.
+  - Adds fallback to `http://host.docker.internal:11434` whenever an initial loopback attempt fails (more robust inside Docker containers).
+- Aligned default model to `llama3.1:latest`:
+  - Route default updated in `route.ts`.
+  - Compose default updated in `docker-compose.yml` under `web-ui` service env `OLLAMA_MODEL`.
+
+### Files Changed
+
+- `web-ui/src/app/api/ollama/route.ts`
+- `docker-compose.yml`
+
+---
+## Version 0.3.10-p1 (August 19, 2025)
+
+### Web UI: Firebase Auth Robustness Patches
+
+- Replaced unsafe `auth` references with reconstructed instances via `getAuth()`:
+  - `web-ui/src/components/providers/firebase-auth-provider.tsx` now obtains a local `Auth` for `onAuthStateChanged()` and `signOut()`.
+  - `web-ui/src/components/auth/login-form.tsx` uses a local `Auth` for `getRedirectResult()` and `signInWithEmailAndPassword()`.
+  - `web-ui/src/components/auth/register-form.tsx` uses a local `Auth` for `createUserWithEmailAndPassword()` and `updateProfile()`.
+- Removed immediate `router.replace()` after `signInWithGoogle()`; navigation is now handled by auth state changes and redirect result flow to avoid conflicts with redirect fallback.
+- Eliminated brittle `hasAuth` checks causing TS narrowing issues; added guarded try/catch around `getAuth()` usage when Firebase config is missing.
+
+### Developer Notes
+
+- These changes further mitigate `auth/argument-error` by avoiding undefined `auth` instances and race conditions between popup and redirect flows. TypeScript errors about possibly undefined `auth` are resolved by local reconstruction.
+
+---
+## Version 0.3.10 (August 19, 2025)
+
+### Web UI: Firebase Google Sign-In Reliability & Redirect Handling
+
+- Persist intended destination across Google sign-in redirect in `web-ui/src/components/auth/login-form.tsx`:
+  - Store `returnTo` in `sessionStorage` under `auth_return_to` before calling Google sign-in
+  - After auth, auto-route to stored destination and clear the key
+- Surface redirect errors on page load by calling `getRedirectResult(auth)` on mount (guarded when Firebase auth is not initialized) to display user-friendly messages (e.g., unauthorized-domain, operation-not-allowed)
+- Improve popup fallback in `web-ui/src/components/providers/firebase-auth-provider.tsx`:
+  - Now falls back to `signInWithRedirect` for additional cases including `auth/operation-not-supported-in-this-environment`
+- UX improvement: Keep "Continue with Google" enabled during initial Firebase load; only disable during an active attempt to avoid dead clicks
+
+### Configuration Checklist
+
+- Firebase Console → Authentication → Sign-in method: enable Google provider
+- Firebase Console → Authentication → Settings → Authorized domains: include `localhost` and `127.0.0.1`
+- Ensure `NEXT_PUBLIC_FIREBASE_*` variables are present at build and runtime (Compose and Dockerfile already propagate them)
+
+### Verification
+
+- Dev: from `web-ui/` run `npm run dev`, open `http://localhost:3000/login`, click "Continue with Google"
+- Expect either a popup or automatic redirect flow. On success, you will be routed to `returnTo` (or `/chat` by default)
+- If errors occur, a descriptive message appears under the form (e.g., popup blocked, unauthorized domain)
+
+## Version 0.3.9 (August 18, 2025)
+
+### Web UI: Restore Philosopher Images and Docker Build Stability
+
+- Restored static philosopher images in `web-ui/public/images/`:
+  - `socrates.png` (copied from `philosophers/Plato/images/Socrates-00.png`)
+  - `nietzsche.png` (copied from `philosophers/Nietzsche/Nietzsche - Human, All-Too-Human Part 2/Nietzsche - Human, All-Too-Human Part 2.png`)
+- Updated `web-ui/src/components/sections/featured-philosophers.tsx` to:
+  - Use Next.js `Image` with graceful fallback avatar when image missing
+  - Reference `socrates.png` and `nietzsche.png` under `/images/`
+  - Leave missing assets undefined to avoid 404s and hydration issues
+- Verified Docker Compose `web-ui` build-time args and runtime env:
+  - Build args inline `NEXT_PUBLIC_*` Firebase and `NEXT_PUBLIC_BACKEND_API_URL`
+  - Runtime env sets `BACKEND_API_URL=http://backend:8000` (server-side) and `NEXT_PUBLIC_BACKEND_API_URL=http://localhost:8000` (browser)
+- Confirmed health route `web-ui/src/app/api/health/route.ts` used by Docker healthcheck `/api/health`.
+- Audited Suspense usage: present only around auth forms (`/login`, `/register`) with safe fallbacks; no SSR/hydration regressions observed.
+
+### Verification
+
+- Local build (PowerShell):
+  - From `web-ui/`: `npm ci` then `npm run build`
+  - Visit `http://localhost:3000` (dev: `npm run dev`) and confirm Socrates/Nietzsche images render without 404.
+- Docker build/run:
+  - `docker compose build web-ui`
+  - `docker compose up -d backend web-ui`
+  - Health check: `Invoke-RestMethod http://localhost:3000/api/health`
+  - UI check: open landing page and verify images + no hydration errors in console.
+
+## Version 0.3.8 (August 18, 2025)
+
+### Web UI: Remove NextAuth, Adopt Firebase-Only Authentication
+
+- Fully removed all runtime usage of NextAuth in `web-ui/`.
+- Legacy NextAuth API route `web-ui/src/app/api/auth/[...nextauth]/route.ts` now returns HTTP 410 Gone with guidance to use Firebase Authentication.
+- Deprecated environment variables related to NextAuth in `web-ui/.env` and `web-ui/.env.example` (commented out with clear notes):
+  - `NEXTAUTH_URL`, `NEXTAUTH_SECRET`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`.
+- Firebase Authentication with Google Sign-In is the sole supported auth mechanism.
+- Updated documentation to reflect the migration:
+  - `docs/web-ui-readme.md`: Authentication strategy and environment variables updated to Firebase-only.
+  - This file: added migration notes and deprecation details.
+
+### Configuration
+
+- Firebase env vars required (browser-exposed):
+  - `NEXT_PUBLIC_FIREBASE_API_KEY`
+  - `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`
+  - `NEXT_PUBLIC_FIREBASE_PROJECT_ID`
+  - `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET`
+  - `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
+  - `NEXT_PUBLIC_FIREBASE_APP_ID`
+  - `NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID`
+- Backend base URL remains `NEXT_PUBLIC_BACKEND_API_URL`.
+
+### Migration Notes
+
+- If you previously configured NextAuth, remove any now-unused secrets from the environment and dashboards.
+- Calls to `/api/auth/[...nextauth]` will return 410 Gone. Update clients to use Firebase client-side login via `FirebaseAuthProvider` in `web-ui/src/components/providers/firebase-auth-provider.tsx` and initialization in `web-ui/src/lib/firebase.ts`.
+- Clean build output to ensure no lingering artifacts:
+  - Remove `.next` and rebuild the app.
+  - Optionally run `npm prune` to remove unused packages (no `next-auth` dependency remains in `package.json`).
+
+### Verification
+
+- Confirm no `next-auth` imports exist under `web-ui/src/`.
+- Ensure login works via Google Sign-In and user state appears from Firebase (`useFirebaseAuth()`).
+
+## Version 0.3.7 (August 18, 2025)
+
+### Web UI: Firebase Authentication (Google Sign-In)
+
+- Implemented Firebase Authentication in the web UI with Google Sign-In.
+- Added `FirebaseAuthProvider` and `useFirebaseAuth()` context with `{ user, loading, signInWithGoogle, signOutUser }`.
+- Replaced placeholder chat `userId` with authenticated `user.uid` (preferred) or `user.email`.
+- Gated chat UI on auth state: show loading while `loading===true`, show sign-in prompt when unauthenticated.
+- Session lifecycle now uses authenticated identity for all Redis events (`session_start`, `user_message`, `assistant_message`, `session_end`).
+- Redis POST/GET calls execute only when both `userId` and `chatId` are present.
+- Redirect-to-login flow: unauthenticated users are routed to `/login?returnTo=/chat` from the chat UI. `ChatInterface` redirects on send attempt, and the sign-in prompt now links to the dedicated login page using Next.js router with `returnTo`. `ChatPageContainer` uses the authenticated user for fetching recents and disables the recents button when not signed in.
+
+### Environment & Config
+
+- Frontend `.env.example` includes `NEXT_PUBLIC_FIREBASE_*` variables used by `web-ui/src/lib/firebase.ts`.
+- `web-ui/src/app/layout.tsx` wraps the app with `FirebaseAuthProvider`.
+- Backend base URL continues via `NEXT_PUBLIC_BACKEND_API_URL` (default `http://localhost:8000`).
+
+### Documentation
+
+- Updated `docs/06-system_design.md` to reflect Firebase auth and chat identity changes.
+- Updated `docs/07-tech_stack.md` to include Firebase Authentication in the frontend stack.
+
+### Compatibility & Security
+
+- No breaking changes: existing NextAuth credential flow remains.
+- Only safe-to-expose Firebase config values are sent to the browser. Backend token verification is a future enhancement.
+
+### Verification (PowerShell)
+
+```powershell
+$u = '<firebase_uid_or_email>'
+$c = '<chatId from browser console>'
+Invoke-RestMethod -Method Get -Uri "http://localhost:8000/api/v1/chat/redis/$($u)/$($c)"
+```
+
+### Notes
+
+- This release replaces earlier examples that used `'analytics206@gmail'` as a placeholder. Historical entries remain unchanged.
+
 ## Version 0.3.6 (August 17, 2025)
 
 ### Backend: Assistant Response History (non-blocking)

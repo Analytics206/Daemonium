@@ -119,8 +119,53 @@ The monitoring system follows a sidecar pattern with the following components:
   - Legacy compatibility: `OLLAMA_API_URL` + `OLLAMA_API_PORT` are supported when `OLLAMA_BASE_URL` is not set.
 - **Chat Page**: `web-ui/src/app/chat/page.tsx` renders `ChatInterface` with `endpoint="/api/ollama"` for a minimal, fixed chat route used in local testing.
 - **Reusable Component**: `web-ui/src/components/chat/chat-interface.tsx` accepts an optional `endpoint` prop (default `/api/chat`) enabling backend/LLM swapping without changing UI code.
-- **Security**: No auth required for the Ollama proxy in local dev; add middleware/auth if exposed beyond localhost.
-- **Future**: Consider streaming responses, auth/session checks, and per-model selection from UI.
+ - **Security**: No auth required for the Ollama proxy in local dev; add middleware/auth if exposed beyond localhost.
+ - **Future**: Consider streaming responses, auth/session checks, and per-model selection from UI.
+
+### Web UI: Authentication (Firebase)
+
+- **Provider**: `FirebaseAuthProvider` wraps the app in `web-ui/src/app/layout.tsx`.
+- **Hook**: `useFirebaseAuth()` exposes `{ user, loading, signInWithGoogle, signOutUser }`.
+ - **Identity**: Use `user.uid` only as `userId` across the chat session lifecycle and Redis API calls. Emails are not accepted by backend auth; Firebase token UID must match the `user_id` path parameter.
+- **UI gating**: While `loading` is true, render loading state; if `user` is null, show Google sign-in prompt.
+- **Env**: `NEXT_PUBLIC_FIREBASE_*` variables configured in `web-ui/.env.example`; Firebase init in `web-ui/src/lib/firebase.ts`.
+
+### Backend: Firebase ID Token Validation
+
+- **Purpose**: Secure Redis chat endpoints by validating Firebase ID tokens and enforcing per-user authorization.
+- **Initialization**: `backend/auth.py` initializes Firebase Admin SDK during app startup from `backend/main.py` lifespan.
+  - Credentials sources (priority): `FIREBASE_CREDENTIALS_FILE` → `FIREBASE_CREDENTIALS_BASE64` → Application Default Credentials.
+  - Config path: `config/default.yaml` → `firebase` section with env overrides: `FIREBASE_ENABLED`, `FIREBASE_PROJECT_ID`, `FIREBASE_CREDENTIALS_FILE`, `FIREBASE_CREDENTIALS_BASE64`.
+- **FastAPI dependency**: `verify_firebase_id_token` in `backend/auth.py`:
+  - Extracts `Authorization: Bearer <ID_TOKEN>`.
+  - Verifies token via Firebase Admin and checks `uid` matches the `user_id` path param.
+  - Errors: `401 Unauthorized` (missing/invalid token), `403 Forbidden` (UID mismatch), `503 Service Unavailable` (init failure).
+  - If Firebase is disabled (`firebase.enabled=false`), it no-ops for backward compatibility.
+- **Protected endpoints** (`backend/routers/chat.py`):
+  - `POST /api/v1/chat/redis/{user_id}/{chat_id}`
+  - `GET  /api/v1/chat/redis/{user_id}/summaries`
+  - `GET  /api/v1/chat/redis/{user_id}/{chat_id}`
+- **Observability & Safety**:
+  - Robust logging without exposing tokens or credentials.
+  - Initialization failures logged but do not crash startup; dependency responds with 503 while degraded.
+- **Verification (PowerShell)**:
+  1) Sign in on the Web UI (Firebase Google Sign-In).
+  2) Obtain an ID token from the signed-in user (e.g., add a temporary debug log in the Web UI to call `getIdToken()` or use browser devtools and app code to retrieve it).
+  3) Test protected endpoints with the token:
+  ```powershell
+  $u = '<firebase_uid>'
+  $c = '<chatId>'
+  $token = '<paste_firebase_id_token>'
+  $base = 'http://localhost:8000'
+
+  # GET chat history
+  Invoke-RestMethod -Method Get -Headers @{ Authorization = "Bearer $token" } -Uri "$base/api/v1/chat/redis/$($u)/$($c)"
+
+  # POST a user message (JSON payload via query param)
+  $payload = @{ type='user_message'; text='Hello from PowerShell' } | ConvertTo-Json -Depth 5
+  $enc = [System.Web.HttpUtility]::UrlEncode($payload)
+  Invoke-RestMethod -Method Post -Headers @{ Authorization = "Bearer $token" } -Uri "$base/api/v1/chat/redis/$($u)/$($c)?input=$enc&ttl_seconds=0"
+  ```
 
 ### Web UI: Redis Chat Session State
 
@@ -128,7 +173,7 @@ The monitoring system follows a sidecar pattern with the following components:
 - **Lifecycle**:
   - `session_start` on component mount with state: `userId`, `chatId` (UUID), `date`, `startTime`, `endTime=null`.
   - `user_message` on each user send.
-  - `assistant_message` for each model response, pushed by Next.js Ollama proxy route after successful generation.
+  - `assistant_message` for each model response, pushed by the Next.js Ollama proxy route after successful generation. The UI does not push assistant messages to avoid duplicates; the API route is the single source of truth for assistant persistence.
   - `session_end` on component unmount with `endTime`.
 - **Endpoints** (`backend/routers/chat.py`):
   - POST `/api/v1/chat/redis/{user_id}/{chat_id}?input=<STRING>&ttl_seconds=<INT>`
@@ -144,12 +189,15 @@ The monitoring system follows a sidecar pattern with the following components:
       - If `input` is plain string: stores it under `message`
   - GET `/api/v1/chat/redis/{user_id}/{chat_id}` → returns `{ success, key, count, data: [ ... ] }` in insertion order.
 - **Front-end integration** (`web-ui/src/components/chat/chat-interface.tsx`):
-  - Generates `chatId` on mount; uses placeholder `userId='analytics206@gmail'` until auth is added.
-  - Sends `session_start` immediately; pushes each `user_message` on send; sends `session_end` on unmount.
+  - Obtains authenticated identity from Firebase via `useFirebaseAuth()` and sets `userId = user.uid`.
+  - Waits for auth readiness: defers history load and `session_start` until `loading === false` and `userId` exists.
+  - UI gating: unauthenticated state renders a Google sign-in prompt; authenticated state renders the chat UI.
+  - Generates `chatId` for new chats; loads history for existing `chatId`.
+  - Push guards: Redis POST/GET calls only execute when both `userId` and `chatId` are present.
   - Reads backend base URL from `NEXT_PUBLIC_BACKEND_API_URL` (default `http://localhost:8000`).
-  - Next.js API route `/api/ollama` accepts `{ message, chatId, userId, philosopher }` and, after calling Ollama, fire-and-forget pushes `{ type: 'assistant_message', text, model, source: 'ollama', context }` to the FastAPI Redis endpoint.
+  - Next.js API route `/api/ollama` accepts `{ message, chatId, userId, philosopher }` and, after calling Ollama, fire-and-forget pushes `{ type: 'assistant_message', text, model, source: 'ollama', context }` to the FastAPI Redis endpoint. The UI no longer performs a second assistant push.
   - **Verification (PowerShell)**:
-  - `$u='analytics206@gmail'`
+  - `$u='<firebase_uid_or_email>'`
   - `$c='<chatId from browser console>'`
   - `Invoke-RestMethod -Method Get -Uri "http://localhost:8000/api/v1/chat/redis/$($u)/$($c)"`
   - Expect to see the initial `session_start` item, followed by `user_message` items; a `session_end` appears after navigating away.

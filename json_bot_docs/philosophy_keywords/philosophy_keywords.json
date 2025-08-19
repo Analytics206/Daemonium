@@ -1,173 +1,161 @@
-{
-  "philosophy_keywords": {
-    "metaphysics": {
-      "definition": "The branch of philosophy dealing with the nature of reality, existence, and being",
-      "key_concepts": [
+[
+  {
+    "theme": "metaphysics",
+    "definition": "The branch of philosophy dealing with the nature of reality, existence, and being",
+    "keywords": [
         "ontology", "substance", "causation", "space", "time", "identity", "possibility", "necessity",
         "universals", "particulars", "essence", "existence", "modal realism", "metaphysical realism", "determinism", "free will", "abstract objects"
       ]
-    },
-    "epistemology": {
-      "definition": "The study of knowledge, justified belief, and the rationality of belief",
-      "key_concepts": [
+  },
+  {
+    "theme":"epistemology",
+    "definition": "The study of knowledge, justified belief, and the rationality of belief",
+    "keywords": [
         "knowledge", "truth", "belief", "justification", "skepticism", "empiricism", "rationalism", "a priori", "a posteriori",
         "foundationalism", "coherentism", "reliabilism", "internalism", "externalism", "epistemic virtue", "Gettier problem"
       ]
-    },
-    "ethics": {
-      "definition": "The branch of philosophy concerned with moral principles and values",
-      "key_concepts": [
+  },
+  {
+    "theme": "ethics",
+    "definition": "The branch of philosophy concerned with moral principles and values",
+    "keywords": [
         "virtue", "duty", "consequentialism", "deontology", "utilitarianism", "moral relativism", "categorical imperative", "good", "evil", "justice",
         "ethics of care", "moral realism", "moral nihilism", "rights", "autonomy", "eudaimonia", "moral responsibility", "hedonism"
       ]
-    },
-    "logic": {
-      "definition": "The systematic study of valid inference and correct reasoning",
-      "key_concepts": [
+  },
+  {
+    "theme": "logic",
+    "definition": "The systematic study of valid inference and correct reasoning",
+    "keywords": [
         "argument", "premise", "conclusion", "validity", "soundness", "fallacy", "syllogism", "contradiction", "tautology",
         "predicate logic", "propositional logic", "modal logic", "non-classical logic", "paraconsistent logic", "logical form", "truth table"
       ]
-    },
-    "aesthetics": {
-      "definition": "The philosophical study of beauty, art, and taste",
-      "key_concepts": [
+  },
+  {
+    "theme": "aesthetics",
+    "definition": "The philosophical study of beauty, art, and taste",
+    "keywords": [
         "beauty", "sublime", "artistic expression", "aesthetic experience", "criticism", "representation", "form", "content",
         "imitation", "aesthetic judgment", "avant-garde", "aesthetic autonomy", "aesthetic realism", "kitsch", "artworld"
       ]
-    },
-    "political_philosophy": {
-      "definition": "The study of government, politics, liberty, justice, and the enforcement of laws",
-      "key_concepts": [
+  },
+  {
+    "theme": "political",
+    "definition": "The study of government, politics, liberty, justice, and the enforcement of laws",
+    "keywords": [
         "state", "sovereignty", "liberty", "equality", "democracy", "authoritarianism", "social contract", "natural rights", "civil disobedience",
         "justice", "anarchism", "utilitarianism in politics", "political obligation", "legitimacy", "ideology", "republicanism", "libertarianism"
       ]
-    },
-    "philosophy_of_mind": {
-      "definition": "The study of the nature of mind, mental events, consciousness, and their relationship to the physical body",
-      "key_concepts": [
+  },
+  {
+    "theme": "philosophy of mind",
+    "definition": "The study of the nature of mind, mental events, consciousness, and their relationship to the physical body",
+    "keywords": [
         "consciousness", "intentionality", "qualia", "dualism", "materialism", "functionalism", "free will", "personal identity",
         "emergentism", "panpsychism", "reductionism", "neural correlates", "mental causation", "epiphenomenalism", "phenomenal consciousness"
       ]
-    },
-    "phenomenology": {
-      "definition": "The study of structures of experience and consciousness",
-      "key_concepts": [
+  },
+  {
+    "theme": "phenomenology",
+    "definition": "The study of structures of experience and consciousness",
+    "keywords": [
         "intentionality", "bracketing", "lived experience", "intersubjectivity", "embodiment", "temporality", "horizon",
         "epoché", "phenomenological reduction", "being-in-the-world", "facticity", "lifeworld", "eidetic variation", "constitution"
       ]
-    },
-    "existentialism": {
-      "definition": "Philosophy emphasizing individual existence, freedom, and the search for meaning",
-      "key_concepts": [
+  },
+  {
+    "theme": "existentialism",
+    "definition": "Philosophy emphasizing individual existence, freedom, and the search for meaning",
+    "keywords": [
         "existence precedes essence", "authenticity", "absurd", "angst", "bad faith", "freedom", "responsibility", "nothingness",
         "alienation", "despair", "facticity", "transcendence", "subjectivity", "existential choice", "death"
       ]
-    },
-    "ancient_philosophy": {
-      "definition": "Philosophical traditions from antiquity, particularly Greek and Roman thought",
-      "key_concepts": [
+  },
+  {
+    "theme": "ancient philosophy",
+    "definition": "Philosophical traditions from antiquity, particularly Greek and Roman thought",
+    "keywords": [
         "virtue ethics", "stoicism", "platonism", "aristotelian", "skepticism", "epicureanism", "cynicism", "the good life",
         "eudaimonia", "logos", "arete", "natural law", "dialectic", "Forms", "theoria", "ataraxia"
       ]
-    },
-    "modern_philosophy": {
-      "definition": "Western philosophy from the Renaissance through the 18th century",
-      "key_concepts": [
+  },
+  {
+    "theme": "modern philosophy",
+    "definition": "Western philosophy from the Renaissance through the 18th century",
+    "keywords": [
         "rationalism", "empiricism", "skepticism", "mechanistic worldview", "mind-body problem", "social contract", "natural law",
         "enlightenment", "individualism", "determinism", "moral sense theory", "theodicy", "scientific revolution", "progress"
       ]
-    },
-    "contemporary_philosophy": {
-      "definition": "20th and 21st century philosophical movements and problems",
-      "key_concepts": [
+  },
+  {
+    "theme": "contemporary philosophy",
+    "definition": "20th and 21st century philosophical movements and problems",
+    "keywords": [
         "analytic philosophy", "continental philosophy", "postmodernism", "philosophy of language", "cognitive science", "applied ethics", "environmental ethics",
         "critical theory", "feminist philosophy", "philosophy of technology", "neurophilosophy", "artificial intelligence", "bioethics", "social epistemology"
       ]
-    },
-    "philosophy_of_language": {
-      "definition": "The study of the nature, origin, and usage of language, especially its relationship to reality, thought, and meaning",
-      "key_concepts": [
+  },
+  {
+    "theme": "language",
+    "definition": "The study of the nature, origin, and usage of language, especially its relationship to reality, thought, and meaning",
+    "keywords": [
         "meaning", "reference", "signifier", "semantics", "syntax", "pragmatics", "speech act", "truth-conditions", "language games", "private language"
       ]
-    },
-    "philosophy_of_science": {
-      "definition": "The study of the foundations, methods, and implications of science, including the nature of scientific explanation and theory",
-      "key_concepts": [
+  },
+  {
+    "theme": "science",
+    "definition": "The study of the foundations, methods, and implications of science, including the nature of scientific explanation and theory",
+    "keywords": [
         "falsifiability", "theory-ladenness", "paradigm shift", "scientific realism", "instrumentalism", "induction", "empirical adequacy", "laws of nature"
       ]
-    },
-    "philosophy_of_religion": {
-      "definition": "The philosophical analysis of religious beliefs, practices, and arguments concerning the nature and existence of the divine",
-      "key_concepts": [
+  },
+  {
+    "theme": "religion",
+    "definition": "The philosophical analysis of religious beliefs, practices, and arguments concerning the nature and existence of the divine",
+    "keywords": [
         "theism", "atheism", "agnosticism", "ontological argument", "cosmological argument", "problem of evil", "faith", "miracles", "divine attributes"
       ]
-    },
-    "philosophy_of_technology": {
-      "definition": "The philosophical investigation of technology and its relationship to humans, society, and the world",
-      "key_concepts": [
+  },
+  {
+    "theme": "technology",
+    "definition": "The philosophical investigation of technology and its relationship to humans, society, and the world",
+    "keywords": [
         "technological determinism", "instrumentalism", "automation", "cybernetics", "digital ontology", "human enhancement", "ethics of AI", "posthumanism"
       ]
-    },
-    "feminist_philosophy": {
-      "definition": "A branch of philosophy that critiques traditional philosophy from a feminist perspective and explores gender, identity, and power",
-      "key_concepts": [
+  },
+  {
+    "theme": "feminist",
+    "definition": "A branch of philosophy that critiques traditional philosophy from a feminist perspective and explores gender, identity, and power",
+    "keywords": [
         "patriarchy", "gender essentialism", "intersectionality", "embodiment", "standpoint theory", "epistemic injustice", "ethics of care", "sexual difference"
       ]
-    },
-    "environmental_philosophy": {
-      "definition": "The philosophical study of the ethical, metaphysical, and aesthetic issues surrounding the environment and human interactions with nature",
-      "key_concepts": [
+  },
+  {
+    "theme": "environmental",
+    "definition": "The philosophical study of the ethical, metaphysical, and aesthetic issues surrounding the environment and human interactions with nature",
+    "keywords": [
         "deep ecology", "biocentrism", "ecocentrism", "anthropocentrism", "sustainability", "environmental ethics", "climate justice", "land ethic"
       ]
-    },
-    "philosophy_of_history": {
-      "definition": "The philosophical study of history, historical events, and the meaning and direction of historical processes",
-      "key_concepts": [
+  },
+  {
+    "theme": "philosophy of history",
+    "definition": "The philosophical study of history, historical events, and the meaning and direction of historical processes",
+    "keywords": [
         "historicism", "teleology", "progress", "historical materialism", "narrative", "temporality", "determinism", "counterfactuals"
       ]
-    },
-    "critical_theory": {
-      "definition": "A philosophical approach to culture, literature, and politics that seeks to confront social structures of power, domination, and ideology",
-      "key_concepts": [
+  },
+  {
+    "theme": "critical theory",
+    "definition": "A philosophical approach to culture, literature, and politics that seeks to confront social structures of power, domination, and ideology",
+    "keywords": [
         "ideology", "reification", "hegemony", "emancipation", "false consciousness", "cultural critique", "dialectics", "praxis", "instrumental reason"
       ]
-    },
-    "poststructuralism": {
-      "definition": "A philosophical movement that critiques modernist thought and emphasizes the role of power, language, and social structures in shaping human experience",
-      "key_concepts": [
+  },
+  {
+    "theme": "poststructuralism",
+    "definition": "A philosophical movement that critiques modernist thought and emphasizes the role of power, language, and social structures in shaping human experience",
+    "keywords": [
         "deconstruction", "difference", "signification", "discourse", "power relations", "subjectivity", "language games", "metaphysics", "structuralism"
       ]
-    }
-  },
-  "fundamental_concepts": [
-    "being", "becoming", "substance", "accident", "universal", "particular", "essence", "existence", 
-    "causation", "determinism", "free will", "necessity", "contingency", "infinity", "eternity",
-    "truth", "falsity", "knowledge", "belief", "doubt", "certainty", "experience", "reason",
-    "good", "evil", "right", "wrong", "virtue", "vice", "happiness", "suffering", "meaning",
-    "language", "interpretation", "dialectic", "synthesis", "critique", "theory", "practice",
-    "identity", "difference", "reality", "representation", "value", "mind", "matter", 
-    "intentionality", "consciousness", "freedom", "existentialism"
-  ],
-  "major_philosophical_questions": [
-    "What is the nature of reality?",
-    "How do we acquire knowledge?",
-    "What makes an action morally right or wrong?",
-    "What is the meaning of life?",
-    "Do we have free will?",
-    "What is consciousness?",
-    "What is the relationship between mind and body?",
-    "What is justice?",
-    "What is beauty?",
-    "Does God exist?",
-    "Can we ever be certain of anything?",
-    "What is personal identity?",
-    "Is there an objective truth?",
-    "What is time?",
-    "Is morality universal or relative?",
-    "How should society be organized?",
-    "What is the role of language in shaping thought?",
-    "Are humans inherently good or evil?",
-    "What is the nature of death?",
-    "Is life absurd?"
+  }
   ]
-}

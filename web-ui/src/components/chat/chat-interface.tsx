@@ -4,6 +4,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Send, Bot, User } from 'lucide-react';
+import { useFirebaseAuth } from '../providers/firebase-auth-provider';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface Message {
   id: string;
@@ -26,14 +28,18 @@ interface ChatInterfaceProps {
   endpoint?: string;
 }
 
-export default function ChatInterface({ chatId, philosopher, endpoint = '/api/chat' }: ChatInterfaceProps) {
+export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ollama' }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const pathname = usePathname();
+  const returnTo = pathname || '/chat';
 
-  // Placeholder user identity until auth is wired
-  const userId = 'analytics206@gmail';
+  // Firebase auth user identity
+  const { user, loading: authLoading } = useFirebaseAuth();
+  const userId = (user?.uid || '').toString();
   const backendBaseUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'http://localhost:8000';
 
   const [sessionChatId, setSessionChatId] = useState<string>('');
@@ -52,10 +58,25 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
   };
 
   const pushToRedis = async (payload: string) => {
-    if (!sessionChatId) return;
-    const url = `${backendBaseUrl}/api/v1/chat/redis/${encodeURIComponent(userId)}/${encodeURIComponent(sessionChatId)}?input=${encodeURIComponent(payload)}`;
+    if (!sessionChatId || !userId) return;
+    const url = `${backendBaseUrl}/api/v1/chat/redis/${encodeURIComponent(userId)}/${encodeURIComponent(sessionChatId)}`;
     try {
-      await fetch(url, { method: 'POST' });
+      const token = user ? await user.getIdToken().catch(() => null) : null;
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+
+      let bodyObj: any;
+      try {
+        bodyObj = JSON.parse(payload);
+      } catch {
+        bodyObj = { input: payload };
+      }
+
+      const res = await fetch(url, { method: 'POST', headers, body: JSON.stringify(bodyObj) });
+      if (!res.ok) {
+        const text = await res.text().catch(() => '');
+        console.error('Failed to push to Redis:', res.status, text);
+      }
     } catch (err) {
       console.error('Failed to push to Redis:', err);
     }
@@ -67,11 +88,14 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
 
   // Load an existing chat's history from Redis and map to UI messages
   const loadHistoryFromRedis = async (targetChatId: string) => {
-    if (!targetChatId) return;
+    if (!targetChatId || !userId) return;
     setLoadingHistory(true);
     try {
       const url = `${backendBaseUrl}/api/v1/chat/redis/${encodeURIComponent(userId)}/${encodeURIComponent(targetChatId)}`;
-      const res = await fetch(url, { method: 'GET' });
+      const token = user ? await user.getIdToken().catch(() => null) : null;
+      const headers: Record<string, string> = {};
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const res = await fetch(url, { method: 'GET', headers });
       if (!res.ok) throw new Error(`Failed to load chat history: ${res.status}`);
       const data = await res.json();
       const items: any[] = Array.isArray(data?.data) ? data.data : [];
@@ -110,6 +134,7 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
   // React to external chatId changes: load history or start a fresh session
   useEffect(() => {
     const go = async () => {
+      if (authLoading || !userId) return; // wait for auth
       if (chatId && chatId.trim().length > 0) {
         // Load existing chat
         setIsNewSession(false);
@@ -147,7 +172,7 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
     };
     void go();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [chatId]);
+  }, [chatId, userId, authLoading]);
 
   // Once sessionState is ready and not yet sent, push to Redis as session_start (only for brand-new sessions)
   useEffect(() => {
@@ -178,6 +203,11 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
+    // Only redirect to login if auth has finished loading and there is no user
+    if (!user && !authLoading) {
+      router.replace(`/login?returnTo=${encodeURIComponent(returnTo)}`);
+      return;
+    }
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -195,15 +225,18 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
       // Push the user's input to Redis (do not block chat flow on failure)
       void pushToRedis(JSON.stringify({ type: 'user_message', text: currentInput }));
 
+      const token = user ? await user.getIdToken().catch(() => null) : null;
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
         body: JSON.stringify({
           message: currentInput,
           chatId: sessionChatId || chatId,
-          userId,
+          // Pass userId only when available; omit to avoid creating anonymous keys downstream
+          userId: userId || undefined,
           philosopher,
         }),
       });
@@ -217,8 +250,6 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
           timestamp: new Date(),
         };
         setMessages(prev => [...prev, assistantMessage]);
-        // Push assistant reply to Redis so history shows both sides
-        void pushToRedis(JSON.stringify({ type: 'assistant_message', text: data.response }));
       } else {
         console.error('Chat API error:', response.statusText);
       }
@@ -228,6 +259,33 @@ export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ch
       setIsLoading(false);
     }
   };
+
+  // Auth state gates
+  if (authLoading) {
+    return (
+      <div className="flex items-center justify-center h-[400px] text-slate-500 dark:text-slate-400">
+        Loading authentication...
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="flex flex-col items-center justify-center h-[400px] space-y-4">
+        <Bot className="w-10 h-10 text-slate-400" />
+        <p className="text-slate-700 dark:text-slate-300 text-center px-6">
+          Please sign in with Google to start chatting and save your session history.
+        </p>
+        <Button
+          type="button"
+          onClick={() => router.replace(`/login?returnTo=${encodeURIComponent(returnTo)}`)}
+          className="bg-white text-slate-900 border border-slate-300 hover:bg-slate-50 dark:bg-slate-200 dark:text-slate-900"
+        >
+          Continue with Google
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col h-full max-h-[600px]">

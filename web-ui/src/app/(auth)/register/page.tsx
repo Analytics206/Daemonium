@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import RegisterForm from '../../../components/auth/register-form';
 import AuthLayout from '../../../components/auth/auth-layout';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Create Account',
@@ -13,7 +14,9 @@ export default function RegisterPage() {
       title="Join Daemonium"
       subtitle="Create your account to begin exploring philosophical wisdom"
     >
-      <RegisterForm />
+      <Suspense fallback={<div>Loading form…</div>}>
+        <RegisterForm />
+      </Suspense>
     </AuthLayout>
   );
 }

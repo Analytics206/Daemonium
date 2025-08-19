@@ -52,6 +52,7 @@ pydantic>=2.5.0        # Data validation and serialization
 pydantic-settings>=2.0.0  # Settings management for Pydantic v2
 python-multipart>=0.0.6  # Form data parsing support
 redis>=5.0.0            # Redis client with asyncio support
+firebase-admin>=6.5.0    # Firebase Admin SDK for verifying ID tokens
 
 # Project-specific dependencies
 # Add any additional dependencies below this line

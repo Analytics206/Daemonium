@@ -2,7 +2,7 @@
 Chat API router - for chatbot functionality
 """
 
-from fastapi import APIRouter, HTTPException, Depends, Query, BackgroundTasks
+from fastapi import APIRouter, HTTPException, Depends, Query, BackgroundTasks, Request
 from typing import List, Optional, Dict, Any
 import logging
 import random
@@ -20,6 +20,7 @@ from ..database import DatabaseManager
 from ..models import PersonaCoreResponse
 from ..models import ChatBlueprintResponse, ChatBlueprint, ConversationLogic, PhilosopherBot, ChatMessage, ChatResponse, ModernAdaptationResponse
 from ..config import get_settings
+from ..auth import verify_firebase_id_token
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -453,9 +454,14 @@ async def get_modern_adaptations(
 async def push_chat_message_to_redis(
     user_id: str,
     chat_id: str,
-    input: str = Query(..., description="User chat input to store"),
+    input: Optional[str] = Query(
+        None,
+        description="User chat input to store (prefer JSON body for large payloads); kept for backward compatibility",
+    ),
     ttl_seconds: int = Query(0, ge=0, description="Optional TTL (seconds) for the chat list; 0 means no TTL"),
+    request: Request = None,
     background_tasks: BackgroundTasks = None,
+    auth_info: Dict[str, Any] = Depends(verify_firebase_id_token),
     db_manager: DatabaseManager = Depends(get_db_manager),
 ):
     """Push a chat input into Redis under a list keyed by user_id and chat_id.
@@ -469,12 +475,43 @@ async def push_chat_message_to_redis(
         key = _chat_messages_key(user_id, chat_id)
         now = datetime.now(timezone.utc)
 
-        # Try to parse the incoming input as JSON to extract structured fields
+        # Resolve input from query or request body for large payload support
+        raw_input: Any = input
+        if raw_input is None and request is not None:
+            try:
+                content_type = request.headers.get("content-type", "")
+                if "application/json" in content_type:
+                    body = await request.json()
+                    # Accept raw string, object, or wrapper { "input": ... }
+                    if isinstance(body, str):
+                        raw_input = body
+                    elif isinstance(body, dict) and "input" in body:
+                        raw_input = body.get("input")
+                    else:
+                        raw_input = body
+                else:
+                    # Fallback: treat raw body as UTF-8 text
+                    raw_input = (await request.body()).decode("utf-8")
+            except Exception as ex:
+                logger.warning(
+                    f"Failed to parse request body for Redis push (user={user_id} chat={chat_id}): {ex}"
+                )
+                raw_input = None
+
+        if raw_input is None:
+            raise HTTPException(status_code=400, detail="Missing 'input' payload")
+
+        # Try to parse the incoming payload as JSON; otherwise treat as string
         parsed: Any
-        try:
-            parsed = json.loads(input)
-        except Exception:
-            parsed = input
+        if isinstance(raw_input, (dict, list)):
+            parsed = raw_input
+        elif isinstance(raw_input, str):
+            try:
+                parsed = json.loads(raw_input)
+            except Exception:
+                parsed = raw_input
+        else:
+            parsed = str(raw_input)
 
         # Always include user and chat identifiers
         payload_obj: Dict[str, Any] = {
@@ -552,6 +589,7 @@ async def push_chat_message_to_redis(
 async def list_user_chat_summaries(
     user_id: str,
     max_chats: int = Query(100, ge=1, le=1000, description="Maximum number of chat summaries to return"),
+    auth_info: Dict[str, Any] = Depends(verify_firebase_id_token),
 ):
     """List chat summaries for a user by scanning Redis keys.
 
@@ -678,6 +716,7 @@ async def get_chat_messages_from_redis(
     chat_id: str,
     start: int = Query(0, description="Start index for LRANGE"),
     stop: int = Query(-1, description="Stop index for LRANGE (-1 for end)"),
+    auth_info: Dict[str, Any] = Depends(verify_firebase_id_token),
 ):
     """Retrieve chat inputs from Redis list for a given user_id and chat_id.
 

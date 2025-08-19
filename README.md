@@ -426,13 +426,19 @@ Daimonion is designed to run locally using Docker, making it easy to set up and 
    ```
 
 #### Option 2: Using pip
+### Installation (Local)
 
+## Windows (PowerShell):
+```powershell
+# Activate the virtual environment
 1. ## Windows (PowerShell):
   ```powershell
   # if needed to rebuild .venv
   Remove-Item -Recurse -Force .venv
   # Run the setup script
-  python3.11 -m venv .venv
+  py -3.11 -m venv venv
+  python --version
+  python -m pip install -U pip
 
   # Activate the virtual environment
   .\.venv\Scripts\Activate.ps1
@@ -589,35 +595,6 @@ For more deep dive into project and status, see the `docs/` directory.
 - Docker and Docker Compose (for containerized deployment)
 
 ---
-
-### Installation (Local)
-* Note: installs all dependencies in a virtual environment 
-## Linux/macOS/WSL:
-```bash
-# Make the setup script executable
-chmod +x scripts/setup_uv.sh
-
-# Run the setup script
-./scripts/setup_uv.sh
-
-# Activate the virtual environment
-source .venv/bin/activate
-```
-
-## Windows (PowerShell):
-```powershell
-# Remove previous venv if it exists
-Remove-Item -Recurse -Force venv
-# Create new venv
-py -3.11 -m venv venv
-python --version
-python -m pip install -U pip
-# Run the setup script
-# ??
-
-# Activate the virtual environment
-venv\Scripts\Activate.ps1
-```
 
 # Dockerized Deployment - Docker Desktop Running
 ## 0. Suggested run in venv from scripts above for your operating system

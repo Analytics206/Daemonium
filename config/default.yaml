@@ -50,6 +50,18 @@ redis:
   password: ch@ng3m300
   db: 0
   
+# Firebase Configuration
+firebase:
+  enabled: false
+  project_id: ""
+  credentials:
+    file: ""     # Absolute path to service account JSON (mounted via secret/volume)
+    base64: ""   # Base64-encoded JSON for service account (alternative to file)
+  # Notes:
+  # - Environment variables can override any of these:
+  #   FIREBASE_ENABLED, FIREBASE_PROJECT_ID, FIREBASE_CREDENTIALS_FILE, FIREBASE_CREDENTIALS_BASE64
+  # - If both file and base64 are empty, Application Default Credentials will be attempted.
+
 # Application Settings
 app:
   debug: false

@@ -53,11 +53,14 @@ agent_data/
 # Docker volumes
 .docker/
 
-# Ollama models
+# Ollama models#
 .ollama/
 
 # Auth keys
-auth_keys
+auth_keys/
+
+# Firebase config (local secrets)
+config/firebase.yaml
 
 # Web UI specific
 web-ui/node_modules/

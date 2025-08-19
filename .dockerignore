@@ -3,6 +3,10 @@ docker_volumes/
 **/node_modules/
 **/.next/
 
+# Secrets
+config/firebase.yaml
+auth_keys/
+
 # Python
 .venv/
 __pycache__/

@@ -34,6 +34,40 @@ The Daemonium is built on a microservices architecture using Docker containers w
   - **Configuration**: Values loaded from `config/default.yaml` under `redis` (host, port, password, db)
   - **Security**: Password-authenticated Redis per docker-compose; avoid exposing Redis beyond Docker network in production
 
+### Frontend (Web UI)
+- **Framework**: Next.js 15 + React 18
+- **Styling**: Tailwind CSS
+- **Authentication**: Firebase Authentication (Google Sign-In)
+  - Provider wraps app in `web-ui/src/app/layout.tsx` via `FirebaseAuthProvider`
+  - Context hook `useFirebaseAuth()` → `{ user, loading, signInWithGoogle, signOutUser }`
+  - Firebase init in `web-ui/src/lib/firebase.ts`
+  - Env: `NEXT_PUBLIC_FIREBASE_*` in `web-ui/.env.example`
+- **Identity Usage**: `user.uid` (preferred) or `user.email` used as `userId` for Redis endpoints and chat session lifecycle in `web-ui/src/components/chat/chat-interface.tsx`
+- **Backend API URL**: `NEXT_PUBLIC_BACKEND_API_URL` (default `http://localhost:8000`)
+
+### Backend Authentication (Firebase Admin SDK)
+- **Purpose**: Server-side verification of Firebase ID tokens and authorization enforcement for Redis chat endpoints.
+- **Implementation**:
+  - `backend/auth.py` provides Firebase Admin initialization and `verify_firebase_id_token` FastAPI dependency.
+  - Initialized during app lifespan in `backend/main.py`.
+  - Applied to Redis chat endpoints in `backend/routers/chat.py` that include `user_id`:
+    - POST `/api/v1/chat/redis/{user_id}/{chat_id}`
+    - GET `/api/v1/chat/redis/{user_id}/summaries`
+    - GET `/api/v1/chat/redis/{user_id}/{chat_id}`
+- **Configuration**:
+  - YAML: `config/default.yaml` → `firebase.enabled`, `firebase.project_id`, `firebase.credentials.file`, `firebase.credentials.base64`.
+  - Env overrides: `FIREBASE_ENABLED`, `FIREBASE_PROJECT_ID`, `FIREBASE_CREDENTIALS_FILE`, `FIREBASE_CREDENTIALS_BASE64`.
+  - Behavior: if disabled, dependency is a no-op for backward compatibility.
+- **Dependencies**: `firebase-admin>=6.5.0` (see `requirements.txt`).
+- **Testing (PowerShell)**:
+  ```powershell
+  $token = '<paste_firebase_id_token>'
+  $u = '<firebase_uid>'
+  $c = '<chatId>'
+  $base = 'http://localhost:8000'
+  Invoke-RestMethod -Method Get -Headers @{ Authorization = "Bearer $token" } -Uri "$base/api/v1/chat/redis/$($u)/$($c)"
+  ```
+
 ### Monitoring & Observability
 - **Prometheus**: Time series database for metrics collection and storage
   - Metrics: container performance, system resources, application metrics

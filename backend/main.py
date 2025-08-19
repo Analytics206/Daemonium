@@ -24,6 +24,7 @@ from .routers import (
     search
 )
 from .config import get_settings
+from .auth import init_firebase_if_enabled
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -42,19 +43,33 @@ async def lifespan(app: FastAPI):
     settings = get_settings()
     db_manager = DatabaseManager(settings)
     
+    # Make db_manager available immediately so /health can run even if initial connect fails
+    app.state.db_manager = db_manager
+    
+    # Initialize Firebase Admin SDK if enabled (non-fatal on failure/disabled)
     try:
-        await db_manager.connect()
-        logger.info("Database connection established")
-        
-        # Store db_manager in app state
-        app.state.db_manager = db_manager
+        init_ok = init_firebase_if_enabled(settings)
+        if init_ok:
+            logger.info("Firebase authentication initialized")
+        else:
+            logger.info("Firebase authentication not initialized (disabled or missing packages)")
+    except Exception as e:
+        logger.error(f"Firebase initialization failed: {e}")
+    
+    try:
+        try:
+            await db_manager.connect()
+            logger.info("Database connection established")
+        except Exception as e:
+            # Don't crash app startup if DB isn't ready yet; /health will retry
+            logger.error(f"Database connection failed on startup: {e}")
         
         yield
         
     finally:
         # Shutdown
         logger.info("Shutting down Daemonium API...")
-        if db_manager:
+        if db_manager and getattr(db_manager, "client", None):
             await db_manager.disconnect()
         logger.info("Database connection closed")
 
@@ -154,12 +169,26 @@ async def root():
 async def health_check(db_manager: DatabaseManager = Depends(get_db_manager)):
     """Health check endpoint"""
     try:
+        # Ensure db_manager exists and attempt lazy connect if not connected yet
+        if db_manager and getattr(db_manager, "client", None) is None:
+            try:
+                await db_manager.connect()
+                logger.info("Database connection established via health check")
+            except Exception as conn_err:
+                logger.error(f"Health check connect attempt failed: {conn_err}")
+        
         # Test database connection
-        is_connected = await db_manager.health_check()
+        is_connected = False
+        if db_manager:
+            is_connected = await db_manager.health_check()
+        
+        if not is_connected:
+            # Report service unavailable until DB is reachable
+            raise HTTPException(status_code=503, detail="Service unavailable")
         
         return {
-            "status": "healthy" if is_connected else "unhealthy",
-            "database": "connected" if is_connected else "disconnected",
+            "status": "healthy",
+            "database": "connected",
             "timestamp": "2025-07-31T12:00:32-05:00"
         }
     except Exception as e:

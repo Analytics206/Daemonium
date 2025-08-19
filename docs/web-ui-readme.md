@@ -300,11 +300,10 @@ AI Response → Text-to-Speech → Audio Output
 ## 🔐 Authentication & Security
 
 ### Authentication Strategy
-- **NextAuth.js**: Secure authentication framework
-- **JWT Tokens**: Stateless session management
-- **OAuth Providers**: Google, GitHub, Apple sign-in
-- **Email Verification**: Secure account activation
-- **Password Reset**: Secure recovery flow
+- **Firebase Authentication (Google Sign-In)**: Client-side auth via Firebase.
+- **NextAuth Removed**: Legacy route `/api/auth/[...nextauth]` returns HTTP 410 Gone.
+- **Auth State Management**: `FirebaseAuthProvider` + `useFirebaseAuth()` in `web-ui/src/components/providers/firebase-auth-provider.tsx`.
+- **Environment Variables**: `NEXT_PUBLIC_FIREBASE_*` required (see `web-ui/.env.example`).
 
 ### Security Measures
 - **CSRF Protection**: Cross-site request forgery prevention
@@ -502,16 +501,16 @@ open http://localhost:3000
 ### Environment Variables
 ```env
 # Database
-DATABASE_URL="postgresql://..."
-MONGODB_URI="mongodb://..."
+MONGODB_URI="mongodb://localhost:27018/daemonium"
 
-# Authentication
-NEXTAUTH_SECRET="your-secret-key"
-NEXTAUTH_URL="http://localhost:3000"
-
-# OAuth Providers
-GOOGLE_CLIENT_ID="your-google-client-id"
-GOOGLE_CLIENT_SECRET="your-google-client-secret"
+# Authentication (Firebase — client-side)
+NEXT_PUBLIC_FIREBASE_API_KEY="your-firebase-api-key"
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="your-project-id.firebaseapp.com"
+NEXT_PUBLIC_FIREBASE_PROJECT_ID="your-project-id"
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="your-project-id.appspot.com"
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="000000000000"
+NEXT_PUBLIC_FIREBASE_APP_ID="1:000000000000:web:abcdef1234567890"
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID="G-XXXXXXXXXX"
 
 # Stripe
 STRIPE_PUBLISHABLE_KEY="pk_test_..."

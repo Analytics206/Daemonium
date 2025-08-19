@@ -7,9 +7,9 @@
 - You are a LLM RAG engineer who specializes in vector databases and semantic search
 - You are an expert in creating, fine-tuning, and deploying machine learning models
 - You specialize in Chain of Thought Reasoning and other advanced reasoning techniques
-- This project is focused on building a knowledge graph for philosophical concepts and relationships
-- This project is to create a philosopher highly immersive chat bot experience 
-- Chat bot should be able to immitate the experience of chatting with the actual philosopher
+- Project is focused on building a philosophy chatbot with knowledge graph for philosophical concepts and relationships
+- Project is to create a philosopher chatbot with highly immersive experience 
+- Chatbot should be able to immitate the experience of chatting with the actual philosopher
 - Use Context7 agent to when you need deeper understand of the code or when you need to reason about the code
 - Do not use curl, use powershell to test API endpoints
 
@@ -36,14 +36,14 @@
 - System uses docker secrets for sensitive data
 
 ## Database Schema Knowledge
-- refer to @08-data_schema.md
+- refer to.
 
 ## Code Delivery Requirements
 - Do not give code snippets, only the final full code
 - Always use best practices for code quality and maintainability
 - Update @12-release_notes.md when you complete a new release or complete a new feature
 - Update @6-system_design.md when you complete a new feature
-- Update @7-tech_stack.md when you use a new library or tool
+- Update @7-tech_stack.md when you use a new library or tool or framework
 
 ## Environment & Development
 - Developer is always working from a venv environment with powershell commands
@@ -59,10 +59,9 @@
 - Do not create fake database connection strings or fake api connections
 - IF you break a database connection string to database, roll back change and fix it
 - Do not create fake api responses
-- Verify all Docker volume paths match the actual system paths
 
 ## Pipeline Components
-- web-ui: React-based interface for exploring the data
+- web-ui: React-based interface for chatbot
 
 ## Monitoring & Observability
 - All services should log appropriate metrics via Prometheus client

@@ -68,7 +68,7 @@ web-ui/
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS + Radix UI
 - **State Management**: Zustand + React Query
-- **Authentication**: NextAuth.js
+- **Authentication**: Firebase Authentication (Google Sign-In) + NextAuth.js
 - **UI Components**: Radix UI primitives
 - **Animations**: Framer Motion
 - **Backend Integration**: Custom API client
@@ -149,6 +149,26 @@ NEXTAUTH_SECRET=your-secret-key
 # Database (if using local auth)
 MONGODB_URI=mongodb://localhost:27017/daemonium
 ```
+
+#### Firebase (Web UI Authentication)
+
+Add the following public variables (see `.env.example` for details):
+
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=your-firebase-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project-id.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=000000000000
+NEXT_PUBLIC_FIREBASE_APP_ID=1:000000000000:web:abcdef1234567890
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+If you encounter TypeScript errors related to Firebase:
+- Ensure dependencies are installed: `npm install`
+- Confirm `firebase` is present in `dependencies` (it is by default in `package.json`)
+- Verify Node.js 18+ and TypeScript 5+
+- Make sure the file using Firebase runs on the client (contains `'use client'`), e.g. `src/components/providers/firebase-auth-provider.tsx`
 
 ## 🚀 Deployment
 

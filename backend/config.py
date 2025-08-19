@@ -5,7 +5,7 @@ Configuration management for Daemonium API
 import yaml
 import os
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 from functools import lru_cache
 from pydantic_settings import BaseSettings
 
@@ -34,6 +34,12 @@ class Settings(BaseSettings):
     redis_port: int = 6380
     redis_password: str = "ch@ng3m300"
     redis_db: int = 0
+
+    # Firebase Settings
+    firebase_enabled: bool = False
+    firebase_project_id: str = ""
+    firebase_credentials_file: Optional[str] = None
+    firebase_credentials_base64: Optional[str] = None
     
     # CORS Settings
     cors_origins: list = ["*"]
@@ -41,7 +47,7 @@ class Settings(BaseSettings):
     cors_allow_methods: list = ["*"]
     cors_allow_headers: list = ["*"]
     
-    model_config = {"env_file": ".env"}
+    model_config = {"env_file": ".env", "extra": "ignore"}
 
 def load_config_from_yaml() -> Dict[str, Any]:
     """Load configuration from YAML file"""
@@ -69,9 +75,9 @@ def get_settings() -> Settings:
         # MongoDB settings from YAML with Docker environment overrides
         mongodb_host=os.getenv('MONGODB_HOST', yaml_config.get('mongodb', {}).get('host', 'localhost')),
         mongodb_port=int(os.getenv('MONGODB_PORT', yaml_config.get('mongodb', {}).get('port', 27018))),
-        mongodb_database=yaml_config.get('mongodb', {}).get('database', 'daemonium'),
-        mongodb_username=yaml_config.get('mongodb', {}).get('username', 'admin'),
-        mongodb_password=yaml_config.get('mongodb', {}).get('password', 'ch@ng3m300'),
+        mongodb_database=os.getenv('MONGODB_DATABASE', yaml_config.get('mongodb', {}).get('database', 'daemonium')),
+        mongodb_username=os.getenv('MONGODB_USERNAME', yaml_config.get('mongodb', {}).get('username', 'admin')),
+        mongodb_password=os.getenv('MONGODB_PASSWORD', yaml_config.get('mongodb', {}).get('password', 'ch@ng3m300')),
         
         # Redis settings with Docker environment overrides
         redis_host=os.getenv('REDIS_HOST', yaml_config.get('redis', {}).get('host', 'localhost')),
@@ -82,6 +88,16 @@ def get_settings() -> Settings:
         # App settings from YAML
         debug=yaml_config.get('app', {}).get('debug', False),
         log_level=yaml_config.get('app', {}).get('log_level', 'INFO'),
+
+        # Firebase settings with environment overrides
+        firebase_enabled=str(os.getenv('FIREBASE_ENABLED', yaml_config.get('firebase', {}).get('enabled', False))).lower() in ("1", "true", "yes", "on"),
+        firebase_project_id=os.getenv('FIREBASE_PROJECT_ID', yaml_config.get('firebase', {}).get('project_id', "")),
+        firebase_credentials_file=(
+            os.getenv('FIREBASE_CREDENTIALS_FILE', yaml_config.get('firebase', {}).get('credentials', {}).get('file', "")) or None
+        ),
+        firebase_credentials_base64=(
+            os.getenv('FIREBASE_CREDENTIALS_BASE64', yaml_config.get('firebase', {}).get('credentials', {}).get('base64', "")) or None
+        ),
     )
     
     return settings

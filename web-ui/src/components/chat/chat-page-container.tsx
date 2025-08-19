@@ -15,6 +15,7 @@ import {
   History,
 } from "lucide-react";
 import ChatInterface from "./chat-interface";
+import { useFirebaseAuth } from "../providers/firebase-auth-provider";
 
 interface ChatSummaryItem {
   chat_id: string;
@@ -35,13 +36,14 @@ interface ChatPageContainerProps {
 export default function ChatPageContainer({
   chatId,
   philosopher,
-  endpoint = "/api/chat",
+  endpoint = "/api/ollama",
 }: ChatPageContainerProps) {
   const [expanded, setExpanded] = useState<boolean>(true);
   const [activeChatId, setActiveChatId] = useState<string>(chatId);
 
-  // Hardcoded user and backend URL (no auth wiring yet)
-  const userId = "analytics206@gmail";
+  // Firebase auth user and backend URL
+  const { user, loading: authLoading } = useFirebaseAuth();
+  const userId = (user?.uid || "").toString();
   const backendBaseUrl =
     process.env.NEXT_PUBLIC_BACKEND_API_URL || "http://localhost:8000";
 
@@ -54,10 +56,17 @@ export default function ChatPageContainer({
     try {
       setLoadingRecents(true);
       setRecentsError(null);
+      if (!userId) {
+        setRecents([]);
+        return;
+      }
       const url = `${backendBaseUrl}/api/v1/chat/redis/${encodeURIComponent(
         userId
       )}/summaries`;
-      const res = await fetch(url, { method: "GET" });
+      const token = user ? await user.getIdToken().catch(() => null) : null;
+      const headers: Record<string, string> = {};
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+      const res = await fetch(url, { method: "GET", headers });
       if (!res.ok) throw new Error(`Failed to load recents: ${res.status}`);
       const data = await res.json();
       const rawItems: ChatSummaryItem[] = Array.isArray(data?.data) ? data.data : [];
@@ -68,6 +77,7 @@ export default function ChatPageContainer({
       });
       setRecents(items);
     } catch (e: any) {
+      console.error("Failed to load recent chats:", e);
       setRecentsError(String(e?.message || e));
     } finally {
       setLoadingRecents(false);
@@ -75,10 +85,12 @@ export default function ChatPageContainer({
   };
 
   useEffect(() => {
-    // Initial fetch of recent chats
-    loadRecents();
+    // Fetch recents when auth is ready and user is available
+    if (!authLoading) {
+      void loadRecents();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [authLoading, userId]);
 
   return (
     <div className="flex h-screen bg-white dark:bg-slate-950">
@@ -110,6 +122,7 @@ export default function ChatPageContainer({
             <Button
               variant="ghost"
               className="w-full justify-start"
+              disabled={!userId}
               onClick={(e) => {
                 e.preventDefault();
                 loadRecents();
@@ -118,7 +131,7 @@ export default function ChatPageContainer({
               <History className="w-4 h-4 mr-3" />
               {expanded && (
                 <span>
-                  Recent{loadingRecents ? " (loading...)" : ""}
+                  {userId ? `Recent${loadingRecents ? " (loading...)" : ""}` : "Sign in to view recents"}
                 </span>
               )}
             </Button>

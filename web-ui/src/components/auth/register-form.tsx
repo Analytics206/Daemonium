@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { createUserWithEmailAndPassword, updateProfile, getAuth } from 'firebase/auth';
+import { auth } from '../../lib/firebase';
 
 export default function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -12,6 +15,9 @@ export default function RegisterForm() {
     confirmPassword: '',
   });
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const returnTo = searchParams.get('returnTo') || '/chat';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,24 +30,15 @@ export default function RegisterForm() {
     }
 
     try {
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
-
-      if (response.ok) {
-        window.location.href = '/login?message=Registration successful';
-      } else {
-        const error = await response.json();
-        console.error('Registration failed:', error);
+      // Create user with Firebase Authentication
+      const localAuth = auth ?? getAuth();
+      const cred = await createUserWithEmailAndPassword(localAuth, formData.email, formData.password);
+      // Optionally set display name if provided
+      if (formData.name && localAuth.currentUser) {
+        await updateProfile(localAuth.currentUser, { displayName: formData.name });
       }
+      // On success, user is signed in; redirect to intended page
+      router.replace(returnTo);
     } catch (error) {
       console.error('Registration error:', error);
     } finally {
@@ -141,3 +138,4 @@ export default function RegisterForm() {
     </form>
   );
 }
+
