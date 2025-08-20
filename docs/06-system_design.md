@@ -251,6 +251,21 @@ The monitoring system follows a sidecar pattern with the following components:
   python scripts/build_mongodb_metadata/upload_philosophy_keywords_to_mongodb.py
   ```
 
+### Backend: Summaries — Philosophy Keywords API (v0.3.17)
+
+- **Purpose**: Expose curated philosophy themes/definitions/keywords for browsing and search.
+- **Collection**: `philosophy_keywords` (no `author` field; keyed by slugified `theme`).
+- **Schema**: `{ _id: string, theme: string, definition: string, keywords: string[] }` (+ optional uploader metadata fields).
+- **Endpoints**:
+  - `GET /api/v1/summaries/philosophy-keywords?skip=<int>&limit=<int>` — direct paginated access.
+  - `GET /api/v1/summaries/by-collection/philosophy_keywords?limit=<int>` — generic summaries access by collection.
+  - `GET /api/v1/summaries/search/philosophy_keywords?query=<string>&limit=<int>` — regex across `theme`, `definition`, `keywords` (leverages text index when available).
+- **Pagination**: `skip` default `0`, `limit` default `100` (max `1000` for direct endpoint; generic routes cap at `100`).
+- **Response**: Consistent with summaries: `{ success, data: [...], total_count, message }` with `_id` stringified.
+- **Error Handling**: Logged exceptions with `HTTPException` responses aligned with other summaries endpoints.
+- **Indexes**: Single text index over `theme`, `definition`, `keywords` from ingestion v2 for efficient search.
+- **Verification**: See release notes v0.3.17 for PowerShell examples.
+
 ### Backend: Philosophy Schools Ingestion v2
 
  - **Purpose**: Ingest curated philosophy schools with explicit keywords for search and joins.

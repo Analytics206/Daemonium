@@ -12,7 +12,8 @@ from ..models import (
     AphorismResponse, Aphorism, TopTenIdeasResponse, TopTenIdeas,
     PhilosopherBioResponse, PhilosopherBio, ModernAdaptationResponse,
     PhilosopherSummaryDetailedResponse, PhilosopherSummaryDetailed,
-    PhilosophyThemeResponse, PhilosophyTheme
+    PhilosophyThemeResponse, PhilosophyTheme,
+    PhilosophyKeywordResponse, PhilosophyKeyword
 ) 
 
 logger = logging.getLogger(__name__)
@@ -44,6 +45,26 @@ async def get_philosophy_themes(
         logger.error(f"Failed to get philosophy themes: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve philosophy themes")
 
+
+@router.get("/philosophy-keywords", response_model=PhilosophyKeywordResponse)
+async def get_philosophy_keywords(
+    skip: int = Query(0, ge=0, description="Number of items to skip"),
+    limit: int = Query(100, ge=1, le=1000, description="Maximum number of items to return"),
+    db_manager: DatabaseManager = Depends(get_db_manager)
+):
+    """Get philosophy keywords"""
+    try:
+        items = await db_manager.get_philosophy_keywords(skip=skip, limit=limit)
+
+        return PhilosophyKeywordResponse(
+            success=True,
+            data=items,
+            total_count=len(items),
+            message=f"Retrieved {len(items)} philosophy keywords"
+        )
+    except Exception as e:
+        logger.error(f"Failed to get philosophy keywords: {e}")
+        raise HTTPException(status_code=500, detail="Failed to retrieve philosophy keywords")
 
 
 @router.get("/discussion-hooks", response_model=dict)
@@ -223,6 +244,7 @@ async def get_summaries_by_collection(
     # Valid summary collections (updated to match actual database collection names)
     valid_collections = [
         "philosophy_themes",
+        "philosophy_keywords",
         "modern_adaptation", 
         "discussion_hook",
         "philosopher_bio",
@@ -277,6 +299,7 @@ async def search_summaries_collection(
     # Valid summary collections (updated to match actual database collection names)
     valid_collections = [
         "philosophy_themes",
+        "philosophy_keywords",
         "modern_adaptation", 
         "discussion_hook",
         "philosopher_bio",
@@ -358,6 +381,15 @@ async def search_summaries_collection(
                     {"sections.6_personal_life.content": {"$regex": query, "$options": "i"}},
                     {"sections.7_criticism_and_controversies.content": {"$regex": query, "$options": "i"}},
                     {"sections.8_quotes_and_aphorisms.content": {"$regex": query, "$options": "i"}}
+                ]
+            }
+        elif collection_name == "philosophy_keywords":
+            # Match across text-indexed fields from uploader: theme, definition, keywords
+            search_filter = {
+                "$or": [
+                    {"theme": {"$regex": query, "$options": "i"}},
+                    {"definition": {"$regex": query, "$options": "i"}},
+                    {"keywords": {"$regex": query, "$options": "i"}}
                 ]
             }
         else:

@@ -1,5 +1,40 @@
 # Daemonium
 ---
+## Version 0.3.17 (August 20, 2025)
+
+### Backend: Summaries — Philosophy Keywords API + Search Integration
+
+- Added new endpoint `/api/v1/summaries/philosophy-keywords` serving paginated data from MongoDB collection `philosophy_keywords`.
+- Response model aligns with other summary endpoints using `PhilosophyKeywordResponse` and `PhilosophyKeyword`.
+- Database layer adds `get_philosophy_keywords(skip, limit)` and ensures `_id` is stringified.
+- Included `philosophy_keywords` in generic summaries routes:
+  - `GET /api/v1/summaries/by-collection/philosophy_keywords`
+  - `GET /api/v1/summaries/search/philosophy_keywords?query=...` (matches `theme`, `definition`, `keywords`).
+
+### Files Changed
+
+- `backend/models.py` — added `PhilosophyKeyword` and `PhilosophyKeywordResponse`.
+- `backend/database.py` — registered collection and added `get_philosophy_keywords()`.
+- `backend/routers/summaries.py` — new route `/philosophy-keywords`; added `philosophy_keywords` to valid collections for by-collection and search.
+- `docs/06-system_design.md` — documented the new API section.
+- `docs/12-release_notes.md` — this entry.
+
+### Verification (PowerShell)
+
+```powershell
+$base = 'http://localhost:8000'
+
+# 1) Fetch paginated philosophy keywords
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/summaries/philosophy-keywords?skip=0&limit=20"
+
+# 2) Generic by-collection access
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/summaries/by-collection/philosophy_keywords?limit=5"
+
+# 3) Search within philosophy_keywords (theme/definition/keywords)
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/summaries/search/philosophy_keywords?query=ethics&limit=5"
+```
+
+---
 ## Version 0.3.16 (August 20, 2025)
 
 ### Backend: Global Search includes Philosophy Schools + Collection Naming Fix

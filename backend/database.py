@@ -39,6 +39,7 @@ class DatabaseManager:
             "philosophers",
             "philosophy_schools",
             "philosophy_themes",
+            "philosophy_keywords",
             "top_10_ideas",
             # Added for chat persistence from Redis background tasks
             "chat_history",
@@ -430,6 +431,22 @@ class DatabaseManager:
                 theme["author"] = theme["philosopher"]
         
         return themes
+
+    async def get_philosophy_keywords(self, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
+        """Get philosophy keywords with pagination"""
+        collection = self.get_collection("philosophy_keywords")
+        cursor = collection.find({}).skip(skip).limit(limit)
+        items = await cursor.to_list(length=limit)
+
+        # Convert ObjectId to string if present (may already be string)
+        for item in items:
+            if "_id" in item and not isinstance(item["_id"], str):
+                try:
+                    item["_id"] = str(item["_id"])
+                except Exception:
+                    pass
+
+        return items
     
     async def get_philosopher_summaries_by_author(self, author: str, skip: int = 0, limit: int = 100) -> List[Dict[str, Any]]:
         """Get philosopher summaries by author"""

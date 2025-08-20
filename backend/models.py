@@ -650,6 +650,24 @@ class PhilosophyThemeResponse(BaseResponse):
     data: Union[PhilosophyTheme, List[PhilosophyTheme]]
     total_count: Optional[int] = None
 
+# Philosophy Keywords models
+class PhilosophyKeyword(BaseModel):
+    """Philosophy keyword model"""
+    id: str = Field(..., alias="_id")
+    filename: Optional[str] = None
+    category: Optional[str] = None
+    theme: str
+    definition: Optional[str] = None
+    keywords: List[str] = []
+    metadata: Optional[Dict[str, Any]] = None
+    
+    model_config = {"populate_by_name": True, "arbitrary_types_allowed": True}
+
+class PhilosophyKeywordResponse(BaseResponse):
+    """Response model for philosophy keyword data"""
+    data: Union[PhilosophyKeyword, List[PhilosophyKeyword]]
+    total_count: Optional[int] = None
+
 # Error models
 class ErrorDetail(BaseModel):
     """Error detail model"""
