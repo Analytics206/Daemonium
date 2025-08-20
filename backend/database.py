@@ -743,6 +743,7 @@ class DatabaseManager:
             "idea_summary",
             "philosophy_themes",
             "philosophy_schools",
+            "philosophy_keywords",
             "persona_core"
         ]
         
@@ -847,6 +848,14 @@ class DatabaseManager:
                             {"summary": {"$regex": query, "$options": "i"}},
                             {"core_principles": {"$regex": query, "$options": "i"}},
                             {"corePrinciples": {"$regex": query, "$options": "i"}},
+                            {"keywords": {"$regex": query, "$options": "i"}}
+                        ]
+                    }
+                elif collection_name == "philosophy_keywords":
+                    search_filter = {
+                        "$or": [
+                            {"theme": {"$regex": query, "$options": "i"}},
+                            {"definition": {"$regex": query, "$options": "i"}},
                             {"keywords": {"$regex": query, "$options": "i"}}
                         ]
                     }

@@ -9,6 +9,20 @@
           "A Treatise of Human Nature",
           "An Enquiry Concerning Human Understanding",
           "An Abstract of a Book Lately Published"
+        ],
+        "keywords": [
+          "empiricism",
+          "sensory experience",
+          "blank slate",
+          "impressions",
+          "complex ideas",
+          "associations",
+          "rationalism",
+          "knowledge",
+          "reason",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -18,6 +32,20 @@
           "An Enquiry Concerning Human Understanding",
           "A Treatise of Human Nature",
           "Dialogues Concerning Natural Religion"
+        ],
+        "keywords": [
+          "problem of induction",
+          "rational basis",
+          "inductive reasoning",
+          "future resemblance",
+          "past resemblance",
+          "science",
+          "daily life",
+          "uniformity of nature",
+          "experience",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -25,6 +53,21 @@
         "description": "Hume denied the existence of a permanent, unchanging self. He claimed that when we introspect, we do not observe a 'self' but rather a bundle of fleeting perceptions—sensations, thoughts, emotions—in constant flux. This 'bundle theory' radically undermined the traditional metaphysical view of personal identity.",
         "key_books": [
           "A Treatise of Human Nature"
+        ],
+        "keywords": [
+          "bundle theory of the self",
+          "permanent",
+          "unchanging self",
+          "fleeting perceptions",
+          "sensations",
+          "thoughts",
+          "emotions",
+          "constant flux",
+          "bundle theory",
+          "personal identity",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -32,6 +75,18 @@
         "description": "Hume argued that moral conclusions cannot be logically derived from purely factual premises. This distinction between descriptive statements (what is) and prescriptive statements (what ought to be) challenged natural law theory and laid the foundation for modern metaethics. It is now known as 'Hume's Guillotine'.",
         "key_books": [
           "A Treatise of Human Nature"
+        ],
+        "keywords": [
+          "is-ought problem",
+          "moral conclusions",
+          "purely factual premises",
+          "descriptive statements",
+          "prescriptive statements",
+          "natural law theory",
+          "metaethics",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -40,6 +95,24 @@
         "key_books": [
           "A Treatise of Human Nature",
           "An Enquiry Concerning the Principles of Morals"
+        ],
+        "keywords": [
+          "sentimentalism in ethics",
+          "moral distinctions",
+          "reason",
+          "sentiment",
+          "approval or disapproval",
+          "actions",
+          "pleasure or pain",
+          "moral judgments",
+          "human emotions",
+          "objective facts",
+          "rationalist ethics",
+          "emotivism",
+          "moral psychology",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -48,6 +121,22 @@
         "key_books": [
           "An Enquiry Concerning Human Understanding",
           "A Treatise of Human Nature"
+        ],
+        "keywords": [
+          "skepticism about causation",
+          "concept of causality",
+          "reason",
+          "observation of necessary connection",
+          "habit and custom",
+          "perception",
+          "constant conjunction",
+          "expectation",
+          "later thinkers",
+          "kant",
+          "hume’s challenge",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -55,6 +144,17 @@
         "description": "Hume defined a miracle as a violation of the laws of nature and argued that no testimony is sufficient to establish a miracle unless its falsehood would be more miraculous than the event it tries to prove. Since natural law is established by consistent experience, he deemed miracle reports inherently unreliable. This was a powerful critique of religious claims.",
         "key_books": [
           "An Enquiry Concerning Human Understanding"
+        ],
+        "keywords": [
+          "critique of miracles",
+          "miracle as a violation of the laws of nature",
+          "testimony",
+          "miracle reports",
+          "natural law",
+          "consistent experience",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -63,6 +163,23 @@
         "key_books": [
           "Essays, Moral, Political, and Literary",
           "A Treatise of Human Nature"
+        ],
+        "keywords": [
+          "political conservatism and convention",
+          "social conventions",
+          "rule of law",
+          "gradual change",
+          "conservative in the modern sense",
+          "radical reform",
+          "utility",
+          "custom",
+          "stability",
+          "abstract ideals",
+          "artificial conventions",
+          "natural rights",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -71,6 +188,22 @@
         "key_books": [
           "The Natural History of Religion",
           "Dialogues Concerning Natural Religion"
+        ],
+        "keywords": [
+          "natural history of religion",
+          "psychological and anthropological explanation",
+          "religious belief",
+          "human fears",
+          "ignorance",
+          "polytheism",
+          "earliest form of religion",
+          "anxiety about nature",
+          "fate",
+          "dogmatic and authoritarian",
+          "naturalistic, critical view of religion",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -79,6 +212,21 @@
         "key_books": [
           "An Enquiry Concerning Human Understanding",
           "A Treatise of Human Nature"
+        ],
+        "keywords": [
+          "free will and determinism",
+          "compatibilist view of free will",
+          "liberty (freedom)",
+          "necessity (causal determinism)",
+          "mutually exclusive",
+          "acting according to one's will",
+          "external compulsion",
+          "uncaused",
+          "moral responsibility",
+          "causal determinism",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       }
     ]

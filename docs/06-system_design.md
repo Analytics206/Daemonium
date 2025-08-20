@@ -306,6 +306,12 @@ The monitoring system follows a sidecar pattern with the following components:
   - Database `philosophy_schools` text index: `philosophy_schools_text_v2` (weights verified), with keywords supported per ingestion v2.
   - Global search falls back to regex where text indexes are not available; router mirrors this behavior per-collection.
 
+### Backend: Global Search — Philosophy Keywords (v0.3.18)
+
+- Added `philosophy_keywords` to global search coverage in `backend/database.py` and `backend/routers/search.py`.
+- Collection-specific filter uses regex across: `theme`, `definition`, `keywords`.
+- Index alignment: single text index `philosophy_keywords_text_v2` over `theme/definition/keywords` created by uploader v2.
+
 ## Future Design Considerations
 - Asynchronous processing pipeline
 - Event-driven architecture for better component decoupling

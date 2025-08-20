@@ -1,5 +1,43 @@
 # Daemonium
 ---
+## Version 0.3.18 (August 20, 2025)
+
+### Backend: Global Search includes Philosophy Keywords + Verification Script
+
+- Added `philosophy_keywords` to global search scope in `backend/database.py` and API router `backend/routers/search.py`.
+- Implemented collection-specific regex filter for `philosophy_keywords` supporting fields: `theme`, `definition`, `keywords`.
+- Ensures index alignment with ingestion v2: single text index `philosophy_keywords_text_v2` over `theme/definition/keywords`.
+
+### Files Changed
+
+- `backend/database.py` — global search includes `philosophy_keywords` with proper filter.
+- `backend/routers/search.py` — valid collections updated; added `philosophy_keywords` filter.
+- `docs/06-system_design.md` — updated global search coverage.
+- `docs/12-release_notes.md` — this entry.
+- `scripts/build_mongodb_metadata/verify_philosophy_keywords_indexes.py` — new verification script ensuring index presence and smoke tests.
+
+### Verification (PowerShell)
+
+```powershell
+$base = 'http://localhost:8000'
+
+# 1) Global search should now include philosophy_keywords
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/search?query=ethics"
+
+# 2) Filtered to philosophy_keywords only
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/search?query=ethics&collections=philosophy_keywords"
+
+# 3) Multiple collections filter (philosophy_keywords + philosophy_schools)
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/search?query=ethics&collections=philosophy_keywords,philosophy_schools"
+
+# 4) Direct summaries search for philosophy_keywords (existing)
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/summaries/search/philosophy_keywords?query=ethics&limit=5"
+
+# 5) Run verification script for philosophy_keywords indexes
+python scripts/build_mongodb_metadata/verify_philosophy_keywords_indexes.py
+```
+
+---
 ## Version 0.3.17 (August 20, 2025)
 
 ### Backend: Summaries — Philosophy Keywords API + Search Integration

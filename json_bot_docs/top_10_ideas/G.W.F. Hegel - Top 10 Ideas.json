@@ -9,6 +9,14 @@
           "Phenomenology of Spirit",
           "Science of Logic",
           "Encyclopedia of the Philosophical Sciences"
+        ],
+        "keywords": [
+          "dialectical method",
+          "contradictions",
+          "each idea (thesis) gives rise to its opposite (antithesis), higher unity (synthesis)",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -18,6 +26,15 @@
           "Science of Logic",
           "Phenomenology of Spirit",
           "Encyclopedia of the Philosophical Sciences"
+        ],
+        "keywords": [
+          "absolute idealism",
+          "reality is fundamentally rational and spiritual",
+          "the absolute",
+          "mind and world are ultimately one in a rational process",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -25,6 +42,14 @@
         "description": "Hegel's major work traces the development of consciousness from sense-certainty to absolute knowing. It explores how self-consciousness evolves through struggle, recognition, and the overcoming of alienation.",
         "key_books": [
           "Phenomenology of Spirit"
+        ],
+        "keywords": [
+          "phenomenology of spirit – the journey of consciousness",
+          "consciousness",
+          "self-consciousness",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -32,6 +57,14 @@
         "description": "In the struggle for recognition, the master enslaves the other, but ironically becomes dependent on the slave's recognition. True self-consciousness requires mutual recognition, not domination.",
         "key_books": [
           "Phenomenology of Spirit"
+        ],
+        "keywords": [
+          "master–slave dialectic",
+          "master enslaves",
+          "self-consciousness",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -41,6 +74,16 @@
           "Philosophy of Right",
           "Phenomenology of Spirit",
           "Encyclopedia of the Philosophical Sciences"
+        ],
+        "keywords": [
+          "freedom as self-realization",
+          "freedom",
+          "individual liberty",
+          "self-determination",
+          "civil society",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -49,6 +92,14 @@
         "key_books": [
           "Lectures on the Philosophy of History",
           "Phenomenology of Spirit"
+        ],
+        "keywords": [
+          "history as the progress of freedom",
+          "human freedom",
+          "self-development of spirit",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -56,6 +107,16 @@
         "description": "Hegel saw the modern state—not as a tyrannical power, but as the highest realization of human freedom and ethical life. It reconciles individual rights with communal responsibilities.",
         "key_books": [
           "Philosophy of Right"
+        ],
+        "keywords": [
+          "the state as the actualization of ethical life",
+          "hegel saw the modern state—not as a tyrannical power, but as the highest realization of human freedom and ethical life",
+          "individual",
+          "rights",
+          "communal responsibilities",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -64,6 +125,13 @@
         "key_books": [
           "Science of Logic",
           "Encyclopedia of the Philosophical Sciences"
+        ],
+        "keywords": [
+          "the concept (begriff)",
+          "self-determination",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -72,6 +140,14 @@
         "key_books": [
           "Phenomenology of Spirit",
           "Philosophy of Right"
+        ],
+        "keywords": [
+          "alienation and reconciliation",
+          "spirit or mind becomes estranged from itself",
+          "self recognizes itself",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -81,6 +157,13 @@
           "Lectures on Aesthetics",
           "Lectures on the Philosophy of Religion",
           "Phenomenology of Spirit"
+        ],
+        "keywords": [
+          "art, religion, and philosophy as expressions of spirit",
+          "truth of reality",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -89,6 +172,18 @@
         "key_books": [
           "Phenomenology of Spirit",
           "Philosophy of Right"
+        ],
+        "keywords": [
+          "recognition (anerkennung)",
+          "self-consciousness and freedom require recognition by others",
+          "mutual recognition",
+          "social institutions",
+          "ethical life",
+          "personal identity",
+          "political freedom",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       }
     ]

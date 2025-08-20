@@ -7,6 +7,15 @@
         "description": "Spinoza argued that there is only one substance in the universe, which he identified as God or Nature ('Deus sive Natura'). Everything else (including minds and bodies) are modes (modifications) of this one substance.",
         "key_books": [
           "Ethics"
+        ],
+        "keywords": [
+          "substance monism",
+          "god",
+          "nature",
+          "deus sive natura",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -15,6 +24,15 @@
         "key_books": [
           "Ethics",
           "Theological-Political Treatise"
+        ],
+        "keywords": [
+          "god is nature",
+          "god",
+          "nature",
+          "deus sive natura",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -22,6 +40,17 @@
         "description": "Spinoza held that everything that happens is a necessary result of the nature of God or Nature. There is no free will in the traditional sense; all things follow from divine necessity.",
         "key_books": [
           "Ethics"
+        ],
+        "keywords": [
+          "determinism",
+          "necessity",
+          "free will",
+          "god",
+          "nature",
+          "deus sive natura",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -29,6 +58,15 @@
         "description": "Every being strives to persevere in its existence according to its own nature. This striving, or 'conatus', is the essence of each thing and forms the basis of Spinoza's ethical psychology.",
         "key_books": [
           "Ethics"
+        ],
+        "keywords": [
+          "conatus",
+          "striving",
+          "existence",
+          "nature",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -37,6 +75,16 @@
         "key_books": [
           "Ethics",
           "Letters"
+        ],
+        "keywords": [
+          "mind-body parallelism",
+          "mind",
+          "body",
+          "substance",
+          "attributes",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -44,6 +92,15 @@
         "description": "True blessedness comes from the intellectual love of God (amor Dei intellectualis), which arises from understanding the unity of all things within the divine substance. This love is eternal and forms the highest good.",
         "key_books": [
           "Ethics"
+        ],
+        "keywords": [
+          "intellectual love of god",
+          "amor dei intellectualis",
+          "unity",
+          "divine substance",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -51,6 +108,16 @@
         "description": "Though everything is determined, human freedom consists in understanding the necessity of nature. The more we act according to reason and understand our place in the natural order, the freer we become.",
         "key_books": [
           "Ethics"
+        ],
+        "keywords": [
+          "freedom through understanding",
+          "human freedom",
+          "understanding the necessity of nature",
+          "reason",
+          "natural order",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -58,6 +125,15 @@
         "description": "Spinoza argued that religion often degenerates into superstition, manipulated by authorities to control people. He advocated for a rational understanding of Scripture and religion grounded in ethical living rather than dogma.",
         "key_books": [
           "Theological-Political Treatise"
+        ],
+        "keywords": [
+          "critique of superstition",
+          "organized religion",
+          "superstition",
+          "religion",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -65,6 +141,19 @@
         "description": "Spinoza supported democratic governance and robust freedom of thought and expression. He believed a free state is one where individuals can reason and speak openly without fear of persecution.",
         "key_books": [
           "Theological-Political Treatise"
+        ],
+        "keywords": [
+          "democracy",
+          "freedom of thought",
+          "freedom of expression",
+          "free state",
+          "individuals",
+          "reason",
+          "speech",
+          "persecution",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -72,6 +161,17 @@
         "description": "Spinoza identified three levels of knowledge: imagination (based on sense experience), reason (rational understanding), and intuitive knowledge (direct insight into the essence of things, especially God). The higher the kind of knowledge, the more perfect the mind.",
         "key_books": [
           "Ethics"
+        ],
+        "keywords": [
+          "three kinds of knowledge",
+          "imagination",
+          "reason",
+          "intuitive knowledge",
+          "essence of things",
+          "god",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       }
     ]

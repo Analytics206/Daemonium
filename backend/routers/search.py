@@ -38,7 +38,8 @@ async def global_search(
                 "philosophers", "philosopher_summary", "books", "book_summary", "aphorisms",
                 "top_10_ideas", "idea_summary", "philosophy_themes", "philosophy_schools",
                 "modern_adaptation", "discussion_hook", "philosopher_bio",
-                "persona_core", "chat_blueprint", "conversation_logic", "philosopher_bot"
+                "persona_core", "chat_blueprint", "conversation_logic", "philosopher_bot",
+                "philosophy_keywords"
             ]
             invalid_collections = [c for c in target_collections if c not in valid_collections]
             if invalid_collections:
@@ -157,7 +158,8 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
                 {"category": {"$regex": query, "$options": "i"}},
                 {"top_ideas.idea": {"$regex": query, "$options": "i"}},
                 {"top_ideas.description": {"$regex": query, "$options": "i"}},
-                {"top_ideas.key_books": {"$regex": query, "$options": "i"}}
+                {"top_ideas.key_books": {"$regex": query, "$options": "i"}},
+                {"top_ideas.keywords": {"$regex": query, "$options": "i"}}
             ]
         }
     
@@ -241,6 +243,15 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
                 {"summary": {"$regex": query, "$options": "i"}},
                 {"core_principles": {"$regex": query, "$options": "i"}},
                 {"corePrinciples": {"$regex": query, "$options": "i"}},
+                {"keywords": {"$regex": query, "$options": "i"}}
+            ]
+        }
+    
+    elif collection_name == "philosophy_keywords":
+        return {
+            "$or": [
+                {"theme": {"$regex": query, "$options": "i"}},
+                {"definition": {"$regex": query, "$options": "i"}},
                 {"keywords": {"$regex": query, "$options": "i"}}
             ]
         }

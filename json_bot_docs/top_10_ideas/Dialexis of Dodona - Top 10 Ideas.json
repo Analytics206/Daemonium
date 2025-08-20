@@ -5,107 +5,290 @@
       {
         "idea": "Dialectical Becoming",
         "description": "Truth is not a destination but a dance between opposing principles. Only through sustained contradiction does wisdom emerge.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "dialectical becoming",
+          "truth as a dance between opposing principles",
+          "sustained contradiction",
+          "wisdom",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "The Echo of the Gods",
         "description": "What mortals call 'intuition' is but the aftersound of divinity—reason distorted through the chamber of the human soul.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "echo of the gods",
+          "intuition",
+          "reason distorted through the chamber of the human soul",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "The Mask Is the Mirror",
         "description": "Every identity is a performance, and yet it reveals more than it hides. To wear a mask well is to expose the soul beneath.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "mask is the mirror",
+          "identity is a performance",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Moral Gravity",
         "description": "Ethical systems, like planetary orbits, are shaped by unseen forces of power and desire. Morality is rarely neutral.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "moral gravity",
+          "ethical systems",
+          "planetary orbits",
+          "unseen forces of power and desire",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Freedom as the Art of Bearing Weight",
         "description": "Freedom is not lightness, but the willingness to carry your own meaning—no matter how heavy it becomes.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "freedom as the art of bearing weight",
+          "freedom is not lightness",
+          "willingness to carry your own meaning",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "The Tragedy of Safety",
         "description": "The pursuit of safety breeds spiritual decay. The soul is forged in risk, not in comfort.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "tragedy of safety",
+          "pursuit of safety",
+          "spiritual decay",
+          "soul is forged in risk",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "The Spiral of Time",
         "description": "History does not repeat—it rhymes in spirals. We revisit the past only to surpass it, or to be devoured by it.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "spiral of time",
+          "history does not repeat",
+          "rhymes in spirals",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Gods Are Born from Need",
         "description": "Every deity is first a hunger, then a myth, and finally a law. What you worship reveals what you lack.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "god is born from need",
+          "deity is first a hunger",
+          "myth",
+          "law",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "The Ethics of Silence",
         "description": "What is not said is as morally loaded as what is proclaimed. Silence is never empty—it echoes intention.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "ethics of silence",
+          "what is not said",
+          "morally loaded",
+          "silence is never empty",
+          "echoes intention",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "The Will to Interpret",
         "description": "There are no facts without interpretation. Even the clearest truth is a canvas painted by the mind.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "will to interpret",
+          "facts without interpretation",
+          "even the clearest truth",
+          "canvas painted by the mind",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Joy as Rebellion",
         "description": "To rejoice in a broken world is not naivety but defiance. Joy is the most philosophical of revolts.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "joy as rebellion",
+          "rejoice in a broken world",
+          "naivety",
+          "defiance",
+          "joy is the most philosophical of revolts",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Wisdom Begins in Betrayal",
         "description": "The disciple must one day betray the master. Only then can their thought be truly their own.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "wisdom begins in betrayal",
+          "disciple must one day betray the master",
+          "only then can their thought be truly their own",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Thought as Erosion",
         "description": "Ideas do not arrive—they wear down resistance. What you call a breakthrough is but the patient dripping of doubt.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "thought as erosion",
+          "ideas do not arrive",
+          "wear down resistance",
+          "patient dripping of doubt",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "The Tyranny of Consensus",
         "description": "Agreement is often the coffin of thought. Truth rarely enters through a unanimous vote.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "tyranny of consensus",
+          "agreement is often the coffin of thought",
+          "truth rarely enters through a unanimous vote",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Love as Metaphysical Exposure",
         "description": "To love is to place your soul in the hands of the unknown, and dare to remain vulnerable.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "love as metaphysical exposure",
+          "to love is to place your soul in the hands of the unknown",
+          "dare to remain vulnerable",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Reason’s Shadow",
         "description": "For every light of reason, there is a deeper shadow cast. Rationality conceals as much as it reveals.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "reason’s shadow",
+          "every light of reason",
+          "deeper shadow cast",
+          "rationality conceals as much as it reveals",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Language Is a Trap",
         "description": "Words are snares we lay for experience. The more precise the phrase, the more reality escapes it.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "language is a trap",
+          "words are snares we lay for experience",
+          "more precise the phrase",
+          "reality escapes it",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Philosophy as Fire",
         "description": "True philosophy does not soothe—it scorches. It burns the old skin so something new may emerge.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "philosophy as fire",
+          "true philosophy does not soothe",
+          "it scorches",
+          "it burns the old skin so something new may emerge",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "The Soul Is a Question, Not an Answer",
         "description": "You do not possess a soul—you are its riddle. Stop solving it; start living it.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "soul is a question, not an answer",
+          "you do not possess a soul",
+          "you are its riddle",
+          "stop solving it",
+          "start living it",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Truth as Seduction",
         "description": "We do not seek truth out of duty—but desire. Even the most rational philosopher is secretly in love.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "truth as seduction",
+          "we do not seek truth out of duty",
+          "desire",
+          "even the most rational philosopher is secretly in love",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       },
       {
         "idea": "Wisdom Refuses the Last Word",
         "description": "The wise do not conclude—they continue. Every ending is a masked beginning.",
-        "key_books": ["Oral Tradition"]
+        "key_books": ["Oral Tradition"],
+        "keywords": [
+          "wisdom refuses the last word",
+          "wise do not conclude",
+          "every ending is a masked beginning",
+          "will",
+          "metaphysics",
+          "existence"
+        ]
       }
     ]
   }  

@@ -7,6 +7,12 @@
         "description": "Early Wittgenstein proposed that language functions by representing facts about the world through logical structures, or 'pictures.' A proposition is meaningful if it mirrors a possible state of affairs.",
         "key_books": [
           "Tractatus Logico-Philosophicus"
+        ],
+        "keywords": [
+          "picture theory of language",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -14,6 +20,12 @@
         "description": "In the Tractatus, Wittgenstein argues that what can be said clearly can be said at all; everything else must be passed over in silence. Language defines the boundaries of what is thinkable and sayable.",
         "key_books": [
           "Tractatus Logico-Philosophicus"
+        ],
+        "keywords": [
+          "limits of language = limits of world",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -21,6 +33,12 @@
         "description": "Later Wittgenstein introduced the idea of language as a collection of diverse 'language games' embedded in specific forms of life. Meaning is determined by use, not abstract correspondence to reality.",
         "key_books": [
           "Philosophical Investigations"
+        ],
+        "keywords": [
+          "language games",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -28,6 +46,12 @@
         "description": "Words derive their meaning from how they are used in practical contexts rather than from intrinsic definitions or reference to objects. This principle underpins Wittgenstein’s later philosophy.",
         "key_books": [
           "Philosophical Investigations"
+        ],
+        "keywords": [
+          "meaning is use",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -35,6 +59,12 @@
         "description": "Wittgenstein argued that a truly private language, understandable by only a single individual and referring to purely internal states, is incoherent because language is necessarily a public, rule-governed activity.",
         "key_books": [
           "Philosophical Investigations"
+        ],
+        "keywords": [
+          "private language argument",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -42,6 +72,12 @@
         "description": "Wittgenstein questioned how following a rule is possible if no future application of it is logically entailed by a finite series of examples. Rule-following depends on communal practices and agreement.",
         "key_books": [
           "Philosophical Investigations"
+        ],
+        "keywords": [
+          "rule-following paradox",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -49,6 +85,12 @@
         "description": "Understanding a language requires familiarity with the social and cultural practices—'forms of life'—within which language has meaning. This concept ties language to shared human activities.",
         "key_books": [
           "Philosophical Investigations"
+        ],
+        "keywords": [
+          "form of life",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -56,6 +98,12 @@
         "description": "Many concepts (like 'game') lack a single essence but are united by overlapping similarities, or family resemblances. This challenges the traditional search for rigid definitions in philosophy.",
         "key_books": [
           "Philosophical Investigations"
+        ],
+        "keywords": [
+          "family resemblance concepts",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -64,6 +112,12 @@
         "key_books": [
           "Philosophical Investigations",
           "The Blue and Brown Books"
+        ],
+        "keywords": [
+          "anti-theoretical philosophy",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -73,6 +127,12 @@
           "Philosophical Investigations",
           "Remarks on the Foundations of Mathematics",
           "The Blue and Brown Books"
+        ],
+        "keywords": [
+          "philosophy as therapy",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -80,6 +140,12 @@
         "description": "In the Tractatus, Wittgenstein distinguished between what can be said (facts and logical propositions) and what can only be shown (ethics, aesthetics, metaphysics), asserting that the most important things lie beyond language.",
         "key_books": [
           "Tractatus Logico-Philosophicus"
+        ],
+        "keywords": [
+          "the sayable and the unsayable",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       }
     ]

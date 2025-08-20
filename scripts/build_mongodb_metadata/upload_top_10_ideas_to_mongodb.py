@@ -7,7 +7,7 @@ to the MongoDB database 'daemonium' collection 'top_10_ideas'. It skips template
 and merges existing documents while uploading new ones.
 
 Author: Daemonium System
-Version: 1.0.0
+Version: 2.0.0
 """
 
 import os
@@ -16,7 +16,7 @@ import yaml
 import logging
 from pathlib import Path
 from typing import Dict, Any, List
-from pymongo import MongoClient
+from pymongo import MongoClient, IndexModel, ASCENDING
 from pymongo.errors import ConnectionFailure, DuplicateKeyError
 from urllib.parse import quote_plus
 
@@ -104,6 +104,42 @@ class Top10IdeasUploader:
         if self.client:
             self.client.close()
             self.logger.info("MongoDB connection closed")
+    
+    def _create_indexes(self) -> None:
+        """Create indexes for the top_10_ideas collection, including keywords and unified text index."""
+        try:
+            # Drop any existing text indexes (Mongo allows only one text index)
+            existing_indexes = self.collection.index_information()
+            for name, info in existing_indexes.items():
+                key_spec = info.get('key', [])
+                if any(isinstance(direction, str) and direction.lower() == 'text' for _, direction in key_spec):
+                    self.logger.info(f"Dropping existing text index: {name}")
+                    self.collection.drop_index(name)
+
+            indexes = [
+                IndexModel([("author", ASCENDING)], name="idx_author"),
+                IndexModel([("category", ASCENDING)], name="idx_category"),
+                IndexModel([("filename", ASCENDING)], name="idx_filename"),
+                IndexModel([("top_ideas.keywords", ASCENDING)], name="idx_keywords"),
+                # Helpful field indexes
+                IndexModel([("top_ideas.idea", ASCENDING)], name="idx_top_ideas_idea"),
+                IndexModel([("top_ideas.key_books", ASCENDING)], name="idx_top_ideas_key_books"),
+                # Unified text index for search across nested arrays/fields
+                IndexModel([
+                    ("author", "text"),
+                    ("category", "text"),
+                    ("top_ideas.idea", "text"),
+                    ("top_ideas.description", "text"),
+                    ("top_ideas.key_books", "text"),
+                    ("top_ideas.keywords", "text")
+                ], name="top_10_ideas_text_v2")
+            ]
+
+            self.collection.create_indexes(indexes)
+            self.logger.info("Created/ensured indexes for top_10_ideas collection")
+        except Exception as e:
+            self.logger.error(f"Error creating indexes: {e}")
+            raise
             
     def _is_template_file(self, filename: str) -> bool:
         """Check if the file is a template file that should be skipped."""
@@ -124,18 +160,20 @@ class Top10IdeasUploader:
             raise
             
     def _count_ideas_metrics(self, top_ideas: List[Dict[str, Any]]) -> Dict[str, int]:
-        """Count various metrics from top ideas data."""
+        """Count various metrics from top ideas data, including keywords."""
         metrics = {
             'total_ideas': len(top_ideas) if isinstance(top_ideas, list) else 0,
             'ideas_with_descriptions': 0,
             'ideas_with_key_books': 0,
+            'ideas_with_keywords': 0,
             'total_key_books': 0,
+            'total_keywords': 0,
             'total_description_length': 0,
             'ideas_with_quotes': 0,
             'ideas_with_examples': 0,
             'ideas_with_modern_relevance': 0
         }
-        
+
         if isinstance(top_ideas, list):
             for idea in top_ideas:
                 if isinstance(idea, dict):
@@ -144,22 +182,42 @@ class Top10IdeasUploader:
                     if description and description.strip():
                         metrics['ideas_with_descriptions'] += 1
                         metrics['total_description_length'] += len(description)
-                    
+
                     # Count key books
                     key_books = idea.get('key_books', [])
                     if isinstance(key_books, list) and len(key_books) > 0:
                         metrics['ideas_with_key_books'] += 1
                         metrics['total_key_books'] += len(key_books)
-                    
-                    # Count additional fields
+
+                    # Count keywords (normalized)
+                    raw_keywords = idea.get('keywords', []) or []
+                    normalized_keywords = self._normalize_keywords(raw_keywords)
+                    if len(normalized_keywords) > 0:
+                        metrics['ideas_with_keywords'] += 1
+                        metrics['total_keywords'] += len(normalized_keywords)
+
+                    # Count additional optional fields (legacy/supporting)
                     if idea.get('quotes'):
                         metrics['ideas_with_quotes'] += 1
                     if idea.get('examples'):
                         metrics['ideas_with_examples'] += 1
                     if idea.get('modern_relevance'):
                         metrics['ideas_with_modern_relevance'] += 1
-        
+
         return metrics
+
+    def _normalize_keywords(self, keywords: Any) -> List[str]:
+        """Normalize keywords array: trim, deduplicate case-insensitively, preserve order."""
+        seen = set()
+        normalized: List[str] = []
+        if isinstance(keywords, list):
+            for kw in keywords:
+                if isinstance(kw, str):
+                    k = kw.strip()
+                    if k and k.lower() not in seen:
+                        seen.add(k.lower())
+                        normalized.append(k)
+        return normalized
             
     def _prepare_document(self, json_data: Dict[str, Any], filename: str) -> Dict[str, Any]:
         """Prepare document for MongoDB insertion."""
@@ -175,11 +233,14 @@ class Top10IdeasUploader:
         processed_ideas = []
         for i, idea in enumerate(top_ideas):
             if isinstance(idea, dict):
+                raw_keywords = idea.get('keywords', []) or []
+                normalized_keywords = self._normalize_keywords(raw_keywords)
                 processed_idea = {
                     'rank': i + 1,
                     'idea': idea.get('idea', ''),
                     'description': idea.get('description', ''),
-                    'key_books': idea.get('key_books', [])
+                    'key_books': idea.get('key_books', []),
+                    'keywords': normalized_keywords
                 }
                 processed_ideas.append(processed_idea)
         
@@ -196,7 +257,9 @@ class Top10IdeasUploader:
                 'ideas_metrics': ideas_metrics,
                 'total_ideas': len(processed_ideas),
                 'has_key_books': any(idea.get('key_books', []) for idea in processed_ideas),
-                'average_books_per_idea': round(ideas_metrics['total_key_books'] / max(ideas_metrics['total_ideas'], 1), 2)
+                'has_keywords': any(idea.get('keywords', []) for idea in processed_ideas),
+                'average_books_per_idea': round(ideas_metrics['total_key_books'] / max(ideas_metrics['total_ideas'], 1), 2),
+                'average_keywords_per_idea': round(ideas_metrics['total_keywords'] / max(ideas_metrics['total_ideas'], 1), 2)
             }
         }
         return document
@@ -307,6 +370,8 @@ class Top10IdeasUploader:
             
             # Connect to MongoDB
             self.connect_to_mongodb()
+            # Ensure indexes exist (including keywords + text index)
+            self._create_indexes()
             
             # Process all files in the top 10 ideas folder
             stats = self.process_top_10_ideas_folder(top_10_ideas_folder)

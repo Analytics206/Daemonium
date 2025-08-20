@@ -7,6 +7,13 @@
         "description": "Schopenhauer's central metaphysical claim is that reality has two aspects: as representation (the world as it appears to us) and as will (the blind, irrational force that underlies all existence).",
         "key_books": [
           "The World as Will and Representation"
+        ],
+        "keywords": [
+          "will",
+          "representation",
+          "metaphysics",
+          "existence",
+          "reality"
         ]
       },
       {
@@ -14,6 +21,13 @@
         "description": "Expanding on Kant’s notion of the noumenon, Schopenhauer identified the 'thing-in-itself' not as an abstract unknown but as will—a ceaseless striving that manifests in all of nature and human desire.",
         "key_books": [
           "The World as Will and Representation"
+        ],
+        "keywords": [
+          "will",
+          "thing-in-itself",
+          "noumenon",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -22,6 +36,13 @@
         "key_books": [
           "The World as Will and Representation",
           "On the Suffering of the World"
+        ],
+        "keywords": [
+          "pessimism",
+          "suffering",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -30,6 +51,13 @@
         "key_books": [
           "The World as Will and Representation",
           "On the Metaphysics of the Beautiful"
+        ],
+        "keywords": [
+          "aesthetics",
+          "redemption",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -38,6 +66,13 @@
         "key_books": [
           "On the Basis of Morality",
           "The World as Will and Representation"
+        ],
+        "keywords": [
+          "compassion",
+          "ethics",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -46,6 +81,13 @@
         "key_books": [
           "The World as Will and Representation",
           "Parerga and Paralipomena"
+        ],
+        "keywords": [
+          "denial",
+          "asceticism",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -54,6 +96,13 @@
         "key_books": [
           "The World as Will and Representation",
           "On the Vanity of Existence"
+        ],
+        "keywords": [
+          "critique",
+          "optimism",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -62,6 +111,13 @@
         "key_books": [
           "The World as Will and Representation",
           "On the Will in Nature"
+        ],
+        "keywords": [
+          "primacy",
+          "irrational",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -70,6 +126,14 @@
         "key_books": [
           "The World as Will and Representation",
           "Parerga and Paralipomena"
+        ],
+        "keywords": [
+          "influence",
+          "eastern",
+          "philosophy",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -78,6 +142,12 @@
         "key_books": [
           "The World as Will and Representation",
           "Metaphysics of the Love of the Sexes"
+        ],
+        "keywords": [
+          "sexuality",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       },
       {
@@ -87,6 +157,13 @@
           "On the Suffering of the World",
           "The World as Will and Representation",
           "Parerga and Paralipomena"
+        ],
+        "keywords": [
+          "misery",
+          "human existence",
+          "will",
+          "metaphysics",
+          "existence"
         ]
       }
     ]
