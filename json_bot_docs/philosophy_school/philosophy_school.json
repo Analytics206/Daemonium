@@ -3,217 +3,585 @@
     "schoolID": 1,
     "school": "Unknown School",
     "category": "Unknown School",
-    "summary": "General placeholder for philosophical schools that cannot be clearly classified or lack sufficient historical or thematic data.",
-    "corePrinciples": "Unspecified principles"
+    "summary": "General placeholder for philosophical schools that cannot be clearly classified, are disputed in historical categorization, or lack sufficient data for firm placement.",
+    "corePrinciples": "Unspecified principles",
+    "keywords": [
+      "unspecified",
+      "unknown classification",
+      "miscellaneous",
+      "undefined tradition"
+    ]
   },
   {
     "schoolID": 2,
     "school": "Ancient Greek Philosophy",
     "category": "Ancient & Classical",
-    "summary": "The foundation of Western philosophy, encompassing thinkers like Socrates, Plato, and Aristotle, focusing on metaphysics, ethics, politics, and the nature of knowledge.",
-    "corePrinciples": "Reason, virtue, pursuit of knowledge"
+    "summary": "The foundation of Western philosophy, encompassing pre-Socratic natural philosophers, Socrates’ ethical inquiries, Plato’s theory of forms, and Aristotle’s systematization of logic, metaphysics, politics, and natural sciences. Ancient Greek thought emphasized rational inquiry, virtue ethics, cosmology, and the pursuit of knowledge as the highest human calling.",
+    "corePrinciples": "Reason, virtue, pursuit of knowledge, metaphysical inquiry",
+    "keywords": [
+      "Socrates",
+      "Plato",
+      "Aristotle",
+      "pre-Socratics",
+      "virtue ethics",
+      "logic",
+      "epistemology",
+      "cosmos",
+      "metaphysics"
+    ]
   },
   {
     "schoolID": 3,
     "school": "Stoicism",
     "category": "Ancient & Classical",
-    "summary": "A Hellenistic philosophy emphasizing virtue, rationality, and emotional resilience, advocating living in harmony with nature and focusing on what is within one's control.",
-    "corePrinciples": "Virtue, rational control, acceptance of fate"
+    "summary": "Founded by Zeno of Citium in 3rd century BCE Athens, Stoicism emphasizes living in accordance with nature, cultivating virtue as the only true good, and maintaining tranquility through rational self-mastery. Stoics distinguished between what lies within our control (judgments, desires, actions) and what lies beyond (fortune, reputation, death). It greatly influenced Roman thinkers such as Seneca, Epictetus, and Marcus Aurelius and continues to inspire modern practices of resilience.",
+    "corePrinciples": "Virtue as the highest good, rational control, acceptance of fate (amor fati)",
+    "keywords": [
+      "virtue ethics",
+      "logos",
+      "apatheia",
+      "ataraxia",
+      "cosmopolitanism",
+      "amor fati",
+      "Marcus Aurelius",
+      "Epictetus",
+      "Seneca",
+      "Zeno of Citium"
+    ]
   },
   {
     "schoolID": 4,
     "school": "Epicureanism",
     "category": "Ancient & Classical",
-    "summary": "A philosophy founded by Epicurus that promotes pleasure (understood as tranquility and absence of pain) as the highest good, while valuing simplicity and friendship.",
-    "corePrinciples": "Moderation, pleasure as tranquility, friendship"
+    "summary": "Founded by Epicurus in the 4th century BCE, Epicureanism taught that the highest good is pleasure, understood not as indulgence but as the absence of pain (aponia) and disturbance (ataraxia). It valued moderation, simple living, friendship, and intellectual contemplation as the path to tranquility. The school challenged superstition and fear of death, arguing that the soul is material and mortal.",
+    "corePrinciples": "Moderation, tranquility, friendship, materialism of the soul",
+    "keywords": [
+      "Epicurus",
+      "pleasure",
+      "ataraxia",
+      "aponia",
+      "friendship",
+      "materialism",
+      "fear of death",
+      "hedone"
+    ]
   },
   {
     "schoolID": 5,
     "school": "Skepticism",
     "category": "Ancient & Classical",
-    "summary": "A school that questions the possibility of certain knowledge, promoting doubt and suspension of judgment as a way to achieve intellectual humility and tranquility.",
-    "corePrinciples": "Suspension of judgment, inquiry, doubt"
+    "summary": "A philosophical school originating with Pyrrho and later developed by the Academic Skeptics. It questions the possibility of certain knowledge, recommending suspension of judgment (epoché) to attain tranquility. Skeptics argued that for every claim, an opposing claim can be equally defended, thus promoting intellectual humility and freedom from dogmatism.",
+    "corePrinciples": "Suspension of judgment, inquiry, doubt, intellectual humility",
+    "keywords": [
+      "Pyrrho",
+      "Sextus Empiricus",
+      "epoché",
+      "ataraxia",
+      "doubt",
+      "intellectual humility",
+      "relativism"
+    ]
   },
   {
     "schoolID": 6,
     "school": "Neoplatonism",
     "category": "Ancient & Classical",
-    "summary": "A late antique philosophical movement based on Plato's ideas, emphasizing metaphysical hierarchies, the One, and spiritual ascent as a path to ultimate reality.",
-    "corePrinciples": "Unity, spiritual ascent, contemplation"
+    "summary": "A late antique movement rooted in Plato’s metaphysics, founded by Plotinus in the 3rd century CE. It emphasized the One as the ultimate reality, from which emanates Intellect and Soul. Neoplatonism stressed mystical union with the divine through contemplation, influencing early Christian, Islamic, and Jewish thought.",
+    "corePrinciples": "Unity, emanation, mystical ascent, contemplation of the One",
+    "keywords": [
+      "Plotinus",
+      "the One",
+      "emanation",
+      "Nous",
+      "Soul",
+      "mystical ascent",
+      "Porphyry",
+      "Proclus"
+    ]
   },
   {
     "schoolID": 7,
-    "school": "Scholasticism",
-    "category": "Medieval & Religious",
-    "summary": "A method of critical thought dominant in medieval Europe, combining Christian theology with Aristotelian logic to reconcile faith and reason.",
-    "corePrinciples": "Faith and reason, logic, systematic theology"
+    "school": "Cynicism",
+    "category": "Ancient & Classical",
+    "summary": "Founded by Antisthenes and popularized by Diogenes of Sinope, Cynicism rejected conventional desires for wealth, power, and fame. Cynics advocated living in accordance with nature, practicing radical simplicity, and cultivating virtue free from social constraints. Their provocative lifestyle was meant to expose the emptiness of social conventions.",
+    "corePrinciples": "Virtue through simplicity, rejection of convention, living naturally",
+    "keywords": [
+      "Antisthenes",
+      "Diogenes",
+      "asceticism",
+      "autarkeia",
+      "parrhesia",
+      "virtue",
+      "dog-like living"
+    ]
   },
   {
     "schoolID": 8,
-    "school": "Islamic Philosophy",
+    "school": "Scholasticism",
     "category": "Medieval & Religious",
-    "summary": "Philosophical thought rooted in Islamic tradition, integrating Greek philosophy with Islamic theology, addressing metaphysics, ethics, and epistemology.",
-    "corePrinciples": "Harmony of faith and reason, divine order"
+    "summary": "The dominant intellectual tradition of medieval Europe, blending Christian theology with Aristotelian philosophy. Scholastics such as Thomas Aquinas and Anselm used rigorous logic to reconcile faith and reason, exploring metaphysics, ethics, and the nature of God. Scholasticism was characterized by dialectical disputation and systematic theology.",
+    "corePrinciples": "Faith and reason, dialectical logic, systematic theology",
+    "keywords": [
+      "Thomas Aquinas",
+      "Anselm",
+      "Peter Abelard",
+      "logic",
+      "dialectic",
+      "universals",
+      "Summa Theologica"
+    ]
   },
   {
     "schoolID": 9,
-    "school": "Jewish Philosophy",
+    "school": "Islamic Philosophy",
     "category": "Medieval & Religious",
-    "summary": "A tradition blending Jewish theology with philosophical reasoning, often influenced by Islamic and Christian thinkers, exploring ethics, God, and reason.",
-    "corePrinciples": "Rational theology, ethics, divine law"
+    "summary": "Flourishing from the 8th to 12th centuries, Islamic philosophy integrated Greek thought with Islamic theology. Thinkers like Al-Farabi, Avicenna, and Averroes explored metaphysics, ethics, logic, and the harmony of faith and reason. It significantly influenced medieval Europe and preserved Aristotelian and Platonic traditions.",
+    "corePrinciples": "Harmony of reason and revelation, metaphysics, logic, ethics",
+    "keywords": [
+      "Avicenna (Ibn Sina)",
+      "Averroes (Ibn Rushd)",
+      "Al-Farabi",
+      "Al-Ghazali",
+      "metaphysics",
+      "cosmology",
+      "faith and reason"
+    ]
   },
   {
     "schoolID": 10,
-    "school": "Rationalism",
-    "category": "Modern Era",
-    "summary": "A philosophical movement asserting that reason and innate ideas are the primary sources of knowledge, with thinkers like Descartes, Spinoza, and Leibniz.",
-    "corePrinciples": "Reason, innate ideas, deductive logic"
+    "school": "Jewish Philosophy",
+    "category": "Medieval & Religious",
+    "summary": "Blending Jewish theology with philosophy, this tradition drew upon Islamic and Christian thinkers while remaining rooted in Hebrew scripture. Figures like Philo, Maimonides, and Spinoza explored divine law, ethics, and metaphysics. It developed concepts of rational theology and the nature of God’s attributes.",
+    "corePrinciples": "Rational theology, divine law, ethics, reconciliation of faith and reason",
+    "keywords": [
+      "Philo of Alexandria",
+      "Maimonides",
+      "Spinoza",
+      "ethics",
+      "Torah",
+      "divine attributes",
+      "reason and revelation"
+    ]
   },
   {
     "schoolID": 11,
-    "school": "Empiricism",
+    "school": "Rationalism",
     "category": "Modern Era",
-    "summary": "A view emphasizing experience and sensory perception as the foundation of knowledge, championed by philosophers such as Locke, Berkeley, and Hume.",
-    "corePrinciples": "Experience, observation, sensory data"
+    "summary": "A 17th-century philosophical movement holding that reason and innate ideas are the primary sources of knowledge. Key figures include Descartes, Spinoza, and Leibniz, who used deductive reasoning to construct systems of metaphysics and epistemology, often in contrast to empiricism.",
+    "corePrinciples": "Reason as foundation of knowledge, innate ideas, deductive logic",
+    "keywords": [
+      "Descartes",
+      "Spinoza",
+      "Leibniz",
+      "innate ideas",
+      "deduction",
+      "clear and distinct perceptions"
+    ]
   },
   {
     "schoolID": 12,
-    "school": "German Idealism",
+    "school": "Empiricism",
     "category": "Modern Era",
-    "summary": "A post-Kantian movement focusing on the role of mind in constructing reality, represented by philosophers like Fichte, Schelling, and Hegel.",
-    "corePrinciples": "Mind as reality, self-consciousness, synthesis"
+    "summary": "Developed in the 17th and 18th centuries, empiricism emphasizes experience and sensory perception as the foundation of knowledge. Thinkers such as Locke, Berkeley, and Hume argued that the mind is shaped by impressions and ideas derived from observation, often opposing rationalist claims of innate ideas.",
+    "corePrinciples": "Experience as knowledge, sensory data, observation, induction",
+    "keywords": [
+      "John Locke",
+      "George Berkeley",
+      "David Hume",
+      "tabula rasa",
+      "perception",
+      "induction"
+    ]
   },
   {
     "schoolID": 13,
-    "school": "Utilitarianism",
+    "school": "Humanism",
     "category": "Modern Era",
-    "summary": "An ethical theory advocating that the best action maximizes happiness or utility for the greatest number, developed by Bentham and Mill.",
-    "corePrinciples": "Utility, consequences, greatest happiness"
+    "summary": "Renaissance and modern movement emphasizing human dignity, reason, and secular ethics. Humanists turned to classical texts and celebrated human creativity, autonomy, and potential for self-realization. In the modern period, humanism expanded into a secular worldview advocating science, democracy, and individual rights.",
+    "corePrinciples": "Human dignity, secular ethics, individual autonomy, classical revival",
+    "keywords": [
+      "Erasmus",
+      "Pico della Mirandola",
+      "Renaissance",
+      "secular ethics",
+      "education",
+      "individual rights"
+    ]
   },
   {
     "schoolID": 14,
-    "school": "Analytic Philosophy",
-    "category": "Contemporary",
-    "summary": "A dominant 20th-century movement emphasizing logical clarity, linguistic analysis, and rigorous argumentation, often focused on language, logic, and science.",
-    "corePrinciples": "Logical analysis, clarity, linguistic meaning"
+    "school": "German Idealism",
+    "category": "Modern Era",
+    "summary": "A post-Kantian movement emphasizing the active role of the mind in constituting reality. Fichte, Schelling, and Hegel developed systems of metaphysics and epistemology stressing self-consciousness, freedom, and the dialectical unfolding of Spirit.",
+    "corePrinciples": "Mind as constitutive of reality, self-consciousness, dialectic, synthesis",
+    "keywords": [
+      "Kant",
+      "Fichte",
+      "Schelling",
+      "Hegel",
+      "dialectic",
+      "self-consciousness",
+      "Absolute Spirit"
+    ]
   },
   {
     "schoolID": 15,
-    "school": "Continental Philosophy",
-    "category": "Contemporary",
-    "summary": "A broad tradition including existentialism, phenomenology, structuralism, and postmodernism, often concerned with history, culture, and human experience.",
-    "corePrinciples": "Historical context, interpretation, critique"
+    "school": "Utilitarianism",
+    "category": "Modern Era",
+    "summary": "An ethical theory developed by Jeremy Bentham and John Stuart Mill, holding that the morally right action is that which produces the greatest happiness for the greatest number. It grounds morality in consequences rather than intentions, influencing modern social and political thought.",
+    "corePrinciples": "Greatest happiness principle, consequentialism, utility",
+    "keywords": [
+      "Bentham",
+      "Mill",
+      "consequentialism",
+      "happiness",
+      "utility",
+      "pleasure vs. pain calculus"
+    ]
   },
   {
     "schoolID": 16,
-    "school": "Existentialism",
-    "category": "Contemporary",
-    "summary": "A movement stressing individual freedom, authenticity, and meaning-making in a seemingly absurd or indifferent universe, represented by Sartre, Kierkegaard, and Camus.",
-    "corePrinciples": "Freedom, authenticity, personal responsibility"
+    "school": "Transcendentalism",
+    "category": "Modern Era",
+    "summary": "A 19th-century American philosophical and literary movement associated with Ralph Waldo Emerson and Henry David Thoreau. It emphasized the inherent goodness of humans and nature, individual intuition over tradition, and self-reliance. Transcendentalism blended idealism with a spiritual respect for nature and became foundational to American Romanticism.",
+    "corePrinciples": "Self-reliance, intuition, harmony with nature, spiritual individualism",
+    "keywords": [
+      "Emerson",
+      "Thoreau",
+      "nature",
+      "intuition",
+      "self-reliance",
+      "American Romanticism"
+    ]
   },
   {
     "schoolID": 17,
-    "school": "Phenomenology",
+    "school": "Analytic Philosophy",
     "category": "Contemporary",
-    "summary": "A philosophical method focusing on the structures of conscious experience, pioneered by Husserl and further developed by Heidegger and Merleau-Ponty.",
-    "corePrinciples": "Intentionality, lived experience, essences"
+    "summary": "Emerging in the late 19th and early 20th centuries, analytic philosophy emphasizes clarity, logical rigor, and precision in language. Developed by Frege, Russell, and Moore, it evolved through logical positivism, ordinary language philosophy, and philosophy of science. Today it spans epistemology, metaphysics, ethics, and philosophy of mind.",
+    "corePrinciples": "Logical clarity, linguistic analysis, rigorous argument, scientific orientation",
+    "keywords": [
+      "Frege",
+      "Russell",
+      "Moore",
+      "logical positivism",
+      "ordinary language",
+      "Wittgenstein",
+      "semantics",
+      "philosophy of language",
+      "epistemology",
+      "metaphysics"
+    ]
   },
   {
     "schoolID": 18,
-    "school": "Pragmatism",
+    "school": "Continental Philosophy",
     "category": "Contemporary",
-    "summary": "An American philosophical tradition emphasizing practical consequences and problem-solving as central to truth and meaning, associated with James, Peirce, and Dewey.",
-    "corePrinciples": "Practicality, truth as utility, experimentation"
+    "summary": "A broad 19th and 20th-century tradition distinct from analytic philosophy, encompassing existentialism, phenomenology, hermeneutics, structuralism, post-structuralism, and critical theory. Continental philosophy often emphasizes history, culture, subjectivity, and social critique over formal analysis.",
+    "corePrinciples": "Historical context, critique of modernity, subjectivity, interpretation",
+    "keywords": [
+      "Heidegger",
+      "Sartre",
+      "Merleau-Ponty",
+      "Foucault",
+      "Derrida",
+      "Gadamer",
+      "Nietzsche",
+      "hermeneutics",
+      "deconstruction"
+    ]
   },
   {
     "schoolID": 19,
-    "school": "Logical Positivism",
+    "school": "Existentialism",
     "category": "Contemporary",
-    "summary": "A school that applies logical analysis to science and philosophy, rejecting metaphysics as meaningless, emphasizing empirical verification and formal logic.",
-    "corePrinciples": "Verification, empirical testing, logic"
+    "summary": "Existentialism emphasizes individual freedom, authenticity, and meaning-making in an indifferent or absurd universe. Kierkegaard highlighted faith and authenticity, Nietzsche proclaimed the death of God and will to power, Sartre emphasized radical freedom and responsibility, while Camus explored the absurd. It influenced literature, psychology, and theology.",
+    "corePrinciples": "Freedom, authenticity, responsibility, meaning-making",
+    "keywords": [
+      "Kierkegaard",
+      "Nietzsche",
+      "Sartre",
+      "Camus",
+      "authenticity",
+      "bad faith",
+      "alienation",
+      "absurd",
+      "existence precedes essence"
+    ]
   },
   {
     "schoolID": 20,
-    "school": "Marxism",
+    "school": "Absurdism",
     "category": "Contemporary",
-    "summary": "A socio-political and economic philosophy based on the works of Karl Marx, analyzing class struggle, material conditions, and advocating revolutionary change.",
-    "corePrinciples": "Class struggle, materialism, social critique"
+    "summary": "An outgrowth of existentialism most associated with Albert Camus. Absurdism holds that human beings seek inherent meaning in life, but the universe offers none. The confrontation between this desire and meaninglessness creates the absurd, which can only be faced with rebellion, freedom, and personal meaning-making.",
+    "corePrinciples": "Confronting meaninglessness, rebellion, freedom, personal responsibility",
+    "keywords": [
+      "Camus",
+      "The Myth of Sisyphus",
+      "absurd",
+      "revolt",
+      "freedom",
+      "meaning-making"
+    ]
   },
   {
     "schoolID": 21,
-    "school": "Postmodernism",
+    "school": "Phenomenology",
     "category": "Contemporary",
-    "summary": "A movement skeptical of grand narratives and objective truths, emphasizing relativism, power structures, and cultural context in knowledge and meaning.",
-    "corePrinciples": "Relativism, deconstruction, critique of universals"
+    "summary": "Founded by Edmund Husserl, phenomenology studies the structures of conscious experience and intentionality. Heidegger expanded it into existential ontology, while Merleau-Ponty focused on embodiment. Phenomenology emphasizes bracketing presuppositions to describe the essence of phenomena.",
+    "corePrinciples": "Intentionality, lived experience, essences, bracketing (epoché)",
+    "keywords": [
+      "Husserl",
+      "Heidegger",
+      "Merleau-Ponty",
+      "intentionality",
+      "lifeworld",
+      "noesis",
+      "noema"
+    ]
   },
   {
     "schoolID": 22,
-    "school": "Structuralism",
+    "school": "Pragmatism",
     "category": "Contemporary",
-    "summary": "An intellectual movement analyzing cultural phenomena as systems of interrelated structures, influenced by linguistics and anthropology.",
-    "corePrinciples": "Underlying structures, relational meaning"
+    "summary": "An American philosophical movement pioneered by Charles Sanders Peirce, William James, and John Dewey. Pragmatism evaluates ideas and beliefs based on their practical effects and usefulness in guiding action. Truth is seen as dynamic and tied to what works in lived experience, making pragmatism influential in philosophy of science, education, and democratic theory.",
+    "corePrinciples": "Truth as utility, practicality, experimentation, fallibilism",
+    "keywords": [
+      "Peirce",
+      "James",
+      "Dewey",
+      "pragmatism",
+      "practicality",
+      "experimentation",
+      "fallibilism"
+    ]
   },
   {
     "schoolID": 23,
-    "school": "Wittgensteinian Philosophy",
+    "school": "Marxism",
     "category": "Contemporary",
-    "summary": "Philosophy rooted in Ludwig Wittgenstein's work, focusing on language games, meaning as use, and the limits of linguistic representation.",
-    "corePrinciples": "Language games, meaning as use, ordinary language"
+    "summary": "Developed by Karl Marx and Friedrich Engels, Marxism is both a social theory and political movement. It analyzes society in terms of class struggle, modes of production, and historical materialism. Marxism emphasizes the role of economic structures in shaping ideology, politics, and culture, and calls for revolutionary change toward a classless, communist society.",
+    "corePrinciples": "Historical materialism, class struggle, critique of capitalism, communism",
+    "keywords": [
+      "Karl Marx",
+      "Friedrich Engels",
+      "historical materialism",
+      "dialectical materialism",
+      "class struggle",
+      "capitalism",
+      "communism",
+      "alienation",
+      "proletariat",
+      "bourgeoisie"
+    ]
   },
   {
     "schoolID": 24,
-    "school": "Feminist Philosophy",
-    "category": "Additional Major Schools",
-    "summary": "A school analyzing gender, power, and social justice in philosophy, aiming to challenge patriarchal structures and promote equality.",
-    "corePrinciples": "Gender justice, equality, critique of patriarchy"
+    "school": "Critical Theory",
+    "category": "Contemporary",
+    "summary": "Originating with the Frankfurt School, critical theory critiques society, culture, and ideology with the aim of emancipation from domination. Thinkers such as Adorno, Horkheimer, Marcuse, and later Habermas interrogated capitalism, modernity, mass culture, and communication. It emphasizes self-reflection, power dynamics, and the need for social transformation.",
+    "corePrinciples": "Emancipation, critique of ideology, social transformation, power analysis",
+    "keywords": [
+      "Frankfurt School",
+      "Adorno",
+      "Horkheimer",
+      "Marcuse",
+      "Habermas",
+      "critical theory",
+      "ideology",
+      "emancipation",
+      "mass culture"
+    ]
   },
   {
     "schoolID": 25,
-    "school": "Philosophy of Mind",
-    "category": "Additional Major Schools",
-    "summary": "The branch of philosophy examining consciousness, mental states, and the mind-body problem, intersecting with cognitive science and AI.",
-    "corePrinciples": "Consciousness, mind-body relation, identity"
+    "school": "Post-structuralism",
+    "category": "Contemporary",
+    "summary": "Emerging in the mid-20th century as a reaction to structuralism, post-structuralism questions stable structures of meaning, emphasizing the fluidity of language, subjectivity, and power. Thinkers like Foucault, Derrida, and Deleuze challenged essentialist categories, truth claims, and fixed interpretations, favoring deconstruction and genealogical critique.",
+    "corePrinciples": "Deconstruction, instability of meaning, critique of power, anti-essentialism",
+    "keywords": [
+      "Foucault",
+      "Derrida",
+      "Deleuze",
+      "genealogy",
+      "deconstruction",
+      "discourse",
+      "subjectivity",
+      "power relations"
+    ]
   },
   {
     "schoolID": 26,
-    "school": "Environmental Philosophy",
-    "category": "Additional Major Schools",
-    "summary": "A field addressing the ethical, metaphysical, and political dimensions of human-environment relations, including sustainability and ecological ethics.",
-    "corePrinciples": "Ecological ethics, sustainability, intrinsic value"
+    "school": "Structuralism",
+    "category": "Contemporary",
+    "summary": "A mid-20th-century intellectual movement influenced by linguistics and anthropology. Structuralism analyzes human culture, language, and thought in terms of underlying structures. Figures such as Saussure, Lévi-Strauss, and Lacan emphasized systems, relations, and codes over individual meaning.",
+    "corePrinciples": "Structures over individuals, language systems, cultural codes, relational meaning",
+    "keywords": [
+      "Saussure",
+      "Lévi-Strauss",
+      "Lacan",
+      "semiotics",
+      "signifier",
+      "signified",
+      "myth",
+      "structure"
+    ]
   },
   {
     "schoolID": 27,
-    "school": "Eastern Philosophy",
-    "category": "Additional Major Schools",
-    "summary": "A diverse range of traditions such as Confucianism, Taoism, Buddhism, and Hinduism, focusing on harmony, ethics, and spiritual practice.",
-    "corePrinciples": "Harmony, non-duality, spiritual practice"
+    "school": "Hermeneutics",
+    "category": "Contemporary",
+    "summary": "The art and theory of interpretation, originating in biblical and legal traditions but expanded to philosophy by Schleiermacher, Dilthey, Gadamer, and Ricoeur. Hermeneutics emphasizes the historical and linguistic conditions of understanding, the hermeneutic circle, and dialogue between interpreter and text.",
+    "corePrinciples": "Interpretation, historical context, hermeneutic circle, dialogical understanding",
+    "keywords": [
+      "Schleiermacher",
+      "Dilthey",
+      "Gadamer",
+      "Ricoeur",
+      "interpretation",
+      "hermeneutic circle",
+      "text",
+      "understanding"
+    ]
   },
   {
     "schoolID": 28,
-    "school": "Critical Theory",
-    "category": "Additional Major Schools",
-    "summary": "An approach from the Frankfurt School emphasizing social critique, power dynamics, and the role of ideology in sustaining oppression.",
-    "corePrinciples": "Social critique, emancipation, ideology analysis"
+    "school": "Postmodernism",
+    "category": "Contemporary",
+    "summary": "A late 20th-century movement skeptical of grand narratives, objective truths, and universal reason. Postmodernism emphasizes pluralism, cultural relativism, irony, and the play of meaning. Thinkers like Lyotard, Baudrillard, and Jameson explored themes of simulation, consumer culture, and the fragmentation of identity.",
+    "corePrinciples": "Skepticism of meta-narratives, relativism, pluralism, critique of modernity",
+    "keywords": [
+      "Lyotard",
+      "Baudrillard",
+      "Jameson",
+      "meta-narratives",
+      "relativism",
+      "pluralism",
+      "simulation",
+      "identity"
+    ]
   },
   {
     "schoolID": 29,
-    "school": "Postcolonial Philosophy",
-    "category": "Additional Major Schools",
-    "summary": "A school analyzing the legacy of colonialism on culture, identity, and knowledge systems, aiming to decolonize thought and power structures.",
-    "corePrinciples": "Decolonization, identity, critique of imperialism"
+    "school": "Feminist Philosophy",
+    "category": "Contemporary",
+    "summary": "A diverse movement addressing the philosophical implications of gender, power, and social justice. Feminist philosophy critiques patriarchal assumptions in epistemology, ethics, and metaphysics, and develops alternatives centered on care, relationality, and equality. Thinkers include Simone de Beauvoir, Judith Butler, and bell hooks.",
+    "corePrinciples": "Gender analysis, equality, critique of patriarchy, relational ethics",
+    "keywords": [
+      "Simone de Beauvoir",
+      "Judith Butler",
+      "bell hooks",
+      "patriarchy",
+      "gender theory",
+      "intersectionality",
+      "care ethics"
+    ]
   },
   {
     "schoolID": 30,
-    "school": "Philosophy of Science",
-    "category": "Additional Major Schools",
-    "summary": "The study of the foundations, methods, and implications of science, addressing concepts like theory, explanation, and scientific realism.",
-    "corePrinciples": "Scientific method, explanation, realism vs. anti-realism"
+    "school": "Postcolonial Philosophy",
+    "category": "Contemporary",
+    "summary": "Postcolonial philosophy critiques the legacy of colonialism and imperialism in shaping knowledge, identity, and culture. Thinkers such as Edward Said, Homi Bhabha, and Gayatri Spivak analyze hybridity, representation, and the power dynamics of East/West relations, advocating for decolonization of thought and institutions.",
+    "corePrinciples": "Decolonization, critique of imperialism, hybridity, representation, cultural identity",
+    "keywords": [
+      "Edward Said",
+      "Homi Bhabha",
+      "Spivak",
+      "Orientalism",
+      "hybridity",
+      "representation",
+      "decolonization"
+    ]
   },
   {
     "schoolID": 31,
-    "school": "Libertarianism",
-    "category": "Additional Major Schools",
-    "summary": "A political philosophy prioritizing individual liberty, minimal state intervention, and strong property rights as the basis of social order.",
-    "corePrinciples": "Individual freedom, property rights, limited government"
+    "school": "Process Philosophy",
+    "category": "Contemporary",
+    "summary": "Developed by Alfred North Whitehead and Charles Hartshorne, process philosophy emphasizes becoming, change, and relationality over static being. It sees reality as a network of interrelated events and processes rather than substances. It has influenced theology, metaphysics, and environmental thought.",
+    "corePrinciples": "Becoming over being, relational ontology, process metaphysics, creativity",
+    "keywords": [
+      "Whitehead",
+      "Hartshorne",
+      "process",
+      "becoming",
+      "events",
+      "relational ontology",
+      "creativity"
+    ]
+  },
+  {
+    "schoolID": 32,
+    "school": "Environmental Philosophy",
+    "category": "Contemporary",
+    "summary": "Environmental philosophy examines the ethical, metaphysical, and social dimensions of human interaction with nature. It includes deep ecology, ecofeminism, and sustainability ethics, emphasizing the intrinsic value of nature and the moral responsibility to protect ecosystems.",
+    "corePrinciples": "Ecocentrism, intrinsic value of nature, sustainability, ecological responsibility",
+    "keywords": [
+      "deep ecology",
+      "eco-ethics",
+      "sustainability",
+      "ecofeminism",
+      "intrinsic value",
+      "environmental ethics"
+    ]
+  },
+  {
+    "schoolID": 33,
+    "school": "Posthumanism",
+    "category": "Contemporary",
+    "summary": "A philosophical perspective questioning human-centered frameworks, emphasizing the decentering of the human in favor of networks of humans, technology, animals, and environment. Posthumanism explores transhumanism, AI ethics, and ecological interconnectedness.",
+    "corePrinciples": "Decentering the human, technology integration, ecological and species interconnectedness",
+    "keywords": [
+      "transhumanism",
+      "AI ethics",
+      "cyborg theory",
+      "Haraway",
+      "ecology",
+      "nonhuman agency"
+    ]
+  },
+  {
+    "schoolID": 34,
+    "school": "Deconstruction",
+    "category": "Contemporary",
+    "summary": "Developed by Jacques Derrida, deconstruction is a method of textual analysis that exposes internal contradictions and instabilities in meaning. It undermines binary oppositions (such as presence/absence, speech/writing) and highlights the play of différance in language.",
+    "corePrinciples": "Instability of meaning, critique of binaries, textual play, différance",
+    "keywords": [
+      "Derrida",
+      "différance",
+      "binary opposition",
+      "logocentrism",
+      "textual analysis"
+    ]
+  },
+  {
+    "schoolID": 35,
+    "school": "Practical Philosophy",
+    "category": "Applied Philosophy",
+    "summary": "An orientation that applies philosophical methods and reasoning to everyday problems and social issues. Practical philosophy engages with ethics, politics, education, and personal life, emphasizing wisdom as lived practice rather than abstract theory.",
+    "corePrinciples": "Application of philosophy, ethical living, wisdom in practice",
+    "keywords": [
+      "applied philosophy",
+      "ethics",
+      "politics",
+      "education",
+      "practical reasoning",
+      "wisdom"
+    ]
+  },
+  {
+    "schoolID": 36,
+    "school": "Philosophy of Technology",
+    "category": "Applied Philosophy",
+    "summary": "A contemporary branch exploring the nature of technology, its impact on society, and the ethical implications of technological change. Thinkers such as Heidegger, Don Ihde, and Bernard Stiegler analyze how technology shapes human existence, perception, and power structures.",
+    "corePrinciples": "Critique of technology, human-technology relation, ethics of innovation",
+    "keywords": [
+      "Heidegger",
+      "Stiegler",
+      "Don Ihde",
+      "technology",
+      "ethics",
+      "cybernetics",
+      "innovation"
+    ]
   }
 ]

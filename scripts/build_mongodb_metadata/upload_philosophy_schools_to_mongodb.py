@@ -7,7 +7,7 @@ collection 'philosophy_schools'. It processes the JSON array and creates individ
 documents for each philosophical school with proper indexing and metadata.
 
 Author: Daemonium System
-Version: 1.0.0
+Version: 2.0.0
 """
 
 import os
@@ -109,13 +109,23 @@ class PhilosophySchoolUploader:
     def _create_indexes(self) -> None:
         """Create indexes for the philosophy_schools collection."""
         try:
+            # Drop any existing text indexes to comply with MongoDB's single text index rule
+            existing_indexes = self.collection.index_information()
+            for name, info in existing_indexes.items():
+                key_spec = info.get('key', [])
+                if any(isinstance(direction, str) and direction.lower() == 'text' for _, direction in key_spec):
+                    self.logger.info(f"Dropping existing text index: {name}")
+                    self.collection.drop_index(name)
+
             indexes = [
-                IndexModel([("school_id", ASCENDING)], unique=True),
-                IndexModel([("school", ASCENDING)]),  # Removed unique constraint
-                IndexModel([("category", ASCENDING)]),
-                IndexModel([("school", ASCENDING), ("category", ASCENDING)])
+                IndexModel([("school_id", ASCENDING)], name="idx_school_id_unique", unique=True),
+                IndexModel([("school", ASCENDING)], name="idx_school"),
+                IndexModel([("category", ASCENDING)], name="idx_category"),
+                IndexModel([("school", ASCENDING), ("category", ASCENDING)], name="idx_school_category"),
+                IndexModel([("keywords", ASCENDING)], name="idx_keywords"),
+                IndexModel([( "school", "text" ), ( "summary", "text" ), ( "core_principles", "text" ), ( "keywords", "text" )], name="philosophy_schools_text_v2"),
             ]
-            
+
             self.collection.create_indexes(indexes)
             self.logger.info("Created indexes for philosophy_schools collection")
             
@@ -173,17 +183,19 @@ class PhilosophySchoolUploader:
         document['school_normalized'] = school_name.lower().replace(' ', '_')
         document['category_normalized'] = school_data.get('category', 'Unknown').lower().replace(' ', '_').replace('&', 'and')
         
-        # Extract keywords from summary and principles for enhanced search
-        summary_text = school_data.get('summary', '') + ' ' + school_data.get('corePrinciples', '')
-        keywords = []
-        
-        # Simple keyword extraction (could be enhanced with NLP)
-        common_words = {'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'as', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might', 'must', 'can', 'that', 'this', 'these', 'those'}
-        
-        words = summary_text.lower().replace(',', ' ').replace('.', ' ').replace(';', ' ').split()
-        keywords = [word.strip() for word in words if len(word) > 3 and word not in common_words]
-        
-        document['keywords'] = list(set(keywords))  # Remove duplicates
+        # Use provided keywords from JSON (v2 format). Do NOT derive legacy keywords.
+        raw_keywords = school_data.get('keywords', []) or []
+        if not isinstance(raw_keywords, list):
+            raw_keywords = []
+        seen = set()
+        normalized_keywords: List[str] = []
+        for kw in raw_keywords:
+            if isinstance(kw, str):
+                k = kw.strip()
+                if k and k.lower() not in seen:
+                    seen.add(k.lower())
+                    normalized_keywords.append(k)
+        document['keywords'] = normalized_keywords
         
         return document
         

@@ -27,3 +27,5 @@
 - Topics selection drop down menu to use instead of philosophers selection drop down menu
 - Topics with select a random philosopher related to topic selected
 - Randomized introduction about topic from selected philosopher to start conversation
+
+- Added keywords to Schools

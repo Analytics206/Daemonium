@@ -223,6 +223,63 @@ The monitoring system follows a sidecar pattern with the following components:
   - Check MongoDB `chat_history` to see the user/session payload appear shortly after.
   - POST an assistant payload (`type='assistant_message'`); verify MongoDB `chat_reponse_history` contains the document shortly after.
 
+### Backend: Philosophy Keywords Ingestion v2
+
+- **Purpose**: Ingest curated philosophy themes/keywords for search and ontology support.
+- **Source File**: `json_bot_docs/philosophy_keywords/philosophy_keywords.json`
+- **JSON Schema (array of entries)**:
+  - `theme: string`
+  - `definition: string`
+  - `keywords: string[]` (normalized: trimmed, case-insensitive deduplication, order preserved)
+- **Uploader Script**: `scripts/build_mongodb_metadata/upload_philosophy_keywords_to_mongodb.py` (v2.0.0)
+  - Processes only the new array format; legacy formats removed.
+  - Upserts one document per theme into MongoDB collection `philosophy_keywords`.
+  - `_id = slugified(theme)`; fields include `category`, `filename`, `theme`, `definition`, `keywords`, and `metadata` with `keyword_count`, `upload_timestamp`, `last_updated`, `source_file`.
+- **Indexing**:
+  - Single-field: `idx_theme`, `idx_filename`, `idx_keywords`.
+  - Text index: `philosophy_keywords_text_v2` over `theme`, `definition`, `keywords`.
+  - Safety: drops any existing text index before creating the unified text index (Mongo supports one text index per collection).
+- **Error Handling & Stats**:
+  - Skips non-dict entries or entries missing required fields (`theme`, `keywords`) or invalid `_id`.
+  - Logs to `philosophy_keywords_upload.log` and console.
+  - Aggregates stats: `processed`, `uploaded`, `updated`, `errors`.
+- **Configuration**:
+  - Uses `config/default.yaml` → `mongodb` section: `host`, `port`, `database`, `username`, `password` (auth via `authSource=admin` when credentials provided).
+- **Execution (PowerShell)**:
+  ```powershell
+  # From project root
+  python scripts/build_mongodb_metadata/upload_philosophy_keywords_to_mongodb.py
+  ```
+
+### Backend: Philosophy Schools Ingestion v2
+
+ - **Purpose**: Ingest curated philosophy schools with explicit keywords for search and joins.
+ - **Source File**: `json_bot_docs/philosophy_school/philosophy_school.json`
+ - **JSON Schema (array of entries)**:
+   - `schoolID: number` (primary identifier)
+   - `school: string`
+   - `category: string`
+   - `summary: string`
+   - `corePrinciples: string`
+   - `keywords: string[]` (v2: used directly; normalized by trimming and case-insensitive deduplication, order preserved)
+ - **Uploader Script**: `scripts/build_mongodb_metadata/upload_philosophy_schools_to_mongodb.py` (v2.0.0)
+   - Computes `_id = "school_{schoolID}"` and stores `school_id` as numeric field.
+   - Persists: `school`, `category`, `summary`, `core_principles` (mapped from `corePrinciples`), `keywords`.
+   - Derived: `school_normalized` and `category_normalized` for equality/search.
+   - Metadata: `metadata.upload_timestamp`, `metadata.last_updated`, `metadata.source_file`.
+   - No legacy keyword derivation from `summary` or `corePrinciples`.
+ - **Indexing**:
+   - Single-field/compound: `idx_school_id_unique` (unique), `idx_school`, `idx_category`, `idx_school_category`, `idx_keywords`.
+   - Text index: `philosophy_schools_text_v2` over `school`, `summary`, `core_principles`, `keywords`.
+   - Safety: drops any existing text index before creating the unified text index (Mongo allows only one text index per collection).
+ - **Configuration**:
+   - Uses `config/default.yaml` → `mongodb`: `host`, `port`, `database`, `username`, `password` (auth via `authSource=admin` when credentials provided).
+ - **Execution (PowerShell)**:
+   ```powershell
+   # From project root
+   python scripts/build_mongodb_metadata/upload_philosophy_schools_to_mongodb.py
+   ```
+
 ## Future Design Considerations
 - Asynchronous processing pipeline
 - Event-driven architecture for better component decoupling

@@ -2,18 +2,23 @@
 """
 MongoDB Philosophy Keywords Uploader Script
 
-This script uploads the philosophy_keywords.json file to the MongoDB database 'daemonium' 
-collection 'philosophy_keywords'. It processes the comprehensive philosophy keywords structure
-including philosophical branches, fundamental concepts, and major questions.
+This script uploads the philosophy_keywords.json file to the MongoDB database 'daemonium'
+collection 'philosophy_keywords'. It processes a JSON array of entries, each with:
+- theme: string
+- definition: string
+- keywords: string[]
+
+One MongoDB document is stored per theme (_id = slugified theme). Legacy formats are no longer supported.
 
 Author: Daemonium System
-Version: 1.0.0
+Version: 2.0.0
 """
 
 import os
 import json
 import yaml
 import logging
+import re
 from pathlib import Path
 from typing import Dict, Any, List
 from pymongo import MongoClient, IndexModel, ASCENDING
@@ -106,7 +111,7 @@ class PhilosophyKeywordsUploader:
             self.client.close()
             self.logger.info("MongoDB connection closed")
             
-    def _load_json_file(self, file_path: Path) -> Dict[str, Any]:
+    def _load_json_file(self, file_path: Path) -> Any:
         """Load and parse a JSON file."""
         try:
             with open(file_path, 'r', encoding='utf-8') as file:
@@ -123,11 +128,20 @@ class PhilosophyKeywordsUploader:
     def _create_indexes(self) -> None:
         """Create indexes for the philosophy_keywords collection."""
         try:
+            # Drop any existing text indexes to comply with Mongo's single text index rule
+            existing_indexes = self.collection.index_information()
+            for name, info in existing_indexes.items():
+                # info.get('key') is a list of tuples: (field, direction)
+                key_spec = info.get('key', [])
+                if any(isinstance(direction, str) and direction.lower() == 'text' for _, direction in key_spec):
+                    self.logger.info(f"Dropping existing text index: {name}")
+                    self.collection.drop_index(name)
+
             indexes = [
-                IndexModel([("category", ASCENDING)]),
-                IndexModel([("filename", ASCENDING)]),
-                IndexModel([("keywords", ASCENDING)]),
-                IndexModel([("philosophy_keywords", "text"), ("fundamental_concepts", "text"), ("major_philosophical_questions", "text"), ("keywords", "text")], name="text_search_index")
+                IndexModel([("theme", ASCENDING)], name="idx_theme"),
+                IndexModel([("filename", ASCENDING)], name="idx_filename"),
+                IndexModel([("keywords", ASCENDING)], name="idx_keywords"),
+                IndexModel([("theme", "text"), ("definition", "text"), ("keywords", "text")], name="philosophy_keywords_text_v2")
             ]
             
             self.collection.create_indexes(indexes)
@@ -137,54 +151,48 @@ class PhilosophyKeywordsUploader:
             self.logger.error(f"Error creating indexes: {e}")
             raise
 
-    def _prepare_document(self, json_data: Dict[str, Any], filename: str) -> Dict[str, Any]:
-        """Prepare the complete philosophy keywords document for MongoDB insertion."""
+    def _slugify(self, text: str) -> str:
+        """Create a slug from theme text for stable document IDs."""
+        text = text.strip().lower()
+        text = re.sub(r"[^a-z0-9\s-]", "", text)
+        text = re.sub(r"[\s-]+", "-", text)
+        return text
+
+    def _prepare_entry_document(self, entry: Dict[str, Any], filename: str) -> Dict[str, Any]:
+        """Prepare a single theme document for MongoDB insertion."""
         current_time = datetime.utcnow()
-        
-        # Extract all keywords for search indexing
-        all_keywords = []
-        
-        # Collect keywords from philosophical branches
-        philosophy_keywords = json_data.get('philosophy_keywords', {})
-        for branch_data in philosophy_keywords.values():
-            all_keywords.extend(branch_data.get('key_concepts', []))
-        
-        # Add fundamental concepts
-        all_keywords.extend(json_data.get('fundamental_concepts', []))
-        
-        # Add questions as keywords (first few words of each question)
-        questions = json_data.get('major_philosophical_questions', [])
-        for question in questions:
-            # Extract first 3-4 words from each question for keyword indexing
-            question_words = question.lower().replace('?', '').split()[:4]
-            all_keywords.extend(question_words)
-        
-        # Calculate statistics
-        total_branches = len(philosophy_keywords)
-        total_concepts = len(json_data.get('fundamental_concepts', []))
-        total_questions = len(questions)
-        total_branch_concepts = sum(len(branch.get('key_concepts', [])) for branch in philosophy_keywords.values())
-        
+
+        theme = entry.get('theme')
+        definition = entry.get('definition', '')
+        keywords = entry.get('keywords', []) or []
+
+        # Normalize keywords and remove duplicates while preserving order
+        seen = set()
+        normalized_keywords: List[str] = []
+        for kw in keywords:
+            if isinstance(kw, str):
+                k = kw.strip()
+                if k and k.lower() not in seen:
+                    seen.add(k.lower())
+                    normalized_keywords.append(k)
+
+        theme_slug = self._slugify(theme) if isinstance(theme, str) else None
+
         document = {
-            '_id': 'philosophy_keywords_complete',
+            '_id': theme_slug or None,
             'category': 'Philosophy Keywords',
             'filename': filename,
-            'philosophy_keywords': philosophy_keywords,
-            'fundamental_concepts': json_data.get('fundamental_concepts', []),
-            'major_philosophical_questions': questions,
-            'keywords': list(set(all_keywords)),  # Remove duplicates for search indexing
+            'theme': theme,
+            'definition': definition,
+            'keywords': normalized_keywords,
             'metadata': {
-                'total_branches': total_branches,
-                'total_fundamental_concepts': total_concepts,
-                'total_questions': total_questions,
-                'total_branch_concepts': total_branch_concepts,
-                'total_unique_keywords': len(set(all_keywords)),
+                'keyword_count': len(normalized_keywords),
                 'upload_timestamp': current_time,
                 'last_updated': current_time,
                 'source_file': filename
             }
         }
-        
+
         return document
             
     def _upsert_document(self, document: Dict[str, Any]) -> bool:
@@ -240,24 +248,43 @@ class PhilosophyKeywordsUploader:
         try:
             # Load the JSON file
             json_data = self._load_json_file(keywords_path)
+            if not isinstance(json_data, list):
+                raise ValueError("philosophy_keywords.json must be a JSON array of {theme, definition, keywords}")
             
             # Create indexes
             self._create_indexes()
             
-            # Process the entire file as one document
-            stats['processed'] = 1
-            
-            document = self._prepare_document(json_data, keywords_path.name)
-            
-            # Check if this is an update or new upload
-            existing_doc = self.collection.find_one({'_id': document['_id']})
-            
-            # Upload/update the document
-            if self._upsert_document(document):
-                if existing_doc:
-                    stats['updated'] = 1
-                else:
-                    stats['uploaded'] = 1
+            # Process entries individually
+            for entry in json_data:
+                if not isinstance(entry, dict):
+                    self.logger.warning(f"Skipping non-dict entry: {entry}")
+                    stats['errors'] += 1
+                    continue
+
+                # Basic validation
+                if 'theme' not in entry or 'keywords' not in entry:
+                    self.logger.warning(f"Skipping invalid entry missing required fields: {entry}")
+                    stats['errors'] += 1
+                    continue
+
+                document = self._prepare_entry_document(entry, keywords_path.name)
+
+                # Validate _id (requires valid theme)
+                if not document.get('_id'):
+                    self.logger.warning(f"Skipping entry with invalid theme for _id: {entry}")
+                    stats['errors'] += 1
+                    continue
+
+                stats['processed'] += 1
+
+                # Determine if existing before upsert to set stats
+                existing_doc = self.collection.find_one({'_id': document['_id']})
+
+                if self._upsert_document(document):
+                    if existing_doc:
+                        stats['updated'] += 1
+                    else:
+                        stats['uploaded'] += 1
                     
         except Exception as e:
             self.logger.error(f"Error processing philosophy keywords file: {e}")

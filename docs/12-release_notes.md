@@ -1,5 +1,58 @@
 # Daemonium
 ---
+## Version 0.3.15 (August 19, 2025)
+
+### Data Ingestion: Philosophy Schools Keywords v2 + Uploader v2.0.0
+
+- Adopted explicit `keywords: string[]` in `json_bot_docs/philosophy_school/philosophy_school.json` (used directly; no legacy derivation).
+- Updated uploader `scripts/build_mongodb_metadata/upload_philosophy_schools_to_mongodb.py` to v2.0.0:
+  - Uses provided `keywords` array with normalization (trim, case-insensitive dedup, order preserved).
+  - Removes legacy keyword extraction from `summary` and `corePrinciples`.
+  - Creates indexes: `school_id` (unique), `school`, `category`, `school+category`, `keywords`.
+  - Drops any existing text index then creates a single text index over `school/summary/core_principles/keywords`.
+  - Adds derived fields: `school_normalized`, `category_normalized`.
+
+### Files Changed
+
+- `scripts/build_mongodb_metadata/upload_philosophy_schools_to_mongodb.py` (Version 2.0.0)
+- `docs/06-system_design.md` — added "Philosophy Schools Ingestion v2" section
+- `docs/12-release_notes.md` — this entry
+
+### Verification (PowerShell)
+
+```powershell
+# From project root with venv active
+python scripts/build_mongodb_metadata/upload_philosophy_schools_to_mongodb.py
+
+# After run, verify MongoDB collection 'philosophy_schools' has documents with 'keywords' arrays populated
+# Optionally verify indexes via your MongoDB client (one text index named 'philosophy_schools_text_v2')
+```
+
+---
+## Version 0.3.14 (August 19, 2025)
+
+### Data Ingestion: Philosophy Keywords JSON Restructure + Uploader v2.0.0
+
+- Simplified `json_bot_docs/philosophy_keywords/philosophy_keywords.json` to a flat JSON array of entries:
+  - `{ theme: string, definition: string, keywords: string[] }`
+- Updated uploader `scripts/build_mongodb_metadata/upload_philosophy_keywords_to_mongodb.py` to v2.0.0:
+  - Processes the new array format only (legacy formats removed)
+  - Upserts one document per theme into `philosophy_keywords` (Mongo `_id` = slugified `theme`)
+  - Indexes: `theme`, `filename`, `keywords`, and a text index over `theme/definition/keywords`
+  - Deduplicates/normalizes keyword strings per entry
+- Collection shape change is localized; no other services referenced legacy fields.
+
+### Verification (PowerShell)
+
+```powershell
+# From project root with your venv active
+python scripts/build_mongodb_metadata/upload_philosophy_keywords_to_mongodb.py
+
+# After run, verify documents per theme exist in MongoDB collection 'philosophy_keywords'
+# (e.g., via mongosh or your preferred MongoDB client)
+```
+
+---
 ## Version 0.3.13 (August 19, 2025)
 
 ### Web UI + API: Ollama response capture fixed and Redis logging centralized (UID-only, no duplicates)
