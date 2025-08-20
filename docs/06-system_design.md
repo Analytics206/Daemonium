@@ -280,6 +280,17 @@ The monitoring system follows a sidecar pattern with the following components:
    python scripts/build_mongodb_metadata/upload_philosophy_schools_to_mongodb.py
    ```
 
+### Backend: Global Search Coverage and Filters (v0.3.16)
+
+- Added `philosophy_schools` to global search coverage in both `backend/database.py` and `backend/routers/search.py`.
+- Implemented collection-specific search filter for `philosophy_schools` using regex across:
+  - `name`, `school`, `category`, `summary`, `core_principles`, `corePrinciples`, `keywords`.
+- Corrected collection naming to `top_10_ideas` across the search router (was `top_ten_ideas` in some paths) to match database naming.
+- Content-only search now uses: `books`, `book_summary`, `aphorisms`, `top_10_ideas`, `idea_summary`.
+- Notes:
+  - Database `philosophy_schools` text index: `philosophy_schools_text_v2` (weights verified), with keywords supported per ingestion v2.
+  - Global search falls back to regex where text indexes are not available; router mirrors this behavior per-collection.
+
 ## Future Design Considerations
 - Asynchronous processing pipeline
 - Event-driven architecture for better component decoupling

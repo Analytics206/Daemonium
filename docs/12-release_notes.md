@@ -1,5 +1,34 @@
 # Daemonium
 ---
+## Version 0.3.16 (August 20, 2025)
+
+### Backend: Global Search includes Philosophy Schools + Collection Naming Fix
+
+- Added `philosophy_schools` to global search scope in `backend/database.py` and API router `backend/routers/search.py`.
+- Implemented collection-specific regex filter for `philosophy_schools` supporting fields: `name`, `school`, `category`, `summary`, `core_principles`, `corePrinciples`, and `keywords`.
+- Corrected collection name references from `top_ten_ideas` to `top_10_ideas` across the search router to match database naming.
+
+### Files Changed
+
+- `backend/database.py` — global search now includes `philosophy_schools` with keywords support.
+- `backend/routers/search.py` — valid collections updated; added `philosophy_schools` filter; fixed `top_10_ideas` naming.
+
+### Verification (PowerShell)
+
+```powershell
+$base = 'http://localhost:8000'
+
+# Global search (all collections)
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/search?query=stoic"
+
+# Filtered to philosophy_schools only
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/search?query=logos&collections=philosophy_schools"
+
+# Content-only search (books, book_summary, aphorisms, top_10_ideas, idea_summary)
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/search/content?query=virtue"
+```
+
+---
 ## Version 0.3.15 (August 19, 2025)
 
 ### Data Ingestion: Philosophy Schools Keywords v2 + Uploader v2.0.0

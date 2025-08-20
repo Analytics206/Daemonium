@@ -221,24 +221,43 @@ class DatabaseManager:
         return school
     
     async def search_philosophy_schools(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
-        """Search philosophy schools by name, category, or content"""
+        """Search philosophy schools by name, category, content, or keywords.
+        Tries MongoDB $text search first (philosophy_schools_text_v2),
+        then falls back to regex across key fields including 'keywords'.
+        """
         collection = self.get_collection("philosophy_schools")
-        
-        # Create a text search filter - search both original and normalized fields
-        search_filter = {
-            "$or": [
-                {"name": {"$regex": query, "$options": "i"}},
-                {"school": {"$regex": query, "$options": "i"}},  # From JSON structure
-                {"category": {"$regex": query, "$options": "i"}},
-                {"summary": {"$regex": query, "$options": "i"}},
-                {"core_principles": {"$regex": query, "$options": "i"}},
-                {"corePrinciples": {"$regex": query, "$options": "i"}}  # From JSON structure
-            ]
-        }
-        
-        cursor = collection.find(search_filter).limit(limit)
-        schools = await cursor.to_list(length=limit)
-        
+
+        schools: List[Dict[str, Any]] = []
+
+        # Prefer text index search when available
+        try:
+            cursor = (
+                collection
+                .find({"$text": {"$search": query}}, {"score": {"$meta": "textScore"}})
+                .sort([("score", {"$meta": "textScore"})])
+                .limit(limit)
+            )
+            schools = await cursor.to_list(length=limit)
+        except Exception as e:
+            # Text index might not exist in some environments; fall back to regex
+            logger.debug(f"Text search on philosophy_schools unavailable or failed: {e}")
+
+        if not schools:
+            # Regex fallback including new 'keywords' array
+            search_filter = {
+                "$or": [
+                    {"name": {"$regex": query, "$options": "i"}},
+                    {"school": {"$regex": query, "$options": "i"}},  # From JSON structure
+                    {"category": {"$regex": query, "$options": "i"}},
+                    {"summary": {"$regex": query, "$options": "i"}},
+                    {"core_principles": {"$regex": query, "$options": "i"}},
+                    {"corePrinciples": {"$regex": query, "$options": "i"}},  # From JSON structure
+                    {"keywords": {"$regex": query, "$options": "i"}},  # New keywords support
+                ]
+            }
+            cursor = collection.find(search_filter).limit(limit)
+            schools = await cursor.to_list(length=limit)
+
         # Convert ObjectId to string and ensure proper field mapping
         for school in schools:
             if "_id" in school:
@@ -246,7 +265,7 @@ class DatabaseManager:
             # Map schoolID to school_id if needed
             if "schoolID" in school and "school_id" not in school:
                 school["school_id"] = school["schoolID"]
-        
+
         return schools
     
     async def get_philosophers_by_school(self, school_id: str, skip: int = 0, limit: int = 100, is_active_chat: Optional[int] = None) -> List[Dict[str, Any]]:
@@ -688,7 +707,12 @@ class DatabaseManager:
     
     # Search methods
     async def global_search(self, query: str, limit: int = 50) -> Dict[str, List[Dict[str, Any]]]:
-        """Search across multiple collections"""
+        """Search across multiple collections.
+
+        Includes philosophers, philosopher summaries, books, book summaries,
+        aphorisms, top_10_ideas, idea_summary, philosophy_themes, persona_core,
+        and philosophy_schools (with keyword support).
+        """
         results = {}
         
         # Search in key collections
@@ -701,6 +725,7 @@ class DatabaseManager:
             "top_10_ideas",
             "idea_summary",
             "philosophy_themes",
+            "philosophy_schools",
             "persona_core"
         ]
         
@@ -793,6 +818,19 @@ class DatabaseManager:
                             {"philosophy_and_themes.aphorisms": {"$regex": query, "$options": "i"}},
                             {"philosophy_and_themes.discussion_templates.type": {"$regex": query, "$options": "i"}},
                             {"philosophy_and_themes.discussion_templates.pattern": {"$regex": query, "$options": "i"}}
+                        ]
+                    }
+                elif collection_name == "philosophy_schools":
+                    # Support text-like regex search across key school fields, including keywords
+                    search_filter = {
+                        "$or": [
+                            {"name": {"$regex": query, "$options": "i"}},
+                            {"school": {"$regex": query, "$options": "i"}},
+                            {"category": {"$regex": query, "$options": "i"}},
+                            {"summary": {"$regex": query, "$options": "i"}},
+                            {"core_principles": {"$regex": query, "$options": "i"}},
+                            {"corePrinciples": {"$regex": query, "$options": "i"}},
+                            {"keywords": {"$regex": query, "$options": "i"}}
                         ]
                     }
                 elif collection_name == "persona_core":

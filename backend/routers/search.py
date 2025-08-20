@@ -36,7 +36,7 @@ async def global_search(
             # Validate collection names
             valid_collections = [
                 "philosophers", "philosopher_summary", "books", "book_summary", "aphorisms",
-                "top_ten_ideas", "idea_summary", "philosophy_themes",
+                "top_10_ideas", "idea_summary", "philosophy_themes", "philosophy_schools",
                 "modern_adaptation", "discussion_hook", "philosopher_bio",
                 "persona_core", "chat_blueprint", "conversation_logic", "philosopher_bot"
             ]
@@ -150,7 +150,7 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
             ]
         }
     
-    elif collection_name == "top_ten_ideas":
+    elif collection_name == "top_10_ideas":
         return {
             "$or": [
                 {"author": {"$regex": query, "$options": "i"}},
@@ -231,6 +231,20 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
             ]
         }
     
+    elif collection_name == "philosophy_schools":
+        # Support regex search across key school fields, including keywords
+        return {
+            "$or": [
+                {"name": {"$regex": query, "$options": "i"}},
+                {"school": {"$regex": query, "$options": "i"}},
+                {"category": {"$regex": query, "$options": "i"}},
+                {"summary": {"$regex": query, "$options": "i"}},
+                {"core_principles": {"$regex": query, "$options": "i"}},
+                {"corePrinciples": {"$regex": query, "$options": "i"}},
+                {"keywords": {"$regex": query, "$options": "i"}}
+            ]
+        }
+    
     else:
         # Generic search for other collections
         return {
@@ -290,7 +304,7 @@ async def search_content(
     try:
         start_time = time.time()
         
-        content_collections = ["books", "book_summary", "aphorisms", "top_ten_ideas", "idea_summary"]
+        content_collections = ["books", "book_summary", "aphorisms", "top_10_ideas", "idea_summary"]
         results = await search_specific_collections(db_manager, query, content_collections, limit)
         
         search_time = (time.time() - start_time) * 1000
