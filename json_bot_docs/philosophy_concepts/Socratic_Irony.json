@@ -1,24 +1,29 @@
 {
     "Concept": "Socratic Irony",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Socrates", "Plato"],
     "Antagonist": "The assumption of knowledge without examination; untested or contradictory beliefs.",
     "Keywords": [
-      "Socratic Irony",
-      "Socrates",
-      "Socratic Method",
-      "feigned ignorance",
-      "rhetoric",
-      "critical thinking",
-      "dialectic",
-      "philosophical dialogue",
-      "exposing contradictions",
-      "intellectual humility",
-      "I know that I know nothing",
-      "Plato",
-      "education",
-      "logic",
-      "epistemology"
+      "Socratic"
+      , "Ironic"
+      , "Socrates"
+      , "Method"
+      , "feigned"
+      , "ignorance"
+      , "rhetoric"
+      , "critical"
+      , "thinking"
+      , "dialectic"
+      , "philosophical"
+      , "dialogue"
+      , "exposing"
+      , "contradictions"
+      , "intellectual"
+      , "humility"
+      , "Plato"
+      , "education"
+      , "logic"
+      , "epistemology"
     ],
     "Content": "Socratic Irony is a rhetorical technique used by Socrates in which he pretended to be ignorant or humble in order to expose contradictions in another person's beliefs. This form of feigned ignorance forces the other person to critically examine their own ideas, often leading them to realize they do not understand as much as they thought. Socrates would engage in dialogue by asking seemingly innocent questions, appearing not to know the answer. His interlocutors, believing themselves wise, would confidently explain their views—only for Socrates, through further questioning, to reveal contradictions or flaws in their reasoning. Eventually, the person would admit their ignorance, echoing Socrates' famous claim: 'I know that I know nothing.' This technique is central to the Socratic Method, a teaching style that promotes critical thinking through persistent questioning. It remains a cornerstone of philosophical inquiry, law, and education. Socratic Irony can serve as both a teaching tool and a subtle intellectual trap—encouraging self-reflection, but also frustrating or even humiliating opponents. Despite its potential sting, it remains one of the most effective ways to reveal the limits of knowledge."
   }  

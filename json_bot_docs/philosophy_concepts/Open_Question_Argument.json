@@ -1,12 +1,15 @@
 {
     "Concept": "Open Question Argument",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["G. E. Moore", "Various Philosophers"],
     "Antagonist": "Ethical naturalism",
     "Keywords": [
-        "Open Question Argument"
+        "Open"
+        , "Question"
+        , "Argument"
         , "G. E. Moore"
-        , "Ethical naturalism"
+        , "Ethical"
+        , "naturalism"
     ],
     "Content": "The Open Question Argument, introduced by G. E. Moore in his 1903 work 'Principia Ethica,' challenges the idea that moral properties such as 'good' can be defined in terms of natural properties like pleasure or survival. Moore's reasoning is that if 'good' were truly identical to 'pleasure,' the question 'Is pleasure good?' would be meaningless. Yet this remains a valid and open question, showing that the terms are not synonymous. In contrast, asking 'Is a bachelor an unmarried man?' is trivial because the definitions are identical. Moore argued that goodness is a simple, indefinable property recognized through intuition, not reducible to scientific or empirical facts. This argument influenced ethics by discouraging naturalistic definitions of morality and suggesting that moral values occupy a distinct, irreducible domain. Critics counter that an open-seeming question can still have an objective answer, and that language change may eventually close such questions. The debate over whether morality depends on or exists independently of natural facts continues in contemporary philosophy."
   }

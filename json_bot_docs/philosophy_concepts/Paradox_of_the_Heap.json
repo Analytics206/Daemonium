@@ -1,11 +1,13 @@
 {
     "Concept": "Paradox of the Heap",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["René Descartes", "John Locke", "John Stuart Mill", "Immanuel Kant"],
     "Antagonist": "",
     "Keywords": [
-        "Paradox of the Heap"
-        , "Sorites Paradox"
+        "Paradox"
+        , "Heap"
+        , "Sorites"
+        , "Paradox"
         , "Philosophy"
         , "Logic"
         , "Language"

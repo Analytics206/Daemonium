@@ -1,16 +1,19 @@
 {
     "Concept": "Prisoner’s Dilemma",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Merrill Flood", "Melvin Dresher"],
     "Antagonist": "Mutual Distrust",
     "Keywords": [
-        "Prisoner's Dilemma"
-        , "game theory"
-        , "cooperation"
-        , "trust"
-        , "competition"
-        , "collective action"
-        , "decision-making"
+        "Prisoner"
+        , "Dilemma"
+        , "Game"
+        , "Theory"
+        , "Cooperation"
+        , "Trust"
+        , "Competition"
+        , "Collective"
+        , "Action"
+        , "Decision-Making"
         , "economics"
         , "politics"
         , "psychology"

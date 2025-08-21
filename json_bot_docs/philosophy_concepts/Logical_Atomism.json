@@ -4,7 +4,8 @@
     "Author": ["Bertrand Russell", "Ludwig Wittgenstein", "Gottlob Frege", "John Stuart Mill", "David Hume"],
     "Antagonist": "Holism",
     "Keywords": [   
-        "Logical Atomism"
+        "Logical"
+        , "Atomism"
         , "Bertrand Russell"
         , "Ludwig Wittgenstein"
         , "Gottlob Frege"
@@ -12,7 +13,8 @@
         , "David Hume"
         , "Metaphysics"
         , "Logic"
-        , "atoms of meaning"
+        , "atoms"
+        , "meaning"
         , "truth"
         , "language"
     ],

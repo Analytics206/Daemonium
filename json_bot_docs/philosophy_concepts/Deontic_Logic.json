@@ -1,6 +1,6 @@
 {
     "Concept": "Deontic Logic",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Ernst Mally", "Georg Henrik von Wright"],
     "Antagonist": "Classical Logic (truth-focused reasoning)",
     "Keywords": [
@@ -8,12 +8,16 @@
         , "obligations"
         , "permissions"
         , "prohibitions"
-        , "normative reasoning"
+        , "normative"
+        , "reasoning"
         , "ethics"
-        , "moral philosophy"
-        , "legal theory"
-        , "artificial intelligence"
-        , "autonomous systems"
+        , "moral"
+        , "legal"
+        , "theory"
+        , "artificial"
+        , "intelligence"
+        , "autonomous"
+        , "systems"
     ],
     "Content": "Deontic logic is a branch of logic that examines obligations, permissions, and prohibitions, providing a structured way to analyze moral and legal reasoning. Unlike classical logic, which focuses on truth and falsity, deontic logic deals with what ought to be done. It evaluates statements such as 'one must tell the truth' or 'stealing is forbidden,' helping philosophers and ethicists formalize ethical discussions. \n\nThis logic assigns specific symbols to different types of normative statements: obligations are represented as necessary actions, while permissions indicate choices that are allowed but not required. This framework is widely used in moral philosophy, legal theory, and artificial intelligence—particularly in programming ethical algorithms for autonomous systems.\n\nHowever, deontic logic also faces challenges such as paradoxes of conflicting duties, where one obligation contradicts another, raising questions about whether absolute moral rules can exist or if ethical decisions must always be context-dependent. Despite these issues, deontic logic remains a critical tool for understanding moral responsibility and ethical decision-making, offering a precise method for discussing normative principles in law, ethics, and philosophy."
 }

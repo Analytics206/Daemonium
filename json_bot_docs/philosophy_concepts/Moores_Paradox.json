@@ -1,17 +1,19 @@
 {
     "Concept": "Moore’s Paradox",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["George Edward Moore", "John Locke", "John Stuart Mill", "Immanuel Kant"],
     "Antagonist": "Epistemic Incoherence",
     "Keywords": [
-        "Moore's Paradox"
+        "Moore's"
+        , "Paradox"
         , "belief"
         , "self-awareness"
         , "rationality"
-        , "philosophy of mind"
-        , "philosophy of language"
+        , "mind"
+        , "language"
         , "self-knowledge"
-        , "cognitive dissonance"
+        , "cognitive"
+        , "dissonance"
         , "contradiction"
         , "epistemology"
     ],

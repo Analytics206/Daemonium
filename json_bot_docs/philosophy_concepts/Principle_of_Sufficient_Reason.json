@@ -1,10 +1,12 @@
 {
     "Concept": "Principle of Sufficient Reason",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Gottfried Wilhelm Leibniz"],
     "Antagonist": "Unexplained or causeless events",
     "Keywords": [
-        "Principle of Sufficient Reason"
+        "Principle"
+        , "Sufficient"
+        , "Reason"
         , "Gottfried Wilhelm Leibniz"
         , "Existentialism"
     ],

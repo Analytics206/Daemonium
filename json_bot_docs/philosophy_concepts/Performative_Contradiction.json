@@ -3,12 +3,16 @@
     "Category": "Philosophy Concepts",
     "Author": ["Jürgen Habermas", "Various Philosophers"],
     "Antagonist": "Consistent Argumentation",
-    "Keywords": ["logic"
-    , "contradiction"
-    , "Habermas"
-    , "speech acts"
-    , "Logic"
-    , "Ethics"
-    , "Performative Contradiction"],
+    "Keywords": [
+        "logic"
+        , "contradiction"
+        , "Habermas"
+        , "speech"
+        , "acts"
+        , "Logic"
+        , "Ethics"
+        , "Performative"
+        , "Contradiction"
+    ],
     "Content": "A performative contradiction occurs when the content of a statement contradicts the act of asserting it, such as saying 'I cannot communicate.' Habermas uses this concept in discourse ethics."
   }

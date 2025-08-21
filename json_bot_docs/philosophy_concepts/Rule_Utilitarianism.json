@@ -4,13 +4,13 @@
     "Author": ["John Stuart Mill", "Various philosophers"],
     "Antagonist": "Act Utilitarianism",
     "Keywords": [
-        "Rule Utilitarianism"
+        "Rule"
+        , "Utilitarianism"
         , "John Stuart Mill"
-        , "Act Utilitarianism"
+        , "Act"
         , "Ethics"
         , "Rules"
         , "Consequences"
-        , "Utilitarianism"
     ],
     "Content": "Rule utilitarianism argues that actions should be judged according to rules that, if generally followed, maximize overall happiness. It avoids the inconsistencies of evaluating individual acts case by case."
   }

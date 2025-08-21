@@ -1,12 +1,13 @@
 {
     "Concept": "Meta-Ethics",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Various Philosophers"],
     "Antagonist": "Uncertainty about the nature of morality",
     "Keywords": [
         "Meta-Ethics"
-        , "Moral realism"
-        , "Moral anti-realism"
+        , "Moral"
+        , "realism"
+        , "anti-realism"
         , "Cognitivism"
         , "Non-cognitivism"
     ],

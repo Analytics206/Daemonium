@@ -10,7 +10,7 @@
         , "randomness"
         , "infinity"
         , "statistics"
-        , "Philosophy of Probability"
+        , "Probability"
     ],
     "Content": "The infinite monkey theorem suggests that given infinite time, a monkey randomly pressing keys would almost surely type out any given text, such as Shakespeare's works. It illustrates the counterintuitive nature of probability and infinity."
   }

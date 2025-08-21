@@ -1,15 +1,18 @@
 {
     "Concept": "Problem of the Criterion",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Roderick Chisholm", "Immanuel Kant", "Bertrand Russell", "G.E. Moore", "David Hume", "John Locke"],
     "Antagonist": "Epistemic Circularity",
     "Keywords": [
-        "Problem of the Criterion"
+        "Problem"
+        , "Criterion"
         , "epistemology"
         , "knowledge"
         , "justification"
-        , "infinite regress"
-        , "circular reasoning"
+        , "infinite"
+        , "regress"
+        , "circular"
+        , "reasoning"
         , "methodism"
         , "particularism"
         , "skepticism"

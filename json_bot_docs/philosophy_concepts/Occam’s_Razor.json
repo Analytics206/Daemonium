@@ -1,10 +1,11 @@
 {
     "Concept": "Occam’s Razor",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["William of Ockham", "Various Philosophers"],
     "Antagonist": "Unnecessary complexity and assumptions",
     "Keywords": [
-        "Occam’s Razor"
+        "Occam’s"
+        , "Razor"
         , "William of Ockham"
         , "Existentialism"
     ],

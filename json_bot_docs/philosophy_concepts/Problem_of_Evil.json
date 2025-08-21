@@ -1,10 +1,11 @@
 {
     "Concept": "Problem of Evil",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Various Philosophers"],
     "Antagonist": "",
     "Keywords": [
-        "Problem of Evil"
+        "Problem"
+        , "Evil"
         , "Philosophy"
         , "Theology"
         , "Existentialism"

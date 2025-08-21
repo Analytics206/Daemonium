@@ -12,8 +12,8 @@
         , "self-reference"
         , "truth"
         , "consistency"
-        , "Analytic Philosophy"
-        , "philosophy of language"
-        ],
+        , "Analytic"
+        , "language"
+    ],
     "Content": "Self-Referential Paradoxes occur when a statement refers to itself in a way that creates logical contradiction, such as 'This sentence is false.' These paradoxes challenge the foundations of truth, reference, and logical systems."
   }

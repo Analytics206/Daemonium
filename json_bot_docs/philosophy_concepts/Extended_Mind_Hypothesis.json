@@ -1,19 +1,22 @@
 {
     "Concept": "Extended Mind Hypothesis",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Andy Clark", "David Chalmers"],
     "Antagonist": "Brain-Bound View of Cognition",
     "Keywords": [
-        "Extended Mind Hypothesis"
+        "Extended"
+        , "Mind"
         , "Andy Clark"
         , "David Chalmers"
         , "cognition"
-        , "philosophy of mind"
-        , "distributed cognition"
-        , "artificial intelligence"
+        , "distributed"
+        , "artificial"
+        , "intelligence"
         , "memory"
         , "neuroscience"
-        , "human-computer interaction"
+        , "human"
+        , "computer"
+        , "interaction"
     ],
     "Content": "The Extended Mind Hypothesis, proposed by philosophers Andy Clark and David Chalmers, challenges the traditional view that the mind is confined to the brain. Instead, it argues that the mind can extend into the external world through tools, technology, and the environment. If external objects play a fundamental role in cognitive processes, they should be considered genuine parts of the mind.\n\nA classic example is the use of notebooks or smartphones as memory aids. For instance, if a person with memory loss relies on a notebook to store critical information, that notebook functions as an extension of their memory and thus their mind. Similarly, when people use calculators, GPS devices, or even social interactions to process and manage information, these tools become integral components of their cognitive system.\n\nThis perspective redefines cognition as something that can be distributed across internal and external systems, rather than existing solely within the brain. Critics argue that external tools are merely aids to thinking, not parts of cognition itself. However, proponents contend that if an external object actively participates in the thinking process, it should be considered part of that process.\n\nThe Extended Mind Hypothesis has far-reaching implications for artificial intelligence, neuroscience, and human-computer interaction. It reshapes our understanding of intelligence, memory, and cognitive boundaries, suggesting that the human mind is not limited to the body but can extend into the world around it."
 }

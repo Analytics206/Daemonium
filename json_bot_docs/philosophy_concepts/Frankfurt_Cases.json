@@ -1,19 +1,21 @@
 {
     "Concept": "Frankfurt Cases",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Harry Frankfurt"],
     "Antagonist": "Principle of Alternative Possibilities",
     "Keywords": [
         "Frankfurt Cases"
-        , "free will"
-        , "moral responsibility"
+        , "free"
+        , "will"
+        , "moral"
+        , "responsibility"
         , "determinism"
         , "compatibilism"
         , "libertarianism"
         , "ethics"
         , "agency"
         , "Harry Frankfurt"
-        , "philosophy of action"
+        , "action"
     ],
     "Content": "Frankfurt Cases, introduced by philosopher Harry Frankfurt in 1969, challenged the long-standing belief that moral responsibility requires the ability to do otherwise. Traditionally, the 'Principle of Alternative Possibilities' held that if a person could not have acted differently, they could not be held morally responsible for their actions.\n\nFrankfurt presented thought experiments suggesting otherwise. In one famous scenario, a man named Jones decides to press a button. Unknown to him, a neuroscientist has implanted a device in his brain that would force him to press the button if he were about to decide otherwise. However, Jones freely chooses to press the button on his own, so the device is never activated. Even though Jones could not have done otherwise—because the device guaranteed the outcome—he still acted from his own volition and reasoning.\n\nThese cases support compatibilism, the view that free will and determinism can coexist, by suggesting that moral responsibility depends not on the existence of alternative possibilities but on whether the action originates from the agent's own reasoning and decision-making process. Frankfurt Cases continue to play a central role in debates about ethics, agency, determinism, and the nature of moral responsibility, challenging libertarian accounts of free will."
 }

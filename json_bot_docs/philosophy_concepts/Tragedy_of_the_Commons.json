@@ -1,18 +1,21 @@
 {
     "Concept": "Tragedy of the Commons",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Garrett Hardin"],
     "Antagonist": "Unregulated Self-Interest",
     "Keywords": [
-        "Tragedy of the Commons"
-        , "shared resources"
+        "Tragedy"
+        , "Commons"
+        , "shared"
+        , "resources"
         , "self-interest"
         , "overuse"
         , "environment"
         , "climate change"
         , "overfishing"
         , "pollution"
-        , "collective action"
+        , "collective"
+        , "action"
         , "sustainability"
     ],
     "Content": "The Tragedy of the Commons describes a situation in which individuals, acting in their own self-interest, deplete a shared resource, ultimately harming everyone—including themselves. Popularized by ecologist Garrett Hardin in 1968, the concept illustrates how collective resources such as land, water, air, or fisheries can be overexploited when there is no effective regulation or cooperative management.\n\nA classic example is a group of farmers sharing a communal pasture. Each farmer benefits personally from adding more animals to graze, increasing their individual production. However, if all farmers follow this logic, the pasture becomes overgrazed and eventually destroyed, leaving no resource for anyone. The same principle applies to environmental challenges such as climate change, overfishing, deforestation, and air pollution. While each person or company may believe their individual contribution to the problem is negligible, the cumulative effect across an entire population can be catastrophic.\n\nProposed solutions to the Tragedy of the Commons include government regulation to limit usage, privatization of resources to create clear ownership, and community-based management in which local groups establish rules and responsibilities for sustainable use. Hardin himself argued for the necessity of some form of control to prevent resource depletion, though others contend that well-organized communities can self-regulate effectively without heavy-handed state intervention.\n\nThe Tragedy of the Commons highlights the enduring tension between individual freedom and collective responsibility, reminding us that without cooperation or regulation, shared resources are at risk of inevitable exhaustion."

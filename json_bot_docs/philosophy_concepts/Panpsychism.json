@@ -1,14 +1,15 @@
 {
     "Concept": "Panpsychism",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Various Philosophers"],
     "Antagonist": "Materialist View of Consciousness",
     "Keywords": [
         "Panpsychism"
         , "consciousness"
-        , "mind and matter"
-        , "philosophy of mind"
-        , "hard problem of consciousness"
+        , "mind"
+        , "matter"
+        , "hard"
+        , "problem"
         , "micropsychism"
         , "cosmopsychism"
         , "metaphysics"

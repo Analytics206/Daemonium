@@ -1,19 +1,24 @@
 {
     "Concept": "Problem of Dirty Hands",
-    "category": "Philosophy Concepts",
+    "Category": "Philosophy Concepts",
     "Author": ["Michael Walzer (modern formulation)", "John Rawls", "John Locke", "John Stuart Mill", "Immanuel Kant"],
     "Antagonist": "Deontological Ethics (absolute moral rules)",
     "Keywords": [
-        "dirty hands"
-        , "moral dilemma"
-        , "political ethics"
+        "Problem"
+        , "Dirty"
+        , "Hands"
+        , "dilemma"
+        , "political"
+        , "Ethics"
         , "leadership"
         , "consequentialism"
         , "deontology"
         , "warfare"
         , "governance"
-        , "moral responsibility"
-        , "greater good"
+        , "moral"
+        , "responsibility"
+        , "greater"
+        , "good"
     ],
     "Content": "The problem of dirty hands is a moral dilemma that explores whether individuals—particularly leaders—can be justified in committing immoral actions for the sake of a greater good. It arises in politics, warfare, and governance, where decisions often involve choosing between two morally troubling outcomes. Philosopher Michael Walzer describes this problem in situations where leaders must engage in morally questionable acts such as lying, manipulation, or even violence to protect society or achieve a noble goal. \n\nA common example is whether torturing a terrorist to prevent an attack is justifiable: while torture is widely condemned, allowing mass casualties may seem like the greater evil. This creates an ethical paradox where both choices are morally tainted. The dilemma challenges deontological ethics, which insists on absolute moral rules, while aligning more closely with consequentialism, which evaluates morality based on outcomes. \n\nIt raises profound questions about whether morality should remain rigid in extreme situations or whether ethical flexibility is sometimes necessary. The problem of dirty hands remains a central issue in political philosophy, ethics, and real-world decision-making, forcing society to confront the moral costs of leadership and governance."
 }
