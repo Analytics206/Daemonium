@@ -1,5 +1,79 @@
 # Daemonium
 ---
+## Version 0.3.22 (August 21, 2025)
+
+### Backend: Aphorisms — Nested Subject Schema Cleanup and Tests
+
+- Fully aligned aphorisms search and indexing with nested `subject.*` schema; removed usage of legacy top-level fields `themes` and `text` from queries and indexes.
+- `backend/routers/aphorisms.py`:
+  - `GET /api/v1/aphorisms/` accepts `subject_theme`, `subject_keyword`, `subject_aphorism` and forwards them to the DB layer.
+  - `GET /api/v1/aphorisms/by-theme/{theme}` uses `$or` across `subject.theme` and `context`.
+  - `GET /api/v1/aphorisms/{keyword}` uses `$or` across `author`, `philosopher` (alias), `category`, `context`, and nested `subject.theme|subject.keywords|subject.aphorisms`.
+- `backend/routers/search.py` and `backend/database.py` ensure filters target nested `subject.*` fields only; drop any legacy top-level `themes` index if present.
+- Backward compatibility: `philosopher` query param remains accepted and mapped to `author` for filtering.
+
+### Tests
+
+- `tests/test_aphorisms_nested_subjects.py` verifies nested-field usage and DB passthrough:
+  - Filters by `subject_theme`, `subject_keyword`, `subject_aphorism`, and combinations with `philosopher`.
+  - Keyword and theme routes assert `$or` includes `subject.theme`, `subject.keywords`, `subject.aphorisms`.
+  - No-result case returns `data: []` with `total_count: 0`.
+
+### Verification (PowerShell)
+
+```powershell
+$base = 'http://localhost:8000'
+
+# Main list with nested filters
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/aphorisms/?subject_theme=Ethics&limit=5"
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/aphorisms/?subject_keyword=virtue&limit=5"
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/aphorisms/?subject_aphorism=Custom&limit=5"
+
+# Theme and keyword routes
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/aphorisms/by-theme/Ethics?limit=5"
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/aphorisms/virtue?limit=5"
+```
+
+### Files Changed
+
+- `backend/routers/aphorisms.py`
+- `backend/routers/search.py`
+- `backend/database.py`
+- `docs/06-system_design.md` — updated with "Aphorisms Schema Cleanup — Legacy Field Removal (v0.3.22)"
+- `docs/12-release_notes.md` — this entry
+
+---
+## Version 0.3.21 (August 21, 2025)
+
+### Backend: Aphorisms — Ingestion v2, Nested Structure, and Index Verification
+
+- Preserved nested `subject` structure from source JSON with normalized arrays and removed legacy top-level `keywords`/`aphorisms`.
+- Uploader `scripts/build_mongodb_metadata/upload_aphorisms_to_mongodb.py` (v2.0.0) creates indexes:
+  - Single-field: `idx_author`, `idx_filename`, `idx_category`.
+  - Nested: `idx_subject_theme` (on `subject.theme`), `idx_subject_keywords` (on `subject.keywords`), `idx_subject_aphorisms` (on `subject.aphorisms`).
+  - Unified text index: `aphorisms_text_index` over `author`, `category`, `subject.theme`, `subject.keywords`, `subject.aphorisms` (drops any existing text indexes first to ensure only one exists on the collection).
+- Added verification script `scripts/build_mongodb_metadata/verify_aphorisms_indexes.py` to validate index presence/shape, confirm nested document structure, and run smoke queries for nested membership and `$text` search.
+- System design updated with a dedicated section documenting ingestion v2 and indexing.
+
+### Files Changed
+
+- `scripts/build_mongodb_metadata/verify_aphorisms_indexes.py` — new script
+- `docs/06-system_design.md` — added "Backend: Aphorisms Ingestion v2" section
+- `docs/12-release_notes.md` — this entry
+
+### Verification (PowerShell)
+
+```powershell
+# From project root with your venv active
+
+# 1) Upload/update aphorisms
+python scripts/build_mongodb_metadata/upload_aphorisms_to_mongodb.py
+
+# 2) Verify indexes, nested structure, and run smoke tests
+python scripts/build_mongodb_metadata/verify_aphorisms_indexes.py
+```
+
+---
 ## Version 0.3.20 (August 20, 2025)
 
 ### Backend: Discussion Hooks — Index Verification Script

@@ -7,16 +7,18 @@ to the MongoDB database 'daemonium' collection 'aphorisms'. It skips template fi
 and merges existing documents while uploading new ones.
 
 Author: Daemonium System
-Version: 1.0.0
+Version: 2.0.0
 """
 
 import os
 import json
 import yaml
 import logging
+import re
 from pathlib import Path
 from typing import Dict, Any, List
 from pymongo import MongoClient
+from pymongo import ASCENDING, TEXT
 from pymongo.errors import ConnectionFailure, DuplicateKeyError
 from urllib.parse import quote_plus
 
@@ -123,19 +125,110 @@ class AphorismUploader:
             self.logger.error(f"JSON file not found: {file_path}")
             raise
             
+    def _slugify(self, value: str) -> str:
+        """Create a safe, lowercase slug from a string for use in document IDs."""
+        value = value.strip().lower()
+        value = re.sub(r"[^a-z0-9]+", "_", value)
+        value = re.sub(r"_+", "_", value).strip("_")
+        return value or "unknown"
+
+    def _unique(self, items: List[str]) -> List[str]:
+        """Return list of unique strings preserving order."""
+        seen = set()
+        result = []
+        for it in items:
+            if it not in seen:
+                seen.add(it)
+                result.append(it)
+        return result
+
+    def _ensure_indexes(self) -> None:
+        """Create required indexes for efficient querying and text search."""
+        try:
+            # Regular indexes
+            self.collection.create_index([('author', ASCENDING)], name='idx_author')
+            self.collection.create_index([('filename', ASCENDING)], name='idx_filename')
+            self.collection.create_index([('category', ASCENDING)], name='idx_category')
+            # Nested fields inside the subject array
+            self.collection.create_index([('subject.theme', ASCENDING)], name='idx_subject_theme')
+            self.collection.create_index([('subject.keywords', ASCENDING)], name='idx_subject_keywords')
+            self.collection.create_index([('subject.aphorisms', ASCENDING)], name='idx_subject_aphorisms')
+
+            # Drop any existing text index to ensure a single, consistent text index
+            try:
+                for idx in self.collection.list_indexes():
+                    if 'weights' in idx:  # indicative of a text index
+                        if idx.get('name') != 'aphorisms_text_index':
+                            self.collection.drop_index(idx['name'])
+            except Exception as e:
+                self.logger.warning(f"Could not inspect/drop existing text indexes: {e}")
+
+            # Text index across relevant fields
+            try:
+                self.collection.create_index(
+                    [
+                        ('author', TEXT),
+                        ('category', TEXT),
+                        ('subject.theme', TEXT),
+                        ('subject.keywords', TEXT),
+                        ('subject.aphorisms', TEXT)
+                    ],
+                    name='aphorisms_text_index',
+                    default_language='english'
+                )
+            except Exception as e:
+                self.logger.warning(f"Could not create text index on aphorisms collection: {e}")
+
+            self.logger.info("Indexes ensured for aphorisms collection")
+        except Exception as e:
+            self.logger.warning(f"Index creation failed: {e}")
+
     def _prepare_document(self, json_data: Dict[str, Any], filename: str) -> Dict[str, Any]:
-        """Prepare document for MongoDB insertion."""
-        # Create a unique identifier based on author and category
-        document = {
-            '_id': f"{json_data.get('author', 'unknown')}_{json_data.get('category', 'unknown')}".replace(' ', '_').lower(),
+        """Prepare document for MongoDB insertion from nested subject structure."""
+        author = json_data.get('author') or 'Unknown'
+        category = json_data.get('category') or 'Aphorisms'
+
+        subjects = json_data.get('subject', []) or []
+        # Preserve structure: list of subject dicts with theme/keywords/aphorisms
+        normalized_subjects: List[Dict[str, Any]] = []
+        for subj in subjects:
+            if not isinstance(subj, dict):
+                continue
+            theme = subj.get('theme')
+            keywords_list = [kw.strip() for kw in (subj.get('keywords') or []) if isinstance(kw, str) and kw.strip()]
+            aph_list = [a.strip() for a in (subj.get('aphorisms') or []) if isinstance(a, str) and a.strip()]
+            # Shallow copy to retain any additional fields while normalizing lists
+            new_subj = dict(subj)
+            if theme is not None:
+                new_subj['theme'] = theme
+            new_subj['keywords'] = keywords_list
+            new_subj['aphorisms'] = aph_list
+            # Include subject entries that have at least one meaningful field
+            if theme or keywords_list or aph_list:
+                normalized_subjects.append(new_subj)
+
+        # Counts derived from nested subject structure
+        theme_count = len([s for s in normalized_subjects if s.get('theme')])
+        keyword_count = sum(len(s.get('keywords', [])) for s in normalized_subjects)
+        aphorism_count = sum(len(s.get('aphorisms', [])) for s in normalized_subjects)
+
+        # Create a stable _id from author and category
+        doc_id = f"{self._slugify(author)}_{self._slugify(category)}"
+
+        document: Dict[str, Any] = {
+            '_id': doc_id,
             'filename': filename,
-            'author': json_data.get('author', 'Unknown'),
-            'category': json_data.get('category', 'Unknown'),
-            'aphorisms': json_data.get('aphorisms', {}),
+            'author': author,
+            'category': category,
+            # Preserve source JSON structure
+            'subject': normalized_subjects,
             'metadata': {
-                'upload_timestamp': None,  # Will be set during upload
-                'last_updated': None,      # Will be set during upload
-                'source_file': filename
+                'upload_timestamp': None,  # Set during upsert
+                'last_updated': None,      # Set during upsert
+                'source_file': filename,
+                'theme_count': theme_count,
+                'keyword_count': keyword_count,
+                'aphorism_count': aphorism_count
             }
         }
         return document
@@ -246,6 +339,8 @@ class AphorismUploader:
             
             # Connect to MongoDB
             self.connect_to_mongodb()
+            # Ensure indexes exist before processing
+            self._ensure_indexes()
             
             # Process all files in the aphorisms folder
             stats = self.process_aphorisms_folder(aphorisms_folder)

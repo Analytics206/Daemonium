@@ -260,19 +260,66 @@ The monitoring system follows a sidecar pattern with the following components:
   - `GET /api/v1/summaries/philosophy-keywords?skip=<int>&limit=<int>` — direct paginated access.
   - `GET /api/v1/summaries/by-collection/philosophy_keywords?limit=<int>` — generic summaries access by collection.
   - `GET /api/v1/summaries/search/philosophy_keywords?query=<string>&limit=<int>` — regex across `theme`, `definition`, `keywords` (leverages text index when available).
-- **Pagination**: `skip` default `0`, `limit` default `100` (max `1000` for direct endpoint; generic routes cap at `100`).
-- **Response**: Consistent with summaries: `{ success, data: [...], total_count, message }` with `_id` stringified.
-- **Error Handling**: Logged exceptions with `HTTPException` responses aligned with other summaries endpoints.
-- **Indexes**: Single text index over `theme`, `definition`, `keywords` from ingestion v2 for efficient search.
-- **Verification**: See release notes v0.3.17 for PowerShell examples.
+ - **Pagination**: `skip` default `0`, `limit` default `100` (max `1000` for direct endpoint; generic routes cap at `100`).
+ - **Response**: Consistent with summaries: `{ success, data: [...], total_count, message }` with `_id` stringified.
+ - **Error Handling**: Logged exceptions with `HTTPException` responses aligned with other summaries endpoints.
+ - **Indexes**: Single text index over `theme`, `definition`, `keywords` from ingestion v2 for efficient search.
+ - **Verification**: See release notes v0.3.17 for PowerShell examples.
+
+### Backend: Aphorisms Ingestion v2
+
+- **Purpose**: Preserve nested aphorisms structure from source JSON for accurate theming and search.
+- **Source Files**: `json_bot_docs/aphorisms/*.json`
+- **Uploader Script**: `scripts/build_mongodb_metadata/upload_aphorisms_to_mongodb.py` (v2.0.0)
+  - Document shape:
+    - Top-level: `{ _id, filename, author, category, subject: Subject[], metadata }`
+    - `subject` is an array of objects: `{ theme?: string, keywords: string[], aphorisms: string[] }` (normalized: trimmed, deduped, order preserved)
+    - `_id = "<slug_author>_<slug_category>"`
+    - `metadata`: `{ upload_timestamp, last_updated, source_file, theme_count, keyword_count, aphorism_count }`
+  - No legacy flattened `keywords` or `aphorisms` at the top level.
+- **Indexing** (created on run):
+  - Single-field: `idx_author`, `idx_filename`, `idx_category`
+  - Nested fields: `idx_subject_theme` (on `subject.theme`), `idx_subject_keywords` (on `subject.keywords`), `idx_subject_aphorisms` (on `subject.aphorisms`)
+  - Text index: `aphorisms_text_index` over `author`, `category`, `subject.theme`, `subject.keywords`, `subject.aphorisms` (drops any existing text indexes first to ensure a single text index)
+- **Configuration**: Uses `config/default.yaml` → `mongodb` (`host`, `port`, `database`, `username`, `password` with `authSource=admin` when credentials provided). Default port is `27018`.
+- **Execution (PowerShell)**:
+  ```powershell
+  # From project root with your venv active
+  python scripts/build_mongodb_metadata/upload_aphorisms_to_mongodb.py
+  ```
+- **Verification (PowerShell)**:
+  ```powershell
+  # Verifies indexes, nested structure, and runs smoke queries
+  python scripts/build_mongodb_metadata/verify_aphorisms_indexes.py
+  ```
+
+#### Backend: Aphorisms Schema Cleanup — Legacy Field Removal (v0.3.22)
+
+- **Purpose**: finalize migration to nested `subject` schema by removing the use of legacy top-level fields from queries and indexes.
+- **Affected legacy fields (no longer queried/indexed for aphorisms)**:
+  - `themes` (top-level)
+  - `text` (top-level)
+  - flattened `aphorisms`/`keywords` at top-level (already removed by ingestion v2)
+- **Query alignment**:
+  - `backend/database.py`:
+    - `get_aphorisms()` now filters only by `author`/`philosopher` alias and nested fields: `subject.theme`, `subject.keywords`, `subject.aphorisms`.
+    - `global_search()` aphorisms filter excludes legacy `text`/`themes`; retains `author`, `category`, `context`, and nested `subject.*` fields.
+    - `ensure_indexes()` drops legacy `aphorisms_themes_idx` if present; no new index is created for top-level `themes`.
+  - `backend/routers/aphorisms.py`:
+    - `GET /api/v1/aphorisms/by-theme/{theme}` searches `subject.theme` (plus `context` as supplementary text).
+    - `GET /api/v1/aphorisms/{keyword}` uses `$or` across `author`, `philosopher` (alias), `category`, `context`, and nested `subject.theme|keywords|aphorisms`.
+  - `backend/routers/search.py`:
+    - Aphorisms search filter mirrors database changes: nested `subject.*` only; legacy `text`/`themes` removed.
+- **Backward compatibility**: requests may still pass `philosopher=` which is mapped to `author` for filtering, but responses normalize to `author`.
+- **Tests**: `tests/test_aphorisms_nested_subjects.py` verifies that routes and filters include nested `subject.*` fields only and that legacy fields are not used.
 
 ### Backend: Philosophy Schools Ingestion v2
 
- - **Purpose**: Ingest curated philosophy schools with explicit keywords for search and joins.
- - **Source File**: `json_bot_docs/philosophy_school/philosophy_school.json`
- - **JSON Schema (array of entries)**:
-   - `schoolID: number` (primary identifier)
-   - `school: string`
+- **Purpose**: Ingest curated philosophy schools with explicit keywords for search and joins.
+- **Source File**: `json_bot_docs/philosophy_school/philosophy_school.json`
+- **JSON Schema (array of entries)**:
+  - `schoolID: number` (primary identifier)
+{{ ... }}
    - `category: string`
    - `summary: string`
    - `corePrinciples: string`

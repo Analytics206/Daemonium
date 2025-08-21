@@ -165,6 +165,25 @@ class DatabaseManager:
                 ],
                 name="discussion_hooks_text_v2",
             )
+            
+            # Aphorisms indexes: optimize common regex and array lookups, including nested subject fields
+            try:
+                aphorisms_col = self.get_collection("aphorisms")
+                await aphorisms_col.create_index([("author", 1)], name="aphorisms_author_idx")
+                # Drop legacy index on top-level 'themes' if present
+                try:
+                    idx_info = await aphorisms_col.index_information()
+                    if "aphorisms_themes_idx" in idx_info:
+                        await aphorisms_col.drop_index("aphorisms_themes_idx")
+                except Exception as drop_err:
+                    # Non-blocking: log and continue
+                    logger.debug(f"Could not drop legacy aphorisms_themes_idx: {drop_err}")
+                await aphorisms_col.create_index([("subject.theme", 1)], name="aphorisms_subject_theme_idx")
+                await aphorisms_col.create_index([("subject.keywords", 1)], name="aphorisms_subject_keywords_idx")
+                await aphorisms_col.create_index([("subject.aphorisms", 1)], name="aphorisms_subject_aphorisms_idx")
+            except Exception as aph_idx_err:
+                # Non-blocking: log and continue
+                logger.warning(f"Index creation warning for aphorisms: {aph_idx_err}")
         except Exception as e:
             # Don't block app startup on index creation failures
             logger.warning(f"Index creation warning: {e}")
@@ -608,17 +627,45 @@ class DatabaseManager:
         return bibliographies
     
     # Aphorism-related methods
-    async def get_aphorisms(self, skip: int = 0, limit: int = 100, philosopher: Optional[str] = None) -> List[Dict[str, Any]]:
-        """Get aphorisms with pagination and optional philosopher filter"""
+    async def get_aphorisms(
+        self,
+        skip: int = 0,
+        limit: int = 100,
+        philosopher: Optional[str] = None,
+        subject_theme: Optional[str] = None,
+        subject_keyword: Optional[str] = None,
+        subject_aphorism: Optional[str] = None,
+    ) -> List[Dict[str, Any]]:
+        """Get aphorisms with pagination and optional filters.
+
+        Supports legacy philosopher filter and new nested subject filters:
+        - subject.theme (string)
+        - subject.keywords (array of strings)
+        - subject.aphorisms (array of strings)
+        """
         collection = self.get_collection("aphorisms")
         
-        filter_query = {}
+        # Build composable query conditions
+        conditions: List[Dict[str, Any]] = []
         if philosopher:
             # Match either author or philosopher field for backward compatibility
-            filter_query["$or"] = [
-                {"author": {"$regex": philosopher, "$options": "i"}},
-                {"philosopher": {"$regex": philosopher, "$options": "i"}}
-            ]
+            conditions.append({
+                "$or": [
+                    {"author": {"$regex": philosopher, "$options": "i"}},
+                    {"philosopher": {"$regex": philosopher, "$options": "i"}},
+                ]
+            })
+        if subject_theme:
+            # Match new nested subject.theme only (legacy top-level 'themes' removed)
+            conditions.append({"subject.theme": {"$regex": subject_theme, "$options": "i"}})
+        if subject_keyword:
+            # Match nested array of keywords
+            conditions.append({"subject.keywords": {"$regex": subject_keyword, "$options": "i"}})
+        if subject_aphorism:
+            # Match nested array of aphorism strings
+            conditions.append({"subject.aphorisms": {"$regex": subject_aphorism, "$options": "i"}})
+
+        filter_query: Dict[str, Any] = {"$and": conditions} if conditions else {}
         
         cursor = collection.find(filter_query).skip(skip).limit(limit)
         aphorisms = await cursor.to_list(length=limit)
@@ -832,11 +879,14 @@ class DatabaseManager:
                         ]
                     }
                 elif collection_name == "aphorisms":
+                    # Include author, context, and nested subject fields only (remove legacy top-level 'text' and 'themes')
                     search_filter = {
                         "$or": [
                             {"author": {"$regex": query, "$options": "i"}},
-                            {"text": {"$regex": query, "$options": "i"}},
-                            {"context": {"$regex": query, "$options": "i"}}
+                            {"context": {"$regex": query, "$options": "i"}},
+                            {"subject.theme": {"$regex": query, "$options": "i"}},
+                            {"subject.keywords": {"$regex": query, "$options": "i"}},
+                            {"subject.aphorisms": {"$regex": query, "$options": "i"}},
                         ]
                     }
                 elif collection_name == "idea_summary":

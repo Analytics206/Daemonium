@@ -90,6 +90,7 @@ async def search_specific_collections(
             # Create search filter based on collection type
             search_filter = create_search_filter(collection_name, query)
             
+            # Unified cursor without legacy field projections
             cursor = collection.find(search_filter).limit(per_collection_limit)
             collection_results = await cursor.to_list(length=per_collection_limit)
             
@@ -144,10 +145,12 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
     elif collection_name == "aphorisms":
         return {
             "$or": [
-                {"text": {"$regex": query, "$options": "i"}},
                 {"author": {"$regex": query, "$options": "i"}},
                 {"context": {"$regex": query, "$options": "i"}},
-                {"themes": {"$regex": query, "$options": "i"}}
+                # Nested subject fields only
+                {"subject.theme": {"$regex": query, "$options": "i"}},
+                {"subject.keywords": {"$regex": query, "$options": "i"}},
+                {"subject.aphorisms": {"$regex": query, "$options": "i"}},
             ]
         }
     

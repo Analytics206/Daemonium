@@ -21,12 +21,22 @@ async def get_db_manager():
 async def get_aphorisms(
     skip: int = Query(0, ge=0, description="Number of items to skip"),
     limit: int = Query(100, ge=1, le=1000, description="Maximum number of items to return"),
-    philosopher: Optional[str] = Query(None, description="Filter by philosopher"),
+    philosopher: Optional[str] = Query(None, description="Filter by philosopher (legacy + author)"),
+    subject_theme: Optional[str] = Query(None, description="Filter by nested subject.theme"),
+    subject_keyword: Optional[str] = Query(None, description="Filter by nested subject.keywords"),
+    subject_aphorism: Optional[str] = Query(None, description="Filter by nested subject.aphorisms"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Get all aphorisms with pagination and optional philosopher filter"""
+    """Get all aphorisms with pagination and optional filters (philosopher and nested subject fields)."""
     try:
-        aphorisms = await db_manager.get_aphorisms(skip=skip, limit=limit, philosopher=philosopher)
+        aphorisms = await db_manager.get_aphorisms(
+            skip=skip,
+            limit=limit,
+            philosopher=philosopher,
+            subject_theme=subject_theme,
+            subject_keyword=subject_keyword,
+            subject_aphorism=subject_aphorism,
+        )
         
         # Convert to Pydantic models
         aphorism_models = []
@@ -118,15 +128,14 @@ async def get_aphorisms_by_theme(
     limit: int = Query(100, ge=1, le=1000, description="Maximum number of items to return"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Get aphorisms by theme"""
+    """Get aphorisms by theme (uses nested subject.theme; legacy top-level 'themes' removed)"""
     try:
-        # Search for aphorisms containing the theme in their themes array or text
+        # Search for aphorisms by nested subject.theme; allow context as supplementary text
         collection = db_manager.get_collection("aphorisms")
         
         search_filter = {
             "$or": [
-                {"themes": {"$regex": theme, "$options": "i"}},
-                {"text": {"$regex": theme, "$options": "i"}},
+                {"subject.theme": {"$regex": theme, "$options": "i"}},
                 {"context": {"$regex": theme, "$options": "i"}}
             ]
         }
@@ -172,29 +181,21 @@ async def get_aphorisms_by_keyword(
     limit: int = Query(10, ge=1, le=100, description="Maximum number of aphorisms to return"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Get aphorisms related to a specific keyword"""
+    """Get aphorisms related to a specific keyword (nested subject fields preferred; legacy top-level 'themes' removed)"""
     try:
         collection = db_manager.get_collection("aphorisms")
         
-        # Search for aphorisms containing the keyword in various fields
-        # Handle nested aphorisms structure from JSON
+        # Search for aphorisms containing the keyword, focusing on nested subject fields
         search_filter = {
             "$or": [
                 {"author": {"$regex": keyword, "$options": "i"}},
                 {"philosopher": {"$regex": keyword, "$options": "i"}},
                 {"category": {"$regex": keyword, "$options": "i"}},
-                {"text": {"$regex": keyword, "$options": "i"}},
                 {"context": {"$regex": keyword, "$options": "i"}},
-                {"themes": {"$regex": keyword, "$options": "i"}},
-                # Search within the nested aphorisms object values
-                {"aphorisms.Human Nature": {"$regex": keyword, "$options": "i"}},
-                {"aphorisms.Epistemology and Knowledge": {"$regex": keyword, "$options": "i"}},
-                {"aphorisms.Morality and Ethics": {"$regex": keyword, "$options": "i"}},
-                {"aphorisms.Politics and Society": {"$regex": keyword, "$options": "i"}},
-                {"aphorisms.Religion and Skepticism": {"$regex": keyword, "$options": "i"}},
-                {"aphorisms.Philosophy of Mind": {"$regex": keyword, "$options": "i"}},
-                # Generic search for any field within aphorisms object
-                {"aphorisms": {"$regex": keyword, "$options": "i"}}
+                # New nested subject fields
+                {"subject.theme": {"$regex": keyword, "$options": "i"}},
+                {"subject.keywords": {"$regex": keyword, "$options": "i"}},
+                {"subject.aphorisms": {"$regex": keyword, "$options": "i"}},
             ]
         }
         

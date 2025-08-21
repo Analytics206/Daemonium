@@ -163,18 +163,23 @@ class Bibliography(BaseModel):
 class BibliographyResponse(BaseResponse):
     """Response model for bibliography data"""
     data: Union[Bibliography, List[Bibliography]]
-    total_count: Optional[int] = None
+    model_config = {"populate_by_name": True}
 
 # Aphorism models
+class SubjectEntry(BaseModel):
+    """Nested subject entry for aphorisms"""
+    theme: Optional[str] = None
+    keywords: Optional[List[str]] = None
+    aphorisms: Optional[List[str]] = None
+
 class Aphorism(BaseModel):
     """Aphorism model"""
     id: str = Field(..., alias="_id")
     author: str  # Primary field for author name
     category: Optional[str] = None  # Category of aphorisms (e.g., "Aphorisms")
     
-    # Handle both single aphorism and nested structure
-    text: Optional[str] = None  # For individual aphorism text
-    aphorisms: Optional[Dict[str, List[str]]] = None  # For nested structure
+    # Nested subject structure (canonical)
+    subject: Optional[List[SubjectEntry]] = None  # New nested structure: list of subject entries
     
     # Additional fields
     source: Optional[str] = None
@@ -187,7 +192,7 @@ class Aphorism(BaseModel):
     def philosopher(self) -> str:
         return self.author
     
-    model_config = {"populate_by_name": True, "arbitrary_types_allowed": True}
+    model_config = {"populate_by_name": True, "arbitrary_types_allowed": True, "extra": "ignore"}
 
 class AphorismResponse(BaseResponse):
     """Response model for aphorism data"""
