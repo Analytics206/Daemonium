@@ -16,7 +16,7 @@ import yaml
 import logging
 from pathlib import Path
 from typing import Dict, Any, List
-from pymongo import MongoClient
+from pymongo import MongoClient, IndexModel, ASCENDING, TEXT
 from pymongo.errors import ConnectionFailure, DuplicateKeyError
 from urllib.parse import quote_plus
 
@@ -105,6 +105,45 @@ class PersonaCoreUploader:
             self.client.close()
             self.logger.info("MongoDB connection closed")
             
+    def _create_indexes(self) -> None:
+        """Create indexes for the persona_core collection, including text index with keywords."""
+        try:
+            # Create single-field and compound indexes (non-text)
+            indexes = [
+                IndexModel([("persona.author", ASCENDING)]),
+                IndexModel([("persona.category", ASCENDING)]),
+                IndexModel([("filename", ASCENDING)]),
+                IndexModel([("keywords", ASCENDING)]),
+                IndexModel([("persona.author", ASCENDING), ("persona.category", ASCENDING)])
+            ]
+            self.collection.create_indexes(indexes)
+
+            # Drop any existing text index (MongoDB allows a single text index per collection)
+            existing = list(self.collection.list_indexes())
+            for idx in existing:
+                key_spec = idx.get('key', {})
+                if any(v == 'text' for v in key_spec.values()):
+                    self.logger.info(f"Dropping existing text index: {idx['name']}")
+                    self.collection.drop_index(idx['name'])
+
+            # Create unified compound text index including keywords and relevant persona fields
+            self.collection.create_index(
+                [
+                    ("persona.author", TEXT),
+                    ("persona.category", TEXT),
+                    ("persona.identity.full_name", TEXT),
+                    ("persona.biography.overview", TEXT),
+                    ("persona.core_principles", TEXT),
+                    ("keywords", TEXT),
+                ],
+                name="persona_core_text_v2",
+                default_language="english",
+            )
+            self.logger.info("Created indexes for persona_core collection")
+        except Exception as e:
+            self.logger.error(f"Error creating indexes: {e}")
+            raise
+            
     def _is_template_file(self, filename: str) -> bool:
         """Check if the file is a template file that should be skipped."""
         return filename.lower().startswith('template')
@@ -122,6 +161,23 @@ class PersonaCoreUploader:
         except FileNotFoundError:
             self.logger.error(f"JSON file not found: {file_path}")
             raise
+    
+    def _normalize_keywords(self, keywords: Any) -> List[str]:
+        """Normalize keywords to a list of unique, trimmed strings (case-insensitive dedup, order preserved)."""
+        normalized: List[str] = []
+        seen = set()
+        if isinstance(keywords, list):
+            for k in keywords:
+                if not isinstance(k, str):
+                    continue
+                item = k.strip()
+                if not item:
+                    continue
+                key = item.lower()
+                if key not in seen:
+                    seen.add(key)
+                    normalized.append(item)
+        return normalized
             
     def _prepare_document(self, json_data: Dict[str, Any], filename: str) -> Dict[str, Any]:
         """Prepare document for MongoDB insertion."""
@@ -139,10 +195,14 @@ class PersonaCoreUploader:
         interaction_rules = persona.get('interaction_rules', {})
         modes_of_response = persona.get('modes_of_response', [])
         core_principles = persona.get('core_principles', [])
+        # Normalize keywords from identity
+        keywords_raw = identity.get('keywords', [])
+        keywords_norm = self._normalize_keywords(keywords_raw)
         
         document = {
             '_id': f"{author}_{category}",
             'filename': filename,
+            'keywords': keywords_norm,
             'persona': {
                 'author': persona.get('author', 'Unknown'),
                 'category': persona.get('category', 'Unknown'),
@@ -152,6 +212,7 @@ class PersonaCoreUploader:
                     'birth_date': identity.get('birth_date', ''),
                     'death_date': identity.get('death_date', ''),
                     'nationality': identity.get('nationality', ''),
+                    'keywords': keywords_norm,
                     'roles': identity.get('roles', [])
                 },
                 'biography': {
@@ -189,7 +250,8 @@ class PersonaCoreUploader:
                 'behavior_rules_count': len(interaction_rules.get('behavior', [])),
                 'has_birth_date': bool(identity.get('birth_date', '')),
                 'has_death_date': bool(identity.get('death_date', '')),
-                'has_primary_goal': bool(interaction_rules.get('primary_goal', ''))
+                'has_primary_goal': bool(interaction_rules.get('primary_goal', '')),
+                'keywords_count': len(keywords_norm),
             }
         }
         return document
@@ -300,6 +362,9 @@ class PersonaCoreUploader:
             
             # Connect to MongoDB
             self.connect_to_mongodb()
+            
+            # Ensure indexes exist before processing documents
+            self._create_indexes()
             
             # Process all files in the persona cores folder
             stats = self.process_persona_cores_folder(persona_cores_folder)

@@ -609,6 +609,7 @@ class PhilosophyThemeCoreIdea(BaseModel):
     """Core idea model for philosophy themes"""
     name: str
     summary: str
+    keywords: List[str] = []
     discussion_hooks: List[str] = []
 
 class PhilosophyThemePerspectivismFramework(BaseModel):
