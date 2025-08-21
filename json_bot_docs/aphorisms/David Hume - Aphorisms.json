@@ -5,10 +5,22 @@
     [
     {
       "theme": "Human Nature",
-      "keywords" [
-
+      "keywords": [
+        "Man",
+        "perceptions",
+        "reason",
+        "passions",
+        "custom",
+        "mind",
+        "theater",
+        "appearances",
+        "identity",
+        "fictitious",
+        "influence",
+        "imagination",
+        "will",
+        "motive"
       ],
-
       "aphorisms": [
         "Man is a bundle of perceptions.",
         "Reason is, and ought only to be the slave of the passions.",
@@ -24,10 +36,23 @@
     },
     {
       "theme": "Epistemology and Knowledge",
-      "keywords" [
-
+      "keywords": [
+        "Knowledge",
+        "belief",
+        "evidence",
+        "probability",
+        "idea",
+        "metaphysics",
+        "necessary",
+        "connection",
+        "reasoning",
+        "matters",
+        "fact",
+        "cause",
+        "effect",
+        "habit",
+        "reason"
       ],
-
       "aphorisms": [
         "A wise man proportions his belief to the evidence.",
         "All knowledge degenerates into probability.",
@@ -42,7 +67,20 @@
       ]
     },
     {
-      "Morality and Ethics": [
+      "theme": "Morality and Ethics",
+      "keywords": [
+        "Morality",
+        "ethics",
+        "distinctions",
+        "reason",
+        "virtue",
+        "agreeable",
+        "sympathy",
+        "duty",
+        "happiness",
+        "reason"
+      ],
+      "aphorisms": [
         "Moral distinctions are not derived from reason.",
         "Virtue is whatever is useful or agreeable to oneself or to others.",
         "Sympathy is the foundation of moral sentiment.",
@@ -53,8 +91,25 @@
         "Nothing can be more real, or concern us more than our sentiments of approbation or blame.",
         "Justice is not derived from nature, but from artificial conventions.",
         "The sense of duty arises from the sentiment of humanity."
+      ]
+    },
+    {
+      "theme": "Skepticism and Philosophy",
+      "keywords": [
+        "Skepticism",
+        "philosophy",
+        "perfect",
+        "kind",
+        "ignorance",
+        "volume",
+        "divinity",
+        "metaphysics",
+        "action",
+        "Pyrrhonism",
+        "nature",
+        "strong"
       ],
-      "Skepticism and Philosophy": [
+      "aphorisms": [
         "A true skeptic is one who is content to doubt.",
         "The most perfect philosophy of the natural kind only staves off our ignorance a little longer.",
         "If we take in our hand any volume of divinity or metaphysics... commit it then to the flames.",
@@ -65,8 +120,25 @@
         "Be a philosopher, but amidst all your philosophy, be still a man.",
         "Even the most rigorous skeptic must live by habit.",
         "Philosophy is an antidote to superstition, not a source of certainty."
+      ]
+    },
+    {
+      "theme": "Religion and Theology",
+      "keywords": [
+        "Religion",
+        "god",
+        "theology",
+        "miracle",
+        "nature",
+        "testimony",
+        "probability",
+        "wise",
+        "belief",
+        "reason",
+        "faith",
+        "ignorance"
       ],
-      "Religion and Theology": [
+      "aphorisms": [
         "A miracle is a violation of the laws of nature.",
         "It is more probable that testimony is false than that nature is violated.",
         "The wise man, therefore, proportions his belief to the evidence.",
@@ -77,8 +149,19 @@
         "It is not reason which engenders faith, but rather hope, fear, and imagination.",
         "Nothing is more dangerous to reason than the flights of religious imagination.",
         "We can never prove the existence of God through reason alone."
+      ]
+    },
+    {
+      "theme": "Politics and Society",
+      "keywords": [
+        "Politics",
+        "society",
+        "state",
+        "freedom",
+        "lawful",
+        "reason"
       ],
-      "Politics and Society": [
+      "aphorisms": [
         "Liberty is the perfection of civil society.",
         "Nothing is more dangerous to reason than men in crowds.",
         "It is seldom that liberty of any kind is lost all at once.",
@@ -89,8 +172,23 @@
         "The people are the source of all just power.",
         "Tyranny can arise under the guise of legality.",
         "A populace must be virtuous for liberty to endure."
+      ]
+    },
+    {
+      "theme": "Aesthetics and Taste",
+      "keywords": [
+        "Aesthetics",
+        "taste",
+        "delicacy",
+        "rules",
+        "art",
+        "experience",
+        "observation",
+        "disputable",
+        "cultivate",
+        "eloquence"
       ],
-      "Aesthetics and Taste": [
+      "aphorisms": [
         "Beauty in things exists merely in the mind which contemplates them.",
         "A delicacy of taste is a great advantage.",
         "Rules of art are founded on experience and observation.",
@@ -101,8 +199,31 @@
         "Wherever we meet a man of taste, we meet a man of humanity.",
         "Genius can be recognized only by those who have cultivated judgment.",
         "Even in aesthetics, habit and custom have strong influence."
+      ]
+    },
+    {
+      "theme": "Custom and Habit",
+      "keywords": [
+        "Custom",
+        "habit",
+        "guide",
+        "human",
+        "life",
+        "requisite",
+        "success",
+        "conformity",
+        "practice",
+        "impressions",
+        "belief",
+        "evidence",
+        "mind",
+        "naturally",
+        "least",
+        "resistance",
+        "creatures",
+        "reason"
       ],
-      "Custom and Habit": [
+      "aphorisms": [
         "Custom is the great guide of human life.",
         "Nothing is more requisite for success than conformity to common practice.",
         "Habitual impressions determine belief more than evidence.",
@@ -113,8 +234,29 @@
         "All our reasonings concerning matters of fact are founded on custom, not logic.",
         "The power of habit is the basis of human understanding.",
         "Even the principles of geometry lose their force when habit is against them."
+      ]
+    },
+    {
+      "theme": "Passions and Emotions",
+      "keywords": [
+        "Passions",
+        "emotions",
+        "human",
+        "actions",
+        "calm",
+        "influence",
+        "pride",
+        "humility",
+        "comparison",
+        "ourselves",
+        "others",
+        "desire",
+        "reason",
+        "relations",
+        "ideas",
+        "realities"
       ],
-      "Passions and Emotions": [
+      "aphorisms": [
         "All human actions are the result of the passions.",
         "The calm passions have a greater influence than is commonly believed.",
         "Pride and humility arise from the comparison of ourselves to others.",
@@ -127,5 +269,5 @@
         "The control of passions is the foundation of character."
       ]
     }
-  }
-  
+  ]
+}
