@@ -1,8 +1,24 @@
 {
     "author": "Ludwig Wittgenstein",
     "category": "Aphorisms",
-    "aphorisms": {
-      "Language and Meaning": [
+    "subject": [
+      {
+        "theme": "Language and Meaning",
+        "keywords": [
+          "language",
+          "meaning",
+          "limits",
+          "world",
+          "form",
+          "life",
+          "understand",
+          "master",
+          "technique",
+          "words",
+          "tools",
+          "labels"
+        ],
+        "aphorisms": [
         "The limits of my language mean the limits of my world.",
         "Language is a form of life.",
         "To understand a language is to master a technique.",
@@ -13,8 +29,23 @@
         "The speaking of language is part of an activity, or of a form of life.",
         "Grammar tells what kind of object anything is.",
         "To imagine a language is to imagine a form of life."
-      ],
-      "Logic and Reality": [
+        ]
+      },
+      {
+        "theme": "Logic and Reality",
+        "keywords": [
+          "logic",
+          "reality",
+          "world",
+          "facts",
+          "things",
+          "picture",
+          "reality",
+          "logic",
+          "limits",
+          "world"
+        ],
+        "aphorisms": [
         "The world is all that is the case.",
         "What can be shown cannot be said.",
         "The world is the totality of facts, not things.",
@@ -25,8 +56,26 @@
         "Propositions show the logical form of reality.",
         "That which expresses itself in language, we cannot express by means of language.",
         "A logical picture of facts is a thought."
-      ],
-      "Private Language and Subjectivity": [
+        ]
+      },
+      {
+        "theme": "Private Language and Subjectivity",
+        "keywords": [
+          "private",
+          "language",
+          "subjectivity",
+          "rule",
+          "practice",
+          "whistle",
+          "public",
+          "act",
+          "mental",
+          "states",
+          "describe",
+          "public",
+          "criteria"
+        ],
+        "aphorisms": [
         "There is no such thing as a private language.",
         "To follow a rule, we must already belong to a practice.",
         "You cannot whistle it to yourself, for even whistling would be a public act.",
@@ -37,8 +86,29 @@
         "We learn the meaning of ‘toothache’ through public behavior, not introspection.",
         "A sensation is not a something, but not a nothing either.",
         "If a lion could speak, we could not understand him."
-      ],
-      "Philosophy and Method": [
+        ]
+      },
+      {
+        "theme": "Philosophy and Method",
+        "keywords": [
+          "bewitchment",
+          "intelligence",
+          "language",
+          "leave",
+          "everything",
+          "job",
+          "describe",
+          "explain",
+          "theory",
+          "activity",
+          "think",
+          "look",
+          "problems",
+          "dissolved",
+          "clarification",
+          "language"
+        ],
+        "aphorisms": [
         "Philosophy is a battle against the bewitchment of our intelligence by means of language.",
         "Philosophy should leave everything as it is.",
         "The job of philosophy is to describe, not to explain.",
@@ -49,8 +119,35 @@
         "There is not a philosophical method, though there are indeed methods.",
         "Philosophy is not one of the natural sciences.",
         "All philosophy is a critique of language."
-      ],
-      "Rules and Games": [
+        ]
+      },
+      {
+        "theme": "Rules and Games",
+        "keywords": [
+          "rules",
+          "games",
+          "understand",
+          "go",
+          "same",
+          "way",
+          "practice",
+          "matter",
+          "interpretation",
+          "meanings",
+          "fixed",
+          "mental",
+          "act",
+          "communal",
+          "usage",
+          "games",
+          "lives",
+          "live",
+          "agreement",
+          "form",
+          "life",
+          "judgment"
+        ],
+        "aphorisms": [
         "To understand a rule is to be able to go on in the same way.",
         "Following a rule is a practice, not a matter of interpretation.",
         "Meaning is not fixed by a mental act, but by communal usage.",
@@ -61,8 +158,22 @@
         "There is a way of grasping a rule that is not an interpretation.",
         "We do not always interpret rules, we often simply follow them.",
         "The application of a rule is not something separate from the rule."
-      ],
-      "Certainty and Doubt": [
+        ]
+      },
+      {
+        "theme": "Certainty and Doubt",
+        "keywords": [
+          "doubt",
+          "everything",
+          "nothing",
+          "belief",
+          "bedrock",
+          "certainty",
+          "act",
+          "deduce",
+          "practice"
+        ],
+        "aphorisms": [
         "A doubt that makes sense must rest on grounds for doubt.",
         "To doubt everything would be to doubt nothing.",
         "At the foundation of belief lies the bedrock of certainty.",
@@ -73,8 +184,28 @@
         "What stands fast does so not because it is justified, but because it is part of our practice.",
         "It is not a mistake to believe something where no doubt is possible.",
         "You must begin somewhere—so you begin with what is taken for granted."
-      ],
-      "Ethics and the Mystical": [
+        ]
+      },
+      {
+        "theme": "Ethics and the Mystical",
+        "keywords": [
+          "ethics",
+          "mystical",
+          "world",
+          "sense",
+          "things",
+          "mystical",
+          "god",
+          "reveal",
+          "riddle",
+          "life",
+          "space",
+          "time",
+          "outside",
+          "space",
+          "time"
+        ],
+        "aphorisms": [
         "Ethics cannot be put into words.",
         "The sense of the world must lie outside the world.",
         "It is not how things are in the world that is mystical, but that it exists.",
@@ -85,8 +216,28 @@
         "The good life is the world seen sub specie aeterni.",
         "Values do not reside in the world, but in the eye that sees it.",
         "Aesthetic and ethical judgments transcend factual language."
-      ],
-      "Mind and Thought": [
+        ]
+      },
+      {
+        "theme": "Mind and Thought",
+        "keywords": [
+          "thinking",
+          "operating",
+          "signs",
+          "understanding",
+          "mental",
+          "process",
+          "mind",
+          "container",
+          "thoughts",
+          "think",
+          "rule",
+          "follow",
+          "implicitly",
+          "act",
+          "expecting"
+        ],
+        "aphorisms": [
         "Thinking is operating with signs.",
         "Understanding is not a mental process.",
         "The mind is not a container for thoughts.",
@@ -97,8 +248,36 @@
         "Thought requires external criteria to be meaningful.",
         "The grammar of mental terms is learned socially.",
         "There is no ghost in the machine."
-      ],
-      "Form of Life and Practice": [
+        ]
+      },
+      {
+        "theme": "Form of Life and Practice",
+        "keywords": [
+          "human",
+          "agreement",
+          "judgments",
+          "grounded",
+          "agreement",
+          "form",
+          "life",
+          "language",
+          "bedrock",
+          "forms",
+          "life",
+          "language",
+          "presupposes",
+          "human",
+          "context",
+          "practices",
+          "give",
+          "meaning",
+          "words",
+          "nothing",
+          "certain",
+          "customs",
+          "guide"
+        ],
+        "aphorisms": [
         "Human agreement in judgments is grounded in agreement in form of life.",
         "Forms of life are the bedrock upon which language rests.",
         "A language game presupposes a human context.",
@@ -109,8 +288,24 @@
         "A language game is a snapshot of life in motion.",
         "The background of understanding is not knowledge, but doing.",
         "Words are rooted in human activity, not abstract systems."
-      ],
-      "Silence and the Unsayable": [
+      ]
+    },
+    {
+      "theme": "Silence and the Unsayable",
+      "keywords": [
+        "silence",
+        "unsayable",
+          "manifest",
+          "clearly",
+          "speak",
+          "mystical",
+          "count",
+          "propositions",
+          "count",
+          "count",
+          "count"
+        ],
+        "aphorisms": [
         "There are things that cannot be put into words—they make themselves manifest.",
         "What can be said at all can be said clearly.",
         "Whereof one cannot speak, thereof one must be silent.",
@@ -123,5 +318,6 @@
         "We run up against the limits of language and fall silent."
       ]
     }
-  }
+  ]
+}
   

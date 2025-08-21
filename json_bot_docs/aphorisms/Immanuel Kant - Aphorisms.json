@@ -1,8 +1,22 @@
 {
     "author": "Immanuel Kant",
     "category": "Aphorisms",
-    "aphorisms": {
-      "Reason and Understanding": [
+    "subject": [
+      {
+        "theme": "Reason and Understanding",
+        "keywords": [
+          "reason",
+          "understanding",
+          "nature",
+          "experience",
+          "space",
+          "time",
+          "causality",
+          "principles",
+          "unconditioned",
+          "a priori"
+        ],
+        "aphorisms": [
         "Thoughts without content are empty; intuitions without concepts are blind.",
         "Reason is the faculty of principles.",
         "It is reason’s destiny to never rest until it reaches the unconditioned.",
@@ -13,8 +27,24 @@
         "The concept of cause is a category imposed by the mind.",
         "We do not derive the laws of nature from nature, but impose them upon it.",
         "Experience is structured by the a priori forms of intuition—space and time."
+      ]
+    },
+    {
+      "theme": "Ethics and Morality",
+      "keywords": [
+        "ethics",
+        "morality",
+        "moral",
+        "duty",
+        "autonomy",
+        "humanity",
+        "kingdom",
+        "universal",
+        "law",
+        "good will",
+        "heteronomy"
       ],
-      "Ethics and Morality": [
+      "aphorisms": [
         "Act only according to that maxim whereby you can at the same time will that it should become a universal law.",
         "The moral law within me is a source of awe.",
         "Duty is the necessity of an action from respect for the law.",
@@ -25,8 +55,24 @@
         "Morality is not the doctrine of how we may make ourselves happy, but how we may become worthy of happiness.",
         "Every rational being exists as an end in himself.",
         "The kingdom of ends is a systematic union of rational beings through common laws."
+      ]
+    },
+    {
+      "theme": "Metaphysics and Epistemology",
+      "keywords": [
+        "metaphysics",
+        "epistemology",
+        "transcendental",
+        "idealism",
+        "noumena",
+        "phenomena",
+        "time",
+        "space",
+        "sensibility",
+        "priori",
+        "posteriori"
       ],
-      "Metaphysics and Epistemology": [
+      "aphorisms": [
         "Metaphysics is the discipline that seeks knowledge independent of experience.",
         "All metaphysical knowledge must be subjected to critique.",
         "Transcendental idealism asserts that we know appearances, not things in themselves.",
@@ -37,8 +83,22 @@
         "Synthetic a priori judgments are the foundation of metaphysics.",
         "The understanding prescribes laws to nature.",
         "Kantian metaphysics begins where dogmatic metaphysics ends—with critique."
+      ]
+    },
+    {
+      "theme": "Freedom and Autonomy",
+      "keywords": [
+        "freedom",
+        "autonomy",
+        "humanity",
+        "kingdom",
+        "universal",
+        "law",
+        "good",
+        "will",
+        "heteronomy"
       ],
-      "Freedom and Autonomy": [
+      "aphorisms": [
         "Freedom is the ability to act according to a law one gives oneself.",
         "Autonomy is the ground of human dignity.",
         "Only a free will can be morally good.",
@@ -49,8 +109,23 @@
         "To be free is to obey reason.",
         "Moral obligation implies freedom of the will.",
         "Self-legislation is the highest expression of rational agency."
+      ]
+    },
+    {
+      "theme": "Aesthetics and Judgment",
+      "keywords": [
+        "aesthetics",
+        "judgment",
+        "beauty",
+        "sublime",
+        "art",
+        "disinterestedness",
+        "imagination",
+        "understanding",
+        "genius",
+        "moral"
       ],
-      "Aesthetics and Judgment": [
+      "aphorisms": [
         "Beauty is the form of purposiveness without the representation of a purpose.",
         "The judgment of taste is not a judgment of cognition, but of feeling.",
         "The beautiful pleases universally without a concept.",
@@ -61,8 +136,25 @@
         "Beauty is a symbol of moral goodness.",
         "The agreeable is personal, the beautiful is universal.",
         "We judge the beautiful as if everyone ought to agree."
+      ]
+    },
+    {
+      "theme": "Politics and Society",
+      "keywords": [
+        "politics",
+        "society",
+        "law",
+        "right",
+        "dignity",
+        "humanity",
+        "kingdom",
+        "universal",
+        "law",
+        "good",
+        "will",
+        "heteronomy"
       ],
-      "Politics and Society": [
+      "aphorisms": [
         "The only lawful constitution is one derived from the general will.",
         "Freedom is the sole original right belonging to every human being.",
         "The state exists to preserve the rights and dignity of persons.",
@@ -73,8 +165,23 @@
         "Every human being is an end in themselves, not a means to another’s end.",
         "True politics must conform to morality.",
         "An enlightened public requires freedom of the press and thought."
+      ]
+    },
+    {
+      "theme": "Religion and Rational Faith",
+      "keywords": [
+        "religion",
+        "rational",
+        "faith",
+        "duty",
+        "divine",
+        "commands",
+        "morality",
+        "God",
+        "freedom",
+        "immortality"
       ],
-      "Religion and Rational Faith": [
+      "aphorisms": [
         "Religion is the recognition of all duties as divine commands.",
         "Morality leads inevitably to religion.",
         "We must postulate God, freedom, and immortality to make sense of moral experience.",
@@ -85,8 +192,21 @@
         "Superstition is the corruption of moral religion.",
         "Hope is grounded in the moral order of the world.",
         "Reason cannot prove God, but it can make His postulation meaningful."
+      ]
+    },
+    {
+      "theme": "Human Nature and Anthropology",
+      "keywords": [
+        "human nature",
+        "anthropology",
+        "phenomenal",
+        "noumenal",
+        "reason",
+        "conflict",
+        "enlightenment",
+        "immaturity"
       ],
-      "Human Nature and Anthropology": [
+      "aphorisms": [
         "Out of the crooked timber of humanity, no straight thing was ever made.",
         "Man is an animal who needs a master.",
         "What is the human being? is the ultimate question of philosophy.",
@@ -97,8 +217,25 @@
         "Nature wills that man should develop all his faculties through his own effort.",
         "Man is the only being who must make a concept of himself before becoming himself.",
         "Man’s propensity to evil is real but not insurmountable."
+      ]
+    },
+    {
+      "theme": "Science and Knowledge",
+      "keywords": [
+        "science",
+        "knowledge",
+        "understanding",
+        "categories",
+        "experience",
+        "mathematics",
+        "metaphysics",
+        "nature",
+        "observation",
+        "possibility",
+        "structure",
+        "mind"
       ],
-      "Science and Knowledge": [
+      "aphorisms": [
         "Science is possible only through the application of the understanding's categories to experience.",
         "Mathematics constructs its own concepts, while metaphysics analyzes them.",
         "Nature is not known through observation alone, but through the conditions of its possibility.",
@@ -111,5 +248,6 @@
         "Even in science, reason must be self-critical."
       ]
     }
-  }
+  ]
+}
   

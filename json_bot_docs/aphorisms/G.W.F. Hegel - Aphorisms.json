@@ -1,8 +1,32 @@
 {
     "author": "G.W.F. Hegel",
     "category": "Aphorisms",
-    "aphorisms": {
-      "Dialectics and Logic": [
+    "subject": [
+      {
+        "theme": "Dialectics and Logic",
+        "keywords": [
+          "dialectics",
+          "logic",
+          "truth",
+          "negative",
+          "positive",
+          "contradiction",
+          "movement",
+          "vitality",
+          "being",
+          "nothing",
+          "indeterminacy",
+          "becoming",
+          "unity",
+          "dialectic",
+          "reality",
+          "concept",
+          "development",
+          "finite",
+          "infinite",
+          "idea"
+        ],
+        "aphorisms": [
         "Truth is the whole.",
         "The negative is as much a positive as the positive itself.",
         "Contradiction is the root of all movement and vitality.",
@@ -13,8 +37,26 @@
         "Concepts develop through their internal contradictions.",
         "Every finite is a moment of the infinite.",
         "The Idea is the unity of concept and reality."
-      ],
-      "Spirit and Consciousness": [
+      ]
+    },
+    {
+      "theme": "Spirit and Consciousness",
+      "keywords": [
+        "spirit",
+        "consciousness",
+        "self-consciousness",
+        "truth",
+        "I",
+        "we",
+        "negation",
+        "absolute",
+        "knowing",
+        "subject",
+        "object",
+        "history",
+        "freedom"
+        ],
+        "aphorisms": [
         "Self-consciousness achieves its truth only in another self-consciousness.",
         "Spirit is the truth of the self.",
         "The I is the we, and the we is the I.",
@@ -25,8 +67,23 @@
         "The movement of spirit is the unfolding of reason.",
         "Individuality finds its actuality in ethical life.",
         "Spirit is substance as well as subject."
+      ]
+    },
+    {
+      "theme": "Freedom and Ethical Life",
+      "keywords": [
+        "freedom",
+        "ethical life",
+        "Sittlichkeit",
+        "universal",
+        "particular",
+        "family",
+        "civil",
+        "society",
+        "state",
+        "will"
       ],
-      "Freedom and Ethical Life": [
+      "aphorisms": [
         "Freedom is the essence of spirit.",
         "To be free is to be at home in the other.",
         "Ethical life (Sittlichkeit) is the unity of the universal and the particular.",
@@ -37,8 +94,24 @@
         "Right is the existence of the free will.",
         "Freedom is realized not in isolation, but in community.",
         "Law is the embodiment of freedom."
-      ],
-      "History and Development": [
+      ]
+    },
+    {
+      "theme": "History and Development",
+      "keywords": [
+        "history",
+        "development",
+          "consciousness",
+          "freedom",
+          "world",
+          "spirit",
+          "individual",
+          "absolute",
+          "great men",
+          "unconscious",
+          "tools"
+        ],
+        "aphorisms": [
         "The history of the world is the progress of the consciousness of freedom.",
         "The real is the rational and the rational is the real—especially in history.",
         "World history is the judgment of the world.",
@@ -49,8 +122,23 @@
         "Freedom grows through the development of the state.",
         "History is the process whereby spirit comes to know itself.",
         "Each epoch is a necessary moment in the unfolding of the Idea."
+      ]
+    },
+    {
+      "theme": "Phenomenology and Knowledge",
+      "keywords": [
+        "phenomenology",
+        "knowledge",
+        "consciousness",
+        "master-slave",
+        "dialectic",
+        "experience",
+        "spirit",
+        "goal",
+        "result",
+        "movement"
       ],
-      "Phenomenology and Knowledge": [
+      "aphorisms": [
         "The path of despair is the road to truth.",
         "Certainty is not the same as truth.",
         "The goal is not just the result, but the result along with the process.",
@@ -61,8 +149,23 @@
         "The movement of consciousness is the logic of experience.",
         "Self-certainty is gained through the recognition by another.",
         "Phenomenology leads to the standpoint of absolute knowing."
+      ]
+    },
+    {
+      "theme": "Art, Religion, and Philosophy",
+      "keywords": [
+        "art",
+        "religion",
+        "philosophy",
+        "spirit",
+        "idea",
+        "sensuous",
+        "thought",
+        "feeling",
+        "image",
+        "concept"
       ],
-      "Art, Religion, and Philosophy": [
+      "aphorisms": [
         "Art, religion, and philosophy are the modes of the Absolute Spirit.",
         "Art is the sensible appearance of the Idea.",
         "Religion is the representation of the absolute in feeling and image.",
@@ -73,8 +176,28 @@
         "Philosophy reconciles the finite with the infinite in thought.",
         "Spirit reveals itself progressively through these forms.",
         "Only in philosophy does spirit fully know itself as spirit."
+      ]
+    },
+    {
+      "theme": "Logic and Metaphysics",
+      "keywords": [
+        "logic",
+        "metaphysics",
+        "idea",
+        "universal",
+        "particular",
+        "individual",
+        "essence",
+        "appearance",
+        "real",
+        "static",
+        "dynamic",
+        "becoming",
+        "being-for-self",
+        "otherness",
+        "absolute"
       ],
-      "Logic and Metaphysics": [
+      "aphorisms": [
         "Logic is the science of pure thought.",
         "The Idea is the unity of the universal, particular, and individual.",
         "Essence is the ground of appearance.",
@@ -85,8 +208,30 @@
         "The finite is a moment of the infinite.",
         "The end of logic is the beginning of nature.",
         "The Idea externalizes itself into nature and returns to itself in spirit."
+      ]
+    },
+    {
+      "theme": "Negation and Reconciliation",
+      "keywords": [
+        "negation",
+        "reconciliation",
+        "aufhebung",
+        "synthesis",
+        "contradiction",
+        "opposites",
+        "mutually",
+        "exclusive",
+        "generative",
+        "dialectical",
+        "movement",
+        "division",
+        "unity",
+        "difference",
+        "sublation",
+        "truth",
+        "absolute"
       ],
-      "Negation and Reconciliation": [
+      "aphorisms": [
         "Negation is the driving force of development.",
         "Aufhebung is not mere cancellation, but preservation and elevation.",
         "Every synthesis retains the truth of its contradiction.",
@@ -97,8 +242,26 @@
         "Reconciliation is the return to self enriched by otherness.",
         "The negative is necessary for the actualization of the positive.",
         "Spirit becomes itself only through what it is not."
+      ]
+    },
+    {
+      "theme": "State and Civil Society",
+      "keywords": [
+        "state",
+        "civil",
+        "society",
+        "individual",
+        "freedom",
+        "right",
+        "duty",
+        "ethical",
+        "institutions",
+        "family",
+        "God",
+        "concrete",
+        "freedom"
       ],
-      "State and Civil Society": [
+      "aphorisms": [
         "The state is the march of God in the world.",
         "The state is the actuality of concrete freedom.",
         "Civil society is the stage between the family and the state.",
@@ -109,8 +272,23 @@
         "The constitution is the soul of the people.",
         "Only in the ethical totality can individuality be fully realized.",
         "The rational will realizes itself in the rational state."
+      ]
+    },
+    {
+      "theme": "Absolute Spirit",
+      "keywords": [
+        "absolute",
+        "spirit",
+        "art",
+        "religion",
+        "philosophy",
+        "movement",
+        "unfolding",
+        "freedom",
+        "philosophy",
+        "Absolute"
       ],
-      "Absolute Spirit": [
+      "aphorisms": [
         "Absolute Spirit is the unity of art, religion, and philosophy.",
         "The Absolute is not beyond the world, but realized in it.",
         "The Absolute is spirit knowing itself as spirit.",
@@ -123,5 +301,6 @@
         "The end of philosophy is the reconciliation of thought and reality."
       ]
     }
-  }
+  ]
+}
   

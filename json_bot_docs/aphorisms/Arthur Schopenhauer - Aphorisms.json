@@ -1,8 +1,23 @@
 {
     "author": "Arthur Schopenhauer",
     "category": "Aphorisms",
-    "aphorisms": {
-      "Will and Metaphysics": [
+    "subject": 
+    [
+    {
+      "theme": "Will and Metaphysics",
+      "keywords": [
+        "will",
+        "metaphysics",
+        "representation",
+        "blind striving",
+        "intellect",
+        "servant",
+        "will to live",
+        "individuality",
+        "illusion",
+        "suffering"
+      ],
+      "aphorisms": [
         "The will is the inner essence of everything.",
         "The world is my representation.",
         "The will is a blind striving without knowledge.",
@@ -13,8 +28,22 @@
         "Individuality is an illusion created by space and time.",
         "The will is without end or aim, hence the source of suffering.",
         "Only by denying the will can peace be found."
+      ]
+    },
+    {
+      "theme": "Pessimism and Suffering",
+      "keywords": [
+        "pessimism",
+        "suffering",
+        "pain",
+        "boredom",
+        "existence",
+        "mistake",
+        "negation",
+        "optimism",
+        "human suffering"
       ],
-      "Pessimism and Suffering": [
+      "aphorisms": [
         "Life is a constant oscillation between pain and boredom.",
         "Suffering is the essence of life.",
         "Every satisfaction is merely the starting point for a new desire.",
@@ -25,8 +54,24 @@
         "Hope is the confusion of the desire for a thing with its probability.",
         "The world is hell, and men are on the one hand the tormented souls and on the other the devils.",
         "The denial of the will is the only salvation from the suffering of life."
+      ]
+    },
+    {
+      "theme": "Ethics and Compassion",
+      "keywords": [
+        "ethics",
+        "compassion",
+        "morality",
+        "justice",
+        "kindness",
+        "good man",
+        "beings",
+        "essence",
+        "inner",
+        "feeling",
+        "suffering"
       ],
-      "Ethics and Compassion": [
+      "aphorisms": [
         "Compassion is the true basis of morality.",
         "To harm another is to harm oneself in another form.",
         "Justice flows from compassion, not from contracts.",
@@ -37,8 +82,25 @@
         "Egoism is the original sin of the human condition.",
         "The less we demand from others, the freer and more peaceful we become.",
         "Pity is the only genuine moral motive."
+      ]
+    },
+    {
+      "theme": "Art and Aesthetic Experience",
+      "keywords": [
+        "art",
+        "aesthetic",
+        "experience",
+        "metaphysical",
+        "knowledge",
+        "will",
+        "beauty",
+        "music",
+        "genius",
+        "contemplation",
+        "forgetting",
+        "suffering"
       ],
-      "Art and Aesthetic Experience": [
+      "aphorisms": [
         "Art is the only true and pure form of metaphysical knowledge.",
         "In aesthetic contemplation, we escape the will.",
         "The beauty of art lies in its ability to make us forget ourselves.",
@@ -49,8 +111,23 @@
         "True art removes the viewer from the suffering of the world.",
         "Only in art can we glimpse a world without desire.",
         "Beauty is the sensory appearance of the eternal."
+      ]
+    },
+    {
+      "theme": "Human Nature and Behavior",
+      "keywords": [
+        "human nature",
+        "behavior",
+        "selfishness",
+        "selflessness",
+        "will",
+        "vanity",
+        "reason",
+        "vision",
+        "rationality",
+        "impulse"
       ],
-      "Human Nature and Behavior": [
+      "aphorisms": [
         "Man is fundamentally selfish, and only rarely selfless.",
         "A man can do as he wills, but not will as he wills.",
         "People are often more guided by vanity than reason.",
@@ -61,8 +138,23 @@
         "People admire intelligence in others but reward conformity.",
         "Our actions are more the result of temperament than principle.",
         "Man is the animal that makes suffering his own."
+      ]
+    },
+    {
+      "theme": "Knowledge and Intellect",
+      "keywords": [
+        "knowledge",
+        "intellect",
+        "talent",
+        "genius",
+        "will",
+        "reading",
+        "wise man",
+        "solitary",
+        "reflection",
+        "thinking"
       ],
-      "Knowledge and Intellect": [
+      "aphorisms": [
         "Talent hits a target no one else can hit; genius hits a target no one else can see.",
         "The intellect is a tool of the will, not its master.",
         "Reading is thinking with someone else's head.",
@@ -73,8 +165,24 @@
         "Knowledge divorced from character is worthless.",
         "Much learning does not make a wise man.",
         "Clarity is the mark of genuine understanding."
+      ]
+    },
+    {
+      "theme": "Solitude and the Self",
+      "keywords": [
+        "solitude",
+        "self",
+        "man",
+        "soul",
+        "self-sufficient",
+        "noise",
+        "deep",
+        "thought",
+        "crowd",
+        "mind",
+        "alienation"
       ],
-      "Solitude and the Self": [
+      "aphorisms": [
         "A man can be himself only so long as he is alone.",
         "Solitude is the fate of all great souls.",
         "The more a man has in himself, the less he needs from others.",
@@ -85,8 +193,25 @@
         "Silence is the element in which great things fashion themselves.",
         "Withdraw into yourself—as far as your own heart can go.",
         "One must learn to endure being alone, or never learn to live."
+      ]
+    },
+    {
+      "theme": "Love and Women",
+      "keywords": [
+        "love",
+        "will",
+        "life",
+        "romantic love",
+        "nature",
+        "reproduction",
+        "sexual desire",
+        "men",
+        "women",
+        "instinct",
+        "propagation",
+        "species"
       ],
-      "Love and Women": [
+      "aphorisms": [
         "Love is the will to life trying to perpetuate itself.",
         "Romantic love is nature’s trick to ensure reproduction.",
         "Sexual desire is the strongest expression of the will to life.",
@@ -97,8 +222,34 @@
         "The sexual instinct is irrational and tyrannical.",
         "Women’s love is more practical; men’s more idealistic.",
         "Beauty attracts the will to procreate."
+      ]
+    },
+    {
+      "theme": "Society and Culture",
+      "keywords": [
+        "society",
+        "culture",
+        "majority",
+        "public opinion",
+        "tyrant",
+        "world",
+        "appearances",
+        "illusion",
+        "opinionated",
+        "informed",
+        "mediocrity",
+        "excellence",
+        "politeness",
+        "superficial",
+        "indifference",
+        "truth",
+        "memorization",
+        "reflection",
+        "man",
+        "soul",
+        "alienation"
       ],
-      "Society and Culture": [
+      "aphorisms": [
         "The majority is always wrong.",
         "Public opinion is the worst of tyrants.",
         "The world is governed by appearances and illusion.",
@@ -109,8 +260,22 @@
         "Education often crushes originality.",
         "Culture is not memorization, but reflection.",
         "The man of society must be superficial; the thinker must be profound."
+      ]
+    },
+    {
+      "theme": "Death and the Meaning of Life",
+      "keywords": [
+        "death",
+        "philosophy",
+        "life",
+        "suffering",
+        "meaning",
+        "religion",
+        "wisdom",
+        "striving",
+        "nonbeing"
       ],
-      "Death and the Meaning of Life": [
+      "aphorisms": [
         "Death is the real inspiring genius of philosophy.",
         "Life is a loan from death.",
         "The fear of death is the root of all religion.",
@@ -123,5 +288,6 @@
         "To philosophize is to learn how to die."
       ]
     }
-  }
+  ]
+}
   

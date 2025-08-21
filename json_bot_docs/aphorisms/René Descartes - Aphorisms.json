@@ -1,111 +1,415 @@
 {
     "author": "René Descartes",
     "category": "Aphorisms",
-    "aphorisms": {
-      "Method and Doubt": [
+    "subject": [
+      {
+        "theme": "Method and Doubt",
+        "keywords": [
+          "Method",
+          "doubt",
+          "truth",
+          "beliefs",
+          "facts",
+          "certain",
+          "ideas",
+          "guide",
+          "truth"
+        ],
+        "aphorisms": [
         "To reach truth, one must doubt all that can be doubted.",
         "A firm foundation requires the demolition of former beliefs.",
         "The method is not to collect many facts, but to proceed from what is certain.",
         "Clear and distinct ideas are the surest guide to truth.",
         "Methodical doubt is not skepticism, but the path to certainty."
-      ],
-      "Cogito and Self-Knowledge": [
+        ]
+      },
+      {
+        "theme": "Cogito and Self-Knowledge",
+        "keywords": [
+          "Cogito",
+          "self-knowledge",
+          "existence",
+          "thinking",
+          "subject",
+          "deceived",
+          "indubitable",
+          "truth",
+          "self"
+        ],
+        "aphorisms": [
         "I think, therefore I am.",
         "Even if I am deceived, I must exist to be deceived.",
         "The first indubitable truth is the existence of the thinking subject.",
         "Thought cannot be separated from me; therefore, I am.",
         "The self is known more certainly than the body or the world."
-      ],
-      "Mind-Body Dualism": [
+        ]
+      },
+      {
+        "theme": "Mind-Body Dualism",
+        "keywords": [
+          "Mind",
+          "body",
+          "dualism",
+          "thinking",
+          "non-extended",
+          "extended",
+          "non-thinking",
+          "united",
+          "distinct",
+          "soul",
+          "essence",
+          "experience",
+          "reason"
+        ],
+        "aphorisms": [
         "The mind is a thinking, non-extended thing; the body, extended and non-thinking.",
         "Though united, the mind and body are of distinct natures.",
         "The soul does not depend on the body for its essence.",
         "The union of mind and body is known through experience, not reason.",
         "Thought proves mind; extension proves body."
-      ],
-      "Reason and Knowledge": [
+        ]
+      },
+      {
+        "theme": "Reason and Knowledge",
+        "keywords": [
+          "Reason",
+          "knowledge",
+          "senses",
+          "deceive",
+          "correct",
+          "experience",
+          "derived",
+          "will",
+          "judgment",
+          "conceive",
+          "affirm"
+        ],
+        "aphorisms": [
         "Reason is the only path to secure knowledge.",
         "The senses deceive; reason corrects their errors.",
         "True knowledge is not given by experience but derived from reason.",
         "All errors arise from the misuse of the will in matters of judgment.",
         "What cannot be clearly conceived should not be affirmed."
-      ],
-      "Mathematics and Certainty": [
+        ]
+      },
+      {
+        "theme": "Mathematics and Certainty",
+        "keywords": [
+          "Mathematics",
+          "certainty",
+          "truth",
+          "geometry",
+          "eternal",
+          "immutable",
+          "demonstrated",
+          "mind",
+          "ordered",
+          "distinct",
+          "necessary",
+          "universe",
+          "number",
+          "reason"
+        ],
+        "aphorisms": [
         "Mathematics provides the clearest models of truth.",
         "The truths of geometry are eternal and immutable.",
         "If a truth is demonstrated as in mathematics, it cannot be denied.",
         "The mind finds peace in what is ordered, distinct, and necessary.",
         "The universe, like number, reveals itself to reason."
-      ],
-      "God and Infinity": [
+        ]
+      },
+      {
+        "theme": "God and Infinity",
+        "keywords": [
+          "God",
+          "infinity",
+          "idea",
+          "infinite",
+          "finite",
+          "mind",
+          "guarantor",
+          "perceptions",
+          "perfection",
+          "deceive",
+          "cause",
+          "effect",
+          "exist",
+          "infinite"
+        ],
+        "aphorisms": [
         "The idea of an infinite being could not originate from a finite mind.",
         "God is the guarantor of the truth of clear and distinct perceptions.",
         "Perfection cannot deceive; therefore, God is no deceiver.",
         "The cause must be at least as real as the effect; hence, God must exist.",
         "Only an infinite being can be the source of the idea of infinity."
-      ],
-      "Science and Nature": [
+        ]
+      },
+      {
+        "theme": "Science and Nature",
+        "keywords": [
+          "Science",
+          "nature",
+          "laws",
+          "reason",
+          "world",
+          "machine",
+          "comprehensible",
+          "mathematics",
+          "conquer",
+          "understand",
+          "workings",
+          "science",
+          "metaphysical",
+          "clarity",
+          "secure",
+          "qualities",
+          "matter",
+          "shapes",
+          "motions",
+          "extensions"
+        ],
+        "aphorisms": [
         "Nature operates by laws discernible to reason.",
         "The world is a vast machine, comprehensible through mathematics.",
         "To conquer nature, one must understand her workings.",
         "Science must rest on metaphysical clarity to be secure.",
         "There are no qualities in matter, only shapes, motions, and extensions."
-      ],
-      "Will and Judgment": [
+        ]
+      },
+      {
+        "theme": "Will and Judgment",
+        "keywords": [
+          "Will",
+          "judgment",
+          "error",
+          "freedom",
+          "clarity",
+          "discipline",
+          "intellect",
+          "understanding",
+          "will",
+          "error",
+          "freedom",
+          "clarity",
+          "discipline",
+          "intellect",
+          "understanding"
+        ],
+        "aphorisms": [
         "Error arises when the will outruns the intellect.",
         "Freedom lies in the ability to withhold judgment until clarity is attained.",
         "The will is infinite; the understanding is finite.",
         "Proper judgment is an act of reason restrained by discipline.",
         "To will without understanding is to err."
-      ],
-      "Ethics and Conduct": [
+        ]
+      },
+      {
+        "theme": "Ethics and Conduct",
+        "keywords": [
+          "Ethics",
+          "conduct",
+          "truth",
+          "principles",
+          "decision",
+          "doubt",
+          "virtue",
+          "will",
+          "judgment",
+          "error",
+          "freedom",
+          "clarity",
+          "discipline",
+          "intellect",
+          "understanding"
+        ],
+        "aphorisms": [
         "While truth is pursued, one must live as if some principles were certain.",
         "In matters of practice, decision is preferable to doubt.",
         "Virtue consists in the firm and constant will to do what reason judges best.",
         "Peace of mind arises from acting in accordance with reason.",
         "The provisional moral code is the compass in the storm of doubt."
-      ],
-      "Sensory Perception": [
+        ]
+      },
+      {
+        "theme": "Sensory Perception",
+        "keywords": [
+          "Sensory",
+          "perception",
+          "mislead",
+          "far",
+          "poor",
+          "light",
+          "dreams",
+          "waking",
+          "life",
+          "senses",
+          "perception",
+          "corrected",
+          "reason",
+          "trust",
+          "true",
+          "effects",
+          "mind",
+          "contact",
+          "things"
+        ],
+        "aphorisms": [
         "The senses often mislead, especially from afar or in poor light.",
         "Dreams and waking life can appear alike to the senses.",
         "Perception must be corrected by reason, not trusted blindly.",
         "What is seen is not always what is true.",
         "Sensory data are effects in the mind, not direct contact with things."
-      ],
-      "Dreams and Reality": [
+        ]
+      },
+      {
+        "theme": "Dreams and Reality",
+        "keywords": [
+          "Dreams",
+          "reality",
+          "conclusive",
+          "sign",
+          "distinguish",
+          "waking",
+          "dreaming",
+          "sensory",
+          "experience",
+          "thinking",
+          "self",
+          "ground",
+          "certainty",
+          "reality",
+          "illusion",
+          "dreams",
+          "thinking",
+          "mind"
+        ],
+        "aphorisms": [
         "There is no conclusive sign to distinguish waking from dreaming.",
         "All sensory experience may be a dream, but the thinking self remains.",
         "Dreams show that the senses cannot ground certainty.",
         "Reality cannot be founded on what may be illusion.",
         "Even in dreams, the thinking mind exists."
-      ],
-      "The Evil Demon Hypothesis": [
+        ]
+      },
+      {
+        "theme": "The Evil Demon Hypothesis",
+        "keywords": [
+          "Dreams",
+          "reality",
+          "conclusive",
+          "sign",
+          "distinguish",
+          "waking",
+          "dreaming",
+          "sensory",
+          "experience",
+          "thinking",
+          "self",
+          "ground",
+          "certainty",
+          "reality",
+          "illusion",
+          "dreams",
+          "thinking",
+          "mind"
+        ],
+        "aphorisms": [
         "Suppose a deceiver as powerful as he is cunning—could anything be known?",
         "The demon may deceive my senses, my body, even my mathematics—but not my being.",
         "Radical doubt destroys even the seemingly obvious.",
         "The possibility of deception proves the necessity of indubitable foundations.",
         "Even universal deception cannot erase the self that thinks."
-      ],
-      "Innate Ideas": [
+        ]
+      },
+      {
+        "theme": "Innate Ideas",
+        "keywords": [
+          "Dreams",
+          "reality",
+          "conclusive",
+          "sign",
+          "distinguish",
+          "waking",
+          "dreaming",
+          "sensory",
+          "experience",
+          "thinking",
+          "self",
+          "ground",
+          "certainty",
+          "reality",
+          "illusion",
+          "dreams",
+          "thinking",
+          "mind"
+        ],
+        "aphorisms": [
         "The idea of God is born within, not constructed from experience.",
         "Some truths are known prior to and independent of sensation.",
         "Innate ideas form the foundation of certain knowledge.",
         "The mind contains seeds of truth waiting to be clarified by reason.",
         "Knowledge does not always enter from without; some arises from within."
-      ],
-      "Mechanism and the Body": [
+        ]
+      },
+      {
+        "theme": "Mechanism and the Body",
+        "keywords": [
+          "Dreams",
+          "reality",
+          "conclusive",
+          "sign",
+          "distinguish",
+          "waking",
+          "dreaming",
+          "sensory",
+          "experience",
+          "thinking",
+          "self",
+          "ground",
+          "certainty",
+          "reality",
+          "illusion",
+          "dreams",
+          "thinking",
+          "mind"
+        ],
+        "aphorisms": [
         "The body is a machine moved by laws, not by will.",
         "Animals, lacking reason, are automata of nature.",
         "The pineal gland is the meeting point of soul and body.",
         "Even without the soul, the body would move according to its design.",
         "The passions are effects of the body on the soul."
-      ],
-      "Freedom and Determinism": [
+        ]
+      },
+      {
+        "theme": "Freedom and Determinism",
+        "keywords": [
+          "Dreams",
+          "reality",
+          "conclusive",
+          "sign",
+          "distinguish",
+          "waking",
+          "dreaming",
+          "sensory",
+          "experience",
+          "thinking",
+          "self",
+          "ground",
+          "certainty",
+          "reality",
+          "illusion",
+          "dreams",
+          "thinking",
+          "mind"
+        ],
+        "aphorisms": [
         "Freedom is not indifference, but the rational determination of the will.",
         "To be free is to choose with clarity, not to choose without reason.",
         "An act is free when it proceeds from clear understanding.",
         "Doubt hampers freedom; certainty enables it.",
         "Only through knowledge is the will truly free."
-      ]
-    }
+        ]
+      }
+    ]
   }  

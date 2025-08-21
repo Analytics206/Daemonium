@@ -1,8 +1,21 @@
 {
     "author": "Plato",
     "category": "Aphorisms",
-    "aphorisms": {
-      "Philosophy and Wisdom": [
+    "subject": [
+      {
+        "theme": "Philosophy and Wisdom",
+        "keywords": [
+          "Wisdom",
+          "beginning",
+          "wonder",
+          "examined",
+          "life",
+          "wise",
+          "fool",
+          "knowledge",
+          "soul"
+        ],
+        "aphorisms": [
         "Philosophy begins in wonder.",
         "The unexamined life is not worth living.",
         "Wise men speak because they have something to say; fools because they have to say something.",
@@ -13,8 +26,26 @@
         "The first and greatest victory is to conquer yourself.",
         "No man should bring children into the world who is unwilling to persevere to the end in their nature and education.",
         "Education is teaching our children to desire the right things."
-      ],
-      "Justice and the Soul": [
+        ]
+      },
+      {
+        "theme": "Justice and the Soul",
+        "keywords": [
+          "Justice",
+          "life",
+          "conduct",
+          "State",
+          "citizens",
+          "work",
+          "meddle",
+          "soul",
+          "intellectual",
+          "joy",
+          "unjust",
+          "wretched",
+          "suffers"
+        ],
+        "aphorisms": [
         "Justice in the life and conduct of the State is possible only as first it resides in the hearts and souls of the citizens.",
         "Justice is doing one's own work and not meddling with what isn’t one’s own.",
         "There is no greater nor keener pleasure than that of intellectual joy.",
@@ -22,8 +53,25 @@
         "He who commits injustice is ever made more wretched than he who suffers it.",
         "The measure of a man is what he does with power.",
         "No human thing is of serious importance."
-      ],
-      "Love and Beauty": [
+        ]
+      },
+      {
+        "theme": "Love and Beauty",
+        "keywords": [
+          "Love",
+          "pursuit",
+          "whole",
+          "touch",
+          "everyone",
+          "poet",
+          "madness",
+          "gods",
+          "Beauty",
+          "soul",
+          "body",
+          "eternal"
+        ],
+        "aphorisms": [
         "Love is the pursuit of the whole.",
         "At the touch of love, everyone becomes a poet.",
         "Love is a madness sent from the gods.",
@@ -32,8 +80,24 @@
         "True love seeks the eternal in the beloved.",
         "Those who truly love rise above the mortal and reach toward the immortal.",
         "Love is the child of Poverty and Resource—never entirely fulfilled."
-      ],
-      "Politics and the State": [
+        ]
+      },
+      {
+        "theme": "Politics and the State",
+        "keywords": [
+          "Politics",
+          "State",
+          "citizens",
+          "work",
+          "meddle",
+          "soul",
+          "intellectual",
+          "joy",
+          "unjust",
+          "wretched",
+          "suffers"
+        ],
+        "aphorisms": [
         "There will be no end to the troubles of states until philosophers become kings.",
         "The punishment which the wise suffer who refuse to take part in the government is to live under the government of worse men.",
         "Democracy passes into despotism.",
@@ -43,8 +107,32 @@
         "Justice in the state is the same as justice in the soul.",
         "The heaviest penalty for declining to rule is to be ruled by someone inferior to yourself.",
         "No one is more hated than he who speaks the truth."
-      ],
-      "Education and the Mind": [
+        ]
+      },
+      {
+        "theme": "Education and the Mind",
+        "keywords": [
+          "Education",
+          "development",
+          "worth",
+          "soul",
+          "capacity",
+          "self-culture",
+          "genius",
+          "neglect",
+          "encouragement",
+          "cultivated",
+          "mind",
+          "noble",
+          "possession",
+          "man",
+          "liberty",
+          "teachers",
+          "kindle",
+          "love",
+          "learning"
+        ],
+        "aphorisms": [
         "Do not train a child to learn by force or harshness; but direct them to it by what amuses their minds.",
         "Education is the kindling of a flame, not the filling of a vessel.",
         "Those who tell the stories rule society.",
@@ -52,8 +140,26 @@
         "Musical training is a more potent instrument than any other because rhythm and harmony find their way into the inward places of the soul.",
         "You cannot teach a person anything unless you help them discover it within themselves.",
         "The direction in which education starts a man will determine his future in life."
-      ],
-      "Reality and Knowledge": [
+        ]
+      },
+      {
+        "theme": "Reality and Knowledge",
+        "keywords": [
+          "Reality",
+          "knowledge",
+          "opinion",
+          "light",
+          "cave",
+          "things",
+          "shadows",
+          "eternal",
+          "Forms",
+          "tragedy",
+          "life",
+          "men",
+          "dark"
+        ],
+        "aphorisms": [
         "Opinion is the medium between knowledge and ignorance.",
         "Those who see the light must return to the cave.",
         "All things are shadows of the eternal Forms.",
@@ -61,8 +167,28 @@
         "Objects perceived by the senses are mere reflections of the true reality.",
         "True knowledge exists in knowing that you know nothing.",
         "Reality is to be found in the intelligible, not the visible."
-      ],
-      "Virtue and the Good": [
+        ]
+      },
+      {
+        "theme": "Virtue and the Good",
+        "keywords": [
+          "Virtue",
+          "good",
+          "man",
+          "friend",
+          "health",
+          "beauty",
+          "habit",
+          "soul",
+          "actions",
+          "strength",
+          "inspire",
+          "servant",
+          "master",
+          "passions",
+          "justice"
+        ],
+        "aphorisms": [
         "The good man is the friend of all living things.",
         "Virtue is a kind of health, beauty, and good habit of the soul.",
         "Good actions give strength to ourselves and inspire good actions in others.",
@@ -70,8 +196,32 @@
         "We must not allow our passions to destroy our sense of justice.",
         "The soul takes nothing with her to the next world but her education and her upbringing.",
         "Virtue is knowledge, and vice is ignorance."
-      ],
-      "Art and Poetry": [
+        ]
+      },
+      {
+        "theme": "Art and Poetry",
+        "keywords": [
+          "Art",
+          "poetry",
+          "nearer",
+          "vital",
+          "truth",
+          "history",
+          "object",
+          "education",
+          "love",
+          "beautiful",
+          "artist",
+          "creator",
+          "beautiful",
+          "illusion",
+          "imitation",
+          "appears",
+          "beauty",
+          "eternal",
+          "Forms"
+        ],
+        "aphorisms": [
         "Poetry is nearer to vital truth than history.",
         "The object of education is to teach us to love what is beautiful.",
         "The artist is the creator of beautiful illusions.",
@@ -79,22 +229,67 @@
         "All good art must imitate the eternal Forms.",
         "Only those inspired by the divine can create true poetry.",
         "The soul of the artist must be turned toward the Good."
-      ],
-      "Death and the Soul": [
+        ]
+      },
+      {
+        "theme": "Death and the Soul",
+        "keywords": [
+          "Death",
+          "soul",
+          "worst",
+          "men",
+          "released",
+          "body",
+          "philosopher",
+          "release",
+          "life",
+          "soul",
+          "immortal",
+          "life",
+          "philosophers",
+          "dying",
+          "profession",
+          "afraid",
+          "eternal"
+        ],
+        "aphorisms": [
         "Death is not the worst that can happen to men.",
         "To die is to be released from the body, and the philosopher seeks this release in life.",
         "The soul is immortal and enters a new life after death.",
         "True philosophers make dying their profession.",
         "A man who has learned to think of the eternal is no longer afraid of death.",
         "We must care for our soul more than for our body."
-      ],
-      "Self and Discipline": [
+        ]
+      },
+      {
+        "theme": "Self and Discipline",
+        "keywords": [
+          "Self",
+          "discipline",
+          "wealth",
+          "content",
+          "little",
+          "man",
+          "happiness",
+          "depend",
+          "other",
+          "men",
+          "best",
+          "plan",
+          "live",
+          "angry",
+          "true",
+          "self",
+          "wisdom"
+        ],
+        "aphorisms": [
         "The greatest wealth is to live content with little.",
         "The man who makes everything that leads to happiness depend upon himself, and not upon other men, has adopted the very best plan for living happily.",
         "No man should be angry with what is true.",
         "Control of the self is the beginning of wisdom.",
         "He who is not master of himself is a slave."
-      ]
-    }
+        ]
+      }
+    ]
   }
   

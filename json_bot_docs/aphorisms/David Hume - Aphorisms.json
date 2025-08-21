@@ -1,8 +1,15 @@
 {
     "author": "David Hume",
     "category": "Aphorisms",
-    "aphorisms": {
-      "Human Nature": [
+    "subject": 
+    [
+    {
+      "theme": "Human Nature",
+      "keywords" [
+
+      ],
+
+      "aphorisms": [
         "Man is a bundle of perceptions.",
         "Reason is, and ought only to be the slave of the passions.",
         "Custom is the great guide of human life.",
@@ -13,8 +20,15 @@
         "The identity which we ascribe to the mind of man is only a fictitious one.",
         "We are more influenced by imagination than by reason.",
         "The will is determined by the strongest motive."
+      ]
+    },
+    {
+      "theme": "Epistemology and Knowledge",
+      "keywords" [
+
       ],
-      "Epistemology and Knowledge": [
+
+      "aphorisms": [
         "A wise man proportions his belief to the evidence.",
         "All knowledge degenerates into probability.",
         "There is no idea in metaphysics more obscure and uncertain than necessary connection.",
@@ -25,7 +39,9 @@
         "The future resembles the past, not by necessity, but by habit.",
         "It is not contrary to reason to prefer the destruction of the world to the scratching of my finger.",
         "The rules of morality are not conclusions of our reason."
-      ],
+      ]
+    },
+    {
       "Morality and Ethics": [
         "Moral distinctions are not derived from reason.",
         "Virtue is whatever is useful or agreeable to oneself or to others.",

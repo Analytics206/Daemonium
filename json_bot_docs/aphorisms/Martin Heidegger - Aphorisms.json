@@ -1,8 +1,26 @@
 {
     "author": "Martin Heidegger",
     "category": "Aphorisms",
-    "aphorisms": {
-      "Being and Ontology": [
+    "subject": [
+      {
+        "theme": "Being and Ontology",
+        "keywords": [
+          "Being",
+          "Ontology",
+          "question",
+          "fundamental",
+          "being",
+          "essence",
+          "beings",
+          "clearing",
+          "truth",
+          "human",
+          "shepherd",
+          "stand",
+          "openness",
+          "disclosure"
+        ],
+        "aphorisms": [
         "The question of Being is the most fundamental question of philosophy.",
         "Being is not a being.",
         "The essence of Being is not itself a being.",
@@ -13,8 +31,25 @@
         "Being unfolds through the clearing of truth.",
         "The human being is the shepherd of Being.",
         "To think Being is to stand within the openness of its disclosure."
-      ],
-      "Dasein and Existence": [
+      ]
+    },
+    {
+      "theme": "Dasein and Existence",
+      "keywords": [
+          "Dasein",
+          "Existence",
+          "being",
+          "question",
+          "possibilities",
+          "exist",
+          "project",
+          "Dasein",
+          "ahead",
+          "world",
+          "care",
+          "temporal"
+        ],
+        "aphorisms": [
         "Dasein is the being for whom Being is a question.",
         "Dasein always understands itself in terms of its possibilities.",
         "To exist is to project oneself upon possibilities.",
@@ -25,8 +60,24 @@
         "To be authentic is to own one's Being-toward-death.",
         "Dasein is thrown into the world and yet responsible for its choices.",
         "Being human means existing in a state of openness to Being."
+      ]
+    },
+    {
+      "theme": "Time and Temporality",
+      "keywords": [
+        "Time",
+        "Temporality",
+        "succession",
+        "moments",
+        "horizon",
+        "Being",
+        "past",
+        "present",
+        "future",
+        "Dasein",
+        "unity"
       ],
-      "Time and Temporality": [
+      "aphorisms": [
         "Time is not a succession of moments but the horizon of Being.",
         "Temporality is the condition for the possibility of understanding Being.",
         "The past is not gone; it lives in the present as having-been.",
@@ -37,8 +88,24 @@
         "The ecstases of time are the structures of existence.",
         "To exist is to stretch along time.",
         "Time is the house of Being."
+      ]
+    },
+    {
+      "theme":"Time and Temporality",
+      "keywords": [
+        "Time",
+        "Temporality",
+        "succession",
+        "moments",
+        "horizon",
+        "Being",
+        "past",
+        "present",
+        "future",
+        "Dasein",
+        "unity"
       ],
-      "Authenticity and Inauthenticity": [
+      "aphorisms": [
         "Most people flee from themselves into the they-self.",
         "The they dictates how one is supposed to live.",
         "Authenticity means resolutely owning one's existence.",
@@ -49,8 +116,23 @@
         "Only in facing death can one truly own life.",
         "Authentic freedom arises from embracing one's thrownness.",
         "The call of conscience summons Dasein to itself."
+      ]
+    },
+    {
+      "theme": "Technology and Enframing",
+      "keywords": [
+        "Technology",
+        "standing",
+        "reserve",
+        "beings",
+        "resources",
+        "truth",
+        "Being",
+        "challenged",
+        "technological",
+        "attitude"
       ],
-      "Technology and Enframing": [
+      "aphorisms": [
         "The essence of technology is not technological.",
         "Technology enframes the world as a standing reserve.",
         "Modern technology reveals beings only as resources to be used.",
@@ -61,8 +143,19 @@
         "The danger of technology is that it conceals its own essence.",
         "Art and poetry can reveal Being where technology conceals it.",
         "The saving power grows where the danger is greatest."
+      ]
+    },
+    {
+      "theme": "Language and Poetry",
+      "keywords": [
+        "Language",
+        "Poetry",
+        "Being",
+        "human",  
+        "dwelling",
+        "speaking"
       ],
-      "Language and Poetry": [
+      "aphorisms": [
         "Language is the house of Being.",
         "Man dwells in language.",
         "Language speaks, not the human being.",
@@ -73,8 +166,24 @@
         "The poet names the holy and the gods.",
         "Language reveals the world, and also conceals it.",
         "Thinking and poetry share the same essence."
+      ]
+    },
+    {
+      "theme": "Truth and Disclosure",
+      "keywords": [
+        "Truth",
+        "Disclosure",
+        "Being",
+        "aletheia",
+        "unconcealment",
+        "correspondence",
+        "disclosure",
+        "clearing",
+        "beings",
+        "thinking",
+        "poetry"
       ],
-      "Truth and Disclosure": [
+      "aphorisms": [
         "Truth is aletheia—unconcealment.",
         "Truth is not correspondence but disclosure.",
         "To find truth is to stand in the clearing of Being.",
@@ -85,8 +194,21 @@
         "The truth of Being requires a readiness to listen.",
         "Philosophy begins in wonder at what is revealed.",
         "Truth is the clearing in which beings emerge."
+      ]
+    },
+    {
+      "theme": "Death and Finitude",
+      "keywords": [
+        "Death",
+        "Finitude",
+        "Dasein",
+        "Being-toward-death",
+        "authenticity",
+        "anticipation",
+        "life",
+        "Being"
       ],
-      "Death and Finitude": [
+      "aphorisms": [
         "Death is the most personal possibility of Dasein.",
         "Only in death does Dasein fully confront its own Being.",
         "Being-toward-death is the key to authentic existence.",
@@ -97,8 +219,25 @@
         "Death calls Dasein back from the they.",
         "Only through death is freedom fully understood.",
         "In confronting death, we confront the mystery of Being itself."
+      ]
+    },
+    {
+      "theme": "Dwelling and Worldhood",
+      "keywords": [
+        "Dwelling",
+        "Worldhood",
+        "earth",
+        "sky",
+        "mortals",
+        "divinities",
+        "Dwelling",
+        "space",
+        "Dwelling",
+        "poetically",
+        "Dwelling",
+        "world"
       ],
-      "Dwelling and Worldhood": [
+      "aphorisms": [
         "Dwelling is the manner in which mortals exist on the earth.",
         "To build is to dwell.",
         "Dwelling is a poetic act.",
@@ -109,8 +248,26 @@
         "The thing gathers the world into presence.",
         "To dwell means to care and to preserve.",
         "The world is where beings show themselves in their truth."
+      ]
+    },
+    {
+      "theme": "Thinking and Philosophy",
+      "keywords": [
+        "Thinking",
+        "Philosophy",
+        "Being",
+        "aletheia",
+        "unconcealment",
+        "correspondence",
+        "disclosure",
+        "Being",
+        "clearing",
+        "beings",
+        "truth",
+        "thinking",
+        "poetry"
       ],
-      "Thinking and Philosophy": [
+      "aphorisms": [
         "To think is to thank.",
         "Thinking is not calculating but letting be.",
         "Philosophy is not science; it is the recollection of Being.",
@@ -123,4 +280,5 @@
         "Philosophy begins where logic ends."
       ]
     }
-  }
+  ]
+}

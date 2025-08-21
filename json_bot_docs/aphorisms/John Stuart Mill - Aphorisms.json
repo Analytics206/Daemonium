@@ -1,20 +1,48 @@
 {
     "author": "John Stuart Mill",
     "category": "Aphorisms",
-    "aphorisms": {
-      "Liberty and Individuality": [
-        "The worth of a state in the long run is the worth of the individuals composing it.",
-        "Genius can only breathe freely in an atmosphere of freedom.",
-        "The only freedom which deserves the name is that of pursuing our own good in our own way.",
-        "The liberty of the individual must be thus far limited; he must not make himself a nuisance to others.",
-        "A person may rightfully be compelled to do or forbear only to prevent harm to others.",
-        "Originality is the one thing which unoriginal minds cannot feel the use of.",
-        "The despotism of custom is everywhere the standing hindrance to human advancement.",
-        "The liberty of thought and discussion is essential to the pursuit of truth.",
-        "The worth of a man manifests most when he is left to himself.",
+    "subject": [
+      {
+        "theme": "Liberty and Individuality",
+        "keywords": [
+          "liberty",
+          "individuality",
+          "state",
+          "individual",
+          "good",
+          "nuisance",
+          "compulsion",
+          "originality",
+          "custom",
+          "thought"
+        ],
+        "aphorisms": [
+          "The worth of a state in the long run is the worth of the individuals composing it.",
+          "Genius can only breathe freely in an atmosphere of freedom.",
+          "The only freedom which deserves the name is that of pursuing our own good in our own way.",
+          "The liberty of the individual must be thus far limited; he must not make himself a nuisance to others.",
+          "A person may rightfully be compelled to do or forbear only to prevent harm to others.",
+          "Originality is the one thing which unoriginal minds cannot feel the use of.",
+          "The despotism of custom is everywhere the standing hindrance to human advancement.",
+          "The liberty of thought and discussion is essential to the pursuit of truth.",
+          "The worth of a man manifests most when he is left to himself.",
         "Even opinions that are wrong may contain partial truths we have overlooked."
+      ]
+    },
+    {
+      "theme": "Utilitarianism and Ethics",
+      "keywords": [
+        "utilitarianism",
+        "ethics",
+        "morality",
+        "happiness",
+        "consequences",
+        "actions",
+        "happiness",
+        "satisfaction",
+        "consequences"
       ],
-      "Utilitarianism and Ethics": [
+      "aphorisms": [
         "The creed which accepts as the foundation of morals Utility, or the Greatest Happiness Principle, holds that actions are right in proportion as they promote happiness.",
         "Happiness is the only thing desirable as an end; all other things are desirable as means to that end.",
         "It is better to be a human being dissatisfied than a pig satisfied.",
@@ -25,8 +53,29 @@
         "Virtue may be desired for its own sake, but only because it is a part of happiness.",
         "Conscience is the internal sanction of duty, derived from social feeling.",
         "Utility includes not only the pursuit of pleasure but the avoidance of pain."
+      ]
+    },
+    {
+      "theme": "Freedom of Speech and Thought",
+      "keywords": [
+        "speech",
+        "thought",
+        "silencing",
+        "expression",
+        "opinion",
+        "human race",
+        "infallibility",
+        "false",
+        "life-giving",
+        "truth",
+        "perception",
+        "clearer",
+        "adverse",
+        "opinions",
+        "perception",
+        "truth"
       ],
-      "Freedom of Speech and Thought": [
+      "aphorisms": [
         "The peculiar evil of silencing the expression of an opinion is that it robs the human race.",
         "All silencing of discussion is an assumption of infallibility.",
         "Even a false opinion may have life-giving truth within it.",
@@ -37,8 +86,32 @@
         "The best cure for bad speech is more speech.",
         "No opinion is worth holding if it cannot withstand criticism.",
         "Censorship is an admission of fear, not of strength."
+      ]
+    },
+    {
+      "theme": "Women and Gender Equality",
+      "keywords": [
+        "women",
+        "gender",
+        "equality",
+        "subordination",
+        "sex",
+        "principle",
+        "social",
+        "relations",
+        "force",
+        "nature",
+        "artificial",
+        "opinions",
+        "submission",
+        "causes",
+        "social",
+        "natural",
+        "opinions",
+        "women",
+        "opinions"
       ],
-      "Women and Gender Equality": [
+      "aphorisms": [
         "The legal subordination of one sex to the other is wrong in itself.",
         "The principle which regulates the existing social relations between the two sexes is based on force.",
         "What is now called the nature of women is an eminently artificial thing.",
@@ -49,8 +122,31 @@
         "The liberty of women is inseparable from the liberty of all.",
         "Custom, not reason, is the great enemy of women's freedom.",
         "No great improvement in the lot of mankind is possible until the condition of women is improved."
+      ]
+    },
+    {
+      "theme": "Democracy and Government",
+      "keywords": [
+        "democracy",
+        "government",
+        "worth",
+        "people",
+        "ignorant",
+        "free",
+        "expect",
+        "never",
+        "state",
+        "dwarfs",
+        "men",
+        "docile",
+        "instruments",
+        "hands",
+        "small",
+        "great",
+        "thing",
+        "accomplish"
       ],
-      "Democracy and Government": [
+      "aphorisms": [
         "The worth of a government is measured by its ability to foster the development of the people.",
         "A people who expect to be ignorant and free expect what never was and never will be.",
         "A state that dwarfs its men, in order that they may be more docile instruments in its hands, will find that with small men no great thing can be accomplished.",
@@ -61,8 +157,32 @@
         "Government exists to protect people from harm, not from their own choices.",
         "No government can be perfect, but it can be just.",
         "Checks and balances are essential to guard against tyranny."
+      ]
+    },
+    {
+      "theme": "Education and Development",
+      "keywords": [
+        "education",
+        "development",
+        "worth",
+        "soul",
+        "capacity",
+        "self-culture",
+        "genius",
+        "neglect",
+        "encouragement",
+        "cultivated",
+        "mind",
+        "noble",
+        "possession",
+        "man",
+        "liberty",
+        "teachers",
+        "kindle",
+        "love",
+        "learning"
       ],
-      "Education and Development": [
+      "aphorisms": [
         "The worth of a soul is best tested by its capacity for self-culture.",
         "Genius is far more often crushed by neglect than developed by encouragement.",
         "A cultivated mind is the most noble possession of man.",
@@ -73,8 +193,32 @@
         "Progress depends on the cultivation of intelligence and character.",
         "Education must aim not merely at knowledge but at self-development.",
         "An uncultivated intellect is vulnerable to dogma and manipulation."
+      ]
+    },
+    {
+      "theme": "Truth and Inquiry",
+      "keywords": [
+        "truth",
+        "inquiry",
+        "worth",
+        "doctrine",
+        "popularity",
+        "survive",
+        "challenge",
+        "errors",
+        "thinking",
+        "opinions",
+        "blinding",
+        "genius",
+        "originality",
+        "freedom",
+        "inquiry",
+        "knowledge",
+        "side",
+        "case",
+        "little"
       ],
-      "Truth and Inquiry": [
+      "aphorisms": [
         "The worth of a doctrine lies not in its popularity but in its capacity to survive challenge.",
         "Truth gains more by the errors of one who thinks for himself than by the correct opinions of those who follow blindly.",
         "Genius and originality are meaningless without freedom of inquiry.",
@@ -85,8 +229,34 @@
         "We must distrust dogmas, even when they are widely accepted.",
         "The spirit of improvement requires the spirit of questioning.",
         "Doubt is the beginning, not the end, of wisdom."
+      ]
+    },
+    {
+      "theme": "Human Progress and Civilization",
+      "keywords": [
+        "human",
+        "progress",
+        "civilization",
+        "worth",
+        "material",
+        "moral",
+        "excellence",
+        "intellectual",
+        "excellence",
+        "free",
+        "use",
+        "reason",
+        "liberty",
+        "act",
+        "despotism",
+        "public",
+        "opinion",
+        "monarch",
+        "good",
+        "originality",
+        "individuality"
       ],
-      "Human Progress and Civilization": [
+      "aphorisms": [
         "The worth of a civilization is not in its material progress, but in the cultivation of moral and intellectual excellence.",
         "Civilization advances by the free use of reason and the liberty to act.",
         "The despotism of public opinion is as dangerous as that of a monarch.",
@@ -97,8 +267,32 @@
         "The human race has always required dissenters to move forward.",
         "Conformity is the enemy of progress.",
         "A stagnant society is one where individuality is crushed."
+      ]
+    },
+    {
+      "theme": "Logic and Thought",
+      "keywords": [
+        "logic",
+        "thought",
+        "science",
+        "proof",
+        "persuasion",
+        "mind",
+        "discipline",
+        "clearly",
+        "independently",
+        "fallacies",
+        "cultivation",
+        "intellect",
+        "truth",
+        "rigorous",
+        "inquiry",
+        "doubt",
+        "belief",
+        "quickly",
+        "clearly"
       ],
-      "Logic and Thought": [
+      "aphorisms": [
         "Logic is the science of proof, not persuasion.",
         "The mind must be disciplined to think clearly and independently.",
         "Fallacies thrive where there is no cultivation of the intellect.",
@@ -111,5 +305,6 @@
         "Clarity in thought leads to clarity in action."
       ]
     }
-  }
+  ]
+}
   

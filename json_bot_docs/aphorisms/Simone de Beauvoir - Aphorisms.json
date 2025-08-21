@@ -1,8 +1,24 @@
 {
     "author": "Simone de Beauvoir",
     "category": "Aphorisms",
-    "aphorisms": {
-      "Freedom and Responsibility": [
+    "subject": [
+      {
+        "theme": "Freedom and Responsibility",
+        "keywords": [
+          "Freedom",
+          "responsibility",
+          "will",
+          "others",
+          "source",
+          "meaning",
+          "born",
+          "action",
+          "free",
+          "do whatever",
+          "assume responsibility",
+          "oneself"
+        ],
+        "aphorisms": [
         "To will oneself free is also to will others free.",
         "Freedom is the source from which all meaning springs.",
         "One is not born free but becomes free through action.",
@@ -13,8 +29,28 @@
         "Existence is not fixed essence—it is continuous creation.",
         "We are condemned to freedom and must invent ourselves without foundation.",
         "Freedom is never given; it must be claimed."
-      ],
-      "Women and Feminism": [
+      ]
+    },
+    {
+      "theme": "Women and Feminism",
+      "keywords": [
+          "Women",
+          "feminism",
+          "narratives",
+          "category",
+          "social",
+          "historical",
+          "construction",
+          "myth",
+          "privileged",
+          "living",
+          "collectively",
+          "patriarchy",
+          "institutionalized",
+          "dependence",
+          "natural"
+        ],
+        "aphorisms": [
         "One is not born, but rather becomes, a woman.",
         "Woman has always been the ‘Other’ in male-defined narratives.",
         "The category of woman is a social and historical construction.",
@@ -25,8 +61,31 @@
         "The body is not a destiny.",
         "A woman’s value has been tied to her usefulness to men.",
         "The emancipation of women must include economic, social, and existential dimensions."
+      ]
+    },
+    {
+      "theme": "Existence and Ambiguity",
+      "keywords": [
+        "Existence",
+        "ambiguity",
+        "lack",
+        "being",
+        "condition",
+        "Ethics",
+        "begin",
+        "certainty",
+        "ready",
+        "values",
+        "created",
+        "world",
+        "Life",
+        "defined",
+        "path",
+        "tension",
+        "facticity",
+        "transcendence"
       ],
-      "Existence and Ambiguity": [
+      "aphorisms": [
         "To exist is to make oneself a lack of being.",
         "Ambiguity is not a flaw of existence but its condition.",
         "Ethics must begin in ambiguity, not certainty.",
@@ -37,8 +96,25 @@
         "No action is pure; all are embedded in situation and compromise.",
         "It is through ambiguity that we are responsible.",
         "Only by accepting ambiguity can we act ethically."
+      ]
+    },
+    {
+      "theme": "Oppression and the Other",
+      "keywords": [
+        "Oppression",
+        "Other",
+        "strong",
+        "accomplices",
+        "oppressed",
+        "constructed",
+        "privilege",
+        "naturalize",
+        "inferior",
+        "Freedom",
+        "oppression",
+        "lie"
       ],
-      "Oppression and the Other": [
+      "aphorisms": [
         "The oppressor would not be so strong if he did not have accomplices among the oppressed.",
         "The Other is constructed to justify one’s privilege.",
         "Oppression seeks to naturalize what is actually constructed.",
@@ -49,8 +125,23 @@
         "The oppressed internalize the gaze of the oppressor.",
         "History is written by those who deny the Other a voice.",
         "True liberation demands confronting the mechanisms of othering."
+      ]
+    },
+    {
+      "theme": "Ethics and Moral Choice",
+      "keywords": [
+        "existence",
+        "burden",
+        "freedom",
+        "others",
+        "ambiguity",
+        "situated",
+        "ethical",
+        "action",
+        "recognition",
+        "others’"
       ],
-      "Ethics and Moral Choice": [
+      "aphorisms": [
         "What we must do is to assume our existence with all its burden.",
         "We must will freedom not only for ourselves, but for all human beings.",
         "An ethics of ambiguity begins with a recognition of the self as situated.",
@@ -61,8 +152,24 @@
         "Moral choice is made in uncertainty, not in clarity.",
         "We create values through engagement, not contemplation.",
         "There is no ethical purity—only responsible risk."
+      ]
+    },
+    {
+      "theme": "Embodiment and the Body",
+      "keywords": [
+        "body",
+        "freedom",
+        "women",
+        "situation",
+        "prison",
+        "biology",
+        "destiny",
+        "agency",
+        "sexual",
+        "difference",
+        "Freedom"
       ],
-      "Embodiment and the Body": [
+      "aphorisms": [
         "I am my body, but I am not only my body.",
         "The body is the instrument through which freedom is lived.",
         "Women have been taught to experience their bodies as burdens.",
@@ -73,8 +180,23 @@
         "To claim one’s body is to claim one's agency.",
         "Sexual difference becomes significant through social meaning.",
         "Freedom must be embodied to be real."
+      ]
+    },
+    {
+      "theme": "Love and Desire",
+      "keywords": [
+        "love",
+        "desire",
+        "freedom",
+        "other",
+        "reciprocity",
+        "possession",
+        "recognition",
+        "Eroticism",
+        "transcendence",
+        "domination"
       ],
-      "Love and Desire": [
+      "aphorisms": [
         "In love, the other is both a world and a threat to one’s freedom.",
         "Authentic love affirms the other’s freedom.",
         "To love without losing oneself is a rare strength.",
@@ -85,8 +207,21 @@
         "To love well is to will the freedom of the beloved.",
         "There is no freedom in submission disguised as affection.",
         "True intimacy respects distance as well as closeness."
-      ],
-      "Culture and Society": [
+      ]
+    },
+    {
+        "theme":"Culture and Society",
+        "keywords": [
+        "society",
+        "inequality",
+        "natural",
+        "customs",
+        "injustice",
+        "culture",
+        "myths",
+        "power"
+        ],
+        "aphorisms": [
         "Society conditions individuals to see inequality as natural.",
         "Customs are often the camouflage of injustice.",
         "Culture perpetuates myths that serve existing power structures.",
@@ -97,8 +232,30 @@
         "Social transformation must begin with self-awareness.",
         "History is often the story of man's domination, not humanity's progress.",
         "We inherit a world we did not choose—but we are responsible for it."
+      ]
+    },
+    {
+      "theme": "Art and Literature",
+      "keywords": [
+        "art",
+        "literature",
+        "fiction",
+        "imagination",
+        "engagement",
+        "world",
+        "writing",
+        "ethical",
+        "truth",
+        "freedom",
+        "novelist",
+        "moral",
+        "witness",
+        "preacher",
+        "narrative",
+        "ambiguity",
+        "existence"
       ],
-      "Art and Literature": [
+      "aphorisms": [
         "Fiction reveals the freedom of the human subject through imagination.",
         "Art is a form of engagement with the world.",
         "Writing is an ethical act when it seeks truth and freedom.",
@@ -109,8 +266,30 @@
         "The writer must not hide behind neutrality.",
         "Art that avoids commitment avoids meaning.",
         "Imagination is a mode of truth, not of illusion."
+      ]
+    },
+    {
+      "theme": "Time, History, and Becoming",
+      "keywords": [
+        "time",
+        "history",
+        "becoming",
+        "process",
+        "essence",
+        "motion",
+        "freedom",
+        "responsibility",
+        "historical",
+        "beings",
+        "past",
+        "bound",
+        "future",
+        "action",
+        "invent",
+        "exist",
+        "exceed"
       ],
-      "Time, History, and Becoming": [
+      "aphorisms": [
         "We are always in the process of becoming.",
         "There is no fixed essence—only projects in motion.",
         "Time is the dimension of freedom and responsibility.",
@@ -123,5 +302,6 @@
         "To act is to introduce change into the fabric of time."
       ]
     }
-  }
+  ]
+}
   

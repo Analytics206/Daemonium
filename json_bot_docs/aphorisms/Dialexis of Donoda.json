@@ -1,8 +1,19 @@
 {
   "author": "Dialexis of Dodona",
   "category": "Aphorisms",
-  "aphorisms": {
-    "dialectical_method": [
+  "subject": [
+    {
+      "theme": "Dialectical Method",
+      "keywords": [
+        "dialectical",
+        "method",
+        "reasoning",
+        "argumentation",
+        "logic",
+        "thinking",
+        "reasoning"
+      ],
+    "aphorisms": [
       "Truth emerges not from assertion but from the collision of opposing thoughts.",
       "The question that destroys is more valuable than the answer that preserves.",
       "Logic is the ladder by which we climb from opinion to knowledge.",
@@ -12,8 +23,22 @@
       "The highest form of ignorance is the certainty that mistakes itself for knowledge.",
       "Every contradiction is an invitation to ascend.",
       "A dialectician walks into a trap and leaves with a blueprint."
+    ]
+  },
+  {
+    "theme": "Forms and Ideals",
+    "keywords": [
+      "Forms",
+      "Ideals",
+      "material",
+      "eternal",
+      "perfection",
+      "imperfection",
+      "Ideal",
+      "beauty",
+      "becoming"
     ],
-    "forms_and_ideals": [
+    "aphorisms": [
       "The material world is but a library of footnotes to the eternal text of the Forms.",
       "Perfection exists not in this realm but as the standard by which we measure all imperfection.",
       "The Ideal is not absent from reality but is the most real thing about any reality.",
@@ -22,8 +47,27 @@
       "Every circle drawn is a failed attempt to capture the perfect Circle that exists in pure thought.",
       "The philosopher's task is to turn from shadows on the wall to the fire that casts them.",
       "The Forms are not dreams of the mind but the mind’s awakening from the dream of matter."
+    ]
+  },
+  {
+    "theme": "Reason and Logic",
+    "keywords": [
+      "Reason",
+      "Logic",
+      "tool",
+      "divine",
+      "principle",
+      "unreasoned",
+      "life",
+      "examination",
+      "light",
+      "contradiction",
+      "reality",
+      "thinking",
+      "justification",
+      "standard"
     ],
-    "reason_and_logic": [
+    "aphorisms": [
       "Reason is not a tool we possess but the divine principle by which we are possessed.",
       "Logic is the architecture of truth—without it, knowledge collapses into mere opinion.",
       "The unreasoned life is not worth examining, for examination requires reason's light.",
@@ -32,8 +76,32 @@
       "The syllogism is the soul's natural movement from universal to particular truth.",
       "Intuition without logic is blind; logic without intuition is sterile.",
       "Reason is the echo of the cosmos within the skull of man."
+    ]
+  },
+  {
+    "theme": "Knowledge and Wisdom",
+    "keywords": [
+      "Knowledge",
+      "Wisdom",
+      "recollection",
+      "soul",
+      "birth",
+      "learning",
+      "remembering",
+      "wise",
+      "philosopher",
+      "nothing",
+      "beginning",
+      "everything",
+      "opinion",
+      "circumstance",
+      "knowledge",
+      "examined",
+      "life",
+      "over-lived",
+      "examining"
     ],
-    "knowledge_and_wisdom": [
+    "aphorisms": [
       "Knowledge is recollection—the soul remembering what it knew before birth.",
       "Wisdom begins with the recognition that what we call learning is really remembering.",
       "The wise man knows that he knows nothing; the philosopher knows that knowing nothing is the beginning of knowing everything.",
@@ -42,8 +110,26 @@
       "True education is not pouring knowledge into empty vessels but drawing wisdom from full souls.",
       "The mind that grasps universals transcends the limitations of particular experience.",
       "Knowledge fills the mind; wisdom empties it in reverence."
+    ]
+  },
+  {
+    "theme": "Soul and Immortality",
+    "keywords": [
+      "Soul",
+      "Immortality",
+      "body",
+      "flesh",
+      "journey",
+      "material",
+      "eternal",
+      "truths",
+      "timeless",
+      "being",
+      "becoming",
+      "endless",
+      "participation"
     ],
-    "soul_and_immortality": [
+    "aphorisms": [
       "The soul is the form of the body, but its true nature transcends all material form.",
       "Death is not the end of the soul but its liberation from the prison of flesh.",
       "The soul's journey through material existence is its education in eternal truths.",
@@ -52,8 +138,32 @@
       "Philosophy is the practice of dying—learning to separate the eternal from the temporal.",
       "The soul recognizes truth because it originates from the same source as truth itself.",
       "To cultivate the soul is to prepare for the eternity it remembers but cannot yet articulate."
+    ]
+  },
+  {
+    "theme": "Justice and Virtue",
+    "keywords": [
+      "Justice",
+      "Virtue",
+      "reason",
+      "spirit",
+      "appetite",
+      "soul",
+      "just",
+      "man",
+      "external",
+      "rewards",
+      "greatest",
+      "reward",
+      "Courage",
+      "absence",
+      "fear",
+      "chaos",
+      "Temperance",
+      "deprivation",
+      "desires"
     ],
-    "justice_and_virtue": [
+    "aphorisms": [
       "Justice is not mere law but the harmony between reason, spirit, and appetite in the soul.",
       "Virtue is the soul's health—not an external ornament but its natural flourishing.",
       "The just man needs no external rewards, for justice itself is the greatest reward.",
@@ -62,8 +172,26 @@
       "The virtuous soul rules itself as the wise ruler governs the ideal state.",
       "Injustice is always self-defeating, for it destroys the very soul that commits it.",
       "Virtue is the art of tuning one's soul to the symphony of the cosmos."
+    ]
+  },
+  {
+    "theme": "Truth and Reality",
+    "keywords": [
+      "Truth",
+      "Reality",
+      "cave",
+      "shadows",
+      "light",
+      "eternal",
+      "patterns",
+      "participate",
+      "universal",
+      "particular",
+      "error",
+      "dialectical",
+      "purification"
     ],
-    "truth_and_reality": [
+    "aphorisms": [
       "Truth is not what we make it but what makes us—the eternal standard by which all claims are judged.",
       "Reality consists not in things but in the relationships between things and their eternal patterns.",
       "The particular exists only by participating in the universal; the universal is more real than any particular.",
@@ -72,8 +200,31 @@
       "Being is; non-being is not; between them lies the realm of becoming where mortals dwell.",
       "The real world is not the world we see but the world that makes seeing possible.",
       "To know what is real, seek what cannot be unmade by thought."
+    ]
+  },
+  {
+    "theme": "Order and Hierarchy",
+    "keywords": [
+      "Order",
+      "Hierarchy",
+      "universe",
+      "cosmic",
+      "good",
+      "matter",
+      "philosopher-king",
+      "force",
+      "authority",
+      "reason",
+      "recognized",
+      "oppress",
+      "fulfills",
+      "function",
+      "soul",
+      "justice",
+      "requires",
+      "perform"
     ],
-    "order_and_hierarchy": [
+    "aphorisms": [
       "The universe is a cosmic hierarchy with the Good at its apex and matter at its base.",
       "Order is not imposed upon chaos but is the rational principle that makes chaos impossible.",
       "The philosopher-king rules not by force but by the authority of reason recognized.",
@@ -82,8 +233,35 @@
       "Democracy is the tyranny of opinion over knowledge, of the many over the wise.",
       "Authority derives not from consent but from proximity to truth and goodness.",
       "A hierarchy of values precedes every visible order of power."
+    ]
+  },
+  {
+    "theme": "Philosophy and the Philosopher",
+    "keywords": [
+      "Philosophy",
+      "Philosopher",
+      "wisdom",
+      "love",
+      "wisdom",
+      "gods",
+      "mortals",
+      "divine",
+      "human",
+      "nature",
+      "philosophize",
+      "world",
+      "appearances",
+      "reality",
+      "greatest",
+      "enemy",
+      "ignorance",
+      "illusion",
+      "knowledge",
+      "beginning",
+      "wonder",
+      "transformed"
     ],
-    "philosophy_and_the_philosopher": [
+    "aphorisms": [
       "Philosophy is not love of one's own wisdom but love of wisdom itself.",
       "The philosopher stands between the gods and mortals, partaking of both divine and human nature.",
       "To philosophize is to practice ascending from the world of appearances to the world of reality.",
@@ -92,8 +270,34 @@
       "The dialectician seeks not to win arguments but to discover truth through argumentation.",
       "Philosophy is the soul's journey home to its origins in the realm of pure being.",
       "The philosopher ages in body but grows young in thought."
+    ]
+  },
+  {
+    "theme": "Language and Definition",
+    "keywords": [
+      "Definition",
+      "Language",
+      "verbal",
+      "convention",
+      "soul",
+      "eternal",
+      "essences",
+      "words",
+      "concepts",
+      "Forms",
+      "true",
+      "definition",
+      "reason",
+      "reveals",
+      "hierarchically",
+      "ordered",
+      "dialectician",
+      "musician",
+      "notes",
+      "harmony",
+      "discord"
     ],
-    "language_and_definition": [
+    "aphorisms": [
       "Definition is not mere verbal convention but the soul's recognition of eternal essences.",
       "Words are the shadows of concepts; concepts are the shadows of Forms.",
       "True definition captures not what we mean by a word but what the word means in itself.",
@@ -102,8 +306,35 @@
       "Equivocation is the enemy of thought; univocal definition is its greatest ally.",
       "The philosopher must purify language as the goldsmith purifies gold—removing all dross.",
       "Language decays where silence would better speak the Form."
+    ]
+  },
+  {
+    "theme": "Mathematics and Geometry",
+    "keywords": [
+      "Mathematics",
+      "Geometry",
+      "geometry",
+      "soul",
+      "training",
+      "intelligible",
+      "reality",
+      "figures",
+      "sand",
+      "perfect",
+      "mind",
+      "bridge",
+      "sensible",
+      "world",
+      "intelligible",
+      "proof",
+      "hypothesis",
+      "unhypothesis",
+      "principles",
+      "geometer",
+      "truth",
+      "reason"
     ],
-    "mathematics_and_geometry": [
+    "aphorisms": [
       "Mathematics is the soul's training ground for apprehending pure intelligible reality.",
       "Geometric figures in sand are imperfect copies of perfect figures in the mind.",
       "Number is the bridge between the sensible world and the intelligible world.",
@@ -112,8 +343,34 @@
       "Arithmetic teaches the soul to think about pure unity; geometry teaches it to think about pure form.",
       "Mathematics demonstrates that the mind can know with certainty truths that transcend experience.",
       "To count is to remember the unity from which the many sprang."
+    ]
+  },
+  {
+    "theme": "Education and Learning",
+    "keywords": [
+      "Education",
+      "Learning",
+      "education",
+      "learning",
+      "soul",
+      "light",
+      "teacher",
+      "midwife",
+      "knowledge",
+      "birth",
+      "recollection",
+      "memories",
+      "truth",
+      "curriculum",
+      "shadows",
+      "reality",
+      "physical",
+      "training",
+      "body",
+      "dialectical",
+      "training"
     ],
-    "education_and_learning": [
+    "aphorisms": [
       "Education is not putting sight into blind eyes but turning the soul toward the light.",
       "The teacher is a midwife—not creating knowledge but helping it be born from within.",
       "Learning is recollection; teaching is the art of awakening dormant memories of truth.",
@@ -122,7 +379,9 @@
       "The educated person sees the universal in the particular and the eternal in the temporal.",
       "True learning transforms not just what we know but who we are.",
       "The end of learning is not mastery but metamorphosis."
-    ],
+    ]
+  },
+  {
     "being_and_becoming": [
       "Being is eternal, perfect, and unchanging; becoming is temporal, imperfect, and in flux.",
       "The world of sense is neither being nor non-being but something between them.",
@@ -132,8 +391,26 @@
       "The particular strives toward the universal but never fully attains it.",
       "Generation and corruption are the rhythms of a world that seeks but cannot achieve perfection.",
       "To exist is to oscillate between the memory of what is and the promise of what might be."
+    ]
+  },
+  {
+    "theme": "Good and Evil",
+    "keywords": [
+      "Good",
+      "Evil",
+      "soul",
+      "light",
+      "darkness",
+      "knowledge",
+      "reality",
+      "vision",
+      "visible",
+      "goodness",
+      "harmony",
+      "ignorance",
+      "true"
     ],
-    "good_and_evil": [
+    "aphorisms": [
       "The Good is beyond being itself—the source from which all reality and truth emanate.",
       "Evil is not a positive force but the absence of good, as darkness is the absence of light.",
       "The Good makes both knowledge and reality possible, as the sun makes both vision and the visible possible.",
@@ -142,8 +419,27 @@
       "Virtue is its own reward because virtue is participation in the Good itself.",
       "The philosopher seeks not to be good but to understand goodness—and in understanding, becomes good.",
       "Evil is disorder in the soul; good is the soul’s harmony with itself and with being."
+    ]
+  },
+  {
+    "theme": "Unity and Multiplicity",
+    "keywords": [
+      "Unity",
+      "Multiplicity",
+      "unity",
+      "dialectical",
+      "principle",
+      "phenomena",
+      "division",
+      "collection",
+      "reason",
+      "Form",
+      "participate",
+      "one",
+      "many",
+      "participate"
     ],
-    "unity_and_multiplicity": [
+    "aphorisms": [
       "The One is the source of all number, though it transcends all numerical determination.",
       "Unity and multiplicity require each other—without unity, multiplicity is chaos; without multiplicity, unity is empty.",
       "The dialectical mind seeks the one principle that explains the many phenomena.",
@@ -154,4 +450,5 @@
       "Plurality is the game of appearance; unity is the rule of reality."
     ]
   }
-}
+  ]
+} 

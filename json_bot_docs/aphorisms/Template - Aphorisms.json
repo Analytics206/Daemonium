@@ -1,15 +1,60 @@
 {
     "author": "Author Name",
     "category": "Aphorisms",
-    "aphorisms": {
-      "aphorism_theme_1": [
-        "aphorism_1_1",
-        "aphorism_1_2"
-      ],
-      "aphorism_theme_2": [
-        "aphorism_2_1",
-        "aphorism_2_2"
-      ]
-    }
-  }
-  
+    "subject": [
+      {
+        "theme": "Theme 1 Name",
+        "keywords": [
+          "keyword_1",
+          "keyword_2",
+          "keyword_3",
+          "keyword_4",
+          "keyword_5",
+          "keyword_6",
+          "keyword_7",
+          "keyword_8",
+          "keyword_9",
+          "keyword_10"
+        ],
+        "aphorisms": [
+          "aphorism_1_1",
+          "aphorism_1_2",
+          "aphorism_1_3",
+          "aphorism_1_4",
+          "aphorism_1_5",
+          "aphorism_1_6",
+          "aphorism_1_7",
+          "aphorism_1_8",
+          "aphorism_1_9",
+          "aphorism_1_10"
+        ]
+      },
+      {
+        "theme": "Theme 2 Name",
+        "keywords": [
+          "keyword_1",
+          "keyword_2",
+          "keyword_3",
+          "keyword_4",
+          "keyword_5",
+          "keyword_6",
+          "keyword_7",
+          "keyword_8",
+          "keyword_9",
+          "keyword_10"
+        ],
+        "aphorisms": [
+          "aphorism_2_1",
+          "aphorism_2_2",
+          "aphorism_2_3",
+          "aphorism_2_4",
+          "aphorism_2_5",
+          "aphorism_2_6",
+          "aphorism_2_7",
+          "aphorism_2_8",
+          "aphorism_2_9",
+          "aphorism_2_10"
+        ]
+      }
+    ]
+}
