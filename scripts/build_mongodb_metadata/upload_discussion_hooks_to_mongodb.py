@@ -16,7 +16,7 @@ import yaml
 import logging
 from pathlib import Path
 from typing import Dict, Any, List
-from pymongo import MongoClient
+from pymongo import MongoClient, IndexModel, ASCENDING
 from pymongo.errors import ConnectionFailure, DuplicateKeyError
 from urllib.parse import quote_plus
 
@@ -104,6 +104,38 @@ class DiscussionHookUploader:
         if self.client:
             self.client.close()
             self.logger.info("MongoDB connection closed")
+    
+    def _create_indexes(self) -> None:
+        """Create indexes for the discussion_hook collection."""
+        try:
+            # Drop any existing text indexes to comply with Mongo's single text index rule
+            existing_indexes = self.collection.index_information()
+            for name, info in existing_indexes.items():
+                key_spec = info.get('key', [])
+                if any(isinstance(direction, str) and direction.lower() == 'text' for _, direction in key_spec):
+                    self.logger.info(f"Dropping existing text index: {name}")
+                    self.collection.drop_index(name)
+
+            indexes = [
+                IndexModel([("author", ASCENDING)], name="idx_author"),
+                IndexModel([("category", ASCENDING)], name="idx_category"),
+                IndexModel([("filename", ASCENDING)], name="idx_filename"),
+                IndexModel([("themes", ASCENDING)], name="idx_themes"),
+                IndexModel([("keywords", ASCENDING)], name="idx_keywords"),
+                IndexModel([("discussion_hooks.theme", ASCENDING)], name="idx_discussion_hooks_theme"),
+                IndexModel([("discussion_hooks.keywords", ASCENDING)], name="idx_discussion_hooks_keywords"),
+                IndexModel([
+                    ("discussion_hooks.theme", "text"),
+                    ("discussion_hooks.hooks", "text"),
+                    ("discussion_hooks.keywords", "text")
+                ], name="discussion_hooks_text_v2")
+            ]
+
+            self.collection.create_indexes(indexes)
+            self.logger.info("Created indexes for discussion_hook collection")
+        except Exception as e:
+            self.logger.error(f"Error creating indexes: {e}")
+            raise
             
     def _is_template_file(self, filename: str) -> bool:
         """Check if the file is a template file that should be skipped."""
@@ -124,31 +156,87 @@ class DiscussionHookUploader:
             raise
             
     def _prepare_document(self, json_data: Dict[str, Any], filename: str) -> Dict[str, Any]:
-        """Prepare document for MongoDB insertion."""
+        """Prepare document for MongoDB insertion with support for keywords per theme.
+
+        Backward compatible with legacy dict-based structure where discussion_hooks
+        was a mapping of theme -> [hooks].
+        """
         # Create a unique identifier based on author and category
-        author = json_data.get('author', 'unknown').replace(' ', '_').lower()
-        category = json_data.get('category', 'unknown').replace(' ', '_').lower()
-        
-        # Extract discussion hooks data
-        discussion_hooks = json_data.get('discussion_hooks', {})
-        
-        # Count total hooks across all categories
-        total_hooks = sum(len(hooks) if isinstance(hooks, list) else 0 
-                         for hooks in discussion_hooks.values())
-        
+        author_slug = json_data.get('author', 'unknown').replace(' ', '_').lower()
+        category_slug = json_data.get('category', 'unknown').replace(' ', '_').lower()
+
+        raw_hooks = json_data.get('discussion_hooks', [])
+
+        normalized_hooks: List[Dict[str, Any]] = []
+        themes: List[str] = []
+        keywords_set_lower = set()
+        all_keywords: List[str] = []
+        total_hooks = 0
+
+        if isinstance(raw_hooks, dict):
+            # Legacy format: { "Theme": ["Q1", "Q2", ...], ... }
+            for theme, hooks in raw_hooks.items():
+                hooks_list = hooks if isinstance(hooks, list) else []
+                normalized_hooks.append({
+                    "theme": theme,
+                    "keywords": [],
+                    "hooks": hooks_list
+                })
+                if isinstance(theme, str):
+                    themes.append(theme)
+                total_hooks += len(hooks_list)
+        elif isinstance(raw_hooks, list):
+            # New format: [ { theme, keywords: [], hooks: [] }, ... ]
+            for item in raw_hooks:
+                if not isinstance(item, dict):
+                    continue
+                theme = item.get("theme")
+                hooks_list = item.get("hooks", []) or []
+                raw_keywords = item.get("keywords", []) or []
+
+                # Normalize keywords: trim, dedupe (case-insensitive) while preserving order
+                seen_local = set()
+                norm_keywords: List[str] = []
+                for kw in raw_keywords:
+                    if isinstance(kw, str):
+                        k = kw.strip()
+                        if k and k.lower() not in seen_local:
+                            seen_local.add(k.lower())
+                            norm_keywords.append(k)
+                            if k.lower() not in keywords_set_lower:
+                                keywords_set_lower.add(k.lower())
+                                all_keywords.append(k)
+
+                normalized_hooks.append({
+                    "theme": theme,
+                    "keywords": norm_keywords,
+                    "hooks": hooks_list
+                })
+                if isinstance(theme, str):
+                    themes.append(theme)
+                total_hooks += len(hooks_list)
+        else:
+            # Unknown structure; store as-is to avoid data loss
+            self.logger.warning("Unrecognized discussion_hooks structure; storing as-is")
+            normalized_hooks = raw_hooks  # type: ignore
+
         document = {
-            '_id': f"{author}_{category}",
+            '_id': f"{author_slug}_{category_slug}",
             'filename': filename,
             'author': json_data.get('author', 'Unknown'),
             'category': json_data.get('category', 'Unknown'),
-            'discussion_hooks': discussion_hooks,
+            'discussion_hooks': normalized_hooks,
+            # Aggregates for easier querying/search
+            'themes': themes,
+            'keywords': all_keywords,
             'metadata': {
                 'upload_timestamp': None,  # Will be set during upload
                 'last_updated': None,      # Will be set during upload
                 'source_file': filename,
                 'total_hooks': total_hooks,
-                'hook_categories': list(discussion_hooks.keys()),
-                'categories_count': len(discussion_hooks.keys())
+                'hook_categories': themes,           # Back-compat naming
+                'categories_count': len(themes),
+                'unique_keywords_count': len(all_keywords)
             }
         }
         return document
@@ -259,6 +347,8 @@ class DiscussionHookUploader:
             
             # Connect to MongoDB
             self.connect_to_mongodb()
+            # Ensure indexes exist
+            self._create_indexes()
             
             # Process all files in the discussion hooks folder
             stats = self.process_discussion_hooks_folder(discussion_hooks_folder)

@@ -68,6 +68,9 @@ class DatabaseManager:
             for collection_name in self.collection_names:
                 self.collections[collection_name] = self.database[collection_name]
             
+            # Ensure indexes for frequently queried fields
+            await self.ensure_indexes()
+
             logger.info("Successfully connected to MongoDB")
             
         except (ConnectionFailure, ServerSelectionTimeoutError) as e:
@@ -116,6 +119,56 @@ class DatabaseManager:
             raise ValueError(f"Unknown collection: {collection_name}")
         return self.collections[collection_name]
     
+    async def ensure_indexes(self) -> None:
+        """Create indexes used by API searches, idempotently."""
+        try:
+            # philosophy_themes indexes
+            themes = self.get_collection("philosophy_themes")
+            await themes.create_index([("author", 1)], name="philosophy_themes_author_idx")
+            await themes.create_index([("category", 1)], name="philosophy_themes_category_idx")
+            # Index array field for keyword lookups
+            await themes.create_index(
+                [("philosophy_and_themes.core_ideas.keywords", 1)],
+                name="philosophy_themes_coreidea_keywords_idx"
+            )
+
+            # discussion_hook indexes (match uploader script)
+            discussion = self.get_collection("discussion_hook")
+
+            # Drop any existing text indexes to comply with Mongo's single text index rule
+            try:
+                idx_info = await discussion.index_information()
+                for name, info in idx_info.items():
+                    key_spec = info.get("key", [])
+                    if any(isinstance(direction, str) and str(direction).lower() == "text" for _, direction in key_spec):
+                        logger.info(f"Dropping existing text index on discussion_hook: {name}")
+                        await discussion.drop_index(name)
+            except Exception as drop_err:
+                # Non-blocking: log and continue
+                logger.warning(f"Failed checking/dropping existing text index on discussion_hook: {drop_err}")
+
+            # Single-field ascending indexes used by regex filters
+            await discussion.create_index([("author", 1)], name="idx_author")
+            await discussion.create_index([("category", 1)], name="idx_category")
+            await discussion.create_index([("filename", 1)], name="idx_filename")
+            await discussion.create_index([("themes", 1)], name="idx_themes")
+            await discussion.create_index([("keywords", 1)], name="idx_keywords")
+            await discussion.create_index([("discussion_hooks.theme", 1)], name="idx_discussion_hooks_theme")
+            await discussion.create_index([("discussion_hooks.keywords", 1)], name="idx_discussion_hooks_keywords")
+
+            # Compound text index across nested fields
+            await discussion.create_index(
+                [
+                    ("discussion_hooks.theme", "text"),
+                    ("discussion_hooks.hooks", "text"),
+                    ("discussion_hooks.keywords", "text"),
+                ],
+                name="discussion_hooks_text_v2",
+            )
+        except Exception as e:
+            # Don't block app startup on index creation failures
+            logger.warning(f"Index creation warning: {e}")
+
     # Philosopher-related methods
     async def get_philosophers(self, skip: int = 0, limit: int = 100, is_active_chat: Optional[int] = None) -> List[Dict[str, Any]]:
         """Get philosophers with pagination and optional active chat filter"""
@@ -830,6 +883,7 @@ class DatabaseManager:
                             {"philosophy_and_themes.core_ideas.name": {"$regex": query, "$options": "i"}},
                             {"philosophy_and_themes.core_ideas.summary": {"$regex": query, "$options": "i"}},
                             {"philosophy_and_themes.core_ideas.discussion_hooks": {"$regex": query, "$options": "i"}},
+                            {"philosophy_and_themes.core_ideas.keywords": {"$regex": query, "$options": "i"}},
                             {"philosophy_and_themes.perspectivism_framework.principle": {"$regex": query, "$options": "i"}},
                             {"philosophy_and_themes.perspectivism_framework.implications": {"$regex": query, "$options": "i"}},
                             {"philosophy_and_themes.perspectivism_framework.example_prompts": {"$regex": query, "$options": "i"}},

@@ -312,6 +312,21 @@ The monitoring system follows a sidecar pattern with the following components:
 - Collection-specific filter uses regex across: `theme`, `definition`, `keywords`.
 - Index alignment: single text index `philosophy_keywords_text_v2` over `theme/definition/keywords` created by uploader v2.
 
+### Backend: Discussion Hooks Indexes & Verification
+
+- **Purpose**: Robust search and efficient lookups for curated discussion questions per author/category.
+- **Collection**: `discussion_hook`.
+- **Indexing**:
+  - Single-field: `idx_author`, `idx_category`, `idx_filename`, `idx_themes`, `idx_keywords`, `idx_discussion_hooks_theme`, `idx_discussion_hooks_keywords`.
+  - Text index: `discussion_hooks_text_v2` over nested fields: `discussion_hooks.theme`, `discussion_hooks.hooks`, `discussion_hooks.keywords`.
+  - Safety: uploader drops any existing text index before creating the unified text index (Mongo supports one text index per collection).
+- **Configuration**: Uses `config/default.yaml` → `mongodb` settings (`host`, `port`, `database`, `username`, `password`).
+- **Verification (PowerShell)**:
+  ```powershell
+  # From project root with your venv active
+  python scripts/build_mongodb_metadata/verify_discussion_hook_indexes.py
+  ```
+
 ## Future Design Considerations
 - Asynchronous processing pipeline
 - Event-driven architecture for better component decoupling

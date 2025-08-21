@@ -80,11 +80,17 @@ async def get_discussion_hooks(
         
         filter_query = {}
         if topic:
+            # Regex search across top-level and nested fields, including keywords
             filter_query = {
                 "$or": [
-                    {"topic": {"$regex": topic, "$options": "i"}},
-                    {"content": {"$regex": topic, "$options": "i"}},
-                    {"themes": {"$regex": topic, "$options": "i"}}
+                    {"themes": {"$regex": topic, "$options": "i"}},
+                    {"keywords": {"$regex": topic, "$options": "i"}},
+                    {"discussion_hooks.theme": {"$regex": topic, "$options": "i"}},
+                    {"discussion_hooks.keywords": {"$regex": topic, "$options": "i"}},
+                    {"discussion_hooks.hooks": {"$regex": topic, "$options": "i"}},
+                    {"author": {"$regex": topic, "$options": "i"}},
+                    {"category": {"$regex": topic, "$options": "i"}},
+                    {"filename": {"$regex": topic, "$options": "i"}}
                 ]
             }
         
@@ -381,6 +387,20 @@ async def search_summaries_collection(
                     {"sections.6_personal_life.content": {"$regex": query, "$options": "i"}},
                     {"sections.7_criticism_and_controversies.content": {"$regex": query, "$options": "i"}},
                     {"sections.8_quotes_and_aphorisms.content": {"$regex": query, "$options": "i"}}
+                ]
+            }
+        elif collection_name == "discussion_hook":
+            # Discussion hooks: support top-level keywords and nested per-theme keywords/hooks
+            search_filter = {
+                "$or": [
+                    {"author": {"$regex": query, "$options": "i"}},
+                    {"category": {"$regex": query, "$options": "i"}},
+                    {"themes": {"$regex": query, "$options": "i"}},
+                    {"keywords": {"$regex": query, "$options": "i"}},
+                    {"discussion_hooks.theme": {"$regex": query, "$options": "i"}},
+                    {"discussion_hooks.keywords": {"$regex": query, "$options": "i"}},
+                    {"discussion_hooks.hooks": {"$regex": query, "$options": "i"}},
+                    {"filename": {"$regex": query, "$options": "i"}}
                 ]
             }
         elif collection_name == "philosophy_keywords":

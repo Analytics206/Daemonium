@@ -141,12 +141,12 @@ class BibliographyWork(BaseModel):
     title: str
     type: str
     year: Union[int, str]
+    keywords: Optional[List[str]] = None
 
 class Bibliography(BaseModel):
     """Bibliography model"""
     id: str = Field(..., alias="_id")
     filename: str
-    original_key: str
     author: str
     category: str
     birth_death: str

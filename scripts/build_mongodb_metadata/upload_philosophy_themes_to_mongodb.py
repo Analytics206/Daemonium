@@ -7,7 +7,7 @@ to the MongoDB database 'daemonium' collection 'philosophy_themes'. It skips tem
 and merges existing documents while uploading new ones.
 
 Author: Daemonium System
-Version: 1.0.0
+Version: 2.0.0
 """
 
 import os
@@ -129,6 +129,8 @@ class PhilosophyThemesUploader:
             'total_core_ideas': 0,
             'total_discussion_hooks': 0,
             'core_ideas_with_hooks': 0,
+            'total_keywords': 0,
+            'core_ideas_with_keywords': 0,
             'total_summary_length': 0,
             'total_aphorisms': 0,
             'total_discussion_templates': 0,
@@ -150,6 +152,13 @@ class PhilosophyThemesUploader:
                         metrics['total_discussion_hooks'] += len(hooks)
                         if len(hooks) > 0:
                             metrics['core_ideas_with_hooks'] += 1
+                    
+                    # Count keywords
+                    keywords = idea.get('keywords', [])
+                    if isinstance(keywords, list):
+                        metrics['total_keywords'] += len(keywords)
+                        if len(keywords) > 0:
+                            metrics['core_ideas_with_keywords'] += 1
                     
                     # Count summary length
                     summary = idea.get('summary', '')
@@ -193,6 +202,7 @@ class PhilosophyThemesUploader:
                 processed_idea = {
                     'name': idea.get('name', ''),
                     'summary': idea.get('summary', ''),
+                    'keywords': idea.get('keywords', []),
                     'discussion_hooks': idea.get('discussion_hooks', [])
                 }
                 processed_core_ideas.append(processed_idea)
@@ -227,10 +237,12 @@ class PhilosophyThemesUploader:
                 'source_file': filename,
                 'theme_metrics': theme_metrics,
                 'core_ideas_count': len(processed_core_ideas),
+                'keywords_count': theme_metrics.get('total_keywords', 0),
                 'aphorisms_count': len(aphorisms),
                 'discussion_templates_count': len(discussion_templates),
                 'has_perspectivism_framework': bool(perspectivism_framework.get('principle', '')),
                 'has_core_ideas': bool(processed_core_ideas),
+                'has_keywords': theme_metrics.get('total_keywords', 0) > 0,
                 'has_aphorisms': bool(aphorisms),
                 'has_discussion_templates': bool(discussion_templates)
             }

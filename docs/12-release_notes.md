@@ -1,5 +1,58 @@
 # Daemonium
 ---
+## Version 0.3.20 (August 20, 2025)
+
+### Backend: Discussion Hooks — Index Verification Script
+
+- Added verification script for MongoDB `discussion_hook` collection indexes and smoke tests.
+- Ensures single-field indexes exist and a single compound text index `discussion_hooks_text_v2` is present over nested fields.
+- Loads MongoDB settings from `config/default.yaml`; exits with code 0 on success, 1 on failure.
+
+### Files Changed
+
+- `scripts/build_mongodb_metadata/verify_discussion_hook_indexes.py` — new script
+- `docs/06-system_design.md` — added "Backend: Discussion Hooks Indexes & Verification" section
+- `docs/12-release_notes.md` — this entry
+
+### Verification (PowerShell)
+
+```powershell
+# From project root with your venv active
+python scripts/build_mongodb_metadata/verify_discussion_hook_indexes.py
+```
+
+---
+## Version 0.3.19 (August 20, 2025)
+
+### Backend: Bibliography — Keywords in Works + Legacy Field Removal
+
+- Added `keywords: string[]` to `BibliographyWork` in `backend/models.py` to align with uploader v2 JSON.
+- Removed legacy `original_key` from `Bibliography` in `backend/models.py`.
+- API endpoints automatically serialize `works[].keywords` when present; unknown legacy fields from DB are ignored.
+
+### Files Changed
+
+- `backend/models.py`
+- `docs/06-system_design.md` — documented schema and behavior
+- `docs/12-release_notes.md` — this entry
+
+### Verification (PowerShell)
+
+```powershell
+$base = 'http://localhost:8000'
+
+# 1) List bibliographies (expect data with works; keywords appear when present per work)
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/books/bibliography?limit=3"
+
+# 2) By author
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/books/bibliography/by-author/Friedrich%20Wilhelm%20Nietzsche"
+
+# 3) Inspect first few works' titles and keywords
+$resp = Invoke-RestMethod -Method Get -Uri "$base/api/v1/books/bibliography/by-author/Friedrich%20Wilhelm%20Nietzsche"
+($resp.data.works | Select-Object -First 3) | ForEach-Object { $_.title; $_.keywords }
+```
+
+---
 ## Version 0.3.18 (August 20, 2025)
 
 ### Backend: Global Search includes Philosophy Keywords + Verification Script

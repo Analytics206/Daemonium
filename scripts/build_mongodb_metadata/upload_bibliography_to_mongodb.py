@@ -6,8 +6,12 @@ This script loops through the json_bot_docs/bibliography folder and uploads JSON
 to the MongoDB database 'daemonium' collection 'bibliography'. It skips template files
 and merges existing documents while uploading new ones.
 
+v2.0.0: Enforces the new bibliography JSON format and uses book-level 'keywords'.
+        Drops legacy/auxiliary fields (e.g., no 'original_key' persisted). Works
+        are sanitized to a strict shape: {title, original_title, year, type, summary, keywords[]}.
+
 Author: Daemonium System
-Version: 1.0.0
+Version: 2.0.0
 """
 
 import os
@@ -121,6 +125,66 @@ class BibliographyUploader:
             self.logger.error(f"Error reading file {file_path}: {e}")
             raise
             
+    def _normalize_works(self, works: List[Dict[str, Any]], filename: str) -> List[Dict[str, Any]]:
+        """Normalize works to the strict schema and ensure keywords is a list of strings.
+
+        Allowed keys per work:
+        - title: str
+        - original_title: str
+        - year: int | str
+        - type: str
+        - summary: str
+        - keywords: List[str]
+        """
+        normalized: List[Dict[str, Any]] = []
+        if not isinstance(works, list):
+            self.logger.warning(f"'works' is not a list in {filename}; coercing to empty list")
+            return normalized
+
+        for idx, w in enumerate(works):
+            if not isinstance(w, dict):
+                self.logger.warning(f"Work item at index {idx} in {filename} is not an object; skipping")
+                continue
+
+            # Extract fields strictly
+            title = w.get("title")
+            original_title = w.get("original_title")
+            year = w.get("year")
+            wtype = w.get("type")
+            summary = w.get("summary")
+            keywords = w.get("keywords", [])
+
+            # Coerce keywords to list[str]
+            if keywords is None:
+                keywords = []
+            if isinstance(keywords, str):
+                # Comma-separated string support (just in case)
+                keywords = [k.strip() for k in keywords.split(",") if k.strip()]
+            elif isinstance(keywords, list):
+                coerced: List[str] = []
+                for k in keywords:
+                    try:
+                        coerced.append(str(k).strip())
+                    except Exception:
+                        pass
+                keywords = [k for k in coerced if k]
+            else:
+                self.logger.warning(f"keywords for work '{title or idx}' in {filename} is not list/str; defaulting to []")
+                keywords = []
+
+            sanitized = {
+                "title": title or "",
+                "original_title": original_title or "",
+                "year": year if year is not None else "",
+                "type": wtype or "",
+                "summary": summary or "",
+                "keywords": keywords,
+            }
+
+            normalized.append(sanitized)
+
+        return normalized
+
     def _prepare_document(self, json_data: Dict[str, Any], filename: str) -> Dict[str, Any]:
         """Prepare document for MongoDB insertion."""
         # Find the bibliography data - look for any key ending with '_bibliography'
@@ -164,16 +228,16 @@ class BibliographyUploader:
                     self.logger.warning(f"Missing characteristics or themes in {period_key} for {filename}")
         
         # Prepare the final document with all expected fields
+        # Enforce new structure and sanitize works (including keywords)
         document = {
             '_id': document_id,
             'filename': filename,
-            'original_key': bibliography_key,  # Store the original key for reference
             'author': bibliography_data.get('author', ''),
             'category': bibliography_data.get('category', 'Bibliography'),  # Include category field
             'birth_death': bibliography_data.get('birth_death', ''),
             'description': bibliography_data.get('description', ''),
             'background': bibliography_data.get('background', ''),  # Include background field
-            'works': bibliography_data.get('works', []),
+            'works': self._normalize_works(bibliography_data.get('works', []), filename),
             'chronological_periods': chronological_periods,  # Use validated periods
             'major_themes': bibliography_data.get('major_themes', []),
             'influence': bibliography_data.get('influence', ''),
