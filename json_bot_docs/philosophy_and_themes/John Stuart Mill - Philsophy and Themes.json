@@ -6,6 +6,18 @@
         {
           "name": "Utilitarianism and the Greatest Happiness Principle",
           "summary": "Mill's central ethical doctrine holds that actions are right in proportion as they tend to promote happiness, wrong as they tend to produce the reverse. He refines Bentham's utilitarianism by emphasizing quality as well as quantity of pleasures.",
+          "keywords": [
+            "utilitarianism",
+            "happiness",
+            "ethical",
+            "actions",
+            "right",
+            "wrong",
+            "reverse",
+            "quality",
+            "quantity",
+            "pleasures"
+          ],
           "discussion_hooks": [
             "Is happiness truly the highest moral goal?",
             "How should we weigh higher versus lower pleasures?"
@@ -14,6 +26,22 @@
         {
           "name": "Liberty and Individual Autonomy",
           "summary": "In 'On Liberty', Mill argues that individuals should be free to act however they wish, so long as their actions do not harm others. This principle serves as a foundational argument for personal liberty and liberal democracy.",
+          "keywords": [
+            "liberty",
+            "individual",
+            "autonomy",
+            "individuals",
+            "free",
+            "act",
+            "wish",
+            "harm",
+            "others",
+            "principle",
+            "foundational",
+            "personal",
+            "liberal",
+            "democracy"
+          ],
           "discussion_hooks": [
             "Where should society draw the line between freedom and harm?",
             "Can freedom of expression be harmful?"
@@ -22,6 +50,19 @@
         {
           "name": "The Harm Principle",
           "summary": "Mill articulates that the only justification for exercising power over any member of a civilized community, against their will, is to prevent harm to others. Self-regarding actions must remain free.",
+          "keywords": [
+            "harm",
+            "principle",
+            "Mill",
+            "justification",
+            "power",
+            "civilized",
+            "community",
+            "prevent",
+            "Self-regarding",
+            "actions",
+            "free"
+          ],
           "discussion_hooks": [
             "What counts as 'harm' in a complex society?",
             "Does the Harm Principle justify drug laws or censorship?"
@@ -30,6 +71,20 @@
         {
           "name": "Freedom of Thought and Expression",
           "summary": "Mill defends free speech not only as a right but as a social necessity. Even false opinions, he argues, are valuable, as their contestation strengthens the truth and guards against dogma.",
+          "keywords": [
+            "freedom",
+            "expression",
+            "free",
+            "speech",
+            "right",
+            "social",
+            "necessity",
+            "contestation",
+            "strengthens",
+            "truth",
+            "guards",
+            "dogma"
+          ],
           "discussion_hooks": [
             "Should all opinions be allowed a platform?",
             "Can offensive speech ever be valuable to truth?"
@@ -38,6 +93,16 @@
         {
           "name": "Higher and Lower Pleasures",
           "summary": "Mill distinguishes between pleasures of the mind and body, arguing that intellectual and moral pleasures are superior in kind to mere sensual gratification.",
+          "keywords": [
+            "pleasures",
+            "mind",
+            "body",
+            "intellectual",
+            "moral",
+            "superior",
+            "sensual",
+            "gratification"
+          ],
           "discussion_hooks": [
             "Are some pleasures inherently more valuable?",
             "Can pleasure still be the standard of morality if it must be ranked?"
@@ -46,6 +111,23 @@
         {
           "name": "Representative Government and Democratic Participation",
           "summary": "Mill believed democracy is not only a tool for governance but a vital means of moral and intellectual development for citizens. He advocated proportional representation, education, and civic responsibility.",
+          "keywords": [
+            "representative",
+            "government",
+            "democratic",
+            "participation",
+            "democracy",
+            "governance",
+            "moral",
+            "intellectual",
+            "development",
+            "citizens",
+            "proportional",
+            "representation",
+            "education",
+            "civic",
+            "responsibility"
+          ],
           "discussion_hooks": [
             "Should all citizens have equal political power?",
             "Does democracy cultivate virtue, or merely preference?"
@@ -54,6 +136,22 @@
         {
           "name": "Women's Rights and Gender Equality",
           "summary": "In 'The Subjection of Women', Mill argues for the full legal and social equality of women, condemning the subordination of women as a major impediment to human progress and justice.",
+          "keywords": [
+            "women's",
+            "rights",
+            "gender",
+            "equality",
+            "Subjection",
+            "Women",
+            "woman",
+            "legal",
+            "social",
+            "equality",
+            "subordination",
+            "human",
+            "progress",
+            "justice"
+          ],
           "discussion_hooks": [
             "Can liberal principles apply equally in gender relations?",
             "Was Mill ahead of his time or limited by it?"
@@ -62,6 +160,15 @@
         {
           "name": "Education as a Means of Liberation",
           "summary": "Mill saw education not only as preparation for work or citizenship, but as essential to individual self-development and the cultivation of reasoned judgment.",
+          "keywords": [
+            "education",
+            "liberation",
+            "citizenship",
+            "individual",
+            "self-development",
+            "reasoned",
+            "judgment"
+          ],
           "discussion_hooks": [
             "What is the true goal of education?",
             "Can a free society exist without public education?"
@@ -70,6 +177,26 @@
         {
           "name": "Moral Sentiment and Justice",
           "summary": "Mill argues that the feeling of justice stems from deeply rooted social instincts—like empathy and reciprocity—refined by intellectual reflection and utility.",
+          "keywords": [
+            "moral",
+            "sentiment",
+            "justice",
+            "Mill",
+            "argues",
+            "feeling",
+            "justice",
+            "deeply",
+            "rooted",
+            "social",
+            "instincts",
+            "like",
+            "empathy",
+            "reciprocity",
+            "refined",
+            "intellectual",
+            "reflection",
+            "utility"
+          ],
           "discussion_hooks": [
             "Is justice an instinct or a learned principle?",
             "Can utility explain our strongest moral convictions?"
@@ -78,6 +205,19 @@
         {
           "name": "Mature Individuality as a Social Good",
           "summary": "Mill praises individuality and self-development not merely for personal fulfillment but because diverse characters enrich society. Conformity, he warns, breeds stagnation.",
+          "keywords": [
+            "individuality",
+            "social",
+            "good",
+            "self-development",
+            "personal",
+            "fulfillment",
+            "diverse",
+            "characters",
+            "society",
+            "Conformity",
+            "stagnation"
+          ],
           "discussion_hooks": [
             "How does individual eccentricity benefit the public?",
             "Is modern society more free or more conformist?"

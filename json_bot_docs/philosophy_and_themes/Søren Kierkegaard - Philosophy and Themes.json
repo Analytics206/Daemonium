@@ -6,6 +6,17 @@
         {
           "name": "Subjective Truth",
           "summary": "Kierkegaard held that truth is subjectivity—what matters most is not objective certainty but the intensity and authenticity with which an individual lives their beliefs.",
+          "keywords": [
+            "subjective",
+            "truth",
+            "Kierkegaard",
+            "subjectivity",
+            "intensity",
+            "authenticity",
+            "individual",
+            "lives",
+            "beliefs"
+          ],
           "discussion_hooks": [
             "Can truth be meaningful without being objectively verifiable?",
             "Is subjective truth a license for relativism or a deeper form of commitment?"
@@ -14,6 +25,19 @@
         {
           "name": "The Leap of Faith",
           "summary": "Kierkegaard argued that belief in God requires a leap of faith beyond reason, embracing paradox and uncertainty as essential to authentic religious life.",
+          "keywords": [
+            "leap",
+            "faith",
+            "Kierkegaard",
+            "belief",
+            "God",
+            "reason",
+            "paradox",
+            "uncertainty",
+            "authentic",
+            "religious",
+            "life"
+          ],
           "discussion_hooks": [
             "Is faith irrational, or does it transcend the limits of rationality?",
             "What distinguishes a leap of faith from mere wishful thinking?"
@@ -22,6 +46,19 @@
         {
           "name": "The Three Stages of Life",
           "summary": "Kierkegaard described life as unfolding through three stages: the aesthetic (pleasure-seeking), the ethical (moral responsibility), and the religious (faith and self-surrender to God).",
+          "keywords": [
+            "Kierkegaard",
+            "life",
+            "aesthetic",
+            "pleasure-seeking",
+            "ethical",
+            "moral",
+            "responsibility",
+            "religious",
+            "faith",
+            "self-surrender",
+            "God"
+          ],
           "discussion_hooks": [
             "Do these stages reflect a universal path of human development?",
             "Is it possible to live fully in one stage without transitioning to another?"
@@ -30,6 +67,19 @@
         {
           "name": "Angst and Despair",
           "summary": "For Kierkegaard, anxiety (angst) and despair are fundamental to human existence—arising from the burden of freedom and the self’s relationship to itself and to God.",
+          "keywords": [
+            "Kierkegaard",
+            "anxiety",
+            "angst",
+            "despair",
+            "human",
+            "existence",
+            "burden",
+            "freedom",
+            "self",
+            "relationship",
+            "God"
+          ],
           "discussion_hooks": [
             "Can anxiety be a path to self-discovery rather than paralysis?",
             "Is despair a sign of failure or a step toward authenticity?"
@@ -38,6 +88,15 @@
         {
           "name": "The Self as a Task",
           "summary": "Kierkegaard saw the self not as a given, but as a task—something to be forged through personal struggle, faith, and responsibility.",
+          "keywords": [
+            "Kierkegaard",
+            "self",
+            "task",
+            "personal",
+            "struggle",
+            "faith",
+            "responsibility"
+          ],
           "discussion_hooks": [
             "If the self is a task, what does success look like?",
             "What happens when we refuse to become ourselves?"
@@ -46,6 +105,18 @@
         {
           "name": "Faith as the Highest Passion",
           "summary": "Faith, for Kierkegaard, is not calm acceptance but a passionate, inward commitment that requires the utmost courage and intensity of spirit.",
+          "keywords": [
+            "Kierkegaard",
+            "faith",
+            "highest",
+            "passion",
+            "passionate",
+            "inward",
+            "commitment",
+            "courage",
+            "intensity",
+            "spirit"
+          ],
           "discussion_hooks": [
             "Can faith truly be called a 'passion' in a secular age?",
             "Does passionate belief offer strength—or risk fanaticism?"
@@ -54,6 +125,19 @@
         {
           "name": "The Absurd and the Paradox",
           "summary": "Kierkegaard emphasized the absurdity of religious belief—such as the incarnation of God—and saw embracing paradox as the hallmark of genuine faith.",
+          "keywords": [
+            "Kierkegaard",
+            "absurdity",
+            "religious",
+            "belief",
+            "incarnation",
+            "God",
+            "embracing",
+            "paradox",
+            "hallmark",
+            "genuine",
+            "faith"
+          ],
           "discussion_hooks": [
             "Is there value in embracing paradox instead of resolving it?",
             "How does Kierkegaard’s view of the absurd differ from Camus’ or Nietzsche’s?"
@@ -62,6 +146,19 @@
         {
           "name": "Indirect Communication and Irony",
           "summary": "Kierkegaard used pseudonyms and literary irony to present different viewpoints without reducing them to doctrine, inviting readers into personal reflection rather than passive acceptance.",
+          "keywords": [
+            "Kierkegaard",
+            "indirect",
+            "communication",
+            "pseudonyms",
+            "irony",
+            "viewpoints",
+            "doctrine",
+            "personal",
+            "reflection",
+            "passive",
+            "acceptance"
+          ],
           "discussion_hooks": [
             "Why would a philosopher avoid direct communication of truth?",
             "Does irony deepen or obscure understanding?"
@@ -70,6 +167,19 @@
         {
           "name": "Individual over System",
           "summary": "In contrast to Hegelian philosophy, Kierkegaard emphasized the individual’s lived experience over abstract systems, insisting that truth is lived, not merely known.",
+          "keywords": [
+            "Kierkegaard",
+            "individual",
+            "system",
+            "lived",
+            "experience",
+            "abstract",
+            "systems",
+            "truth",
+            "lived",
+            "merely",
+            "known"
+          ],
           "discussion_hooks": [
             "Is systematization of philosophy inherently dehumanizing?",
             "Can we truly prioritize individuality in a rational discourse?"
@@ -78,6 +188,17 @@
         {
           "name": "Christianity as Offense",
           "summary": "Kierkegaard claimed that true Christianity is offensive to reason and culture—it demands inwardness, self-denial, and confrontation with the absurd.",
+          "keywords": [
+            "Kierkegaard",
+            "Christianity",
+            "offense",
+            "reason",
+            "culture",
+            "inwardness",
+            "self-denial",
+            "confrontation",
+            "absurd"
+          ],
           "discussion_hooks": [
             "Is modern Christianity too comfortable to be authentic in Kierkegaard’s terms?",
             "What does it mean to be 'offended' by faith?"

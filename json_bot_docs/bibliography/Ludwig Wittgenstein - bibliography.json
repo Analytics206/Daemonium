@@ -9,6 +9,14 @@
         {
           "title": "Tractatus Logico-Philosophicus",
           "original_title": "Logisch-Philosophische Abhandlung",
+          "keywords": [
+            "Logic",
+            "Metaphysics",
+            "Language",
+            "World",
+            "Silence",
+            "Atomism"
+          ],
           "year": 1921,
           "type": "Philosophy / Logic / Metaphysics",
           "summary": "Wittgenstein’s early masterpiece where he attempts to define the relationship between language, world, and logic. The famous conclusion: 'Whereof one cannot speak, thereof one must be silent.'"
@@ -16,6 +24,15 @@
         {
           "title": "Philosophical Investigations",
           "original_title": "Philosophische Untersuchungen",
+          "keywords": [
+            "Language",
+            "Meaning",
+            "Use",
+            "Rule-following",
+            "Context",
+            "Forms of life",
+            "Anti-foundationalism"
+          ],
           "year": 1953,
           "type": "Philosophy / Language / Mind",
           "summary": "Published posthumously, this work represents Wittgenstein’s later philosophy, rejecting the rigid logical structure of the Tractatus and instead exploring the meaning of language through its use in 'language games.'"
@@ -23,6 +40,15 @@
         {
           "title": "The Blue and Brown Books",
           "original_title": "Preliminary Studies for the 'Philosophical Investigations'",
+          "keywords": [
+            "Language",
+            "Meaning",
+            "Use",
+            "Rule-following",
+            "Context",
+            "Forms of life",
+            "Anti-foundationalism"
+          ],
           "year": 1958,
           "type": "Philosophy / Notes",
           "summary": "Informal notes dictated to students that reveal the transition in Wittgenstein's thought from the Tractatus to the Investigations. They contain the seeds of his later philosophy."
@@ -30,6 +56,15 @@
         {
           "title": "On Certainty",
           "original_title": "Über Gewissheit",
+          "keywords": [
+            "Epistemology",
+            "Knowledge",
+            "Doubt",
+            "Epistemic",
+            "justification",
+            "Common",
+            "sense"
+          ],
           "year": 1969,
           "type": "Epistemology / Posthumous Notes",
           "summary": "A collection of notes written in the last 18 months of Wittgenstein’s life, dealing with knowledge, doubt, and epistemic justification, partly in response to G.E. Moore’s ‘common sense’ assertions."
@@ -37,6 +72,14 @@
         {
           "title": "Remarks on the Foundations of Mathematics",
           "original_title": "Bemerkungen über die Grundlagen der Mathematik",
+          "keywords": [
+            "Mathematics",
+            "Foundations",
+            "Logicism",
+            "Formalism",
+            "Rule-following",
+            "Meaning"
+          ],
           "year": 1956,
           "type": "Philosophy of Mathematics",
           "summary": "A critical examination of the logical foundations of mathematics, challenging the assumptions of logicism and formalism with Wittgenstein’s evolving views on rule-following and meaning."
@@ -44,6 +87,18 @@
         {
           "title": "Culture and Value",
           "original_title": "Vermischte Bemerkungen",
+          "keywords": [
+            "Culture",
+            "Value",
+            "Art",
+            "Ethics",
+            "Religion",
+            "Aesthetic",
+            "Moral",
+            "Philosophical",
+            "Reflections",
+            "Posthumous"
+          ],
           "year": 1977,
           "type": "Philosophical Reflections / Posthumous",
           "summary": "A compilation of Wittgenstein’s reflections on art, ethics, religion, and culture. These aphoristic remarks reveal his aesthetic and moral concerns beyond technical philosophy."

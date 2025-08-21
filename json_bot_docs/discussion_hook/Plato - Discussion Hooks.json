@@ -1,8 +1,20 @@
 {
     "author": "Plato",
     "category": "Discussion Hooks",
-    "discussion_hooks": {
-      "theory_of_forms": [
+    "discussion_hooks": [
+      {
+        "theme": "Theory of Forms",
+        "keywords": [
+          "theory_of_forms",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What is more real: the physical object or the idea behind it?",
         "If everything changes, how can anything be truly known?",
         "Do you live in the light of truth or the shadow of illusion?",
@@ -13,8 +25,21 @@
         "How do you know when you’ve glimpsed the true form of goodness?",
         "Is knowledge remembrance—or discovery?",
         "What truths remain when all appearances fade?"
-      ],
-      "allegory_of_the_cave": [
+        ]
+      },
+      {
+        "theme": "Allegory of the Cave",
+        "keywords": [
+          "allegory_of_the_cave",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What chains your mind in the shadows?",
         "Would you leave comfort for truth?",
         "What would you do if the light blinded you?",
@@ -25,8 +50,21 @@
         "Is freedom found in knowledge—or in ignorance?",
         "What illusions have you accepted as truth?",
         "Are you willing to be hated for seeing the light?"
-      ],
-      "soul_and_virtue": [
+        ]
+      },
+      {
+        "theme": "Soul and Virtue",
+        "keywords": [
+          "soul_and_virtue",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What part of your soul rules your life?",
         "Is your reason in command—or your appetite?",
         "What virtue do you lack, and why?",
@@ -37,8 +75,21 @@
         "What nourishes your spirit—and what corrupts it?",
         "Would you recognize a just soul if you met one?",
         "How do you measure the health of your soul?"
-      ],
-      "justice": [
+        ]
+      },
+      {
+        "theme": "Justice",
+        "keywords": [
+          "justice",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Is justice found in the individual—or the city?",
         "Do you serve justice—or your desires?",
         "What is the just life, and why live it?",
@@ -49,8 +100,21 @@
         "Who benefits from your concept of justice?",
         "Is justice the soul in harmony?",
         "Can the unjust ever be truly happy?"
-      ],
-      "education_and_the_good": [
+        ]
+      },
+      {
+        "theme": "Education and the Good",
+        "keywords": [
+          "education_and_the_good",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What is education: filling a mind—or turning it toward the good?",
         "What light do you seek in your learning?",
         "Can ignorance ever be virtuous?",
@@ -61,8 +125,21 @@
         "Is your teacher a midwife of truth—or a merchant of opinion?",
         "What is your soul becoming through what you learn?",
         "Would you sacrifice comfort for knowledge?"
-      ],
-      "love_and_beauty": [
+        ]
+      },
+      {
+        "theme": "Love and Beauty",
+        "keywords": [
+          "love_and_beauty",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What does your soul desire when it sees beauty?",
         "Is love a lack—or a bridge to the divine?",
         "Do you love the body—or the form behind it?",
@@ -73,8 +150,21 @@
         "What does your longing reveal about your soul?",
         "Can you distinguish lust from true eros?",
         "What would you do for a glimpse of the eternal?"
-      ],
-      "philosopher_king": [
+        ]
+      },
+      {
+        "theme": "Philosopher King",
+        "keywords": [
+          "philosopher_king",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Should the wise rule—or the powerful?",
         "What would your city look like if governed by truth?",
         "Can a ruler be just if he seeks glory?",
@@ -85,8 +175,21 @@
         "How would you recognize a true philosopher?",
         "What does your leader love most: truth or power?",
         "Could you endure the burdens of a philosopher-king?"
-      ],
-      "dialectic_and_reason": [
+        ]
+      },
+      {
+        "theme": "Dialectic and Reason",
+        "keywords": [
+          "dialectic_and_reason",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What do you question—and why?",
         "Can you follow the thread of logic to its source?",
         "Do you argue to win—or to understand?",
@@ -97,8 +200,21 @@
         "Can you endure the slow ascent to truth?",
         "Do you fear contradiction—or welcome it?",
         "What truth emerges from honest dialogue?"
-      ],
-      "immortality_of_the_soul": [
+      ]
+    },
+    {
+      "theme": "Immortality of the Soul",
+      "keywords": [
+        "immortality_of_the_soul",
+        "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "If your soul never dies, how do you prepare it?",
         "What memory does your soul carry from before birth?",
         "Does the fear of death arise from ignorance?",
@@ -111,5 +227,5 @@
         "Would you live differently if the soul were eternal?"
       ]
     }
-  }
-  
+  ]
+}

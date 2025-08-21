@@ -1,8 +1,21 @@
 {
     "author": "Martin Heidegger",
     "category": "Discussion Hooks",
-    "discussion_hooks": {
-      "Being and Ontology": [
+    "discussion_hooks": [
+      {
+        "theme": "Being and Ontology",
+        "keywords": [
+          "Being",
+          "ontology",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What does Heidegger mean by 'Being' beyond just existence?",
         "Why has the question of Being been forgotten in Western philosophy?",
         "Is there a difference between existing and truly 'Being'?",
@@ -14,8 +27,22 @@
         "Can one live authentically without confronting Being?",
         "How does Being relate to time and finitude?",
         "What happens when we stop questioning Being?"
-      ],
-      "Dasein and Human Existence": [
+      ]
+      },
+      {
+        "theme": "Dasein and Human Existence",
+        "keywords": [
+          "Dasein",
+          "human existence",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What does Heidegger mean by Dasein as 'being-there'?",
         "How is Dasein fundamentally different from objects or things?",
         "Is self-awareness the essence of being human?",
@@ -27,8 +54,21 @@
         "How does Dasein relate to others—authentically or inauthentically?",
         "Can we avoid falling into forgetfulness of our own Dasein?",
         "What role does anxiety play in awakening Dasein?"
-      ],
-      "Being-toward-Death": [
+      ]
+      },
+      {
+        "theme": "Being-toward-Death",
+        "keywords": [
+          "Being-toward-death",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Why does Heidegger see death as central to authentic existence?",
         "What does it mean to live in a mode of 'being-toward-death'?",
         "Does the awareness of death make life more meaningful?",
@@ -40,8 +80,22 @@
         "Is death a personal event or a philosophical boundary?",
         "Does preparing for death lead to deeper freedom?",
         "Can one truly accept death without turning to religion or ideology?"
-      ],
-      "Authenticity and Inauthenticity": [
+      ]
+      },
+      {
+        "theme": "Authenticity and Inauthenticity",
+        "keywords": [
+          "authenticity",
+          "inauthenticity",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What does it mean to live authentically?",
         "Is authenticity a matter of choice or awareness?",
         "How do societal norms push us toward inauthentic living?",
@@ -53,8 +107,22 @@
         "How does technology affect our ability to live authentically?",
         "Is authenticity lonely—or liberating?",
         "Is Heidegger’s view of authenticity elitist or empowering?"
-      ],
-      "Thrownness and Facticity": [
+      ]
+      },
+      {
+        "theme": "Thrownness and Facticity",
+        "keywords": [
+          "thrownness",
+          "facticity",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What does it mean to be 'thrown' into the world?",
         "Is thrownness a burden—or a condition of freedom?",
         "How does facticity limit or shape our choices?",
@@ -66,8 +134,23 @@
         "Can resistance to thrownness create inner conflict?",
         "Is thrownness just fate under a new name?",
         "How does Heidegger’s view differ from existentialist freedom?"
-      ],
-      "The They (Das Man) and Everydayness": [
+      ]
+      },
+      {
+        "theme": "The They (Das Man) and Everydayness",
+        "keywords": [
+          "the They",
+          "Das Man",
+          "everydayness",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Who or what is 'the They' in Heidegger’s philosophy?",
         "How does the crowd shape our thinking and behavior?",
         "Is everydayness inherently inauthentic?",
@@ -79,8 +162,22 @@
         "Can community exist without falling into 'the They'?",
         "Is 'the They' always negative—or sometimes necessary?",
         "What does it mean to reclaim oneself from 'the They'?"
-      ],
-      "Time and Temporality": [
+      ]
+      },
+      {
+        "theme": "Time and Temporality",
+        "keywords": [
+          "time",
+          "temporality",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Why does Heidegger emphasize the role of time in Being?",
         "Is Being inseparable from time?",
         "How does our experience of time shape our identity?",
@@ -92,8 +189,23 @@
         "Does time unify the past, present, and future in Being?",
         "How does anticipation of the future reveal our Being?",
         "Is temporality a structure of Dasein or of the world itself?"
-      ],
-      "Technology and Enframing (Gestell)": [
+      ]
+      },
+      {
+        "theme": "Technology and Enframing (Gestell)",
+        "keywords": [
+          "technology",
+          "enframing",
+          "Gestell",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What is enframing (Gestell) and how does it relate to technology?",
         "How does modern technology alter our relationship to Being?",
         "Is technology just a tool—or a way of revealing the world?",
@@ -105,8 +217,23 @@
         "Is Heidegger anti-technology—or critical of its mindset?",
         "Can art offer an alternative to technological enframing?",
         "What does it mean to dwell poetically in a technological age?"
-      ],
-      "Poetry, Art, and Truth": [
+      ]
+      },
+      {
+        "theme": "Poetry, Art, and Truth",
+        "keywords": [
+          "poetry",
+          "art",
+          "truth",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "How does Heidegger view poetry as a mode of revealing Being?",
         "Is art closer to truth than science or philosophy?",
         "Can poetry disclose what cannot be logically defined?",
@@ -118,8 +245,22 @@
         "Does beauty have metaphysical importance for Heidegger?",
         "How do artworks 'set up a world'?",
         "Is poetic thinking necessary in a post-metaphysical age?"
-      ],
-      "Language and the House of Being": [
+      ]
+      },
+      {
+        "theme": "Language and the House of Being",
+        "keywords": [
+          "language",
+          "house of Being",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What does Heidegger mean by saying language is the 'house of Being'?",
         "Can we think outside of language?",
         "Is language a tool—or the medium of our existence?",
@@ -133,5 +274,5 @@
         "Is our crisis of meaning also a crisis of language?"
       ]
     }
-  }
-  
+  ]
+} 

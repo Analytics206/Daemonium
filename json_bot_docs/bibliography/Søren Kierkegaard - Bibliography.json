@@ -9,6 +9,15 @@
         {
           "title": "Either/Or",
           "original_title": "Enten – Eller",
+          "keywords": [
+            "aesthetic",
+            "ethical",
+            "despair",
+            "faith",
+            "individuality",
+            "love",
+            "anxiety"
+          ],
           "year": 1843,
           "type": "Philosophical Work (Pseudonymous)",
           "summary": "Kierkegaard presents two contrasting life views: the aesthetic and the ethical. The aesthetic is characterized by pursuit of pleasure and avoidance of commitment, while the ethical embraces responsibility and moral seriousness. The book sets up the existential tension between living for immediate enjoyment and striving for authenticity."
@@ -16,6 +25,17 @@
         {
           "title": "Fear and Trembling",
           "original_title": "Frygt og Bæven",
+          "keywords": [
+            "faith",
+            "leap",
+            "knight",
+            "abraham",
+            "isaac",
+            "biblical",
+            "nature",
+            "reason",
+            "ethics"
+          ],
           "year": 1843,
           "type": "Philosophical/Theological Work (Pseudonymous)",
           "summary": "Under the pseudonym Johannes de Silentio, Kierkegaard explores the biblical story of Abraham and Isaac to investigate the nature of faith. He introduces the idea of the 'leap of faith' and the paradox of the 'knight of faith,' whose trust in God transcends reason and ethics."
@@ -23,6 +43,15 @@
         {
           "title": "The Concept of Anxiety",
           "original_title": "Begrebet Angest",
+          "keywords": [
+            "anxiety",
+            "sin",
+            "choice",
+            "freedom",
+            "self-awareness",
+            "moral",
+            "responsibility"
+          ],
           "year": 1844,
           "type": "Philosophical Psychology (Pseudonymous)",
           "summary": "Published under the pseudonym Vigilius Haufniensis, this work discusses anxiety as the psychological condition preceding sin and choice. Kierkegaard interprets anxiety not as a defect but as the possibility of freedom, tied to human self-awareness and the burden of moral responsibility."
@@ -30,6 +59,14 @@
         {
           "title": "The Sickness Unto Death",
           "original_title": "Sygdommen til Døden",
+          "keywords": [
+            "despair",
+            "ignorant",
+            "defiant",
+            "reconciled",
+            "selfhood",
+            "God"
+          ],
           "year": 1849,
           "type": "Theological/Existential Psychology",
           "summary": "Written under the pseudonym Anti-Climacus, this work delves into despair as the sickness of the self. It explores different forms of despair—ignorant, defiant, and reconciled—revealing that true selfhood is found only through a relationship with God."
@@ -37,6 +74,16 @@
         {
           "title": "Practice in Christianity",
           "original_title": "Indøvelse i Christendom",
+          "keywords": [
+            "practice",
+            "Christianity",
+            "Anti-Climacus",
+            "Christendom",
+            "domestication",
+            "God-man",
+            "discipleship",
+            "imitation"
+          ],
           "year": 1850,
           "type": "Religious Treatise (Pseudonymous)",
           "summary": "A late and deeply Christian work written by 'Anti-Climacus,' critiquing Christendom and its domestication of Christianity. It emphasizes the offense of the God-man figure and calls for a life of radical Christian discipleship and imitation of Christ."
@@ -44,6 +91,16 @@
         {
           "title": "Works of Love",
           "original_title": "Kjerlighedens Gjerninger",
+          "keywords": [
+            "love",
+            "Christianity",
+            "Kierkegaard",
+            "neighborly love",
+            "duty",
+            "eternity",
+            "God",
+            "command"
+          ],
           "year": 1847,
           "type": "Christian Ethics",
           "summary": "Written under Kierkegaard’s own name, this work explores Christian love as distinct from romantic or preferential love. It emphasizes duty, neighborly love, and the eternal nature of true love rooted in God's command."
@@ -51,6 +108,18 @@
         {
           "title": "Philosophical Fragments",
           "original_title": "Philosophiske Smuler",
+          "keywords": [
+            "theology",
+            "Socratic",
+            "recollection",
+            "Christian",
+            "revelation",
+            "absolute",
+            "paradox",
+            "God",
+            "truth",
+            "reason"
+          ],
           "year": 1844,
           "type": "Philosophical Theology (Pseudonymous)",
           "summary": "Using the pseudonym Johannes Climacus, Kierkegaard examines the difference between Socratic recollection and Christian revelation. He introduces the concept of the 'absolute paradox'—that God became man—and the idea that truth is a gift from outside human reason."

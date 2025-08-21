@@ -9,6 +9,16 @@
         {
           "title": "A System of Logic",
           "original_title": "A System of Logic, Ratiocinative and Inductive",
+          "keywords": [
+            "Logic",
+            "Induction",
+            "Scientific",
+            "Methodology",
+            "Reasoning",
+            "Principles",
+            "Scientific",
+            "Inquiry"
+          ],
           "year": 1843,
           "type": "Philosophy / Logic",
           "summary": "A foundational text in logic and scientific methodology where Mill sets out his views on inductive reasoning and the principles of scientific inquiry."
@@ -16,6 +26,17 @@
         {
           "title": "Principles of Political Economy",
           "original_title": "Principles of Political Economy",
+          "keywords": [
+            "Economics",
+            "Production",
+            "Distribution",
+            "Government",
+            "Role",
+            "Classical",
+            "Economics",
+            "Social",
+            "Reform"
+          ],
           "year": 1848,
           "type": "Economics",
           "summary": "Mill’s major work on economics, discussing production, distribution, and the role of government in economic affairs, combining classical economics with social reform."
@@ -23,6 +44,16 @@
         {
           "title": "On Liberty",
           "original_title": "On Liberty",
+          "keywords": [
+            "Political",
+            "Philosophy",
+            "Individual",
+            "Freedom",
+            "Societal",
+            "Encroachment",
+            "Harm",
+            "Principle"
+          ],
           "year": 1859,
           "type": "Political Philosophy",
           "summary": "A seminal essay arguing for the protection of individual freedom against societal and governmental encroachment, emphasizing the harm principle."
@@ -30,6 +61,18 @@
         {
           "title": "Utilitarianism",
           "original_title": "Utilitarianism",
+          "keywords": [
+            "Ethics",
+            "Philosophy",
+            "Utilitarianism",
+            "Greatest",
+            "Happiness",
+            "Principle",
+            "Morality",
+            "Ethical",
+            "Judgment",
+            "Principles"
+          ],
           "year": 1861,
           "type": "Ethics / Philosophy",
           "summary": "An influential defense and elaboration of utilitarian moral philosophy, advocating the greatest happiness principle as the basis of ethics."
@@ -37,6 +80,18 @@
         {
           "title": "The Subjection of Women",
           "original_title": "The Subjection of Women",
+          "keywords": [
+            "Social",
+            "Political",
+            "Philosophy",
+            "Gender",
+            "Equality",
+            "Women",
+            "Rights",
+            "Gender",
+            "Roles",
+            "Suffrage"
+          ],
           "year": 1869,
           "type": "Social / Political Philosophy",
           "summary": "An early and powerful argument for gender equality and women’s rights, challenging prevailing societal norms about women’s roles."
@@ -44,6 +99,18 @@
         {
           "title": "Autobiography",
           "original_title": "Autobiography of John Stuart Mill",
+          "keywords": [
+            "Autobiography",
+            "Personal",
+            "Reflections",
+            "Education",
+            "Intellectual",
+            "Development",
+            "Philosophy",
+            "Character",
+            "Mill",
+            "John"
+          ],
           "year": 1873,
           "type": "Autobiography",
           "summary": "Mill’s personal reflections on his life, education, and intellectual development, providing insight into his philosophy and character."

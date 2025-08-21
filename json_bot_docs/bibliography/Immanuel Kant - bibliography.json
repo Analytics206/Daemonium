@@ -9,6 +9,19 @@
         {
           "title": "Critique of Pure Reason",
           "original_title": "Kritik der reinen Vernunft",
+          "keywords": [
+            "Epistemology",
+            "Metaphysics",
+            "Transcendental",
+            "Idealism",
+            "Priori",
+            "Experience",
+            "Noumena",
+            "Phenomena",
+            "Knowledge",
+            "Reason",
+            "Limitations"
+          ],
           "year": "1781 (1st ed.), 1787 (2nd ed.)",
           "type": "Philosophical Treatise (Epistemology and Metaphysics)",
           "summary": "This monumental work revolutionized philosophy by proposing that the mind actively structures experience through a priori categories. Kant argues that we can only know phenomena—things as they appear to us—not noumena, or things-in-themselves. The work explores the limits of reason, introduces transcendental idealism, and analyzes how knowledge is possible. It critiques both dogmatic metaphysics and radical empiricism, attempting a synthesis that still shapes philosophical inquiry today."
@@ -16,6 +29,17 @@
         {
           "title": "Prolegomena to Any Future Metaphysics",
           "original_title": "Prolegomena zu einer jeden künftigen Metaphysik",
+          "keywords": [
+            "Philosophical",
+            "Introduction",
+            "Transcendental",
+            "Idealism",
+            "Analytic",
+            "Synthetic",
+            "Judgments",
+            "A Priori",
+            "Knowledge"
+          ],
           "year": "1783",
           "type": "Philosophical Introduction",
           "summary": "Written as a clearer and more accessible version of the first Critique, the Prolegomena outlines Kant's key positions for a broader audience. It explains the distinction between analytic and synthetic judgments, introduces the idea of synthetic a priori knowledge, and makes a powerful case for the necessity of transcendental philosophy. It is often the recommended starting point for new readers of Kant."
@@ -23,6 +47,17 @@
         {
           "title": "Groundwork of the Metaphysics of Morals",
           "original_title": "Grundlegung zur Metaphysik der Sitten",
+          "keywords": [
+            "Ethics",
+            "Moral",
+            "Autonomy",
+            "Duty",
+            "Reason",
+            "Universalizable",
+            "Maxims",
+            "Morality",
+            "Ethical"
+          ],
           "year": "1785",
           "type": "Ethical Treatise",
           "summary": "This foundational text introduces Kant's moral philosophy, particularly the concept of the categorical imperative—a universal moral law derived from reason. It lays out Kant’s vision of autonomy, duty, and the dignity of rational beings. The Groundwork is among the most influential works in moral theory, emphasizing that ethical actions must be guided by reason and universalizable maxims."
@@ -30,6 +65,17 @@
         {
           "title": "Critique of Practical Reason",
           "original_title": "Kritik der praktischen Vernunft",
+          "keywords": [
+            "Ethics",
+            "Autonomy",
+            "Will",
+            "Moral",
+            "Obligation",
+            "God",
+            "Freedom",
+            "Immortality",
+            "Practical"
+          ],
           "year": "1788",
           "type": "Philosophical Treatise (Ethics)",
           "summary": "Building upon the Groundwork, Kant presents a complete system of ethics based on the autonomy of the will and the fact of moral obligation. He defends the necessity of postulating God, freedom, and immortality—not as knowledge, but as conditions for moral experience. The work argues that morality reveals a different kind of certainty than theoretical knowledge: one grounded in practical reason."
@@ -37,6 +83,21 @@
         {
           "title": "Critique of the Power of Judgment",
           "original_title": "Kritik der Urteilskraft",
+          "keywords": [
+            "Aesthetics",
+            "Teleology",
+            "Judgment",
+            "Power",
+            "Critique",
+            "Beauty",
+            "Sublime",
+            "Nature",
+            "Purpose",
+            "Biology",
+            "Design",
+            "Sensible",
+            "Rational"
+          ],
           "year": "1790",
           "type": "Philosophical Treatise (Aesthetics and Teleology)",
           "summary": "Kant's third Critique examines aesthetic and teleological judgment. It analyzes how we experience beauty and the sublime, suggesting that such judgments are both subjective and universally valid. The second part addresses the purposiveness of nature, laying the foundation for debates in biology and design. This work bridges the gap between the sensible and the rational realms explored in the first two Critiques."
@@ -44,6 +105,20 @@
         {
           "title": "Religion within the Bounds of Bare Reason",
           "original_title": "Die Religion innerhalb der Grenzen der bloßen Vernunft",
+          "keywords": [
+            "Philosophy of Religion",
+            "Religion",
+            "Reason",
+            "Sin",
+            "Grace",
+            "Salvation",
+            "Moral",
+            "Reason",
+            "Church",
+            "Institutions",
+            "Individual",
+            "Conscience"
+          ],
           "year": "1793",
           "type": "Philosophy of Religion",
           "summary": "Kant reinterprets religious concepts like sin, grace, and salvation in ethical terms. He argues that true religion must conform to moral reason and that church institutions should never supersede individual moral conscience. Though controversial in its day, the work established a rational, ethical approach to religion that shaped liberal theology."
@@ -51,6 +126,22 @@
         {
           "title": "The Metaphysics of Morals",
           "original_title": "Die Metaphysik der Sitten",
+          "keywords": [
+            "Ethical",
+            "Political",
+            "Philosophy",
+            "Doctrine",
+            "Right",
+            "Virtue",
+            "Freedom",
+            "Dignity",
+            "Human",
+            "Rights",
+            "Civil",
+            "Society",
+            "Legal",
+            "Theory"
+          ],
           "year": "1797",
           "type": "Ethical and Political Philosophy",
           "summary": "A systematic account of Kant’s moral and political philosophy, this work is divided into two parts: the 'Doctrine of Right' (which covers law, justice, and civil society) and the 'Doctrine of Virtue' (which focuses on individual moral duties). Kant emphasizes freedom, dignity, and the legal basis of human rights and civil society, making this a foundational text in modern legal and political theory."
@@ -58,6 +149,21 @@
         {
           "title": "Perpetual Peace: A Philosophical Sketch",
           "original_title": "Zum ewigen Frieden",
+          "keywords": [
+            "Political",
+            "Essay",
+            "Peace",
+            "Republican",
+            "Governments",
+            "International",
+            "Law",
+            "Cosmopolitan",
+            "Hospitality",
+            "Preliminary",
+            "Articles",
+            "Definitive",
+            "Articles"
+          ],
           "year": "1795",
           "type": "Political Essay",
           "summary": "A visionary proposal for achieving lasting peace between nations through the spread of republican governments, international law, and cosmopolitan hospitality. The essay outlines six 'preliminary articles' and three 'definitive articles' for peace. It profoundly influenced liberal internationalism and institutions like the League of Nations and the UN."
@@ -65,6 +171,20 @@
         {
           "title": "Anthropology from a Pragmatic Point of View",
           "original_title": "Anthropologie in pragmatischer Hinsicht",
+          "keywords": [
+            "Philosophical",
+            "Anthropology",
+            "Human",
+            "Nature",
+            "Psychology",
+            "Society",
+            "Character",
+            "Temperament",
+            "Practical",
+            "Life",
+            "Education",
+            "Culture"
+          ],
           "year": "1798",
           "type": "Philosophical Anthropology",
           "summary": "This work presents Kant’s empirical reflections on human nature, psychology, and society. Unlike his transcendental works, it emphasizes observation and experience. Kant discusses character, temperament, and the conditions of practical life. It was among his most popular books during his lifetime and provides insight into his views on education and culture."
@@ -72,6 +192,27 @@
         {
           "title": "Universal Natural History and Theory of the Heavens",
           "original_title": "Allgemeine Naturgeschichte und Theorie des Himmels",
+          "keywords": [
+            "Scientific",
+            "Cosmology",
+            "Nebular",
+            "Hypothesis",
+            "Solar",
+            "System",
+            "Modern",
+            "Astrophysics",
+            "Natural",
+            "Theology",
+            "Rational",
+            "Scientific",
+            "Principles",
+            "Cosmic",
+            "Order",
+            "Unify",
+            "Science",
+            "Philosophy",
+            "Theology"
+          ],
           "year": "1755",
           "type": "Scientific Cosmology",
           "summary": "In this early work, Kant proposes a nebular hypothesis of the origin of the solar system, anticipating modern astrophysics. Though steeped in natural theology, the treatise exemplifies Kant’s ambition to ground cosmic order in rational, scientific principles. It marks his early effort to unify science, philosophy, and theology."

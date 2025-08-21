@@ -6,6 +6,17 @@
         {
           "name": "Existential Freedom and Responsibility",
           "summary": "De Beauvoir built upon existentialist ideas, asserting that humans are radically free but burdened with the responsibility of defining themselves through choices. Authenticity requires acknowledgment of this freedom without falling into bad faith.",
+          "keywords": [
+            "existential",
+            "freedom",
+            "responsibility",
+            "defining",
+            "choices",
+            "authenticity",
+            "acknowledgment",
+            "bad",
+            "faith"
+          ],
           "discussion_hooks": [
             "Can freedom still exist in systems of deep oppression?",
             "What does it mean to be responsible for a self you did not choose to be born into?"
@@ -14,6 +25,20 @@
         {
           "name": "The Other and Alterity",
           "summary": "She explored how identity is formed in relation to 'the Other'. Woman, historically constructed as the 'Other' of man, is denied subjectivity. Overcoming this requires mutual recognition rather than domination.",
+          "keywords": [
+            "alterity",
+            "identity",
+            "formed",
+            "relation",
+            "woman",
+            "historically",
+            "constructed",
+            "man",
+            "subjectivity",
+            "mutual",
+            "recognition",
+            "domination"
+          ],
           "discussion_hooks": [
             "How is 'the Other' still produced in modern systems like media or politics?",
             "Can identity ever be defined independently of relationships with others?"
@@ -22,6 +47,21 @@
         {
           "name": "Gender as a Social Construct",
           "summary": "In *The Second Sex*, de Beauvoir famously wrote, 'One is not born, but rather becomes, a woman.' She argued that gender is not natural but imposed through socialization, institutions, and historical expectations.",
+          "keywords": [
+            "gender",
+            "social",
+            "construct",
+            "Second Sex",
+            "born",
+            "becomes",
+            "woman",
+            "natural",
+            "imposed",
+            "socialization",
+            "institutions",
+            "historical",
+            "expectations"
+          ],
           "discussion_hooks": [
             "What roles do language and education play in enforcing gender norms?",
             "Can we ever fully detach from gendered expectations?"
@@ -30,6 +70,22 @@
         {
           "name": "Ambiguity of the Human Condition",
           "summary": "De Beauvoir emphasized that human life is fundamentally ambiguous—caught between freedom and facticity, transcendence and immanence. Ethical living embraces this ambiguity rather than denying it.",
+          "keywords": [
+            "ambiguity",
+            "human",
+            "condition",
+            "fundamentally",
+            "caught",
+            "freedom",
+            "facticity",
+            "transcendence",
+            "immanence",
+            "ethical",
+            "living",
+            "embrace",
+            "ambiguity",
+            "denying"
+          ],
           "discussion_hooks": [
             "Can embracing contradiction be a path to moral clarity?",
             "How do systems of power try to suppress ambiguity in favor of control?"
@@ -38,6 +94,20 @@
         {
           "name": "Ethics of Liberation",
           "summary": "She believed that true ethical behavior involves working toward the liberation of all, since one's own freedom is entwined with the freedom of others. Oppression is inherently unethical because it denies this reciprocity.",
+          "keywords": [
+            "ethics",
+            "liberation",
+            "reciprocity",
+            "oppression",
+            "ethical",
+            "behavior",
+            "working",
+            "toward",
+            "freedom",
+            "entwined",
+            "inherently",
+            "unethical"
+          ],
           "discussion_hooks": [
             "Is individual liberation possible in a world filled with structural oppression?",
             "How should we act when our freedom comes at the expense of others'?"
@@ -46,6 +116,17 @@
         {
           "name": "Immanence vs. Transcendence",
           "summary": "She distinguished between 'immanence'—a state of passive existence often assigned to women—and 'transcendence'—the ability to go beyond oneself through projects and self-creation. Patriarchal society forces women into immanence.",
+          "keywords": [
+            "immanence",
+            "transcendence",
+            "passive",
+            "existence",
+            "women",
+            "projects",
+            "self-creation",
+            "patriarchal",
+            "society"
+          ],
           "discussion_hooks": [
             "How does economic dependence create a form of immanence?",
             "Can acts of care be transcendent rather than immanent?"
@@ -54,6 +135,19 @@
         {
           "name": "Bad Faith and Internalized Oppression",
           "summary": "Drawing on Sartre, de Beauvoir explored how women (and the oppressed more broadly) may internalize the limits imposed upon them, acting in 'bad faith' by accepting roles that deny their freedom.",
+          "keywords": [
+            "bad faith",
+            "internalized",
+            "oppression",
+            "Sartre",
+            "women",
+            "oppressed",
+            "limits",
+            "imposed",
+            "roles",
+            "deny",
+            "freedom"
+          ],
           "discussion_hooks": [
             "How do cultural myths encourage people to act against their own interest?",
             "Can self-deception ever be a protective act in oppressive systems?"
@@ -62,6 +156,23 @@
         {
           "name": "Becoming and Project",
           "summary": "Human beings are not static but always in the process of becoming through chosen projects. De Beauvoir emphasized that a meaningful life is one where individuals commit to projects that affirm both their own and others' freedom.",
+          "keywords": [
+            "becoming",
+            "project",
+            "human",
+            "beings",
+            "static",
+            "process",
+            "chosen",
+            "projects",
+            "meaningful life",
+            "individuals",
+            "commit",
+            "projects",
+            "affirm",
+            "both",
+            "freedom"
+          ],
           "discussion_hooks": [
             "What makes a project 'authentic' rather than conformist?",
             "Is choosing family or care work as valid a project as political activism?"
@@ -70,6 +181,21 @@
         {
           "name": "Situated Freedom",
           "summary": "While she upheld existential freedom, de Beauvoir recognized that this freedom is always situated—conditioned by history, body, culture, and social class. True agency must work through, not deny, these limits.",
+          "keywords": [
+            "freedom",
+            "existential",
+            "upheld",
+            "Beauvoir",
+            "situated",
+            "conditioned",
+            "history",
+            "body",
+            "culture",
+            "social class",
+            "agency",
+            "deny",
+            "limits"
+          ],
           "discussion_hooks": [
             "How do we distinguish between constraint and condition?",
             "Is freedom more meaningful when exercised under constraint?"
@@ -78,6 +204,22 @@
         {
           "name": "Solidarity and Reciprocal Recognition",
           "summary": "For de Beauvoir, ethical relationships require recognizing others as subjects with their own freedoms. Solidarity emerges when people affirm one another's projects, rather than dominate or subsume them.",
+          "keywords": [
+            "solidarity",
+            "reciprocal",
+            "recognition",
+            "ethical",
+            "relationships",
+            "recognizing",
+            "subjects",
+            "freedoms",
+            "solidarity",
+            "emerges",
+            "people",
+            "affirm",
+            "dominate",
+            "subsume"
+          ],
           "discussion_hooks": [
             "Can solidarity exist without shared identity?",
             "What does it mean to recognize someone without needing to agree with them?"

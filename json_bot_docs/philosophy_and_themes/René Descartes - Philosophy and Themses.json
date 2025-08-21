@@ -6,6 +6,20 @@
         {
           "name": "Cogito, ergo sum ('I think, therefore I am')",
           "summary": "Descartes’ foundational certainty: even if all else is doubted, the very act of doubting confirms the existence of the doubter.",
+          "keywords": [
+            "Cogito",
+            "ergo",
+            "sum",
+            "I",
+            "think",
+            "therefore",
+            "I",
+            "am",
+            "foundational",
+            "certainty",
+            "doubt",
+            "exist"
+          ],
           "discussion_hooks": [
             "Is self-awareness the only indubitable foundation for knowledge?",
             "Can 'I think' exist without a self behind the thought?"
@@ -14,6 +28,15 @@
         {
           "name": "Methodic Doubt",
           "summary": "Descartes proposed systematically doubting all beliefs to find a foundation of certainty on which to build reliable knowledge.",
+          "keywords": [
+            "methodic",
+            "doubt",
+            "beliefs",
+            "foundation",
+            "certainty",
+            "reliable",
+            "knowledge"
+          ],
           "discussion_hooks": [
             "Can radical doubt be a constructive tool for modern inquiry?",
             "What risks arise from doubting too much—or too little?"
@@ -22,6 +45,16 @@
         {
           "name": "Mind-Body Dualism",
           "summary": "Descartes argued for a fundamental distinction between mind (res cogitans) and body (res extensa), setting the stage for modern debates on consciousness.",
+          "keywords": [
+            "mind-body",
+            "dualism",
+            "mind",
+            "body",
+            "res",
+            "cogitans",
+            "extensa",
+            "consciousness"
+          ],
           "discussion_hooks": [
             "Are mind and body truly distinct substances—or two aspects of the same reality?",
             "How has Descartes’ dualism shaped (or distorted) our understanding of self and world?"
@@ -30,6 +63,13 @@
         {
           "name": "Clear and Distinct Ideas",
           "summary": "For Descartes, knowledge must be based on ideas that are clear (intellectually transparent) and distinct (unambiguously defined). These serve as the criteria for truth.",
+          "keywords": [
+            "clear",
+            "distinct",
+            "ideas",
+            "criteria",
+            "truth"
+          ],
           "discussion_hooks": [
             "Can all meaningful knowledge be reduced to clear and distinct ideas?",
             "What happens to complex truths that resist clarity?"
@@ -38,6 +78,18 @@
         {
           "name": "God as the Guarantee of Truth",
           "summary": "Descartes believed that a perfect, non-deceptive God must exist and ensures the reliability of clear and distinct perceptions, anchoring knowledge in divine benevolence.",
+          "keywords": [
+            "God",
+            "perfect",
+            "non-deceptive",
+            "exist",
+            "reliability",
+            "perceptions",
+            "anchoring",
+            "knowledge",
+            "divine",
+            "benevolence"
+          ],
           "discussion_hooks": [
             "Can reason alone prove the existence and trustworthiness of God?",
             "Does invoking God solve or merely shift the problem of certainty?"
@@ -46,6 +98,18 @@
         {
           "name": "Innate Ideas",
           "summary": "Descartes posited that certain ideas (such as those of God, self, and mathematics) are innate—implanted by nature or God, not derived from experience.",
+          "keywords": [
+            "innate",
+            "ideas",
+            "certain",
+            "God",
+            "self",
+            "mathematics",
+            "implanted",
+            "nature",
+            "derived",
+            "experience"
+          ],
           "discussion_hooks": [
             "Are some truths hardwired into human reason?",
             "How does Descartes’ theory of innate ideas compare with modern cognitive science?"
@@ -54,6 +118,20 @@
         {
           "name": "Mechanistic Physics",
           "summary": "Descartes proposed a mechanistic view of the physical universe: matter is extended substance governed by mathematical laws, excluding teleology from nature.",
+          "keywords": [
+            "mechanistic",
+            "physics",
+            "physical",
+            "universe",
+            "matter",
+            "substance",
+            "governed",
+            "mathematical",
+            "laws",
+            "excluding",
+            "teleology",
+            "nature"
+          ],
           "discussion_hooks": [
             "Did Descartes’ physics liberate science from metaphysics—or impose a new metaphysical dogma?",
             "How does Cartesian mechanism relate to today's computational view of nature?"
@@ -62,6 +140,21 @@
         {
           "name": "Cartesian Coordinate System",
           "summary": "Descartes merged algebra and geometry into analytical geometry, revolutionizing mathematics and laying the groundwork for the modern scientific method.",
+          "keywords": [
+            "Cartesian",
+            "coordinate",
+            "system",
+            "algebra",
+            "geometry",
+            "analytical",
+            "geometry",
+            "revolutionizing",
+            "mathematics",
+            "groundwork",
+            "modern",
+            "scientific",
+            "method"
+          ],
           "discussion_hooks": [
             "How did Descartes’ mathematical vision shape modern science?",
             "Is the world more intelligible because we see it through mathematical eyes?"
@@ -70,6 +163,21 @@
         {
           "name": "Ego-Centric Epistemology",
           "summary": "Descartes centered philosophy on the individual subject's capacity to know, setting the tone for modern epistemology and the 'problem of the external world.'",
+          "keywords": [
+            "ego-centric",
+            "epistemology",
+            "individual",
+            "subject",
+            "capacity",
+            "know",
+            "setting",
+            "tone",
+            "modern",
+            "epistemology",
+            "problem",
+            "external",
+            "world"
+          ],
           "discussion_hooks": [
             "Did Descartes help emancipate the self—or imprison it within its own mind?",
             "Can knowledge of the world begin within the self?"
@@ -78,6 +186,18 @@
         {
           "name": "The Evil Demon Hypothesis",
           "summary": "To test the limits of certainty, Descartes imagined a powerful deceiver manipulating all his thoughts—posing the challenge of radical skepticism.",
+          "keywords": [
+            "evil",
+            "demon",
+            "hypothesis",
+            "certainty",
+            "powerful",
+            "deceiver",
+            "thoughts",
+            "challenge",
+            "radical",
+            "skepticism"
+          ],
           "discussion_hooks": [
             "Is it possible to refute absolute skepticism without invoking metaphysics?",
             "How does Descartes’ demon prefigure modern concerns about simulated or illusory reality?"

@@ -9,6 +9,20 @@
         {
           "title": "Discourse on the Method",
           "original_title": "Discours de la méthode",
+          "keywords": [
+            "method",
+            "rationalism",
+            "doubt",
+            "reason",
+            "knowledge",
+            "science",
+            "mathematics",
+            "geometry",
+            "optics",
+            "meteorology",
+            "metaphysics",
+            "epistemology"
+          ],
           "year": 1637,
           "type": "Philosophical Treatise",
           "summary": "Descartes presents his method for acquiring knowledge based on radical doubt, clarity, and deduction. The work introduces his famous statement 'I think, therefore I am' and outlines principles for philosophical and scientific reasoning. It includes early applications in optics, geometry, and meteorology."
@@ -16,6 +30,20 @@
         {
           "title": "Meditations on First Philosophy",
           "original_title": "Meditationes de prima philosophia",
+          "keywords": [
+            "method",
+            "rationalism",
+            "doubt",
+            "reason",
+            "knowledge",
+            "science",
+            "mathematics",
+            "geometry",
+            "optics",
+            "meteorology",
+            "metaphysics",
+            "epistemology"
+          ],
           "year": 1641,
           "type": "Metaphysical Treatise",
           "summary": "A foundational work of modern philosophy, the *Meditations* presents Descartes' project of foundationalism. Through six meditations, he doubts all prior knowledge, establishes the cogito, argues for the existence of God, and attempts to reconcile the mind-body dualism. The work profoundly shaped subsequent metaphysics and epistemology."
@@ -23,6 +51,20 @@
         {
           "title": "Principles of Philosophy",
           "original_title": "Principia Philosophiae",
+          "keywords": [
+            "method",
+            "rationalism",
+            "doubt",
+            "reason",
+            "knowledge",
+            "science",
+            "mathematics",
+            "geometry",
+            "optics",
+            "meteorology",
+            "metaphysics",
+            "epistemology"
+          ],
           "year": 1644,
           "type": "Philosophical System/Science",
           "summary": "An attempt to present a unified philosophical and scientific worldview, integrating metaphysics, physics, and natural science. Descartes offers his famous laws of motion, the concept of vortices in cosmology, and further elaboration on dualism. It was designed to replace Aristotelian philosophy in the universities."
@@ -30,6 +72,20 @@
         {
           "title": "Rules for the Direction of the Mind",
           "original_title": "Regulae ad directionem ingenii",
+          "keywords": [
+            "method",
+            "rationalism",
+            "doubt",
+            "reason",
+            "knowledge",
+            "science",
+            "mathematics",
+            "geometry",
+            "optics",
+            "meteorology",
+            "metaphysics",
+            "epistemology"
+          ],
           "year": 1701,
           "type": "Epistemology (Posthumously Published)",
           "summary": "An unfinished early work in which Descartes outlines his theory of method and rules for acquiring knowledge. Though fragmentary, it anticipates themes developed later in the *Discourse* and *Meditations*, such as intuition, deduction, and clarity as criteria of truth."
@@ -37,6 +93,20 @@
         {
           "title": "Passions of the Soul",
           "original_title": "Les Passions de l’âme",
+          "keywords": [
+            "method",
+            "rationalism",
+            "doubt",
+            "reason",
+            "knowledge",
+            "science",
+            "mathematics",
+            "geometry",
+            "optics",
+            "meteorology",
+            "metaphysics",
+            "epistemology"
+          ],
           "year": 1649,
           "type": "Philosophy of Mind",
           "summary": "A late work in which Descartes explores the emotions, their physical origins, and their interaction with the rational soul. It provides his final articulation of the mind-body dualism and attempts to explain the mechanisms of human behavior through a physiological and philosophical lens."
@@ -44,6 +114,20 @@
         {
           "title": "Geometry",
           "original_title": "La Géométrie",
+          "keywords": [
+            "method",
+            "rationalism",
+            "doubt",
+            "reason",
+            "knowledge",
+            "science",
+            "mathematics",
+            "geometry",
+            "optics",
+            "meteorology",
+            "metaphysics",
+            "epistemology"
+          ],
           "year": 1637,
           "type": "Mathematical Appendix",
           "summary": "Appended to the *Discourse on the Method*, this mathematical work revolutionized geometry by introducing Cartesian coordinates. It laid the foundation for analytic geometry and helped bridge algebra and geometry into a unified mathematical system."

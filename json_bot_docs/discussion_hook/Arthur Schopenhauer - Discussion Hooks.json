@@ -1,8 +1,24 @@
 {
     "author": "Arthur Schopenhauer",
     "category": "Discussion Hooks",
-    "discussion_hooks": {
-      "The Will as the Thing-in-Itself": [
+    "discussion_hooks": [
+      {
+      "theme": "The Will as the Thing-in-Itself",
+      "keywords": [
+        "will",
+        "thing-in-itself",
+        "reason",
+        "conscious intention",
+        "satisfaction",
+        "striving",
+        "free will",
+        "desire",
+        "boredom",
+        "metaphysical",
+        "metaphor",
+        "escape"
+      ],
+      "hooks": [
         "What does Schopenhauer mean when he says the 'will' is the essence of reality?",
         "Do you think your actions are guided by reason or by a deeper, blind will?",
         "Can understanding the will help us understand suffering?",
@@ -14,8 +30,29 @@
         "How does the concept of will explain desire and boredom?",
         "Is the will a metaphysical force or just a metaphor?",
         "Can we ever escape the influence of the will in our lives?"
+      ]
+    },
+    {
+      "theme": "Suffering and Pessimism",
+      "keywords": [
+        "suffering",
+        "pessimism",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Suffering and Pessimism": [
+      "hooks": [
         "Why does Schopenhauer believe life is fundamentally suffering?",
         "Is suffering the price of consciousness?",
         "Does recognizing suffering lead to wisdom or despair?",
@@ -27,8 +64,27 @@
         "What role does suffering play in shaping moral character?",
         "Is Schopenhauer’s pessimism realistic or fatalistic?",
         "Are there moments of joy that transcend suffering—or are they illusions?"
+      ]
+    },
+    {
+      "theme": "The Illusion of Individuality",
+      "keywords": [
+        "individuality",
+        "illusion",
+        "ego",
+        "personal identity",
+        "consciousness",
+        "will",
+        "suffering",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "The Illusion of Individuality": [
+      "hooks": [
         "What does it mean to say the individual is an illusion?",
         "Are we separate beings—or expressions of a single underlying will?",
         "Is personal identity just a surface phenomenon?",
@@ -40,8 +96,24 @@
         "Does individuality vanish in deep aesthetic or moral experiences?",
         "What would it mean to live without ego?",
         "Is the illusion of self stronger in modern life than in the past?"
+      ]
+    },
+    {
+      "theme": "Art and Aesthetic Contemplation",
+      "keywords": [
+        "art",
+        "aesthetic contemplation",
+        "will",
+        "suffering",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Art and Aesthetic Contemplation": [
+      "hooks": [
         "Why does Schopenhauer believe art provides a unique escape from suffering?",
         "What happens when we lose ourselves in a work of art?",
         "Does beauty reveal truth about the world—or obscure it?",
@@ -53,8 +125,24 @@
         "Are some forms of art more 'Schopenhauerian' than others?",
         "Can beauty console us in a tragic world?",
         "Is the joy of art temporary or transformative?"
+      ]
+    },
+    {
+      "theme": "Compassion and Ethics",
+      "keywords": [
+        "compassion",
+        "ethics",
+        "will",
+        "suffering",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Compassion and Ethics": [
+      "hooks": [
         "Why does Schopenhauer see compassion as the basis of morality?",
         "Is compassion more powerful than justice in ethical life?",
         "Can real compassion arise without suffering?",
@@ -66,8 +154,25 @@
         "Can compassion be taught—or only felt?",
         "What is the ethical value of reducing another’s suffering?",
         "Is Schopenhauer’s ethics too emotional—or deeply human?"
+      ]
+    },
+    {
+      "theme": "Death, Nothingness, and Non-Existence",
+      "keywords": [
+        "death",
+        "nothingness",
+        "non-existence",
+        "will",
+        "suffering",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Death, Nothingness, and Non-Existence": [
+      "hooks": [
         "Does the fear of death come from attachment to the individual self?",
         "What does it mean to cease to exist, if individuality is an illusion?",
         "Is death a return to the universal will?",
@@ -79,8 +184,24 @@
         "Is living well the same as dying without fear?",
         "What role does death play in shaping our ethics?",
         "Does awareness of mortality make us more compassionate?"
+      ]
+    },
+    {
+      "theme": "Asceticism and Denial of the Will",
+      "keywords": [
+        "asceticism",
+        "denial of the will",
+        "will",
+        "suffering",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Asceticism and Denial of the Will": [
+      "hooks": [
         "What does it mean to 'deny the will to live'?",
         "Is asceticism a rejection of life—or its highest expression?",
         "Can true peace come only through renunciation?",
@@ -92,8 +213,24 @@
         "Can anyone truly overcome the will?",
         "Is spiritual discipline necessary to reach inner peace?",
         "Is denying the will to live nihilistic—or redemptive?"
+      ]
+    },
+    {
+      "theme": "Intellect vs. Will",
+      "keywords": [
+        "asceticism",
+        "denial of the will",
+        "will",
+        "suffering",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Intellect vs. Will": [
+      "hooks": [
         "Does intellect serve the will—or resist it?",
         "Is reason just a tool for fulfilling desires?",
         "Can intellectual clarity free us from blind striving?",
@@ -105,8 +242,25 @@
         "Is the intellect capable of moral insight—or just cleverness?",
         "What is the relationship between insight and peace?",
         "Can thought liberate us from compulsion?"
+      ]
+    },
+    {
+      "theme": "Love, Desire, and Reproduction",
+      "keywords": [
+        "love",
+        "desire",
+        "reproduction",
+        "will",
+        "suffering",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Love, Desire, and Reproduction": [
+      "hooks": [
         "Why does Schopenhauer think love is an illusion created by the will?",
         "Are romantic feelings just nature’s trick for reproduction?",
         "Does love lead to happiness—or more suffering?",
@@ -118,8 +272,24 @@
         "Can love ever transcend ego and will?",
         "Is the tragedy of love that it promises fulfillment it can’t deliver?",
         "Is rejecting romantic illusions a path to liberation?"
+      ]
+    },
+    {
+      "theme": "Comparison with Eastern Philosophy",
+      "keywords": [
+        "comparison",
+        "eastern philosophy",
+        "will",
+        "suffering",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Comparison with Eastern Philosophy": [
+      "hooks": [
         "How does Schopenhauer’s view of suffering resemble Buddhism?",
         "Is the denial of the will similar to Buddhist non-attachment?",
         "Does Schopenhauer offer a Western path to enlightenment?",
@@ -133,5 +303,6 @@
         "Do both systems view life as something to overcome—not indulge?"
       ]
     }
-  }
+  ]
+}
   

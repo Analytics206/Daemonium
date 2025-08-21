@@ -6,6 +6,19 @@
         {
           "name": "The Categorical Imperative",
           "summary": "Kant’s foundational moral principle, the Categorical Imperative, demands that we act only according to maxims we would will to become universal laws. It represents morality as rooted not in consequences but in rational duty.",
+          "keywords": [
+            "categorical",
+            "imperative",
+            "foundational",
+            "moral",
+            "principle",
+            "maxims",
+            "universal",
+            "laws",
+            "morality",
+            "rational",
+            "duty"
+          ],
           "discussion_hooks": [
             "What does it mean to act from duty rather than desire?",
             "Can all moral actions be universalized?"
@@ -14,6 +27,18 @@
         {
           "name": "Autonomy and Moral Law",
           "summary": "Kant argues that true moral agency arises from autonomy: the capacity to legislate the moral law for oneself, rather than be governed by external pressures or inclinations.",
+          "keywords": [
+            "autonomy",
+            "moral",
+            "law",
+            "capacity",
+            "legislate",
+            "moral law",
+            "oneself",
+            "external",
+            "pressures",
+            "inclinations"
+          ],
           "discussion_hooks": [
             "Is freedom possible if morality is binding?",
             "Are we autonomous when shaped by culture and upbringing?"
@@ -22,6 +47,13 @@
         {
           "name": "Transcendental Idealism",
           "summary": "Kant's metaphysical framework posits that we can only know appearances (phenomena), not things-in-themselves (noumena). Space and time are forms of intuition, shaping how we perceive but not existing independently.",
+          "keywords": [
+            "transcendental idealism",
+            "Kant's metaphysical framework posits that we can only know appearances (phenomena)",
+            "things-in-themselves (noumena)",
+            "space and time are forms of intuition",
+            "shaping how we perceive but not existing independently"
+          ],
           "discussion_hooks": [
             "Do we construct reality or merely perceive it?",
             "What are the implications of never accessing the 'thing-in-itself'?"
@@ -30,6 +62,15 @@
         {
           "name": "Synthetic A Priori Judgments",
           "summary": "Kant introduces the idea that some judgments expand knowledge (synthetic) yet are knowable independent of experience (a priori), such as in mathematics or the principles of causality.",
+          "keywords": [
+            "synthetic",
+            "a priori",
+            "judgments",
+            "knowledge",
+            "mathematics",
+            "principles",
+            "causality"
+          ],
           "discussion_hooks": [
             "Can knowledge exist beyond experience?",
             "Are moral truths synthetic a priori?"
@@ -38,6 +79,17 @@
         {
           "name": "The Moral Worth of Actions",
           "summary": "Kant insists that only actions done from duty—not inclination—have genuine moral worth. Even a good deed driven by sympathy lacks moral purity unless done from respect for the moral law.",
+          "keywords": [
+            "moral",
+            "duty",
+            "inclination",
+            "good",
+            "deed",
+            "sympathy",
+            "moral",
+            "purity",
+            "law"
+          ],
           "discussion_hooks": [
             "Can a good deed be immoral in motive?",
             "Is duty a higher guide than love?"
@@ -46,6 +98,18 @@
         {
           "name": "The Kingdom of Ends",
           "summary": "In Kant’s ethical vision, each rational being is both subject and sovereign in a moral community where all are treated as ends in themselves, never merely as means.",
+          "keywords": [
+            "kingdom",
+            "ethical",
+            "rational",
+            "being",
+            "sovereign",
+            "moral",
+            "community",
+            "ends",
+            "themselves",
+            "means"
+          ],
           "discussion_hooks": [
             "What would a society based on mutual dignity look like?",
             "Can politics function on Kantian ethics?"
@@ -54,6 +118,13 @@
         {
           "name": "Freedom as the Condition for Morality",
           "summary": "Though Kant sees humans as bound by causal laws, he holds that freedom must be presupposed in moral reasoning, because without it, responsibility vanishes.",
+          "keywords": [
+            "freedom",
+            "morality",
+            "laws",
+            "reasoning",
+            "responsibility"
+          ],
           "discussion_hooks": [
             "Is free will necessary for ethics?",
             "Can determinism and morality coexist?"
@@ -62,6 +133,17 @@
         {
           "name": "The Limits of Pure Reason",
           "summary": "Kant's 'Critique of Pure Reason' establishes boundaries for what reason can achieve independently of experience. He denies that metaphysics can deliver knowledge of God, the soul, or the cosmos through reason alone.",
+          "keywords": [
+            "reason",
+            "Critique",
+            "Reason",
+            "metaphysics",
+            "knowledge",
+            "God",
+            "soul",
+            "cosmos",
+            "reason"
+          ],
           "discussion_hooks": [
             "Should reason restrain itself in metaphysical inquiry?",
             "Are there questions reason must leave unanswered?"
@@ -70,6 +152,20 @@
         {
           "name": "Aesthetic Judgment and the Sublime",
           "summary": "Kant explores beauty as a disinterested pleasure and the sublime as an encounter with overwhelming vastness that points to human moral greatness. Both are reflective judgments revealing human freedom.",
+          "keywords": [
+            "aesthetic",
+            "judgment",
+            "sublime",
+            "beauty",
+            "disinterested",
+            "pleasure",
+            "human",
+            "moral",
+            "greatness",
+            "reflective",
+            "judgments",
+            "freedom"
+          ],
           "discussion_hooks": [
             "What does our response to beauty say about us?",
             "Is the sublime a moral experience?"
@@ -78,6 +174,24 @@
         {
           "name": "Perpetual Peace and Cosmopolitanism",
           "summary": "Kant proposed a political vision for global peace grounded in republican governments, international law, and mutual respect. He envisioned a federation of free states moving toward ethical progress.",
+          "keywords": [
+            "perpetual",
+            "peace",
+            "cosmopolitanism",
+            "political",
+            "global",
+            "republican",
+            "governments",
+            "international",
+            "law",
+            "mutual",
+            "respect",
+            "federation",
+            "free",
+            "states",
+            "ethical",
+            "progress"
+          ],
           "discussion_hooks": [
             "Can lasting peace emerge through reason alone?",
             "Is Kant's vision of cosmopolitanism idealistic or necessary?"

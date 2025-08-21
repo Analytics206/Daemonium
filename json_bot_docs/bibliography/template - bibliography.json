@@ -9,6 +9,18 @@
         {
           "title": "Book Title 1",
           "original_title": "OriginalBook Title 1",
+          "keywords": [
+            "word 1",
+            "word 2",
+            "word 3",
+            "word 4",
+            "word 5",
+            "word 6",
+            "word 7",
+            "word 8",
+            "word 9",
+            "word 10"
+          ],
           "year": 1900,
           "type": "Type of Book",
           "summary": "Summary of Book"
@@ -16,6 +28,18 @@
         {
           "title": "Book Title 2",
           "original_title": "OriginalBook Title 2",
+          "keywords": [
+            "word 1",
+            "word 2",
+            "word 3",
+            "word 4",
+            "word 5",
+            "word 6",
+            "word 7",
+            "word 8",
+            "word 9",
+            "word 10"
+          ],
           "year": 1900,
           "type": "Type of Book",
           "summary": "Summary of Book"
@@ -23,16 +47,16 @@
       ],
       "chronological_periods": {
         "early_period": {
-          "characteristics": "Characteristics of Period 1",
-          "themes": "Themes of Period 1"
+          "characteristics": "Early writings focus on the individual's subjective experience, irony, and critique of Hegelianism. Kierkegaard uses pseudonyms to explore multiple perspectives.",
+          "themes": "Irony, aesthetic vs. ethical life, despair, faith, individuality, love, anxiety."
         },
         "middle_period": {
-          "characteristics": "Characteristics of Period 2",
-          "themes": "Themes of Period 2"
+          "characteristics": "Heightened religious emphasis, increasingly critical of institutional Christianity. Kierkegaard continues to use pseudonyms while deepening theological reflection.",
+          "themes": "Sin, despair, faith, selfhood, human freedom, God-relation, paradox of Christianity."
         },
         "late_period": {
-          "characteristics": "Characteristics of Period 3",
-          "themes": "Themes of Period 3"
+          "characteristics": "Direct religious writings and polemics. Open attacks on the Danish State Church and a call to authentic Christianity.",
+          "themes": "Radical Christian discipleship, offense of the Incarnation, imitation of Christ, critique of Christendom, truth as subjectivity."
         }
       },
       "major_themes": [

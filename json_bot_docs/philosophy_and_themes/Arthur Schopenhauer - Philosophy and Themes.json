@@ -6,6 +6,13 @@
         {
           "name": "The World as Will and Representation",
           "summary": "Schopenhauer's central thesis is that reality has two aspects: as representation (how it appears to us through perception and intellect), and as will (a blind, irrational, and striving force that underlies all existence).",
+          "keywords": [
+            "will",
+            "representation",
+            "perception",
+            "intellect",
+            "existence"
+          ],
           "discussion_hooks": [
             "Is our perception of reality merely a veil over something far darker and irrational?",
             "How does Schopenhauer's idea of 'will' challenge the Enlightenment's emphasis on reason?"
@@ -14,6 +21,13 @@
         {
           "name": "Will as the Root of Suffering",
           "summary": "For Schopenhauer, the will is an endless, insatiable striving that can never be fulfilled. This unrelenting desire is the fundamental cause of suffering in human life and all of nature.",
+          "keywords": [
+            "will",
+            "suffering",
+            "desire",
+            "fulfillment",
+            "pain"
+          ],
           "discussion_hooks": [
             "If desire is the root of suffering, is self-denial the only path to peace?",
             "How does this view compare to Buddhist ideas of suffering and attachment?"
@@ -22,6 +36,14 @@
         {
           "name": "Pessimism and the Human Condition",
           "summary": "Schopenhauer is famous for his philosophical pessimism. He believed that suffering far outweighs pleasure, and that life is more about enduring pain than attaining happiness.",
+          "keywords": [
+            "pessimism",
+            "human",
+            "condition",
+            "suffering",
+            "pleasure",
+            "pain"
+          ],
           "discussion_hooks": [
             "Can pessimism be a form of clarity rather than despair?",
             "Is it more honest to expect suffering than to pursue happiness?"
@@ -30,6 +52,15 @@
         {
           "name": "Aesthetic Contemplation as Escape",
           "summary": "Schopenhauer argued that art, particularly music, allows us to momentarily escape the tyranny of the will. In aesthetic contemplation, we become pure, will-less subjects of knowledge.",
+          "keywords": [
+            "aesthetic",
+            "contemplation",
+            "escape",
+            "tyranny",
+            "will",
+            "subjects",
+            "knowledge"
+          ],
           "discussion_hooks": [
             "Why does music—more than any other art—transcend suffering for Schopenhauer?",
             "Can beauty offer lasting consolation, or is it merely temporary relief?"
@@ -38,6 +69,16 @@
         {
           "name": "Compassion as the Basis of Ethics",
           "summary": "Unlike rationalist ethics, Schopenhauer proposed that moral behavior arises from compassion—the immediate awareness of another’s suffering. Ethical action involves denying the self-centered will.",
+          "keywords": [
+            "compassion",
+            "basis",
+            "ethics",
+            "moral",
+            "behavior",
+            "self-centered",
+            "will",
+            "suffering"
+          ],
           "discussion_hooks": [
             "Is compassion more reliable than reason as the foundation for ethics?",
             "How can we cultivate compassion in a world driven by self-interest?"
@@ -46,6 +87,16 @@
         {
           "name": "Denial of the Will",
           "summary": "The ultimate goal for Schopenhauer is to negate the will—to transcend the desires and drives that perpetuate suffering. Asceticism and renunciation are the highest forms of life.",
+          "keywords": [
+            "denial",
+            "will",
+            "ultimate",
+            "goal",
+            "negate",
+            "desires",
+            "drives",
+            "suffering"
+          ],
           "discussion_hooks": [
             "Can one deny the will without falling into nihilism?",
             "What does it mean to live a life of negation in a culture of consumption?"
@@ -54,6 +105,20 @@
         {
           "name": "Individuality as Illusion",
           "summary": "He viewed individuality as a mere surface phenomenon. At a deeper metaphysical level, all beings are manifestations of the same universal will—separated only by space, time, and illusion.",
+          "keywords": [
+            "individuality",
+            "illusion",
+            "mere",
+            "surface",
+            "phenomenon",
+            "metaphysical",
+            "level",
+            "universal",
+            "will",
+            "space",
+            "time",
+            "illusion"
+          ],
           "discussion_hooks": [
             "If individuality is illusion, how should we think about moral responsibility?",
             "Is the ego a useful fiction or a dangerous one?"
@@ -62,6 +127,15 @@
         {
           "name": "Critique of Optimism",
           "summary": "Schopenhauer directly attacked the optimism of Leibniz and the idea that we live in 'the best of all possible worlds'. Instead, he saw existence as fundamentally tragic and full of avoidable suffering.",
+          "keywords": [
+            "critique",
+            "optimism",
+            "Leibniz",
+            "best of all possible worlds",
+            "existence",
+            "tragic",
+            "suffering"
+          ],
           "discussion_hooks": [
             "Does optimism distort our ability to see suffering clearly?",
             "What dangers arise from the belief that 'everything happens for a reason'?"
@@ -70,6 +144,19 @@
         {
           "name": "Human Suffering and the Cycles of Desire",
           "summary": "Human life is trapped in an endless cycle: desire → brief satisfaction → boredom → new desire. This wheel turns endlessly, creating existential exhaustion.",
+          "keywords": [
+            "human",
+            "suffering",
+            "cycles",
+            "desire",
+            "endless",
+            "cycle",
+            "brief",
+            "satisfaction",
+            "boredom",
+            "existential",
+            "exhaustion"
+          ],
           "discussion_hooks": [
             "Is boredom worse than suffering, as Schopenhauer suggests?",
             "Can we ever step outside the cycle of desire?"
@@ -78,6 +165,16 @@
         {
           "name": "Philosophy as Consolation",
           "summary": "For Schopenhauer, philosophy is not about constructing abstract systems, but about confronting reality and offering spiritual or existential consolation—especially in the face of life’s cruelty.",
+          "keywords": [
+            "philosophy",
+            "comfort",
+            "disturb",
+            "consolation",
+            "godless",
+            "god",
+            "tragic",
+            "world"
+          ],
           "discussion_hooks": [
             "Is it the role of philosophy to comfort or to disturb?",
             "What does true consolation look like in a godless and tragic world?"

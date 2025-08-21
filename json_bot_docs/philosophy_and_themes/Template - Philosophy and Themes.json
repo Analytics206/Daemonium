@@ -6,6 +6,18 @@
         {
           "name": "Idea 1",
           "summary": "Summary 1",
+          "keywords": [
+            "keyword 1",
+            "keyword 2",
+            "keyword 3",
+            "keyword 4",
+            "keyword 5",
+            "keyword 6",
+            "keyword 7",
+            "keyword 8",
+            "keyword 9",
+            "keyword 10"
+          ],
           "discussion_hooks": [
             "Discussion Hook 1",
             "Discussion Hook 2"
@@ -14,6 +26,18 @@
         {
           "name": "Idea 2",
           "summary": "Summary 2",
+          "keywords": [
+            "keyword 1",
+            "keyword 2",
+            "keyword 3",
+            "keyword 4",
+            "keyword 5",
+            "keyword 6",
+            "keyword 7",
+            "keyword 8",
+            "keyword 9",
+            "keyword 10"
+          ],
           "discussion_hooks": [
             "Discussion Hook 1",
             "Discussion Hook 2"
@@ -22,6 +46,18 @@
         {
           "name": "Idea 3",
           "summary": "Summary 3",
+          "keywords": [
+            "keyword 1",
+            "keyword 2",
+            "keyword 3",
+            "keyword 4",
+            "keyword 5",
+            "keyword 6",
+            "keyword 7",
+            "keyword 8",
+            "keyword 9",
+            "keyword 10"
+          ],
           "discussion_hooks": [
             "Discussion Hook 1",
             "Discussion Hook 2"
@@ -30,6 +66,18 @@
         {
           "name": "Idea 4",
           "summary": "Summary 4",
+          "keywords": [
+            "keyword 1",
+            "keyword 2",
+            "keyword 3",
+            "keyword 4",
+            "keyword 5",
+            "keyword 6",
+            "keyword 7",
+            "keyword 8",
+            "keyword 9",
+            "keyword 10"
+          ],
           "discussion_hooks": [
             "Discussion Hook 1",
             "Discussion Hook 2"
@@ -38,6 +86,18 @@
         {
           "name": "Idea 5",
           "summary": "Summary 5",
+          "keywords": [
+            "keyword 1",
+            "keyword 2",
+            "keyword 3",
+            "keyword 4",
+            "keyword 5",
+            "keyword 6",
+            "keyword 7",
+            "keyword 8",
+            "keyword 9",
+            "keyword 10"
+          ],
           "discussion_hooks": [
             "Discussion Hook 1",
             "Discussion Hook 2"
@@ -46,6 +106,18 @@
         {
           "name": "Idea 6",
           "summary": "Summary 6",
+          "keywords": [
+            "keyword 1",
+            "keyword 2",
+            "keyword 3",
+            "keyword 4",
+            "keyword 5",
+            "keyword 6",
+            "keyword 7",
+            "keyword 8",
+            "keyword 9",
+            "keyword 10"
+          ],
           "discussion_hooks": [
             "Discussion Hook 1",
             "Discussion Hook 2"
@@ -54,6 +126,18 @@
         {
           "name": "Idea 7",
           "summary": "Summary 7",
+          "keywords": [
+            "keyword 1",
+            "keyword 2",
+            "keyword 3",
+            "keyword 4",
+            "keyword 5",
+            "keyword 6",
+            "keyword 7",
+            "keyword 8",
+            "keyword 9",
+            "keyword 10"
+          ],
           "discussion_hooks": [
             "Discussion Hook 1",
             "Discussion Hook 2"
@@ -62,6 +146,18 @@
         {
           "name": "Idea 8",
           "summary": "Summary 8",
+          "keywords": [
+            "keyword 1",
+            "keyword 2",
+            "keyword 3",
+            "keyword 4",
+            "keyword 5",
+            "keyword 6",
+            "keyword 7",
+            "keyword 8",
+            "keyword 9",
+            "keyword 10"
+          ],
           "discussion_hooks": [
             "Discussion Hook 1",
             "Discussion Hook 2"
@@ -70,6 +166,18 @@
         {
           "name": "Idea 9",
           "summary": "Summary 9",
+          "keywords": [
+            "keyword 1",
+            "keyword 2",
+            "keyword 3",
+            "keyword 4",
+            "keyword 5",
+            "keyword 6",
+            "keyword 7",
+            "keyword 8",
+            "keyword 9",
+            "keyword 10"
+          ],
           "discussion_hooks": [
             "Discussion Hook 1",
             "Discussion Hook 2"
@@ -78,6 +186,18 @@
         {
           "name": "Idea 10",
           "summary": "Summary 10",
+          "keywords": [
+            "keyword 1",
+            "keyword 2",
+            "keyword 3",
+            "keyword 4",
+            "keyword 5",
+            "keyword 6",
+            "keyword 7",
+            "keyword 8",
+            "keyword 9",
+            "keyword 10"
+          ],
           "discussion_hooks": [
             "Discussion Hook 1",
             "Discussion Hook 2"

@@ -6,6 +6,19 @@
         {
           "name": "Will to Power",
           "summary": "Life is not about survival or happiness but the expansion of strength and creativity. Everything living seeks to grow, dominate, and express power.",
+          "keywords": [
+            "will",
+            "power",
+            "survival",
+            "happiness",
+            "expansion",
+            "strength",
+            "creativity",
+            "everything",
+            "living",
+            "grow",
+            "dominate"
+          ],
           "discussion_hooks": [
             "What do you strive for beyond survival?",
             "Is morality a weapon of the weak against the strong?"
@@ -14,6 +27,16 @@
         {
           "name": "Eternal Recurrence",
           "summary": "Live as if you would choose to relive every moment of your life infinitely. A test of ultimate affirmation.",
+          "keywords": [
+            "eternal recurrence",
+            "live",
+            "relive",
+            "life",
+            "infinitely",
+            "affirmation",
+            "eternal",
+            "recurrence"
+          ],
           "discussion_hooks": [
             "Could you say yes to every joy and every pain forever?",
             "Would you embrace the weight of your fate eternally?"
@@ -22,6 +45,19 @@
         {
           "name": "Übermensch (Overman)",
           "summary": "An ideal of self-overcoming: creating values beyond herd morality, becoming the poet of your own existence.",
+          "keywords": [
+            "Übermensch",
+            "Overman",
+            "ideal",
+            "self-overcoming",
+            "creating",
+            "values",
+            "beyond",
+            "herd",
+            "morality",
+            "poet",
+            "existence"
+          ],
           "discussion_hooks": [
             "What would it take for you to become the creator of your own values?",
             "Do you wish to obey—or to create?"
@@ -30,6 +66,20 @@
         {
           "name": "Death of God",
           "summary": "The collapse of absolute religious and moral foundations leaves a void. Humanity must create new values to replace the old.",
+          "keywords": [
+            "death",
+            "god",
+            "collapse",
+            "absolute",
+            "religious",
+            "moral",
+            "foundations",
+            "void",
+            "humanity",
+            "create",
+            "values",
+            "replace"
+          ],
           "discussion_hooks": [
             "If God is dead, what becomes your compass?",
             "What do you worship without knowing it?"
@@ -38,6 +88,15 @@
         {
           "name": "Perspectivism",
           "summary": "There are no absolute truths—only interpretations. Knowledge is bound to perspective.",
+          "keywords": [
+            "perspectivism",
+            "absolute",
+            "truths",
+            "interpretations",
+            "knowledge",
+            "bound",
+            "perspective"
+          ],
           "discussion_hooks": [
             "Is what you call truth simply the most useful illusion?",
             "Whose perspective hides behind your values?"
@@ -46,6 +105,16 @@
         {
           "name": "Critique of Morality",
           "summary": "Morality is not universal—it is historical and strategic, often serving the weak to restrain the strong.",
+          "keywords": [
+            "critique",
+            "morality",
+            "universal",
+            "historical",
+            "strategic",
+            "weak",
+            "restrain",
+            "strong"
+          ],
           "discussion_hooks": [
             "Do your morals strengthen you, or weaken you?",
             "Who benefits when you call something 'evil'?"
@@ -54,6 +123,16 @@
         {
           "name": "Master-Slave Morality",
           "summary": "Two kinds of morality: one of strength (self-affirmation) and one of weakness (resentment and blame).",
+          "keywords": [
+            "master",
+            "slave",
+            "morality",
+            "strength",
+            "self-affirmation",
+            "weakness",
+            "resentment",
+            "blame"
+          ],
           "discussion_hooks": [
             "Is your morality born of strength or resentment?",
             "What does your 'goodness' conceal?"
@@ -62,6 +141,16 @@
         {
           "name": "Amor Fati (Love of Fate)",
           "summary": "Embrace your life and fate entirely, without wishing it to be different.",
+          "keywords": [
+            "amor fati",
+            "embrace",
+            "entirely",
+            "life",
+            "fate",
+            "love",
+            "pain",
+            "suffering"
+          ],
           "discussion_hooks": [
             "Can you love your life with all its pain?",
             "Would you bless the necessity of your suffering?"
@@ -70,6 +159,16 @@
         {
           "name": "Art & Tragedy",
           "summary": "Life’s chaos requires aesthetic transformation—art makes existence bearable.",
+          "keywords": [
+            "art",
+            "tragedy",
+            "life",
+            "aesthetic",
+            "transformation",
+            "chaos",
+            "existence",
+            "bearable"
+          ],
           "discussion_hooks": [
             "What art saves you from despair?",
             "Do you create beauty—or consume it?"
@@ -78,9 +177,18 @@
         {
           "name": "Nihilism",
           "summary": "When old values die and new ones are not yet created, a void emerges—dangerous but also fertile.",
+          "keywords": [
+            "nihilism",
+            "die",
+            "values",
+            "void",
+            "emerges",
+            "dangerous",
+            "fertile"
+          ],
           "discussion_hooks": [
-            "Do you feel the weight of nothingness?",
-            "What new values will you create from the ruins?"
+            "nothingness?",
+            "values?"
           ]
         }
       ],

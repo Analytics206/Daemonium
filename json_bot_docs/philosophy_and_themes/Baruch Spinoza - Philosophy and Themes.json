@@ -6,6 +6,17 @@
         {
           "name": "Substance Monism",
           "summary": "Spinoza argued that there is only one substance in the universe—God or Nature—which encompasses everything. Everything else is a mode or expression of this single, infinite substance.",
+          "keywords": [
+            "substance",
+            "monism",
+            "God",
+            "Nature",
+            "substance",
+            "everything",
+            "mode",
+            "expression",
+            "infinite"
+          ],
           "discussion_hooks": [
             "If everything is one substance, can individual freedom or identity truly exist?",
             "What implications does substance monism have for our understanding of God and nature?"
@@ -14,6 +25,18 @@
         {
           "name": "God as Nature (Deus sive Natura)",
           "summary": "Spinoza equated God with Nature, challenging the anthropomorphic conception of God. For him, God is not a personal deity but the totality of existence, governed by deterministic laws.",
+          "keywords": [
+            "God",
+            "Nature",
+            "Deus sive Natura",
+            "God with Nature",
+            "anthropomorphic",
+            "personal deity",
+            "totality",
+            "existence",
+            "deterministic",
+            "laws"
+          ],
           "discussion_hooks": [
             "Does equating God with Nature remove the need for religious worship?",
             "Can a non-personal conception of God still offer spiritual fulfillment?"
@@ -22,6 +45,17 @@
         {
           "name": "Determinism and Necessity",
           "summary": "Spinoza held that everything occurs by necessity according to the immutable laws of nature. Free will, in the traditional sense, is an illusion.",
+          "keywords": [
+            "determinism",
+            "necessity",
+            "immutable",
+            "laws",
+            "nature",
+            "free will",
+            "traditional",
+            "sense",
+            "illusion"
+          ],
           "discussion_hooks": [
             "If all is determined, what becomes of moral responsibility?",
             "Is it liberating or limiting to believe that our actions are necessary outcomes of prior causes?"
@@ -30,6 +64,20 @@
         {
           "name": "Conatus (Striving for Persistence)",
           "summary": "Every entity strives to persist in its being. This drive, or conatus, underlies all individual actions and is central to Spinoza’s ethical theory.",
+          "keywords": [
+            "conatus",
+            "striving",
+            "persistence",
+            "entity",
+            "persist",
+            "being",
+            "drive",
+            "conatus",
+            "individual",
+            "actions",
+            "ethical",
+            "theory"
+          ],
           "discussion_hooks": [
             "How does conatus relate to modern ideas of self-preservation or self-realization?",
             "Is the drive to persist morally neutral, or does it imply a deeper value system?"
@@ -38,6 +86,18 @@
         {
           "name": "Intellectual Love of God (Amor Dei Intellectualis)",
           "summary": "Spinoza’s highest form of knowledge leads to an intellectual love of God—understanding the necessary order of reality brings peace and joy.",
+          "keywords": [
+            "intellectual",
+            "love",
+            "God",
+            "Amor Dei",
+            "Intellectualis",
+            "highest form",
+            "knowledge",
+            "understanding",
+            "spiritual",
+            "experience"
+          ],
           "discussion_hooks": [
             "Is intellectual understanding a sufficient foundation for spiritual experience?",
             "Can the 'intellectual love of God' replace traditional forms of religious devotion?"
@@ -46,6 +106,24 @@
         {
           "name": "Three Kinds of Knowledge",
           "summary": "Spinoza distinguished between imagination (opinion), reason, and intuitive knowledge. The highest form, intuition, gives direct insight into the essence of things and the unity of all reality.",
+          "keywords": [
+            "three kinds",
+            "knowledge",
+            "imagination",
+            "opinion",
+            "reason",
+            "intuitive",
+            "highest form",
+            "intuition",
+            "direct",
+            "insight",
+            "essence",
+            "absence",
+            "necessity",
+            "things",
+            "unity",
+            "reality"
+          ],
           "discussion_hooks": [
             "Can modern science be considered intuitive knowledge in Spinoza’s sense?",
             "How do these types of knowledge relate to belief, faith, or certainty?"
@@ -54,6 +132,17 @@
         {
           "name": "Mind-Body Parallelism",
           "summary": "Spinoza rejected Cartesian dualism. Instead, he argued that mind and body are two attributes of the same substance, operating in parallel.",
+          "keywords": [
+            "mind-body",
+            "parallelism",
+            "Cartesian",
+            "dualism",
+            "mind",
+            "body",
+            "attributes",
+            "substance",
+            "parallel"
+          ],
           "discussion_hooks": [
             "Does mind-body parallelism bridge or widen the gap between physicalism and idealism?",
             "How does this idea impact the way we understand consciousness and mental causation?"
@@ -62,6 +151,19 @@
         {
           "name": "Ethics through Understanding",
           "summary": "For Spinoza, virtue is identical with understanding. The more we understand ourselves and nature, the more we align with our true essence and experience freedom.",
+          "keywords": [
+            "ethics",
+            "understanding",
+            "virtue",
+            "identical",
+            "ourselves",
+            "nature",
+            "align",
+            "true",
+            "essence",
+            "experience",
+            "freedom"
+          ],
           "discussion_hooks": [
             "Can ethics be grounded purely in rational understanding rather than emotion or duty?",
             "Is understanding sufficient to ensure ethical behavior?"
@@ -70,6 +172,16 @@
         {
           "name": "Freedom as Rational Necessity",
           "summary": "True freedom, for Spinoza, is not the absence of necessity but acting in accordance with one’s nature through understanding—necessity properly understood is freedom.",
+          "keywords": [
+            "freedom",
+            "rational",
+            "necessity",
+            "true",
+            "absence",
+            "nature",
+            "understanding",
+            "understood"
+          ],
           "discussion_hooks": [
             "Can we be free if our actions are determined?",
             "Is freedom an internal state rather than an external condition?"
@@ -78,6 +190,21 @@
         {
           "name": "Critique of Superstition and Organized Religion",
           "summary": "Spinoza critiqued religious institutions for promoting fear and obedience over understanding. He called for a rational, tolerant approach to religion and politics.",
+          "keywords": [
+            "critique",
+            "superstition",
+            "organized",
+            "religion",
+            "religious",
+            "institutions",
+            "fear",
+            "obedience",
+            "understanding",
+            "rational",
+            "tolerant",
+            "approach",
+            "politics"
+          ],
           "discussion_hooks": [
             "Can religion survive without fear-based control mechanisms?",
             "How does Spinoza’s critique compare with Enlightenment secularism?"

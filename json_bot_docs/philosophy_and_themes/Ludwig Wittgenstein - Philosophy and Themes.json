@@ -6,6 +6,15 @@
         {
           "name": "Picture Theory of Language",
           "summary": "In his early work *Tractatus Logico-Philosophicus*, Wittgenstein proposed that language functions by creating logical 'pictures' of reality. A statement is meaningful if it accurately mirrors the facts of the world.",
+          "keywords": [
+            "language",
+            "Tractatus",
+            "Logico-Philosophicus",
+            "reality",
+            "statement",
+            "meaningful",
+            "facts"
+          ],
           "discussion_hooks": [
             "Can language ever truly 'mirror' reality, or is this just a philosophical ideal?",
             "How might this theory fail when describing emotions, ethics, or aesthetics?"
@@ -14,6 +23,12 @@
         {
           "name": "Limits of Language",
           "summary": "Wittgenstein claimed that what can be said must be said clearly, and what cannot be spoken of must be passed over in silence. This separates meaningful, logical propositions from metaphysical speculation.",
+          "keywords": [
+            "language",
+            "meaningful",
+            "propositions",
+            "metaphysical"
+          ],
           "discussion_hooks": [
             "Is silence a form of wisdom when faced with the unspeakable?",
             "What are the risks of attempting to speak about the ineffable?"
@@ -22,6 +37,13 @@
         {
           "name": "Language Games",
           "summary": "In his later work *Philosophical Investigations*, Wittgenstein developed the concept of 'language games' to describe how the meaning of words arises from their use within specific social contexts.",
+          "keywords": [
+            "language",
+            "Investigations",
+            "meaning",
+            "use",
+            "social"
+          ],
           "discussion_hooks": [
             "How does the meaning of a word change between professional, intimate, or online settings?",
             "Can two people ever be playing the same 'language game' without realizing it?"
@@ -30,6 +52,14 @@
         {
           "name": "Meaning as Use",
           "summary": "Rejecting his earlier theories, Wittgenstein later emphasized that the meaning of a word is determined by how it is used in a particular form of life, not by its correspondence to an object or fact.",
+          "keywords": [
+            "rejecting",
+            "theories",
+            "language",
+            "meaning",
+            "object",
+            "fact"
+          ],
           "discussion_hooks": [
             "Does this suggest that truth is relative to culture and context?",
             "Can we ever have a universal language if meaning is use-dependent?"
@@ -38,6 +68,13 @@
         {
           "name": "Private Language Argument",
           "summary": "Wittgenstein argued that language is inherently public, and that a purely private language—one that refers only to internal sensations—would be incoherent because there would be no way to establish correct or incorrect usage.",
+          "keywords": [
+            "language",
+            "public",
+            "private",
+            "sensations",
+            "incoherent"
+          ],
           "discussion_hooks": [
             "If no private language exists, what does that say about the limits of self-knowledge?",
             "Are emotions only real if they can be expressed in a shared vocabulary?"
@@ -46,6 +83,15 @@
         {
           "name": "Family Resemblance",
           "summary": "Wittgenstein proposed that categories (like 'game') do not have one essential feature in common but are connected through overlapping similarities—like members of a family.",
+          "keywords": [
+            "family",
+            "resemblance",
+            "game",
+            "essential",
+            "overlapping",
+            "similarities",
+            "members"
+          ],
           "discussion_hooks": [
             "Does this view undermine the need for rigid definitions in philosophy and science?",
             "Are most of our categories fuzzier than we care to admit?"
@@ -54,6 +100,15 @@
         {
           "name": "Rule-Following Paradox",
           "summary": "Wittgenstein raised the question of how we can follow rules if every new application requires interpretation. He suggests that rule-following is grounded in shared practices, not private mental acts.",
+          "keywords": [
+            "paradox",
+            "rules",
+            "application",
+            "interpretation",
+            "grounded",
+            "practices",
+            "mental"
+          ],
           "discussion_hooks": [
             "Can rules exist without a community to interpret and enforce them?",
             "How much of meaning is governed by habit rather than logic?"
@@ -62,6 +117,13 @@
         {
           "name": "Philosophy as Therapy",
           "summary": "Wittgenstein believed that philosophy should not construct grand theories but dissolve confusion caused by linguistic misunderstanding. Philosophy becomes a form of therapy.",
+          "keywords": [
+            "therapy",
+            "theories",
+            "dissolve",
+            "confusion",
+            "linguistic"
+          ],
           "discussion_hooks": [
             "Is the role of philosophy to solve problems or to make them disappear?",
             "Can philosophy heal us by showing us the limits of our own confusion?"
@@ -70,6 +132,15 @@
         {
           "name": "Forms of Life",
           "summary": "He introduced the notion of 'forms of life' to describe the cultural and biological contexts that give language its meaning. Meaning arises from participation in a shared way of living.",
+          "keywords": [
+            "life",
+            "cultural",
+            "biological",
+            "contexts",
+            "language",
+            "Meaning",
+            "participation"
+          ],
           "discussion_hooks": [
             "Can we ever truly understand someone from a different form of life?",
             "Is translation between forms of life a philosophical impossibility?"
@@ -78,6 +149,14 @@
         {
           "name": "The Ineffable",
           "summary": "In both early and late works, Wittgenstein pointed to the limits of what can be said. Beyond these limits lie values, aesthetics, and spiritual insight—things that show themselves but cannot be explained.",
+          "keywords": [
+            "ineffable",
+            "limits",
+            "values",
+            "aesthetics",
+            "spiritual",
+            "insight"
+          ],
           "discussion_hooks": [
             "Are the most important things in life beyond words?",
             "How do we live with the tension between what we know and what we cannot say?"

@@ -9,6 +9,19 @@
         {
           "title": "She Came to Stay",
           "original_title": "L'Invitée",
+          "keywords": [
+            "freedom",
+            "jealousy",
+            "existential",
+            "tension",
+            "human",
+            "relationships",
+            "female",
+            "feminisim",
+            "Sartre",
+            "Olga",
+            "Kosakiewicz"
+          ],
           "year": 1943,
           "type": "Novel / Existentialist Fiction",
           "summary": "A semi-autobiographical novel exploring themes of freedom, jealousy, and existential tension in human relationships. It mirrors de Beauvoir’s relationship with Sartre and Olga Kosakiewicz."
@@ -16,6 +29,19 @@
         {
           "title": "The Blood of Others",
           "original_title": "Le Sang des autres",
+          "keywords": [
+            "moral",
+            "dilemmas",
+            "political",
+            "resistance",
+            "World",
+            "War",
+            "personal",
+            "responsibility",
+            "guilt",
+            "action",
+            "inaction"
+          ],
           "year": 1945,
           "type": "Novel / Political Fiction",
           "summary": "A novel confronting the moral dilemmas of political resistance during World War II. It examines personal responsibility, guilt, and the consequences of action or inaction."
@@ -23,6 +49,20 @@
         {
           "title": "All Men Are Mortal",
           "original_title": "Tous les hommes sont mortels",
+          "keywords": [
+            "immortal",
+            "man",
+            "female",
+            "feminisim",
+            "eternity",
+            "existential",
+            "themes",
+            "meaning",
+            "time",
+            "burden",
+            "limitless",
+            "life"
+          ],
           "year": 1946,
           "type": "Novel / Philosophical Fiction",
           "summary": "A story about an immortal man and the futility of eternity, exploring existential themes such as meaning, time, and the burden of limitless life."
@@ -30,6 +70,21 @@
         {
           "title": "The Ethics of Ambiguity",
           "original_title": "Pour une morale de l'ambiguïté",
+          "keywords": [
+            "existentialist",
+            "ethics",
+            "human",
+            "female",
+            "feminisim",
+            "freedom",
+            "situated",
+            "ambiguous",
+            "ethical",
+            "action",
+            "recognition",
+            "others’",
+            "freedom"
+          ],
           "year": 1947,
           "type": "Philosophy / Ethics",
           "summary": "A concise existentialist ethics work where de Beauvoir argues that human freedom is situated and ambiguous, and that ethical action comes through recognition of others’ freedom."
@@ -37,6 +92,20 @@
         {
           "title": "The Second Sex",
           "original_title": "Le Deuxième Sexe",
+          "keywords": [
+            "feminist",
+            "theory",
+            "womanhood",
+            "female",
+            "feminisim",
+            "history",
+            "biology",
+            "psychoanalysis",
+            "culture",
+            "gender",
+            "oppression",
+            "liberation"
+          ],
           "year": 1949,
           "type": "Philosophy / Feminist Theory",
           "summary": "De Beauvoir’s magnum opus, examining the construction of womanhood through history, biology, psychoanalysis, and culture. The book coined the famous phrase, 'One is not born, but rather becomes, a woman.'"
@@ -44,6 +113,19 @@
         {
           "title": "Memoirs of a Dutiful Daughter",
           "original_title": "Mémoires d'une jeune fille rangée",
+          "keywords": [
+            "autobiography",
+            "gender",
+            "feminist",
+            "female",
+            "feminisim",
+            "rebellion",
+            "education",
+            "philosophical",
+            "awakening",
+            "gender",
+            "rebellion"
+          ],
           "year": 1958,
           "type": "Autobiography",
           "summary": "The first volume of de Beauvoir’s memoirs, detailing her early life, education, and philosophical awakening, especially in relation to gender and rebellion."
@@ -51,6 +133,20 @@
         {
           "title": "The Mandarins",
           "original_title": "Les Mandarins",
+          "keywords": [
+            "novel",
+            "feminist",
+            "autobiographical",
+            "fiction",
+            "intellectual",
+            "Paris",
+            "post-war",
+            "political",
+            "commitment",
+            "personal",
+            "relationships",
+            "Prix Goncourt"
+          ],
           "year": 1954,
           "type": "Novel / Autobiographical Fiction",
           "summary": "A roman à clef depicting post-war intellectual life in Paris, exploring political commitment and personal relationships. The book won the Prix Goncourt."
@@ -58,6 +154,18 @@
         {
           "title": "The Coming of Age",
           "original_title": "La Vieillesse",
+          "keywords": [
+            "female",
+            "social",
+            "critique",
+            "aging",
+            "biology",
+            "cultural",
+            "phenomenon",
+            "society",
+            "elderly",
+            "existentialism"
+          ],
           "year": 1970,
           "type": "Philosophy / Social Critique",
           "summary": "A major work examining aging as both a biological and cultural phenomenon, and how society marginalizes the elderly. It expands her existential critique into later life."
@@ -65,6 +173,18 @@
         {
           "title": "Adieux: A Farewell to Sartre",
           "original_title": "La Cérémonie des adieux",
+          "keywords": [
+            "memoir",
+            "biography",
+            "Sartre",
+            "decline",
+            "bond",
+            "controversial",
+            "personal",
+            "relationship",
+            "farewell",
+            "ceremony"
+          ],
           "year": 1981,
           "type": "Memoir / Biography",
           "summary": "A reflective memoir on Sartre’s final years, including conversations between the two and a touching, often controversial, portrayal of his decline and their bond."

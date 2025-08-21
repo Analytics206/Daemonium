@@ -1,8 +1,21 @@
 {
     "author": "Ludwig Wittgenstein",
     "category": "Discussion Hooks",
-    "discussion_hooks": {
-      "Language and Meaning": [
+    "discussion_hooks": [
+      {
+        "theme": "Language and Meaning",
+        "keywords": [
+          "language",
+          "meaning",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What does it mean to understand a word?",
         "Can words have meaning outside the context of their use?",
         "Is meaning determined by rules—or by use in practice?",
@@ -14,8 +27,22 @@
         "Do misunderstandings arise from words—or their context?",
         "How does language shape your view of reality?",
         "Can you think without language?"
-      ],
-      "Limits of Language": [
+      ]
+      },
+      {
+        "theme": "Limits of Language",
+        "keywords": [
+          "limits",
+          "language",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What lies beyond what can be said clearly?",
         "Are there things that can only be shown, not spoken?",
         "Does silence have philosophical significance?",
@@ -27,8 +54,22 @@
         "Do words fail us in moments of deep emotion or insight?",
         "How can language create confusion about simple ideas?",
         "Where does language break down in daily life?"
-      ],
-      "Philosophy as Therapy": [
+      ]
+      },
+      {
+        "theme": "Philosophy as Therapy",
+        "keywords": [
+          "philosophy",
+          "therapy",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Is the aim of philosophy to solve problems—or dissolve them?",
         "Can philosophical confusion arise from misuse of language?",
         "Do you think most philosophical problems are rooted in grammar?",
@@ -40,8 +81,22 @@
         "Have you ever freed yourself from confusion by rephrasing a question?",
         "What illusions does language create about the world?",
         "Is the end of philosophy the end of confusion?"
-      ],
-      "Private Language and Inner Life": [
+      ]
+      },
+      {
+        "theme": "Private Language and Inner Life",
+        "keywords": [
+          "private",
+          "language",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Can you have a language only you understand?",
         "How do we communicate inner sensations like pain?",
         "Is it possible to be wrong about your own experiences?",
@@ -53,8 +108,23 @@
         "What happens when language fails to capture what we feel?",
         "Does your inner life depend on others’ recognition?",
         "Are personal meanings ever truly private?"
-      ],
-      "Form of Life and Language Games": [
+      ]
+      },
+      {
+        "theme": "Form of Life and Language Games",
+        "keywords": [
+          "form",
+          "life",
+          "language",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What 'language games' do you play every day without noticing?",
         "Is meaning shaped by the practices we share?",
         "Can two people speaking the same words still play different games?",
@@ -66,8 +136,22 @@
         "Is philosophy itself a kind of language game?",
         "Do some words gain authority just from their use in rituals or institutions?",
         "How does context define what counts as truth or sense?"
-      ],
-      "Meaninglessness and Nonsense": [
+      ]
+      },
+      {
+        "theme": "Meaninglessness and Nonsense",
+        "keywords": [
+          "meaninglessness",
+          "nonsense",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Can a sentence sound profound and still be nonsense?",
         "What makes a statement logically meaningless?",
         "Is nonsense always bad—or can it have a use?",
@@ -79,8 +163,23 @@
         "Can religious or ethical language be meaningful even if unverifiable?",
         "What’s the role of nonsense in humor or play?",
         "Do you ever feel like words fail to match what you want to say?"
-      ],
-      "Logic and the Structure of Reality": [
+      ]
+      },
+      {
+        "theme": "Logic and the Structure of Reality",
+        "keywords": [
+          "logic",
+          "structure",
+          "reality",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Does logic mirror the structure of the world—or just our thoughts about it?",
         "Is the world made up of facts rather than things?",
         "What is the connection between a proposition and reality?",
@@ -92,8 +191,22 @@
         "Is mathematics a language—or a reflection of deeper structure?",
         "Does logic help us understand—or trap us in forms of thought?",
         "Can something be logically perfect and still meaningless?"
-      ],
-      "Ethics and the Unsayable": [
+      ]
+      },
+      {
+        "theme": "Ethics and the Unsayable",
+        "keywords": [
+          "ethics",
+          "unsayable",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Can ethical truths be stated—or only lived?",
         "Is ethics something you can talk about meaningfully?",
         "Are moral values part of the world—or beyond it?",
@@ -105,8 +218,23 @@
         "What does it mean to say that value lies outside the world?",
         "Can we draw a sharp line between facts and values?",
         "How do we live when words fall short of moral clarity?"
-      ],
-      "Certainty and Ordinary Language": [
+      ]
+      },
+      {
+        "theme": "Certainty and Ordinary Language",
+        "keywords": [
+          "certainty",
+          "ordinary",
+          "language",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What does it mean to know something 'for sure'?",
         "Can doubt be meaningful without a background of certainty?",
         "Are some beliefs too basic to question?",
@@ -118,8 +246,22 @@
         "Is certainty shown in behavior more than in argument?",
         "How do ordinary words create philosophical confusion?",
         "Is questioning everything a sign of insight—or a misuse of language?"
-      ],
-      "The Role of Philosophy": [
+      ]
+      },
+      {
+        "theme": "The Role of Philosophy",
+        "keywords": [
+          "role",
+          "philosophy",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Is philosophy a search for truth—or for clarity?",
         "Should philosophers build systems—or dismantle confusion?",
         "Can philosophy be complete—or only ongoing?",
@@ -133,5 +275,5 @@
         "Can philosophy help us say what we mean—and mean what we say?"
       ]
     }
-  }
-  
+  ]
+}

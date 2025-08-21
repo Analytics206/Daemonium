@@ -1,8 +1,21 @@
 {
     "author": "John Stuart Mill",
     "category": "Discussion Hooks",
-    "discussion_hooks": {
-      "Utilitarianism and Moral Theory": [
+    "discussion_hooks": [
+      {
+        "theme": "Utilitarianism and Moral Theory",
+        "keywords": [
+          "utilitarianism",
+          "moral",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Do you think the right action is always the one that produces the greatest happiness?",
         "Can happiness be measured across different people fairly?",
         "Is it moral to sacrifice the few for the happiness of the many?",
@@ -14,8 +27,22 @@
         "Can an action be wrong if it brings more happiness?",
         "Should happiness be the sole measure of justice?",
         "Are moral rights reducible to general utility?"
-      ],
-      "Liberty and Individual Freedom": [
+      ]
+    },
+    {
+      "theme": "Liberty and Individual Freedom",
+      "keywords": [
+        "liberty",
+        "individuality",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Should individuals be free to act as they wish if they harm no one?",
         "Where should society draw the line between liberty and control?",
         "Is freedom more about personal autonomy or protection from interference?",
@@ -27,8 +54,23 @@
         "How do you balance freedom with responsibility?",
         "Is liberty the highest political value?",
         "Can public opinion be more oppressive than law?"
-      ],
-      "Freedom of Speech and Thought": [
+      ]
+    },
+    {
+      "theme": "Freedom of Speech and Thought",
+      "keywords": [
+        "freedom",
+        "speech",
+        "thought",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Should all ideas be allowed to be expressed, even dangerous ones?",
         "Can silencing an opinion ever be justified?",
         "How do we benefit from hearing ideas we disagree with?",
@@ -40,8 +82,23 @@
         "Can truth survive without challenge?",
         "Should people be protected from false or harmful beliefs?",
         "How should we respond to ideas we believe are deeply wrong?"
+      ]
+    },
+    {
+      "theme": "Harm Principle and Social Ethics",
+      "keywords": [
+        "harm",
+        "principle",
+        "social",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Harm Principle and Social Ethics": [
+      "hooks": [
         "Is it ever justified to limit someone’s freedom for their own good?",
         "What counts as 'harm' in the moral or legal sense?",
         "Can emotional offense be considered a form of harm?",
@@ -53,8 +110,22 @@
         "How do we balance individual risk with collective safety?",
         "Does silence in the face of harm count as complicity?",
         "Can freedom coexist with protection from harm?"
+      ]
+    },
+    {
+      "theme": "Women’s Rights and Equality",
+      "keywords": [
+        "women",
+        "equality",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Women’s Rights and Equality": [
+      "hooks": [
         "Is equality a natural right or a social construction?",
         "Should gender ever determine legal or social opportunity?",
         "Can true justice exist without gender equality?",
@@ -66,8 +137,23 @@
         "What does equality require beyond legal rights?",
         "How do you recognize and challenge invisible social constraints?",
         "Is education the most powerful tool for liberation?"
+      ]
+    },
+    {
+      "theme": "Education and Intellectual Development",
+      "keywords": [
+        "education",
+        "intellectual",
+        "development",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Education and Intellectual Development": [
+      "hooks": [
         "Should education aim at developing reason or shaping character?",
         "Can society thrive without widespread intellectual freedom?",
         "What makes an education truly liberating?",
@@ -79,8 +165,23 @@
         "Can people be truly free without intellectual cultivation?",
         "Should all opinions be taught equally in schools?",
         "What makes a society intellectually progressive?"
+      ]
+    },
+    {
+      "theme": "Democracy and Representative Government",
+      "keywords": [
+        "democracy",
+        "representative",
+        "government",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Democracy and Representative Government": [
+      "hooks": [
         "What are the greatest strengths of representative democracy?",
         "Can a majority be as tyrannical as a monarch?",
         "Should all citizens have an equal voice in politics?",
@@ -92,8 +193,22 @@
         "Is representative government superior to direct democracy?",
         "How do we ensure democracy serves liberty—not just power?",
         "Is democracy sustainable without individual responsibility?"
+      ]
+    },
+    {
+      "theme": "Progress and Civilization",
+      "keywords": [
+        "progress",
+        "civilization",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Progress and Civilization": [
+      "hooks": [
         "Is social progress inevitable—or does it require moral effort?",
         "What are the signs of a civilized society?",
         "Does economic growth always imply moral progress?",
@@ -105,8 +220,23 @@
         "What responsibilities come with a more advanced civilization?",
         "Is technological progress dangerous without moral progress?",
         "What virtues sustain long-term societal flourishing?"
+      ]
+    },
+    {
+      "theme": "Justice and Social Reform",
+      "keywords": [
+        "justice",
+        "social",
+        "reform",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Justice and Social Reform": [
+      "hooks": [
         "What is the foundation of a just society?",
         "Can justice ever be achieved without political reform?",
         "Should laws reflect morality—or only maintain order?",
@@ -118,8 +248,23 @@
         "Do you believe justice should prioritize the worst off?",
         "Is reform possible without public pressure?",
         "How do you judge whether a law is just?"
+      ]
+    },
+    {
+      "theme": "Individuality and Social Conformity",
+      "keywords": [
+        "individuality",
+        "social",
+        "conformity",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Individuality and Social Conformity": [
+      "hooks": [
         "Why is individuality important to human flourishing?",
         "Does society punish those who are different?",
         "Can nonconformity benefit the collective good?",
@@ -133,5 +278,6 @@
         "How do we protect individuality while maintaining social cohesion?"
       ]
     }
-  }
+  ]
+}
   

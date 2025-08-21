@@ -1,8 +1,21 @@
 {
     "author": "Dione of Dodona",
     "category": "Discussion Hooks",
-    "discussion_hooks": {
-      "Living Paradox": [
+    "discussion_hooks": [
+      {
+        "theme": "Living Paradox",
+        "keywords": [
+          "living",
+          "paradox",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What truths emerge only when opposites collide?",
         "Is contradiction a flaw in thought—or a doorway to deeper understanding?",
         "Have you ever held two conflicting beliefs at once? What happened?",
@@ -14,8 +27,21 @@
         "Can you imagine a philosophy that never seeks final answers?",
         "What does it mean to live *within* a paradox instead of solving it?",
         "Which contradiction do you fear the most—and why?"
-      ],
-      "The Feminine Way of Knowing": [
+      ]
+    },
+    {
+      "theme": "The Feminine Way of Knowing",
+      "keywords": [
+        "feminine",
+        "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What have you felt but never been able to prove?",
         "Is intuition a form of knowledge or just another word for instinct?",
         "What has reason misunderstood about care?",
@@ -27,8 +53,22 @@
         "What knowledge have you inherited through touch, ritual, or silence?",
         "Would your ethics change if they began in empathy, not abstraction?",
         "What would a logic of feeling look like?"
-      ],
-      "Myth as Method": [
+      ]
+    },
+    {
+      "theme": "Myth as Method",
+      "keywords": [
+        "myth",
+        "method",
+        "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What myth shaped your earliest ideas of right and wrong?",
         "Can a story reveal truths that an argument obscures?",
         "Is it possible that ancient myths hold answers modern reason cannot find?",
@@ -40,8 +80,22 @@
         "What do your personal myths say about who you are becoming?",
         "Have you ever outgrown a myth—or only replaced it with another?",
         "If you rewrote your life as a myth, what would the moral be?"
-      ],
-      "Embodied Epistemology": [
+      ]
+    },
+    {
+      "theme": "Embodied Epistemology",
+      "keywords": [
+        "embodied",
+        "epistemology",
+        "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What can the body know that the intellect cannot articulate?",
         "Have you ever changed your mind because of how something felt physically?",
         "Where does your body say 'no' when your thoughts say 'yes'?",
@@ -53,8 +107,23 @@
         "Do you treat your body as a subject—or an object?",
         "Which parts of your body hold stories you've never told?",
         "What would philosophy look like if written from the hips instead of the head?"
-      ],
-      "Time as Cycle, Not Line": [
+      ]
+    },
+    {
+      "theme": "Time as Cycle, Not Line",
+      "keywords": [
+        "time",
+        "cycle",
+        "line",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
+        ],
+        "hooks": [
         "Is the future always ahead—or also behind us?",
         "What if time moves in spirals rather than straight lines?",
         "Can a moment be both ending and beginning?",
@@ -66,8 +135,22 @@
         "How do rituals collapse past, present, and future into one?",
         "What would you do differently if time were not running out?",
         "Is eternity a direction—or a rhythm?"
-      ],
-      "Silence and the Sacred": [
+      ]
+    },
+    {
+      "theme": "Silence and the Sacred",
+      "keywords": [
+        "silence",
+        "sacred",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
+        ],
+        "hooks": [
         "What truth have you only heard in silence?",
         "When did silence speak louder than any word?",
         "Is the sacred something we talk about—or something we listen for?",
@@ -79,8 +162,22 @@
         "What do you fear will be revealed if you grow quiet enough?",
         "Can silence be a form of resistance?",
         "Does the soul whisper or scream?"
-      ],
-      "Mystical Rationality": [
+      ]
+    },
+    {
+      "theme": "Mystical Rationality",
+      "keywords": [
+        "mystical",
+        "rationality",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
+        ],
+        "hooks": [
         "Can logic lead to mystery, not just clarity?",
         "What if the universe is rational—but not in our language?",
         "Is the mystical irrational—or simply trans-rational?",
@@ -92,8 +189,22 @@
         "Is the divine orderly—or wildly unpredictable?",
         "Have you ever had a dream more convincing than a fact?",
         "Can reason surrender without losing itself?"
-      ],
-      "Philosophy as Healing": [
+      ]
+    },
+    {
+      "theme": "Philosophy as Healing",
+      "keywords": [
+        "philosophy",
+        "healing",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
+        ],
+        "hooks": [
         "What has philosophy ever healed in you?",
         "Is wisdom only useful if it helps you suffer less?",
         "Can thinking deeply be a form of self-care?",
@@ -105,8 +216,23 @@
         "Does clarity always bring peace—or sometimes bring pain?",
         "Should the goal of philosophy be truth—or transformation?",
         "What’s the difference between a theory and a salve?"
-      ],
-      "Initiation and Inner Alchemy": [
+      ]
+    },
+    {
+      "theme": "Initiation and Inner Alchemy",
+      "keywords": [
+        "initiation",
+        "inner",
+        "alchemy",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
+        ],
+        "hooks": [
         "What inner death have you survived?",
         "Can pain initiate wisdom?",
         "Have you ever been forged by crisis rather than choice?",
@@ -120,4 +246,5 @@
         "Who would you become if you allowed every experience to change you?"
       ]
     }
-  }
+  ]
+}

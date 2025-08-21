@@ -1,8 +1,23 @@
 {
     "author": "Author Name",
     "category": "Discussion Hooks",
-    "discussion_hooks": {
-      "Theme 1": [
+    "discussion_hooks": [
+      {
+        "theme": "Theme 1",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3",
+          "keyword4",
+          "keyword5",
+          "keyword6",
+          "keyword7",
+          "keyword8",
+          "keyword9",
+          "keyword10",
+          "keyword11"
+        ],
+      "hooks": [
         "Question 1?",
         "Question 2?",
         "Question 3?",
@@ -14,8 +29,24 @@
         "Question 9?",
         "Question 10?",
         "Question 11?"
-      ],
-      "Theme 2": [
+      ]
+      },
+      {
+        "theme": "Theme 2",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3",
+          "keyword4",
+          "keyword5",
+          "keyword6",
+          "keyword7",
+          "keyword8",
+          "keyword9",
+          "keyword10",
+          "keyword11"
+        ],
+      "hooks": [
         "Question 1?",
         "Question 2?",
         "Question 3?",
@@ -27,8 +58,24 @@
         "Question 9?",
         "Question 10?",
         "Question 11?"
+      ]
+    },
+    {
+      "theme": "Theme 3",
+      "keywords": [
+        "keyword1",
+        "keyword2",
+        "keyword3",
+        "keyword4",
+        "keyword5",
+        "keyword6",
+        "keyword7",
+        "keyword8",
+        "keyword9",
+        "keyword10",
+        "keyword11"
       ],
-      "Theme 3": [
+      "hooks": [
         "Question 1?",
         "Question 2?",
         "Question 3?",
@@ -42,5 +89,5 @@
         "Question 11?"
       ]
     }
-  }
-  
+  ]
+}

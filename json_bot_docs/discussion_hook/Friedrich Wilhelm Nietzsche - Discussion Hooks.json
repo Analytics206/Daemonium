@@ -1,8 +1,21 @@
 {
     "author": "Friedrich Wilhelm Nietzsche",
     "category": "Discussion Hooks",
-    "discussion_hooks": {
-      "will_to_power": [
+    "discussion_hooks": [
+      {
+        "theme": "Will to Power",
+        "keywords": [
+          "will",
+          "power",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Is your ambition a sign of life—or fear of death?",
         "Do you command your instincts—or do they command you?",
         "Does your morality serve your strength—or your weakness?",
@@ -13,8 +26,22 @@
         "Who benefits when you call something 'evil'?",
         "What do you do when no one commands you?",
         "Is equality your highest value—or an excuse to remain small?"
-      ],
-      "eternal_recurrence": [
+      ]
+      },
+      {
+        "theme": "Eternal Recurrence",
+        "keywords": [
+          "eternal",
+          "recurrence",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "If you had to live this moment forever, would you curse or bless it?",
         "Would you embrace your pain if it returned eternally?",
         "Could you love your life without wishing a single detail changed?",
@@ -25,8 +52,21 @@
         "Would you bless or despise your fate if it were infinite?",
         "Could you say YES to life without exception?",
         "Is your existence a weight—or a dance?"
-      ],
-      "übermensch": [
+      ]
+      },
+      {
+        "theme": "Übermensch",
+        "keywords": [
+          "übermensch",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What chains have you placed on yourself?",
         "What values have you inherited without question?",
         "Would you dare to invent your own morality?",
@@ -37,8 +77,22 @@
         "Could you love solitude enough to hear your own voice?",
         "What does greatness demand of you?",
         "What abyss must you cross to become yourself?"
-      ],
-      "death_of_god": [
+      ]
+      },
+      {
+        "theme": "Death of God",
+        "keywords": [
+          "death",
+          "god",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "If God is dead, who takes his throne?",
         "What fills the vacuum left by old certainties?",
         "Do you still worship without knowing it?",
@@ -49,8 +103,21 @@
         "Would you dare to create values for yourself?",
         "What myth do you secretly cling to?",
         "What happens when truth itself dies?"
-      ],
-      "perspectivism": [
+      ]
+      },
+      {
+        "theme": "Perspectivism",
+        "keywords": [
+          "perspectivism",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Whose perspective hides in your idea of truth?",
         "If truth is an illusion, what does it serve?",
         "Do you seek truth—or a comfortable lie?",
@@ -61,8 +128,22 @@
         "What masks do your convictions wear?",
         "Could life endure without illusions?",
         "Do you dare to dance on the edge of interpretation?"
-      ],
-      "critique_of_morality": [
+      ]
+      },
+      {
+        "theme": "Critique of Morality",
+        "keywords": [
+          "critique",
+          "morality",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Who wrote your commandments—and why do you obey them?",
         "Does your virtue make you strong—or tame?",
         "What price have you paid for being 'good'?",
@@ -73,8 +154,23 @@
         "When you say 'ought,' who speaks through you?",
         "Are your values yours—or borrowed costumes?",
         "What would morality look like if you wrote it in fire?"
-      ],
-      "master_slave_morality": [
+      ]
+      },
+      {
+        "theme": "Master-Slave Morality",
+        "keywords": [
+          "master",
+          "slave",
+          "morality",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Is your morality born of strength or resentment?",
         "Do you exalt weakness and call it virtue?",
         "Who gains when you call power 'evil'?",
@@ -85,8 +181,23 @@
         "What does your conscience conceal?",
         "Whose chains do you polish as a virtue?",
         "Would you dare to live beyond pity?"
-      ],
-      "amor_fati": [
+      ]
+      },
+      {
+        "theme": "Amor Fati",
+        "keywords": [
+          "amor",
+          "fati",
+          "love",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Can you bless your life as it is—every detail?",
         "Would you embrace your pain as necessary?",
         "Do you rage against fate—or dance with it?",
@@ -97,8 +208,22 @@
         "Would you dare to bless the stone that crushes you?",
         "What song would you sing to fate?",
         "Could you carve beauty from necessity?"
-      ],
-      "art_and_tragedy": [
+      ]
+      },
+      {
+        "theme": "Art and Tragedy",
+        "keywords": [
+          "art",
+          "tragedy",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What art keeps you from despair?",
         "Do you create beauty—or merely consume it?",
         "Could you make your life a work of art?",
@@ -109,8 +234,21 @@
         "What masterpiece waits within your suffering?",
         "What would you paint with your pain?",
         "Could you laugh at your own abyss?"
-      ],
-      "nihilism": [
+      ]
+      },
+      {
+        "theme": "Nihilism",
+        "keywords": [
+          "nihilism",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Do you feel the weight of nothingness?",
         "What anchors you when all values collapse?",
         "Do you long for meaning—or dread it?",
@@ -123,5 +261,5 @@
         "What song will you sing in the void?"
       ]
     }
-  }
-  
+  ]
+}

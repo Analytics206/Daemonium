@@ -6,6 +6,17 @@
         {
           "name": "Theory of Forms",
           "summary": "The visible world is only a shadow of the true reality—the world of Forms or Ideas, which are eternal, perfect, and unchanging.",
+          "keywords": [
+            "Theory of Forms",
+            "unchanging",
+            "world",
+            "Forms",
+            "Ideas",
+            "eternal",
+            "perfect",
+            "visible",
+            "reality"
+          ],
           "discussion_hooks": [
             "Do you believe reality lies beyond what the senses can perceive?",
             "What would it mean if the world you trust is only a reflection?"
@@ -14,6 +25,17 @@
         {
           "name": "The Soul",
           "summary": "The soul is immortal and composed of three parts: reason, spirit, and appetite. Harmony among them leads to a just life.",
+          "keywords": [
+            "The Soul",
+            "soul",
+            "immortal",
+            "reason",
+            "spirit",
+            "appetite",
+            "harmony",
+            "just",
+            "life"
+          ],
           "discussion_hooks": [
             "Is your soul ruled by reason—or by desire?",
             "Which part of you truly governs your choices?"
@@ -22,6 +44,15 @@
         {
           "name": "Philosopher-King",
           "summary": "Only those who understand the Forms, especially the Form of the Good, are fit to rule. The ideal ruler is a philosopher.",
+          "keywords": [
+            "Philosopher-King",
+            "philosopher",
+            "king",
+            "Forms",
+            "ideal",
+            "ruler",
+            "Good"
+          ],
           "discussion_hooks": [
             "Should wisdom or popularity lead society?",
             "Would you trust the rule of the wise over the will of the many?"
@@ -30,6 +61,16 @@
         {
           "name": "The Allegory of the Cave",
           "summary": "Most people live in ignorance, mistaking shadows for reality. True enlightenment requires turning away from illusion toward the light of truth.",
+          "keywords": [
+            "allegory",
+            "cave",
+            "ignorance",
+            "shadows",
+            "reality",
+            "enlightenment",
+            "illusion",
+            "light"
+          ],
           "discussion_hooks": [
             "Have you ever mistaken illusion for truth?",
             "What chains still hold you in the cave?"
@@ -38,6 +79,15 @@
         {
           "name": "Justice",
           "summary": "Justice exists when every part of the soul and every class of society performs its proper role in harmony with the whole.",
+          "keywords": [
+            "justice",
+            "harmony",
+            "whole",
+            "soul",
+            "class",
+            "society",
+            "whole"
+          ],
           "discussion_hooks": [
             "Is justice about fairness—or about order?",
             "Can society be just if the individual is not?"
@@ -46,6 +96,14 @@
         {
           "name": "Education as Ascent",
           "summary": "Education is not the filling of a vessel, but the turning of the soul toward truth. True learning is recollection of the Forms.",
+          "keywords": [
+            "education",
+            "ascent",
+            "vessel",
+            "soul",
+            "truth",
+            "Forms"
+          ],
           "discussion_hooks": [
             "What have you forgotten that you must now remember?",
             "Is learning a matter of facts—or of awakening?"
@@ -54,6 +112,18 @@
         {
           "name": "The Form of the Good",
           "summary": "The highest Form, source of all truth and reality, is the Good. It illuminates the other Forms as the sun illuminates the world.",
+          "keywords": [
+            "Good",
+            "highest",
+            "Form",
+            "source",
+            "all",
+            "truth",
+            "reality",
+            "illuminates",
+            "sun",
+            "world"
+          ],
           "discussion_hooks": [
             "What is your highest good?",
             "Without the Good, can anything else be truly known?"
@@ -62,14 +132,38 @@
         {
           "name": "Tripartite Society",
           "summary": "Society should mirror the soul: rulers (reason), guardians (spirit), and producers (appetite), each in its proper role, producing harmony.",
+          "keywords": [
+            "Tripartite",
+            "society",
+            "mirror",
+            "soul",
+            "rulers",
+            "reason",
+            "guardians",
+            "spirit",
+            "producers",
+            "appetite",
+            "harmony"
+          ],
           "discussion_hooks": [
             "Do you see harmony in your society—or conflict among parts?",
             "What role are you meant to fulfill?"
           ]
         },
         {
-          "name": "Love as Ascent (Diotima’s Ladder)",
+          "name": "Love as Ascent",
           "summary": "True love begins with physical beauty but ascends toward love of the soul, then of laws, knowledge, and finally the Form of Beauty itself.",
+          "keywords": [
+            "Ascent",
+            "Diotima’s",
+            "Ladder",
+            "love",
+            "physical beauty",
+            "soul",
+            "laws",
+            "knowledge",
+            "Beauty"
+          ],
           "discussion_hooks": [
             "Does your love elevate—or entangle you?",
             "Have you ever loved beyond the body?"
@@ -78,6 +172,17 @@
         {
           "name": "Philosophy as Death Practice",
           "summary": "Philosophy prepares the soul for death by detaching it from bodily pleasures and focusing on eternal truths.",
+          "keywords": [
+            "Death",
+            "Practice",
+            "soul",
+            "bodily",
+            "eternal",
+            "truths",
+            "soul",
+            "bodily",
+            "pleasures"
+          ],
           "discussion_hooks": [
             "Do you live as if preparing for death—or avoiding it?",
             "What would it mean to die while still alive?"

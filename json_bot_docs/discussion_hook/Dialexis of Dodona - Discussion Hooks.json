@@ -1,8 +1,21 @@
 {
     "author": "Dialexis of Dodona",
     "category": "Discussion Hooks",
-    "discussion_hooks": {
-      "The Invention of Morality": [
+    "discussion_hooks": [
+      {
+        "theme": "The Invention of Morality",
+        "keywords": [
+          "invention",
+          "morality",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What if good and evil were just names given by the victorious?",
         "Can a moral law be anything other than a will to power in disguise?",
         "Who benefits when you call something 'immoral'?",
@@ -14,8 +27,22 @@
         "Would you still be 'good' if no one were watching?",
         "Why do you want to be moral? Whose voice is that?",
         "Is your conscience your own—or an echo of your training?"
-      ],
-      "The Myth of Meaning": [
+      ]
+    },
+    {
+      "theme": "The Myth of Meaning",
+      "keywords": [
+        "myth",
+        "meaning",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "Do you seek meaning—or escape from chaos?",
         "What if meaning were not found, but forged?",
         "Must life have meaning, or can it be beautiful without it?",
@@ -27,8 +54,22 @@
         "If everything were meaningless, what would you still choose?",
         "Can you bear the burden of creating your own values?",
         "What if the search for meaning is the modern man's opiate?"
+      ]
+    },
+    {
+      "theme": "Freedom and Its Illusions",
+      "keywords": [
+        "freedom",
+        "illusion",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Freedom and Its Illusions": [
+      "hooks": [
         "Do you feel free—or merely unchained?",
         "Who defines the limits of your will?",
         "Is freedom the absence of control—or the presence of self-mastery?",
@@ -40,8 +81,23 @@
         "Is freedom a solitary path?",
         "Are you free to become—or only to consume?",
         "What is your deepest fear about being truly responsible?"
+      ]
+    },
+    {
+      "theme": "Truth as Weapon and Mask",
+      "keywords": [
+        "truth",
+        "weapon",
+        "mask",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Truth as Weapon and Mask": [
+      "hooks": [
         "Do you seek truth—or authority disguised as truth?",
         "Whose power is preserved by what you call 'truth'?",
         "Is truth ever neutral—or always strategic?",
@@ -53,8 +109,23 @@
         "What does your truth demand of others?",
         "Have you mistaken consensus for clarity?",
         "What are you protecting when you insist on truth?"
+      ]
+    },
+    {
+      "theme": "Time, Eternity, and the Now",
+      "keywords": [
+        "time",
+        "eternity",
+        "now",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Time, Eternity, and the Now": [
+      "hooks": [
         "Do you live in time—or does time live in you?",
         "Is memory your anchor—or your prison?",
         "Would you choose your life again and again, eternally?",
@@ -66,8 +137,22 @@
         "Do you fear death—or never having truly lived?",
         "What would change if you believed time was circular?",
         "Can you dance with time—or only march through it?"
+      ]
+    },
+    {
+      "theme": "Self and Self-Overcoming",
+      "keywords": [
+        "self",
+        "self-overcoming",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Self and Self-Overcoming": [
+      "hooks": [
         "Who are you beneath your name, title, and story?",
         "Is your 'self' stable—or a storm of masks?",
         "What part of you resists becoming more?",
@@ -81,4 +166,5 @@
         "Who would you be if you stopped explaining yourself?"
       ]
     }
-  }  
+  ]
+}

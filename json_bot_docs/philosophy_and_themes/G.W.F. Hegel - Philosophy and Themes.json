@@ -6,6 +6,17 @@
         {
           "name": "Dialectical Process",
           "summary": "Hegel proposed that reality and thought develop through a dialectical triad: thesis, antithesis, and synthesis. This process underlies all change, contradiction, and progress.",
+          "keywords": [
+            "dialectical",
+            "process",
+            "triad",
+            "thesis",
+            "antithesis",
+            "synthesis",
+            "change",
+            "contradiction",
+            "progress"
+          ],
           "discussion_hooks": [
             "Can all genuine progress emerge only through conflict and contradiction?",
             "Does dialectics reveal the inner logic of history—or impose an artificial structure on it?"
@@ -14,6 +25,16 @@
         {
           "name": "Absolute Idealism",
           "summary": "Hegel’s metaphysics holds that reality is ultimately rational and spiritual—an unfolding of the Absolute Spirit through historical and logical development.",
+          "keywords": [
+            "absolute",
+            "idealism",
+            "metaphysics",
+            "spiritual",
+            "unfolding",
+            "Absolute",
+            "Spirit",
+            "logical"
+          ],
           "discussion_hooks": [
             "Can the universe be said to 'think' or 'know' itself through history?",
             "Does Hegel's Absolute Idealism reduce individual freedom or enhance it?"
@@ -22,6 +43,16 @@
         {
           "name": "Phenomenology of Spirit",
           "summary": "In this work, Hegel traces the development of consciousness from sense-certainty through self-consciousness to Absolute Knowledge, showing how the subject becomes aware of its unity with the whole.",
+          "keywords": [
+            "phenomenology",
+            "spirit",
+            "consciousness",
+            "sense-certainty",
+            "self-consciousness",
+            "Absolute",
+            "Knowledge",
+            "unity"
+          ],
           "discussion_hooks": [
             "Is self-consciousness a purely individual process—or a cultural and historical one?",
             "What does it mean to say history is the unfolding of Spirit?"
@@ -30,6 +61,13 @@
         {
           "name": "Master-Slave Dialectic",
           "summary": "A key moment in Hegel’s Phenomenology, this dialectic shows how self-consciousness arises through recognition, struggle, and reversal between master and slave.",
+          "keywords": [
+            "master",
+            "slave",
+            "dialectic",
+            "Phenomenology",
+            "self-consciousness"
+          ],
           "discussion_hooks": [
             "Can domination ever lead to authentic recognition?",
             "Does freedom require dependence on another's recognition?"
@@ -38,6 +76,15 @@
         {
           "name": "Freedom as Self-Realization",
           "summary": "Hegel saw true freedom not as escape from constraint, but as living in accordance with rational self-consciousness within ethical life (Sittlichkeit).",
+          "keywords": [
+            "freedom",
+            "self-realization",
+            "escape",
+            "constraint",
+            "self-consciousness",
+            "ethical life",
+            "Sittlichkeit"
+          ],
           "discussion_hooks": [
             "Is freedom merely the absence of coercion—or does it require ethical integration?",
             "How does Hegel's idea of freedom compare to modern liberalism?"
@@ -46,6 +93,14 @@
         {
           "name": "The Rational is the Real",
           "summary": "Hegel famously claimed that 'what is rational is real, and what is real is rational'—suggesting a deep identity between reason and the structure of the world.",
+          "keywords": [
+            "rational",
+            "real",
+            "identity",
+            "reason",
+            "structure",
+            "world"
+          ],
           "discussion_hooks": [
             "Does this justify existing political systems—or demand their rational transformation?",
             "Can irrationality ever be 'real' in Hegel’s sense?"
@@ -54,6 +109,16 @@
         {
           "name": "History as the Progress of Spirit",
           "summary": "Hegel viewed history as the progressive realization of human freedom through the unfolding of Spirit in time, culminating in modern ethical and political institutions.",
+          "keywords": [
+            "history",
+            "progress",
+            "spirit",
+            "culminating",
+            "modern",
+            "ethical",
+            "political",
+            "institutions"
+          ],
           "discussion_hooks": [
             "Does history have a direction, or is this a metaphysical illusion?",
             "Is Hegel’s vision of historical progress still relevant in a postmodern world?"
@@ -62,6 +127,14 @@
         {
           "name": "Logic as Metaphysics",
           "summary": "In Hegel’s system, logic is not merely a tool for reasoning—it reveals the inner structure of being itself. Categories like being, nothing, and becoming are ontological.",
+          "keywords": [
+            "logic",
+            "metaphysics",
+            "being",
+            "nothing",
+            "becoming",
+            "ontological"
+          ],
           "discussion_hooks": [
             "Can logic truly be a blueprint for reality?",
             "Does Hegel’s ontological logic bridge metaphysics and thought—or conflate them?"
@@ -70,6 +143,16 @@
         {
           "name": "Alienation and Reconciliation",
           "summary": "Hegel saw alienation as a necessary stage in the development of Spirit, ultimately overcome through reconciliation in ethical life, art, religion, and philosophy.",
+          "keywords": [
+            "alienation",
+            "reconciliation",
+            "Spirit",
+            "overcome",
+            "ethical life",
+            "art",
+            "religion",
+            "philosophy"
+          ],
           "discussion_hooks": [
             "Is alienation a permanent condition of modern life—or a stage to be overcome?",
             "How does reconciliation occur between the individual and the universal?"
@@ -78,6 +161,13 @@
         {
           "name": "Art, Religion, and Philosophy as Modes of Spirit",
           "summary": "For Hegel, art, religion, and philosophy are ways in which Spirit becomes self-aware—moving from sensuous representation to conceptual thought.",
+          "keywords": [
+            "art",
+            "religion",
+            "god",
+            "modes",
+            "Spirit"
+          ],
           "discussion_hooks": [
             "Is philosophy the highest form of human self-expression?",
             "How do these domains differ in their access to truth?"

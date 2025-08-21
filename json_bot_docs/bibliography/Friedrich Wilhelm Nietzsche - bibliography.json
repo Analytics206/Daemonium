@@ -9,6 +9,15 @@
         {
           "title": "The Birth of Tragedy",
           "original_title": "Die Geburt der Tragödie",
+          "keywords": [
+            "will",
+            "consciousness",
+            "wisdom",
+            "despair",
+            "honesty",
+            "negativity",
+            "striving"
+          ],
           "year": "1872",
           "type": "Philosophical treatise",
           "summary": "Nietzsche's first major work explores the origins of Greek tragedy through the lens of two opposing forces: the Apollonian (order, rationality, dreams) and the Dionysian (chaos, emotion, intoxication). He argues that the greatest art emerges from the tension between these forces. The work critiques modern culture's overemphasis on rationality and science, suggesting that the tragic worldview of ancient Greeks was more life-affirming. Nietzsche also examines how Socratic rationalism led to the decline of tragic art and proposes that Wagner's music represents a potential rebirth of the tragic spirit in modern times."
@@ -16,6 +25,21 @@
         {
           "title": "Untimely Meditations",
           "original_title": "Unzeitgemässe Betrachtungen",
+          "keywords": [
+            "Philosophical",
+            "Essay",
+            "Culture",
+            "Philosophy",
+            "German",
+            "Contemporary",
+            "History",
+            "Life",
+            "Schopenhauer",
+            "Educator",
+            "Richard",
+            "Wagner",
+            "Bayreuth"
+          ],
           "year": "1873-1876",
           "type": "Essay collection",
           "summary": "A collection of four critical essays examining contemporary culture and philosophy. 'David Strauss: The Confessor and the Writer' attacks the complacency of German culture. 'On the Uses and Disadvantages of History for Life' critiques historicism and argues for the creative use of history rather than scholarly obsession with the past. 'Schopenhauer as Educator' presents Schopenhauer as a model of philosophical independence and authenticity. 'Richard Wagner in Bayreuth' initially celebrates Wagner but hints at later criticisms. These essays establish Nietzsche's role as a cultural critic challenging the assumptions of his time."
@@ -23,6 +47,26 @@
         {
           "title": "Human, All Too Human",
           "original_title": "Menschliches, Allzumenschliches",
+          "keywords": [
+            "Philosophical",
+            "Aphoristic",
+            "Human",
+            "Nature",
+            "Psychology",
+            "Society",
+            "Morality",
+            "Religion",
+            "Idealism",
+            "Empirical",
+            "Understanding",
+            "Human",
+            "Behavior",
+            "Free",
+            "Spirit",
+            "Break",
+            "Wagner",
+            "Schopenhauer"
+          ],
           "year": "1878-1880",
           "type": "Aphoristic philosophy",
           "summary": "Marking Nietzsche's transition from his early Romantic period, this work adopts a more scientific and psychological approach to human nature. Written in aphoristic style, it examines the origins of moral, religious, and aesthetic judgments, arguing that they stem from very human, practical concerns rather than transcendent truths. Nietzsche critiques metaphysics, Christianity, and romantic idealism, advocating for a more empirical understanding of human behavior. The work introduces his 'free spirit' philosophy and represents his break from Wagner and Schopenhauer's influence. It emphasizes the importance of skepticism, intellectual independence, and the questioning of all inherited values."
@@ -30,6 +74,22 @@
         {
           "title": "The Dawn",
           "original_title": "Morgenröte",
+          "keywords": [
+            "Philosophical",
+            "Aphoristic",
+            "Morality",
+            "Religion",
+            "Idealism",
+            "Empirical",
+            "Understanding",
+            "Human",
+            "Behavior",
+            "Free",
+            "Spirit",
+            "Break",
+            "Wagner",
+            "Schopenhauer"
+          ],
           "year": 1881,
           "type": "Aphoristic philosophy",
           "summary": "Subtitled 'Thoughts on Moral Prejudices,' this work continues Nietzsche's psychological analysis of morality. He examines the historical development of moral concepts, arguing that what we consider 'moral' often originates from non-moral sources like fear, custom, or the desire for power. The book attacks Christian morality's emphasis on guilt, sin, and self-denial, suggesting these concepts are harmful to human flourishing. Nietzsche explores themes of intellectual honesty, the courage to question inherited beliefs, and the possibility of creating new values. The work represents a crucial step toward his later moral philosophy and the concept of 'beyond good and evil.'"
@@ -37,6 +97,22 @@
         {
           "title": "The Gay Science",
           "original_title": "Die fröhliche Wissenschaft",
+          "keywords": [
+            "Philosophical",
+            "Aphoristic",
+            "Morality",
+            "Religion",
+            "Idealism",
+            "Empirical",
+            "Understanding",
+            "Human",
+            "Behavior",
+            "Free",
+            "Spirit",
+            "Break",
+            "Wagner",
+            "Schopenhauer"
+          ],
           "year": "1882 (expanded 1887)",
           "type": "Aphoristic philosophy",
           "summary": "One of Nietzsche's most influential works, introducing several key concepts including the famous declaration 'God is dead.' The title refers to the Provençal tradition of troubadour poetry, suggesting philosophy should be joyful and artistic. The work explores the implications of the decline of religious belief in modern society and the need to create new values. Nietzsche introduces the concept of eternal recurrence - the idea that we should live as if every moment would repeat infinitely. The book celebrates intellectual freedom, artistic creativity, and the courage to face existence without metaphysical consolations. It represents Nietzsche's most optimistic period and his vision of philosophy as a creative, life-affirming activity."
@@ -44,6 +120,23 @@
         {
           "title": "Thus Spoke Zarathustra",
           "original_title": "Also sprach Zarathustra",
+          "keywords": [
+            "Philosophical",
+            "Novel",
+            "Prose poem",
+            "Morality",
+            "Religion",
+            "Idealism",
+            "Empirical",
+            "Understanding",
+            "Human",
+            "Behavior",
+            "Free",
+            "Spirit",
+            "Break",
+            "Wagner",
+            "Schopenhauer"
+          ],
           "year": "1883-1885",
           "type": "Philosophical novel/prose poem",
           "summary": "Nietzsche's most famous and literary work, written as a philosophical novel in biblical style. The prophet Zarathustra descends from his mountain retreat to teach humanity about the 'death of God' and the need to create new values. Key concepts include the Übermensch (overman/superman) - not a master race but individuals who create their own values and meaning; the eternal recurrence as both a cosmological theory and ethical test; and the will to power as the fundamental drive of all life. The work critiques traditional morality, religion, and philosophy while offering a vision of human potential for self-creation and self-overcoming. Written in four parts, it combines profound philosophy with poetic language and symbolic narrative."
@@ -51,6 +144,28 @@
         {
           "title": "Beyond Good and Evil",
           "original_title": "Jenseits von Gut und Böse",
+          "keywords": [
+            "Philosophical",
+            "Treatise",
+            "Good",
+            "Evil",
+            "Master",
+            "Slave",
+            "morality",
+            "Judeo-Christian",
+            "Resentment",
+            "Strength",
+            "Psychology",
+            "Philosophy",
+            "Dogmatism",
+            "Human",
+            "potential",
+            "Free",
+            "spirits",
+            "Inherited",
+            "values",
+            "possibilities"
+          ],
           "year": "1886",
           "type": "Philosophical treatise",
           "summary": "Subtitled 'Prelude to a Philosophy of the Future,' this work critiques traditional moral categories and philosophical dogmatism. Nietzsche argues that conventional notions of 'good' and 'evil' are cultural constructs that limit human potential. He introduces the concept of 'master morality' versus 'slave morality,' suggesting that Judeo-Christian values represent a 'slave morality' born from resentment rather than strength. The work examines the psychology of philosophers, the nature of truth, and the problems of democracy and nationalism. Nietzsche advocates for a new type of philosopher - free spirits who can think beyond inherited categories and create new values. The book is structured in nine parts, moving from critique of past philosophy to a vision of future philosophical possibilities."
@@ -58,6 +173,28 @@
         {
           "title": "On the Genealogy of Morals",
           "original_title": "Zur Genealogie der Moral",
+          "keywords": [
+            "Philosophical",
+            "Treatise",
+            "Good",
+            "Evil",
+            "Master",
+            "Slave",
+            "morality",
+            "Judeo-Christian",
+            "Resentment",
+            "Strength",
+            "Psychology",
+            "Philosophy",
+            "Dogmatism",
+            "Human",
+            "potential",
+            "Free",
+            "spirits",
+            "Inherited",
+            "values",
+            "possibilities"
+          ],
           "year": "1887",
           "type": "Philosophical treatise",
           "summary": "Consisting of three interconnected essays, this work provides Nietzsche's most systematic analysis of the origins and development of moral concepts. The first essay examines 'good and evil' versus 'good and bad,' tracing how aristocratic values were inverted by priestly classes. The second essay, 'Guilt, Bad Conscience, and the Like,' explores how humans developed conscience through the internalization of aggression when civilization prohibited external violence. The third essay, 'What Do Ascetic Ideals Mean?' analyzes how ascetic practices and the denial of life became valued in religion, philosophy, and art. Throughout, Nietzsche demonstrates how moral concepts have historical origins and serve psychological and social functions, challenging their supposed absolute validity."
@@ -65,6 +202,21 @@
         {
           "title": "The Case of Wagner",
           "original_title": "Der Fall Wagner",
+          "keywords": [
+            "Philosophical",
+            "Essay",
+            "Culture",
+            "Philosophy",
+            "German",
+            "Contemporary",
+            "History",
+            "Life",
+            "Schopenhauer",
+            "Educator",
+            "Richard",
+            "Wagner",
+            "Bayreuth"
+          ],
           "year": "1888",
           "type": "Polemical essay",
           "summary": "A sharp critique of Richard Wagner and what Nietzsche saw as the decadent tendencies in modern art and culture. Once an admirer of Wagner, Nietzsche now argues that Wagner's music represents cultural decline, appealing to mass tastes and neurotic sensibilities rather than promoting healthy, life-affirming values. He criticizes Wagner's nationalism, anti-Semitism, and Christian themes, seeing them as symptoms of cultural sickness. The work extends beyond Wagner to critique the broader romantic movement and German culture of the time. Nietzsche contrasts Wagner with Bizet's 'Carmen,' which he praises for its Mediterranean lightness and freedom from Germanic heaviness. The essay demonstrates Nietzsche's evolved aesthetic philosophy and his concerns about cultural decadence."
@@ -72,6 +224,21 @@
         {
           "title": "Twilight of the Idols",
           "original_title": "Götzen-Dämmerung",
+          "keywords": [
+            "Philosophical",
+            "Essay",
+            "Culture",
+            "Philosophy",
+            "German",
+            "Contemporary",
+            "History",
+            "Life",
+            "Schopenhauer",
+            "Educator",
+            "Richard",
+            "Wagner",
+            "Bayreuth"
+          ],
           "year": "1888",
           "type": "Philosophical critique",
           "summary": "Subtitled 'How to Philosophize with a Hammer,' this work presents Nietzsche's mature philosophical position in condensed form. He 'sounds out' various philosophical, moral, and cultural 'idols' to expose their hollowness. The work includes his famous critique of Socrates and Plato, arguing that their emphasis on reason over instinct represents a decline in Greek culture. Nietzsche presents his theory of decadence, examines the problem of morality, and offers his vision of what Germans could become. The book includes his influential discussion of the 'four great errors' that have misled humanity: confusing cause and effect, false causality, imaginary causes, and the error of free will. It serves as an excellent introduction to Nietzsche's philosophical system."
@@ -79,6 +246,28 @@
         {
           "title": "The Antichrist",
           "original_title": "Der Antichrist",
+          "keywords": [
+            "Philosophical",
+            "Treatise",
+            "Good",
+            "Evil",
+            "Master",
+            "Slave",
+            "morality",
+            "Judeo-Christian",
+            "Resentment",
+            "Strength",
+            "Psychology",
+            "Philosophy",
+            "Dogmatism",
+            "Human",
+            "potential",
+            "Free",
+            "spirits",
+            "Inherited",
+            "values",
+            "possibilities"
+          ],
           "year": "1888",
           "type": "Polemical treatise",
           "summary": "Nietzsche's most direct and fierce attack on Christianity, which he sees as fundamentally opposed to life and human flourishing. He argues that Christianity is a 'slave morality' that arose from resentment and weakness, promoting values like humility, self-denial, and otherworldliness that prevent human beings from achieving their potential. Nietzsche distinguishes between Jesus (whom he sometimes respects as a teacher of love) and Christianity as a religion (which he sees as a distortion of Jesus's message by Paul and the early church). He traces how Christian values have poisoned Western civilization and calls for a 'revaluation of all values.' The work is intentionally provocative and represents Nietzsche's most sustained critique of religious thinking."
@@ -86,6 +275,28 @@
         {
           "title": "Ecce Homo",
           "original_title": "Ecce Homo",
+          "keywords": [
+            "Philosophical",
+            "Treatise",
+            "Good",
+            "Evil",
+            "Master",
+            "Slave",
+            "morality",
+            "Judeo-Christian",
+            "Resentment",
+            "Strength",
+            "Psychology",
+            "Philosophy",
+            "Dogmatism",
+            "Human",
+            "potential",
+            "Free",
+            "spirits",
+            "Inherited",
+            "values",
+            "possibilities"
+          ],
           "year": "1888",
           "type": "Autobiography",
           "summary": "Nietzsche's intellectual autobiography, written shortly before his mental collapse. The title, meaning 'Behold the Man' (Pontius Pilate's words about Jesus), reflects Nietzsche's grandiose self-presentation. He reviews his major works and explains his philosophical development, often with startling self-aggrandizement and claims about his historical importance. The work provides insights into how Nietzsche understood his own philosophy and mission as a thinker. He discusses his health, his writing process, and his vision of himself as a philosopher who will change the course of human history. Despite its megalomaniacal tone, the work offers valuable perspectives on Nietzsche's intentions and his understanding of concepts like the eternal recurrence and the revaluation of values."
@@ -93,6 +304,21 @@
         {
           "title": "Nietzsche contra Wagner",
           "original_title": "Nietzsche contra Wagner",
+          "keywords": [
+            "Philosophical",
+            "Essay",
+            "Culture",
+            "Philosophy",
+            "German",
+            "Contemporary",
+            "History",
+            "Life",
+            "Schopenhauer",
+            "Educator",
+            "Richard",
+            "Wagner",
+            "Bayreuth"
+          ],
           "year": "1888",
           "type": "Polemical essay collection",
           "summary": "A collection of passages from Nietzsche's earlier works, arranged to show the development of his opposition to Wagner. This work serves as a companion to 'The Case of Wagner' and demonstrates how Nietzsche's critique of Wagner evolved over time. He presents Wagner as representative of broader cultural problems: romanticism, nationalism, anti-Semitism, and what Nietzsche sees as decadent art that appeals to neurotic sensibilities rather than promoting health and strength. The work also reveals Nietzsche's pain at breaking with his former mentor and friend. By contrasting his earlier admiration with his later criticism, Nietzsche shows his own philosophical development and his commitment to intellectual honesty over personal loyalty."
@@ -100,6 +326,21 @@
         {
           "title": "The Will to Power",
           "original_title": "Der Wille zur Macht",
+          "keywords": [
+            "Philosophical",
+            "Essay",
+            "Culture",
+            "Philosophy",
+            "German",
+            "Contemporary",
+            "History",
+            "Life",
+            "Schopenhauer",
+            "Educator",
+            "Richard",
+            "Wagner",
+            "Bayreuth"
+          ],
           "year": "1901 (posthumous compilation)",
           "type": "Notebook fragments",
           "summary": "A controversial posthumous compilation of Nietzsche's unpublished notes and fragments, arranged by his sister Elisabeth and later editors. While not a work Nietzsche himself prepared for publication, it contains important insights into his thinking about the will to power as the fundamental drive underlying all existence. The fragments explore themes of nihilism, the revaluation of values, and Nietzsche's vision of future philosophy. However, Elisabeth's editing and her Nazi sympathies led to distortions that misrepresented Nietzsche's actual views. Modern scholars approach this work with caution, recognizing that while it contains genuine Nietzschean insights, it doesn't represent his final or systematic position on many topics. The concept of will to power itself appears throughout his published works in more reliable forms."

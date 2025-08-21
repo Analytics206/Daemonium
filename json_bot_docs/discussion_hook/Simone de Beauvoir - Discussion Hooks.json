@@ -1,8 +1,22 @@
 {
     "author": "Simone de Beauvoir",
     "category": "Discussion Hooks",
-    "discussion_hooks": {
-      "Existential Freedom and Responsibility": [
+    "discussion_hooks": [
+      {
+        "theme": "Existential Freedom and Responsibility",
+        "keywords": [
+          "existential",
+          "freedom",
+          "responsibility",
+          "consciousness",
+          "wisdom",
+          "despair",
+          "honesty",
+          "negativity",
+          "striving",
+          "dissatisfaction"
+        ],
+        "hooks": [
         "What does it mean to be free in an existential sense?",
         "Are you responsible for who you become, no matter your circumstances?",
         "Does freedom imply the burden of creating meaning in life?",
@@ -14,8 +28,22 @@
         "Are you free if you don’t reflect on your choices?",
         "Is freedom a universal human condition—or a privilege?",
         "What does it mean to betray your freedom?"
+      ]
+    },
+    {
+      "theme": "The Ethics of Ambiguity",
+      "keywords": [
+        "ethics",
+        "ambiguity",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "The Ethics of Ambiguity": [
+      "hooks": [
         "Can you live ethically in a world without absolute truths?",
         "What does it mean to embrace life’s ambiguity?",
         "Is it moral to seek certainty in an uncertain world?",
@@ -27,8 +55,22 @@
         "Do rigid ideologies avoid or confront life’s ambiguity?",
         "Does recognizing your ambiguity change how you relate to others?",
         "Can embracing ambiguity help us resist oppression?"
+      ]
+    },
+    {
+      "theme": "The Second Sex and Gender Roles",
+      "keywords": [
+        "second_sex",
+        "gender",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "The Second Sex and Gender Roles": [
+      "hooks": [
         "What does it mean to say, 'One is not born, but rather becomes, a woman'?",
         "Are gender roles natural or constructed?",
         "How do societal expectations shape identity?",
@@ -40,8 +82,22 @@
         "Do men and women experience freedom differently?",
         "What responsibilities come with challenging gender roles?",
         "Is it possible to redefine gender without reinforcing it?"
+      ]
+    },
+    {
+      "theme": "Oppression and the Other",
+      "keywords": [
+        "oppression",
+        "other",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Oppression and the Other": [
+      "hooks": [
         "What does it mean to treat another as 'the Other'?",
         "Is oppression always visible—or can it be internal and subtle?",
         "How does the concept of the 'Other' shape power relations?",
@@ -53,8 +109,22 @@
         "What makes oppression persist even when laws change?",
         "How does language help or hinder liberation from othering?",
         "Is liberation possible without confronting one's own privileges?"
-      ],
-      "Authenticity and Bad Faith": [
+      ]
+    },
+    {
+      "theme": "Authenticity and Bad Faith",
+      "keywords": [
+        "authenticity",
+        "bad_faith",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
+        ],
+        "hooks": [
         "Are you living a life that is truly your own?",
         "How do you know if you're conforming out of fear or choice?",
         "Is self-deception necessary to cope with life's challenges?",
@@ -66,8 +136,23 @@
         "Is courage needed to live in truth with oneself?",
         "Do you act from conviction—or from habit?",
         "How do you recognize bad faith in your daily life?"
+      ]
+    },
+    {
+      "theme": "Existential Feminism and Liberation",
+      "keywords": [
+        "existential",
+        "feminism",
+        "liberation",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Existential Feminism and Liberation": [
+      "hooks": [
         "Can liberation come from within, or must it also be political?",
         "What does feminist freedom look like in action?",
         "Is personal transformation enough to challenge patriarchal systems?",
@@ -79,8 +164,23 @@
         "Does liberation mean sameness—or the right to difference?",
         "How does feminism challenge traditional notions of the self?",
         "Is feminist struggle a form of existential revolt?"
+      ]
+    },
+    {
+      "theme": "Sexuality, Embodiment, and Experience",
+      "keywords": [
+        "sexuality",
+        "embodiment",
+        "experience",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Sexuality, Embodiment, and Experience": [
+      "hooks": [
         "How does your body shape your identity and freedom?",
         "Is sexuality an expression of self—or of social conditioning?",
         "Can bodily experience be separated from cultural meaning?",
@@ -92,8 +192,22 @@
         "What are the risks of reducing a person to their body?",
         "Can sexuality be both liberating and oppressive?",
         "How does society control bodies through norms and expectations?"
+      ]
+    },
+    {
+      "theme": "Ethics and Relationships with Others",
+      "keywords": [
+        "ethics",
+        "relationships",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Ethics and Relationships with Others": [
+      "hooks": [
         "Is freedom achieved alone—or only in relation to others?",
         "How do you respect another person’s freedom while asserting your own?",
         "What does a non-dominating relationship look like?",
@@ -105,8 +219,23 @@
         "How can love avoid becoming possessive or oppressive?",
         "Is authentic communication a moral necessity?",
         "Does respect require agreement—or something deeper?"
+      ]
+    },
+    {
+      "theme": "History, Violence, and Political Action",
+      "keywords": [
+        "history",
+        "violence",
+        "political_action",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "History, Violence, and Political Action": [
+      "hooks": [
         "Is violence ever justified in the pursuit of liberation?",
         "What separates revolutionary action from oppression?",
         "Can history excuse violence—or only explain it?",
@@ -118,8 +247,23 @@
         "How do systems of violence reproduce themselves?",
         "What kind of future justifies present suffering?",
         "Can existential freedom be exercised under political repression?"
+      ]
+    },
+    {
+      "theme": "Aging, Mortality, and Time",
+      "keywords": [
+        "aging",
+        "mortality",
+        "time",
+        "consciousness",
+        "wisdom",
+        "despair",
+        "honesty",
+        "negativity",
+        "striving",
+        "dissatisfaction"
       ],
-      "Aging, Mortality, and Time": [
+      "hooks": [
         "How does aging affect your sense of freedom and identity?",
         "Is death an existential boundary—or a defining part of life?",
         "What meaning does aging bring to personal existence?",
@@ -133,5 +277,5 @@
         "What does it mean to face death lucidly and without bad faith?"
       ]
     }
-  }
-  
+  ]
+}

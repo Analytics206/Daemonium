@@ -6,6 +6,20 @@
         {
           "name": "Empiricism as the Foundation of Knowledge",
           "summary": "Hume argued that all human knowledge arises from sensory experience. He denied the existence of innate ideas, asserting that every idea is ultimately derived from an impression—our immediate sensations or feelings. Abstract reasoning without a basis in experience, he claimed, was empty or illusory.",
+          "keywords": [
+            "empiricism",
+            "knowledge",
+            "sensory",
+            "experience",
+            "innate ideas",
+            "impression",
+            "sensations",
+            "feelings",
+            "abstract",
+            "reasoning",
+            "empty",
+            "illusory"
+          ],
           "discussion_hooks": [
             "Can we trust knowledge that comes solely from our senses?",
             "Are there any ideas that do not originate in experience?"
@@ -14,6 +28,24 @@
         {
           "name": "The Problem of Induction",
           "summary": "Hume questioned the rational basis for causal reasoning. We assume the future will resemble the past, but there is no logical necessity for this assumption—only habit and psychological conditioning. Thus, induction, while useful, is not rationally justified.",
+          "keywords": [
+            "problem",
+            "induction",
+            "questioned",
+            "rational",
+            "causal",
+            "reasoning",
+            "future",
+            "resemble",
+            "past",
+            "logical",
+            "necessity",
+            "habit",
+            "psychological",
+            "conditioning",
+            "useful",
+            "justified"
+          ],
           "discussion_hooks": [
             "How can we justify expecting the sun to rise tomorrow?",
             "If induction isn't rational, how can science be trusted?"
@@ -22,6 +54,24 @@
         {
           "name": "Causation as Mental Habit",
           "summary": "Hume denied that causation is something we observe in the world. Instead, he claimed we only ever see one event following another, and the 'cause' is a psychological inference we impose due to repeated associations.",
+          "keywords": [
+            "causation",
+            "mental",
+            "habit",
+            "denied",
+            "causation",
+            "observe",
+            "world",
+            "psychological",
+            "inference",
+            "repeated",
+            "associations",
+            "causality",
+            "real",
+            "fiction",
+            "mind",
+            "A causes B"
+          ],
           "discussion_hooks": [
             "Is causality something real in the world or a fiction of the mind?",
             "What does it mean to say that A causes B?"
@@ -30,6 +80,23 @@
         {
           "name": "The Self as a Bundle of Perceptions",
           "summary": "Hume rejected the notion of a stable, enduring self. He claimed that what we call the 'self' is merely a bundle or collection of constantly changing perceptions, with no underlying substance binding them together.",
+          "keywords": [
+            "self",
+            "bundle",
+            "perceptions",
+            "rejected",
+            "notion",
+            "stable",
+            "enduring",
+            "self",
+            "merely",
+            "collection",
+            "constantly",
+            "changing",
+            "substance",
+            "binding",
+            "together"
+          ],
           "discussion_hooks": [
             "If the self is a bundle, what holds it together over time?",
             "Do you feel like a continuous self, or a series of moments?"
@@ -38,6 +105,15 @@
         {
           "name": "Morality as Sentiment, Not Reason",
           "summary": "Hume argued that moral distinctions are not derived from reason but from feelings. We approve or disapprove of actions based on emotional responses such as sympathy or disgust. Morality is, therefore, rooted in human sentiment.",
+          "keywords": [
+            "morality",
+            "sentiment",
+            "reason",
+            "moral",
+            "distinctions",
+            "derived",
+            "reason"
+          ],
           "discussion_hooks": [
             "Can something be objectively right if it only appeals to emotion?",
             "Are moral judgments universal or just expressions of taste?"
@@ -46,6 +122,17 @@
         {
           "name": "Is-Ought Problem",
           "summary": "Hume famously noted that many moral arguments jump from descriptive statements ('is') to prescriptive ones ('ought') without justification. He argued that moral conclusions cannot logically follow from factual premises alone.",
+          "keywords": [
+            "is-ought",
+            "problem",
+            "moral",
+            "arguments",
+            "justification",
+            "moral",
+            "conclusions",
+            "factual",
+            "premises"
+          ],
           "discussion_hooks": [
             "Can facts ever tell us what we ought to do?",
             "Where do moral imperatives come from if not from nature?"
@@ -54,6 +141,18 @@
         {
           "name": "Skepticism and Human Limits",
           "summary": "Hume promoted a mitigated skepticism that acknowledges the limits of human understanding. He suggested that while radical skepticism is untenable in daily life, we should remain cautious and humble about our claims to knowledge.",
+          "keywords": [
+            "skepticism",
+            "human",
+            "limits",
+            "mitigated",
+            "understanding",
+            "radical",
+            "life",
+            "cautious",
+            "humble",
+            "knowledge"
+          ],
           "discussion_hooks": [
             "How much certainty can we really have about anything?",
             "What do we do when we reach the limits of reason?"
@@ -62,6 +161,21 @@
         {
           "name": "Custom and Habit as the Basis of Belief",
           "summary": "According to Hume, custom, not reason, governs most of our beliefs about the world. Belief is a feeling or sentiment added to an idea through repeated experience—not a conclusion of logical argument.",
+          "keywords": [
+            "custom",
+            "habit",
+            "basis",
+            "belief",
+            "feeling",
+            "sentiment",
+            "added",
+            "idea",
+            "repeated",
+            "experience",
+            "conclusion",
+            "logical",
+            "argument"
+          ],
           "discussion_hooks": [
             "Is belief just another word for mental habit?",
             "Can reason ever overcome deeply rooted customs?"
@@ -70,6 +184,21 @@
         {
           "name": "Religion and Miracles",
           "summary": "Hume was a critic of organized religion and argued that belief in miracles is irrational, as such beliefs violate the laws of nature. He maintained that no testimony is sufficient to establish a miracle unless the falsehood of that testimony would be more miraculous than the event it describes.",
+          "keywords": [
+            "religion",
+            "miracles",
+            "critic",
+            "organized",
+            "belief",
+            "miracle",
+            "irrational",
+            "laws",
+            "nature",
+            "testimony",
+            "falsehood",
+            "miraculous",
+            "event"
+          ],
           "discussion_hooks": [
             "Can miracles ever be credible?",
             "Should religion rely on reason or faith?"
@@ -78,6 +207,24 @@
         {
           "name": "Political Conservatism and Pragmatism",
           "summary": "Though not a political radical, Hume advocated for gradual change and empirically grounded governance. He was skeptical of utopian schemes and valued the slow evolution of institutions based on practical human needs and historical precedent.",
+          "keywords": [
+            "political",
+            "conservatism",
+            "pragmatism",
+            "political",
+            "radical",
+            "empirically",
+            "governance",
+            "skeptical",
+            "utopian",
+            "schemes",
+            "evolution",
+            "institutions",
+            "practical",
+            "human needs",
+            "historical",
+            "precedent"
+          ],
           "discussion_hooks": [
             "Should we trust tradition over innovation in politics?",
             "Is political change best when it’s cautious and empirical?"
