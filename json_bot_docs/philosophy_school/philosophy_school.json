@@ -62,7 +62,8 @@
       "aponia",
       "friendship",
       "materialism",
-      "fear of death",
+      "fear",
+      "death",
       "hedone"
     ]
   },
@@ -74,11 +75,13 @@
     "corePrinciples": "Suspension of judgment, inquiry, doubt, intellectual humility",
     "keywords": [
       "Pyrrho",
-      "Sextus Empiricus",
+      "Sextus",
+      "Empiricus",
       "epoché",
       "ataraxia",
       "doubt",
-      "intellectual humility",
+      "intellectual",
+      "humility",
       "relativism"
     ]
   },
@@ -94,7 +97,8 @@
       "emanation",
       "Nous",
       "Soul",
-      "mystical ascent",
+      "mystical",
+      "ascent",
       "Porphyry",
       "Proclus"
     ]
@@ -128,7 +132,8 @@
       "logic",
       "dialectic",
       "universals",
-      "Summa Theologica"
+      "Summa",
+      "Theologica"
     ]
   },
   {
@@ -138,13 +143,16 @@
     "summary": "Flourishing from the 8th to 12th centuries, Islamic philosophy integrated Greek thought with Islamic theology. Thinkers like Al-Farabi, Avicenna, and Averroes explored metaphysics, ethics, logic, and the harmony of faith and reason. It significantly influenced medieval Europe and preserved Aristotelian and Platonic traditions.",
     "corePrinciples": "Harmony of reason and revelation, metaphysics, logic, ethics",
     "keywords": [
-      "Avicenna (Ibn Sina)",
-      "Averroes (Ibn Rushd)",
+      "Avicenna",
+      "Ibn Sina",
+      "Averroes",
+      "Ibn Rushd",
       "Al-Farabi",
       "Al-Ghazali",
       "metaphysics",
       "cosmology",
-      "faith and reason"
+      "faith",
+      "reason"
     ]
   },
   {
@@ -159,8 +167,10 @@
       "Spinoza",
       "ethics",
       "Torah",
-      "divine attributes",
-      "reason and revelation"
+      "divine",
+      "attributes",
+      "reason",
+      "revelation"
     ]
   },
   {
@@ -175,7 +185,9 @@
       "Leibniz",
       "innate ideas",
       "deduction",
-      "clear and distinct perceptions"
+      "clear",
+      "distinct",
+      "perceptions"
     ]
   },
   {
@@ -203,9 +215,16 @@
       "Erasmus",
       "Pico della Mirandola",
       "Renaissance",
-      "secular ethics",
+      "secular",
+      "ethics",
       "education",
-      "individual rights"
+      "individual",
+      "autonomy",
+      "self-realization",
+      "democracy",
+      "science",
+      "individual",
+      "rights"
     ]
   },
   {
@@ -236,7 +255,9 @@
       "consequentialism",
       "happiness",
       "utility",
-      "pleasure vs. pain calculus"
+      "pleasure",
+      "pain",
+      "calculus"
     ]
   },
   {
@@ -251,7 +272,8 @@
       "nature",
       "intuition",
       "self-reliance",
-      "American Romanticism"
+      "American",
+      "Romanticism"
     ]
   },
   {
@@ -264,11 +286,12 @@
       "Frege",
       "Russell",
       "Moore",
-      "logical positivism",
-      "ordinary language",
+      "logical",
+      "positivism",
+      "ordinary",
+      "language",
       "Wittgenstein",
       "semantics",
-      "philosophy of language",
       "epistemology",
       "metaphysics"
     ]
@@ -306,7 +329,9 @@
       "bad faith",
       "alienation",
       "absurd",
-      "existence precedes essence"
+      "existence",
+      "precedes",
+      "essence"
     ]
   },
   {
@@ -317,10 +342,13 @@
     "corePrinciples": "Confronting meaninglessness, rebellion, freedom, personal responsibility",
     "keywords": [
       "Camus",
-      "The Myth of Sisyphus",
+      "Myth",
+      "Sisyphus",
       "absurd",
       "revolt",
       "freedom",
+      "personal",
+      "responsibility",
       "meaning-making"
     ]
   },
@@ -365,8 +393,8 @@
     "keywords": [
       "Karl Marx",
       "Friedrich Engels",
-      "historical materialism",
-      "dialectical materialism",
+      "dialectical",
+      "materialism",
       "class struggle",
       "capitalism",
       "communism",
@@ -387,10 +415,12 @@
       "Horkheimer",
       "Marcuse",
       "Habermas",
-      "critical theory",
+      "critical",
+      "theory",
       "ideology",
       "emancipation",
-      "mass culture"
+      "mass",
+      "culture"
     ]
   },
   {
@@ -407,7 +437,8 @@
       "deconstruction",
       "discourse",
       "subjectivity",
-      "power relations"
+      "power",
+      "relations"
     ]
   },
   {
@@ -439,7 +470,8 @@
       "Gadamer",
       "Ricoeur",
       "interpretation",
-      "hermeneutic circle",
+      "hermeneutic",
+      "circle",
       "text",
       "understanding"
     ]
@@ -470,9 +502,11 @@
     "keywords": [
       "Simone de Beauvoir",
       "Judith Butler",
-      "bell hooks",
+      "bell",
+      "hooks",
       "patriarchy",
-      "gender theory",
+      "gender",
+      "theory",
       "intersectionality",
       "care ethics"
     ]
@@ -516,11 +550,13 @@
     "summary": "Environmental philosophy examines the ethical, metaphysical, and social dimensions of human interaction with nature. It includes deep ecology, ecofeminism, and sustainability ethics, emphasizing the intrinsic value of nature and the moral responsibility to protect ecosystems.",
     "corePrinciples": "Ecocentrism, intrinsic value of nature, sustainability, ecological responsibility",
     "keywords": [
-      "deep ecology",
+      "deep",
+      "ecology",
       "eco-ethics",
       "sustainability",
       "ecofeminism",
-      "intrinsic value",
+      "intrinsic",
+      "value",
       "environmental ethics"
     ]
   },
@@ -532,11 +568,15 @@
     "corePrinciples": "Decentering the human, technology integration, ecological and species interconnectedness",
     "keywords": [
       "transhumanism",
-      "AI ethics",
-      "cyborg theory",
+      "AI",
+      "ethics",
+      "Artificial",
+      "Intelligence",
+      "theory",
       "Haraway",
       "ecology",
-      "nonhuman agency"
+      "nonhuman",
+      "agency"
     ]
   },
   {
@@ -548,9 +588,11 @@
     "keywords": [
       "Derrida",
       "différance",
-      "binary opposition",
+      "binary",
+      "opposition",
       "logocentrism",
-      "textual analysis"
+      "textual",
+      "analysis"
     ]
   },
   {
@@ -560,11 +602,12 @@
     "summary": "An orientation that applies philosophical methods and reasoning to everyday problems and social issues. Practical philosophy engages with ethics, politics, education, and personal life, emphasizing wisdom as lived practice rather than abstract theory.",
     "corePrinciples": "Application of philosophy, ethical living, wisdom in practice",
     "keywords": [
-      "applied philosophy",
+      "applied",
       "ethics",
       "politics",
       "education",
-      "practical reasoning",
+      "practical",
+      "reasoning",
       "wisdom"
     ]
   },
@@ -580,6 +623,8 @@
       "Don Ihde",
       "technology",
       "ethics",
+      "artificial",
+      "intelligence",
       "cybernetics",
       "innovation"
     ]
