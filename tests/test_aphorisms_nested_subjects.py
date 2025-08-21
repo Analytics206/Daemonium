@@ -196,6 +196,8 @@ def client(monkeypatch, mock_db_manager):
     async def override_db():
         return mock_db_manager
 
+    # Override both router-level and app-level DB dependencies to ensure complete isolation
+    main.app.dependency_overrides[main.get_db_manager] = override_db
     main.app.dependency_overrides[aph_router.get_db_manager] = override_db
     with TestClient(main.app) as c:
         yield c
