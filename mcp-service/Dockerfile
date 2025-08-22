@@ -13,6 +13,9 @@ RUN mkdir -p /app/data /app/config
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
+# Copy MCP service source code into the image
+COPY . /app/
+
 # Default environment
 ENV MCP_PORT=8080 \
     PYTHONUNBUFFERED=1

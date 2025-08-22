@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "daemonium-ollama": {
+      "command": "docker",
+      "args": [
+        "exec",
+        "-i",
+        "daemonium-mcp",
+        "python",
+        "/app/mcp_server.py"
+      ]
+    }
+  }
+}
