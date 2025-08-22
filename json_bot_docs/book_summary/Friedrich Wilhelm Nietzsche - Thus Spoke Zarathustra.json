@@ -9,6 +9,7 @@
         "keywords": [
           "Prologue of Zarathustra",
           "Übermensch (Overman)",
+          "Zarathustra",
           "Three Metamorphoses",
           "Death of God",
           "Eternal Return",
@@ -39,6 +40,7 @@
         "section": "Three Metamorphoses",
         "keywords": [
           "Three Metamorphoses",
+          "Übermensch (Overman)",
           "Death of God",
           "Eternal Return",
           "Will to Power",
@@ -55,10 +57,7 @@
           "Death of God",
           "Eternal Return",
           "Will to Power",
-          "Last Man",
-          "Friendship and Solitude",
-          "Dance of Zarathustra",
-          "Convalescent and the Return"
+          "Last Man"
         ],
         "content": "God is dead. We killed him—not with malice, but with truth. The old moral order collapses, leaving behind a void. But beware: the death of God is not the end of religion, but the beginning of nihilism. Without a creator, we must become creators. Those who cling to old values are the 'last men'—they blink, they sneer, they are content. They have no passion, no depth. Zarathustra scorns them. He calls instead to those who are willing to suffer, to strive, to build new tables of value upon the ashes of the old."
       },
@@ -79,8 +78,7 @@
         "keywords": [
           "Will to Power",
           "Last Man",
-          "Friendship and Solitude",
-          "Dance of Zarathustra",
+          "Übermensch (Overman)",
           "Convalescent and the Return"
         ],
         "content": "Life is not a struggle for survival—it is a struggle for power. Not domination over others, but the expansion of self. The will to power is the fundamental drive: to grow, to overcome, to transform. Every virtue, every truth, is a mask of this deeper will. The weak seek equality; the strong seek transformation. Zarathustra teaches that power is not evil—it is life’s deepest affirmation. Only those who embrace this will can rise beyond resentment and become creators."
@@ -99,6 +97,7 @@
         "section": "Friendship and Solitude",
         "keywords": [
           "Friendship and Solitude",
+          "Übermensch (Overman)",
           "Dance of Zarathustra",
           "Convalescent and the Return"
         ],
@@ -108,6 +107,7 @@
         "section": "The Dance of Zarathustra",
         "keywords": [
           "Dance of Zarathustra",
+          "Übermensch (Overman)",
           "Convalescent and the Return"
         ],
         "content": "Zarathustra is not grim. He dances. He laughs. He sings. Joy is the deepest form of affirmation—not shallow cheer, but ecstasy born of suffering transfigured. Dance is the philosophy of the body, the celebration of becoming. The higher man must learn to laugh, not because life is easy, but because he is strong enough to carry its weight lightly. Zarathustra teaches: Let your soul become light, let your footsteps be music. Do not preach—sing. Do not kneel—leap!"
@@ -115,7 +115,8 @@
       {
         "section": "The Convalescent and the Return",
         "keywords": [
-          "Convalescent and the Return"
+          "Convalescent and the Return",
+          "Übermensch (Overman)"
         ],
         "content": "Even Zarathustra falls—into sickness, doubt, and despair. He wrestles with the heaviest thought: the eternal recurrence. But he emerges reborn. The convalescent does not return to what he was—he becomes what he must be. This return is not repetition—it is transformation. The highest truth wounds before it heals. Zarathustra rises with new strength, prepared to give birth to the Übermensch. His solitude deepens, but so does his joy. He no longer seeks followers—he creates the future."
       }

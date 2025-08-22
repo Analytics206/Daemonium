@@ -25,8 +25,14 @@
       {
         "section": "God is Dead",
         "keywords": [
-          "laughter",
           "truth",
+          "god",
+          "morality",
+          "religion",
+          "faith",
+          "sacrifice",
+          "suffering",
+          "death",
           "instinct",
           "moral",
           "personal",
@@ -35,18 +41,17 @@
           "self-portrait",
           "will to power",
           "dominate",
-          "interpretation",
-          "fact"
+          "interpretation"
         ],
         "content": "Let no one misunderstand: 'God is dead' is not a boast—it is a tragedy. It is also a liberation. The death of God is not an event but a slow poisoning of Western values by their own contradictions. Christianity has killed its own god by demanding truth while depending on illusions. And now, we wander in a vast cosmos without meaning. But this is precisely our chance. With the death of God, the stage is cleared for a new creation of values. We are free—but this freedom is terrifying. We must become worthy of it."
       },
       {
         "section": "The Madman’s Lantern",
         "keywords": [
-          "laughter",
           "truth",
           "instinct",
-          "moral",
+          "madman",
+          "morality",
           "personal",
           "physiological",
           "objectivity",
@@ -61,8 +66,8 @@
       {
         "section": "On the Eternal Recurrence",
         "keywords": [
-          "laughter",
           "truth",
+          "eternal recurrence",
           "instinct",
           "moral",
           "personal",
@@ -72,15 +77,16 @@
           "will to power",
           "dominate",
           "interpretation",
-          "fact"
+          "free spirits",
+          "eternity"
         ],
         "content": "What if a demon whispered to you that you must live your life again and again, eternally, with every pain, every joy, every humiliation repeated endlessly? This thought is the greatest weight. Can you embrace your life so fully that you would will it to recur eternally? Eternal Recurrence is not cosmology—it is ethics. It is the supreme test of affirmation. Say yes to your life—not just in part, but in whole. Only the one who can will this recurrence is truly free, truly joyful, truly powerful."
       },
       {
         "section": "Free Spirits and Dangerous Questions",
         "keywords": [
-          "laughter",
           "truth",
+          "free spirits",
           "instinct",
           "moral",
           "personal",
@@ -89,15 +95,13 @@
           "self-portrait",
           "will to power",
           "dominate",
-          "interpretation",
-          "fact"
+          "interpretation"
         ],
         "content": "This book is written for free spirits—those rare ones who question, doubt, and seek. They are not nihilists, but they walk on the edge of the void. Their joy is not ignorance—it is conquest. They ask dangerous questions: What is truth? What is morality? What is the meaning of suffering? And they do not shrink from the answers. The free spirit does not merely tear down idols; he dances upon their ruins. He is a destroyer and a creator, a skeptic and a poet. The path is perilous—but the heights are sublime."
       },
       {
         "section": "Science, Art, and the Will to Illusion",
         "keywords": [
-          "laughter",
           "truth",
           "instinct",
           "moral",
@@ -108,7 +112,12 @@
           "will to power",
           "dominate",
           "interpretation",
-          "fact"
+          "art",
+          "illusion",
+          "life",
+          "beauty",
+          "soul",
+          "wisdom"
         ],
 
         "content": "We moderns believe in science—but we have not asked why. Science presupposes a will to truth. But what if untruth is a condition of life? What if illusion, not truth, is what makes life bearable and beautiful? The artist knows this. He does not dissect the rose—he creates it. The scientist kills what he studies. I propose a new union: not of faith and reason, but of knowledge and art. Let us use science as a tool—but never forget the poetic lies that nourish our souls. The highest wisdom is aesthetic."
@@ -116,8 +125,15 @@
       {
         "section": "Morality as Timidity",
         "keywords": [
-          "laughter",
           "truth",
+          "instinct",
+          "moral",
+          "personal",
+          "morality",
+          "faith",
+          "sacrifice",
+          "suffering",
+          "death",
           "instinct",
           "moral",
           "personal",
@@ -126,8 +142,7 @@
           "self-portrait",
           "will to power",
           "dominate",
-          "interpretation",
-          "fact"
+          "interpretation"
         ],
 
         "content": "What we call morality is often nothing more than cowardice—fear dressed up as virtue. Pity, humility, obedience: these are not noble, they are symptoms of weakness. We must unmask morality. Its origin lies not in the divine but in the herd’s need for safety. The strong must create their own values. I call for a transvaluation of all values—a re-creation of virtue based not on denial but on affirmation, not on fear but on strength. Let us be moral only if we can be so joyfully, proudly, dangerously."
@@ -135,7 +150,6 @@
       {
         "section": "Style and Philosophy",
         "keywords": [
-          "laughter",
           "truth",
           "instinct",
           "moral",
@@ -145,16 +159,23 @@
           "self-portrait",
           "will to power",
           "dominate",
-          "interpretation",
-        
-          "fact"
+          "interpretation"
         ],
         "content": "A philosopher must write like a poet and think like a warrior. I detest the leaden prose of scholars. Philosophy should seduce, not sedate. In aphorisms, I dance—leaping from insight to insight. But each word is a blade. The Gay Science is a book of masks. I speak in riddles, contradictions, provocations—not to confuse but to awaken. Truth does not crawl—it sings. Only he who has style has authority. Only he who bleeds beauty can command the future."
       },
       {
         "section": "Women, Artists, and the Mask",
         "keywords": [
-          "laughter",
+          "truth",
+          "instinct",
+          "moral",
+          "personal",
+          "woman",
+          "artist",
+          "philosopher",
+          "mask",
+          "irony",
+          "desire",
           "truth",
           "instinct",
           "moral",
@@ -162,10 +183,7 @@
           "physiological",
           "objectivity",
           "self-portrait",
-          "will to power",
-          "dominate",
-          "interpretation",
-          "fact"
+          "will to power"
         ],
         "content": "Do not ask me for a consistent doctrine. I offer masks, not mirrors. I speak of women, of artists, of philosophers, but always with irony. For life itself is irony. The surface conceals the depth—not as a lie, but as a necessary veil. The stronger one is, the more he must hide. The artist creates masks to reveal the soul. The philosopher creates masks to survive truth. I do not unmask to expose—I unmask to transfigure. Even my contradictions are part of my method: they force you to think."
       },
@@ -173,6 +191,7 @@
         "section": "Prelude to Zarathustra",
         "keywords": [
           "Zarathustra",
+          "overcoming",
           "truth",
           "instinct",
           "moral",
@@ -180,10 +199,7 @@
           "physiological",
           "objectivity",
           "self-portrait",
-          "will to power",
-          "dominate",
-          "interpretation",
-          "fact"
+          "will to power"
         ],
         "content": "In this book, the seeds of Zarathustra are sown. Here is the death of God. Here is the eternal recurrence. Here is the free spirit. But Zarathustra will gather these fragments into a new gospel. The Gay Science is the laughter before the storm, the song before the birth of a new man. Here I begin to sing—later I will proclaim. This book is a threshold. Cross it, and you enter the desert. But beyond the desert, the stars. Let joy be your compass. Let becoming be your creed."
       }
