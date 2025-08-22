@@ -6,10 +6,34 @@
     "summary": [
       {
         "section": "Section 1",
+        "keywords": [
+          "keyword_1",
+          "keyword_2",
+          "keyword_3",
+          "keyword_4",
+          "keyword_5",
+          "keyword_6",
+          "keyword_7",
+          "keyword_8",
+          "keyword_9",
+          "keyword_10"
+        ],
         "content": "Content 1"
       },
       {
         "section": "Section 2",
+        "keywords": [
+          "keyword_1",
+          "keyword_2",
+          "keyword_3",
+          "keyword_4",
+          "keyword_5",
+          "keyword_6",
+          "keyword_7",
+          "keyword_8",
+          "keyword_9",
+          "keyword_10"
+        ],
         "content": "Content 2"
       }
     ]
