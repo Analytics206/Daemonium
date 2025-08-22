@@ -1,0 +1,10 @@
+# Base model to extend
+FROM llama3
+
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+
+TEMPLATE """{{ .System }}
+
+User: {{ .Prompt }}
+Assistant:"""

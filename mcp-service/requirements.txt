@@ -1,0 +1,22 @@
+# MCP Protocol
+mcp>=1.0.0
+
+# Model APIs
+openai>=1.0.0
+anthropic>=0.25.0
+requests>=2.31.0
+
+# Local Ollama
+ollama>=0.1.0
+
+# Context retrieval (connect to your existing services)
+redis>=5.0.0
+qdrant-client>=1.7.0
+
+# Web framework for MCP service
+fastapi>=0.104.0
+uvicorn>=0.24.0
+
+# Async support
+aiohttp>=3.9.0
+asyncio-mqtt>=0.13.0

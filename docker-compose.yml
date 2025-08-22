@@ -273,6 +273,31 @@ services:
       retries: 3
       start_period: 40s
 
+  # MCP service (Model Context Protocol gateway)
+  mcp:
+    build:
+      context: ./mcp-service
+      dockerfile: Dockerfile
+    container_name: daemonium-mcp
+    restart: unless-stopped
+    profiles:
+      - mcp
+    environment:
+      - MCP_PORT=8080
+      - BACKEND_BASE_URL=http://backend:8000
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - REDIS_URL=redis://:ch@ng3m300@redis:6379/0
+      - QDRANT_URL=http://qdrant:6333
+    ports:
+      - "8081:8080"
+    volumes:
+      - mcp_data:/app/data
+      - ./config:/app/config
+    networks:
+      - daemonium-network
+
 # Docker volumes for data persistence
 volumes:
   mongo_data:
@@ -407,6 +432,18 @@ volumes:
       - "service=ollama"
       - "type=models"
       - "ai=llm"
+
+  mcp_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./docker_volumes/mcp_data
+      o: bind
+    name: daemonium_mcp_data
+    labels:
+      - "project=daemonium"
+      - "service=mcp"
+      - "type=data"
 
 # Network configuration
 networks:
