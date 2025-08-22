@@ -6,16 +6,22 @@
         "multi_philosopher_ready": true,
         "data_source": "MongoDB",
         "resources_used": [
-          "persona",
-          "conversation_logic",
-          "philosophy_and_themes",
           "aphorisms",
-          "discussion_hooks",
-          "modern_adaptation",
-          "idea_summary",
+          "bibliography",
           "book_summary",
-          "top_10_ideas",
-          "philosopher_bot"
+          "conversation_logic",
+          "discussion_hooks",
+          "idea_summary",
+          "modern_adaptation",
+          "persona_core",
+          "philosopher_bot",
+          "philosopher_summary",
+          "philosophers",
+          "philosophy_concepts",
+          "philosophy_keywords",
+          "philosophy_and_themes",
+          "philosopher_school",
+          "top_10_ideas"
         ]
       },
       "response_pipeline": [
