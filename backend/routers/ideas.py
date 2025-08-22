@@ -52,6 +52,7 @@ async def get_idea_summaries(
     limit: int = Query(100, ge=1, le=1000, description="Maximum number of items to return"),
     philosopher: Optional[str] = Query(None, description="Filter by philosopher"),
     category: Optional[str] = Query(None, description="Filter by category"),
+    keyword: Optional[str] = Query(None, description="Filter by keyword (matches keywords array)"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
     """Get idea summaries with pagination and optional filters"""
@@ -59,7 +60,7 @@ async def get_idea_summaries(
         ideas = await db_manager.get_idea_summaries(skip=skip, limit=limit)
         
         # Apply filters if provided
-        if philosopher or category:
+        if philosopher or category or keyword:
             filtered_ideas = []
             for idea in ideas:
                 include_idea = True
@@ -70,6 +71,16 @@ async def get_idea_summaries(
                 
                 if category and idea.get('category'):
                     if category.lower() not in idea['category'].lower():
+                        include_idea = False
+                
+                if include_idea and keyword:
+                    kws = idea.get('keywords')
+                    if isinstance(kws, list):
+                        # Match if any keyword contains the query (case-insensitive)
+                        if not any(isinstance(kw, str) and (keyword.lower() in kw.lower()) for kw in kws):
+                            include_idea = False
+                    else:
+                        # If keywords field missing or not a list, exclude when keyword filter is requested
                         include_idea = False
                 
                 if include_idea:
@@ -91,6 +102,8 @@ async def get_idea_summaries(
             filter_msg += f" by philosopher '{philosopher}'"
         if category:
             filter_msg += f" in category '{category}'"
+        if keyword:
+            filter_msg += f" matching keyword '{keyword}'"
         
         return IdeasResponse(
             data=idea_models,
@@ -289,7 +302,8 @@ async def search_ideas_by_keyword(
                 {"quote": {"$regex": keyword, "$options": "i"}},
                 {"summary.section": {"$regex": keyword, "$options": "i"}},
                 {"summary.content": {"$regex": keyword, "$options": "i"}},
-                {"key_books": {"$regex": keyword, "$options": "i"}}
+                {"key_books": {"$regex": keyword, "$options": "i"}},
+                {"keywords": {"$regex": keyword, "$options": "i"}}
             ]
         })
         

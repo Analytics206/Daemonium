@@ -139,6 +139,7 @@ class IdeaSummaryUploader:
             'quote': json_data.get('quote', ''),
             'summary': json_data.get('summary', []),
             'key_books': json_data.get('key_books', []),
+            'keywords': json_data.get('keywords', []),
             'metadata': {
                 'upload_timestamp': None,  # Will be set during upload
                 'last_updated': None,      # Will be set during upload

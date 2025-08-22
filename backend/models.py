@@ -226,6 +226,7 @@ class IdeaSummary(BaseModel):
     quote: Optional[str] = None  # Quote associated with the idea
     summary: Optional[List[Dict[str, Any]]] = None  # List of sections with "section" and "content" fields
     key_books: Optional[List[str]] = None  # List of 5 key books related to the idea
+    keywords: Optional[List[str]] = None  # List of keywords associated with the idea
     
     model_config = {"populate_by_name": True}
 

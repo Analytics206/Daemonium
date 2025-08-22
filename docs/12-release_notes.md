@@ -1,5 +1,42 @@
 # Daemonium
 ---
+## Version 0.3.23 (August 22, 2025)
+
+### Backend: Idea Summaries — Keywords Field Support and Filtering
+
+- Added `keywords: string[]` to `IdeaSummary` in `backend/models.py` so responses include the `keywords` array when present.
+- `GET /api/v1/ideas/summaries` now accepts optional `keyword` and filters in-memory against the `keywords` list (case-insensitive substring match). Response uses `IdeaSummary`, ensuring `keywords` is serialized.
+- `GET /api/v1/summaries/search/idea_summary?query=...` includes `keywords` in the `$or` regex filter alongside `author`, `category`, `title`, `quote`, `summary.section`, `summary.content`, and `key_books`.
+- `GET /api/v1/ideas/search/{keyword}` also searches `keywords` in MongoDB for idea summaries.
+- Backward compatibility: `philosopher` query param is supported and mapped to `author` for filtering; responses normalize to `author`.
+
+### Files Changed
+
+- `backend/models.py`
+- `docs/06-system_design.md` — added Idea Summaries keywords section
+- `docs/12-release_notes.md` — this entry
+
+### Verification (PowerShell)
+
+```powershell
+$base = 'http://localhost:8000'
+
+# 1) Baseline: list idea summaries; expect items to include keywords when present
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/ideas/summaries?limit=5"
+
+# 2) Filter by keyword (case-insensitive substring against keywords array)
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/ideas/summaries?keyword=virtue&limit=5"
+
+# 3) Inspect keywords from the first item
+$resp = Invoke-RestMethod -Method Get -Uri "$base/api/v1/ideas/summaries?limit=3"
+($resp.data | Select-Object -First 1) | ForEach-Object { $_.title; $_.keywords }
+
+# 4) Search routes also include keywords
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/ideas/search/virtue"
+Invoke-RestMethod -Method Get -Uri "$base/api/v1/summaries/search/idea_summary?query=virtue&limit=5"
+```
+
+---
 ## Version 0.3.22 (August 21, 2025)
 
 ### Backend: Aphorisms — Nested Subject Schema Cleanup and Tests

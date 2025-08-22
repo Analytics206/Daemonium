@@ -313,6 +313,28 @@ The monitoring system follows a sidecar pattern with the following components:
 - **Backward compatibility**: requests may still pass `philosopher=` which is mapped to `author` for filtering, but responses normalize to `author`.
 - **Tests**: `tests/test_aphorisms_nested_subjects.py` verifies that routes and filters include nested `subject.*` fields only and that legacy fields are not used.
 
+### Backend: Idea Summaries — Keywords Support (v0.3.23)
+
+- **Purpose**: Expose idea-level `keywords` and enable filtering across Idea Summaries.
+- **Collection**: `idea_summary` (joins by `author`).
+- **Model**: `IdeaSummary` (`backend/models.py`) includes `keywords: string[]` (optional); `_id` aliased to `id` via `populate_by_name`.
+- **Endpoints**:
+  - `GET /api/v1/ideas/summaries?skip=<int>&limit=<int>&philosopher=<string>&category=<string>&keyword=<string>`
+    - In-memory filter when `keyword` is provided: case-insensitive substring match against the document `keywords` array.
+    - Also supports `philosopher` (mapped to `author`) and `category` filtering; responses normalize to `author`.
+  - `GET /api/v1/summaries/search/idea_summary?query=<string>&limit=<int>`
+    - MongoDB regex `$or` includes: `author`, `category`, `title`, `quote`, `summary.section`, `summary.content`, `key_books`, `keywords`.
+  - `GET /api/v1/ideas/search/{keyword}`
+    - `$or` search over Idea Summaries includes `keywords` as well as other text fields.
+- **Pagination**: `skip` default `0`, `limit` default `100` (`le=1000`) for the direct Ideas route; search routes default to `limit=10` (`le=100`).
+- **Verification (PowerShell)**:
+  ```powershell
+  $base = 'http://localhost:8000'
+  Invoke-RestMethod -Method Get -Uri "$base/api/v1/ideas/summaries?limit=5"
+  Invoke-RestMethod -Method Get -Uri "$base/api/v1/ideas/summaries?keyword=virtue&limit=5"
+  Invoke-RestMethod -Method Get -Uri "$base/api/v1/summaries/search/idea_summary?query=virtue&limit=5"
+  ```
+
 ### Backend: Philosophy Schools Ingestion v2
 
 - **Purpose**: Ingest curated philosophy schools with explicit keywords for search and joins.

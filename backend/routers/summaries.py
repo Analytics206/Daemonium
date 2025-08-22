@@ -343,7 +343,8 @@ async def search_summaries_collection(
                     {"quote": {"$regex": query, "$options": "i"}},
                     {"summary.section": {"$regex": query, "$options": "i"}},
                     {"summary.content": {"$regex": query, "$options": "i"}},
-                    {"key_books": {"$regex": query, "$options": "i"}}
+                    {"key_books": {"$regex": query, "$options": "i"}},
+                    {"keywords": {"$regex": query, "$options": "i"}}
                 ]
             }
         elif collection_name == "philosopher_summary":
