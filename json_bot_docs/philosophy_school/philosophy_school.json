@@ -27,7 +27,8 @@
       "logic",
       "epistemology",
       "cosmos",
-      "metaphysics"
+      "metaphysics",
+      "Ancient Greek"
     ]
   },
   {
@@ -46,7 +47,8 @@
       "Marcus Aurelius",
       "Epictetus",
       "Seneca",
-      "Zeno of Citium"
+      "Zeno of Citium",
+      "Stoicism"
     ]
   },
   {
@@ -64,7 +66,8 @@
       "materialism",
       "fear",
       "death",
-      "hedone"
+      "hedone",
+      "Epicureanism"
     ]
   },
   {
@@ -82,7 +85,8 @@
       "doubt",
       "intellectual",
       "humility",
-      "relativism"
+      "relativism",
+      "Skepticism"
     ]
   },
   {
@@ -100,7 +104,8 @@
       "mystical",
       "ascent",
       "Porphyry",
-      "Proclus"
+      "Proclus",
+      "Neoplatonism"
     ]
   },
   {
@@ -116,7 +121,8 @@
       "autarkeia",
       "parrhesia",
       "virtue",
-      "dog-like living"
+      "dog-like living",
+      "Cynicism"
     ]
   },
   {
@@ -133,7 +139,8 @@
       "dialectic",
       "universals",
       "Summa",
-      "Theologica"
+      "Theologica",
+      "Scholasticism"
     ]
   },
   {
@@ -152,7 +159,8 @@
       "metaphysics",
       "cosmology",
       "faith",
-      "reason"
+      "reason",
+      "Islamic Philosophy"
     ]
   },
   {
@@ -170,7 +178,8 @@
       "divine",
       "attributes",
       "reason",
-      "revelation"
+      "revelation",
+      "Jewish Philosophy"
     ]
   },
   {
@@ -187,7 +196,8 @@
       "deduction",
       "clear",
       "distinct",
-      "perceptions"
+      "perceptions",
+      "Rationalism"
     ]
   },
   {
@@ -202,7 +212,8 @@
       "David Hume",
       "tabula rasa",
       "perception",
-      "induction"
+      "induction",
+      "Empiricism"
     ]
   },
   {
@@ -224,7 +235,8 @@
       "democracy",
       "science",
       "individual",
-      "rights"
+      "rights",
+      "Humanism"
     ]
   },
   {
@@ -240,7 +252,8 @@
       "Hegel",
       "dialectic",
       "self-consciousness",
-      "Absolute Spirit"
+      "Absolute Spirit",
+      "German Idealism"
     ]
   },
   {
@@ -257,7 +270,8 @@
       "utility",
       "pleasure",
       "pain",
-      "calculus"
+      "calculus",
+      "Utilitarianism"
     ]
   },
   {
@@ -273,7 +287,8 @@
       "intuition",
       "self-reliance",
       "American",
-      "Romanticism"
+      "Romanticism",
+      "Transcendentalism"
     ]
   },
   {
@@ -293,7 +308,8 @@
       "Wittgenstein",
       "semantics",
       "epistemology",
-      "metaphysics"
+      "metaphysics",
+      "Analytic Philosophy"
     ]
   },
   {
@@ -311,7 +327,8 @@
       "Gadamer",
       "Nietzsche",
       "hermeneutics",
-      "deconstruction"
+      "deconstruction",
+      "Continental Philosophy"
     ]
   },
   {
@@ -326,12 +343,13 @@
       "Sartre",
       "Camus",
       "authenticity",
-      "bad faith",
       "alienation",
       "absurd",
       "existence",
       "precedes",
-      "essence"
+      "essence",
+      "Existentialism",
+      "Absurdism"
     ]
   },
   {
@@ -365,7 +383,10 @@
       "intentionality",
       "lifeworld",
       "noesis",
-      "noema"
+      "noema",
+      "Phenomenology",
+      "Pragmatism"
+
     ]
   },
   {
@@ -381,7 +402,8 @@
       "pragmatism",
       "practicality",
       "experimentation",
-      "fallibilism"
+      "fallibilism",
+      "Pragmatism"
     ]
   },
   {
@@ -400,7 +422,8 @@
       "communism",
       "alienation",
       "proletariat",
-      "bourgeoisie"
+      "bourgeoisie",
+      "Marxism"
     ]
   },
   {
@@ -420,7 +443,8 @@
       "ideology",
       "emancipation",
       "mass",
-      "culture"
+      "culture",
+      "Critical Theory"
     ]
   },
   {
@@ -438,7 +462,8 @@
       "discourse",
       "subjectivity",
       "power",
-      "relations"
+      "relations",
+      "Post-structuralism"
     ]
   },
   {
@@ -455,7 +480,8 @@
       "signifier",
       "signified",
       "myth",
-      "structure"
+      "structure",
+      "Structuralism"
     ]
   },
   {
@@ -473,7 +499,8 @@
       "hermeneutic",
       "circle",
       "text",
-      "understanding"
+      "understanding",
+      "Hermeneutics"
     ]
   },
   {
@@ -490,7 +517,8 @@
       "relativism",
       "pluralism",
       "simulation",
-      "identity"
+      "identity",
+      "Postmodernism"
     ]
   },
   {
@@ -508,7 +536,8 @@
       "gender",
       "theory",
       "intersectionality",
-      "care ethics"
+      "care ethics",
+      "Feminist"
     ]
   },
   {
@@ -524,7 +553,8 @@
       "Orientalism",
       "hybridity",
       "representation",
-      "decolonization"
+      "decolonization",
+      "Postcolonial"
     ]
   },
   {
@@ -540,7 +570,8 @@
       "becoming",
       "events",
       "relational ontology",
-      "creativity"
+      "creativity",
+      "Process"
     ]
   },
   {
@@ -557,7 +588,8 @@
       "ecofeminism",
       "intrinsic",
       "value",
-      "environmental ethics"
+      "environmental ethics",
+      "Environmental"
     ]
   },
   {
@@ -576,7 +608,8 @@
       "Haraway",
       "ecology",
       "nonhuman",
-      "agency"
+      "agency",
+      "Posthumanism"
     ]
   },
   {
@@ -592,7 +625,8 @@
       "opposition",
       "logocentrism",
       "textual",
-      "analysis"
+      "analysis",
+      "Deconstruction"
     ]
   },
   {
@@ -608,7 +642,8 @@
       "education",
       "practical",
       "reasoning",
-      "wisdom"
+      "wisdom",
+      "Practical"
     ]
   },
   {
@@ -626,7 +661,8 @@
       "artificial",
       "intelligence",
       "cybernetics",
-      "innovation"
+      "innovation",
+      "Philosophy of Technology"
     ]
   }
 ]
