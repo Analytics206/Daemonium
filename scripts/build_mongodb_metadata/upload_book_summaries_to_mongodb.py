@@ -123,6 +123,32 @@ class BookSummaryUploader:
             self.logger.error(f"JSON file not found: {file_path}")
             raise
             
+    def _normalize_summary_sections(self, summary: Any) -> List[Dict[str, Any]]:
+        """Normalize summary sections to ensure a 'keywords' list exists per section."""
+        normalized: List[Dict[str, Any]] = []
+        if not isinstance(summary, list):
+            return normalized
+        for section in summary:
+            if not isinstance(section, dict):
+                # Skip malformed entries
+                continue
+            # Preserve expected fields and coerce keywords to list[str]
+            sec: Dict[str, Any] = {
+                'section': section.get('section', ''),
+                'content': section.get('content', '')
+            }
+            raw_keywords = section.get('keywords', [])
+            if isinstance(raw_keywords, list):
+                kw_list = [str(k).strip() for k in raw_keywords if str(k).strip()]
+            elif isinstance(raw_keywords, str):
+                # Support comma-separated strings as a fallback
+                kw_list = [k.strip() for k in raw_keywords.split(',') if k.strip()]
+            else:
+                kw_list = []
+            sec['keywords'] = kw_list
+            normalized.append(sec)
+        return normalized
+
     def _prepare_document(self, json_data: Dict[str, Any], filename: str) -> Dict[str, Any]:
         """Prepare document for MongoDB insertion."""
         # Create a unique identifier based on author, title, and category
@@ -130,6 +156,19 @@ class BookSummaryUploader:
         title = json_data.get('title', 'unknown').replace(' ', '_').replace(',', '').replace(':', '').lower()
         category = json_data.get('category', 'unknown').replace(' ', '_').lower()
         
+        # Normalize summary to ensure section-level 'keywords' exist
+        normalized_summary = self._normalize_summary_sections(json_data.get('summary', []))
+        # Aggregate top-level keywords (unique, case-insensitive, order-preserving)
+        aggregated_keywords: List[str] = []
+        seen = set()
+        for sec in normalized_summary:
+            for kw in sec.get('keywords', []):
+                kw_str = str(kw).strip()
+                key = kw_str.lower()
+                if kw_str and key not in seen:
+                    seen.add(key)
+                    aggregated_keywords.append(kw_str)
+
         document = {
             '_id': f"{author}_{title}_{category}",
             'filename': filename,
@@ -137,7 +176,8 @@ class BookSummaryUploader:
             'category': json_data.get('category', 'Unknown'),
             'title': json_data.get('title', 'Unknown'),
             'publication_year': json_data.get('publication_year', 'Unknown'),
-            'summary': json_data.get('summary', []),
+            'summary': normalized_summary,
+            'keywords': aggregated_keywords,
             'key_themes': json_data.get('key_themes', []),
             'notable_quotes': json_data.get('notable_quotes', []),
             'philosophical_significance': json_data.get('philosophical_significance', ''),
@@ -145,7 +185,8 @@ class BookSummaryUploader:
                 'upload_timestamp': None,  # Will be set during upload
                 'last_updated': None,      # Will be set during upload
                 'source_file': filename,
-                'total_sections': len(json_data.get('summary', [])) if isinstance(json_data.get('summary'), list) else 0
+                'total_sections': len(normalized_summary),
+                'sections_with_keywords': sum(1 for s in normalized_summary if s.get('keywords'))
             }
         }
         return document

@@ -130,7 +130,18 @@ def create_search_filter(collection_name: str, query: str) -> Dict[str, Any]:
             ]
         }
     
-    elif collection_name in ["books", "book_summary"]:
+    elif collection_name == "book_summary":
+        return {
+            "$or": [
+                {"author": {"$regex": query, "$options": "i"}},
+                {"title": {"$regex": query, "$options": "i"}},
+                {"summary.section": {"$regex": query, "$options": "i"}},
+                {"summary.content": {"$regex": query, "$options": "i"}},
+                {"summary.keywords": {"$regex": query, "$options": "i"}},
+                {"keywords": {"$regex": query, "$options": "i"}}
+            ]
+        }
+    elif collection_name == "books":
         return {
             "$or": [
                 {"metadata.title": {"$regex": query, "$options": "i"}},

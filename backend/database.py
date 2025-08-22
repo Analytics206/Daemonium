@@ -184,6 +184,18 @@ class DatabaseManager:
             except Exception as aph_idx_err:
                 # Non-blocking: log and continue
                 logger.warning(f"Index creation warning for aphorisms: {aph_idx_err}")
+            # book_summary indexes: optimize author/title and nested summary fields including keywords
+            try:
+                book_summary_col = self.get_collection("book_summary")
+                await book_summary_col.create_index([("author", 1)], name="book_summary_author_idx")
+                await book_summary_col.create_index([("title", 1)], name="book_summary_title_idx")
+                await book_summary_col.create_index([("summary.section", 1)], name="book_summary_summary_section_idx")
+                await book_summary_col.create_index([("summary.content", 1)], name="book_summary_summary_content_idx")
+                await book_summary_col.create_index([("summary.keywords", 1)], name="book_summary_summary_keywords_idx")
+                await book_summary_col.create_index([("keywords", 1)], name="book_summary_keywords_idx")
+            except Exception as bs_idx_err:
+                # Non-blocking: log and continue
+                logger.warning(f"Index creation warning for book_summary: {bs_idx_err}")
         except Exception as e:
             # Don't block app startup on index creation failures
             logger.warning(f"Index creation warning: {e}")

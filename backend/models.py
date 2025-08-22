@@ -107,17 +107,28 @@ class Book(BaseModel):
     
     model_config = {"populate_by_name": True}
 
+class BookSummarySection(BaseModel):
+    """Structured section for book summaries"""
+    section: Optional[str] = None
+    content: Optional[str] = None
+    keywords: Optional[List[str]] = []
+
 class BookSummary(BaseModel):
     """Book summary model"""
     id: str = Field(..., alias="_id")
-    title: str
+    filename: Optional[str] = None
     author: str
-    summary: str
+    category: Optional[str] = None
+    title: Optional[str] = None
+    publication_year: Optional[Union[int, str]] = None
+    summary: Optional[List[BookSummarySection]] = None
+    keywords: Optional[List[str]] = []
     key_themes: Optional[List[str]] = None
-    main_arguments: Optional[List[str]] = None
-    significance: Optional[str] = None
+    notable_quotes: Optional[List[str]] = None
+    philosophical_significance: Optional[str] = None
+    metadata: Optional[Dict[str, Any]] = None
     
-    model_config = {"populate_by_name": True}
+    model_config = {"populate_by_name": True, "arbitrary_types_allowed": True, "extra": "ignore"}
 
 class BookResponse(BaseResponse):
     """Response model for book data"""
