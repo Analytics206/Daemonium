@@ -52,3 +52,16 @@ uvicorn>=0.24.0
 ## Async support
 aiohttp>=3.9.0
 asyncio-mqtt>=0.13.0
+
+## MCP Docker commands (PowerShell)
+
+- __Build image__:
+  - `docker compose build mcp`
+  - `docker compose build --no-cache mcp`
+- __Start container__:
+  - `docker compose up -d mcp`
+  - `docker compose up -d --build mcp`
+- __Restart container__:
+  - `docker compose restart mcp`
+- __Stop container__:
+  - `docker compose stop mcp`
