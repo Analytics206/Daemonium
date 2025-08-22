@@ -161,7 +161,40 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
-  
+
+  # Ollama LLM service (optional, GPU-enabled)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: daemonium-ollama
+    restart: unless-stopped
+    profiles:
+      - ollama
+    ports:
+      - "11434:11434"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - daemonium-network
+    # GPU settings (Docker Desktop + WSL2 + NVIDIA Toolkit)
+    # 'deploy' is ignored by docker-compose (non-swarm) but kept for completeness
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: ["serve"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
   # FastAPI Backend service
   backend:
     build:
@@ -361,6 +394,19 @@ volumes:
       - "project=daemonium"
       - "service=nodejs"
       - "type=cache"
+# Ollama model/cache persistence
+  ollama_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./docker_volumes/ollama_data
+      o: bind
+    name: daemonium_ollama_data
+    labels:
+      - "project=daemonium"
+      - "service=ollama"
+      - "type=models"
+      - "ai=llm"
 
 # Network configuration
 networks:
