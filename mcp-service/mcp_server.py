@@ -20,6 +20,7 @@ import json
 import os
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
+from contextlib import asynccontextmanager
 
 import aiohttp
 
@@ -100,8 +101,14 @@ def build_app_context() -> AppContext:
 
 app_ctx = build_app_context()
 
-# Create MCP server
-server = Server("daemonium-ollama-mcp", lifespan=app_ctx)
+# Provide a proper async lifespan context manager that yields AppContext
+@asynccontextmanager
+async def lifespan(server: Server):
+    # Yield the prebuilt application context for use during requests
+    yield app_ctx
+
+# Create MCP server with lifespan provider
+server = Server("daemonium-ollama-mcp", lifespan=lifespan)
 
 
 @server.list_tools()

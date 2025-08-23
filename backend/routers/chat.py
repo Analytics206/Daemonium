@@ -21,6 +21,8 @@ from ..models import PersonaCoreResponse
 from ..models import ChatBlueprintResponse, ChatBlueprint, ConversationLogic, PhilosopherBot, ChatMessage, ChatResponse, ModernAdaptationResponse
 from ..config import get_settings
 from ..auth import verify_firebase_id_token
+from ..mcp_client import call_ollama_chat
+from config.ollama_config import get_ollama_config
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -210,49 +212,94 @@ async def send_chat_message(
     message: ChatMessage,
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
-    """Send a message to a philosopher chatbot (mock implementation)"""
+    """Send a message to a philosopher chatbot using MCP Ollama chat integration."""
+    author = message.author or "Nietzsche"  # Reasonable default
+
+    # Try to enrich with blueprint/personality (non-blocking for failures)
+    blueprint: Optional[Dict[str, Any]] = None
     try:
-        # This is a mock implementation - in production you'd integrate with your LLM
-        author = message.author or "Nietzsche"  # Default to Nietzsche
-        
-        # Get author's chat blueprint for personality
-        blueprint = None
         blueprints = await db_manager.get_chat_blueprints(author=author)
         if blueprints:
             blueprint = blueprints[0]
-        
-        # Get conversation logic
-        logic = None
-        conversation_logic = await db_manager.get_conversation_logic(author=author)
-        if conversation_logic:
-            logic = conversation_logic[0]
-        
-        # Mock response generation (replace with actual LLM integration)
-        mock_responses = [
+    except Exception as ex:
+        logger.warning(f"Failed to fetch chat blueprint for {author}: {ex}")
+
+    # Build a concise system prompt leveraging available hints
+    system_parts: List[str] = [
+        f"You are {author}. Respond in {author}'s philosophical voice and reasoning style.",
+        "Be concise and faithful to the philosopher's core ideas.",
+    ]
+    if blueprint:
+        try:
+            speaking_style = blueprint.get("speaking_style")
+            traits = blueprint.get("personality_traits")
+            if speaking_style:
+                system_parts.append(f"Speaking style: {speaking_style}.")
+            if traits and isinstance(traits, list) and traits:
+                system_parts.append(f"Traits: {', '.join(list(map(str, traits))[:5])}.")
+        except Exception:
+            pass
+    if message.context:
+        system_parts.append(f"Conversation context: {message.context}")
+    system_prompt = " ".join(system_parts)
+
+    # Resolve model and timeout from centralized config
+    try:
+        ollama_cfg = get_ollama_config()
+        task_type = "general_kg"
+        model = ollama_cfg.get_model_for_task(task_type)
+        timeout = ollama_cfg.get_timeout_for_model(model, task_type=task_type)
+
+        chat_messages = [
+            {"role": "user", "content": message.message},
+        ]
+
+        # Call MCP Ollama chat
+        assistant_text = await call_ollama_chat(
+            messages=chat_messages,
+            system_prompt=system_prompt,
+            task_type=task_type,
+            model=model,
+            temperature=0.7,
+            max_tokens=512,
+            timeout=timeout,
+        )
+
+        return ChatResponse(
+            response=assistant_text,
+            author=author,
+            confidence=0.9,
+            sources=["MCP ollama.chat", f"model={model}"] + (["Chat blueprint"] if blueprint else []),
+            message=f"Response generated via MCP for {author}",
+        )
+    except RuntimeError as mcp_error:
+        # Graceful fallback to a simple mock when MCP is unavailable
+        logger.warning(f"MCP call failed, using fallback response: {mcp_error}")
+
+        # Fallback mock response leveraging blueprint hints when available
+        fallback_options = [
             f"As {author}, I find your question intriguing. Let me share my perspective...",
             f"From my philosophical standpoint, {message.message.lower()} touches upon fundamental questions of existence.",
             f"In my view, this relates to the deeper nature of human experience and consciousness.",
-            f"Your inquiry reminds me of my thoughts on the human condition and our search for meaning."
+            f"Your inquiry reminds me of my thoughts on the human condition and our search for meaning.",
         ]
-        
-        # Add author-specific responses if blueprint available
-        if blueprint and blueprint.get('typical_responses'):
-            mock_responses.extend(list(blueprint['typical_responses'].values()))
-        
-        response_text = random.choice(mock_responses)
-        
-        # Add context if provided
+        if blueprint and blueprint.get("typical_responses"):
+            try:
+                fallback_options.extend(list(blueprint["typical_responses"].values()))
+            except Exception:
+                pass
+
+        response_text = random.choice(fallback_options)
         if message.context:
             response_text += f" Given the context you've provided about {message.context}, I would add..."
-        
+
         return ChatResponse(
             response=response_text,
             author=author,
-            confidence=0.85,
-            sources=[f"{author} philosophical writings", "Chat blueprint", "Conversation logic"],
-            message=f"Response generated for {author}"
+            confidence=0.6,
+            sources=["fallback", "Chat blueprint" if blueprint else "fallback"],
+            message=f"Fallback response generated for {author}",
         )
-    
     except Exception as e:
         logger.error(f"Failed to process chat message: {e}")
         raise HTTPException(status_code=500, detail="Failed to process chat message")

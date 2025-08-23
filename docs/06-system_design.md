@@ -117,17 +117,36 @@ The monitoring system follows a sidecar pattern with the following components:
 - **Environment Variables**:
   - Primary: `OLLAMA_BASE_URL` (default `http://localhost:11434`), `OLLAMA_MODEL` (default `llama3:latest`).
   - Legacy compatibility: `OLLAMA_API_URL` + `OLLAMA_API_PORT` are supported when `OLLAMA_BASE_URL` is not set.
-- **Chat Page**: `web-ui/src/app/chat/page.tsx` renders `ChatInterface` with `endpoint="/api/ollama"` for a minimal, fixed chat route used in local testing.
-- **Reusable Component**: `web-ui/src/components/chat/chat-interface.tsx` accepts an optional `endpoint` prop (default `/api/chat`) enabling backend/LLM swapping without changing UI code.
+ - **Chat Page**: `web-ui/src/app/chat/page.tsx` renders `ChatInterface` with `endpoint="/api/ollama"` for a minimal, fixed chat route used in local testing.
+ - **Reusable Component**: `web-ui/src/components/chat/chat-interface.tsx` accepts an optional `endpoint` prop (default `/api/chat`) enabling backend/LLM swapping without changing UI code.
  - **Security**: No auth required for the Ollama proxy in local dev; add middleware/auth if exposed beyond localhost.
  - **Future**: Consider streaming responses, auth/session checks, and per-model selection from UI.
 
+### MCP Server: Ollama Tools & stdio data flow
+
+ - **Implementation**: `mcp-service/mcp_server.py` exposes two MCP tools using the Python MCP server:
+   - `ollama.chat` — chat completions via Ollama `/api/chat`
+   - `ollama.health` — connectivity + model listing via `/api/tags`
+ - **Transport**: stdio. Clients (e.g., MCP Inspector) launch inside Docker: `docker exec -i daemonium-mcp python /app/mcp_server.py`.
+ - **URL selection (fallback order)**: `OLLAMA_BASE_URL` (env) → `server.url` from `config/ollama_models.yaml` → `http://ollama:11434` → `http://host.docker.internal:11434` → `http://localhost:11434`.
+ - **Model selection & timeouts**:
+   - Default model: `OLLAMA_MODEL` env or centralized `general_kg` model from `config/ollama_config.py`/`config/ollama_models.yaml`.
+   - Optional `task_type` lets the server choose a model via centralized config.
+   - Timeouts derived from centralized config per model/task (fallback ~60s). Streaming responses are aggregated to a single string.
+ - **Docker Compose**: services `ollama` (profile `ollama`, container `daemonium-ollama`) and `mcp` (profile `mcp`, container `daemonium-mcp`).
+ - **Data flow (stdio → Ollama)**:
+   1) MCP client calls `ollama.chat`/`ollama.health` over stdio.
+   2) Server resolves healthy Ollama base URL using the fallback list.
+   3) For chat, server resolves model/timeout via env + centralized config, then POSTs to `/api/chat` (aiohttp).
+   4) If `stream=true`, server aggregates streamed chunks; returns the full assistant message as text.
+   5) Health lists models from `/api/tags` and returns `{ ok, base_url, models }`.
+
 ### Web UI: Authentication (Firebase)
 
-- **Provider**: `FirebaseAuthProvider` wraps the app in `web-ui/src/app/layout.tsx`.
-- **Hook**: `useFirebaseAuth()` exposes `{ user, loading, signInWithGoogle, signOutUser }`.
+ - **Provider**: `FirebaseAuthProvider` wraps the app in `web-ui/src/app/layout.tsx`.
+ - **Hook**: `useFirebaseAuth()` exposes `{ user, loading, signInWithGoogle, signOutUser }`.
  - **Identity**: Use `user.uid` only as `userId` across the chat session lifecycle and Redis API calls. Emails are not accepted by backend auth; Firebase token UID must match the `user_id` path parameter.
-- **UI gating**: While `loading` is true, render loading state; if `user` is null, show Google sign-in prompt.
+ - **UI gating**: While `loading` is true, render loading state; if `user` is null, show Google sign-in prompt.
 - **Env**: `NEXT_PUBLIC_FIREBASE_*` variables configured in `web-ui/.env.example`; Firebase init in `web-ui/src/lib/firebase.ts`.
 
 ### Backend: Firebase ID Token Validation

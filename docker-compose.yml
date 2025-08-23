@@ -210,6 +210,9 @@ services:
       - REDIS_PORT=6379
       - REDIS_PASSWORD=${REDIS_PASSWORD:-ch@ng3m300}
       - REDIS_DB=0
+      # Ensure backend (and its spawned MCP stdio server) target Ollama and stable default model
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://ollama:11434}
+      - OLLAMA_MODEL_GENERAL_KG=${OLLAMA_MODEL_GENERAL_KG:-llama3.1:latest}
     ports:
       - "8000:8000"
     volumes:

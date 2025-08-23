@@ -68,6 +68,30 @@ The Daemonium is built on a microservices architecture using Docker containers w
   Invoke-RestMethod -Method Get -Headers @{ Authorization = "Bearer $token" } -Uri "$base/api/v1/chat/redis/$($u)/$($c)"
   ```
 
+### MCP Server (Ollama) & MCP Inspector
+- **Component**: Python MCP server in `mcp-service/mcp_server.py` exposing tools:
+  - `ollama.chat` — chat via Ollama `/api/chat` (optional streaming aggregated server-side)
+  - `ollama.health` — connectivity + model listing via `/api/tags`
+- **Transport**: stdio. Launch inside Docker from clients (e.g., Inspector):
+  - `docker exec -i daemonium-mcp python /app/mcp_server.py`
+- **Centralized Config**: `config/ollama_config.py` + `config/ollama_models.yaml`
+  - Per-task models: `general_kg`, `semantic_similarity`, `concept_clustering`
+  - Model/task-based timeouts, retry/backoff, warmup, fallbacks
+  - Env overrides: `OLLAMA_MODEL`, `OLLAMA_MODEL_*`
+- **URL resolution order** (base URL to Ollama):
+  1) `OLLAMA_BASE_URL` env
+  2) `server.url` in `config/ollama_models.yaml`
+  3) `http://ollama:11434`
+  4) `http://host.docker.internal:11434`
+  5) `http://localhost:11434`
+- **Defaults**: `OLLAMA_MODEL=llama3.1:latest`.
+- **Docker Compose**: services/profiles
+  - `ollama` profile → service `ollama`, container `daemonium-ollama`
+  - `mcp` profile → service `mcp`, container `daemonium-mcp`
+- **Inspector usage**:
+  - Run `npx @modelcontextprotocol/inspector`, then add server with the `docker exec` command above.
+  - Test `ollama.health` and `ollama.chat` with a minimal `messages` array.
+
 ### Monitoring & Observability
 - **Prometheus**: Time series database for metrics collection and storage
   - Metrics: container performance, system resources, application metrics

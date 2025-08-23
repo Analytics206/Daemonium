@@ -1,5 +1,93 @@
 # Daemonium
 ---
+## Version 0.3.24-p1 (August 22, 2025)
+
+### MCP: Lifespan Context Fix for Daemonium MCP Server
+
+- Fixed crash on launch in `mcp-service/mcp_server.py` (`TypeError: 'AppContext' object is not callable`).
+- Implemented a proper async lifespan context manager using `asynccontextmanager` and wired it via `Server(..., lifespan=lifespan)`.
+- Ensures MCP Inspector can spawn the server over stdio without immediate failure.
+
+### Files Changed
+
+- `mcp-service/mcp_server.py`
+- `docs/12-release_notes.md` — this entry
+
+### Verification (PowerShell)
+
+```powershell
+# Rebuild and restart MCP service
+docker compose --profile mcp build mcp
+docker compose --profile mcp up -d mcp
+
+# Launch MCP Inspector and add server with the following command:
+#   docker exec -i daemonium-mcp python /app/mcp_server.py
+npx @modelcontextprotocol/inspector
+```
+
+---
+## Version 0.3.24 (August 22, 2025)
+
+### MCP: Daemonium MCP Server (Ollama) + MCP Inspector Integration
+
+- Introduced an MCP server exposing two tools backed by the local Ollama service:
+  - `ollama.chat`: chat completions via Ollama `/api/chat` with optional streaming.
+  - `ollama.health`: connectivity check and model listing via `/api/tags` with URL fallback selection.
+- Centralized model/config integration via `config/ollama_config.py` and `config/ollama_models.yaml`:
+  - Per-task model selection (`general_kg`, `semantic_similarity`, `concept_clustering`).
+  - Model/task-based timeouts, retry/backoff, warmup.
+  - Fallback models and server URL selection.
+- Ollama base URL resolution order used by the MCP server:
+  1) `OLLAMA_BASE_URL` (env)
+  2) `server.url` from `config/ollama_models.yaml`
+  3) `http://ollama:11434` (Docker Compose service)
+  4) `http://host.docker.internal:11434`
+  5) `http://localhost:11434`
+- Docker Compose profiles and service names:
+  - `ollama` profile → service `ollama`, container `daemonium-ollama`.
+  - `mcp` profile → service `mcp`, container `daemonium-mcp`.
+- Client configuration for stdio transport:
+  - `mcp-service/mcp.config.json` launches the server with:
+    - `docker exec -i daemonium-mcp python /app/mcp_server.py`
+
+### Files Changed
+
+- `mcp-service/README.md` — usage, features, and Inspector notes
+- `mcp-service/mcp_server.py` — MCP tools `ollama.chat` and `ollama.health`
+- `mcp-service/mcp.config.json` — client config for stdio launch via Docker
+- `docs/06-system_design.md` — MCP architecture, stdio data flow, and config details
+- `docs/07-tech_stack.md` — added MCP server and MCP Inspector to stack
+
+### Build & Run (PowerShell)
+
+```powershell
+# Build images
+docker compose --profile ollama build ollama
+docker compose --profile mcp build mcp
+
+# Start services
+docker compose --profile ollama up -d ollama
+docker compose --profile mcp up -d mcp
+```
+
+### MCP Inspector (Local Testing)
+
+1) Ensure `daemonium-ollama` and `daemonium-mcp` are running.
+2) Run MCP Inspector (Node.js required):
+   - `npx @modelcontextprotocol/inspector`
+3) In the Inspector UI, Add Server with command:
+   - `docker exec -i daemonium-mcp python /app/mcp_server.py`
+4) Test tools:
+   - Call `ollama.health` (should list models and selected base URL).
+   - Call `ollama.chat` with a minimal messages array.
+
+### Configuration
+
+- Primary env vars:
+  - `OLLAMA_BASE_URL` — base URL for Ollama (see resolution order above)
+  - `OLLAMA_MODEL` — default model (defaults to `llama3.1:latest`)
+
+---
 ## Version 0.3.23 (August 22, 2025)
 
 ### Backend: Idea Summaries — Keywords Field Support and Filtering

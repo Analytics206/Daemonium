@@ -54,5 +54,9 @@ python-multipart>=0.0.6  # Form data parsing support
 redis>=5.0.0            # Redis client with asyncio support
 firebase-admin>=6.5.0    # Firebase Admin SDK for verifying ID tokens
 
+# MCP (Model Context Protocol) client/server deps used by backend integration
+mcp>=1.0.0
+aiohttp>=3.9.0
+
 # Project-specific dependencies
 # Add any additional dependencies below this line
