@@ -106,6 +106,9 @@ docker exec daemonium-ollama ollama run llama3.1:latest "Say hello from Ollama i
 docker exec daemonium-ollama ollama run gpt-oss:20b "Say hello from Ollama in Docker."
 ```
 
+- Run MCP inspector:
+npx -y @modelcontextprotocol/inspector docker exec -i daemonium-mcp python /app/mcp_server.py 
+
 $body = @{
   model  = "llama3.1:latest"
   prompt = "Write one sentence about Stoicism."

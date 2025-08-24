@@ -28,7 +28,7 @@ interface ChatInterfaceProps {
   endpoint?: string;
 }
 
-export default function ChatInterface({ chatId, philosopher, endpoint = '/api/ollama' }: ChatInterfaceProps) {
+export default function ChatInterface({ chatId, philosopher, endpoint = '/api/chat' }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);

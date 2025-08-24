@@ -1,5 +1,50 @@
 # Daemonium
 ---
+## Version 0.3.24-p2 (August 23, 2025)
+
+### Web UI: MCP-backed /api/chat as Default + Docs and Verification
+
+- Switched the web UI chat flow to use the MCP-backed Next.js route `/api/chat` by default.
+- `web-ui/src/app/api/chat/route.ts` proxies to backend `POST /api/v1/chat/message` (FastAPI MCP), forwards Firebase Authorization headers, and asynchronously persists assistant messages to Redis and MongoDB via backend Redis endpoints (fire-and-forget). Avoids duplicate assistant logs from the UI.
+- Retained `/api/ollama` as a fallback proxy for local Ollama testing and legacy scenarios.
+- Updated documentation to reflect the new default flow, architecture, and testing instructions.
+
+### Files Changed
+
+- `docs/chat-messaging-flow.md` — MCP-backed default flow, diagrams, auth notes
+- `web-ui/README_chat.md` — default `/api/chat` usage and PowerShell tests; fallback `/api/ollama`
+- Verified defaults in:
+  - `web-ui/src/components/chat/chat-page-container.tsx` (prop default `endpoint="/api/chat"`)
+  - `web-ui/src/components/chat/chat-interface.tsx` (prop default `endpoint='/api/chat'`)
+  - `web-ui/src/app/chat/page.tsx` (renders with `endpoint="/api/chat"` and MCP metadata)
+
+### Verification (PowerShell)
+
+```powershell
+# Web UI dev server port (e.g., 3000 or 3002)
+$port = 3000
+
+# Optional Firebase ID token to enable authenticated persistence
+$token = $env:FIREBASE_TEST_ID_TOKEN  # or paste a valid token string
+
+# Send a prompt via MCP-backed default route (/api/chat)
+$body = @{ 
+  message = "Say hello as a philosopher.";
+  chatId = [guid]::NewGuid().ToString();
+  userId = "<firebase_uid>";
+  philosopher = "Friedrich Nietzsche"
+} | ConvertTo-Json -Depth 5
+
+$headers = @{ 'Content-Type' = 'application/json' }
+if ($token) { $headers.Authorization = "Bearer $token" }
+Invoke-RestMethod -Method POST -Uri "http://localhost:$port/api/chat" -Headers $headers -Body $body
+
+# Optional: test fallback direct Ollama proxy
+$body2 = @{ message = "Hello via fallback Ollama." } | ConvertTo-Json
+Invoke-RestMethod -Method POST -Uri "http://localhost:$port/api/ollama" -ContentType "application/json" -Body $body2
+```
+
+---
 ## Version 0.3.24-p1 (August 22, 2025)
 
 ### MCP: Lifespan Context Fix for Daemonium MCP Server

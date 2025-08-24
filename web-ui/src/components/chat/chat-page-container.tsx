@@ -36,7 +36,7 @@ interface ChatPageContainerProps {
 export default function ChatPageContainer({
   chatId,
   philosopher,
-  endpoint = "/api/ollama",
+  endpoint = "/api/chat",
 }: ChatPageContainerProps) {
   const [expanded, setExpanded] = useState<boolean>(true);
   const [activeChatId, setActiveChatId] = useState<string>(chatId);

@@ -36,7 +36,56 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const data = await backendResponse.json();
+    const data: any = await backendResponse.json();
+
+    // Extract response text for UI and for persistence
+    const responseText: string = typeof data?.response === 'string' ? data.response : '';
+
+    // Fire-and-forget: push assistant response to Redis via FastAPI backend (do not block UI)
+    try {
+      const chatId: string | undefined = (body?.chatId ?? '').toString() || undefined;
+      const uid: string | undefined = (body?.userId ?? '').toString() || undefined;
+      if (chatId && uid && responseText && responseText.trim()) {
+        // Try to derive model from backend sources array like ["MCP ollama.chat", "model=llama3.1:latest"]
+        let model: string | undefined;
+        try {
+          const sources = Array.isArray(data?.sources) ? data.sources : [];
+          for (const s of sources) {
+            if (typeof s === 'string' && s.startsWith('model=')) {
+              model = s.slice('model='.length);
+              break;
+            }
+          }
+        } catch {}
+
+        const assistantPayload = {
+          type: 'assistant_message',
+          text: responseText,
+          model,
+          source: 'mcp',
+          original: data,
+          context: { philosopher: forwardBody.author },
+        } as Record<string, any>;
+
+        const url = `${backendUrl}/api/v1/chat/redis/${encodeURIComponent(uid)}/${encodeURIComponent(chatId)}`;
+        const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+        if (authHeader) headers['Authorization'] = authHeader;
+        fetch(url, { method: 'POST', headers, body: JSON.stringify(assistantPayload) })
+          .then(async (r) => {
+            if (!r.ok) {
+              const t = await r.text().catch(() => '');
+              console.warn('[api/chat] failed to push assistant message to Redis', { status: r.status, details: t.slice(0, 300) });
+            }
+          })
+          .catch((e) => {
+            console.warn('[api/chat] failed to push assistant message to Redis', e);
+          });
+      }
+    } catch (pushErr) {
+      console.warn('[api/chat] error scheduling assistant message push to Redis', pushErr);
+    }
+
+    // Return backend JSON directly (includes { response, ... })
     return NextResponse.json(data);
   } catch (error) {
     console.error('Error in chat API:', error);

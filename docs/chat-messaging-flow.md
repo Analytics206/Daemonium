@@ -1,13 +1,14 @@
 # Daemonium Chat Messaging Flow and Architecture
 
-This document explains how a user’s chat message flows through the Daemonium system and how each component processes and persists it. It covers both the Next.js proxy path and the backend MCP path.
+This document explains how a user’s chat message flows through the Daemonium system and how each component processes and persists it. It covers both the MCP-backed web UI path (default) and the backend MCP path, with an Ollama proxy fallback.
 
 ## Components
 
 - **web-ui**: Next.js 15 app with React 18 UI.
   - Entry chat page: `web-ui/src/app/chat/page.tsx`
   - Chat container: `web-ui/src/components/chat/chat-page-container.tsx`
-  - API proxy route: `web-ui/src/app/api/ollama/route.ts`
+  - API route (default): `web-ui/src/app/api/chat/route.ts`
+  - API proxy fallback: `web-ui/src/app/api/ollama/route.ts`
 - **backend**: FastAPI service.
   - App: `backend/main.py`
   - Chat router: `backend/routers/chat.py`
@@ -25,38 +26,37 @@ Docker Compose wires services, networks, volumes, and environment variables.
 
 ## End-to-end flows
 
-### Flow A: Next.js proxy path (default in the web UI)
+### Flow A: MCP-backed path via Next.js `/api/chat` (default in the web UI)
 1. **UI sends message**
-   - The chat UI posts to `POST /api/ollama` (Next.js API route).
-   - Body fields: `message` (required), `chatId`, `userId`, `philosopher` (optional).
+   - The chat UI posts to `POST /api/chat` (Next.js API route).
+   - Body fields: `message` (required), `chatId`, `userId`, `philosopher` (optional; mapped to backend `author`).
 
-2. **History enrichment attempt (optional, auth-aware)**
-   - `web-ui/src/app/api/ollama/route.ts` optionally fetches prior messages from:
-     - `GET {BACKEND_API_URL}/api/v1/chat/redis/{user_id}/{chat_id}?start=0&stop=-1`
-   - This endpoint requires a Firebase `Authorization: Bearer <token>` header.
-   - If missing/invalid, the route silently falls back to single-turn prompting.
+2. **Forward to backend MCP endpoint**
+   - `web-ui/src/app/api/chat/route.ts` forwards the request to `POST {BACKEND_API_URL}/api/v1/chat/message`.
+   - Forwards headers: `Authorization` (Firebase ID token when present) and `X-User-ID`.
 
-3. **Prompt construction**
-   - If history is retrieved, it is chronologically sorted and formatted into a context block.
-   - Final request payload to Ollama: `{ model, prompt, stream: false }`.
+3. **Personality enrichment (optional)**
+   - Backend looks up blueprints/personas to build a system prompt matching the philosopher voice (`author`).
 
-4. **LLM generation via Ollama**
-   - Primary target: `${OLLAMA_BASE_URL}/api/generate` (defaults to `http://127.0.0.1:11434`).
-   - Robust fallback: if loopback fails, try `http://host.docker.internal:11434`.
-   - Default model: `llama3.1:latest` (overridable by `OLLAMA_MODEL`).
+4. **Centralized model + timeout selection**
+   - Backend uses `config/ollama_config.py` for task type `general_kg` model and timeouts.
 
-5. **Return assistant response to UI**
-   - The Next.js route parses Ollama’s response and returns `{ response: string }` to the client.
+5. **Invoke MCP Ollama chat**
+   - Backend calls the MCP stdio server tool `ollama.chat`, which hits Ollama’s `/api/chat`.
 
-6. **Fire-and-forget assistant persistence**
-   - The Next.js route asynchronously posts the assistant reply to the backend:
+6. **Return assistant response to UI**
+   - Backend returns `ChatResponse { response, author, sources }`.
+   - Next.js route relays this JSON to the UI.
+
+7. **Fire-and-forget assistant persistence**
+   - The Next.js `/api/chat` route asynchronously posts the assistant reply to the backend:
      - `POST {BACKEND_API_URL}/api/v1/chat/redis/{user_id}/{chat_id}` with body like:
        ```json
-       { "type": "assistant_message", "text": "...", "model": "...", "source": "ollama", "original": { ... }, "context": { "philosopher": "..." } }
+       { "type": "assistant_message", "text": "...", "model": "...", "source": "mcp", "original": { ... }, "context": { "philosopher": "..." } }
        ```
-   - If unauthorized, this persistence step is skipped with a warning, but the UI still receives the model output.
+   - Includes `Authorization` when available. UI rendering is not blocked on this call.
 
-7. **Background MongoDB persistence**
+8. **Background MongoDB persistence**
    - The backend’s Redis push endpoint schedules background writes into MongoDB:
      - User messages → collection: `chat_history`
      - Assistant messages → collection: `chat_reponse_history`
@@ -111,6 +111,15 @@ Docker Compose wires services, networks, volumes, and environment variables.
 
 ---
 
+## Next.js chat route (`web-ui/src/app/api/chat/route.ts`)
+
+- Inputs: `{ message, chatId?, userId?, philosopher? }`.
+- Forwards to backend: `POST {BACKEND_API_URL}/api/v1/chat/message` with `Authorization?` and `X-User-ID`.
+- Returns: backend `ChatResponse` JSON to the UI.
+- Asynchronous assistant persistence: `POST` to backend Redis endpoint with `type: 'assistant_message'`, `source: 'mcp'`.
+
+---
+
 ## Next.js proxy route (`web-ui/src/app/api/ollama/route.ts`)
 
 - Inputs: `{ message, chatId?, userId?, philosopher? }`.
@@ -129,7 +138,8 @@ Docker Compose wires services, networks, volumes, and environment variables.
   - `POST/GET /api/v1/chat/redis/...`
   - `GET /api/v1/chat/redis/{user_id}/summaries`
 - **Not required** for basic inference tests:
-  - `POST /api/ollama` (web-ui Next.js route)
+  - `POST /api/chat` (web-ui Next.js route)
+  - `POST /api/ollama` (web-ui Next.js route, fallback)
   - `POST /api/v1/chat/message` (backend MCP)
 - The Next.js route forwards `Authorization` to the backend when present, enabling authenticated history and persistence in Flow A.
 
@@ -173,28 +183,28 @@ Docker Compose wires services, networks, volumes, and environment variables.
 
 ## Sequence diagrams (Mermaid)
 
-### A. Next.js proxy path
+### A. MCP-backed default (/api/chat)
 ```mermaid
 sequenceDiagram
     participant U as User
     participant W as Web UI (React)
-    participant N as Next.js /api/ollama
+    participant N as Next.js /api/chat
     participant B as Backend (FastAPI)
+    participant MC as MCP Server (stdio)
     participant R as Redis
     participant O as Ollama
     participant M as MongoDB
 
     U->>W: Type message
-    W->>N: POST /api/ollama { message, chatId?, userId?, philosopher? }
-    alt chatId & userId provided
-        N->>B: GET /api/v1/chat/redis/{user}/{chat}?start=0&stop=-1 (Authorization?)
-        B-->>N: 200 with messages or 401/403
-    end
-    N->>O: POST /api/generate { model, prompt, stream: false }
-    O-->>N: { response }
+    W->>N: POST /api/chat { message, chatId?, userId?, philosopher? }
+    N->>B: POST /api/v1/chat/message (Authorization?, X-User-ID)
+    B->>MC: call ollama.chat via stdio
+    MC->>O: POST /api/chat { messages, options }
+    O-->>MC: { content }
+    MC-->>B: text
     N-->>W: { response }
     par fire-and-forget
-        N->>B: POST /api/v1/chat/redis/{user}/{chat} { type: "assistant_message", text, ... } (Authorization?)
+        N->>B: POST /api/v1/chat/redis/{user}/{chat} { type: "assistant_message", text, source: "mcp", ... } (Authorization?)
         B->>R: RPUSH key=chat:{user}:{chat}:messages
         B->>M: Background insert (assistant → chat_reponse_history)
     end
@@ -235,6 +245,6 @@ sequenceDiagram
 
 ## Notes
 
-- Flow A (Next.js) is the default path for the web UI and handles Redis/Mongo persistence.
+- Flow A (`/api/chat`) is the default path for the web UI and handles Redis/Mongo persistence.
 - Flow B (backend MCP) is ideal for server-side integrations and testing MCP/Ollama health and configuration.
 - Redis endpoints require Firebase tokens; unauthenticated local testing is still possible via Flow A or the backend MCP endpoint.
