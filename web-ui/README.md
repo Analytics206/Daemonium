@@ -24,6 +24,63 @@ npm run dev
 
 Visit `http://localhost:3000` to see the application.
 
+## 🪟 Windows 11 Setup (Local Dev)
+
+Follow these steps if `npm install` fails on a fresh Windows machine or when developing from a OneDrive folder.
+
+1) Install Node.js 20 LTS via nvm-windows
+
+```powershell
+# Install NVM for Windows (restart terminal after install)
+winget install -e --id CoreyButler.NVMforWindows
+
+# Install and use Node 20 (LTS)
+nvm install 20
+nvm use 20
+node -v
+npm -v
+```
+
+2) OneDrive and long path caveat (recommended)
+
+- Prefer cloning the repo outside OneDrive (e.g., `C:\dev\daemonium`).
+- If staying under OneDrive, enable Windows long paths to avoid nested module path issues:
+
+```powershell
+# Run PowerShell as Administrator
+reg add HKLM\SYSTEM\CurrentControlSet\Control\FileSystem /v LongPathsEnabled /t REG_DWORD /d 1 /f
+```
+
+3) Clean install sequence
+
+```powershell
+# From the web-ui/ directory
+Remove-Item -Recurse -Force node_modules,.next -ErrorAction SilentlyContinue
+npm ci   # exact install from package-lock.json
+
+# Copy env file (Windows PowerShell)
+Copy-Item .env.example .env.local -Force
+
+npm run dev
+```
+
+4) If you hit peer dependency conflicts
+
+```powershell
+npm install --legacy-peer-deps
+```
+
+5) Docker alternative for local dev (no Node install required)
+
+```powershell
+# From project root
+docker compose build web-ui
+docker compose up -d backend web-ui
+
+# Health check
+Invoke-RestMethod http://localhost:3000/api/health
+```
+
 ## 🏗️ Project Structure
 
 ```
@@ -135,20 +192,32 @@ npm run format       # Format code with Prettier
 
 ### Environment Variables
 
-Copy `.env.example` to `.env.local` and configure:
+Copy `.env.example` to `.env.local` and configure.
+
+- Windows PowerShell: `Copy-Item .env.example .env.local -Force`
+- macOS/Linux: `cp .env.example .env.local`
+
+Then set values like the backend URL and Firebase keys. NextAuth is deprecated in this project; see `.env.example` where legacy NextAuth vars are commented out.
 
 ```env
 # Backend API
 BACKEND_API_URL=http://localhost:8000
 NEXT_PUBLIC_BACKEND_API_URL=http://localhost:8000
 
-# Authentication
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your-secret-key
+# Database (optional for local features)
+MONGODB_URI=mongodb://localhost:27018/daemonium
 
-# Database (if using local auth)
-MONGODB_URI=mongodb://localhost:27017/daemonium
+# Firebase (Web UI Authentication)
+NEXT_PUBLIC_FIREBASE_API_KEY=your-firebase-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project-id.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=000000000000
+NEXT_PUBLIC_FIREBASE_APP_ID=1:000000000000:web:abcdef1234567890
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
+
+Note: Chat routes default to MCP-backed `src/app/api/chat/route.ts` with `/api/ollama` available as a fallback proxy to local Ollama.
 
 #### Firebase (Web UI Authentication)
 

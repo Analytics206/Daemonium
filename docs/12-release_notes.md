@@ -1,5 +1,44 @@
 # Daemonium
 ---
+## Version 0.3.24-p3 (August 24, 2025)
+
+### Web UI: Windows 11 Setup Guidance + Troubleshooting (README)
+
+- Added Windows 11 focused setup to `web-ui/README.md`:
+  - Install Node 20 LTS via nvm-windows (`winget install -e --id CoreyButler.NVMforWindows`, then `nvm install 20 && nvm use 20`).
+  - OneDrive caveat and Windows long path enable via registry (`LongPathsEnabled=1`).
+  - Clean install sequence with `Remove-Item` cleanup, `npm ci`, `.env` copy using PowerShell (`Copy-Item .env.example .env.local -Force`).
+  - Peer dependency conflict fallback: `npm install --legacy-peer-deps`.
+  - Docker alternative: `docker compose build web-ui` and `docker compose up -d backend web-ui`, plus `/api/health` check.
+- Clarified environment variable copying for Windows PowerShell vs macOS/Linux in the Environment Variables section.
+- Noted chat routes default to MCP-backed `/api/chat` with `/api/ollama` as a fallback.
+
+### Files Changed
+
+- `web-ui/README.md`
+- `docs/12-release_notes.md` — this entry
+
+### Verification (PowerShell)
+
+```powershell
+# 1) Verify runtime versions
+node -v
+npm -v
+nvm version   # if using nvm-windows
+
+# 2) Clean install from lockfile (from web-ui/ directory)
+Remove-Item -Recurse -Force node_modules,.next -ErrorAction SilentlyContinue
+npm ci
+Copy-Item .env.example .env.local -Force
+npm run dev
+
+# 3) Docker alternative (from project root)
+docker compose build web-ui
+docker compose up -d backend web-ui
+Invoke-RestMethod http://localhost:3000/api/health
+```
+
+---
 ## Version 0.3.24-p2 (August 23, 2025)
 
 ### Web UI: MCP-backed /api/chat as Default + Docs and Verification
