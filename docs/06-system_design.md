@@ -142,13 +142,6 @@ The monitoring system follows a sidecar pattern with the following components:
    4) If `stream=true`, server aggregates streamed chunks; returns the full assistant message as text.
    5) Health lists models from `/api/tags` and returns `{ ok, base_url, models }`.
 
-### Web UI: Authentication (Firebase)
-
- - **Provider**: `FirebaseAuthProvider` wraps the app in `web-ui/src/app/layout.tsx`.
- - **Hook**: `useFirebaseAuth()` exposes `{ user, loading, signInWithGoogle, signOutUser }`.
- - **Identity**: Use `user.uid` only as `userId` across the chat session lifecycle and Redis API calls. Emails are not accepted by backend auth; Firebase token UID must match the `user_id` path parameter.
- - **UI gating**: While `loading` is true, render loading state; if `user` is null, show Google sign-in prompt.
-- **Env**: `NEXT_PUBLIC_FIREBASE_*` variables configured in `web-ui/.env.example`; Firebase init in `web-ui/src/lib/firebase.ts`.
 
 ### Backend: Firebase ID Token Validation
 

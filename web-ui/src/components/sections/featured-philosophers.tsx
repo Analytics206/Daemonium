@@ -7,25 +7,25 @@ const featuredPhilosophers = [
     name: 'Socrates',
     period: '470-399 BCE',
     description: 'The father of Western philosophy, known for the Socratic method of questioning.',
-    image: '/images/socrates01.png',
+    image: '/images/socrates-01.png',
   },
   {
     name: 'Plato',
     period: '427-347 BCE',
     description: 'Student of Socrates, founded the Academy and made contributions to logic, biology, and ethics.',
-    image: '/images/plato01.png',
+    image: '/images/plato-01.png',
   },
   {
     name: 'Immanuel Kant',
     period: '1724-1804',
     description: 'German philosopher who argued for the existence of synthetic a priori knowledge.',
-    image: '/images/Immanuel_Kant01.png',
+    image: '/images/kant-01.png',
   },
   {
     name: 'Friedrich Nietzsche',
     period: '1844-1900',
     description: 'German philosopher known for his critique of traditional morality and religion.',
-    image: '/images/nietzsche01.png',
+    image: '/images/nietzsche-01.png',
   },
 ];
 

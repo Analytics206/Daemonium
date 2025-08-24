@@ -14,30 +14,93 @@ from __future__ import annotations
 import asyncio
 import logging
 import os
+import sys
+import shlex
 from typing import Any, Dict, List, Optional, Tuple
 
 logger = logging.getLogger(__name__)
 
 
-def _server_params_candidates() -> List[Tuple[str, List[str]]]:
+def _server_params_candidates(server: str = "ollama") -> List[Tuple[str, List[str]]]:
     """Build a list of (command, args) candidates to launch the MCP server.
 
     Order of preference:
     1) Explicit env MCP_SERVER_CMD (+ optional MCP_SERVER_ARGS)
-    2) Python running server from container path: /app/mcp-service/mcp_server.py
-    3) Python running server from repo-relative path: mcp-service/mcp_server.py
+    2) Python from current venv (sys.executable) running absolute script path overrides
+    3) Python from current venv running project-root absolute script path
+    4) Python from current venv running CWD absolute script path
+    5) As a last resort, a relative path under "mcp-service/"
+
+    The ``server`` arg selects which script to prefer: "ollama" or "openai".
     """
     cmd_env = os.getenv("MCP_SERVER_CMD")
     args_env = os.getenv("MCP_SERVER_ARGS")
     if cmd_env:
-        args_list = args_env.split() if args_env else []
-        return [(cmd_env, args_list)]
+        # Allow command to include its own args and optionally append extra args from MCP_SERVER_ARGS
+        try:
+            cmd_parts = shlex.split(cmd_env)
+        except Exception:
+            cmd_parts = cmd_env.split()
+        cmd = cmd_parts[0]
+        base_args = cmd_parts[1:]
+        try:
+            extra_args = shlex.split(args_env) if args_env else []
+        except Exception:
+            extra_args = args_env.split() if args_env else []
+        return [(cmd, base_args + extra_args)]
 
-    python_bin = os.getenv("PYTHON_BIN", "python")
-    return [
-        (python_bin, ["-u", "/app/mcp-service/mcp_server.py"]),
-        (python_bin, ["-u", "mcp-service/mcp_server.py"]),
-    ]
+    python_bin = os.getenv("PYTHON_BIN") or sys.executable or "python"
+
+    # Map server type to script filenames
+    script_name = {
+        "ollama": "mcp_server.py",
+        "openai": "mcp_server_openai.py",
+    }.get(server, "mcp_server.py")
+
+    # Project root (parent of backend/) and CWD
+    root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    cwd_dir = os.getcwd()
+
+    # Optional explicit override per server
+    override_env = os.getenv("MCP_OLLAMA_SERVER_PATH") if server == "ollama" else os.getenv("MCP_OPENAI_SERVER_PATH")
+
+    candidates: List[Tuple[str, List[str]]] = []
+
+    def add_if_exists(target_list: List[Tuple[str, List[str]]], path: str):
+        if path and os.path.isabs(path) and os.path.exists(path):
+            target_list.append((python_bin, ["-u", path]))
+
+    # 1) explicit override path
+    if override_env:
+        add_if_exists(candidates, override_env)
+
+    # 2) common absolute container path (only include if it exists)
+    container_path = os.path.join("/app", "mcp-service", script_name)
+    add_if_exists(candidates, container_path)
+
+    # 3) absolute path from repo root
+    add_if_exists(candidates, os.path.join(root_dir, "mcp-service", script_name))
+
+    # 4) absolute path from current working directory
+    add_if_exists(candidates, os.path.join(cwd_dir, "mcp-service", script_name))
+
+    # 5) As a last resort, try relative path (may fail if CWD is unexpected)
+    if not candidates:
+        candidates.append((python_bin, ["-u", os.path.join("mcp-service", script_name)]))
+
+    # Also consider the alternative script as a fallback
+    alt_name = "mcp_server_openai.py" if server == "ollama" else "mcp_server.py"
+    alt_candidates: List[Tuple[str, List[str]]] = []
+
+    add_if_exists(alt_candidates, os.path.join(root_dir, "mcp-service", alt_name))
+    add_if_exists(alt_candidates, os.path.join(cwd_dir, "mcp-service", alt_name))
+
+    # If still nothing was found for alt, append a relative alt as a weak fallback
+    if not alt_candidates:
+        alt_candidates.append((python_bin, ["-u", os.path.join("mcp-service", alt_name)]))
+
+    candidates.extend(alt_candidates)
+    return candidates
 
 
 async def _try_call_with(
@@ -143,10 +206,61 @@ async def call_ollama_chat(
 
     # Try server launch candidates in order
     last_error: Optional[str] = None
-    for cmd, arg_list in _server_params_candidates():
+    for cmd, arg_list in _server_params_candidates(server="ollama"):
         result = await _try_call_with(cmd, arg_list, "ollama.chat", args, timeout)
         if result is not None and result.strip():
             return result
         last_error = f"Failed with {cmd} {' '.join(arg_list)}"
 
     raise RuntimeError(last_error or "MCP ollama.chat call failed or returned empty response")
+
+
+async def call_openai_chat(
+    messages: List[Dict[str, str]],
+    system_prompt: Optional[str] = None,
+    model: Optional[str] = None,
+    temperature: float = 0.7,
+    max_tokens: int = 512,
+    timeout: Optional[int] = None,
+) -> str:
+    """Call the MCP server's `openai.chat` tool and return assistant text.
+
+    Args:
+        messages: List of {role, content} messages (at least one user message)
+        system_prompt: Optional system prompt to prepend
+        model: Optional explicit model override
+        temperature: Sampling temperature
+        max_tokens: Limit generated tokens
+        timeout: Overall timeout (seconds) for the tool call
+
+    Returns:
+        Assistant response text
+
+    Raises:
+        RuntimeError if all attempts fail or response is empty.
+    """
+    if not messages:
+        raise ValueError("messages must be non-empty")
+
+    args: Dict[str, Any] = {
+        "messages": messages,
+        "temperature": float(temperature),
+        "max_tokens": int(max_tokens),
+        "stream": False,
+    }
+    if system_prompt:
+        args["system_prompt"] = system_prompt
+    if model:
+        args["model"] = model
+    if timeout:
+        # The OpenAI MCP server supports a 'timeout' argument
+        args["timeout"] = int(timeout)
+
+    last_error: Optional[str] = None
+    for cmd, arg_list in _server_params_candidates(server="openai"):
+        result = await _try_call_with(cmd, arg_list, "openai.chat", args, timeout)
+        if result is not None and result.strip():
+            return result
+        last_error = f"Failed with {cmd} {' '.join(arg_list)}"
+
+    raise RuntimeError(last_error or "MCP openai.chat call failed or returned empty response")

@@ -9,6 +9,7 @@ import random
 import json
 from datetime import datetime, timezone
 import asyncio
+import os
 
 try:
     # Prefer async Redis client from redis-py 4/5
@@ -21,7 +22,7 @@ from ..models import PersonaCoreResponse
 from ..models import ChatBlueprintResponse, ChatBlueprint, ConversationLogic, PhilosopherBot, ChatMessage, ChatResponse, ModernAdaptationResponse
 from ..config import get_settings
 from ..auth import verify_firebase_id_token
-from ..mcp_client import call_ollama_chat
+from ..mcp_client import call_ollama_chat, call_openai_chat
 from config.ollama_config import get_ollama_config
 
 logger = logging.getLogger(__name__)
@@ -210,6 +211,7 @@ async def get_available_philosophers(
 @router.post("/message", response_model=ChatResponse)
 async def send_chat_message(
     message: ChatMessage,
+    mcp_server: str = Query("ollama", description="Select MCP server: 'ollama' or 'openai'"),
     db_manager: DatabaseManager = Depends(get_db_manager)
 ):
     """Send a message to a philosopher chatbot using MCP Ollama chat integration."""
@@ -243,39 +245,92 @@ async def send_chat_message(
         system_parts.append(f"Conversation context: {message.context}")
     system_prompt = " ".join(system_parts)
 
-    # Resolve model and timeout from centralized config
+    # Resolve model/timeout and route to selected MCP server
     try:
-        ollama_cfg = get_ollama_config()
-        task_type = "general_kg"
-        model = ollama_cfg.get_model_for_task(task_type)
-        timeout = ollama_cfg.get_timeout_for_model(model, task_type=task_type)
-
         chat_messages = [
             {"role": "user", "content": message.message},
         ]
 
-        # Call MCP Ollama chat
-        assistant_text = await call_ollama_chat(
-            messages=chat_messages,
-            system_prompt=system_prompt,
-            task_type=task_type,
-            model=model,
-            temperature=0.7,
-            max_tokens=512,
-            timeout=timeout,
-        )
+        server = (mcp_server or "ollama").lower().strip()
+        if server in ("openai", "oai"):
+            # OpenAI path: rely on server defaults for model; honor OPENAI_TIMEOUT when provided
+            try:
+                openai_timeout = int(os.getenv("OPENAI_TIMEOUT", "60"))
+            except Exception:
+                openai_timeout = 60
 
-        return ChatResponse(
-            response=assistant_text,
-            author=author,
-            confidence=0.9,
-            sources=["MCP ollama.chat", f"model={model}"] + (["Chat blueprint"] if blueprint else []),
-            message=f"Response generated via MCP for {author}",
-        )
+            assistant_text = await call_openai_chat(
+                messages=chat_messages,
+                system_prompt=system_prompt,
+                model=None,
+                temperature=0.7,
+                max_tokens=512,
+                timeout=openai_timeout,
+            )
+
+            return ChatResponse(
+                response=assistant_text,
+                author=author,
+                confidence=0.9,
+                sources=["MCP openai.chat"] + (["Chat blueprint"] if blueprint else []),
+                message=f"Response generated via MCP (OpenAI) for {author}",
+            )
+        else:
+            # Default: Ollama via centralized config
+            ollama_cfg = get_ollama_config()
+            task_type = "general_kg"
+            model = ollama_cfg.get_model_for_task(task_type)
+            timeout = ollama_cfg.get_timeout_for_model(model, task_type=task_type)
+
+            assistant_text = await call_ollama_chat(
+                messages=chat_messages,
+                system_prompt=system_prompt,
+                task_type=task_type,
+                model=model,
+                temperature=0.7,
+                max_tokens=512,
+                timeout=timeout,
+            )
+
+            return ChatResponse(
+                response=assistant_text,
+                author=author,
+                confidence=0.9,
+                sources=["MCP ollama.chat", f"model={model}"] + (["Chat blueprint"] if blueprint else []),
+                message=f"Response generated via MCP for {author}",
+            )
     except RuntimeError as mcp_error:
-        # Graceful fallback to a simple mock when MCP is unavailable
-        logger.warning(f"MCP call failed, using fallback response: {mcp_error}")
+        # Attempt fallback: if OpenAI was selected, try Ollama before mock
+        logger.warning(f"MCP call failed, details: {mcp_error}")
+        try:
+            server = (mcp_server or "ollama").lower().strip()
+            if server in ("openai", "oai"):
+                ollama_cfg = get_ollama_config()
+                task_type = "general_kg"
+                model = ollama_cfg.get_model_for_task(task_type)
+                timeout = ollama_cfg.get_timeout_for_model(model, task_type=task_type)
 
+                assistant_text = await call_ollama_chat(
+                    messages=[{"role": "user", "content": message.message}],
+                    system_prompt=system_prompt,
+                    task_type=task_type,
+                    model=model,
+                    temperature=0.7,
+                    max_tokens=512,
+                    timeout=timeout,
+                )
+                return ChatResponse(
+                    response=assistant_text,
+                    author=author,
+                    confidence=0.85,
+                    sources=["MCP ollama.chat", "fallback-from=openai", f"model={model}"] + (["Chat blueprint"] if blueprint else []),
+                    message=f"Response generated via MCP fallback (Ollama) for {author}",
+                )
+        except Exception as ex:
+            logger.warning(f"Ollama fallback after OpenAI failure also failed: {ex}")
+
+        # Graceful fallback to a simple mock when no MCP path succeeded
+        
         # Fallback mock response leveraging blueprint hints when available
         fallback_options = [
             f"As {author}, I find your question intriguing. Let me share my perspective...",

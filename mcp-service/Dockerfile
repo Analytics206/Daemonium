@@ -15,13 +15,17 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Copy MCP service source code into the image
 COPY . /app/
+# Ensure entrypoint is executable
+RUN chmod +x /app/entrypoint.sh
 
 # Default environment
 ENV MCP_PORT=8080 \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    MCP_SERVER=ollama \
+    MCP_AUTORUN=0
 
 # Expose MCP (placeholder) port
 EXPOSE 8080
 
-# Placeholder command to keep container running until MCP server code is added
-CMD ["sh", "-lc", "echo 'MCP container ready. Add your MCP server code and override CMD.' && sleep infinity"]
+# Use dynamic entrypoint to select MCP server (Ollama/OpenAI)
+ENTRYPOINT ["/app/entrypoint.sh"]
