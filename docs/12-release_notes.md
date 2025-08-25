@@ -1,5 +1,151 @@
 # Daemonium
 ---
+## Version 0.3.24-p7 (August 25, 2025)
+
+### Backend: MCP stdio server scripts available via bind mount (fix startup/timeout)
+
+- Added a bind mount for `mcp-service` into the backend container so MCP stdio server scripts exist at `/app/mcp-service` during runtime.
+- Fixes stdio server spawn failures/timeouts when backend volume mounts shadow image contents.
+- Confirmed `openai>=1.0.0` is present in `requirements.txt` and `OPENAI_API_KEY` is passed via Compose for the `mcp_server=openai` path.
+
+### Files Changed
+
+- `docker-compose.yml` — `services.backend.volumes`: `- ./mcp-service:/app/mcp-service`
+- `docs/06-system_design.md` — documented the bind mount and verification steps
+- `docs/12-release_notes.md` — this entry
+
+### Verification (PowerShell)
+
+```powershell
+# 1) Recreate backend to apply new mount
+docker compose up -d --force-recreate backend
+
+# 2) Verify scripts exist in the backend container
+docker compose exec backend sh -lc 'ls -la /app/mcp-service | head -n 50'
+
+# 3) Optional: enable debug and test MCP (Ollama)
+$env:MCP_DEBUG = '1'
+$body = @{ message = "Hello via MCP Ollama" } | ConvertTo-Json
+Invoke-RestMethod -Method Post -Uri "http://localhost:8000/api/v1/chat/message?mcp_server=ollama" -Body $body -ContentType "application/json"
+
+# 4) Optional: test OpenAI MCP path (requires OPENAI_API_KEY)
+$body2 = @{ message = "Hello via MCP OpenAI" } | ConvertTo-Json
+Invoke-RestMethod -Method Post -Uri "http://localhost:8000/api/v1/chat/message?mcp_server=openai" -Body $body2 -ContentType "application/json"
+
+# 5) Inspect backend logs for MCP spawn/handshake details
+docker logs daemonium-backend --tail 200 | Select-String "backend.mcp_client"
+```
+
+---
+## Version 0.3.24-p6 (August 25, 2025)
+
+### MCP Client: LogRecord 'args' Key Fix (Unblocked stdio calls)
+
+- Fixed a logging bug in `backend/mcp_client.py` where we passed a reserved key `args` in the `extra` dict to `logger.debug()`. Python's logging system reserves `args` on `LogRecord`, which triggered "Attempt to overwrite 'args' in LogRecord" and caused MCP stdio calls to fail immediately during launch.
+- Renamed the key to `cmd_args` in the "Starting MCP stdio server" debug log.
+- Result: MCP stdio client can now launch the server and proceed to handshake/call without tripping the logging error.
+
+### Files Changed
+
+- `backend/mcp_client.py` — `extra={'cmd_args': ...}`
+- `docs/12-release_notes.md` — this entry
+
+### Verification (PowerShell)
+
+```powershell
+# Recreate backend to pick up the code change
+docker compose up -d --force-recreate backend
+
+# Send an MCP-backed chat (Ollama)
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\chat-tests\test-chat-ollama.ps1
+
+# Inspect recent logs for MCP startup (no LogRecord 'args' overwrite errors)
+docker compose logs --since 2m backend | Select-String -Pattern "Starting MCP stdio|overall timeout|call failed"
+```
+
+---
+## Version 0.3.24-p5 (August 24, 2025)
+
+### MCP Client: Overall Timeout + Subprocess Launch Debug Logging
+
+- Added an overall timeout wrapper in `backend/mcp_client.py` that covers MCP stdio server spawn, handshake (`session.initialize()`), and the tool call to prevent indefinite hangs.
+- Introduced detailed debug logging (enabled with `MCP_DEBUG=1`) for subprocess launch command candidates, arguments, and timing to aid diagnostics when spawn/handshake fail.
+- Compose defaults added under `backend.environment`:
+  - `LOG_LEVEL` (default `INFO`)
+  - `MCP_DEBUG` (default `0`)
+  - `MCP_INIT_TIMEOUT` (default `10`)
+  - `MCP_OVERALL_TIMEOUT` (default `45`)
+- Documentation updated with behavior, env vars, and verification steps.
+
+### Files Changed
+
+- `backend/mcp_client.py` — overall timeout guard + richer debug logs (spawn, handshake, and call)
+- `docker-compose.yml` — backend env: `LOG_LEVEL`, `MCP_DEBUG`, `MCP_INIT_TIMEOUT`, `MCP_OVERALL_TIMEOUT`
+- `docs/06-system_design.md` — new section: "MCP Client: Overall Timeout & Subprocess Launch Debug Logging"
+- `docs/12-release_notes.md` — this entry
+
+### Verification (PowerShell)
+
+```powershell
+# Ensure services (Ollama + backend) are up
+docker compose --profile ollama up -d ollama backend
+
+# Enable debug and set a bounded overall timeout at runtime
+$env:MCP_DEBUG = '1'
+$env:MCP_OVERALL_TIMEOUT = '30'
+docker compose up -d backend
+
+# Send a chat prompt through the backend MCP route (Ollama)
+$body = @{ message = "Test MCP overall timeout + debug" } | ConvertTo-Json
+Invoke-RestMethod -Method Post -Uri "http://localhost:8000/api/v1/chat/message?mcp_server=ollama" -Body $body -ContentType "application/json"
+
+# Inspect backend logs for MCP subprocess launch attempts and timing
+docker logs daemonium-backend --tail 200 | Select-String "backend.mcp_client"
+```
+
+---
+## Version 0.3.24-p4 (August 24, 2025)
+
+### MCP: Docker Startup Idling + Manual stdio Launch + Backend Chat Parsing Cleanup
+
+- MCP container now explicitly idles with `MCP_AUTORUN=0` to prevent restart loops on boot.
+- Documented how to manually start the MCP stdio server inside the container and verify health/logs.
+- Backend MCP client parsing (`backend/mcp_client.py`) extracts clean assistant text from MCP tool results:
+  - Handles list-shaped results, `.content` arrays (CallToolResult items), dict-shaped results with `content` arrays or `text` fields, and `.text` attributes.
+  - Aggregates only textual content; prevents raw MCP metadata leakage to API/UI.
+- Verified Web UI chat shows clean assistant messages without metadata artifacts.
+
+### Files Changed
+
+- `docs/06-system_design.md` — added sections:
+  - "MCP Docker Startup Behavior (MCP_AUTORUN=0)"
+  - "Backend: MCP Client Result Parsing and Sanitization"
+- `docs/12-release_notes.md` — this entry
+
+### Verification (PowerShell)
+
+```powershell
+# 1) Start core services with profiles and verify MCP idle
+docker compose --profile ollama --profile mcp up -d ollama mcp backend mongodb redis
+docker compose ps
+docker logs daemonium-mcp --tail 80   # expect idle message when MCP_AUTORUN=0
+
+# 2) Manually start MCP stdio server in container and verify
+docker exec -d daemonium-mcp sh -lc '/app/entrypoint.sh >> /app/data/mcp-stdio.log 2>&1'
+docker exec daemonium-mcp pgrep -a python
+docker exec daemonium-mcp sh -lc 'tail -n 80 /app/data/mcp-stdio.log'
+
+# 3) Backend + Ollama health checks
+Invoke-RestMethod -Uri "http://localhost:8000/health"
+Invoke-RestMethod -Uri "http://localhost:11434/api/tags"
+
+# 4) End-to-end chat via MCP (Ollama)
+$body = @{ message = "In one sentence, what is your view on truth?"; author = "Nietzsche" } | ConvertTo-Json
+Invoke-RestMethod -Method Post -Uri "http://localhost:8000/api/v1/chat/message?mcp_server=ollama" -Body $body -ContentType "application/json"
+# Expect clean `response` text, no MCP metadata
+```
+
+---
 ## Version 0.3.24-p3 (August 24, 2025)
 
 ### Web UI: Windows 11 Setup Guidance + Troubleshooting (README)

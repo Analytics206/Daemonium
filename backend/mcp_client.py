@@ -100,6 +100,20 @@ def _server_params_candidates(server: str = "ollama") -> List[Tuple[str, List[st
         alt_candidates.append((python_bin, ["-u", os.path.join("mcp-service", alt_name)]))
 
     candidates.extend(alt_candidates)
+
+    # Debug: show candidates when verbose logging is enabled
+    if logger.isEnabledFor(logging.DEBUG):
+        try:
+            logger.debug(
+                "MCP server launch candidates",
+                extra={
+                    "server": server,
+                    "candidates": [(c, a) for c, a in candidates],
+                },
+            )
+        except Exception:
+            pass
+
     return candidates
 
 
@@ -114,6 +128,12 @@ async def _try_call_with(
 
     Returns assistant text if successful, else None.
     """
+    # Separate init timeout to avoid indefinite hangs during MCP handshake
+    try:
+        init_timeout = int(os.getenv("MCP_INIT_TIMEOUT", "10"))
+    except Exception:
+        init_timeout = 10
+
     try:
         # Lazy import so importing this module doesn't require mcp unless used
         from mcp.client.stdio import StdioServerParameters, stdio_client  # type: ignore
@@ -122,11 +142,30 @@ async def _try_call_with(
         logger.error(f"MCP client package is not installed: {e}")
         return None
 
+    # Compute overall timeout to protect against hangs before/around initialize
     try:
+        overall_env = int(os.getenv("MCP_OVERALL_TIMEOUT", "0"))
+    except Exception:
+        overall_env = 0
+    # Default overall timeout = init + call + 5s buffer (or at least 15s)
+    overall_timeout = overall_env if overall_env > 0 else max(15, init_timeout + (int(timeout) if timeout else 0) + 5)
+
+    async def _do_call() -> Optional[str]:
         params = StdioServerParameters(command=cmd, args=args)
+        logger.debug(
+            "Starting MCP stdio server", extra={
+                "cmd": cmd,
+                "cmd_args": args,
+                "tool": tool,
+                "init_timeout": init_timeout,
+                "call_timeout": timeout,
+                "overall_timeout": overall_timeout,
+            }
+        )
         async with stdio_client(params) as (read, write):
             async with ClientSession(read, write) as session:
-                await session.initialize()
+                # Ensure initialization does not hang indefinitely
+                await asyncio.wait_for(session.initialize(), timeout=init_timeout)
                 call = session.call_tool(tool, arguments)
                 res = await asyncio.wait_for(call, timeout=timeout) if timeout and timeout > 0 else await call
 
@@ -168,13 +207,35 @@ async def _try_call_with(
                             text_parts.append(str(text_attr))
 
                 if text_parts:
-                    return "".join(text_parts).strip()
+                    result_text = "".join(text_parts).strip()
+                    logger.debug(
+                        "MCP stdio call succeeded", extra={
+                            "cmd": cmd,
+                            "tool": tool,
+                            "result_length": len(result_text),
+                        }
+                    )
+                    return result_text
 
                 # Fallback: stringify the whole result
                 try:
-                    return str(res)
+                    result_text = str(res)
+                    logger.debug(
+                        "MCP stdio call returned non-text content; stringified", extra={
+                            "cmd": cmd,
+                            "tool": tool,
+                            "result_length": len(result_text),
+                        }
+                    )
+                    return result_text
                 except Exception:
                     return None
+
+    try:
+        return await asyncio.wait_for(_do_call(), timeout=overall_timeout)
+    except asyncio.TimeoutError:
+        logger.warning(f"MCP stdio overall timeout exceeded (cmd={cmd} args={args}, overall={overall_timeout}s)")
+        return None
     except Exception as e:
         logger.warning(f"MCP stdio call failed (cmd={cmd} args={args}): {e}")
         return None

@@ -1,0 +1,135 @@
+{
+    "author_bibliography": {
+      "author": "Voltaire (François-Marie Arouet)",
+      "category": "Bibliography",
+      "birth_death": "1694 - 1778",
+      "description": "Voltaire was a French Enlightenment writer, historian, and philosopher known for his wit, defense of civil liberties, and criticism of organized religion and tyranny. He was one of the central figures of the Enlightenment, producing plays, poems, novels, essays, and historical works, as well as thousands of letters. His sharp critiques of authority and advocacy for freedom of thought made him both celebrated and controversial.",
+      "background": "Born in Paris in 1694, Voltaire was educated by Jesuits and became famous early for his wit and satirical verse. His outspoken criticism of institutions often brought him into conflict with authorities, leading to imprisonment in the Bastille and exile in England, where he absorbed Locke’s philosophy and Newton’s science. Upon return, he became one of the Enlightenment’s most prominent intellectuals, corresponding widely with monarchs and thinkers. Voltaire’s writings consistently championed reason, freedom of speech, religious tolerance, and opposition to fanaticism.",
+      "works": [
+        {
+          "title": "Letters on the English",
+          "original_title": "Lettres philosophiques",
+          "keywords": [
+            "England",
+            "Locke",
+            "Newton",
+            "religious tolerance",
+            "science",
+            "empiricism",
+            "critique",
+            "philosophy",
+            "rationalism",
+            "Enlightenment"
+          ],
+          "year": 1734,
+          "type": "Philosophical Letters",
+          "summary": "A series of essays praising English constitutional monarchy, religious tolerance, science, and philosophy while criticizing French absolutism and religious dogma."
+        },
+        {
+          "title": "Philosophical Dictionary",
+          "original_title": "Dictionnaire philosophique",
+          "keywords": [
+            "skepticism",
+            "reason",
+            "religion",
+            "criticism",
+            "fanaticism",
+            "satire",
+            "freedom",
+            "dogma",
+            "knowledge",
+            "Enlightenment"
+          ],
+          "year": 1764,
+          "type": "Philosophical Reference",
+          "summary": "A provocative collection of articles challenging religious orthodoxy, superstition, and intolerance, promoting Enlightenment values of reason and freedom of thought."
+        },
+        {
+          "title": "Candide",
+          "original_title": "Candide, ou l’Optimisme",
+          "keywords": [
+            "satire",
+            "optimism",
+            "Leibniz",
+            "critique",
+            "philosophy",
+            "suffering",
+            "evil",
+            "humor",
+            "reason",
+            "human condition"
+          ],
+          "year": 1759,
+          "type": "Philosophical Novella",
+          "summary": "Voltaire’s most famous work, a satirical novella mocking Leibnizian optimism through the misadventures of Candide, ultimately advocating a pragmatic approach to life: ‘we must cultivate our garden.’"
+        },
+        {
+          "title": "Treatise on Tolerance",
+          "original_title": "Traité sur la tolérance",
+          "keywords": [
+            "tolerance",
+            "justice",
+            "religion",
+            "freedom",
+            "dogma",
+            "ethics",
+            "fanaticism",
+            "human rights",
+            "reason",
+            "Enlightenment"
+          ],
+          "year": 1763,
+          "type": "Philosophical Treatise",
+          "summary": "Written after the unjust execution of Jean Calas, the treatise argues for religious tolerance, justice, and humanity, condemning fanaticism and institutional cruelty."
+        },
+        {
+          "title": "The Age of Louis XIV",
+          "original_title": "Le Siècle de Louis XIV",
+          "keywords": [
+            "history",
+            "Louis XIV",
+            "culture",
+            "progress",
+            "civilization",
+            "politics",
+            "arts",
+            "philosophy",
+            "Enlightenment",
+            "criticism"
+          ],
+          "year": 1751,
+          "type": "Historical Work",
+          "summary": "A historical study presenting Louis XIV’s reign as a high point of civilization, focusing on culture, science, and the arts rather than politics alone."
+        }
+      ],
+      "chronological_periods": {
+        "early_period": {
+          "characteristics": "Voltaire’s early writings include satirical plays and poems that critiqued power and hypocrisy. His imprisonment and exile shaped his skepticism toward authority.",
+          "themes": "Satire, wit, freedom, anti-authoritarianism, critique of hypocrisy."
+        },
+        "middle_period": {
+          "characteristics": "During his time in England and subsequent years, Voltaire absorbed Locke’s empiricism and Newtonian science, producing works that fused philosophy with sharp critique of French institutions.",
+          "themes": "Religious tolerance, rationalism, science, freedom of expression, political reform."
+        },
+        "late_period": {
+          "characteristics": "Voltaire became a respected elder statesman of the Enlightenment, producing major philosophical works, engaging in public controversies, and advocating justice and tolerance.",
+          "themes": "Human rights, justice, tolerance, critique of fanaticism, cultural progress."
+        }
+      },
+      "major_themes": [
+        "Religious tolerance",
+        "Critique of fanaticism",
+        "Freedom of speech",
+        "Justice and human rights",
+        "Rationalism and reason",
+        "Satire as philosophy",
+        "Critique of optimism",
+        "Empiricism and science",
+        "Enlightenment progress",
+        "Anti-absolutism"
+      ],
+      "influence": "Voltaire influenced Enlightenment philosophy across Europe, shaping debates on religion, justice, and civil liberties. His defense of tolerance and free thought inspired later revolutionaries and philosophers, including the American and French revolutionaries. He influenced figures such as Thomas Jefferson, Thomas Paine, and the broader movement toward secular governance.",
+      "note": "Voltaire’s immense correspondence (over 20,000 letters) reveals his wide-ranging influence and role as a hub of Enlightenment ideas."
+    }
+  }
+  

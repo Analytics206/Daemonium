@@ -210,14 +210,24 @@ services:
       - REDIS_PORT=6379
       - REDIS_PASSWORD=${REDIS_PASSWORD:-ch@ng3m300}
       - REDIS_DB=0
+      # Logging and MCP debug/timeout controls
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - MCP_DEBUG=${MCP_DEBUG:-0}
+      - MCP_INIT_TIMEOUT=${MCP_INIT_TIMEOUT:-10}
+      - MCP_OVERALL_TIMEOUT=${MCP_OVERALL_TIMEOUT:-45}
       # Ensure backend (and its spawned MCP stdio server) target Ollama and stable default model
       - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://ollama:11434}
       - OLLAMA_MODEL_GENERAL_KG=${OLLAMA_MODEL_GENERAL_KG:-llama3.1:latest}
+      # OpenAI MCP server configuration (provided via .env or shell env)
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o-mini}
+      - OPENAI_TIMEOUT=${OPENAI_TIMEOUT:-60}
     ports:
       - "8000:8000"
     volumes:
       - ./backend:/app/backend
       - ./config:/app/config
+      - ./mcp-service:/app/mcp-service
     networks:
       - daemonium-network
     depends_on:

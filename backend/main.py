@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 import logging
+import os
 from typing import List, Optional, Dict, Any
 import uvicorn
 
@@ -26,8 +27,15 @@ from .routers import (
 from .config import get_settings
 from .auth import init_firebase_if_enabled
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
+# Configure logging (env override)
+level_name = os.getenv("LOG_LEVEL", "INFO").upper()
+level = getattr(logging, level_name, logging.INFO)
+logging.basicConfig(level=level)
+
+# Enable verbose MCP client logs when requested
+if os.getenv("MCP_DEBUG", "0").lower() in ("1", "true", "yes"): 
+    logging.getLogger("backend.mcp_client").setLevel(logging.DEBUG)
+
 logger = logging.getLogger(__name__)
 
 # Database manager instance
