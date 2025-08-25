@@ -132,22 +132,40 @@ async def _try_call_with(
 
                 # Expect a list of text content objects, but support multiple shapes
                 text_parts: List[str] = []
-                if isinstance(res, list):
-                    for item in res:
+
+                def _extract_from_content_list(content_list: List[Any]) -> None:
+                    for item in content_list:
                         try:
                             if isinstance(item, dict):
-                                if item.get("type") == "text" and "text" in item:
+                                item_type = item.get("type")
+                                if (item_type is None or item_type == "text") and "text" in item:
                                     text_parts.append(str(item["text"]))
                             else:
-                                text_attr = getattr(item, "text", None)
-                                if text_attr:
-                                    text_parts.append(str(text_attr))
+                                item_type = getattr(item, "type", None)
+                                item_text = getattr(item, "text", None)
+                                if item_text and (item_type is None or item_type == "text"):
+                                    text_parts.append(str(item_text))
                         except Exception:
                             continue
+
+                if isinstance(res, list):
+                    # Direct list of content
+                    _extract_from_content_list(res)
                 else:
-                    text_attr = getattr(res, "text", None)
-                    if text_attr:
-                        text_parts.append(str(text_attr))
+                    # Common MCP shape: CallToolResult(meta=?, content=[...])
+                    content_attr = getattr(res, "content", None)
+                    if isinstance(content_attr, list) and content_attr:
+                        _extract_from_content_list(content_attr)
+                    elif isinstance(res, dict):
+                        if isinstance(res.get("content"), list):
+                            _extract_from_content_list(res["content"])  # type: ignore[index]
+                        elif "text" in res:
+                            text_parts.append(str(res["text"]))
+                    else:
+                        # Last resort: simple object with .text
+                        text_attr = getattr(res, "text", None)
+                        if text_attr:
+                            text_parts.append(str(text_attr))
 
                 if text_parts:
                     return "".join(text_parts).strip()

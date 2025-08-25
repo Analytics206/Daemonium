@@ -15,8 +15,8 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Copy MCP service source code into the image
 COPY . /app/
-# Ensure entrypoint is executable
-RUN chmod +x /app/entrypoint.sh
+# Ensure entrypoint has LF endings and is executable (avoid sh parse errors on CRLF)
+RUN sed -i 's/\r$//' /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 
 # Default environment
 ENV MCP_PORT=8080 \
